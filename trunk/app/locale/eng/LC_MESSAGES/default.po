@@ -1,0 +1,100 @@
+msgid "home"
+msgstr "Home"
+
+msgid "about"
+msgstr "About"
+
+msgid "product"
+msgstr "Product"
+
+msgid "project"
+msgstr "Project"
+
+msgid "agents"
+msgstr "Agents"
+
+msgid "news"
+msgstr "News"
+
+msgid "thuvienanh"
+msgstr "Gallery"
+
+msgid "contact"
+msgstr "Contact"
+
+msgid "partner"
+msgstr "Partner"
+
+msgid "congtrinhtb"
+msgstr "Typical projects"
+
+msgid "support"
+msgstr "Support Online"
+
+msgid "support21"
+msgstr "Contact"
+
+msgid "duantieubieu"
+msgstr "Typical projects"
+
+msgid "counter"
+msgstr "Counter"
+
+msgid "online_day"
+msgstr "Day"
+
+msgid "online_all"
+msgstr "Total"
+
+msgid "sptieubieu"
+msgstr "Typical Products"
+
+msgid "readmore"
+msgstr "Read more"
+
+msgid "weather"
+msgstr "Useful information"
+
+msgid "store"
+msgstr "E-Store"
+
+msgid "consumer"
+msgstr "CONSUMER"
+
+msgid "tour"
+msgstr "TOUR"
+
+msgid "office"
+msgstr "Office"
+
+msgid "Trading_Office"
+msgstr "Trading Office"
+
+msgid "telephone"
+msgstr "Telephone"
+
+msgid "signin"
+msgstr "Sign in"
+
+msgid "register"
+msgstr "Register"
+
+msgid "langue"
+msgstr "English"
+
+msgid "ecommerce"
+msgstr "E-commerce"
+
+msgid "Businesswebsite"
+msgstr "Business website"
+
+msgid "Personalwebsite"
+msgstr "Personal website"
+
+
+msgid "sologan"
+msgstr "Create a free website easily!"
+
+
+
+

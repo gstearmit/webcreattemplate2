@@ -1,0 +1,36 @@
+#newsticker-demo {
+    
+    overflow: hidden;
+    margin-top:10px;
+    width: 100%;
+	margin-left:9px;
+}
+#newsticker-demo a {
+    text-decoration: none;
+}
+.thumbnail{border-bottom:1px solid #CBCBCB;overflow:hidden; padding-left: 10px;width:180px;height:70px;padding-top:5px;}
+.thumbnail img {
+    
+	width:70px; height:50px;
+	float:left;margin-bottom:5px;
+	overflow:hidden;
+}
+
+.newsticker-jcarousellite ul li {
+    display: block;
+    list-style: none outside none;
+    margin-bottom: 5px;
+    overflow: hidden;
+    padding-bottom: 1px;
+
+}
+.newsticker-jcarousellite .thumbnail {
+    float: left;
+}
+.clear {
+    clear: both;
+}
+
+
+
+

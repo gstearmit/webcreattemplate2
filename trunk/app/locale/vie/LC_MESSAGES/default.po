@@ -1,0 +1,97 @@
+msgid "home"
+msgstr "Trang chủ"
+
+msgid "about"
+msgstr "Giới thiệu"
+
+msgid "product"
+msgstr "Sản phẩm"
+
+msgid "project"
+msgstr "Dự án"
+
+msgid "agents"
+msgstr "Đại lý"
+
+msgid "news"
+msgstr "Tin tức"
+
+msgid "thuvienanh"
+msgstr "Thư viện ảnh"
+
+msgid "contact"
+msgstr "Liên hệ"
+
+msgid "partner"
+msgstr "Đối tác"
+
+msgid "congtrinhtb"
+msgstr "Công trình tiêu biểu"
+
+msgid "support"
+msgstr "Hỗ trợ trực tuyến"
+
+msgid "support21"
+msgstr "LIÊN HỆ"
+
+msgid "duantieubieu"
+msgstr "Dự án tiêu biểu"
+
+msgid "counter"
+msgstr "Thống kê truy cập"
+
+msgid "online_day"
+msgstr "Truy cập trong ngày"
+
+msgid "online_all"
+msgstr "Tổng số truy cập"
+
+msgid "sptieubieu"
+msgstr "Sản phẩm tiêu biểu"
+
+msgid "readmore"
+msgstr "Chi tiết"
+
+msgid "weather"
+msgstr "Thông tin hữu ích"
+
+msgid "store"
+msgstr "GIAN HÀNG"
+
+msgid "consumer"
+msgstr "TIÊU DÙNG"
+
+msgid "tour"
+msgstr "DU LỊCH"
+
+msgid "office"
+msgstr "Trụ sở"
+
+msgid "Trading_Office"
+msgstr "Văn phòng giao dịch"
+
+msgid "telephone"
+msgstr "Điện thoại"
+
+
+msgid "signin"
+msgstr "Đăng nhập"
+
+msgid "register"
+msgstr "Đăng kí"
+
+msgid "langue"
+msgstr "Tiếng việt"
+
+msgid "ecommerce"
+msgstr "E-Store"
+
+msgid "Businesswebsite"
+msgstr "Website kinh doanh"
+
+msgid "Personalwebsite"
+msgstr "Website cá nhân"
+
+msgid "sologan"
+msgstr "Tạo trang web miễn phí!"
+
