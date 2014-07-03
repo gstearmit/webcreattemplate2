@@ -1,0 +1,47 @@
+ul.tabs {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	height: 36px;
+	padding-left: 20px;
+}
+ul.tabs li {
+    background: url("../images/ui-bg_glass_80_d7ebf9_1x400.png") repeat-x scroll 50% 50% #D7EBF9;
+    border: 1px solid #AED0EA;
+    color: #2779AA;
+    font-weight: bold;
+	   border-bottom: 0 none !important;
+    float: left;
+    list-style: none outside none;
+    margin: 0 0.2em 1px 0;
+	 border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 0;
+    position: relative;
+    top: 6px;
+    white-space: nowrap;
+}
+ul.tabs li a {
+	float: left;
+    padding: 0.5em 1em;
+    text-decoration: none;
+}
+ul.tabs li a:hover {
+	color:#da0000;
+}	
+html ul.tabs li.active, html ul.tabs li.active{
+	background: url("../images/ui-bg_glass_50_3baae3_1x400.png") repeat-x scroll 50% 50% #3BAAE3;
+    border: 1px solid #2694E8;
+    color: #FFF;
+	cursor: text;
+	
+}
+html ul.tabs li.active a, html ul.tabs li a.active a:hover  {
+	color:#FFF !important;
+}
+
+.icon_back {
+    background: url("../images/icon_back.jpg") no-repeat scroll 5px 0 transparent;
+    padding-left: 25px !important;
+}

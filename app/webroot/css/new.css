@@ -1,0 +1,58 @@
+.new{ overflow:hidden; margin-top:10px;}
+.new-img{width:175px; height:125px;float:left;overflow:hidden;margin-left:10px;
+	border:2px solid #f1e1bf;
+}
+.new-img img{width:175px; height:125px;}
+
+
+.new-content{width:470px;overflow:hidden;padding-left:20px; float:left;}
+.new-content li{margin-top:10px;}
+.a-ct{float:right;margin-right:10px; color:#65390d;
+	font-style:italic;
+	background:url(../images/tin.png) right no-repeat;
+	padding-right:15px;
+}
+.new-content li a:hover{color:red;}
+.new-body{background:white; overflow:hidden;}
+.pt {
+	margin-top:10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    overflow: hidden;
+}
+.pt-pagi {
+    margin-right: 10px;
+    text-align: right;
+}
+.current {
+    color: #f1e1bf;
+	background:#6c4115!important;
+}
+.pt-pagi > span {
+    background: none repeat scroll 0 0 #f1e1bf;
+    width:25px;
+	height:22px;
+	overflow:hidden;
+	
+	padding:5px;
+}
+.pt-pagi span a {
+    color: #65390d;
+	 width:24px;
+	height:20px;
+	font-weight:bold;
+}
+
+
+.detail{width:570px; margin:10px;}
+
+
+.li-news{background:url(../images/mt4.png) left no-repeat;}
+.li-news a{margin-left:20px;}
+
+.new-product-tit{ height:32px; background:#69D13E;}
+
+#new-product{border-radius:5px; overflow:hidden; border:1px solid #69D13E;}
+
+.prev{margin-right:5px;}
+.next{margin-left:5px;}

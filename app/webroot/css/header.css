@@ -1,0 +1,96 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0px; padding:0px;}
+a{text-decoration:none;}
+li{list-style:none;}
+img{border:none;}
+body{font-family:Arial, Helvetica, sans-serif; font-size:12px;
+
+}
+
+#bor-header{
+	overflow:hidden;
+	
+	height:157px;
+	
+}
+
+#header{
+	width:1000px;
+	margin:auto;
+	height:162px;
+}
+.tenct{
+	width:330px;;
+	height:162px;
+	float:left;
+	overflow:hidden;
+}
+.tenct img{
+	margin-top:55px;
+	
+}
+
+
+.slogan{	
+	width:355px;;
+	height:162px;
+	float:left;
+	overflow:hidden;
+	}
+.slogan img{
+	margin-top:70px;
+	
+}
+
+.dangky{
+	width:280px;
+	float:left;
+	margin-left:22px;
+	overflow:hidden;
+	
+}
+
+#txtdangky{
+	margin-left:27px;
+	width:250px;
+	height:28px;
+	overflow:hidden;
+	border-radius:5px;
+	margin-top:5px;
+	border:none;	
+}
+.subdk:hover{
+	cursor:pointer;
+	
+}
+.subdk{
+	
+	background:#8fca3a;
+	color:white;
+	border-radius:5px;
+	margin-left:173px;
+	height:28px;
+	font-weight:bold;
+	border:none;
+}
+
+.a-dangky{font-size:14px; color:white; font-weight:bold; text-align:center;}
+.a-dangky:hover{text-decoration:underline !important; }
+
+.gio-hang{
+margin-top:35px;
+}
+.gio-hang p{
+background:url(../images/giohang.png) left no-repeat;
+height:25px;
+padding-left:35px;
+padding-top:15px;
+margin-left:20px;
+}
+
+.gio-hang p a{color:black; font-weight:bold; font-size:14px;}
+.gio-hang p a:hover{
+text-decoration:underline;
+}
