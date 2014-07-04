@@ -3,7 +3,7 @@ session_start();
 class HomeController extends AppController {
 
 	var $name = 'Home';
-	var $uses=array('News','Product','Slideshows','Guest');
+	var $uses=array('News','Product','Slideshows','Guest','Shops');
 
 	
 	
@@ -50,10 +50,69 @@ class HomeController extends AppController {
 	//launchyoursite
 	function launchyoursite()
 	{
-	  pr($_POST);
-	  die;
+	 // pr($_POST);
+	  //die;
+	if(isset($_POST['storename'])){
+		$name=$this->Shops->findAllByName($_POST['storename']);  //echo ($_POST['tengianhang']);die;
+		if(count($name)==1){
+			echo "<script>alert('".json_encode('Tên gian hàng đã tồn tại!')."');</script>";
+			echo "<script>history.back(-1);</script>";
+		}else{
+			$Store = array ();
+			$Store ['name'] = $_POST ['storename'];
+			$Store ['slug'] = $this->unicode_convert ( $_POST ['storename'] );
+			$Store ['email'] = $_POST ['mail'];
+			$Store ['link'] = '';
+			// 			$Store ['business'] ='';
+			// 			$Store ['phone'] = '';
+			// 			$Store ['address'] = '';
+			// 			$Store ['city'] = '';
+			// 			$Store ['namecompany'] = '';
+			// 			$Store ['mobile'] = $_POST ['mobile'];
+			// 			$Store ['fax'] = $_POST ['fax'];
+			// 			$Store ['ckshops'] = 1;
+			// 			$Store ['status'] = 1;
+			// 			// $Store['user_id']=$this->Session->read("id");
+			$Store ['user_id'] = 999; // 999 ma khach hang dang ki
+			//mkdir("/path/to/my/dir", 0700);
+		
+			//pr($Store);die;
+			 
+			$this->Shops->save($Store);
+		}
+	}  
+	 
+	 
+	  
+	  
 	}
 	
+	function unicode_convert($str){
+		if(!$str) return false;
+		$unicode = array(
+				'a'=>array('á','à','ả','ã','ạ','ă','ắ','ặ', 'ằ','ẳ','ẵ','â','ấ','ầ','ẩ','ẫ','ậ','� �'),
+				'A'=>array('Á','À','Ả','Ã','Ạ','Ă','Ắ','Ặ', 'Ằ','Ẳ','Ẵ','Â','Ấ','Ầ','Ẩ','Ẫ','Ậ','� �'),
+				'd'=>array('đ'),
+				'D'=>array('Đ'),
+				'e'=>array('é','è','ẻ','ẽ','ẹ','ê','ế','ề' ,'ể','ễ','ệ'),
+				'E'=>array('É','È','Ẻ','Ẽ','Ẹ','Ê','Ế','Ề' ,'Ể','Ễ','Ệ'),
+				'i'=>array('í','ì','ỉ','ĩ','ị'),
+				'I'=>array('Í','Ì','Ỉ','Ĩ','Ị'),
+				'o'=>array('ó','ò','ỏ','õ','ọ','ô','ố','ồ', 'ổ','ỗ','ộ','ơ','ớ','ờ','ở','ỡ','� �'),
+				'0'=>array('Ó','Ò','Ỏ','Õ','Ọ','Ô','Ố','Ồ', 'Ổ','Ỗ','Ộ','Ơ','Ớ','Ờ','Ở','Ỡ','� �'),
+				'u'=>array('ú','ù','ủ','ũ','ụ','ư','ứ','ừ', 'ử','ữ','ự'),
+				'U'=>array('Ú','Ù','Ủ','Ũ','Ụ','Ư','Ứ','Ừ', 'Ử','Ữ','Ự'),
+				'y'=>array('ý','ỳ','ỷ','ỹ','ỵ'),
+				'Y'=>array('Ý','Ỳ','Ỷ','Ỹ','Ỵ'),
+				'-'=>array(' ','&','?')
+		);
+	
+		foreach($unicode as $nonUnicode=>$uni){
+			foreach($uni as $value)
+				$str = str_replace($value,$nonUnicode,$str);
+		}
+		return $str;
+	}
 	function index2($id=null)
 	{
 		//echo $this->Session->read('nameuser'); die;
