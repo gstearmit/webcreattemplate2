@@ -8,7 +8,7 @@ define('DOMAIN','http://'.$_SERVER["HTTP_HOST"].'/websitetemplate/');
 //define('DOCUMENT_ROOT','/home/develop/public_html/websitetemplate/');
 //define('GIANHANG','/home/develop/public_html/websitetemplate/app/webroot/img-gianhang/');
 define('DOCUMENT_ROOT','E:/xampp/htdocs/websitetemplate/');
-define('GIANHANG','E:/xampp/htdocs/websitetemplate/websitetemplate/app/webroot/img-gianhang/');
+define('GIANHANG','E:/xampp/htdocs/websitetemplate/app/webroot/img-gianhang/');
 
 define('GUSER', 'phuca4@gmail.com');
 define('GPWD', 'ngoc875052phuca4');

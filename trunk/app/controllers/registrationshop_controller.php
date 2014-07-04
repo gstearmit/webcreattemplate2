@@ -615,7 +615,7 @@ class RegistrationshopController extends AppController {
 		
 	}
 	// ham chuyen doi ky tu
-function unicode_convert($str){
+   function unicode_convert($str){
 		if(!$str) return false;
 		$unicode = array(
 		'a'=>array('á','à','ả','ã','ạ','ă','ắ','ặ', 'ằ','ẳ','ẵ','â','ấ','ầ','ẩ','ẫ','ậ','� �'),
@@ -640,6 +640,6 @@ function unicode_convert($str){
 		$str = str_replace($value,$nonUnicode,$str);
 		}
 		return $str;
-		}
+	 }
   }
 ?>
