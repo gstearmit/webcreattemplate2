@@ -4,7 +4,8 @@ class HomeController extends AppController {
 
 	var $name = 'Home';
 	var $uses=array('News','Product','Slideshows','Guest','Shops');
-
+	//$this->layout = 'creattemplate';
+	var $layout = "creattemplate";
 	
 	
 	//creattemplate
@@ -47,11 +48,13 @@ class HomeController extends AppController {
 	{
 	
 	}
+	
 	//launchyoursite
 	function launchyoursite()
 	{
-	 // pr($_POST);
-	  //die;
+// 	 pr($_POST);
+// 	  die;
+	$this->layout = 'launchyoursite';
 	if(isset($_POST['storename'])){
 		$name=$this->Shops->findAllByName($_POST['storename']);  //echo ($_POST['tengianhang']);die;
 		if(count($name)==1){
@@ -62,7 +65,8 @@ class HomeController extends AppController {
 			$Store ['name'] = $_POST ['storename'];
 			$Store ['slug'] = $this->unicode_convert ( $_POST ['storename'] );
 			$Store ['email'] = $_POST ['mail'];
-			$Store ['link'] = '';
+			$Store ['user_id'] = 999; // 999 ma khach hang dang ki
+			//$Store ['link'] = '';
 			// 			$Store ['business'] ='';
 			// 			$Store ['phone'] = '';
 			// 			$Store ['address'] = '';
@@ -73,13 +77,24 @@ class HomeController extends AppController {
 			// 			$Store ['ckshops'] = 1;
 			// 			$Store ['status'] = 1;
 			// 			// $Store['user_id']=$this->Session->read("id");
-			$Store ['user_id'] = 999; // 999 ma khach hang dang ki
+			
 			//mkdir("/path/to/my/dir", 0700);
-		
 			//pr($Store);die;
 			 
 			$this->Shops->save($Store);
+			
+			// ++Start Session Eshop
+			$this->Session->write('eshop.storename', $_POST ['storename']);
+			$this->Session->write('eshop.email', $_POST ['mail']);
+			$this->Session->write('eshop.signup-sent', $_POST ['signup-sent']);
+			$this->Session->write('eshop.domain', $_POST ['domain']);
+			$this->Session->write('eshop.aa62a6988a6', $_POST ['aa62a6988a6']);
+			$eshop_tmp = $this->Session->read('eshop');
+			//pr($this->Session->read('eshop'));die;
+			$this->set('eshop',$this->Session->read('eshop'));
 		}
+		
+		
 	}  
 	 
 	 
