@@ -40,7 +40,7 @@ class AppController extends Controller {
 		
 		//$this->layout = 'home';
 		//creattemplate
-		$this->layout = 'creattemplate';
+		//$this->layout = 'creattemplate';
 		
 		$urlTmp = $_SERVER['REQUEST_URI'];
 		if (stripos($urlTmp, "?language")) {
