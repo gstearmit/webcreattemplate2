@@ -21,5 +21,6 @@ top: -19px;
 <!--[if gte IE 8]><link rel="stylesheet" type="text/css" media="all" href="<?php echo DOMAIN ?>webcreathtml/css/2010/obfs/alatca.admin.ie8.1-2-164.css" /><![endif]-->
 <!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="<?php echo DOMAIN ?>webcreathtml/css/2010/obfs/alatca.admin.ie7.1-2-164.css" /><![endif]-->
 <!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="<?php echo DOMAIN ?>webcreathtml/css/2010/obfs/alatca.admin.ie6.1-2-164.css" /><![endif]-->
+<script type="text/javascript" src="<?php echo DOMAIN ?>webcreathtml/js/validatedatanew.js"></script>
 </head>
 <body class="alatca">
