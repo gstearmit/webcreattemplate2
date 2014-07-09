@@ -1,0 +1,383 @@
+#color-menu {background-color: #6ac4df; border-radius: 9px; height: auto; font-variant: small-caps;}
+#color1-menu {background-color: #c01c2b; border-radius: 9px; height: auto; margin-right: 3px; font-variant: small-caps;}
+#dang-ki-view {background: url("../img/dki-bg.png"); color: #7d7900; font-size: 15px;font-weight: bold;font-variant: small-caps;} /* bg-dki.png  background-dangki.png*/
+/***************ezpage1 : giai phap ************************/
+.thanthien {background: url("../img/bg_span4.png") no-repeat;height: 500px;padding: 0px;}
+.tt-span4 {padding: 0px;width: 434px;margin-left: -13px; /*min-height: 400px; */}
+.iconspan6 {margin-right: 20px;}
+.h3-span7 {margin-left: 22px; margin-bottom: 22px;}
+.tt-span62 {margin-left: 22px;}
+.tt-span61{margin-left: 22px;}
+/*************ez.page 2 tinh nang *************************/
+.ez2-tinhnang {background: url('../img/bg_phanmen.png') repeat-y;min-height: 500px;}
+.ez1.1-tinhnang {background: url('../img/bg_phanmen.png') repeat-y;min-height: 500px;}
+.height-ez2{ height: 68px;}
+.tinhnang-text {color: #4e4e4e;font-size: 20px;font-weight: bold;margin: 11px 0px 0px 11px;}
+.tinhnang-text-h3 {color: #4e4e4e;font-size: 24px;font-weight: bold;margin: 0px 0px 0px 11px;}
+.tinhnang-text-p{margin-left: 15px;}
+.article-tinhnang{color: #4e4e4e;}
+.article-tinhnang {
+width: 100%;
+margin-left: 0px;
+}
+.ez-tn-txt-box{color: #4e4e4e;background-color: #4fbdd9;border-radius: 5px;font-size: 23px;text-align: center; color: #ffffff;}
+.ez-tn-txt-box-p {
+min-height: 217px;
+font-size: 15px;
+font-weight: bold;
+color: #4e4e4e;
+padding: 0px 15px 0px 14px;
+margin-bottom: 15px;
+border-radius: 5px;
+line-height: 1.2;
+}
+.ez2-block {
+min-height: 249px;
+text-align: justify;
+border-radius: 10px;
+}
+.caption-ez2 {
+background-color: #ffffff;
+border-radius: 4px;
+}
+
+/********ez3 page tinh nang *****************/
+.img-fix-span8 {
+	/*
+width: 782px;
+height: 476px;
+*/
+}
+.ul-right-ez3 {
+}
+
+
+.container .nav-ul-ez3 {
+min-width: 170px;
+}
+.nav-ul-ez3 {
+background: url('../img/bg-ul.png') repeat-x;
+height: 32px;
+margin: 2px 0px 2px 0px;
+padding-top: 4px;
+font-size: 12px;
+font-weight: bold;
+color: #ffffff;
+width: 170px;
+}
+.container .nav-ul-ez3-2 {
+min-width: 170px;
+}
+.nav-ul-ez3-2 {
+background: url('../img/bg-ul.png') repeat-x;
+height: 32px;
+margin: 2px 0px 2px 0px;
+padding-top: 4px;
+color: #18677e;
+font-weight: bold;
+width: 170px;
+}
+.container .nav-ul-ez3-3 {
+min-width: 170px;
+}
+.nav-ul-ez3-3 {
+background: url('../img/bg-ul.png') repeat-x;
+height: 32px;
+border-bottom: 2px #c9c9c9 solid;
+margin: 0px;
+color: #868686;
+font-weight: bold;
+padding-top: 3px;
+width: 170px;
+}
+
+/* hover-bg-ul.png */
+.nav-ul-ez3 a:hover{ background: url("../img/hover-bg-ul.png") no-repeat;}
+.nav-ul-ez3-2 a:hover{ background: url("../img/hover-bg-ul.png") no-repeat;}
+.nav-ul-ez3-3 a:hover{ background: url("../img/hover-bg-ul.png") no-repeat;}
+
+/******************** new *****************************/
+.nav-el-ez {
+background: url('../img/bg-ul.png') repeat;
+font-weight: bold;
+}
+.nav > li > a {
+color: #fff;
+font-size: 14px;
+border-bottom: 1px solid #c9c9c9;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+text-decoration: none;
+background-color: #50597b;
+}
+.active-navul {
+background-color: #50597b;
+
+}
+
+.icon-cloud {
+background: url("../img/dangki-dichvu-img.png") no-repeat;
+height: 23px; width: 24px;margin-right: 5px;
+}
+
+.icon-Vente-2 {
+background: url("../img/banhang-img.png") no-repeat;
+height: 23px; width: 24px;margin-right: 5px;
+}
+
+.icon-Vente {
+background: url("../img/thiet-lap-cua-hang-img.png") no-repeat;
+height: 23px; width: 24px;margin-right: 5px;
+}            
+.icon-Gestion {
+background: url("../img/quanli-kho-img.png") no-repeat;
+height: 23px; width: 24px;margin-right: 5px;
+}
+.icon-clients {
+background: url("../img/congno-img.png") no-repeat;
+height: 23px; width: 24px;margin-right: 5px;
+}
+.icon-Employ{
+background: url("../img/nhan-vien-img.png") no-repeat;
+height: 23px; width: 24px;margin-right: 5px;
+}
+.icon-ser-Clients {
+background: url("../img/khach-hang-img.png") no-repeat;
+height: 23px; width: 24px;margin-right: 5px;
+}
+.icon-Carte {
+background: url("../img/the-khach-hang-img.png") no-repeat;
+height: 23px; width: 24px;margin-right: 5px;
+}
+.icon-Cartede {
+background: url("../img/thetratruoc-img.png") no-repeat;
+height: 23px; width: 24px;margin-right: 5px;
+}
+
+.icon-Promotions {
+background: url("../img/promottion-img.png") no-repeat;
+height: 23px; width: 24px;margin-right: 5px;
+}
+
+.icon-Marketing {
+background: url("../img/markketting-img.png") no-repeat;
+height: 23px; width: 24px;margin-right: 5px;
+}
+
+.icon-Chanedemagasins {
+background: url("../img/chart-img.png") no-repeat;
+height: 23px; width: 24px;margin-right: 5px;
+}
+
+
+.icon-Rapports {
+background: url("../img/report.png") no-repeat;
+height: 23px; width: 24px;margin-right: 5px;
+}
+#sanpham {
+min-height: 695px;
+}
+
+/******************ez4 page gia dich vu *******************************/
+#giadichvu{background: url("../img/bg-giadichvu.png") repeat; min-height:890px; }
+.text-giadicvu{color:#f6f6f6;font-size: 32px; font-weight: bold;}
+.viewhieght {
+height: 56px;
+}
+.view-h3 {color: #4c4c4c; font-variant: small-caps;font-weight: bold;text-align: center; height: 93px;
+border-bottom: 2px solid #dadada;
+padding: 33px 20px 0px 20px;}
+.ez4-block {
+min-height: 249px;
+text-align: justify;
+border-radius: 10px;
+}
+.nav-el-ez4 {
+font-weight: bold;
+margin: 0px 20px 0px 20px;
+font-size: 16px;
+color: #4c4c4c;
+padding-left: 0;
+list-style: none;
+min-height: 352px;
+}
+
+
+.nav-el-ez4 > li > a:hover, .nav-el-ez4 > li > a:focus {
+text-decoration: none;
+}
+.caption-ez4 {
+background-color: #ffffff;
+border-radius: 4px;
+}
+
+.action-image.path-view {
+padding-left: 35%;
+position: relative;
+top: 64px;
+z-index: 2017;
+}
+
+.icon-oki-ez4 {
+background: url("../img/img-oki2.png") no-repeat;
+height: 32px; width: 31px;margin-right: 5px;
+}
+
+.icon-del-ez4 {
+background: url("../img/img-del.png") no-repeat;
+height: 32px; width: 31px;margin-right: 5px;
+}
+
+.icon-add-ez4 {
+background: url("../img/img-add.png") no-repeat;
+height: 32px; width: 31px;margin-right: 5px;
+}
+
+
+/****************ez5 page ********************/
+#thongtincty{ min-height: 667px; background: url("../img/bg-thongtincty.png") repeat;}
+.foottter {
+background: url("../img/footer_bg-ez.png") repeat;
+min-height: 154px;
+}
+
+icon-asosiact
+
+.icon-asosiact-tw {
+background: url("../img/tiwter.png") no-repeat;
+height: 32px; width: 31px;margin-right: 5px;
+}
+
+.icon-asosiact-fb {
+background: url("../img/facebook.png") no-repeat;
+height: 32px; width: 31px;margin-right: 5px;
+}
+
+.icon-asosiact-ggl {
+background: url("../img/google.png") no-repeat;
+height: 32px; width: 31px;margin-right: 5px;
+}
+.asocietc {display: inline-block;}
+.he-footer {height: 21px;}
+
+/**************ez 1********************/
+#giaiphap-ez1 {
+background: url("../img/bg-giaiphap.png") repeat !important;
+min-height: 200px;
+}
+#giaiphap-ez2 {
+background: url("../img/bg-giaiphap.png") repeat !important;
+min-height: 610px;
+}
+.p-view-ttkh {
+line-height: 1.2em;
+font-size: 15px;
+}
+
+.flot-po {
+position: relative;
+top: 22px;
+}
+.font_bt{ font-weight: 18px;}
+.bg_bt_2 {
+background: url("../img/bg-gr-bt2.png") repeat;
+}
+.bg_bt_3 {
+background: url("../img/bg-bt2.png") repeat;
+}
+.bg_bt_1 {
+background: url("../img/bg-bt2.png") repeat;
+}
+.carousel-inner > .item {
+min-height: 600px;
+}
+.btn-group > .btn.active {
+background: url("../img/bg-bt-active.png") repeat !important;
+color: #fff;
+}
+
+.ez-tn-txt-box-1 {
+color: #4e4e4e;
+background-color: #bb88b5;
+border-radius: 5px;
+font-size: 23px;
+text-align: center;
+color: #ffffff;
+}
+
+.ez-tn-txt-box-2 {
+color: #4e4e4e;
+background-color: #5195c9;
+border-radius: 5px;
+font-size: 23px;
+text-align: center;
+color: #ffffff;
+}
+
+/****************tong hop ********************/
+.navbar {
+height: 15px;
+border: 1px solid rgba(0, 0, 0, 0);
+margin-bottom: 0px;
+}
+.navbar .container {
+margin-top: 0px;
+margin-bottom: 0px;
+}
+.btn {
+font-size: 12px;
+}
+.action-image.img-responsive.bd-img {
+min-height: 252px;
+}
+.carousel .item {
+/*height: 825px;*/
+min-height: 100%;
+}
+.item.row.item-doc1 {
+min-height: 600px;
+}
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {text-align: left;}
+/**************end tong hop ***************************/
+
+/*************silde 01 -giai phap ********************/
+/*
+h3.text-left i {
+float: left;
+}
+h3.text-left #text-right {float: right;}
+*/
+.col-md-12.bold-viewez {
+font-weight: bold;
+font-size: 22px;
+text-align: right;
+line-height: 1.5;
+color: #4E4E4E;
+}
+.col-md-12.text-left {
+line-height: 1.5;
+font-size: 17px;
+padding: 0px;
+margin-left: 13px;
+}
+.h3-span7.re-tkiem {
+font-size: 30px;
+}
+
+/*********** ez 4*********************/
+.icon-oki-ez4.space-ez {
+float: left;
+margin-right: 16px;
+}
+.nav-stacked > li {
+float: left;
+display: inline;
+width: 100%;
+}
+.text-tx-right {
+width: 380px;
+border-bottom: 1px solid #4E4E4E;
+margin-left: 44px;
+color: #4E4E4E;
+font-weight: bold;
+}

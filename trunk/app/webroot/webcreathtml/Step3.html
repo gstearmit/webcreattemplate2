@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<base href="http://localhost/webcreathtml" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>E-shopgs :: wizard</title>
+<meta http-equiv="content-language" content="en" />
+<!--[if lte IE 9]><meta http-equiv="X-UA-Compatible" content="IE=8" /><![endif]-->
+<meta http-equiv="content-script-type" content="text/javascript" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta name="copyright" content="content (c) alatca" />
+<meta name="author"
+	content="all: alatca" />
+<meta name="generator" content="alatca, see http://www.alatca.com/" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="googlebot" content="noindex, nofollow" />
+<link rel="stylesheet" type="text/css" media="screen,projection"
+	href="http://localhost/webcreathtml/css/2010/obfs/alatca.admin.1-2-164.css" />
+<!--[if gte IE 8]><link rel="stylesheet" type="text/css" media="all" href="http://localhost/webcreathtml/css/2010/obfs/alatca.admin.ie8.1-2-164.css" /><![endif]-->
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="http://localhost/webcreathtml/css/2010/obfs/alatca.admin.ie7.1-2-164.css" /><![endif]-->
+<!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="http://localhost/webcreathtml/css/2010/obfs/alatca.admin.ie6.1-2-164.css" /><![endif]-->
+</head>
+<body class="alatca">
+	<div id="coverPage" class="normal">
+		<div id="page">
+			<div id="header">
+				<span id="logo"></span>
+				<div id="headerContent" class="fullSize">
+					<h1>Registration Wizard</h1>
+				</div>
+			</div>
+			<hr class="hidden" />
+			<div id="content">
+				<div id="leftColumn">
+					<div id="stepInfo1" class="stepInfo hand">
+						<h3>Step 1</h3>
+						<div>Enter project details</div>
+					</div>
+					<div id="stepInfo2" class="stepInfo hand ">
+						<h3>Step 2</h3>
+						<div>Choose your template</div>
+					</div>
+					<div id="stepInfo3" class="stepInfo actual">
+						<h3>Step 3</h3>
+						<div>Finish the registration</div>
+					</div>
+				</div>
+				<div id="rightContent">
+					<div id="stepArea1" class="stepArea">
+						<div id="modulesSelect3" class="modulesSelect">
+							<h3>Select a website type</h3>
+							<div id="modulesSelectErrorMsg">
+								<!-- -->
+							</div>
+							<div id="moduleAreaweb" class="moduleBlock">
+								<i class="unitPng">
+									<!-- -->
+								</i><input type="radio" name="moduleType" class="moduleKey"
+									id="moduleKeyweb" value="web" /><label for="moduleKeyweb">Personal
+									website</label>
+								<div class="cleaner">
+									<!-- -->
+								</div>
+								<p>Suitable for personal websites, blogs and photo sharing etc.</p>
+							</div>
+							<div id="moduleAreabranch" class="moduleBlock">
+								<i class="unitPng">
+									<!-- -->
+								</i><input type="radio" name="moduleType" class="moduleKey"
+									id="moduleKeybranch" value="branch" /><label
+									for="moduleKeybranch">Business website</label>
+								<div class="cleaner">
+									<!-- -->
+								</div>
+								<p>Ideal for business large or small, hundreds of professional
+									designs.</p>
+							</div>
+							<div id="moduleAreaeshop" class="moduleBlock">
+								<i class="unitPng">
+									<!-- -->
+								</i><input type="radio" name="moduleType" class="moduleKey"
+									id="moduleKeyeshop" value="eshop" /><label for="moduleKeyeshop">E-shop</label>
+								<div class="cleaner">
+									<!-- -->
+								</div>
+								<p>Get ahead by selling and managing your products and services
+									on-line.</p>
+							</div>
+						</div>
+						<div class="cleaner">
+							<!-- -->
+						</div>
+						<form id="step1WizardForm" action="" method="post"
+							onsubmit="Forms.showWaitingAnimation();return Wizard.process();"
+							style="display: none;"
+							enctype="application/x-www-form-urlencoded">
+							<p class="errorFormList" id="step1WizardFormErrorText"
+								style="display: none;">The form contains errors. Please alter
+								the highlighted fields and send the form again.</p>
+							<fieldset id="step1BaseInfo" class=" withoutSeparator">
+								<div id="step1BaseInfoBlockContent">
+									<div class="formRow" id="project_nameRow">
+										<label for="project_name"><strong>Website name</strong></label><span
+											class="inputCase"><input type="text" id="project_name"
+											name="project_name" value="e-shopgs" _required="required" /><i>
+												<!-- -->
+										</i></span>
+										<div class="formRowNotice">E.g. "Anna's Hairdressing"</div>
+										<div class="inputHint" id="project_nameHint">
+											<h4>Website name</h4>
+											<p>This form entry should contain the name of your website.</p>
+											<i class="hintEnd">
+												<!-- -->
+											</i>
+										</div>
+									</div>
+									<div class="formRow" id="company_sloganRow">
+										<label for="company_slogan">Slogan</label><span
+											class="inputCase"><input type="text" id="company_slogan"
+											name="company_slogan" value="" /><i>
+												<!-- -->
+										</i></span>
+										<div class="inputHint" id="company_sloganHint">
+											<h4>Slogan</h4>
+											<p>You can create a catchphrase for your website.</p>
+											<i class="hintEnd">
+												<!-- -->
+											</i>
+										</div>
+									</div>
+									<div class="formRow" id="languageRow">
+										<label for="language"><strong>Language</strong></label>
+										<div class="selectCase">
+											<input type="hidden" id="language" name="language" value="en"
+												_required="required" _type="text" /><input
+												readonly="readonly" type="text" id="languageText"
+												class="selectText" value="" /><b>
+												<!-- -->
+											</b><i>
+												<!-- -->
+											</i>
+										</div>
+										<div class="inputHint" id="languageHint">
+											<h4>Language</h4>
+											<p>
+												This is the website language that the public will view. If
+												your language is not on the list, select Other and you can
+												do a translation later. <strong>Required item.</strong>
+											</p>
+											<i class="hintEnd">
+												<!-- -->
+											</i>
+										</div>
+									</div>
+									<div class="formRow" id="branch_typeRow" style="display: none;">
+										<label for="branch_type"><strong>Business category</strong></label>
+										<div class="selectCase">
+											<input type="hidden" id="branch_type" name="branch_type"
+												value="" _required="required" _type="text" /><input
+												readonly="readonly" type="text" id="branch_typeText"
+												class="selectText" value="" /><i>
+												<!-- -->
+											</i><a href="#" id="branch_typeShowAll" class="selectShowAll">View
+												all</a>
+										</div>
+										<div class="formRowNotice">E.g.: &quot;Hair Salon&quot; or
+											&quot;Tax services&quot;</div>
+									</div>
+								</div>
+							</fieldset>
+							<div class="cleaner">
+								<!-- -->
+							</div>
+							<div class="formEnd">
+								<!-- -->
+							</div>
+						</form>
+						<div class="cleaner">
+							<!-- -->
+						</div>
+					</div>
+					<div id="stepArea2" class="stepArea ">
+						<div id="layoutArea">
+							<h2>Select your website template</h2>
+							<div id="layoutsTools">
+								<!-- -->
+							</div>
+							<div class="cleaner">
+								<!-- -->
+							</div>
+							<div id="layoutsErrorMsg">
+								<!-- -->
+							</div>
+							<div id="layoutsList">
+								<!-- -->
+							</div>
+							<div id="layoutAreaEnd">
+								<!-- -->
+							</div>
+						</div>
+						<div class="cleaner">
+							<!-- -->
+						</div>
+					</div>
+					<div id="stepArea3" class="stepArea selectedStep">
+				        <form id="step3WizardForm" action="" method="post" onsubmit="Forms.showWaitingAnimation();return Wizard.process();" enctype="application/x-www-form-urlencoded" class="eshop"><p class="errorFormList" id="step3WizardFormErrorText" style="display: none;">The form contains errors. Please alter the highlighted fields and send the form again.</p><fieldset id="step3Description"><h2><cufon class="cufon cufon-canvas" alt="Contact " style="width: 80px; height: 23px;"><canvas width="102" height="27" style="width: 102px; height: 27px; top: -3px; left: -2px;"></canvas><cufontext>Contact </cufontext></cufon><cufon class="cufon cufon-canvas" alt="details" style="width: 68px; height: 23px;"><canvas width="84" height="27" style="width: 84px; height: 27px; top: -3px; left: -2px;"></canvas><cufontext>details</cufontext></cufon></h2><div class="formGroupDesc"><!-- --></div><div id="step3DescriptionBlockContent">Enter company contact information to be displayed on your website.</div></fieldset><fieldset id="step3PagesInfo" class=" withoutSeparator" style="display: none;"><div class="pagesInfo"><input type="checkbox" class="pageSelector" id="page_aboutUs" name="aboutUs"><label for="page_aboutUs">About Us</label><br><input type="checkbox" class="pageSelector" id="page_contact" name="contact"><label for="page_contact">Contact Us</label><br><input type="checkbox" class="pageSelector" id="page_newsEshop" name="newsEshop"><label for="page_newsEshop">News</label><br></div><div class="pagesInfo"><input type="checkbox" class="pageSelector" id="page_eshopOurTeam" name="eshopOurTeam"><label for="page_eshopOurTeam">Our Team</label><br><input type="checkbox" class="pageSelector" id="page_faq" name="faq"><label for="page_faq">FAQ</label><br><input type="checkbox" class="pageSelector" id="page_termsConditions" name="termsConditions"><label for="page_termsConditions">Terms and conditions</label><br><input type="checkbox" class="pageSelector" id="page_help" name="help"><label for="page_help">Help</label><br></div><div id="step3PagesInfoBlockContent"></div><div class="cleaner"></div><div class="moduleIcon"><i class="unitPng"></i></div></fieldset><fieldset id="step3ContactForm" class=" withoutSeparator"><div id="step3ContactFormBlockContent"><div class="formRow" id="contact_nameRow"><label for="contact_name"><strong>Company name</strong></label><span class="inputCase"><input type="text" id="contact_name" name="contact_name" value="" _required="required"><i><!-- --></i></span></div><div class="formRow" id="contact_streetRow"><label for="contact_street">Address</label><span class="inputCase"><input type="text" id="contact_street" name="contact_street" value=""><i><!-- --></i></span></div><div class="formRow" id="contact_cityRow"><label for="contact_city">City</label><span class="inputCase"><input type="text" id="contact_city" name="contact_city" value=""><i><!-- --></i></span></div><div class="formRow" id="contact_zipRow"><label for="contact_zip">ZIP</label><span class="inputCase"><input type="text" id="contact_zip" name="contact_zip" value=""><i><!-- --></i></span></div><div class="formRow" id="contact_countryRow" style="z-index: 1;"><label for="contact_country">Country</label><div class="selectCase hand"><input type="hidden" id="contact_country" name="contact_country" value="vn" _type="text" class="hand"><input readonly="readonly" type="text" id="contact_countryText" class="selectText hand" value=""><b><!-- --></b><i><!-- --></i><div class="selectBox" style="width: 0px; display: none;"><a id="contact_countrySBIaf" href="#">Afghanistan</a><a id="contact_countrySBIal" href="#">Albania</a><a id="contact_countrySBIdz" href="#">Algeria</a><a id="contact_countrySBIas" href="#">American Samoa</a><a id="contact_countrySBIad" href="#">Andorra</a><a id="contact_countrySBIao" href="#">Angola</a><a id="contact_countrySBIai" href="#">Anguilla</a><a id="contact_countrySBIaq" href="#">Antarctica</a><a id="contact_countrySBIag" href="#">Antigua and Barbuda</a><a id="contact_countrySBIar" href="#">Argentina</a><a id="contact_countrySBIam" href="#">Armenia</a><a id="contact_countrySBIaw" href="#">Aruba</a><a id="contact_countrySBIau" href="#">Australia</a><a id="contact_countrySBIat" href="#">Austria</a><a id="contact_countrySBIaz" href="#">Azerbaijan</a><a id="contact_countrySBIbs" href="#">Bahamas</a><a id="contact_countrySBIbh" href="#">Bahrain</a><a id="contact_countrySBIbd" href="#">Bangladesh</a><a id="contact_countrySBIbb" href="#">Barbados</a><a id="contact_countrySBIby" href="#">Belarus</a><a id="contact_countrySBIbe" href="#">Belgium</a><a id="contact_countrySBIbz" href="#">Belize</a><a id="contact_countrySBIbj" href="#">Benin</a><a id="contact_countrySBIbm" href="#">Bermuda</a><a id="contact_countrySBIbt" href="#">Bhutan</a><a id="contact_countrySBIbo" href="#">Bolivia</a><a id="contact_countrySBIba" href="#">Bosnia and Herzegovina</a><a id="contact_countrySBIbw" href="#">Botswana</a><a id="contact_countrySBIbv" href="#">Bouvet Island</a><a id="contact_countrySBIbr" href="#">Brazil</a><a id="contact_countrySBIio" href="#">British Indian Ocean Territory</a><a id="contact_countrySBIvg" href="#">British Virgin Islands</a><a id="contact_countrySBIbn" href="#">Brunei</a><a id="contact_countrySBIbg" href="#">Bulgaria</a><a id="contact_countrySBIbf" href="#">Burkina Faso</a><a id="contact_countrySBIbi" href="#">Burundi</a><a id="contact_countrySBIkh" href="#">Cambodia</a><a id="contact_countrySBIcm" href="#">Cameroon</a><a id="contact_countrySBIca" href="#">Canada</a><a id="contact_countrySBIcv" href="#">Cape Verde</a><a id="contact_countrySBIky" href="#">Cayman Islands</a><a id="contact_countrySBIcf" href="#">Central African Republic</a><a id="contact_countrySBItd" href="#">Chad</a><a id="contact_countrySBIcl" href="#">Chile</a><a id="contact_countrySBIcn" href="#">China</a><a id="contact_countrySBIcx" href="#">Christmas Island</a><a id="contact_countrySBIcc" href="#">Cocos [Keeling] Islands</a><a id="contact_countrySBIco" href="#">Colombia</a><a id="contact_countrySBIkm" href="#">Comoros</a><a id="contact_countrySBIcg" href="#">Congo [Republic]</a><a id="contact_countrySBIck" href="#">Cook Islands</a><a id="contact_countrySBIcr" href="#">Costa Rica</a><a id="contact_countrySBIhr" href="#">Croatia</a><a id="contact_countrySBIcu" href="#">Cuba</a><a id="contact_countrySBIcy" href="#">Cyprus</a><a id="contact_countrySBIcz" href="#">Czech Republic</a><a id="contact_countrySBIdk" href="#">Denmark</a><a id="contact_countrySBIdj" href="#">Djibouti</a><a id="contact_countrySBIdm" href="#">Dominica</a><a id="contact_countrySBIdo" href="#">Dominican Republic</a><a id="contact_countrySBIec" href="#">Ecuador</a><a id="contact_countrySBIeg" href="#">Egypt</a><a id="contact_countrySBIsv" href="#">El Salvador</a><a id="contact_countrySBIgq" href="#">Equatorial Guinea</a><a id="contact_countrySBIee" href="#">Estonia</a><a id="contact_countrySBIet" href="#">Ethiopia</a><a id="contact_countrySBIfk" href="#">Falkland Islands [Islas Malvinas]</a><a id="contact_countrySBIfo" href="#">Faroe Islands</a><a id="contact_countrySBIfj" href="#">Fiji</a><a id="contact_countrySBIfi" href="#">Finland</a><a id="contact_countrySBIfr" href="#">France</a><a id="contact_countrySBIgf" href="#">French Guiana</a><a id="contact_countrySBIpf" href="#">French Polynesia</a><a id="contact_countrySBItf" href="#">French Southern Territories</a><a id="contact_countrySBIga" href="#">Gabon</a><a id="contact_countrySBIgm" href="#">Gambia</a><a id="contact_countrySBIge" href="#">Georgia</a><a id="contact_countrySBIde" href="#">Germany</a><a id="contact_countrySBIgh" href="#">Ghana</a><a id="contact_countrySBIgi" href="#">Gibraltar</a><a id="contact_countrySBIgr" href="#">Greece</a><a id="contact_countrySBIgl" href="#">Greenland</a><a id="contact_countrySBIgd" href="#">Grenada</a><a id="contact_countrySBIgp" href="#">Guadeloupe</a><a id="contact_countrySBIgu" href="#">Guam</a><a id="contact_countrySBIgt" href="#">Guatemala</a><a id="contact_countrySBIgn" href="#">Guinea</a><a id="contact_countrySBIgw" href="#">Guinea-Bissau</a><a id="contact_countrySBIgy" href="#">Guyana</a><a id="contact_countrySBIht" href="#">Haiti</a><a id="contact_countrySBIhm" href="#">Heard Island and McDonald Islands</a><a id="contact_countrySBIhn" href="#">Honduras</a><a id="contact_countrySBIhk" href="#">Hong Kong</a><a id="contact_countrySBIhu" href="#">Hungary</a><a id="contact_countrySBIis" href="#">Iceland</a><a id="contact_countrySBIin" href="#">India</a><a id="contact_countrySBIid" href="#">Indonesia</a><a id="contact_countrySBIir" href="#">Iran</a><a id="contact_countrySBIiq" href="#">Iraq</a><a id="contact_countrySBIie" href="#">Ireland</a><a id="contact_countrySBIil" href="#">Israel</a><a id="contact_countrySBIit" href="#">Italy</a><a id="contact_countrySBIci" href="#">Ivory Coast</a><a id="contact_countrySBIjm" href="#">Jamaica</a><a id="contact_countrySBIjp" href="#">Japan</a><a id="contact_countrySBIjo" href="#">Jordan</a><a id="contact_countrySBIkz" href="#">Kazakhstan</a><a id="contact_countrySBIke" href="#">Kenya</a><a id="contact_countrySBIki" href="#">Kiribati</a><a id="contact_countrySBIkw" href="#">Kuwait</a><a id="contact_countrySBIkg" href="#">Kyrgyzstan</a><a id="contact_countrySBIla" href="#">Laos</a><a id="contact_countrySBIlv" href="#">Latvia</a><a id="contact_countrySBIlb" href="#">Lebanon</a><a id="contact_countrySBIls" href="#">Lesotho</a><a id="contact_countrySBIlr" href="#">Liberia</a><a id="contact_countrySBIly" href="#">Libya</a><a id="contact_countrySBIli" href="#">Liechtenstein</a><a id="contact_countrySBIlt" href="#">Lithuania</a><a id="contact_countrySBIlu" href="#">Luxembourg</a><a id="contact_countrySBImo" href="#">Macau</a><a id="contact_countrySBImk" href="#">Macedonia [FYROM]</a><a id="contact_countrySBImg" href="#">Madagascar</a><a id="contact_countrySBImw" href="#">Malawi</a><a id="contact_countrySBImy" href="#">Malaysia</a><a id="contact_countrySBImv" href="#">Maldives</a><a id="contact_countrySBIml" href="#">Mali</a><a id="contact_countrySBImt" href="#">Malta</a><a id="contact_countrySBImh" href="#">Marshall Islands</a><a id="contact_countrySBImq" href="#">Martinique</a><a id="contact_countrySBImr" href="#">Mauritania</a><a id="contact_countrySBImu" href="#">Mauritius</a><a id="contact_countrySBImx" href="#">Mexico</a><a id="contact_countrySBIfm" href="#">Micronesia</a><a id="contact_countrySBImd" href="#">Moldova</a><a id="contact_countrySBImc" href="#">Monaco</a><a id="contact_countrySBImn" href="#">Mongolia</a><a id="contact_countrySBIme" href="#">Montenegro</a><a id="contact_countrySBIms" href="#">Montserrat</a><a id="contact_countrySBIma" href="#">Morocco</a><a id="contact_countrySBImz" href="#">Mozambique</a><a id="contact_countrySBImm" href="#">Myanmar [Burma]</a><a id="contact_countrySBIna" href="#">Namibia</a><a id="contact_countrySBInr" href="#">Nauru</a><a id="contact_countrySBInp" href="#">Nepal</a><a id="contact_countrySBInl" href="#">Netherlands</a><a id="contact_countrySBIan" href="#">Netherlands Antilles</a><a id="contact_countrySBInc" href="#">New Caledonia</a><a id="contact_countrySBInz" href="#">New Zealand</a><a id="contact_countrySBIni" href="#">Nicaragua</a><a id="contact_countrySBIne" href="#">Niger</a><a id="contact_countrySBIng" href="#">Nigeria</a><a id="contact_countrySBInu" href="#">Niue</a><a id="contact_countrySBInf" href="#">Norfolk Island</a><a id="contact_countrySBImp" href="#">Northern Mariana Islands</a><a id="contact_countrySBIkp" href="#">North Korea</a><a id="contact_countrySBIno" href="#">Norway</a><a id="contact_countrySBIom" href="#">Oman</a><a id="contact_countrySBIpk" href="#">Pakistan</a><a id="contact_countrySBIpw" href="#">Palau</a><a id="contact_countrySBIpa" href="#">Panama</a><a id="contact_countrySBIpg" href="#">Papua New Guinea</a><a id="contact_countrySBIpy" href="#">Paraguay</a><a id="contact_countrySBIpe" href="#">Peru</a><a id="contact_countrySBIph" href="#">Philippines</a><a id="contact_countrySBIpn" href="#">Pitcairn Islands</a><a id="contact_countrySBIpl" href="#">Poland</a><a id="contact_countrySBIpt" href="#">Portugal</a><a id="contact_countrySBIpr" href="#">Puerto Rico</a><a id="contact_countrySBIqa" href="#">Qatar</a><a id="contact_countrySBIre" href="#">Réunion</a><a id="contact_countrySBIro" href="#">Romania</a><a id="contact_countrySBIru" href="#">Russia</a><a id="contact_countrySBIrw" href="#">Rwanda</a><a id="contact_countrySBIsh" href="#">Saint Helena</a><a id="contact_countrySBIkn" href="#">Saint Kitts and Nevis</a><a id="contact_countrySBIlc" href="#">Saint Lucia</a><a id="contact_countrySBIpm" href="#">Saint Pierre and Miquelon</a><a id="contact_countrySBIvc" href="#">Saint Vincent and the Grenadines</a><a id="contact_countrySBIws" href="#">Samoa</a><a id="contact_countrySBIsm" href="#">San Marino</a><a id="contact_countrySBIst" href="#">São Tomé and Príncipe</a><a id="contact_countrySBIsa" href="#">Saudi Arabia</a><a id="contact_countrySBIsn" href="#">Senegal</a><a id="contact_countrySBIrs" href="#">Serbia</a><a id="contact_countrySBIsc" href="#">Seychelles</a><a id="contact_countrySBIsl" href="#">Sierra Leone</a><a id="contact_countrySBIsg" href="#">Singapore</a><a id="contact_countrySBIsk" href="#">Slovakia</a><a id="contact_countrySBIsi" href="#">Slovenia</a><a id="contact_countrySBIsb" href="#">Solomon Islands</a><a id="contact_countrySBIso" href="#">Somalia</a><a id="contact_countrySBIza" href="#">South Africa</a><a id="contact_countrySBIkr" href="#">South Korea</a><a id="contact_countrySBIes" href="#">Spain</a><a id="contact_countrySBIlk" href="#">Sri Lanka</a><a id="contact_countrySBIsd" href="#">Sudan</a><a id="contact_countrySBIsr" href="#">Suriname</a><a id="contact_countrySBIsj" href="#">Svalbard and Jan Mayen</a><a id="contact_countrySBIsz" href="#">Swaziland</a><a id="contact_countrySBIse" href="#">Sweden</a><a id="contact_countrySBIch" href="#">Switzerland</a><a id="contact_countrySBIsy" href="#">Syria</a><a id="contact_countrySBItw" href="#">Taiwan</a><a id="contact_countrySBItj" href="#">Tajikistan</a><a id="contact_countrySBItz" href="#">Tanzania</a><a id="contact_countrySBIth" href="#">Thailand</a><a id="contact_countrySBItg" href="#">Togo</a><a id="contact_countrySBItk" href="#">Tokelau</a><a id="contact_countrySBIto" href="#">Tonga</a><a id="contact_countrySBItt" href="#">Trinidad and Tobago</a><a id="contact_countrySBItn" href="#">Tunisia</a><a id="contact_countrySBItr" href="#">Turkey</a><a id="contact_countrySBItm" href="#">Turkmenistan</a><a id="contact_countrySBItc" href="#">Turks and Caicos Islands</a><a id="contact_countrySBItv" href="#">Tuvalu</a><a id="contact_countrySBIug" href="#">Uganda</a><a id="contact_countrySBIgb" href="#">U.K.</a><a id="contact_countrySBIua" href="#">Ukraine</a><a id="contact_countrySBIae" href="#">United Arab Emirates</a><a id="contact_countrySBIuy" href="#">Uruguay</a><a id="contact_countrySBIus" href="#">U.S.</a><a id="contact_countrySBIum" href="#">U.S. Outlying Islands</a><a id="contact_countrySBIvi" href="#">U.S. Virgin Islands</a><a id="contact_countrySBIuz" href="#">Uzbekistan</a><a id="contact_countrySBIvu" href="#">Vanuatu</a><a id="contact_countrySBIva" href="#">Vatican City</a><a id="contact_countrySBIve" href="#">Venezuela</a><a id="contact_countrySBIvn" href="#" class="selected">Vietnam</a><a id="contact_countrySBIwf" href="#">Wallis and Futuna</a><a id="contact_countrySBIeh" href="#">Western Sahara</a><a id="contact_countrySBIye" href="#">Yemen</a><a id="contact_countrySBIzm" href="#">Zambia</a><a id="contact_countrySBIzw" href="#">Zimbabwe</a></div></div></div><div class="formRow" id="contact_stateRow" style="display: none; z-index: 1;"><label for="contact_state">Select a state</label><div class="selectCase hand"><input type="hidden" id="contact_state" name="contact_state" value="" _type="text" class="hand"><input readonly="readonly" type="text" id="contact_stateText" class="selectText hand" value=""><b><!-- --></b><i><!-- --></i><div class="selectBox" style="width: 0px; display: none;"><a id="contact_stateSBI1" href="#">Alabama</a><a id="contact_stateSBI2" href="#">Alaska</a><a id="contact_stateSBI3" href="#">Arizona</a><a id="contact_stateSBI4" href="#">Arkansas</a><a id="contact_stateSBI5" href="#">California</a><a id="contact_stateSBI6" href="#">Colorado</a><a id="contact_stateSBI7" href="#">Connecticut</a><a id="contact_stateSBI8" href="#">Delaware</a><a id="contact_stateSBI9" href="#">Florida</a><a id="contact_stateSBI10" href="#">Georgia</a><a id="contact_stateSBI11" href="#">Hawaii</a><a id="contact_stateSBI12" href="#">Idaho</a><a id="contact_stateSBI13" href="#">Illinois</a><a id="contact_stateSBI14" href="#">Indiana</a><a id="contact_stateSBI15" href="#">Iowa</a><a id="contact_stateSBI16" href="#">Kansas</a><a id="contact_stateSBI17" href="#">Kentucky</a><a id="contact_stateSBI18" href="#">Louisiana</a><a id="contact_stateSBI19" href="#">Maine</a><a id="contact_stateSBI20" href="#">Maryland</a><a id="contact_stateSBI21" href="#">Massachusetts</a><a id="contact_stateSBI22" href="#">Michigan</a><a id="contact_stateSBI23" href="#">Minnesota</a><a id="contact_stateSBI24" href="#">Mississipi</a><a id="contact_stateSBI25" href="#">Missouri</a><a id="contact_stateSBI26" href="#">Montana</a><a id="contact_stateSBI27" href="#">Nebraska</a><a id="contact_stateSBI28" href="#">Nevada</a><a id="contact_stateSBI29" href="#">New Hampshire</a><a id="contact_stateSBI30" href="#">New Jersey</a><a id="contact_stateSBI31" href="#">New Mexico</a><a id="contact_stateSBI32" href="#">New York</a><a id="contact_stateSBI33" href="#">North Carolina</a><a id="contact_stateSBI34" href="#">North Dakota</a><a id="contact_stateSBI35" href="#">Ohio</a><a id="contact_stateSBI36" href="#">Oklahoma</a><a id="contact_stateSBI37" href="#">Oregon</a><a id="contact_stateSBI38" href="#">Pennsylvania</a><a id="contact_stateSBI39" href="#">Rhode Island</a><a id="contact_stateSBI40" href="#">South Carolina</a><a id="contact_stateSBI41" href="#">South Dakota</a><a id="contact_stateSBI42" href="#">Tennessee</a><a id="contact_stateSBI43" href="#">Texas</a><a id="contact_stateSBI44" href="#">Utah</a><a id="contact_stateSBI45" href="#">Vermont</a><a id="contact_stateSBI46" href="#">Virginia</a><a id="contact_stateSBI47" href="#">Washington</a><a id="contact_stateSBI48" href="#">West Virginia</a><a id="contact_stateSBI49" href="#">Wisconsin</a><a id="contact_stateSBI50" href="#">Wyoming</a></div></div></div><div class="formRow" id="contact_telRow"><label for="contact_tel">Phone</label><span class="inputCase"><input type="text" id="contact_tel" name="contact_tel" value=""><i><!-- --></i></span></div><div class="formRow" id="contact_emailRow"><label for="contact_email">Email</label><span class="inputCase"><input type="text" id="contact_email" name="contact_email" value="gstearmit@gmail.com"><i><!-- --></i></span></div><div class="formRow" id="contact_icRow"><label for="contact_ic">VAT number</label><span class="inputCase"><input type="text" id="contact_ic" name="contact_ic" value=""><i><!-- --></i></span></div><div class="formRow" id="currency_idRow" style="z-index: 1;"><label for="currency_id">Currency</label><div class="selectCase hand"><input type="hidden" id="currency_id" name="currency_id" value="155" _type="text" class="hand"><input readonly="readonly" type="text" id="currency_idText" class="selectText hand" value=""><b><!-- --></b><i><!-- --></i><div class="selectBox" style="width: 0px; display: none;"><a id="currency_idSBI5" href="#">Afghan Afghani (AFN)</a><a id="currency_idSBI6" href="#">Albanian Lek (ALL)</a><a id="currency_idSBI41" href="#">Algerian Dinar (DZD)</a><a id="currency_idSBI9" href="#">Angolan Kwanza (AOA)</a><a id="currency_idSBI10" href="#">Argentine Peso (ARS)</a><a id="currency_idSBI7" href="#">Armenian Dram (AMD)</a><a id="currency_idSBI12" href="#">Aruban Florin (AWG)</a><a id="currency_idSBI11" href="#">Australian Dollar (AUD)</a><a id="currency_idSBI13" href="#">Azerbaijani Manat (AZN)</a><a id="currency_idSBI24" href="#">Bahamian Dollar (BSD)</a><a id="currency_idSBI18" href="#">Bahraini Dinar (BHD)</a><a id="currency_idSBI16" href="#">Bangladeshi Taka (BDT)</a><a id="currency_idSBI15" href="#">Barbadian Dollar (BBD)</a><a id="currency_idSBI27" href="#">Belarusian Ruble (BYR)</a><a id="currency_idSBI28" href="#">Belize Dollar (BZD)</a><a id="currency_idSBI20" href="#">Bermudan Dollar (BMD)</a><a id="currency_idSBI25" href="#">Bhutanese Ngultrum (BTN)</a><a id="currency_idSBI22" href="#">Bolivian Boliviano (BOB)</a><a id="currency_idSBI14" href="#">Bosnia-Herzegovina Convertible Mark (BAM)</a><a id="currency_idSBI26" href="#">Botswanan Pula (BWP)</a><a id="currency_idSBI23" href="#">Brazilian Real (BRL)</a><a id="currency_idSBI48" href="#">British Pound Sterling (GBP)</a><a id="currency_idSBI21" href="#">Brunei Dollar (BND)</a><a id="currency_idSBI17" href="#">Bulgarian Lev (BGN)</a><a id="currency_idSBI19" href="#">Burundian Franc (BIF)</a><a id="currency_idSBI77" href="#">Cambodian Riel (KHR)</a><a id="currency_idSBI29" href="#">Canadian Dollar (CAD)</a><a id="currency_idSBI37" href="#">Cape Verdean Escudo (CVE)</a><a id="currency_idSBI81" href="#">Cayman Islands Dollar (KYD)</a><a id="currency_idSBI163" href="#">CFA Franc BCEAO (XOF)</a><a id="currency_idSBI158" href="#">CFA Franc BEAC (XAF)</a><a id="currency_idSBI165" href="#">CFP Franc (XPF)</a><a id="currency_idSBI31" href="#">Chilean Peso (CLP)</a><a id="currency_idSBI32" href="#">Chinese Yuan (CNY)</a><a id="currency_idSBI33" href="#">Colombian Peso (COP)</a><a id="currency_idSBI78" href="#">Comorian Franc (KMF)</a><a id="currency_idSBI30" href="#">Congolese Franc (CDF)</a><a id="currency_idSBI34" href="#">Costa Rican Colón (CRC)</a><a id="currency_idSBI59" href="#">Croatian Kuna (HRK)</a><a id="currency_idSBI35" href="#">Cuban Convertible Peso (CUC)</a><a id="currency_idSBI36" href="#">Cuban Peso (CUP)</a><a id="currency_idSBI2" href="#">Czech Republic Koruna (CZK)</a><a id="currency_idSBI39" href="#">Danish Krone (DKK)</a><a id="currency_idSBI38" href="#">Djiboutian Franc (DJF)</a><a id="currency_idSBI40" href="#">Dominican Peso (DOP)</a><a id="currency_idSBI161" href="#">East Caribbean Dollar (XCD)</a><a id="currency_idSBI43" href="#">Egyptian Pound (EGP)</a><a id="currency_idSBI44" href="#">Eritrean Nakfa (ERN)</a><a id="currency_idSBI45" href="#">Ethiopian Birr (ETB)</a><a id="currency_idSBI3" href="#">Euro (EUR)</a><a id="currency_idSBI47" href="#">Falkland Islands Pound (FKP)</a><a id="currency_idSBI46" href="#">Fijian Dollar (FJD)</a><a id="currency_idSBI53" href="#">Gambian Dalasi (GMD)</a><a id="currency_idSBI49" href="#">Georgian Lari (GEL)</a><a id="currency_idSBI51" href="#">Ghanaian Cedi (GHS)</a><a id="currency_idSBI52" href="#">Gibraltar Pound (GIP)</a><a id="currency_idSBI55" href="#">Guatemalan Quetzal (GTQ)</a><a id="currency_idSBI54" href="#">Guinean Franc (GNF)</a><a id="currency_idSBI56" href="#">Guyanaese Dollar (GYD)</a><a id="currency_idSBI60" href="#">Haitian Gourde (HTG)</a><a id="currency_idSBI58" href="#">Honduran Lempira (HNL)</a><a id="currency_idSBI57" href="#">Hong Kong Dollar (HKD)</a><a id="currency_idSBI61" href="#">Hungarian Forint (HUF)</a><a id="currency_idSBI70" href="#">Icelandic Króna (ISK)</a><a id="currency_idSBI67" href="#">Indian Rupee (INR)</a><a id="currency_idSBI64" href="#">Indonesian Rupiah (IDR)</a><a id="currency_idSBI69" href="#">Iranian Rial (IRR)</a><a id="currency_idSBI68" href="#">Iraqi Dinar (IQD)</a><a id="currency_idSBI65" href="#">Israeli New Sheqel (ILS)</a><a id="currency_idSBI72" href="#">Jamaican Dollar (JMD)</a><a id="currency_idSBI74" href="#">Japanese Yen (JPY)</a><a id="currency_idSBI73" href="#">Jordanian Dinar (JOD)</a><a id="currency_idSBI82" href="#">Kazakhstani Tenge (KZT)</a><a id="currency_idSBI75" href="#">Kenyan Shilling (KES)</a><a id="currency_idSBI80" href="#">Kuwaiti Dinar (KWD)</a><a id="currency_idSBI76" href="#">Kyrgystani Som (KGS)</a><a id="currency_idSBI83" href="#">Laotian Kip (LAK)</a><a id="currency_idSBI89" href="#">Latvian Lats (LVL)</a><a id="currency_idSBI84" href="#">Lebanese Pound (LBP)</a><a id="currency_idSBI87" href="#">Lesotho Loti (LSL)</a><a id="currency_idSBI86" href="#">Liberian Dollar (LRD)</a><a id="currency_idSBI90" href="#">Libyan Dinar (LYD)</a><a id="currency_idSBI88" href="#">Lithuanian Litas (LTL)</a><a id="currency_idSBI97" href="#">Macanese Pataca (MOP)</a><a id="currency_idSBI94" href="#">Macedonian Denar (MKD)</a><a id="currency_idSBI93" href="#">Malagasy Ariary (MGA)</a><a id="currency_idSBI101" href="#">Malawian Kwacha (MWK)</a><a id="currency_idSBI103" href="#">Malaysian Ringgit (MYR)</a><a id="currency_idSBI100" href="#">Maldivian Rufiyaa (MVR)</a><a id="currency_idSBI98" href="#">Mauritanian Ouguiya (MRO)</a><a id="currency_idSBI99" href="#">Mauritian Rupee (MUR)</a><a id="currency_idSBI102" href="#">Mexican Peso (MXN)</a><a id="currency_idSBI92" href="#">Moldovan Leu (MDL)</a><a id="currency_idSBI96" href="#">Mongolian Tugrik (MNT)</a><a id="currency_idSBI91" href="#">Moroccan Dirham (MAD)</a><a id="currency_idSBI104" href="#">Mozambican Metical (MZN)</a><a id="currency_idSBI95" href="#">Myanma Kyat (MMK)</a><a id="currency_idSBI105" href="#">Namibian Dollar (NAD)</a><a id="currency_idSBI109" href="#">Nepalese Rupee (NPR)</a><a id="currency_idSBI8" href="#">Netherlands Antillean Guilder (ANG)</a><a id="currency_idSBI148" href="#">New Taiwan Dollar (TWD)</a><a id="currency_idSBI110" href="#">New Zealand Dollar (NZD)</a><a id="currency_idSBI107" href="#">Nicaraguan Córdoba (NIO)</a><a id="currency_idSBI106" href="#">Nigerian Naira (NGN)</a><a id="currency_idSBI108" href="#">Norwegian Krone (NOK)</a><a id="currency_idSBI111" href="#">Omani Rial (OMR)</a><a id="currency_idSBI116" href="#">Pakistani Rupee (PKR)</a><a id="currency_idSBI112" href="#">Panamanian Balboa (PAB)</a><a id="currency_idSBI114" href="#">Papua New Guinean Kina (PGK)</a><a id="currency_idSBI118" href="#">Paraguayan Guarani (PYG)</a><a id="currency_idSBI113" href="#">Peruvian Nuevo Sol (PEN)</a><a id="currency_idSBI115" href="#">Philippine Peso (PHP)</a><a id="currency_idSBI117" href="#">Polish Zloty (PLN)</a><a id="currency_idSBI119" href="#">Qatari Rial (QAR)</a><a id="currency_idSBI120" href="#">Romanian Leu (RON)</a><a id="currency_idSBI122" href="#">Russian Ruble (RUB)</a><a id="currency_idSBI123" href="#">Rwandan Franc (RWF)</a><a id="currency_idSBI130" href="#">Saint Helena Pound (SHP)</a><a id="currency_idSBI157" href="#">Samoan Tala (WST)</a><a id="currency_idSBI136" href="#">São Tomé and Príncipe Dobra (STD)</a><a id="currency_idSBI124" href="#">Saudi Riyal (SAR)</a><a id="currency_idSBI121" href="#">Serbian Dinar (RSD)</a><a id="currency_idSBI126" href="#">Seychellois Rupee (SCR)</a><a id="currency_idSBI132" href="#">Sierra Leonean Leone (SLL)</a><a id="currency_idSBI129" href="#">Singapore Dollar (SGD)</a><a id="currency_idSBI125" href="#">Solomon Islands Dollar (SBD)</a><a id="currency_idSBI133" href="#">Somali Shilling (SOS)</a><a id="currency_idSBI168" href="#">South African Rand (ZAR)</a><a id="currency_idSBI172" href="#">South Korean Won (KRW)</a><a id="currency_idSBI85" href="#">Sri Lankan Rupee (LKR)</a><a id="currency_idSBI127" href="#">Sudanese Pound (SDG)</a><a id="currency_idSBI135" href="#">Surinamese Dollar (SRD)</a><a id="currency_idSBI139" href="#">Swazi Lilangeni (SZL)</a><a id="currency_idSBI128" href="#">Swedish Krona (SEK)</a><a id="currency_idSBI63" href="#">Swiss Franc (CHF)</a><a id="currency_idSBI138" href="#">Syrian Pound (SYP)</a><a id="currency_idSBI141" href="#">Tajikistani Somoni (TJS)</a><a id="currency_idSBI149" href="#">Tanzanian Shilling (TZS)</a><a id="currency_idSBI140" href="#">Thai Baht (THB)</a><a id="currency_idSBI144" href="#">Tongan Paʻanga (TOP)</a><a id="currency_idSBI146" href="#">Trinidad and Tobago Dollar (TTD)</a><a id="currency_idSBI143" href="#">Tunisian Dinar (TND)</a><a id="currency_idSBI145" href="#">Turkish Lira (TRY)</a><a id="currency_idSBI142" href="#">Turkmenistani Manat (TMT)</a><a id="currency_idSBI151" href="#">Ugandan Shilling (UGX)</a><a id="currency_idSBI150" href="#">Ukrainian Hryvnia (UAH)</a><a id="currency_idSBI4" href="#">United Arab Emirates Dirham (AED)</a><a id="currency_idSBI152" href="#">Uruguayan Peso (UYU)</a><a id="currency_idSBI1" href="#">US Dollar (USD)</a><a id="currency_idSBI153" href="#">Uzbekistan Som (UZS)</a><a id="currency_idSBI156" href="#">Vanuatu Vatu (VUV)</a><a id="currency_idSBI154" href="#">Venezuelan Bolívar (VEF)</a><a id="currency_idSBI155" href="#" class="selected">Vietnamese Dong (VND)</a><a id="currency_idSBI167" href="#">Yemeni Rial (YER)</a><a id="currency_idSBI170" href="#">Zambian Kwacha (ZMW)</a></div></div></div><div class="formRow" id="taxesRow"><label for="taxes">VAT payer</label><div class="radioSet"><span id="taxesRadio1Wrapper" class="radioWrapper"><input type="radio" name="taxes" value="yes" id="taxesRadio1" checked="checked">&nbsp;<label for="taxesRadio1" class="radioLabel">Yes</label></span><span id="taxesRadio2Wrapper" class="radioWrapper"> &nbsp; <input type="radio" name="taxes" value="no" id="taxesRadio2">&nbsp;<label for="taxesRadio2" class="radioLabel">No</label></span></div><div class="cleaner"><!-- --></div></div></div><div class="moduleIcon"><i class="unitPng"></i></div></fieldset><div class="cleaner"><!-- --></div><div class="formEnd"><!-- --></div></form>
+						<div class="cleaner">
+							<!-- -->
+						</div>
+					</div>
+					<div id="wizardButtons">
+						<div class="buttonToRight">
+							<span id="nextButtonBlock" class="buttonCase"><button
+									id="nextButton" type="submit">
+									<b>Continue</b>
+								</button>
+								<i>
+									<!-- -->
+							</i></span>
+						</div>
+						<div class="cleaner">
+							<!-- -->
+						</div>
+					</div>
+				</div>
+				<div class="cleaner">
+					<!-- -->
+				</div>
+			</div>
+		</div>
+		<hr class="hidden" />
+		<div id="coverFooter">
+			<div id="footer">
+				<p id="footerCopyrights">&copy; 2014 alatca. All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript"
+		src="http://localhost/webcreathtml/js/2010/obfs/alatca.wizard.basic.1-2-164.js?error=1&amp;lang=en"></script>
+	<script type="text/javascript"
+		src="http://localhost/webcreathtml/js/precache/obfs/precache.en.1-2-164.js"></script>
+	<script type="text/javascript"
+		src="http://localhost/webcreathtml/_system/client/js/resources/en.wizard.1-2-164.js"></script>
+	<div style="display: none;">
+		<script type="text/javascript"
+			src="http://www.googleadservices.com/pagead/conversion.js"></script>
+		<noscript>
+			<div style="display: inline;">
+				<img height="1" width="1" style="border-style: none;" alt=""
+					src="http://www.googleadservices.com/pagead/conversion/1017518698/?value=1&amp;label=OUq_CPbFywEQ6rSY5QM&amp;guid=ON&amp;script=0" />
+			</div>
+		</noscript>
+		<script type="text/javascript"
+			src="http://www.googleadservices.com/pagead/conversion.js"></script>
+		<noscript>
+			<div style="display: inline;">
+				<img height="1" width="1" style="border-style: none;" alt=""
+					src="http://www.googleadservices.com/pagead/conversion/982322944/?label=8v5fCMDXnAIQgJ601AM&amp;guid=ON&amp;script=0" />
+			</div>
+		</noscript>
+		<script type="text/javascript"
+			src="http://www.googleadservices.com/pagead/conversion.js"></script>
+		<noscript>
+			<div style="display: inline;">
+				<img height="1" width="1" style="border-style: none;" alt=""
+					src="http://www.googleadservices.com/pagead/conversion/975129779/?label=fDAeCIWlxQIQs5n90AM&amp;guid=ON&amp;script=0" />
+			</div>
+		</noscript>
+		<script type="text/javascript"
+			src="http://www.googleadservices.com/pagead/conversion.js"></script>
+		<noscript>
+			<div style="display: inline;">
+				<img height="1" width="1" style="border-style: none;" alt=""
+					src="http://www.googleadservices.com/pagead/conversion/974844191/?label=asnDCNGIngIQn-Lr0AM&amp;guid=ON&amp;script=0" />
+			</div>
+		</noscript>
+		<img height="1" width="1" alt=""
+			src="http://www.googleadservices.com/pagead/conversion/1009157398/imp.gif?value=1&amp;label=SBf6CKrnzgIQloqa4QM&amp;guid=ON&amp;script=0" />
+		<script id="mstag_tops" type="text/javascript"
+			src="http://localhost/webcreathtml/mstag/site/76492f22-0c84-41ac-a8fe-21390e2bb0f3/mstag.js"></script>
+		<noscript>
+			<iframe
+				src="http://localhost/webcreathtml/mstag/tag/76492f22-0c84-41ac-a8fe-21390e2bb0f3/analytics.html?dedup=1&domainId=2873445&type=1&actionid=244269"
+				frameborder="0" scrolling="no" width="1" height="1"
+				style="visibility: hidden; display: none"></iframe>
+		</noscript>
+		<img height="1" width="1" alt=""
+			src="//www.googleadservices.com/pagead/conversion/1002742868/imp.gif?label=4Na0CNTxqVUQ1MiS3gM&amp;guid=ON&amp;script=0" />
+	</div>
+</body>
+</html>
