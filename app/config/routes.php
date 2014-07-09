@@ -6,6 +6,7 @@
     Router::connect('/personal-websites', array('controller' => 'home', 'action' => 'personalwebsites'));
     Router::connect('/sign-in', array('controller' => 'home', 'action' => 'signin'));
     Router::connect('/launch-your-site', array('controller' => 'home', 'action' => 'launchyoursite'));
+    Router::connect('/launch-your-site-step2', array('controller' => 'home', 'action' => 'launchyoursitestep2'));
    
 	Router::connect('/home/*', array('controller' => 'home', 'action' => 'index'));
 	Router::connect('/dang-ky-email', array('controller' => 'home', 'action' => 'register'));

@@ -81,7 +81,7 @@ class HomeController extends AppController {
 			//mkdir("/path/to/my/dir", 0700);
 			//pr($Store);die;
 			 
-			$this->Shops->save($Store);
+			//$this->Shops->save($Store);
 			
 			// ++Start Session Eshop
 			$this->Session->write('eshop.storename', $_POST ['storename']);
@@ -90,12 +90,20 @@ class HomeController extends AppController {
 			$this->Session->write('eshop.domain', $_POST ['domain']);
 			$this->Session->write('eshop.aa62a6988a6', $_POST ['aa62a6988a6']);
 			$eshop_tmp = $this->Session->read('eshop');
+			$this->set('title_for_layout', '::Lauch Site');
 			//pr($this->Session->read('eshop'));die;
-			$this->set('eshop',$this->Session->read('eshop'));
+			//$this->set('eshop',$this->Session->read('eshop'));
 		}
 		
 		
-	}  
+	} 
+
+	function launchyoursitestep2()
+	{
+		echo 'launchyoursitestep2';
+		pr($_POST);
+		die;
+	}
 	 
 	 
 	  
