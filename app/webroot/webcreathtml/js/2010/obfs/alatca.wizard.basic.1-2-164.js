@@ -12416,29 +12416,29 @@ SelectBoxClass.prototype = {
 		return false
 	},
 	
-	setBoxValue: function(c, b, a) {
-		this.baseEl.value = c;
-		if (null != this.selectedItem && null != $(this.itemIdPrefix + this.selectedItem)) {
-			$(this.itemIdPrefix + this.selectedItem).removeClassName("selected")
-		}
-		this.selectedItem = c;
-		if (null != $(this.itemIdPrefix + this.selectedItem)) {
-			$(this.itemIdPrefix + this.selectedItem).addClassName("selected")
-		}
-		this._setBoxText(c);
-		if (!b) {
-			this.hide()
-		}
-		if (!a) {
-			this.onSelect()
-		}
-		this.userOnSelect();
-		
-		Forms.hideHint();
-		
-		return false
-	},
-	
+//	setBoxValue: function(c, b, a) {
+//		this.baseEl.value = c;
+//		if (null != this.selectedItem && null != $(this.itemIdPrefix + this.selectedItem)) {
+//			$(this.itemIdPrefix + this.selectedItem).removeClassName("selected")
+//		}
+//		this.selectedItem = c;
+//		if (null != $(this.itemIdPrefix + this.selectedItem)) {
+//			$(this.itemIdPrefix + this.selectedItem).addClassName("selected")
+//		}
+//		this._setBoxText(c);
+//		if (!b) {
+//			this.hide()
+//		}
+//		if (!a) {
+//			this.onSelect()
+//		}
+//		this.userOnSelect();
+//		
+//		Forms.hideHint();
+//		
+//		return false
+//	},
+//	
 	_setBoxText: function(a) {
 		if (this.data[a]) {
 			this.textEl.value = html_entity_decode(this.data[a])
@@ -14557,41 +14557,41 @@ WizardClass.prototype = {
 	},
 	
 	_setupForModule: function() {
-		if (null != this.moduleTypeErrorEl) {
-			this.moduleTypeErrorEl.update();
-			
-			this.moduleTypeErrorEl.hide()
-		}
-		if ("undefined" != typeof(CFG) && CFG.labels["wizardPage"]["projectNameLabel"][this.selectedModule]) {
-			this.projectLabelEl.innerHTML = CFG.labels["wizardPage"]["projectNameLabel"][this.selectedModule]
-		}
-		if (MODULE_WEB == this.selectedModule) {
-			this.formRowsEl.languageRow.show();
-			
-			this.formRowsEl.branch_typeRow.hide()
-		} else {
-			if (MODULE_BRANCH == this.selectedModule) {
-				this.formRowsEl.branch_typeRow.show();
-				
-				BranchTypes.correctWindowLink();
-				
-				this.formRowsEl.languageRow.hide();
-				
-				Languages.setBoxValue(Languages.defaultValue)
-			} else {
-				if (MODULE_ESHOP == this.selectedModule) {
-					this.formRowsEl.languageRow.show();
-					
-					this.formRowsEl.branch_typeRow.hide()
-				}
-			}
-		}
-		if ("undefined" != typeof(Layouts) && 1 === this.step) {
-			Layouts.reset()
-		}
-		if ("undefined" != typeof(BranchTypes) && (MODULE_BRANCH != this.selectedModule)) {
-			BranchTypes.reset()
-		}
+//		if (null != this.moduleTypeErrorEl) {
+//			this.moduleTypeErrorEl.update();
+//			
+//			this.moduleTypeErrorEl.hide()
+//		}
+//		if ("undefined" != typeof(CFG) && CFG.labels["wizardPage"]["projectNameLabel"][this.selectedModule]) {
+//			this.projectLabelEl.innerHTML = CFG.labels["wizardPage"]["projectNameLabel"][this.selectedModule]
+//		}
+//		if (MODULE_WEB == this.selectedModule) {
+//			this.formRowsEl.languageRow.show();
+//			
+//			this.formRowsEl.branch_typeRow.hide()
+//		} else {
+//			if (MODULE_BRANCH == this.selectedModule) {
+//				this.formRowsEl.branch_typeRow.show();
+//				
+//				BranchTypes.correctWindowLink();
+//				
+//				this.formRowsEl.languageRow.hide();
+//				
+//				Languages.setBoxValue(Languages.defaultValue)
+//			} else {
+//				if (MODULE_ESHOP == this.selectedModule) {
+//					this.formRowsEl.languageRow.show();
+//					
+//					this.formRowsEl.branch_typeRow.hide()
+//				}
+//			}
+//		}
+//		if ("undefined" != typeof(Layouts) && 1 === this.step) {
+//			Layouts.reset()
+//		}
+//		if ("undefined" != typeof(BranchTypes) && (MODULE_BRANCH != this.selectedModule)) {
+//			BranchTypes.reset()
+//		}
 	},
 	
 	_showWaiting: function() {
