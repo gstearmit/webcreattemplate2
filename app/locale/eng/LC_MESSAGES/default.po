@@ -95,6 +95,122 @@ msgstr "Personal website"
 msgid "sologan"
 msgstr "Create a free website easily!"
 
+msgid "registrationWizard"
+msgstr "Registration Wizard"
+
+msgid "Step1"
+msgstr "Step 1"
+
+msgid "Enterprojectdetails"
+msgstr "Enter project details"
+
+msgid "Step2"
+msgstr "Step 2"
+
+msgid "Chooseyourtemplate"
+msgstr "Choose your template"
+
+msgid "Step3"
+msgstr "Step 3"
+
+msgid "Finishtheregistration"
+msgstr "Finish the registration"
+
+
+msgid "Selectawebsitetype"
+msgstr "Select a website type"
+
+
+
+
+msgid "Personalwebsite"
+msgstr "Personal website"
+
+msgid "Personalwebsite_detail"
+msgstr "Suitable for personal websites, blogs and photo sharing etc"
+
+
+
+msgid "Businesswebsite"
+msgstr "Business website"
+
+msgid "Businesswebsite_detail"
+msgstr "Ideal for business large or small, hundreds of professional designs"
+
+
+msgid "Eshop"
+msgstr "E-shop"
+
+msgid "Eshop_detail"
+msgstr "Get ahead by selling and managing your products and services on-line"
+
+msgid "Continue"
+msgstr "Continue"
+
+msgid "Websitename"
+msgstr "Website name"
+
+msgid "Websitename_click"
+msgstr "This form entry should contain the name of your website."
+
+
+msgid "Slogan"
+msgstr "Slogan"
+
+msgid "Slogan_click"
+msgstr "You can create a catchphrase for your website."
+
+msgid "Selectyourwebsitetemplate"
+msgstr "Select your website template"
+
+msgid "step1WizardFormErrorText"
+msgstr "The form contains errors. Please alter the highlighted fields and send the form again."
+
+msgid "eg_websitename"
+msgstr "E.g. Anna's Hairdressing"
+
+msgid "Language"
+msgstr "Language"
+
+
+msgid "Companyname"
+msgstr "Company name"
+
+msgid "Address"
+msgstr "Address"
+
+msgid "City"
+msgstr "City"
+
+msgid "ZIP"
+msgstr "ZIP"
+
+msgid "Country"
+msgstr "Country"
+
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "VAT_number"
+msgstr "VAT number"
+
+msgid "Currency"
+msgstr "Currency"
+
+msgid "VAT_payer"
+msgstr "VAT payer"
+
+
+msgid "Allrightsreserved"
+msgstr "&copy; 2014 alatca. All rights reserved."
+
+
+
+
+
+
+
 
 
 
