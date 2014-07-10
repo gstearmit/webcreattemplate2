@@ -48,7 +48,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo DOMAIN ?>webcreathtml/css/bootstrap.css"> <!-- igno before fieldset -->
 	 
     <link rel="stylesheet" href="<?php echo DOMAIN ?>webcreathtml/css/compiled/bootstrap-overrides.css" type="text/css">
-
+	 <link rel="stylesheet" type="text/css" href="<?php echo DOMAIN ?>webcreathtml/css/style-reponsive.css">
     <link rel="stylesheet" type="text/css" href="<?php echo DOMAIN ?>webcreathtml/css/compiled/theme.css">
     <link rel="stylesheet" type="text/css" href="<?php echo DOMAIN ?>webcreathtml/fonts/css.css">
      <link href="<?php echo DOMAIN ?>webcreathtml/css/custom.css" rel="stylesheet">
