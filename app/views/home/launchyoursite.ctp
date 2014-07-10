@@ -254,7 +254,7 @@ $eshop = $this->Session->read ( 'eshop' );
 								
 								<div class="formRow" id="contact_countryRow">
 									<label for="contact_country">Country</label>
-										<select class="selectCase hand form-control input-lg " name ="langgueNew" id ="langgueNew">
+										<select class="selectCase hand form-control input-lg " name ="countryNew" id ="countryNew">
 											<?php foreach ($Langgue as $key =>$langgue) :// pr($langgue['Langgues']);	?>
 											<?php  if(is_array($langgue['Langgues']) and !empty($langgue['Langgues'])) : ?>
 									          <option  value="<?php echo $langgue['Langgues']['countrycode'] ?>"  class="selectText hand" ><?php echo $langgue['Langgues']['namecountry'];?></option>
@@ -308,7 +308,18 @@ $eshop = $this->Session->read ( 'eshop' );
 								</div>
 								<div class="formRow" id="currency_idRow" style="display: none;">
 									<label for="currency_id">Currency</label>
-									<div class="selectCase">
+									<select class="selectCase hand form-control input-lg " name ="currency" id ="currency">
+											<?php //foreach ($Langgue as $key =>$langgue) :// pr($langgue['Langgues']);	?>
+											<?php  //if(is_array($langgue['Langgues']) and !empty($langgue['Langgues'])) : ?>
+									          <option  value="VI DONG<?php //echo $langgue['Langgues']['countrycode'] ?>"  class="selectText hand" >VI DONG<?php //echo $langgue['Langgues']['namecountry'];?></option>
+									          <option  value="NND<?php //echo $langgue['Langgues']['countrycode'] ?>"  class="selectText hand" >NND<?php //echo $langgue['Langgues']['namecountry'];?></option>
+									          <option  value="$VN<?php //echo $langgue['Langgues']['countrycode'] ?>"  class="selectText hand" >SSJSJSJ<?php //echo $langgue['Langgues']['namecountry'];?></option>
+									         
+									          <?php    //endif;?>
+									            <?php    //endforeach; ?>
+									</select>
+									    
+									<div class="selectCase hand phucrt ">
 										<input type="hidden" id="currency_id" name="currency_id"
 											value="" _type="text" /><input readonly="readonly"
 											type="text" id="currency_idText" class="selectText" value="" /><b>
@@ -316,6 +327,9 @@ $eshop = $this->Session->read ( 'eshop' );
 										</b><i> <!-- -->
 										</i>
 									</div>
+									
+									
+									
 								</div>
 								<div class="formRow" id="taxesRow" style="display: none;">
 									<label for="taxes">VAT payer</label>
