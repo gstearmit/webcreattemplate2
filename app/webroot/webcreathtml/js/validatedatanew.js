@@ -57,9 +57,11 @@ function validateData234(){
 		
 		
 		var company_slogan = step1WizardForm.company_slogan.value;
-		var languageText = step1WizardForm.languageText.value;
+		//var languageText = step1WizardForm.languageText.value;
+		var s = document.getElementById('langgueNew');
+		var langgueNew = s.options[s.selectedIndex].value;
 		var action = step1WizardForm.action.value;
-		alert(action);return 0;
+		//alert(langgueNew);return 0;
 		var check = '';
 	   
 		if(company_slogan =='')
@@ -68,10 +70,10 @@ function validateData234(){
 			document.getElementById("company_slogan").focus();
 			//check = false;
 			return false;
-		}else if( languageText =='')
+		}else if( langgueNew =='')
 		{
 			alert('Vui lòng chọn language');
-			document.getElementById("languageText").focus();//
+			document.getElementById("langgueNew").focus();//
 			//check = false;
 			return false;
 			
