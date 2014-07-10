@@ -15,106 +15,104 @@ $eshop = $this->Session->read ( 'eshop' );
 		<div id="header">
 			<span id="logo"></span>
 			<div id="headerContent" class="fullSize">
-				<h1>Registration Wizard</h1>
+				<h1><?php __('registrationWizard') ?></h1>
 			</div>
 		</div>
 		<hr class="hidden" />
 		<div id="content">
 			<div id="leftColumn">
 				<div id="stepInfo1" class="stepInfo actual">
-					<h3>Step 1</h3>
-					<div>Enter project details</div>
+					<h3><?php __('Step1') ?></h3>
+					<div><?php __('Enterprojectdetails') ?></div>
 				</div>
 				<div id="stepInfo2" class="stepInfo">
-					<h3>Step 2</h3>
-					<div>Choose your template</div>
+					<h3><?php __('Step2') ?></h3>
+					<div><?php __('Chooseyourtemplate') ?></div>
 				</div>
 				<div id="stepInfo3" class="stepInfo last">
-					<h3>Step 3</h3>
-					<div>Finish the registration</div>
+					<h3><?php __('Step3') ?></h3>
+					<div><?php __('Finishtheregistration') ?></div>
 				</div>
 			</div>
 			<div id="rightContent">
 				<div id="stepArea1" class="stepArea selectedStep">
 					<div id="modulesSelect3" class="modulesSelect">
-						<h3>Select a website type</h3>
+						<h3><?php __('Selectawebsitetype') ?></h3>
 						<div id="modulesSelectErrorMsg">
 							<!-- -->
 						</div>
 						<div id="moduleAreaweb" class="moduleBlock">
 							<i class="unitPng"> <!-- -->
 							</i><input type="radio" name="moduleType" class="moduleKey"
-								id="moduleKeyweb" value="web" /><label for="moduleKeyweb">Personal website</label>
+								id="moduleKeyweb" value="web" /><label for="moduleKeyweb"><?php __('Personalwebsite') ?></label>
 							<div class="cleaner">
 								<!-- -->
 							</div>
-							<p>Suitable for personal websites, blogs and photo sharing etc.</p>
+							<p><?php __('Personalwebsite_detail') ?>.</p>
 						</div>
 						<div id="moduleAreabranch" class="moduleBlock">
 							<i class="unitPng"> <!-- -->
-							</i><input type="radio" name="moduleType" class="moduleKey"
+							</i>
+							<input type="radio" name="moduleType" class="moduleKey"
 								id="moduleKeybranch" value="branch" /><label
-								for="moduleKeybranch">Business website</label>
+								for="moduleKeybranch"><?php __('Businesswebsite') ?></label>
 							<div class="cleaner">
 								<!-- -->
 							</div>
-							<p>Ideal for business large or small, hundreds of professional designs.</p>
+							<p><?php __('Businesswebsite_detail') ?></p>
 						</div>
 						<div id="moduleAreaeshop" class="moduleBlock">
 							<i class="unitPng"> <!-- -->
 							</i><input type="radio" name="moduleType" class="moduleKey"
-								id="moduleKeyeshop" value="eshop" /><label for="moduleKeyeshop">E-shop</label>
+								id="moduleKeyeshop" value="eshop" /><label for="moduleKeyeshop"><?php __('Eshop') ?></label>
 							<div class="cleaner">
 								<!-- -->
 							</div>
-							<p>Get ahead by selling and managing your products and services
-								on-line.</p>
+							<p><?php __('Eshop_detail') ?></p>
 						</div>
 					</div>
 					<div class="cleaner">
 						<!-- -->
 					</div>
 					<form id="step1WizardForm" name="step1WizardForm" action="<?php //echo DOMAIN ?>launch-your-site-step2" method="post"
-						<?php //onsubmit="Forms.showWaitingAnimation();return Wizard.process();" ?>
+						onsubmit="return processstep1();"
 						style="display: none;" enctype="application/x-www-form-urlencoded">
 						<input type="hidden" id="action" name="action" value="<?php echo DOMAIN ?>launch-your-site-step2">
-						<p class="errorFormList" id="step1WizardFormErrorText"
-							style="display: none;">The form contains errors. Please alter the
-							highlighted fields and send the form again.</p>
+						<p class="errorFormList" id="step1WizardFormErrorText" style="display: none;"><?php __('step1WizardFormErrorText');?></p>
 						<fieldset id="step1BaseInfo" class=" withoutSeparator">
 							<div id="step1BaseInfoBlockContent">
 								<div class="formRow" id="project_nameRow">
-									<label for="project_name"><strong>Website name</strong></label><span
+									<label for="project_name"><strong><?php __('Websitename');?></strong></label><span
 										class="inputCase"><input type="text" id="project_name"
 										name="project_name"
 										value="<?php echo $this->Session->read('eshop.storename'); //if(is_array($eshop) and !empty($eshop)) { echo $eshop['storename'];} ?>"
 										_required="required" /><i> <!-- -->
 									</i></span>
-									<div class="formRowNotice">E.g. "Anna's Hairdressing"</div>
+									<div class="formRowNotice"><?php __('eg_websitename');?>"</div>
 									<div class="inputHint" id="project_nameHint">
-										<h4>Website name</h4>
-										<p>This form entry should contain the name of your website.</p>
+										<h4><?php __('Websitename');?></h4>
+										<p><?php __('Websitename_click');?></p>
 										<i class="hintEnd"> <!-- -->
 										</i>
 									</div>
 								</div>
 								<div class="formRow" id="company_sloganRow">
-									<label for="company_slogan">Slogan</label> <span
+									<label for="company_slogan"><?php __('Slogan');?></label> <span
 										class="inputCase"> <input type="text" id="company_slogan"
 										name="company_slogan" value="" /> <i>
 											<!-- -->
 									</i>
 									</span>
 									<div class="inputHint" id="company_sloganHint">
-										<h4>Slogan</h4>
-										<p>You can create a catchphrase for your website.</p>
+										<h4><?php __('Slogan');?></h4>
+										<p><?php __('Slogan_click')?></p>
 										<i class="hintEnd"> <!-- -->
 										</i>
 									</div>
 								</div>
 								
 								<div class="formRow" id="languageRow">
-									<label for="language"><strong>Language</strong></label>
+									<label for="language"><strong><?php __('Language');?></strong></label>
 									   
 											<select class="selectCase hand form-control input-lg " name ="langgueNew" id ="langgueNew">
 											<?php foreach ($Langgue as $key =>$langgue) :// pr($langgue['Langgues']);	?>
@@ -136,7 +134,7 @@ $eshop = $this->Session->read ( 'eshop' );
 					 									</div> <!--  class="selectCase  -->
 							    
 									<div class="inputHint" id="languageHint">
-										<h4>Language</h4>
+										<h4><?php __('Language');?></h4>
 										<p>
 											This is the website language that the public will view. If
 											your language is not on the list, select Other and you can do
@@ -180,11 +178,10 @@ $eshop = $this->Session->read ( 'eshop' );
 					</div>
 				</div>
 				<div id="stepArea2" class="stepArea">
-				<form id="step2WizardForm" action="" method="post"
-						<?php //onsubmit="Forms.showWaitingAnimation();return Wizard.process();" ?>
-						enctype="application/x-www-form-urlencoded">
+				<form id="step2WizardForm" action="" name"step2WizardForm" method="post" onsubmit="return processstep2();"
+						enctype="application/x-www-form-urlencoded"><!-- step2WizardForm.showWaitingAnimation(); -->
 					<div id="layoutArea">
-						<h2>Select your website template</h2>
+						<h2><?php __('Selectyourwebsitetemplate')?></h2>
 						<div id="layoutsTools">
 							<!-- -->
 						</div>
@@ -207,12 +204,10 @@ $eshop = $this->Session->read ( 'eshop' );
 				</form>
 				</div>
 				<div id="stepArea3" class="stepArea">
-					<form id="step3WizardForm" action="" method="post"
+					<form id="step3WizardForm" action="" method="post" name ="step3WizardForm"
 						<?php //onsubmit="Forms.showWaitingAnimation();return Wizard.process();" ?>
 						enctype="application/x-www-form-urlencoded">
-						<p class="errorFormList" id="step3WizardFormErrorText"
-							style="display: none;">The form contains errors. Please alter the
-							highlighted fields and send the form again.</p>
+						<p class="errorFormList" id="step3WizardFormErrorText" style="display: none;"><?php __('step1WizardFormErrorText')?></p>
 						<fieldset id="step3Description">
 							<h2>
 								<!-- -->
@@ -228,32 +223,32 @@ $eshop = $this->Session->read ( 'eshop' );
 						<fieldset id="step3ContactForm" class=" withoutSeparator">
 							<div id="step3ContactFormBlockContent">
 								<div class="formRow" id="contact_nameRow">
-									<label for="contact_name"><strong>Company name</strong></label><span
+									<label for="contact_name"><strong><?php __('Companyname');?></strong></label><span
 										class="inputCase"><input type="text" id="contact_name"
 										name="contact_name" value="" _required="required" /><i> <!-- -->
 									</i></span>
 								</div>
 								<div class="formRow" id="contact_streetRow">
-									<label for="contact_street">Address</label><span
+									<label for="contact_street"><?php __('Address');?></label><span
 										class="inputCase"><input type="text" id="contact_street"
 										name="contact_street" value="" /><i> <!-- -->
 									</i></span>
 								</div>
 								<div class="formRow" id="contact_cityRow">
-									<label for="contact_city">City</label><span class="inputCase"><input
+									<label for="contact_city"><?php __('City')?></label><span class="inputCase"><input
 										type="text" id="contact_city" name="contact_city" value="" /><i>
 											<!-- -->
 									</i></span>
 								</div>
 								<div class="formRow" id="contact_zipRow">
-									<label for="contact_zip">ZIP</label><span class="inputCase"><input
+									<label for="contact_zip"><?php __('ZIP');?></label><span class="inputCase"><input
 										type="text" id="contact_zip" name="contact_zip" value="" /><i>
 											<!-- -->
 									</i></span>
 								</div>
 								
 								<div class="formRow" id="contact_countryRow">
-									<label for="contact_country">Country</label>
+									<label for="contact_country"><?php __('Country');?></label>
 										<select class="selectCase hand form-control input-lg " name ="countryNew" id ="countryNew">
 											<?php foreach ($Langgue as $key =>$langgue) :// pr($langgue['Langgues']);	?>
 											<?php  if(is_array($langgue['Langgues']) and !empty($langgue['Langgues'])) : ?>
@@ -276,8 +271,7 @@ $eshop = $this->Session->read ( 'eshop' );
 								</div>
 								
 								
-								<div class="formRow" id="contact_stateRow"
-									style="display: none;">
+								<div class="formRow" id="contact_stateRow" style="display: none;">
 									<label for="contact_state">Select a state</label>
 									<div class="selectCase">
 										<input type="hidden" id="contact_state" name="contact_state"
@@ -289,25 +283,24 @@ $eshop = $this->Session->read ( 'eshop' );
 									</div>
 								</div>
 								<div class="formRow" id="contact_telRow">
-									<label for="contact_tel">Phone</label><span class="inputCase"><input
+									<label for="contact_tel"><?php __('Phone');?></label><span class="inputCase"><input
 										type="text" id="contact_tel" name="contact_tel" value="" /><i>
 											<!-- -->
 									</i></span>
 								</div>
 								<div class="formRow" id="contact_emailRow">
-									<label for="contact_email">Email</label><span class="inputCase"><input
-										type="text" id="contact_email" name="contact_email"
-										value="gstearmit@gmail.com" /><i> <!-- -->
+									<label for="contact_email">Email</label><span class="inputCase">
+									<input type="text" id="contact_email" name="contact_email" value="gstearmit@gmail.com" /><i> <!-- -->
 									</i></span>
 								</div>
 								<div class="formRow" id="contact_icRow">
-									<label for="contact_ic">VAT number</label><span
+									<label for="contact_ic"><?php __('VAT_number');?></label><span
 										class="inputCase"><input type="text" id="contact_ic"
 										name="contact_ic" value="" /><i> <!-- -->
 									</i></span>
 								</div>
 								<div class="formRow" id="currency_idRow" style="display: none;">
-									<label for="currency_id">Currency</label>
+									<label for="currency_id"><?php __('Currency');?></label>
 									<select class="selectCase hand form-control input-lg " name ="currency" id ="currency">
 											<?php //foreach ($Langgue as $key =>$langgue) :// pr($langgue['Langgues']);	?>
 											<?php  //if(is_array($langgue['Langgues']) and !empty($langgue['Langgues'])) : ?>
@@ -332,15 +325,16 @@ $eshop = $this->Session->read ( 'eshop' );
 									
 								</div>
 								<div class="formRow" id="taxesRow" style="display: none;">
-									<label for="taxes">VAT payer</label>
+									<label for="taxes"><?php __('VAT_payer');?></label>
 									<div class="radioSet">
-										<span id="taxesRadio1Wrapper" class="radioWrapper"><input
-											type="radio" name="taxes" value="yes" id="taxesRadio1"
-											checked="checked" />&nbsp;<label for="taxesRadio1"
-											class="radioLabel">Yes</label></span><span
-											id="taxesRadio2Wrapper" class="radioWrapper"> &nbsp; <input
-											type="radio" name="taxes" value="no" id="taxesRadio2" />&nbsp;<label
-											for="taxesRadio2" class="radioLabel">No</label></span>
+										<span id="taxesRadio1Wrapper" class="radioWrapper">
+										<input type="radio" id="taxes" name="taxes" value="yes" id="taxesRadio1" checked="checked" />&nbsp;
+										<label for="taxesRadio1" class="radioLabel">Yes</label>
+										</span>
+										<span id="taxesRadio2Wrapper" class="radioWrapper"> &nbsp;
+										 <input type="radio" id="taxes" name="taxes" value="no" id="taxesRadio2" />&nbsp;
+										 <label for="taxesRadio2" class="radioLabel">No</label>
+										 </span>
 									</div>
 									<div class="cleaner">
 										<!-- -->
@@ -362,9 +356,8 @@ $eshop = $this->Session->read ( 'eshop' );
 				<div id="wizardButtons">
 					<div class="buttonToRight">
 						<span id="nextButtonBlock" class="buttonCase">
-							<button id="nextButton" type="submit"
-								onclick="return validateStep2()">
-								<b>Continue</b>
+							<button id="nextButton" type="submit" "><!-- onclick="return validateStep2() -->
+								<b><?php __('Continue') ?></b>
 							</button> <i> <!-- -->
 						</i>
 						</span>
@@ -386,7 +379,7 @@ $eshop = $this->Session->read ( 'eshop' );
 	<hr class="hidden" />
 	<div id="coverFooter">
 		<div id="footer">
-			<p id="footerCopyrights">&copy; 2014 alatca. All rights reserved.</p>
+			<p id="footerCopyrights"><?php __('Allrightsreserved');?></p>
 		</div>
 	</div>
 </div>

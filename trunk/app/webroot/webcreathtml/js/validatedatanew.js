@@ -50,6 +50,19 @@ function validateData234(){
 				
 	}
 
+function showWaitingAnimation()
+{
+	alert("wattting");
+}
+function processstep1()
+{
+	alert("processstep1");
+}
+function processstep2()
+{
+	alert("processstep2");
+}
+
 //step 2
 	function validateStep2()
 	{
@@ -60,7 +73,53 @@ function validateData234(){
 		//var languageText = step1WizardForm.languageText.value;
 		var s = document.getElementById('langgueNew');
 		var langgueNew = s.options[s.selectedIndex].value;
+		
 		var action = step1WizardForm.action.value;
+		// step 2:
+		// step 3 :
+		var contact_name = step3WizardForm.contact_name.value;
+		var contact_street = step3WizardForm.contact_street.value;
+		
+		var contact_city = step3WizardForm.contact_city.value;
+		var contact_zip = step3WizardForm.contact_zip.value;
+		
+		//country
+		var countryNewid = document.getElementById('countryNew');
+		var countryNew = countryNewid.options[countryNewid.selectedIndex].value;
+		
+		var contact_tel = step3WizardForm.contact_tel.value;
+		var contact_email = step3WizardForm.contact_email.value;
+		var contact_ic_VAT = step3WizardForm.contact_ic.value;
+		
+		//currency
+		var currencyid = document.getElementById('currency');
+		var currency = currencyid.options[currencyid.selectedIndex].value;
+		
+		//check:
+		var taxes = document.getElementsByName('taxes');
+		var taxes_value;
+		for(var i = 0; i < taxes.length; i++){
+		    if(taxes[i].checked){
+		    	taxes_value = taxes[i].value;
+		    }
+		}
+		
+		
+		
+		alert("contact_name : "+contact_name );
+		alert(" \n contact_street : "+contact_street );
+		alert(" \t contact_city : "+contact_city );
+		
+		alert(" \t contact_zip : "+contact_zip );
+		alert(" \t countryNew : "+countryNew );
+		alert("contact_tel"+contact_tel );
+		alert("contact_email"+contact_email );
+		alert("contact_ic_VAT"+contact_ic_VAT );
+		alert("currency"+currency);
+		alert("VAT payer"+taxes_value);
+		
+		return 0;
+		
 		//alert(langgueNew);return 0;
 		var check = '';
 	   
@@ -77,7 +136,17 @@ function validateData234(){
 			//check = false;
 			return false;
 			
-		}else {
+		}
+		//step 3
+		else if( contact_name =='')
+		{
+			alert('Vui lòng chọn language');
+			document.getElementById("contact_name").focus();//
+			//check = false;
+			return false;
+			
+		}
+		else {
 				 $('#step1WizardForm').submit();
 		}
 		return false;
@@ -149,6 +218,8 @@ var Languages = {
 		ja: "日本語",
 		ko: "한국어"
 	};
+
+
 
 var name = Languages.id;
 //

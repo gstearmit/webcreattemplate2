@@ -11143,10 +11143,9 @@ if ("1" != ScriptInfo.error) {
 }
 if ("function" == typeof(Cufon) && ("cn" != ScriptInfo.lang && "zh-cn" != ScriptInfo.lang && "tw" != ScriptInfo.lang && "zh-tw" != ScriptInfo.lang && "ja" != ScriptInfo.lang && "vi" != ScriptInfo.lang && "ko" != ScriptInfo.lang) && !ScriptInfo.isMsie6()) {
 	Cufon.initialized = false;
-	//".buttonCase", ".buttonCaseWhite",".moduleBlock label",
-//	Cufon.replace(["h2", "#headerContent h4",  "#loginLinkBtn"], {
-//		hover: true
-//	});
+	Cufon.replace(["h1", "h2", "#headerContent h4", ".buttonCase", ".buttonCaseWhite", ".stepInfo h3", ".moduleBlock label", "#loginLinkBtn"], {
+		hover: true
+	});
 	
 	Cufon.initialized = true
 }
@@ -11409,7 +11408,7 @@ FormClass.prototype = {
 	},
 	
 	_setButtonsEvents: function() {
-		var a = $(".textButton"); //".buttonCase", ".buttonCaseWhite", 
+		var a = $$(".buttonCase", ".buttonCaseWhite", ".textButton");
 		var d = a.length;
 		for (var b = 0; b < d; b++) {
 			Event.observe(a[b], "mouseover", function(f) {
@@ -11418,8 +11417,8 @@ FormClass.prototype = {
 					Element.addClassName(e, "buttonHover");
 					clearTimeout(Forms.buttonOutTimer);
 					if ("function" == typeof(Cufon) && true == Cufon.initialized) {
-						//Cufon.replace(".buttonCase");
-						//Cufon.replace(".buttonCaseWhite")
+						Cufon.replace(".buttonCase");
+						Cufon.replace(".buttonCaseWhite")
 					}
 				}
 			});
@@ -14345,7 +14344,7 @@ WizardClass.prototype = {
 			this.step = parseInt(e, 10);
 			$(this.infoPrefix + this.step).addClassName("actual");
 			if ("function" == typeof(Cufon) && true == Cufon.initialized) {
-				//Cufon.replace("." + this.infoPrefix + " h3")
+				Cufon.replace("." + this.infoPrefix + " h3")
 			}
 			$(this.stepAreaPrefix + this.step).addClassName("selectedStep");
 			$(this.stepAreaPrefix + this.step).scrollTo();
