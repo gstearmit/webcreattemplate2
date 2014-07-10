@@ -127,9 +127,9 @@
 														<td><span class="reviewerHome"><a
 																href="<?php echo DOMAIN ?>webcreathtml/Alatca-reviews/detail/zdenek-vanicek/"><img
 																	src="<?php echo DOMAIN ?>webcreathtml/img/media/zdenek-vanicek.jpg"
-																	alt="Zdeněk Vaníček" title="Zdeněk Vaníček" /></a></span>
+																	alt="ZdenÄ›k VanÃ­Ä�ek" title="ZdenÄ›k VanÃ­Ä�ek" /></a></span>
 														<address>
-																<span itemprop="reviewer">Zdeněk Vaníček</span>
+																<span itemprop="reviewer">ZdenÄ›k VanÃ­Ä�ek</span>
 															</address></td>
 													</tr>
 												</tbody>
@@ -341,7 +341,7 @@
 									<li><a href="http://www.Alatca.cat/web-personal/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/ca.png"
-											alt="" width="16" height="11" />Català</a></li>
+											alt="" width="16" height="11" />CatalÃ </a></li>
 									<li><a href="http://de.Alatca.com/private-homepage/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/de.png"
@@ -349,7 +349,7 @@
 									<li><a href="http://www.Alatca.at/private-homepage/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/at.png"
-											alt="" width="16" height="11" />Deutsch (Österreich)</a></li>
+											alt="" width="16" height="11" />Deutsch (Ã–sterreich)</a></li>
 									<li><a href="http://www.Alatca.in/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/en-in.png"
@@ -357,27 +357,27 @@
 									<li><a href="http://www.Alatca.es/website-personal/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/es.png"
-											alt="" width="16" height="11" />Español</a></li>
+											alt="" width="16" height="11" />EspaÃ±ol</a></li>
 									<li><a href="<?php echo DOMAIN ?>.ar/website-personal/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/es-ar.png"
-											alt="" width="16" height="11" />Español (Argentina)</a></li>
+											alt="" width="16" height="11" />EspaÃ±ol (Argentina)</a></li>
 									<li><a href="http://www.Alatca.cl/website-personal/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/es-cl.png"
-											alt="" width="16" height="11" />Español (Chile)</a></li>
+											alt="" width="16" height="11" />EspaÃ±ol (Chile)</a></li>
 									<li><a href="<?php echo DOMAIN ?>.co/website-personal/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/es-co.png"
-											alt="" width="16" height="11" />Español (Colombia)</a></li>
+											alt="" width="16" height="11" />EspaÃ±ol (Colombia)</a></li>
 									<li><a href="http://www.Alatca.mx/website-personal/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/es-mx.png"
-											alt="" width="16" height="11" />Español (Mexico)</a></li>
+											alt="" width="16" height="11" />EspaÃ±ol (Mexico)</a></li>
 									<li><a href="<?php echo DOMAIN ?>.uy/website-personal/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/es-uy.png"
-											alt="" width="16" height="11" />Español (Uruguay)</a></li>
+											alt="" width="16" height="11" />EspaÃ±ol (Uruguay)</a></li>
 								</ul>
 							</div>
 							<div class="column">
@@ -385,11 +385,11 @@
 									<li><a href="<?php echo DOMAIN ?>.ve/website-personal/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/es-ve.png"
-											alt="" width="16" height="11" />Español (Venezuela)</a></li>
+											alt="" width="16" height="11" />EspaÃ±ol (Venezuela)</a></li>
 									<li><a href="http://www.Alatca.fr/site-personnel/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/fr.png"
-											alt="" width="16" height="11" />Français</a></li>
+											alt="" width="16" height="11" />FranÃ§ais</a></li>
 									<li><a href="http://www.Alatca.it/sito-personale/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/it.png"
@@ -413,15 +413,15 @@
 									<li><a href="http://www.Alatca.pt/site-pessoal/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/pt.png"
-											alt="" width="16" height="11" />Português</a></li>
+											alt="" width="16" height="11" />PortuguÃªs</a></li>
 									<li><a href="<?php echo DOMAIN ?>.br/website-pessoal/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/br.png"
-											alt="" width="16" height="11" />Português brasileiro</a></li>
+											alt="" width="16" height="11" />PortuguÃªs brasileiro</a></li>
 									<li><a href="http://www.Alatca.ro/site-personal/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/ro.png"
-											alt="" width="16" height="11" />Română</a></li>
+											alt="" width="16" height="11" />RomÃ¢nÄƒ</a></li>
 								</ul>
 							</div>
 							<div class="column">
@@ -429,7 +429,7 @@
 									<li><a href="http://www.Alatca.sk/osobne-stranky/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/sk.png"
-											alt="" width="16" height="11" />Slovenčina</a></li>
+											alt="" width="16" height="11" />SlovenÄ�ina</a></li>
 									<li><a href="http://www.Alatca.fi/henkilokohtaiset-sivut/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/fi.png"
@@ -441,7 +441,7 @@
 									<li><a href="<?php echo DOMAIN ?>.tr/kisisel-web-site/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/tr.png"
-											alt="" width="16" height="11" />Türkçe </a></li>
+											alt="" width="16" height="11" />TÃ¼rkÃ§e </a></li>
 									<li><a href="http://us.Alatca.com/personal-websites/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/us.png"
@@ -449,23 +449,23 @@
 									<li><a href="http://www.Alatca.vn/website-ca-nh-an/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/vi.png"
-											alt="" width="16" height="11" />tiếng Việt</a></li>
+											alt="" width="16" height="11" />tiáº¿ng Viá»‡t</a></li>
 									<li><a href="http://www.Alatca.cz/osobni-stranky/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/cz.png"
-											alt="" width="16" height="11" />Čeština</a></li>
+											alt="" width="16" height="11" />ÄŒeÅ¡tina</a></li>
 									<li><a href="http://www.Alatca.gr/proswpikes-istoselides/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/el.png"
-											alt="" width="16" height="11" />Ελληνικά</a></li>
+											alt="" width="16" height="11" />Î•Î»Î»Î·Î½Î¹ÎºÎ¬</a></li>
 									<li><a href="http://www.Alatca.ru/lichnyj-sajt/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/ru.png"
-											alt="" width="16" height="11" />Русский</a></li>
+											alt="" width="16" height="11" />Ð ÑƒÑ�Ñ�ÐºÐ¸Ð¹</a></li>
 									<li><a href="<?php echo DOMAIN ?>.ua/personalni-sajty/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/uk.png"
-											alt="" width="16" height="11" />Українська</a></li>
+											alt="" width="16" height="11" />Ð£ÐºÑ€Ð°Ñ—Ð½Ñ�ÑŒÐºÐ°</a></li>
 								</ul>
 							</div>
 							<div class="column">
@@ -473,15 +473,15 @@
 									<li><a href="http://www.Alatca.jp/personal-websites/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/ja.png"
-											alt="" width="16" height="11" />日本語</a></li>
+											alt="" width="16" height="11" />æ—¥æœ¬èªž</a></li>
 									<li><a href="http://www.Alatca.tw/personal-websites/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/tw.png"
-											alt="" width="16" height="11" />漢語</a></li>
+											alt="" width="16" height="11" />æ¼¢èªž</a></li>
 									<li><a href="http://www.Alatca.kr/personal-websites/"
 										><img
 											src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/ko.png"
-											alt="" width="16" height="11" />한국어</a></li>
+											alt="" width="16" height="11" />í•œêµ­ì–´</a></li>
 								</ul>
 							</div>
 						</div>

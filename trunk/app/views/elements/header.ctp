@@ -4,8 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php $setting = $this -> requestAction('/comment/setting');?>
 <?php foreach($setting as $settings){?>
-<link href="http://<?php echo $settings['Setting']['url'];?>/feed" title="<?php echo $settings['Setting']['title'];?> » Feed" type="application/rss+xml" rel="alternate">
-<link href="http://<?php echo $settings['Setting']['url'];?>/comments/feed" title="<?php echo $settings['Setting']['title'];?> » Comments Feed" type="application/rss+xml" rel="alternate">
+<link href="http://<?php echo $settings['Setting']['url'];?>/feed" title="<?php echo $settings['Setting']['title'];?> Â» Feed" type="application/rss+xml" rel="alternate">
+<link href="http://<?php echo $settings['Setting']['url'];?>/comments/feed" title="<?php echo $settings['Setting']['title'];?> Â» Comments Feed" type="application/rss+xml" rel="alternate">
 <link href="http://<?php echo $settings['Setting']['url'];?>" title="<?php echo $settings['Setting']['title'];?>" rel="index">
 <meta content="<?php echo $settings['Setting']['keyword'];?>" name="keywords">
 <meta content="<?php echo $settings['Setting']['description'];?>" name="description">
@@ -23,7 +23,7 @@
         emailRegExp = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.([a-z]){2,4})$/;
 		var email = document.getElementById("txtdangky").value;
         if(!emailRegExp.test(email)){
-			$('#test').html('Hãy nhập đúng email');	
+			$('#test').html('HÃ£y nháº­p Ä‘Ãºng email');	
 			return false;			
             }
 		else
@@ -72,24 +72,24 @@ $bg= $sp['Product']['background'];
 			
 			
 			<form action="<?php echo DOMAIN?>dang-ky-email" method="post" name="formdk" onsubmit="return test();">
-				<input type="text" name="txtdk"  id="txtdangky" value="Đăng ký email để nhận giá trị tốt nhất" onclick="this.value=''" onblur="if (this.value == '')  {this.value = 'Đăng ký email để nhận giá trị tốt nhất';}"/>
+				<input type="text" name="txtdk"  id="txtdangky" value="Ä�Äƒng kÃ½ email Ä‘á»ƒ nháº­n giÃ¡ trá»‹ tá»‘t nháº¥t" onclick="this.value=''" onblur="if (this.value == '')  {this.value = 'Ä�Äƒng kÃ½ email Ä‘á»ƒ nháº­n giÃ¡ trá»‹ tá»‘t nháº¥t';}"/>
 				
 				<input type="hidden" name="url" value="<?php echo $this->params['url']['url'];?>">
 				<lable style="float:left; width:220px;margin-left:28px; overflow:hidden; margin-top:5px; color:red;" id="test">
 				
 				</lable>
 				<br>
-				<input type="submit" value="Đăng ký email" class="subdk" />
+				<input type="submit" value="Ä�Äƒng kÃ½ email" class="subdk" />
 				
 			</form>
 			<p style="height:22px; text-align:center;margin-top:30px; margin-left:15px; color:white;">
 			<?php
 				//echo "test".$this->Session->read('nameuser') ; 
 			if($this->Session->check('nameuser')==1){?>
-			Xin chào: <span ><?php echo $this->Session->read('nameuser');?></span> |
+			Xin chÃ o: <span ><?php echo $this->Session->read('nameuser');?></span> |
 			
-			<a class="a-dangky" href="<?php echo DOMAIN?>don-hang">Đơn hàng</a> |
-			<a  class="a-dangky" href="<?php echo DOMAIN?>login/logout">Thoát</a> 
+			<a class="a-dangky" href="<?php echo DOMAIN?>don-hang">Ä�Æ¡n hÃ ng</a> |
+			<a  class="a-dangky" href="<?php echo DOMAIN?>login/logout">ThoÃ¡t</a> 
 			<?php } else {?>
 			
 			<a class="a-dangky" href="<?php echo DOMAIN?>dang-nhap"><?php __('signin') ?> </a> |

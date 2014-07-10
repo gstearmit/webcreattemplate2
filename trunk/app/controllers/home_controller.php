@@ -1,5 +1,4 @@
 ﻿<?php
-session_start();
 class HomeController extends AppController {
 
 	var $name = 'Home';
