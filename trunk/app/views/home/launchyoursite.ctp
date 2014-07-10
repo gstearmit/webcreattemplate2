@@ -5,7 +5,7 @@ $eshop = $this->Session->read ( 'eshop' );
 // die;
 
 ?>
-
+<?php  pr($Langgue);die;?>
 
 
 <div id="coverPage" class="normal">
@@ -44,8 +44,7 @@ $eshop = $this->Session->read ( 'eshop' );
 						<div id="moduleAreaweb" class="moduleBlock">
 							<i class="unitPng"> <!-- -->
 							</i><input type="radio" name="moduleType" class="moduleKey"
-								id="moduleKeyweb" value="web" /><label for="moduleKeyweb">Personal
-								website</label>
+								id="moduleKeyweb" value="web" /><label for="moduleKeyweb">Personal website</label>
 							<div class="cleaner">
 								<!-- -->
 							</div>
@@ -59,8 +58,7 @@ $eshop = $this->Session->read ( 'eshop' );
 							<div class="cleaner">
 								<!-- -->
 							</div>
-							<p>Ideal for business large or small, hundreds of professional
-								designs.</p>
+							<p>Ideal for business large or small, hundreds of professional designs.</p>
 						</div>
 						<div id="moduleAreaeshop" class="moduleBlock">
 							<i class="unitPng"> <!-- -->
@@ -76,10 +74,10 @@ $eshop = $this->Session->read ( 'eshop' );
 					<div class="cleaner">
 						<!-- -->
 					</div>
-					<form id="step1WizardForm" name="step1WizardForm"
-						action="<?php echo DOMAIN ?>launch-your-site-step2" method="post"
+					<form id="step1WizardForm" name="step1WizardForm" action="<?php echo DOMAIN ?>launch-your-site-step2" method="post"
 						<?php //onsubmit="Forms.showWaitingAnimation();return Wizard.process();" ?>
 						style="display: none;" enctype="application/x-www-form-urlencoded">
+						<input type="hidden" id="action" name="action" value="<?php echo DOMAIN ?>launch-your-site-step2">
 						<p class="errorFormList" id="step1WizardFormErrorText"
 							style="display: none;">The form contains errors. Please alter the
 							highlighted fields and send the form again.</p>
@@ -114,14 +112,15 @@ $eshop = $this->Session->read ( 'eshop' );
 										</i>
 									</div>
 								</div>
+								
 								<div class="formRow" id="languageRow">
 									<label for="language"><strong>Language</strong></label>
-									<div class="selectCase">
+									<div class="selectCase"> 
 										<input type="hidden" id="language" name="language" value="" required="required" _type="text" />
 										<input type="text" id="languageText" name="languageText"  class="selectText" value="" />
 										<b> <!-- readonly="readonly"  --></b>
 										<i> <!-- --></i>
-									</div>
+ 									</div> <!--  class="selectCase  -->
 									<div class="inputHint" id="languageHint">
 										<h4>Language</h4>
 										<p>
@@ -154,7 +153,7 @@ $eshop = $this->Session->read ( 'eshop' );
 						<div class="formEnd">
 							<!-- -->
 						</div>
-						<button id="nextButton" type="submit"></button> 
+						<button id="nextButtonRT" type="submit" style="display: none;"></button> 
 						
 							<?php 
 /*

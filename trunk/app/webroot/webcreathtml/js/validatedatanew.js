@@ -58,6 +58,8 @@ function validateData234(){
 		
 		var company_slogan = step1WizardForm.company_slogan.value;
 		var languageText = step1WizardForm.languageText.value;
+		var action = step1WizardForm.action.value;
+		alert(action);return 0;
 		var check = '';
 	   
 		if(company_slogan =='')
@@ -66,7 +68,7 @@ function validateData234(){
 			document.getElementById("company_slogan").focus();
 			//check = false;
 			return false;
-		}else if( language =='')
+		}else if( languageText =='')
 		{
 			alert('Vui lòng chọn language');
 			document.getElementById("languageText").focus();//
@@ -80,3 +82,75 @@ function validateData234(){
 		
 				
 	} 
+	
+var Languages = {
+		af: "Afrikaans",
+		"en-us": "American English",
+		az: "Azərbaycan",
+		id: "Bahasa Indonesia",
+		ms: "Bahasa Melayu",
+		jv: "Basa Jawa",
+		bs: "Bosanski",
+		ca: "Català",
+		cz: "Čeština",
+		da: "Dansk",
+		de: "Deutsch",
+		et: "Eesti keel",
+		en: "English",
+		es: "Español",
+		eo: "Esperanto",
+		eu: "Euskara",
+		fr: "Français",
+		hr: "Hrvatski",
+		it: "Italiano",
+		lv: "Latviešu Valoda",
+		lt: "Lietuvių kalba",
+		hu: "Magyar",
+		nl: "Nederlands",
+		no: "Norsk",
+		pl: "Polski",
+		pt: "Português",
+		"pt-br": "Português brasileiro",
+		ro: "Română",
+		sq: "Shqip",
+		sk: "Slovenčina",
+		sl: "Slovenski",
+		sr: "Srpski",
+		fi: "Suomi",
+		sv: "Svenska",
+		vi: "Tiếng Việt",
+		tr: "Türkçe",
+		el: "Ελληνικά",
+		bg: "Български",
+		mk: "Македонски јазик",
+		ru: "Русский",
+		uk: "Українська",
+		he: "עִבְרִית",
+		ar: "العربية",
+		sd: "سنڌي",
+		fa: "فارسی",
+		ps: "پښتو",
+		mr: "मराठी",
+		bh: "मैथिली",
+		hi: "हिन्दी",
+		bn: "বাংলা",
+		pu: "ਪੰਜਾਬੀ",
+		gu: "ગુજરાતી",
+		or: "ଓଡ଼ିଆ",
+		ta: "தமிழ்",
+		te: "తెలుగు",
+		kn: "ಕನ್ನಡ",
+		ml: "മലയാളം",
+		th: "ภาษาไทย",
+		"zh-tw": "中文 (繁體)",
+		"zh-cn": "中文（简体）",
+		ja: "日本語",
+		ko: "한국어"
+	};
+
+var name = Languages.id;
+//
+jQuery("#languageText").click(function(){
+	alert("Languages"+name);
+	 // $("p").append("<b>Appended text</b>");
+	});

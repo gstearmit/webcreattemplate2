@@ -3,7 +3,7 @@ session_start();
 class HomeController extends AppController {
 
 	var $name = 'Home';
-	var $uses=array('News','Product','Slideshows','Guest','Shops');
+	var $uses=array('News','Product','Slideshows','Guest','Shops','Langgues');
 	//$this->layout = 'creattemplate';
 	var $layout = "creattemplate";
 	
@@ -52,10 +52,13 @@ class HomeController extends AppController {
 	//launchyoursite
 	function launchyoursite()
 	{
-// 	 pr($_POST);
-// 	  die;
+	
+		// ++langgue
+		$this->set('Langgue',$this->Langgues->find('all', array('conditions'=>array('langgues.id > 0'),'order' => 'langgues.id DESC')));
+
 	$this->layout = 'launchyoursite';
-	if(isset($_POST['storename'])){
+	if(isset($_POST['storename']))
+	{
 		$name=$this->Shops->findAllByName($_POST['storename']);  //echo ($_POST['tengianhang']);die;
 		if(count($name)==1){
 			echo "<script>alert('".json_encode('Tên gian hàng đã tồn tại!')."');</script>";
@@ -93,10 +96,13 @@ class HomeController extends AppController {
 			$this->set('title_for_layout', '::Lauch Site');
 			//pr($this->Session->read('eshop'));die;
 			//$this->set('eshop',$this->Session->read('eshop'));
+
+			
 		}
 		
-		
 	} 
+	
+
 
 	function launchyoursitestep2()
 	{
