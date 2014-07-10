@@ -5,7 +5,7 @@ $eshop = $this->Session->read ( 'eshop' );
 // die;
 
 ?>
-<?php  pr($Langgue);die;?>
+<?php // pr($Langgue);die;?>
 
 
 <div id="coverPage" class="normal">
@@ -74,7 +74,7 @@ $eshop = $this->Session->read ( 'eshop' );
 					<div class="cleaner">
 						<!-- -->
 					</div>
-					<form id="step1WizardForm" name="step1WizardForm" action="<?php echo DOMAIN ?>launch-your-site-step2" method="post"
+					<form id="step1WizardForm" name="step1WizardForm" action="<?php //echo DOMAIN ?>launch-your-site-step2" method="post"
 						<?php //onsubmit="Forms.showWaitingAnimation();return Wizard.process();" ?>
 						style="display: none;" enctype="application/x-www-form-urlencoded">
 						<input type="hidden" id="action" name="action" value="<?php echo DOMAIN ?>launch-your-site-step2">
@@ -115,12 +115,26 @@ $eshop = $this->Session->read ( 'eshop' );
 								
 								<div class="formRow" id="languageRow">
 									<label for="language"><strong>Language</strong></label>
-									<div class="selectCase"> 
-										<input type="hidden" id="language" name="language" value="" required="required" _type="text" />
-										<input type="text" id="languageText" name="languageText"  class="selectText" value="" />
-										<b> <!-- readonly="readonly"  --></b>
-										<i> <!-- --></i>
- 									</div> <!--  class="selectCase  -->
+									   
+											<select class="selectCase hand form-control input-lg " name ="langgueNew" id ="langgueNew">
+											<?php foreach ($Langgue as $key =>$langgue) :// pr($langgue['Langgues']);	?>
+											<?php  if(is_array($langgue['Langgues']) and !empty($langgue['Langgues'])) : ?>
+									          <option  value="<?php echo $langgue['Langgues']['countrycode'] ?>"  class="selectText hand" ><?php echo $langgue['Langgues']['namecountry'];?></option>
+									          <?php    endif;?>
+									            <?php    endforeach; ?>
+									        </select>
+							         
+												      <div class="selectCase hand phucrt"> 
+														 <?php foreach ($Langgue as $key =>$langgue) : // pr($langgue['Langgues']); ?>
+														     <?php  if(is_array($langgue['Langgues']) and !empty($langgue['Langgues'])) : ?>
+															<input type="hidden" id="language" name="language" value="<?php echo $langgue['Langgues']['countrycode'] ?>" required="required" _type="text" />
+															<input type="text" readonly="readonly" id="languageText" name="languageText"  class="selectText hand" value="<?php //echo $langgue['Langgues']['namecountry'];?>" />
+														  <?php    endif;?>
+														  <?php   endforeach;?>
+															<b> <!-- readonly="readonly"  --></b>
+															<i> <!-- --></i>
+					 									</div> <!--  class="selectCase  -->
+							    
 									<div class="inputHint" id="languageHint">
 										<h4>Language</h4>
 										<p>
@@ -237,9 +251,18 @@ $eshop = $this->Session->read ( 'eshop' );
 											<!-- -->
 									</i></span>
 								</div>
+								
 								<div class="formRow" id="contact_countryRow">
 									<label for="contact_country">Country</label>
-									<div class="selectCase">
+										<select class="selectCase hand form-control input-lg " name ="langgueNew" id ="langgueNew">
+											<?php foreach ($Langgue as $key =>$langgue) :// pr($langgue['Langgues']);	?>
+											<?php  if(is_array($langgue['Langgues']) and !empty($langgue['Langgues'])) : ?>
+									          <option  value="<?php echo $langgue['Langgues']['countrycode'] ?>"  class="selectText hand" ><?php echo $langgue['Langgues']['namecountry'];?></option>
+									          <?php    endif;?>
+									            <?php    endforeach; ?>
+									    </select>
+									
+									<div class="selectCase hand phucrt ">
 										<input type="hidden" id="contact_country"
 											name="contact_country" value="vn" _type="text" /><input
 											readonly="readonly" type="text" id="contact_countryText"
@@ -247,7 +270,12 @@ $eshop = $this->Session->read ( 'eshop' );
 										</b><i> <!-- -->
 										</i>
 									</div>
+									
+									
+									
 								</div>
+								
+								
 								<div class="formRow" id="contact_stateRow"
 									style="display: none;">
 									<label for="contact_state">Select a state</label>

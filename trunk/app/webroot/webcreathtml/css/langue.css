@@ -1,0 +1,13 @@
+.inputCase, .selectCase, .inputCase i, .selectCase i 
+{
+border-color: rgb(248, 240, 240);
+}
+.form-control.input-lg {
+width: 319px;
+height: 38px;
+border-radius: 102px;
+}
+div.selectCase.hand.phucrt {
+display: none;
+}
+
