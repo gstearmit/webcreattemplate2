@@ -240,11 +240,14 @@
 	
 }
 @media (max-width:480px){
+	.row{
+		width:480px !important;
+	}
 	.container{
-		width:480px;
+		width:480px !important;
 	}
 	#content{
-		width:480px;
+		width:480px !important;
 		margin-left:0px !important;
 	}
 	#header{
@@ -252,6 +255,12 @@
 		background:#444444 !important;
 		min-height:700px !important;
 		margin:0px !important;
+		padding:0px !important;
+	}
+	#watchVideo{
+	 left:230px !important;
+	 top:30px !important;
+	
 	}
 	#headerIllustration{
 		width:480px !important;
@@ -265,17 +274,23 @@
 		top:70px !important;
 	}
 	#headerForms form{
-		margin-right:600px !important;
+		margin-right:150px !important;
 		margin-top:150px !important;
 		background:#444444 !important;
 	}
-	
+	#threeBlocks{
+   	width:480px !important;
+   	float:left !important;
+   	margin-left:15px !important;
+   	border: none;
+   }
 	
 	.book-content{
 		width:400px !important;
 		height:250px !important;
 		margin-bottom:15px !important;
 		float:left !important;
+		margin-left:20px !important;
 		 
 	}
 	.book-content h2{
@@ -290,19 +305,27 @@
 	background-size:100% !important;
 	margin-left:0px !important;
 	margin-right:0px !important;
+	padding:0px !important;
 	display:block;
 	}
 	.homepageArea:first-child{
-	margin-left:0px !important;
+	margin-left:20px !important;
 	}
 	.homepageArea:last-child{
 	margin-left:0px !important;
 	padding:0px !important;
 	}
-	#homepageBlog{
+	#homepageBlock{
 		width:480px !important;
-		margin:0px!important;
+		margin:400px 0px 0px 0px !important;
+		display:block !important;
+		float:left !important;
 	}
+	 #firstBlock {
+   	width:480px !important;
+   	min-width:0px  !important;
+   	border:none;
+   }
 	#firstWrapper{
 	
 	width:460px !important;
@@ -314,11 +337,14 @@
 		min-width:0px !important;
 	
 	}
+	#footer .languages{
+		width:480px !important;
+	}
 	#footer .top .content{
 		width:480px !important;
 		height:620px !important;
 		margin-left:0px !important;
-		padding-left:30px !important;
+		padding-left:0px !important;
 		float:left !important;
 	}	
 	#footer .column{
@@ -346,7 +372,7 @@
 	}
 	#footer .bottom .content .credits{
 		border-top:1px solid #ccc;
-		margin-right:500px !important;
+		margin-right:50px !important;
 	}
 	#language_list{
 		width:480px !important;
@@ -355,7 +381,7 @@
 		top:12px !important;
 	}
 	#language_list .handle{
-		margin:5px 0px 0px 0px !important;
+		margin:5px 20px 0px 0px !important;
 	}
 	#footer #language_list .languages{
 		height:550px !important;
@@ -363,12 +389,30 @@
 	}
 }
 @media (max-width:320px){
-	
-	#header{
+	.row{
 		width:320px !important;
+	}
+	
+	.container{
+		width:320px !important;
+		padding:0px !important;
+		margin:0px !important;
+		
+	}
+	#content{
+		width:320px !important;
+		margin-left:0px !important;
+	}
+	#watchVideo{
+		left:100px !important;
+	
+	}
+	#header{
+		width:330px !important;
 		background:#444444 !important;
 		min-height:500px !important;
 		margin:0px !important;
+		padding:0px !important;
 	}
 	#headerIllustration{
 		width:320px !important;
@@ -384,17 +428,22 @@
 		float:left !important;
 	}
 	#headerForms form{
-		margin-right:670px !important;
+		margin-right:30px !important;
 		margin-top:20px !important;
 		background:#444444 !important;
 	}
 	#threeBlocks{
 		width:320px !important;
+		
+	}
+	.book-content:first-child{
+	margin-left:15px !important;
 	}
 	.book-content{
 		width:250px !important;
 		height:250px !important;
 		margin-bottom:15px !important;
+		margin-left:30px !important;
 		 
 	}
 	.book-content h2{
@@ -430,22 +479,27 @@
 		width:300px !important;
 		
 	}
-	 .top{
+	#footer .top{
 		background:#000 !important;
-		width:300px !important;
+		width:320px !important;
 		min-width:0px !important;
 		
 	}
 	#footer .top .content{
-		width:300px !important;
+		width:320px !important;
 		min-height:1070px !important;
 		margin-left:0px !important;
 		float:left !important;
+		min-width:0px !important;
 		
+	}
+	#footer .column:first-child{
+			margin-left:30px !important;
 	}	
 	#footer .column{
 		width:250px !important;
-		margin-left:0px !important;
+		margin-left:30px !important;
+		margin-right:0px !important;
 		
 		
 	}
@@ -455,6 +509,7 @@
 		float:left !important;
 		display:block !important;
 		bottom:0px !important;
+		min-width:0px !important;
 	}
 	#footer .bottom .content{
 		width:320px !important;
@@ -462,15 +517,16 @@
 		border:none;
 		float:left !important;
 		margin-top:695px !important;
-		height:70px !important;
+		height:150px !important;
+		min-width:0px !important;
 		
 	}
 	#footer .bottom .content .logo{
-		margin-left:5px !important;
+		margin-left:100px !important;
 	}
 	#footer .bottom .content .credits{
 		border-top:1px solid #ccc;
-		margin-right:500px !important;
+		margin-right:60px !important;
 	}
 	#language_list{
 		width:480px !important;
