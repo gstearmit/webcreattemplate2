@@ -87,8 +87,8 @@
    <!-- <script type="text/javascript" src='js/jquery.js'></script> -->
      <script src="<?php echo DOMAIN ?>webcreathtml/js/jquery.min11.js"></script>
     <!-- <script src="jquery.jscroll.min.js"></script> -->
-    <script src="<?php echo DOMAIN ?>webcreathtml/js/jquery.jscroll.js"></script>
-	
+    <script src="<?php echo DOMAIN ?>webcreathtml/js/bootstrap.js"></script>
+	<script src="<?php echo DOMAIN ?>webcreathtml/js/bootstrap.min.js"></script>
     <style type="text/css">
 			  .container .scroll {
 					/* padding: 5px 10px;
