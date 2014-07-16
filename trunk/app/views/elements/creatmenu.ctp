@@ -12,7 +12,7 @@
 
                 <div class="collapse navbar-collapse navbar-ex1-collapse " role="navigation">
                 <!-- id="headerMenu" -->
-                    <ul  id="menu-top" class="nav navbar-nav navbar-right nav_top">
+                    <ul   class="nav navbar-nav navbar-right nav_top menu-top">
                         <li class="active"><a href="<?php echo DOMAIN ?>"><?php __('home') ?></a></li>
                         <li><a rel="bookmark" href="<?php echo DOMAIN ?>personal-websites"><span><?php __('Personalwebsite') ?></span><i></i></a></li>
 						<li><a rel="bookmark" href="<?php echo DOMAIN ?>business-websites"><span><?php __('Businesswebsite') ?></span><i> </i></a></li>
