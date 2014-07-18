@@ -1,3 +1,26 @@
+<script type="text/javascript">
+function showWaitingAnimation()
+{
+	alert("wattting");
+}
+function processstep1()
+{
+	alert("processstep1");
+}
+
+function processstep2()
+{
+	alert("processstep2");
+}
+
+function Finish()
+{
+	alert("processstep2");//return 0;
+}
+
+</script>
+
+
 <?php
 // echo "view Eshopvccvcv";
 $eshop = $this->Session->read ( 'eshop' );
@@ -74,8 +97,7 @@ $eshop = $this->Session->read ( 'eshop' );
 					<div class="cleaner">
 						<!-- -->
 					</div>
-					<form id="step1WizardForm" name="step1WizardForm" action="<?php //echo DOMAIN ?>launch-your-site-step2" method="post"
-						onsubmit="return processstep1();"
+					<form id="step1WizardForm" name="step1WizardForm" action="<?php //echo DOMAIN ?>launch-your-site-step2" method="post" onsubmit="return processstep1();"
 						style="display: none;" enctype="application/x-www-form-urlencoded">
 						<input type="hidden" id="action" name="action" value="<?php echo DOMAIN ?>launch-your-site-step2">
 						<p class="errorFormList" id="step1WizardFormErrorText" style="display: none;"><?php __('step1WizardFormErrorText');?></p>
@@ -164,9 +186,7 @@ $eshop = $this->Session->read ( 'eshop' );
 						</div>
 						<div class="formEnd">
 							<!-- -->
-						</div>
-						<button id="nextButtonRT" type="submit" style="display: none;"></button> 
-						
+						</div>					
 							<?php 
 /*
 										       * ?> <div id="wizardButtons"> <div class="buttonToRight"> <span id="nextButtonBlock" class="buttonCase"> <u style="position:absolute;top:0;left:0;width:127px;height:42px;z-index:10;background:#fff;filter: alpha(opacity=0);opacity: 0;"></u> <button id="nextButton" type="submit" onclick="return validateStep2()"><b><cufon class="cufon cufon-canvas" alt="Continue" style="width: 102px; height: 26px;"><canvas width="119" height="31" style="width: 119px; height: 31px; top: -4px; left: -3px;"></canvas><cufontext>Continue</cufontext></cufon></b></button> <cufon class="cufon cufon-canvas" alt=" " style="width: 3px; height: 12px;"><canvas width="16" height="14" style="width: 16px; height: 14px; top: -1px; left: -1px;"></canvas><cufontext> </cufontext></cufon> <i><!-- --></i> </span> </div> <div class="cleaner"> <!-- --> </div> </div>
@@ -178,8 +198,7 @@ $eshop = $this->Session->read ( 'eshop' );
 					</div>
 				</div>
 				<div id="stepArea2" class="stepArea">
-				<form id="step2WizardForm" action="" name"step2WizardForm" method="post" onsubmit="return processstep2();"
-						enctype="application/x-www-form-urlencoded"><!-- step2WizardForm.showWaitingAnimation(); -->
+				<form id="step2WizardForm" action="" name"step2WizardForm" method="post" onsubmit="return processstep2();" enctype="application/x-www-form-urlencoded"><!-- step2WizardForm.showWaitingAnimation(); -->
 					<div id="layoutArea">
 						<h2><?php __('Selectyourwebsitetemplate')?></h2>
 						<div id="layoutsTools">
@@ -290,7 +309,7 @@ $eshop = $this->Session->read ( 'eshop' );
 								</div>
 								<div class="formRow" id="contact_emailRow">
 									<label for="contact_email">Email</label><span class="inputCase">
-									<input type="text" id="contact_email" name="contact_email" value="gstearmit@gmail.com" /><i> <!-- -->
+									<input type="text" id="contact_email" name="contact_email" value="" /><i> <!-- -->
 									</i></span>
 								</div>
 								<div class="formRow" id="contact_icRow">
@@ -356,7 +375,7 @@ $eshop = $this->Session->read ( 'eshop' );
 				<div id="wizardButtons">
 					<div class="buttonToRight">
 						<span id="nextButtonBlock" class="buttonCase">
-							<button id="nextButton" type="submit" "><!-- onclick="return validateStep2() -->
+							<button id="nextButton" type="submit" ><!-- onclick="return Finish()"  -->
 								<b><?php __('Continue') ?></b>
 							</button> <i> <!-- -->
 						</i>

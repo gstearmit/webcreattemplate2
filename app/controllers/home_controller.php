@@ -53,7 +53,7 @@ class HomeController extends AppController {
 	{
 	
 		// ++langgue
-		$this->set('Langgue',$this->Langgues->find('all', array('conditions'=>array('langgues.id > 0'),'order' => 'langgues.id DESC')));
+		$this->set('Langgue',$this->Langgues->find('all', array('conditions'=>array('langgues.id > 0'),'order' => 'langgues.id ASC')));
 
 	$this->layout = 'launchyoursite';
 	if(isset($_POST['storename']))
