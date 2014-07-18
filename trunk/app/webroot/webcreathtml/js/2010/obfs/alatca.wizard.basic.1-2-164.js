@@ -14227,6 +14227,7 @@ WizardClass.prototype = {
 		this.isPortalWizard = a
 	},
 	
+	// ham xu li day ne
 	process: function() {
 		if (this.step == this.lastStep) {
 			if (true == this.isSent) {
@@ -14661,6 +14662,8 @@ WizardClass.prototype = {
 		this.data.email = Forms.getValue("contact_email");
 		this.data.socialNetworking = 1;
 		this.data.pages = new Array();
+		
+		
 		
 		$$("input.pageSelector").each(function(h) {
 			if (true == h.checked) {
