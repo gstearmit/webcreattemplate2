@@ -14117,7 +14117,7 @@ WizardClass.prototype = {
 		this.selfUrl = document.location.href.replace(/\#step[0-9]/i, "");
 		this.checkUrl = this.selfUrl + "&checkStatus=1";
 		this.verifyUrl = this.selfUrl + "&verifyStatus=1";
-		this.sendUrl = this.selfUrl + "&send=1";
+		this.sendUrl = this.selfUrl ;//+ "&send=1";
 		var d = this;
 		$$("div.formRow").each(function(e) {
 			d.formRowsEl[e.id] = e;
@@ -14687,20 +14687,25 @@ WizardClass.prototype = {
 		a = a.replace(/=/, "%61");
 		a = "wizard=" + a + Metrics._getSendParams();
 		
+		//alert(a); return 0;
+		
 		new Ajax.Request(this.sendUrl.replace(/\#step[0-9]/i, ""), {
 			method: "post",
 			parameters: a,
 			onSuccess: function(g) {
-				if (g.responseText.match(/result:1/)) {
-					Metrics.isSent = true
-				} else {
-					if (g.responseText.match(/result:reload/)) {
-						Metrics.isSent = false;
-						document.location.href = Wizard.selfUrl.replace(/\#step[0-9]/i, "");
-						return
-					}
-				}
-				document.location.href = RS_CFG.urlGuidepost
+				
+				alert(g); return 0;
+				
+//				if (g.responseText.match(/result:1/)) {
+//					Metrics.isSent = true
+//				} else {
+//					if (g.responseText.match(/result:reload/)) {
+//						Metrics.isSent = false;
+//						document.location.href = Wizard.selfUrl.replace(/\#step[0-9]/i, "");
+//						return
+//					}
+//				}
+//				document.location.href = RS_CFG.urlGuidepost
 			}
 		});
 		
