@@ -2,14 +2,16 @@
 		<div id="page" class="container">
 			<div id="header" class="initialPage">
 				
-				<div id="headerIllustration" class="personal">
+				<div id="headerIllustration"  class="headeriluss">
 					<!-- -->
 				</div>
-				<div id="headerSlogan">
-					<h1 id="slogan">Make your own website for free!</h1>
+			<div class="row">
+				<div id="headerSlogan" class="col-xs-12 col-sm-6 col-md-8" >
+					<h1 id="slogan" >Make your own website for free!</h1>
 					<h4 id="sloganNext">Ideal for personal web pages, blogs and picture
 						galleries</h4>
 				</div>
+			</div>
 			</div>
 			<hr class="hidden">
 			<div id="content">

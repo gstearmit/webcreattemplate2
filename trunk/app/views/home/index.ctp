@@ -3,7 +3,7 @@
 		<div id="page" class="container">
 			<div class="row">
 					<div id="header" class="initialPage container col-xs-12 col-sm-6 col-md-8">
-					  <div class="row">
+					  <div class="row ">
 						
 						<div id="headerIllustration" class="headeriluss">
 							<div id="watchVideo">
