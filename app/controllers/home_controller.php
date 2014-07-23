@@ -5,7 +5,7 @@ class HomeController extends AppController {
 	var $uses=array('News','Product','Slideshows','Guest','Shops','Langgues');
 	//$this->layout = 'creattemplate';
 	var $layout = "creattemplate";
-	
+	//var $components = array('RequestHandler');
 	
 	//creattemplate
 	function index($id=null)
@@ -51,6 +51,7 @@ class HomeController extends AppController {
 	//launchyoursite
 	function launchyoursite()
 	{
+		
 	
 		// ++langgue
 		$this->set('Langgue',$this->Langgues->find('all', array('conditions'=>array('langgues.id > 0'),'order' => 'langgues.id ASC')));
@@ -103,11 +104,18 @@ class HomeController extends AppController {
 	
 
 
-	function launchyoursitestep2()
+	function finish()
 	{
-		echo 'launchyoursitestep2';
-		pr($_POST);
+// 		if ($this->RequestHandler->isAjax()) echo "View ajax";die;
+// 		if ($_POST['project_data'])
+// 		{
+// 			return $_POST['project_data'];
+// 		}
+// 		die;
+
+		echo "<div><p>hoangphuc></p></div>";
 		die;
+		
 	}
 	 
 	 

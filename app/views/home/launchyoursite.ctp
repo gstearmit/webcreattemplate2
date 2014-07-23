@@ -1,3 +1,4 @@
+
 <script type="text/javascript">
 function showWaitingAnimation()
 {
@@ -22,11 +23,7 @@ function Finish()
 
 
 <?php
-// echo "view Eshopvccvcv";
 $eshop = $this->Session->read ( 'eshop' );
-// pr($eshop);
-// die;
-
 ?>
 <?php // pr($Langgue);die;?>
 
@@ -97,8 +94,7 @@ $eshop = $this->Session->read ( 'eshop' );
 					<div class="cleaner">
 						<!-- -->
 					</div>
-					<form id="step1WizardForm" name="step1WizardForm" action="<?php //echo DOMAIN ?>launch-your-site-step2" method="post" onsubmit="return processstep1();"
-						style="display: none;" enctype="application/x-www-form-urlencoded">
+					<form id="step1WizardForm" name="step1WizardForm" action="<?php //echo DOMAIN ?>launch-your-site-step2" method="post" onsubmit="Forms.showWaitingAnimation();return Wizard.process();" style="display: none;" enctype="application/x-www-form-urlencoded">
 						<input type="hidden" id="action" name="action" value="<?php echo DOMAIN ?>launch-your-site-step2">
 						<p class="errorFormList" id="step1WizardFormErrorText" style="display: none;"><?php __('step1WizardFormErrorText');?></p>
 						<fieldset id="step1BaseInfo" class=" withoutSeparator">
@@ -173,8 +169,7 @@ $eshop = $this->Session->read ( 'eshop' );
 											value="" _required="required" _type="text" /><input
 											readonly="readonly" type="text" id="branch_typeText"
 											class="selectText" value="" /><i> <!-- -->
-										</i><a href="#" id="branch_typeShowAll" class="selectShowAll">View
-											all</a>
+										</i><a href="#" id="branch_typeShowAll" class="selectShowAll">View all</a>
 									</div>
 									<div class="formRowNotice">E.g.: &quot;Hair Salon&quot; or
 										&quot;Tax services&quot;</div>
