@@ -2,7 +2,7 @@
 		<div id="page" class="container">
 			<div id="header" class="initialPage">
 				
-				<div id="headerIllustration"  class="headeriluss">
+				<div id="headerIllustration"  class="personal">
 					<!-- -->
 				</div>
 			<div class="row">
