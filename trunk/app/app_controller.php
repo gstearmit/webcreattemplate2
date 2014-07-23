@@ -22,6 +22,9 @@ class AppController extends Controller {
 		//creattemplate
 		//$this->layout = 'creattemplate';
 		
+		//ajax
+		//$this->set('isAjax', $this->RequestHandler->isAjax());
+		
 		$urlTmp = $_SERVER['REQUEST_URI'];
 		if (stripos($urlTmp, "?language")) {
 			$urlTmp = explode("?", $urlTmp);

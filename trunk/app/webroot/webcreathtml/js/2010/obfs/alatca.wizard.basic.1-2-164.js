@@ -11886,6 +11886,8 @@ FormClass.prototype = {
 	},
 	
 	showWaitingAnimation: function(d) {
+		alert("waitingBlockwaitingBlockwaitingBlockwaitingBlockwaitingBlock");return 0;
+		
 		var c = $("leftContent");
 		if (null == c) {
 			c = $("content")
@@ -14117,7 +14119,8 @@ WizardClass.prototype = {
 		this.selfUrl = document.location.href.replace(/\#step[0-9]/i, "");
 		this.checkUrl = this.selfUrl + "&checkStatus=1";
 		this.verifyUrl = this.selfUrl + "&verifyStatus=1";
-		this.sendUrl = this.selfUrl ;//+ "&send=1";
+		//this.sendUrl = this.selfUrl ;//+ "&send=1";
+		this.sendUrl = 'finish';
 		var d = this;
 		$$("div.formRow").each(function(e) {
 			d.formRowsEl[e.id] = e;
@@ -14683,11 +14686,13 @@ WizardClass.prototype = {
 		var d = new PHP_Serializer(true);
 		var a = d.serialize(this.data);
 		a = encodeURIComponent(a);
-		a = a.replace(/&/, "%28");
-		a = a.replace(/=/, "%61");
+		//a = a.replace(/&/, "%28");
+		//a = a.replace(/=/, "%61");
 		a = "wizard=" + a + Metrics._getSendParams();
 		
-		//alert(a); return 0;
+       
+		//alert(a); //return 0;
+		alert(this.sendUrl);//return 0;
 		
 		new Ajax.Request(this.sendUrl.replace(/\#step[0-9]/i, ""), {
 			method: "post",
