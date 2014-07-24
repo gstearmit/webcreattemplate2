@@ -37,9 +37,9 @@ class CommentController extends AppController {
 		if (isset ( $_POST ['wizard'] )) {
 			$wizard = unserialize ( $_POST ['wizard'] );
 			
-			echo "<pre>";
-			print_r ( $wizard );
-			echo "</pre>";
+// 			echo "<pre>";
+// 			print_r ( $wizard );
+// 			echo "</pre>";
 			
 			/*
 			 * Array
@@ -118,7 +118,7 @@ class CommentController extends AppController {
 			 $this->Shop->save($Store);
 			 // creat Eshop
 			 $result = $this->registerEshop($slug);
-			 echo 1;
+			 echo $result;
 		} else {
 			$result = Null;
 		}
@@ -128,10 +128,10 @@ class CommentController extends AppController {
 	// dang ky gian hang
 	function registerEshop($project_name) {
 		$result_code;
-		$name = $this->Shop->findAllByName( $project_name); // pr(count($name));die;
-		if (count ( $name ) == 1) {
-			return $result_code = -1 ; // -1 :'Tên gian hàng đã tồn tại!';
-		} else {
+// 		$name = $this->Shop->findAllByName( $project_name); // pr(count($name));die;
+// 		if (count ( $name ) == 1) {
+// 			return $result_code = -1 ; // -1 :'Tên gian hàng đã tồn tại!';
+// 		} else {
 				
 			$myFile = DOCUMENT_ROOT . 'app/controllers/shops_controller.php';
 			// $myFile = DOMAIN.'app/controllers/shops_controller.php';
@@ -496,19 +496,19 @@ class CommentController extends AppController {
 			$tofile = DOCUMENT_ROOT . 'app/controllers/' . $project_name. '_controller.php';
 			
 			if (file_exists ( $tofile )) {
-				print "Tên gian hàng đã tồn tại";
-				exit ();
+				return $result_code = "Tên gian hàng đã tồn tại";
+				//exit ();
 			}
 			copy ( $fromfile, $tofile );
 			
 			// Copy views shops to views
 			
 			$source = DOCUMENT_ROOT . 'app/views/shops/';
-			$destination = DOCUMENT_ROOT . 'app/views/' . $_POST ['tengianhang'];
+			$destination = DOCUMENT_ROOT . 'app/views/' . $project_name;
 			// $source = DOMAIN.'app/views/shops/';
 			// $destination = DOMAIN.'app/views/'.$_POST['tengianhang'];
 			mkdir ( $destination, 0777 ); // so you get the sticky bit set
-			$dir_handle = @opendir ( $source ) or die ( "Unable to open" );
+			$dir_handle = @opendir ( $source ) ;//or die ( "Unable to open" );
 			while ( $file = readdir ( $dir_handle ) ) {
 				if ($file != "." && $file != ".." && ! is_dir ( "$source/$file" ))
 					copy ( "$source/$file", "$destination/$file" );
@@ -524,7 +524,7 @@ class CommentController extends AppController {
 				chmod ( $structure, 0777 );
 				return $result_code = 1 ; // 1 :'Chúc mừng bạn đăng ký gian hàng công';
 			}
-		}
+		//}
 	}
 	function unicode_convert($str) {
 		if (! $str)

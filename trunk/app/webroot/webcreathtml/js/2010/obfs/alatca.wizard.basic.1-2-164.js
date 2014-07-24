@@ -14692,7 +14692,7 @@ WizardClass.prototype = {
 		
        
 		//alert(a); //return 0;
-		alert(this.sendUrl);//return 0;
+		//alert(this.sendUrl);//return 0;
 		
 		new Ajax.Request(this.sendUrl.replace(/\#step[0-9]/i, ""), {
 			method: "post",
