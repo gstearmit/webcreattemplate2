@@ -2,7 +2,7 @@
 class HomeController extends AppController {
 
 	var $name = 'Home';
-	var $uses=array('News','Product','Slideshows','Guest','Shops','Langgues');
+	var $uses=array('News','Product','Slideshows','Guest','Shops','Langgues');//,'Productbepga'
 	//$this->layout = 'creattemplate';
 	var $layout = "creattemplate";
 	//var $components = array('RequestHandler');
@@ -27,6 +27,19 @@ class HomeController extends AppController {
 		// hiển thị limit là 24 sản phẩm
 		$this->paginate = array('conditions'=>array('Product.status'=>1, 'Product.city_id'=>$id),'limit'=>24,'order' => 'Product.created DESC');
 		$this->set('product',$this->paginate('Product',array()));
+		
+		/*
+		*Get record databse new
+		*/
+		//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	//	 $this->Productbepga->setDatabase('bega');
+	//	pr($this->Productbepga->setDatabase('bega'));
+	//	  $cars = $this->Productbepga->find('all');
+	//	  pr($cars);
+
+	//	  $this->set('Productall', $cars);
+//         $setDatabaseTwoNew = 	$this->Home->setDatabaseTwoNew('bega');
+// 		pr($setDatabaseTwoNew);
 	}
 	
 	function businesswebsites()
