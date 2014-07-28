@@ -444,7 +444,8 @@ class BepgaController extends AppController
 	//+++++++++++++++++++++++++++++++++++Home+++++++++++++++++++++++++++++++++++++++++++++++
 	//home
 	function index() { 
-	
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 	// list danh sach tin tuc
 		$this->paginate = array (
 				'conditions' => array (
@@ -550,6 +551,7 @@ class BepgaController extends AppController
 		) ) );
 		
 		//die("hoang pohuc");
+		//die();
 	}
 	
 	//---------------------- end home ---------------------------------------
@@ -1116,6 +1118,8 @@ class BepgaController extends AppController
 		$this->set ( 'buy', $this->Estore_news->read ( null, $id ) );
 		}
 	function viewshopingcart() {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop View Shopping' );
 		if (isset ( $_SESSION ['shopingcart'] )) {
 			$shopingcart = $_SESSION ['shopingcart'];
 				$this->set ( compact ( 'shopingcart' ) );

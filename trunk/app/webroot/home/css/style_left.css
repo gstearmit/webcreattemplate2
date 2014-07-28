@@ -1,0 +1,486 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*authourL: Thanh tung*/
+#wrapper #body #content #menu-left{
+	float:left;
+	width:216px;
+	height:auto;
+	}
+#wrapper #body #content #menu-left #hotro{
+	float:left;	
+	height:auto;
+	width: 202px;
+	 
+	margin:5px 0;
+	border-bottom:1px #e2e2e2 solid;
+	border-left:1px #e2e2e2 solid;
+	border-right:1px #e2e2e2 solid;
+	border-top:1px #e2e2e2 solid;
+}
+#wrapper #body #content #menu-left #hotro #bong{
+	background:#FFF;
+	float:left;	
+	height:auto;
+	width: 202px;
+	 
+	}
+#wrapper #body #content #menu-left #hotro #bong .top{
+	width:203px;
+	height:30px;	
+	margin:-1px;
+	}
+#wrapper #body #content #menu-left #hotro #bong h3{
+	width:204px;
+	background:url(../images/left_menutop.jpg) repeat-x top;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height:26px;
+	font-weight:bold;
+	color:#ffffff;
+	text-align:center;
+	height:30px;
+	text-transform:uppercase;	 	 
+	}
+#wrapper #body #content #menu-left #hotro #bong #ddsidemenubar{
+	width:176px;
+	height:auto;
+}
+#wrapper #body #content #menu-left #hotro #bong #ddsidemenubar ul
+{	
+list-style: none;
+padding: 0;
+margin: 0;
+} 
+#wrapper #body #content #menu-left #hotro #bong #ddsidemenubar li
+{
+float: left;
+
+margin: 1px 9px;
+} 
+#wrapper #body #content #menu-left #hotro #bong #ddsidemenubar li a
+{
+background:url(../images/left_menu_li.jpg) no-repeat left;
+border-bottom:1px groove #8a8a8a;
+height:auto;
+line-height: 36px;
+float: left;
+width:160px;
+padding-left: 24px;
+display: block;
+font-family:arial;
+font-size:12px;
+color: #363636;
+text-decoration: none;
+text-align: left;
+font-weight:bold;
+} 
+#wrapper #body #content #menu-left #hotro #bong #ddsidemenubar li a:hover
+{
+font-family:arial;
+font-size:12px;
+color:#b60101;
+text-decoration: none;
+text-align: left;
+font-weight:bold;
+} 
+
+#wrapper #body #content #menu-left #hotro #bong #nav-menu{
+width:176px;
+height:auto;
+}
+#wrapper #body #content #menu-left #hotro #bong #nav-menu ul
+{	
+list-style: none;
+padding: 0;
+margin: 0;
+} 
+#wrapper #body #content #menu-left #hotro #bong #nav-menu li
+{
+float: left;
+margin: -2px 9px;
+} 
+#wrapper #body #content #menu-left #hotro #bong #nav-menu li a
+{
+background:url(../images/li.png) no-repeat left;
+border-bottom:1px groove #8a8a8a;
+height:auto;
+line-height: 36px;
+float: left;
+width:160px;
+padding-left: 24px;
+display: block;
+font-family:arial;
+font-size:12px;
+color: #3a5ba8;
+text-decoration: none;
+text-align: left;
+font-weight:bold;
+} 
+#wrapper #body #content #menu-left #hotro #bong #nav-menu li a:hover
+{
+font-family:arial;
+font-size:12px;
+color:#b60101;
+text-decoration: none;
+text-align: left;
+font-weight:bold;
+} 
+
+#wrapper #body #content #menu-left #hotline{
+	float:left;	
+	height:auto;
+	width: 202px;
+	 
+	margin:5px 0;
+	border-bottom:1px #e2e2e2 solid;
+	border-left:1px #e2e2e2 solid;
+	border-right:1px #e2e2e2 solid;
+	border-top:1px #e2e2e2 solid;
+	background:#FFF;
+}
+#wrapper #body #content #menu-left #hotline h3{
+	width:160px;
+	background:url(../images/left_menutop.jpg) repeat-x top;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height:25px;
+	font-weight:bold;
+	color:#ffffff;
+	text-align:left;
+	height:30px;
+	text-transform:uppercase;
+	 
+	padding-left:36px;
+	margin:-1px;
+}
+#wrapper #body #content #menu-left #hotline ul li{
+	list-style:none;
+}
+#wrapper #body #content #menu-left #visa{
+    float:left;	
+	height:auto;
+	width: 202px;
+	 
+	margin:5px 0;
+	border-bottom:1px #e2e2e2 solid;
+	border-left:1px #e2e2e2 solid;
+	border-right:1px #e2e2e2 solid;
+	border-top:1px #e2e2e2 solid;
+}
+#wrapper #body #content #menu-left #visa #bong{
+	background:#FFF;
+	float:left;	
+	height:auto;
+	width: 202px;
+	 
+	}
+#wrapper #body #content #menu-left #visa #bong .top{
+	width:203px;
+	height:30px;	
+	margin:-1px;
+	}
+#wrapper #body #content #menu-left #visa #bong h3{
+	width:204px;
+	background:url(../images/left_menutop.jpg) repeat-x top;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height:26px;
+	font-weight:bold;
+	color:#ffffff;
+	text-align:center;
+	height:30px;
+	text-transform:uppercase;	 	 
+	}
+#wrapper #body #content #menu-left #visa #bong .visa{
+	width:174px;
+	height:75px;
+	float:left;
+	border-bottom:1px #c9c8c8 dotted;
+	margin:6px 5px;
+	} 
+#wrapper #body #content #menu-left #visa #bong .visa img{
+	width:65px;
+	height:65px;
+	float:left;
+	border-bottom:1px #c9c8c8 solid;
+	border-left:1px #c9c8c8 solid;
+	border-top:1px #c9c8c8 solid;
+	border-right:1px #c9c8c8 solid;
+	padding:2px;
+	} 
+#wrapper #body #content #menu-left #visa #bong .visa a{
+	width:96px;
+	height:60px;
+	float:right;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#0878b8;
+	margin:0px 0;
+	}
+#wrapper #body #content #menu-left #visa #bong .visa a:hover{
+	color:#b70 202;
+	}
+#wrapper #body #content #menu-left #visa #bong .style36 {
+    background-position: center bottom;
+    background-repeat: repeat-x;
+    border: 0 solid #CCCCCC;
+    padding: 0px 10px;
+}
+
+#wrapper #body #content #menu-left #visa #bong .style37 {
+    color: #000;
+    font-family: Tahoma;
+    font-size: 11px;
+    font-weight: bold;
+}
+#wrapper #body #content #menu-left #visa #bong .style38 {
+    color: #000;
+    font-family: Tahoma;
+    font-size: 11px;
+	line-height: 14px;
+    text-align: center;
+}
+#wrapper #body #content #menu-left #visa #bong .style39 {
+    color:#CCC;
+    font-family: Tahoma;
+    font-size: 11px;
+	line-height: 16px;
+    text-align: center;
+}
+#wrapper #body #content #menu-left #visa #bong .sanpham {
+	width:180px;
+	height:185px;
+	float:left;
+	margin:10px 10px;
+    border-bottom: 1px dotted silver;
+}
+#wrapper #body #content #menu-left #visa #bong .sanpham  img{
+	width: 164px;
+	height:131px;
+}
+#wrapper #body #content #menu-left #visa #bong .sanpham h4 {
+    color:#a1a1a1;
+    font-family: arial;
+    font-size: 12px;
+	line-height: 20px;
+    text-align: center;
+}
+#wrapper #body #content #menu-left #visa #bong .sanpham h4 a{
+    color:#4159a1;
+    font-family: arial;
+    font-size: 12px;
+	line-height: 20px;
+    text-align: center;
+}
+#wrapper #body #content #menu-left #visa #bong .sanpham h4 a:hover{
+    color:blue;
+    font-family: arial;
+    font-size: 12px;
+	line-height: 20px;
+    text-align: center;
+}
+#wrapper #body #content #menu-left #visa #bong .namesp{
+	width: 157px;
+	height:40px;
+	text-align:center;
+}
+
+#wrapper #body #content #menu-left #video{
+	float:left;	
+	height:auto;
+	width: 202px;	 
+	margin:5px 0;
+	border-bottom:1px #e2e2e2 solid;
+	border-left:1px #e2e2e2 solid;
+	border-right:1px #e2e2e2 solid;
+	border-top:1px #e2e2e2 solid;
+	}
+#wrapper #body #content #menu-left #video h3{
+	background:url(../images/left_menutop.jpg) repeat-x top;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height:30px;
+	font-weight:bold;
+	color:#ffffff;
+	text-align:center;
+}
+#wrapper #body #content #menu-left #video .video{
+	height:163px;
+	width:180px;
+	margin:5px;
+}
+#wrapper #body #content #menu-left #email{
+	float:left;
+	background:#faf9de;
+	height:111px;
+	width:225px;
+	border-radius:8px;
+	margin:6px 5px;
+	}
+#wrapper #body #content #menu-left #email h3{
+	background:url(../images/left_menutop.jpg) repeat-x top;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height:30px;
+	font-weight:bold;
+	color:#ffffff;
+	text-align:center;
+}
+#wrapper #body #content #menu-left #email .email{
+	height:163px;
+	width:180px;
+	margin:5px;
+}
+#wrapper #body #content #menu-left #thuvien{
+	float:left;	
+	height:auto;
+	width:185px;
+	border-radius:8px;
+	margin:5px 0;
+	border-bottom:1px #e2e2e2 solid;
+	border-left:1px #e2e2e2 solid;
+	border-right:1px #e2e2e2 solid;
+	border-top:1px #e2e2e2 solid;
+}
+#wrapper #body #content #menu-left #thuvien #bong{
+	background:#FFF ;
+	float:left;	
+	height:auto;
+	width:185px;
+	border-radius:8px;
+	}
+#wrapper #body #content #menu-left #thuvien #bong h3{
+	width:176px;
+	background:url(../images/left_menutop.jpg) repeat-x top;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height:25px;
+	font-weight:bold;
+	color:#ffffff;
+	text-align:left;
+	height:26px;
+	text-transform:uppercase;
+	border-radius:8px 8px 0 0;
+	padding-left:10px;
+}
+#wrapper #body #content #menu-left #thuvien #bong .thuvien{
+	height: 75px;
+    margin: 9px;
+    padding: 2px;
+    width: 195px;
+	border-bottom:1px #cac8c8 solid;
+	border-left:1px #cac8c8 solid;
+	border-right:1px #cac8c8 solid;
+	border-top:1px #cac8c8 solid;
+}
+#wrapper #body #content #menu-left #thongke{
+	background:url(../images/index_68.png) no-repeat;
+	float:left;
+	height:101px;
+	width:192px;
+	border-radius:8px;
+	border-bottom:1px #cac8c8 solid;
+	border-left:1px #cac8c8 solid;
+	border-right:1px #cac8c8 solid;
+	border-top:1px #cac8c8 solid;
+	margin:7px;
+	}
+#wrapper #body #content #menu-left #thongke h3{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height:30px;
+	font-weight:bold;
+	color:#3d3f42;
+	text-transform:uppercase;
+	text-align:center;
+}
+#wrapper #body #content #menu-left #thongke .vanphong{
+	height:212px;
+	width:219px;
+	margin:2px;
+}
+#wrapper #body #content #menu-left #link{
+	float:left;	
+	height:auto;
+	width:222px;
+	border-radius:8px;
+	margin:5px 0;
+	border-bottom:1px #cac8c8 solid;
+	border-left:1px #cac8c8 solid;
+	border-right:1px #cac8c8 solid;
+	border-top:1px #cac8c8 solid;
+	}
+#wrapper #body #content #menu-left #link h3{
+	width:212px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height:30px;
+	font-weight:bold;
+	color:#666;
+	text-align:center;
+	height:25px;
+	text-transform:uppercase;
+}
+#wrapper #body #content #menu-left #link .link{
+	background:url(../images/Index_107.jpg) no-repeat bottom;
+	height:85px;
+	}
+#wrapper #body #content #menu-left #link .link img{
+	padding:15px 50px;
+	}
+#wrapper #body #content #menu-left #info{
+	float:left;	
+	height:auto;
+	width: 202px;	 
+	margin:5px 0;
+	border-bottom:1px #e2e2e2 solid;
+	border-left:1px #e2e2e2 solid;
+	border-right:1px #e2e2e2 solid;
+	border-top:1px #e2e2e2 solid;
+}
+#wrapper #body #content #menu-left #info h3{
+	width:204px;
+	background:url(../images/left_menutop.jpg) repeat-x top;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height:26px;
+	font-weight:bold;
+	color:#ffffff;
+	text-align:center;
+	height:30px;
+	text-transform:uppercase;	 	 
+	}
+#wrapper #body #content #menu-left #info ul{
+	float:left;
+	width:175px;
+	height:auto;
+	list-style: none outside none;
+	margin:5px 0;
+}
+#wrapper #body #content #menu-left #info ul li{
+    background:url(../images/vietsys_98.jpg) no-repeat left top;
+	float:left;
+	width:175px;
+	height:auto;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height:25px;
+	padding-left:15px;
+	margin:0 5px;
+	color:#2e76c5;
+	border-bottom:1px solid #e8f2ea;
+}
+
+#wrapper #body #content #menu-left #info ul li a{	
+	float:left;
+	width:175px;
+	height:auto;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height:25px;
+	color:#3f4347;
+}
+#wrapper #body #content #menu-left #info ul li a:hover{	
+	color:#F60;
+}

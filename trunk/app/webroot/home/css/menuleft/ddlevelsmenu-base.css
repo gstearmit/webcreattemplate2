@@ -1,0 +1,74 @@
+.ddsubmenustyle, .ddsubmenustyle div{
+font: normal 13px Verdana;
+margin: 0;
+padding: 0;
+position: absolute;
+left: 0;
+top: 0px;
+list-style-type: none;
+background: white;
+border: 1px solid #c5c5c5;
+border-bottom-width: 0;
+visibility: hidden;
+z-index: 100;
+}
+
+.ddsubmenustyle ul{
+margin: 0;
+padding: 0;
+position: absolute;
+left: 0;
+top: 0;
+
+list-style-type: none;
+border: 0px none;
+}
+
+.ddsubmenustyle li a{
+display: block;
+font-size: 11px;
+width: 200px;
+color:#646867;
+text-decoration: none;
+padding: 4px 5px;
+line-height: 25px;
+
+border-bottom: 1px solid #f0f0f0;
+
+}
+
+* html .ddsubmenustyle li{
+display: inline-block;
+width: 200px;
+height: 30px;
+
+}
+
+.ddsubmenustyle li a:hover{
+background-color:#ecfbfe;
+color:#646867;
+}
+
+
+.downarrowpointer{ 
+padding-left: 4px;
+border: 0;
+}
+
+.rightarrowpointer{ 
+position: absolute;
+padding-top: 3px;
+left: 100px;
+border: 0;
+display: none;
+}
+
+.ddiframeshim{
+position: absolute;
+z-index: 500;
+background: transparent;
+border-width: 0;
+width: 0;
+height: 0;
+display: block;
+}

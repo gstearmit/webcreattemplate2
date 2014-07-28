@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="izwebz" />
+    <script type="text/javascript" charset="utf-8" src="js/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.validate.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function()    {
+            $('#contact-form').validate();
+        });
+    
+    </script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+	<title>Contact Form</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <img class="stamp" src="images/stamp.png" alt="stamp" />
+        <form method="post" action="" id="contact-form">
+            <label for="name"><strong>Name:</strong></label>
+            <input type="text" size="50" name="name" id="name" value="" class="required" />
+       
+            <label for="email"><strong>Email:</strong></label>
+            <input type="text" size="50" name="email" id="email" value="" class="required email"/>
+        
+            <label for="subject"><strong>Subject:</strong></label>
+            <input type="text" size="50" name="subject" id="subject" value="" class="required"/>
+        
+            <label for="message"><strong>Message:</strong></label>
+            <textarea rows="" cols="" name="message" id="message" class="required"></textarea>
+            
+            <img src="captcha.php" id="captcha" alt="captcha"/>
+            <label for="security_code"><strong></p>Spam protection - Not case sensitive</strong></label>
+            <input type="text" id="security_code" name="security_code" autocomplete="off" class="required"/>
+            <input type="submit" value="Send Message" name="submit" />
+            <p class="rules">
+                Nếu bạn có bất cứ thắc mắc, ý kiến đóng góp hoặc câu hỏi gì khi sử dụng Izwebz.com, hãy liên lạc với tôi bằng form dưới đây. Tôi sẽ hồi âm bạn sớm nhất có thể. Tôi luôn cố gắng trả lời tất cả những email gửi tới, cho nên nếu trong vòng 2 ngày bạn chưa nhận được hồi âm, rất có thể email của bạn đã bị thất lạc. Bạn vui lòng gửi lại email khác.</p>
+        </form>
+    </div><!--End #wrapper-->
+
+
+</body>
+</html>

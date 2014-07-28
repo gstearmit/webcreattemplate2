@@ -1,6 +1,7 @@
 <?php
 define('DOMAIN','http://'.$_SERVER["HTTP_HOST"].'/websitetemplate/');
-define('DOMAINAD','http://'.$_SERVER["HTTP_HOST"].'/websitetemplate/estoreadmin/');
+define('DOMAINAD','http://'.$_SERVER["HTTP_HOST"].'/websitetemplate/admin/');
+define('DOMAINADESTORE','http://'.$_SERVER["HTTP_HOST"].'/websitetemplate/estoreadmin/');
 
 //cau hinh gui mail
 //define('GUSER','inforngoinhanho@gmail.com');

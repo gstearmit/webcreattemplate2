@@ -1,5 +1,5 @@
 <?php
-
+define('DOMAINADESTORE','http://'.$_SERVER["HTTP_HOST"].'/websitetemplate/estoreadmin/');
 define('DOMAINAD','http://'.$_SERVER["HTTP_HOST"].'/websitetemplate/admin/');
 define('DOMAIN','http://'.$_SERVER["HTTP_HOST"].'/websitetemplate/');
 
