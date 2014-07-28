@@ -1,16 +1,16 @@
-
-<?php if($session->read('lang')==1){?>
+<?php // if($session->read('lang')==1){?>
 <div id="img">
-<?php echo "foooter";?>
     <div class="img"><img src="<?php echo DOMAIN;?>home/images/footer_banner.jpg"/></div>
 
-    <?php $setting = $this->requestAction('/bepga/setting');pr($setting);die; ?>
+    <?php $setting = $this->requestAction('/bepga/setting'); ?>
+
     <?php foreach($setting as $settings ){  ?>
 	<?php echo $settings['Estore_setting']['footer'];?>
     <?php }?>
 
  </div>
-  <?php }if($session->read('lang')==2){?>                
+  <?php // }
+  if($session->read('lang')==2){?>                
  <div id="img">
 	<div class="intro">
     <?php $setting = $this->requestAction('/bepga/setting') ?>

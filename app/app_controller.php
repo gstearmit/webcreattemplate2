@@ -37,12 +37,29 @@ class AppController extends Controller {
 			}
 		}
 		
-		// set language
-		if($this->Session->read('language') == 'vie' || $this->Session->read('language') == "") {
-			Configure::write('Config.language', 'vie');
-		} else {
-			Configure::write('Config.language', $this->Session->read('language'));
-		}
+// 		// set language
+// 		if($this->Session->read('language') == 'vie' || $this->Session->read('language') == "") {
+// 			Configure::write('Config.language', 'vie');
+// 		} else {
+// 			Configure::write('Config.language', $this->Session->read('language'));
+// 		}
+		
+// 		// next
+// 		if(isset($_GET['lang'])) {
+// 			if($_GET['lang']=="eng") {
+// 				$this->Session->write('lang',2);
+// 			} else {
+// 				$this->Session->write('lang',1);
+// 			}
+// 		}
+// 		else {
+// 			if($this->Session->read('lang')) {
+// 				$this->Session->write('lang',$this->Session->read('lang'));
+// 			}
+// 			else {
+// 				$this->Session->write('lang',1);
+// 			}
+// 		}
 		
 	
 		

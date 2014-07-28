@@ -24,9 +24,9 @@
 <link href="<?php echo DOMAIN;?>home/css/style_right.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo DOMAIN;?>home/css/style_footer.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo DOMAIN;?>home/css/default.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" charset="utf-8" src="<?php echo DOMAIN;?>js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo DOMAIN;?>js/dropdown.js"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo DOMAIN;?>js/jquery.nivo.slider.js"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo DOMAIN;?>home/js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo DOMAIN;?>home/js/dropdown.js"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo DOMAIN;?>home/js/jquery.nivo.slider.js"></script>
 <link rel="stylesheet" href="<?php echo DOMAIN;?>home/css/nivo-slider.css" type="text/css" media="screen" />
 
 <script type="text/javascript">

@@ -10,7 +10,7 @@
                                 	<?php if ($itm['Estore_news']['images'] !="") { ?>
                                         <span class="picBox" style="width:128px; height: 98px; float: left;"> 
                                              <a href="<?php echo DOMAIN?>bepga/indexnews/<?php echo $itm['Estore_news']['id']?>">
-                                                	<img src="<?php echo DOMAINAD.'timthumb.php?src='.$itm['Estore_news']['images']?>&amp;h=103&amp;w=128&amp;zc=1" width="128" height="103"/>
+                                                	<img src="<?php echo DOMAINADESTORE.'timthumb.php?src='.$itm['Estore_news']['images']?>&amp;h=103&amp;w=128&amp;zc=1" width="128" height="103"/>
                                              </a>
                                         </span> 
                                    <?php } ?>   

@@ -44,7 +44,7 @@
 	color:#FFF;
 	text-align:left;
 	text-transform: uppercase;
-	background:url(../images/main_tops.jpg) no-repeat left;
+	background:url("../../images/main_tops.jpg") no-repeat left;
 	padding-left:15px;
 	}
  #wrapper #body #content #main #main-center #sanphamchitiet .tops{
@@ -59,7 +59,7 @@
 	color:#FFF;
 	text-align:left;
 	text-transform: uppercase;
-	background:url(../images/main_top.jpg) no-repeat left;
+	background:url("../../images/main_top.jpg") no-repeat left;
 	padding-left:15px;
 	}
  
@@ -148,7 +148,7 @@
 	color:#FFF;
 	text-align:left;
 	text-transform: uppercase;
-	background:url(../images/main_top.jpg) no-repeat left;
+	background:url("../../images/main_top.jpg") no-repeat left;
 	padding-left:15px;
 	}
  #wrapper #body #content #main #main-center #sanphams .top h3{
@@ -163,7 +163,7 @@
 	color:#FFF;
 	text-align:left;
 	text-transform: uppercase;
-	background:url(../images/main_top.jpg) no-repeat left;
+	background:url("../../images/main_top.jpg") no-repeat left;
 	padding-left:15px;
 }
 #wrapper #body #content #main #main-center #sanphams #dssanpham{
@@ -216,7 +216,7 @@
 	text-align:center;
 	}
 #wrapper #body #content #main #main-center #sanphams #dssanpham .name h4{
-	background:url(../images/tanhoangphat_35.jpg) no-repeat center;
+	background:url("../../images/tanhoangphat_35.jpg") no-repeat center;
 	color: #823e07;
     font-family: arial;
     font-size: 11px;
@@ -252,7 +252,7 @@
 	height:32px;
     width: 747px;
 	margin:0 -1px;
-	background:url(../images/index-trai-ga_50.jpg) no-repeat top;
+	background:url("../images/index-trai-ga_50.jpg") no-repeat top;
 	}
 #wrapper #body #content #main #sanpham #dssanpham{
 	float:left;

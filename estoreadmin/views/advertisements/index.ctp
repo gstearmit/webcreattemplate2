@@ -1,11 +1,11 @@
-<?php echo $form->create(null, array( 'url' => DOMAINAD.'advertisements/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>
+<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'advertisements/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>
 <br />
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
                     <ul>
                         <li id="toolbar-new">
-                            <a href="<?php echo DOMAINAD?>advertisements/add" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>advertisements/add" class="toolbar">
                                 <span class="icon-32-new"></span>
                                 Thêm mới
                             </a>
@@ -18,7 +18,7 @@
                             </a>
                         </li>
                         <li id="toolbar-unpublish">
-                            <a href="<?php echo DOMAINAD?>home" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>home" class="toolbar">
                                 <span class="icon-32-unpublish"></span>
                                 Đóng
                             </a>
@@ -99,7 +99,7 @@
                         <td><input type="checkbox" /></td>
                         <td><?php $j=$key+1; echo $j;?></td>
                         <td><?php  echo $value['Advertisement']['name'];?></td>                        
-                        <td><img src="<?php echo DOMAINAD?>/timthumb.php?src=<?php echo $value['Advertisement']['images']; ?>&amp;h=70&amp;w=140&amp;zc=1" alt="thumbnail" /></td>
+                        <td><img src="<?php echo DOMAINADESTORE?>/timthumb.php?src=<?php echo $value['Advertisement']['images']; ?>&amp;h=70&amp;w=140&amp;zc=1" alt="thumbnail" /></td>
                         <td>
                         <?php 
 							if($value['Advertisement']['display']==null){?>
@@ -124,18 +124,18 @@
 						</td>
                         <td><?php echo date('d-m-Y', strtotime($value['Advertisement']['created'])); ?></td>
                         <td>
-                             <a href="<?php echo DOMAINAD?>advertisements/edit/<?php echo $value['Advertisement']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>advertisements/delete/<?php echo $value['Advertisement']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>advertisements/edit/<?php echo $value['Advertisement']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>advertisements/delete/<?php echo $value['Advertisement']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a>
                         <?php 
 							if($value['Advertisement']['status']==0)
 							{
 						?>
-                             <a href="<?php echo DOMAINAD?>advertisements/active/<?php echo $value['Advertisement']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>advertisements/active/<?php echo $value['Advertisement']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
                         <?php 
 							}else 
 							{
 						?>
-                            <a href="<?php echo DOMAINAD?>advertisements/close/<?php echo $value['Advertisement']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
+                            <a href="<?php echo DOMAINADESTORE?>advertisements/close/<?php echo $value['Advertisement']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
                         <?php 
 							}
 						?>
