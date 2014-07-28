@@ -47,7 +47,7 @@ if (confirm("Bạn có chắc muốn xóa sản phẩm này không?"))
                             <?php $total=0; $i=0; foreach($shopingcart as $key=>$product) {?>
                             <?php if($product['name']!=null){?>
                             <tr>       
-                                <td align="center"><img width="70" src="<?php echo DOMAINAD;?><?php echo $product['images']; ?>" /></td>
+                                <td align="center"><img width="70" src="<?php echo DOMAINADESTORE;?><?php echo $product['images']; ?>" /></td>
                                 <td style="padding-left: 5px;"><?php echo $product['name']; ?></td>
                                 <td class="tal">
                                 <form name="view<?php echo $i; ?>" action="<?php echo DOMAIN;?>bepga/updateshopingcart/<?php echo $key;?>" method="post">
@@ -58,7 +58,7 @@ if (confirm("Bạn có chắc muốn xóa sản phẩm này không?"))
                                 <td class="tal"><font color="red"><?php echo number_format( $product['price'],3); ?> VNĐ</font></td>
                                 <td class="tal"><font color="red"><?php echo number_format($product['total'],3); ?> VNĐ</font></td>
                                 <td class="tal">
-                                <input onclick="document.view<?php echo $i; ?>.submit();"  type="image" src="<?php echo DOMAINAD?>images/refresh.png" alt="Cập nhật"/>
+                                <input onclick="document.view<?php echo $i; ?>.submit();"  type="image" src="<?php echo DOMAINADESTORE?>images/refresh.png" alt="Cập nhật"/>
                                 <a href="javascript:confirmDelete('<?php echo DOMAIN;?>bepga/deleteshopingcart/<?php echo $key;?>')"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a>
                                 </td>        
                             </tr>
