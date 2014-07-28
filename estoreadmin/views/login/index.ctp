@@ -1,5 +1,5 @@
 ﻿<div id="login-inner">
- <?php echo $form->create(null, array( 'url' => DOMAINAD.'login/login','type' => 'post')); ?>	
+ <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'login/login','type' => 'post')); ?>	
 				
     <div class="notification information png_bg">
     </div>
