@@ -40,6 +40,19 @@ class AdvertisementsController extends AppController {
 		$this->redirect(array('action' => 'index'));
 
 	}
+	
+    function search() {
+		$keyword=$_POST['name'];
+	
+		if($keyword!="")
+			$x['Advertisement.name like']='%'.$keyword.'%';
+
+				$this->paginate = array('conditions'=>$x,'limit' => '12','order' => 'Advertisement.id DESC');
+				$this->set('Advertisements', $this->paginate('Advertisement',array()));
+			
+	
+	}
+	
 	// active tin bai viêt
 	function active($id=null) {
 		$this->account();

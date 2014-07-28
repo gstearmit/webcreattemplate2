@@ -1,4 +1,5 @@
-<?php if($session->read('lang')==1){?>
+<?php 
+//if($session->read('lang')==1){?>
  <div id="main-center">
 <div id="sanphamchitiet">
     <div class="top"><?php echo $views['Estore_news']['title']?></div>
@@ -24,7 +25,8 @@
                             
 </div>   
 </div>
-<?php } if($session->read('lang')==2){?>
+<?php //} 
+if($session->read('lang')==2){?>
 <div id="sanphamchitiet">
     <div class="top"><?php echo $views['Estore_news']['title_en']?></div>
     <div class="clearfix"> 		                   

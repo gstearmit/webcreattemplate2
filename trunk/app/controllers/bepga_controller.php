@@ -558,6 +558,8 @@ class BepgaController extends AppController
 	
 	//++++++++++++++++++++++++++++++Product++++++++++++++++++++++++++++++++++++++++
 	function indexproduct() {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
 		mysql_query ( "SET names utf8" );
 		$this->paginate = array (
@@ -570,6 +572,8 @@ class BepgaController extends AppController
 		$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
 	}
 	function dssanpham($id = null) {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
 		mysql_query ( "SET names utf8" );
 		$check = $this->Estore_catproduct->find ( 'list', array (
@@ -606,6 +610,8 @@ class BepgaController extends AppController
 		}
 	}
 	function all($id = null) {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
 		mysql_query ( "SET names utf8" );
 		$check = $this->Estore_catproduct->find ( 'list', array (
@@ -642,6 +648,8 @@ class BepgaController extends AppController
 		}
 	}
 	function khuyenmaiproduct() {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
 		mysql_query ( "SET names utf8" );
 	
@@ -657,6 +665,8 @@ class BepgaController extends AppController
 		$this->set ( 'cat', 'Sản phẩm khuyến mãi' );
 	}
 	function vip() {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
 		mysql_query ( "SET names utf8" );
 	
@@ -672,6 +682,8 @@ class BepgaController extends AppController
 		$this->set ( 'cat', 'Sản phẩm trung & cao cấp' );
 	}
 	function vpp() {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
 		mysql_query ( "SET names utf8" );
 		$dem = $this->Estore_catproduct->find ( 'list', array (
@@ -702,6 +714,8 @@ class BepgaController extends AppController
 		) ) );
 	}
 	function thietbivp() {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
 		mysql_query ( "SET names utf8" );
 		$dem = $this->Estore_catproduct->find ( 'list', array (
@@ -732,6 +746,8 @@ class BepgaController extends AppController
 		) ) );
 	}
 	function thietbicntt() {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
 		mysql_query ( "SET names utf8" );
 		$dem = $this->Estore_catproduct->find ( 'list', array (
@@ -762,6 +778,8 @@ class BepgaController extends AppController
 		) ) );
 	}
 	function listproduct($id = null) {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc Catproduct
 		mysql_query ( "SET names utf8" );
 		$this->set ( 'newsproducts', $this->Estore_product->find ( 'all', array (
@@ -785,6 +803,8 @@ class BepgaController extends AppController
 		$this->set ( 'cat', $this->Estore_catproduct->read ( null, $id ) );
 	}
 	function listsp1($id = null) {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
 		mysql_query ( "SET names utf8" );
 		$this->paginate = array (
@@ -799,6 +819,8 @@ class BepgaController extends AppController
 		$this->set ( 'cat', $this->Estore_catproduct->read ( null, $id ) );
 	}
 	function listsp12($id = null) {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
 		mysql_query ( "SET names utf8" );
 		$this->paginate = array (
@@ -813,6 +835,8 @@ class BepgaController extends AppController
 		$this->set ( 'cat', $this->Estore_catproduct->read ( null, $id ) );
 	}
 	function listsp2($id = null) {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
 		mysql_query ( "SET names utf8" );
 		$this->paginate = array (
@@ -826,17 +850,10 @@ class BepgaController extends AppController
 		$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
 		$this->set ( 'cat', $this->Estore_catproduct->read ( null, $id ) );
 	}
-	
-	// function search($name_search=null){
-	// $id = $this->Session->read('id');
-	// if(isset($_POST['name_search'])){
-	// $name_search = $_POST['name_search'];
-	// }
-	// $this->paginate = array('conditions'=>array('Estore_product.status'=>1,'Estore_product.title like'=>'%'.$name_search.'%'),'limit'=>16);
-	// $this->set('products', $this->paginate('Estore_product',array()));
-	
-	// }
+
 	function search() {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		$this->loadModel ( "Estore_catproduct" );
 	
 		if (isset ( $_POST ['system'] )) {
@@ -1043,6 +1060,8 @@ class BepgaController extends AppController
 		*/
 	}
 	function view($id = null) {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		//var_dump($id);die;
 		mysql_query ( "SET names utf8" );
 		if (! $id) {
@@ -1069,7 +1088,9 @@ class BepgaController extends AppController
 	}
 	
 	// shopping
-	function addshopingcart($id = null) {
+function addshopingcart($id = null) {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		//echo "get id ";var_dump($id);die;
 		$product = $this->Estore_product->read ( null, $id );
 		//
@@ -1098,7 +1119,10 @@ class BepgaController extends AppController
 			}
 		}
 		}
-		function deleteshopingcart($id = null) {
+		
+function deleteshopingcart($id = null) {
+			$this->layout = 'themeshop/home';
+			$this->set ( 'title_for_layout', 'e-shop' );
 		if (isset ( $_SESSION ['shopingcart'] )) {
 			$shopingcart = $_SESSION ['shopingcart'];
 			if (isset ( $shopingcart [$id] ))
@@ -1108,6 +1132,8 @@ class BepgaController extends AppController
 		}
 	}
 	function order($id = null) {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query ( "SET names utf8" );
 		if (! $id) {
 		$this->Session->setFlash ( __ ( 'Không tồn tại', true ) );
@@ -1119,6 +1145,8 @@ class BepgaController extends AppController
 		}
 	function viewshopingcart() {
 		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
+		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop View Shopping' );
 		if (isset ( $_SESSION ['shopingcart'] )) {
 			$shopingcart = $_SESSION ['shopingcart'];
@@ -1128,6 +1156,8 @@ class BepgaController extends AppController
 		}
 	}
 	function updateshopingcart($id = null) {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		if (isset ( $_SESSION ['shopingcart'] )) {
 		$shopingcart = $_SESSION ['shopingcart'];
 		if (isset ( $shopingcart [$id] )) {
@@ -1140,6 +1170,8 @@ class BepgaController extends AppController
 		}
 		}
 		function buy() {
+			$this->layout = 'themeshop/home';
+			$this->set ( 'title_for_layout', 'e-shop' );
 		if (isset ( $_SESSION ['shopingcart'] )) {
 			$shopingcart = $_SESSION ['shopingcart'];
 			$this->set ( compact ( 'shopingcart' ) );
@@ -1148,6 +1180,8 @@ class BepgaController extends AppController
 		}
 	}
 	function category($id = null) {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query ( "SET names utf8" );
 		if (! $id) {
 		$this->Session->setFlash ( __ ( 'Không tồn tại', true ) );
@@ -1201,6 +1235,8 @@ class BepgaController extends AppController
 	
    //++++++++++++++++++++++++++++++Infomations+++++++++++++++++++++++++++++++++++++++++++++
 		function indexinfomations() {
+			$this->layout = 'themeshop/home';
+			$this->set ( 'title_for_layout', 'e-shop' );
 		
 			if(!$this->Session->read("email")){
 				echo "<script>location.href='".DOMAIN."login'</script>";
@@ -1213,7 +1249,8 @@ class BepgaController extends AppController
 			 
 		}
 		function addinfomations() {
-		
+			$this->layout = 'themeshop/home';
+			$this->set ( 'title_for_layout', 'e-shop' );
 			$uid = "id".rand(1, 1000000);
 			$data['Estore_infomation']['user_id'] =($this->Session->read("id")!=''?$this->Session->read("id"):$uid);
 			$data['Estore_infomation']['mobile'] = $_POST['phone'];
@@ -1247,6 +1284,8 @@ class BepgaController extends AppController
 		}
 		
 		function deleteinfomations($id = null) {
+			$this->layout = 'themeshop/home';
+			$this->set ( 'title_for_layout', 'e-shop' );
 			if (empty($id)) {
 				$this->Session->setFlash(__('Khôn tồn tại danh mục này', true));
 				//$this->redirect(array('action'=>'index'));
@@ -1262,30 +1301,42 @@ class BepgaController extends AppController
    
    //+++++++++++++++++++++++++++++++News+++++++++++++++++++++++++++++++++++++++++++++++++++++++
    function indexnews() {
+   	$this->layout = 'themeshop/home';
+   	$this->set ( 'title_for_layout', 'e-shop' );
 		//list danh sach tin tuc
+	   	$this->layout = 'themeshop/home';
+	   	$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");		
 		$this->paginate = array('conditions'=>array('Estore_news.status'=>1,'Estore_news.category_id'=>156),'limit' => '5','order' => 'Estore_news.id DESC');
 	    $this->set('news', $this->paginate('Estore_news',array()));
 	}
     
-  function tintucnoibat(){    
+  function tintucnoibat(){   
+  	$this->layout = 'themeshop/home';
+  	$this->set ( 'title_for_layout', 'e-shop' );
         mysql_query("SET names utf8");        
         $this->paginate = array('conditions'=>array('Estore_news.status'=>1,'Estore_news.category_id'=>221),'limit' => '6','order' => 'Estore_news.id DESC');
         $this->set('news', $this->paginate('Estore_news',array()));
      
     }
-	function promotion() {//list danh sach tin khuyen mai			
+	function promotion() {//list danh sach tin khuyen mai		
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");		
 		$this->paginate = array('conditions'=>array('Estore_news.status'=>1,'Estore_news.category_id'=>222),'limit' => '6','order' => 'Estore_news.id DESC');
 	    $this->set('news', $this->paginate('Estore_news',array()));
 	}
-	function danceclass() {//list danh sach tin khuyen mai			
+	function danceclass() {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");		
 		$this->paginate = array('conditions'=>array('Estore_news.status'=>1,'Estore_news.category_id'=>223),'limit' => '6','order' => 'Estore_news.id DESC');
 	    $this->set('news', $this->paginate('Estore_news',array()));
 	}
 	function listnews($id=null) {
 		//pr($id);die;
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");		
 		$this->paginate = array('conditions'=>array('Estore_news.status'=>1,'Estore_news.category_id'=>$id),'limit' => '10','order' => 'Estore_news.id DESC');
 	    $this->set('listnews', $this->paginate('Estore_news',array()));
@@ -1293,53 +1344,71 @@ class BepgaController extends AppController
 	}
 	function souvenir() {
 		//list danh sach tin tuc
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");		
 		$this->paginate = array('conditions'=>array('Estore_news.status'=>1,'Estore_news.category_id'=>213),'limit' => '5','order' => 'Estore_news.id DESC');
 	    $this->set('news', $this->paginate('Estore_news',array()));
 	}
 	function recruitment(){
 		//list danh sach tin tuc
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");		
 		$this->paginate = array('conditions'=>array('Estore_news.status'=>1,'Estore_news.category_id'=>220),'limit' => '5','order' => 'Estore_news.id DESC');
 	    $this->set('news', $this->paginate('Estore_news',array()));
 	}
 	function services(){
 		//list danh sach tin tuc
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");		
 		$this->paginate = array('conditions'=>array('Estore_news.status'=>1,'Estore_news.category_id'=>227),'limit' => '7','order' => 'Estore_news.id DESC');
 	    $this->set('news', $this->paginate('Estore_news',array()));
 	}
     function dichvu(){
 		//list danh sach tin tuc
+    	$this->layout = 'themeshop/home';
+    	$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");		
 		$this->paginate = array('conditions'=>array('Estore_news.status'=>1,'Estore_news.category_id'=>224),'limit' => '7','order' => 'Estore_news.id DESC');
 	    $this->set('news', $this->paginate('Estore_news',array()));
 	}
     function ticket(){
+    	$this->layout = 'themeshop/home';
+    	$this->set ( 'title_for_layout', 'e-shop' );
 		//list danh sach ve may bay
 		mysql_query("SET names utf8");		
 		$this->paginate = array('conditions'=>array('Estore_news.status'=>1,'Estore_news.category_id'=>214),'limit' => '8','order' => 'Estore_news.id DESC');
 	    $this->set('ticket', $this->paginate('Estore_news',array()));
 	}
     function hotel(){
+    	$this->layout = 'themeshop/home';
+    	$this->set ( 'title_for_layout', 'e-shop' );
 		//list danh sach khach san
 		mysql_query("SET names utf8");		
 		$this->paginate = array('conditions'=>array('Estore_news.status'=>1,'Estore_news.category_id'=>215),'limit' => '8','order' => 'Estore_news.id DESC');
 	    $this->set('hotel', $this->paginate('Estore_news',array()));
 	}
     function carnews(){
+    	$this->layout = 'themeshop/home';
+    	$this->set ( 'title_for_layout', 'e-shop' );
 		//list danh sach xe du lich
 		mysql_query("SET names utf8");		
 		$this->paginate = array('conditions'=>array('Estore_news.status'=>1,'Estore_news.category_id'=>216),'limit' => '8','order' => 'Estore_news.id DESC');
 	    $this->set('car', $this->paginate('Estore_news',array()));
 	}
     function visa(){
+    	$this->layout = 'themeshop/home';
+    	$this->set ( 'title_for_layout', 'e-shop' );
 		//list danh sach ho chieu
 		mysql_query("SET names utf8");		
 		$this->paginate = array('conditions'=>array('Estore_news.status'=>1,'Estore_news.category_id'=>217),'limit' => '8','order' => 'Estore_news.id DESC');
 	    $this->set('visa', $this->paginate('Estore_news',array()));
 	}
 	function capacity() {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		//list danh sach tin tuc
 		mysql_query("SET names utf8");		
 		$news=$this->Category->find('list',array('conditions'=>array('Category.parent_id'=>171 ),'fields' => array('Category.id')));
@@ -1347,12 +1416,16 @@ class BepgaController extends AppController
 	    $this->set('capacity', $this->paginate('Estore_news',array()));
 	}
 	function addview($id=null) {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		  //var_dump($this->data);die;
 		 $data=$this->Estore_news->read(null,$_POST['id']);
 		 $data['Estore_news']['view']= $data['Estore_news']['view']+1;
 		 $this->Estore_news->save($data['Estore_news']);
 	}
 	function view1($id=null) {
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 			mysql_query("SET names utf8");		
 		$this->paginate = array('conditions'=>array('Estore_news.status'=>1,'Estore_news.category_id'=>$id),'limit' => '1','order' => 'Estore_news.id DESC');
 	    $this->set('recruitment', $this->paginate('Estore_news',array()));
@@ -1362,6 +1435,9 @@ class BepgaController extends AppController
 		
 		
 	function viewnews($id=null) {
+		
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");
 		
 		if (!$id) {
@@ -1369,17 +1445,22 @@ class BepgaController extends AppController
 			$this->redirect(array('action' => 'index'));
 		}
 		$x=$this->Estore_news->read(null, $id);
+		//echo "x :";pr($x);
 		$this->set('views',$x);
 		$this->set('list_other', $this->Estore_news->find('all',array('conditions'=>array('Estore_news.status'=>1,'Estore_news.category_id'=>$x['Estore_news']['category_id'],'Estore_news.id <>'=>$id),'limit'=>10)));
 		
 	}
 	
 	function searchnews($name_search=null){
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");
 		$title = $_POST['name_search'];
 		$this->set('listsearch',$this->Estore_news->find('all',array('conditions'=>array('Estore_news.status'=>1,'Estore_news.title LIKE'=>'%'.$title.'%'),'order'=>'Estore_news.id DESC','limit'=>7)));	
 	}
     	function thongtin() {
+    		$this->layout = 'themeshop/home';
+    		$this->set ( 'title_for_layout', 'e-shop' );
 		//list danh sach tin tuc
 		mysql_query("SET names utf8");		
 		$x=$this->Estore_setting->read(null, 1);
@@ -1389,17 +1470,22 @@ class BepgaController extends AppController
    
    //+++++++++++++++++++++++++++++++++++++Comments+++++++++++++++++++++++++++++++++++++++++++++++++++++++
    function indexcommentstwo() {	
+   	$this->layout = 'themeshop/home';
+   	$this->set ( 'title_for_layout', 'e-shop' );
 	   $this->paginate = array('conditions'=>array('Estore_comments.status'=>1),'limit' => '4','order' => 'Estore_comments.id DESC');
 	   $this->set('comment', $this->paginate('Estore_comments',array()));
 	}
 	
 	function indexcomments() {	
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 	   $this->paginate = array('conditions'=>array('Estore_comments.status'=>1),'limit' => '4','order' => 'Estore_comments.id DESC');
 	   $this->set('comment', $this->paginate('Estore_comments',array()));
 	}
 	//them danh muc moi
 	function addcomments() {	
-	 
+		$this->layout = 'themeshop/home';
+		$this->set ( 'title_for_layout', 'e-shop' );
 		if (!empty($this->data)) {
 		  //if($this->Session->read('security_code')==$_POST['security']){
 
@@ -1425,7 +1511,10 @@ class BepgaController extends AppController
    //_____________________________________end Comments______________________________________________________
    //+++++++++++++++++++++++++Contacts+++++++++++++++++++++++++++++++++++++++++++++++
    function sendcontacts()
- {      mysql_query("SET NAMES 'utf8'");
+ {    
+ 	$this->layout = 'themeshop/home';
+ 	$this->set ( 'title_for_layout', 'e-shop' );
+ 	   mysql_query("SET NAMES 'utf8'");
 		mysql_query("SET character_set_client=utf8");
 		mysql_query("SET character_set_connection=utf8");
 		 $x=$this->Estore_setting->read(null,1);
@@ -1464,7 +1553,12 @@ class BepgaController extends AppController
 }
 
 function dathangcontacts()
- {      mysql_query("SET NAMES 'utf8'");
+ {     
+ 	$this->layout = 'themeshop/home';
+ 	$this->set ( 'title_for_layout', 'e-shop' );
+ 	
+ 	
+ 	mysql_query("SET NAMES 'utf8'");
 		mysql_query("SET character_set_client=utf8");
 		mysql_query("SET character_set_connection=utf8");
 		 //$x=$this->Helps->read(null,1);
