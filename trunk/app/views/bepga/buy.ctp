@@ -129,7 +129,7 @@ $().ready(function() {
                     <?php $total=0; foreach($shopingcart as $key=>$product) {?>
                     <?php if($product['name']!=null){?>
                     <tr>       
-                        <td align="center"><img width="70" src="<?php echo DOMAINAD;?><?php echo $product['images']; ?>" /></td>
+                        <td align="center"><img width="70" src="<?php echo DOMAINADESTORE;?><?php echo $product['images']; ?>" /></td>
                         <td><?php echo $product['name']; ?></td>
                         <td align="center"><?php echo $product['sl']; ?> </td>
                         <td align="center"><font color="red"><?php echo number_format($product['price'],3); ?></font></td>

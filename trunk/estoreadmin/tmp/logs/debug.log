@@ -3627,3 +3627,6 @@
 2014-07-28 12:30:08 Debug: Notice (8): Undefined index: title in [E:\xampp\htdocs\websitetemplate\estoreadmin\views\advertisements\search.ctp, line 42]
 2014-07-28 12:30:08 Debug: Notice (8): Undefined index: Category in [E:\xampp\htdocs\websitetemplate\estoreadmin\views\advertisements\search.ctp, line 43]
 2014-07-28 12:30:08 Debug: Notice (8): Undefined index: category_id in [E:\xampp\htdocs\websitetemplate\estoreadmin\views\advertisements\search.ctp, line 54]
+2014-07-28 13:52:29 Debug: Notice (8): Undefined index: order in [E:\xampp\htdocs\websitetemplate\estoreadmin\views\catproducts\index.ctp, line 113]
+2014-07-28 16:36:31 Debug: Notice (8): Undefined index: order in [E:\xampp\htdocs\websitetemplate\estoreadmin\views\catproducts\index.ctp, line 113]
+2014-07-29 05:24:31 Debug: Notice (8): Use of undefined constant Slideshow - assumed 'Slideshow' in [E:\xampp\htdocs\websitetemplate\estoreadmin\views\slideshow\search.ctp, line 1]

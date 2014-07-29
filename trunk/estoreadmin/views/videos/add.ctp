@@ -30,7 +30,7 @@
                        <?php echo $form->input('Video.LinkUrl',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
                     </p>
                     <p><label>Vị trí đặt</label>
-                    <?php echo $form->radio('Video.left', array(0 => 'Trái', 1 => 'Phải'), array('value' => '1','legend'=>'',,'class'=>'text-input medium-input datepicker')); ?>
+                    <?php echo $form->radio('Video.left', array(0 => 'Trái', 1 => 'Phải'), array('value' => '1','legend'=>'','class'=>'text-input medium-input datepicker')); ?>
                 	</p>
                     <input type="radio" value="0" id="ProductStatus0" name="data[Product][status]"> Chưa Active 
                     	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="ProductStatus1" name="data[Product][status]"> Đã Active

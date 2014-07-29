@@ -46,9 +46,8 @@ class AdvertisementsController extends AppController {
 	
 		if($keyword!="")
 			$x['Advertisement.name like']='%'.$keyword.'%';
-
-				$this->paginate = array('conditions'=>$x,'limit' => '12','order' => 'Advertisement.id DESC');
-				$this->set('Advertisements', $this->paginate('Advertisement',array()));
+            $this->paginate = array('conditions'=>$x,'limit' => '12','order' => 'Advertisement.id DESC');
+			$this->set('Advertisements', $this->paginate('Advertisement',array()));
 			
 	
 	}

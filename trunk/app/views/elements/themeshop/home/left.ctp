@@ -239,7 +239,7 @@ background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat l
                                 <?php $productnew = $this->requestAction('/bepga/typical');?>
                                 <?php foreach($productnew as $value){?>
                                 <li ><div class="sanpham" id="yahoo">
-                            	<a href="<?php echo DOMAIN;?>bepga/view/<?php echo $value['Estore_product']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINAD.$value['Estore_product']['images']?>'/></p>">
+                            	<a href="<?php echo DOMAIN;?>bepga/view/<?php echo $value['Estore_product']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINADESTORE.$value['Estore_product']['images']?>'/></p>">
                                 <img src="<?php echo DOMAINADESTORE.'timthumb.php?src='.$value['Estore_product']['images']?>&amp;h=131&amp;w=164&amp;zc=1"  width="164" height="131"/></a>
                                 <h4>
                                     <a href="<?php echo DOMAIN;?>bepga/view/<?php echo $value['Estore_product']['id'];?>"><?php echo $value['Estore_product']['title'];?></a><br />
