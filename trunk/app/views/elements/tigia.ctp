@@ -64,7 +64,7 @@
 			            			<div class="nd-tigia" id="nd-2">
 			            			
 			            			   <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                                                <tbody
+                                                <tbody>
                                                 <tr>
                                                     <td class="style38">
                                             <script src="http://www.vnexpress.net/Service/Forex_Content.js" language="javascript"></script>

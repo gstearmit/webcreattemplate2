@@ -3,7 +3,7 @@
       <div class="summary">
            <img style="float:left; margin-left:10px; margin-right:10px; margin-top:10px; margin-bottom:10px;" alt="<?php echo $views['Product']['title'];?>" src="<?php echo DOMAINAD?><?php echo $views['Product']['images'];?>" width="348" height="268" />
             <div class="sp-noidung">
-                <p <span style="font-weight:bold;"> Tên sản phẩm:<?php echo $views['Product']['title'];?></span>	<br />
+                <p> <span style="font-weight:bold;"> Tên sản phẩm:<?php echo $views['Product']['title'];?></span>	<br />
                 - Hãng sản xuất :<?php echo $views['Product']['origin'];?> <br>
 				<span  style="margin-left:0px; ">- Giá  : <?php echo $views['Product']['price'];?></span>
 				 </p>

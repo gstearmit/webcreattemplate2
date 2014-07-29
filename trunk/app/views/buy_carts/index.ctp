@@ -68,5 +68,5 @@
                
 
    </div>
-   <p style="float:none !important"
+   <p style="float:none !important"></p>
  <!--end-->
