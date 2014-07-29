@@ -1,11 +1,11 @@
-﻿<?php echo $form->create(null, array( 'url' => DOMAINAD.'slideshow/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>
+﻿<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'slideshow/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>
 <br />
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
                     <ul>
                         <li id="toolbar-new">
-                            <a href="<?php echo DOMAINAD?>slideshow/add" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>slideshow/add" class="toolbar">
                                 <span class="icon-32-new"></span>
                                 Thêm mới
                             </a>
@@ -18,7 +18,7 @@
                             </a>
                         </li>
                         <li id="toolbar-unpublish">
-                            <a href="<?php echo DOMAINAD?>home" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>home" class="toolbar">
                                 <span class="icon-32-unpublish"></span>
                                 Đóng
                             </a>
@@ -97,24 +97,24 @@
                     <tr>
                         <td><input type="checkbox" /></td>
                         <td><?php $j=$key+1; echo $j;?></td>
-                        <td><a href="<?php echo DOMAINAD?>slideshow/edit/<?php echo $value['Slideshow']['id'] ?>" title="Edit"><?php echo $value['Slideshow']['name']; ?></a></td>
+                        <td><a href="<?php echo DOMAINADESTORE?>slideshow/edit/<?php echo $value['Slideshow']['id'] ?>" title="Edit"><?php echo $value['Slideshow']['name']; ?></a></td>
                         <td>
-                        <a href="<?php echo DOMAINAD?>slideshow/edit/<?php echo $value['Slideshow']['id'] ?>" title="Edit"><img style="max-width:90px; max-height:90px;" src="<?php echo $value['Slideshow']['images']; ?>"/></a>
+                        <a href="<?php echo DOMAINADESTORE?>slideshow/edit/<?php echo $value['Slideshow']['id'] ?>" title="Edit"><img style="max-width:90px; max-height:90px;" src="<?php echo $value['Slideshow']['images']; ?>"/></a>
                         </td>
                         <td><?php echo date('d-m-Y', strtotime($value['Slideshow']['created'])); ?></td>
                         <td>
-                             <a href="<?php echo DOMAINAD?>slideshow/edit/<?php echo $value['Slideshow']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>slideshow/delete/<?php echo $value['Slideshow']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>slideshow/edit/<?php echo $value['Slideshow']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>slideshow/delete/<?php echo $value['Slideshow']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a>
                         <?php 
 							if($value['Slideshow']['status']==0)
 							{
 						?>
-                             <a href="<?php echo DOMAINAD?>slideshow/active/<?php echo $value['Slideshow']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>slideshow/active/<?php echo $value['Slideshow']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
                         <?php 
 							}else 
 							{
 						?>
-                            <a href="<?php echo DOMAINAD?>slideshow/close/<?php echo $value['Slideshow']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
+                            <a href="<?php echo DOMAINADESTORE?>slideshow/close/<?php echo $value['Slideshow']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
                         <?php 
 							}
 						?>

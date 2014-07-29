@@ -104,6 +104,16 @@ class SlideshowController extends AppController {
 	function beforeFilter(){
 		$this->layout='admin';
 	}
+	
+	function search()  {
+		$keyword=$_POST['name'];
+		
+		if($keyword!="")
+			$x['Slideshow.name like']='%'.$keyword.'%';
+		$this->paginate = array('conditions'=>$x,'limit' => '12','order' => 'Slideshow.id DESC');
+		$this->set('Slideshow', $this->paginate('Slideshow',array()));
+	
+	}
 
 }
 ?>

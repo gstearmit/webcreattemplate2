@@ -1267,14 +1267,14 @@ function deleteshopingcart($id = null) {
 			//	print_r($shopingcart);exit;
 			$i =0;
 			foreach($shopingcart as $key) {
-				$this->Infomationdetail->create();
-				$data['Infomationdetail']['infomations_id'] = $info_id;
-				$data['Infomationdetail']['product_id'] = $key['pid'];
-				$data['Infomationdetail']['name'] = $key['name'];
-				$data['Infomationdetail']['images'] = $key['images'];
-				$data['Infomationdetail']['quantity'] = $key['sl'];
-				$data['Infomationdetail']['price'] = $key['price'];
-				$this->Infomationdetail->save($data['Infomationdetail']);
+				$this->Estore_infomationdetail->create();
+				$data['Estore_infomationdetail']['infomations_id'] = $info_id;
+				$data['Estore_infomationdetail']['product_id'] = $key['pid'];
+				$data['Estore_infomationdetail']['name'] = $key['name'];
+				$data['Estore_infomationdetail']['images'] = $key['images'];
+				$data['Estore_infomationdetail']['quantity'] = $key['sl'];
+				$data['Estore_infomationdetail']['price'] = $key['price'];
+				$this->Estore_infomationdetail->save($data['Estore_infomationdetail']);
 				$i++;
 			}
 				
