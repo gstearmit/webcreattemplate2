@@ -64,7 +64,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
             <!--  start paging..................................................... -->
             <table border="0" cellpadding="0" cellspacing="0" id="paging-table">
               <tr>
-			  	<td><div><a href="<?php echo DOMAINAD?>news/add" title="Thêm Mới"<img src="<?php echo DOMAINAD?>images/folder-new.png" /><b>Thêm mới tin</b></a></div>
+			  	<td><div><a href="<?php echo DOMAINAD?>news/add" title="Thêm Mới"><img src="<?php echo DOMAINAD?>images/folder-new.png" /><b>Thêm mới tin</b></a></div>
                 </td>
                 </tr>
                 <tr height="30"></tr>
