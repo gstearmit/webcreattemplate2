@@ -64,7 +64,6 @@ $('.ul-'+ id ).show();
                 <h2>THỐNG KÊ TRUY CẬP</h2>
                 <ul id='access'>
 				<?php $shop=$this->requestAction('comment/get_shop_theo_ten/'.$shopname);
-				
 				foreach($shop as $shop){
 				$date=explode(' ',$shop['Shop']['created']);
 				$ngay=explode('-',$date[0]);
