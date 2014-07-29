@@ -25,7 +25,7 @@
                   <tr>
                     <td width="250">Tiêu đề</td>
                     <td> <?php echo $form->input('News.title',array( 'label' => '','style'=>'width:550px;height:25px;'));?></td>
-                  </tr
+                  </tr>
 				   <tr class="alternate-row">
                     <td width="100">Nội dung tóm tắt</td>
                     <td >  <?php 	echo $this->Form->input('introduction',array('type'=>'textarea','label'=>false)).$this->TvFck->create('News.introduction',array('height'=>'100px','width'=>'900')); ?></td>
