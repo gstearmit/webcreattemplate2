@@ -38,7 +38,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                           </tr>
                         <?php }?>                        
                     </table>
-                     <div style="margin-top:10px;"><a href="<?php echo DOMAINAD?>news/add" title="Thêm Mới"<img src="<?php echo DOMAINAD?>images/folder-new.png" /><b>Thêm mới tin</b></a></div>
+                     <div style="margin-top:10px;"><a href="<?php echo DOMAINAD?>news/add" title="Thêm Mới"><img src="<?php echo DOMAINAD?>images/folder-new.png" /><b>Thêm mới tin</b></a></div>
                     <div id='link_page'>
                               <?php
                                         $paginator->options(array('url' => $this->passedArgs));
