@@ -1,207 +1,354 @@
-<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" type="text/css" rel="stylesheet">
-<link href="//fuelcdn.com/fuelux/2.3.1/css/fuelux.css" type="text/css" rel="stylesheet">
-<link href="//fuelcdn.com/fuelux/2.3/css/fuelux-responsive.css">
-<script type="text/javascript">
-$('#MyWizard').on('change', function(e, data) {
-	  console.log('change');
-	  if(data.step===3 && data.direction==='next') {
-	    // return e.preventDefault();
-	  }
-	});
-	$('#MyWizard').on('changed', function(e, data) {
-	  console.log('changed');
-	});
-	$('#MyWizard').on('finished', function(e, data) {
-	  console.log('finished');
-	});
-	$('#btnWizardPrev').on('click', function() {
-	  $('#MyWizard').wizard('previous');
-	});
-	$('#btnWizardNext').on('click', function() {
-	  alert("klich nuet");
-	  $('#MyWizard').wizard('next','foo');
-	});
-	$('#btnWizardStep').on('click', function() {
-	  var item = $('#MyWizard').wizard('selectedItem');
-	  console.log(item.step);
-	});
-	$('#MyWizard').on('stepclick', function(e, data) {
-	  console.log('step' + data.step + ' clicked');
-	  if(data.step===1) {
-	    // return e.preventDefault();
-	  }
-	});
-
-	// optionally navigate back to 2nd step
-	$('#btnStep2').on('click', function(e, data) {
-	  $('[data-target=#step2]').trigger("click");
-	});
-
-
-
-</script>
-
-
-<?php
-// echo "view Eshopvccvcv";
-$eshop = $this->Session->read ( 'eshop' );
-// pr($eshop);
-// die;
-
-?>
-<?php // pr($Langgue);die;?>
-
-
-<div id="coverPage" class="normal">
-
-	<div id="page">
-		<div id="header">
-			<span id="logo"></span>
-			<div id="headerContent" class="fullSize">
-				<h1><?php __('registrationWizard') ?></h1>
-			</div>
-		</div>
-		<?php //contend ?>
-		<div class="well wizard-example">
-		  <div id="MyWizard" class="wizard">
-		    <ul class="steps">
-		      <li data-target="#step1" class="active"><span class="badge badge-info">1</span>Step 1<span class="chevron"></span></li>
-		      <li data-target="#step2"><span class="badge">2</span>Step 2<span class="chevron"></span></li>
-		      <li data-target="#step3"><span class="badge">3</span>Step 3<span class="chevron"></span></li>
-		      <li data-target="#step4"><span class="badge">4</span>Step 4<span class="chevron"></span></li>
-		      <li data-target="#step5"><span class="badge">5</span>Step 5<span class="chevron"></span></li>
-		    </ul>
-		    <div class="actions">
-		      <button class="btn btn-mini btn-prev"> <i class="icon-arrow-left"></i>Prev</button>
-		      <button class="btn btn-mini btn-next" data-last="Finish">Next<i class="icon-arrow-right"></i></button>
-		    </div>
-		  </div>
-		  <div class="step-content">
-		    <div class="step-pane active" id="step1">
-		              <form id="step1WizardForm" name="step1WizardForm" action="<?php   //echo DOMAIN ?>launch-your-site-step2" method="post"
-								onsubmit="return processstep1();"
-								style="display: block;" enctype="application/x-www-form-urlencoded">
-								<input type="hidden" id="action" name="action" value="<?php   echo DOMAIN ?>launch-your-site-step2">
-								<p class="errorFormList" id="step1WizardFormErrorText" style="display: none;"><?php   __('step1WizardFormErrorText');?></p>
-								<fieldset id="step1BaseInfo" class=" withoutSeparator">
-									<div id="step1BaseInfoBlockContent">
-										<div class="formRow" id="project_nameRow">
-											<label for="project_name"><strong><?php   __('Websitename');?></strong></label><span
-												class="inputCase"><input type="text" id="project_name"
-												name="project_name"
-												value="<?php   echo $this->Session->read('eshop.storename'); //if(is_array($eshop) and !empty($eshop)) { echo $eshop['storename'];} ?>"
-												_required="required" /><i> <!-- -->
-											</i></span>
-											<div class="formRowNotice"><?php   __('eg_websitename');?>"</div>
-											<div class="inputHint" id="project_nameHint">
-												<h4><?php   __('Websitename');?></h4>
-												<p><?php   __('Websitename_click');?></p>
-												<i class="hintEnd"> <!-- -->
-												</i>
-											</div>
-										</div>
-										<div class="formRow" id="company_sloganRow">
-											<label for="company_slogan"><?php   __('Slogan');?></label> <span
-												class="inputCase"> <input type="text" id="company_slogan"
-												name="company_slogan" value="" /> <i>
-													<!-- -->
-											</i>
-											</span>
-											<div class="inputHint" id="company_sloganHint">
-												<h4><?php   __('Slogan');?></h4>
-												<p><?php   __('Slogan_click')?></p>
-												<i class="hintEnd"> <!-- -->
-												</i>
-											</div>
-										</div>
-										
-										<div class="formRow" id="languageRow">
-											<label for="language"><strong><?php   __('Language');?></strong></label>
-											   
-													<select class="selectCase hand form-control input-lg " name ="langgueNew" id ="langgueNew">
-													<?php   foreach ($Langgue as $key =>$langgue) :// pr($langgue['Langgues']);	?>
-													<?php    if(is_array($langgue['Langgues']) and !empty($langgue['Langgues'])) : ?>
-											          <option  value="<?php   echo $langgue['Langgues']['countrycode'] ?>"  class="selectText hand" ><?php   echo $langgue['Langgues']['namecountry'];?></option>
-											          <?php      endif;?>
-											            <?php      endforeach; ?>
-											        </select>
-									         
-														      <div class="selectCase hand phucrt"> 
-																 <?php   foreach ($Langgue as $key =>$langgue) : // pr($langgue['Langgues']); ?>
-																     <?php    if(is_array($langgue['Langgues']) and !empty($langgue['Langgues'])) : ?>
-																	<input type="hidden" id="language" name="language" value="<?php   echo $langgue['Langgues']['countrycode'] ?>" required="required" _type="text" />
-																	<input type="text" readonly="readonly" id="languageText" name="languageText"  class="selectText hand" value="<?php   //echo $langgue['Langgues']['namecountry'];?>" />
-																  <?php      endif;?>
-																  <?php     endforeach;?>
-																	<b> <!-- readonly="readonly"  --></b>
-																	<i> <!-- --></i>
-							 									</div> <!--  class="selectCase  -->
-									    
-											<div class="inputHint" id="languageHint">
-												<h4><?php   __('Language');?></h4>
-												<p>
-													This is the website language that the public will view. If
-													your language is not on the list, select Other and you can do
-													a translation later. <strong>Required item.</strong>
-												</p>
-												<i class="hintEnd"> <!-- -->
-												</i>
-											</div>
-										</div>
-										<div class="formRow" id="branch_typeRow" style="display: none;">
-											<label for="branch_type"><strong>Business category</strong></label>
-											<div class="selectCase">
-												<input type="hidden" id="branch_type" name="branch_type"
-													value="" _required="required" _type="text" /><input
-													readonly="readonly" type="text" id="branch_typeText"
-													class="selectText" value="" /><i> <!-- -->
-												</i><a href="#" id="branch_typeShowAll" class="selectShowAll">View
-													all</a>
-											</div>
-											<div class="formRowNotice">E.g.: &quot;Hair Salon&quot; or
-												&quot;Tax services&quot;</div>
-										</div>
-									</div>
-								</fieldset>
-								<div class="cleaner">
-									<!-- -->
-								</div>
-								<div class="formEnd">
-									<!-- -->
-								</div>
-								<button id="nextButtonRT" type="submit" style="display: none;"></button> 
-								
-									<?php   
-		/*
-												       * ?> <div id="wizardButtons"> <div class="buttonToRight"> <span id="nextButtonBlock" class="buttonCase"> <u style="position:absolute;top:0;left:0;width:127px;height:42px;z-index:10;background:#fff;filter: alpha(opacity=0);opacity: 0;"></u> <button id="nextButton" type="submit" onclick="return validateStep2()"><b><cufon class="cufon cufon-canvas" alt="Continue" style="width: 102px; height: 26px;"><canvas width="119" height="31" style="width: 119px; height: 31px; top: -4px; left: -3px;"></canvas><cufontext>Continue</cufontext></cufon></b></button> <cufon class="cufon cufon-canvas" alt=" " style="width: 3px; height: 12px;"><canvas width="16" height="14" style="width: 16px; height: 14px; top: -1px; left: -1px;"></canvas><cufontext> </cufontext></cufon> <i><!-- --></i> </span> </div> <div class="cleaner"> <!-- --> </div> </div>
-												       */
-									?>				
-								</form>					
-		    </div>
-		    <div class="step-pane" id="step2"><h2>Step 2]</h2>Now you are at the 2nd step of this wizard example.<br></div>
-		    <div class="step-pane" id="step3"><h2>Okay</h2>Now you are at the 3rd step of this wizard example.<br></div>
-		    <div class="step-pane" id="step4"><h2>Almost Done.</h2>Now you are at the 4th step of this wizard example. Click 'Next' to finish up.</div>
-		    <div class="step-pane" id="step5"><h2>Done!</h2>The wizard is complete. Pretty exciting stuff, eh?. <a href="#" id="btnStep2">Go back to step 2.</a></div>
-		  </div>
-		  <br>
-		  <input type="button" class="btn" id="btnWizardPrev" value="Back">
-		  <input type="button" class="btn btn-primary" id="btnWizardNext" value="Next">
-		
-		</div>
-		<!-- /well -->
-		
-		<hr>
+<?php 
+                   $myFile = DOCUMENT_ROOT . 'app/controllers/shops_controller.php';
+						// $myFile = DOMAIN.'app/controllers/shops_controller.php';
+						// pr($myFile);die;
+						$fh = fopen ( $myFile, 'w' ) or die ( "can't open file" );
+						// gan du lieu thanh 1 file khac
+						$stringData = "";
+						$stringData .= "<?php\n";
+						$stringData .= "
+						  class " . ucfirst ( $project_name) . "Controller extends AppController {
+						  var \$name = '" . ucfirst ( $project_name) . "';
+						  var \$uses=array('Product','Tems','Shop','Newshop','Productshop','Categoryshop','Userscms','Classifiedss','Banner','Background');
+						  var \$helpers = array('Html', 'Form', 'Javascript');
+					
+						  function index() {
+						  \$this->Session->write('menu','home');
+						
+						    \$pizza = \$_GET['url'];
+						   \$urlshop = explode('/', \$pizza);
+						   \$geturl=\$urlshop[0];
+						    \$this->set('title_for_layout', 'Trang chủ');
+						   \$sang = \$this->Tems->find('all');
+						   \$this->layout='themeshop/template';
+						   \$this->set('title_for_layout', '');
+						   \$user = \$this->Session->read('id');
+							\$temshop = \$this->Shop->findAllByName(\$geturl);
+				           \$idshop = \$temshop[0]['Shop']['id'];
+						   	\$this->paginate =array('conditions'=>array('Productshop.status'=>1,'Productshop.shop_id'=>\$idshop),'order'=>'Productshop.id DESC','limit'=>9);
+							\$this->set('productshop',\$this->paginate('Productshop',array()));
+						;
+						 }
+					
+					  function tin_tuc() {
+					  \$this->Session->write('menu','tintuc');
+					      \$pizza = \$_GET['url'];
+					     \$urlshop = explode('/', \$pizza);
+					     \$geturl=\$urlshop[0];
+						 \$temshop = \$this->Shop->findAllByName(\$geturl);
+					     \$sang = \$this->Tems->find('all');
+						\$this->layout='themeshop/template';
+						 \$this->set('title_for_layout', 'Tin tức - '.\$temshop[0]['Shop']['namecompany']);
+						 \$user = \$this->Session->read('id');
+					
+			            \$idshop = \$temshop[0]['Shop']['id'];
+						 \$this->paginate = array('conditions'=>array('Newshop.shop_id'=>\$idshop,'Newshop.categorynewsshop_id'=>219,'Newshop.status'=>1),'limit' => '8','order' => 'Newshop.id DESC');
+				        \$this->set('newsshop', \$this->paginate('Newshop',array()));
+					 }
+					
+					
 				
-
-   </div>
-	<hr class="hidden" />
-	<div id="coverFooter">
-		<div id="footer">
-			<p id="footerCopyrights"><?php __('Allrightsreserved');?></p>
-		</div>
-	</div>
-</div>
-<!-- id="coverPage" class="normal -->
-
-
-
+					  function khuyen_mai() {
+					      \$pizza = \$_GET['url'];
+					     \$urlshop = explode('/', \$pizza);
+					     \$geturl=\$urlshop[0];
+						 \$temshop = \$this->Shop->findAllByName(\$geturl);
+					     \$sang = \$this->Tems->find('all');
+						\$this->layout='themeshop/template';
+						 \$this->set('title_for_layout', 'Tin tức - '.\$temshop[0]['Shop']['namecompany']);
+						 \$user = \$this->Session->read('id');
+						\$this->Session->write('menu','khuyenmai');
+			            \$idshop = \$temshop[0]['Shop']['id'];
+						 \$this->paginate = array('conditions'=>array('Newshop.shop_id'=>\$idshop,'Newshop.categorynewsshop_id'=>220,'Newshop.status'=>1),'limit' => '8','order' => 'Newshop.id DESC');
+				        \$this->set('khuyenmai', \$this->paginate('Newshop',array()));
+					 }
+					
+					  function chi_tiet_tin_tuc(\$id=null) {
+					  \$this->set('menu','tintuc');
+						 \$sang = \$this->Tems->find('all');
+						 \$this->layout='themeshop/template';
+						 \$this->set('title_for_layout', 'Chi tiết tin');
+						if (!\$id) {
+							\$this->Session->setFlash(__('Không tồn tại', true));
+							\$this->redirect(array('action' => 'index'));
+						}
+						\$x=\$this->Newshop->read(null, \$id);
+						\$this->set('views',\$x);
+						\$this->set('list_others', \$this->Newshop->find('all',array('conditions'=>array('Newshop.status'=>1,'Newshop.categorynewsshop_id'=>\$x['Newshop']['categorynewsshop_id'],'Newshop.id <>'=>\$id),'limit'=>10)));
+					}
+					 // hien thi san phan trong gian hang
+					 function san_pham() {
+					\$this->Session->write('menu','sanpham');
+					   \$pizza = \$_GET['url'];
+					   \$urlshop = explode('/', \$pizza);
+					   \$geturl=\$urlshop[0];
+					   \$temshop = \$this->Shop->findAllByName(\$geturl);
+					   \$sang = \$this->Tems->find('all');
+					  \$this->layout='themeshop/template';
+					   \$this->set('title_for_layout', 'Sản phẩm - '.\$temshop[0]['Shop']['namecompany']);
+					   \$user = \$this->Session->read('id');
+						 //----------------------------------
+						 \$this->set('title_for_layout', 'Sản phẩm');
+			            \$idshop = \$temshop[0]['Shop']['id'];
+						\$product_shop = \$this->Productshop->find('all',array('conditions'=>array('Productshop.status'=>1,'Productshop.shop_id'=>\$idshop),'order'=>'Productshop.id DESC','limit'=>9));
+						\$this->set('productshop',\$product_shop);
+					 }
+					function raovat() {
+					   \$sang = \$this->Tems->find('all');
+					   \$this->layout='themeshop/template';
+					    \$sangurl = \$_SERVER['REQUEST_URI'];
+						\$url = explode('/', \$sangurl);
+					    \$geturl=\$url[2];
+					    \$temshop = \$this->Shop->findAllByName(\$geturl);
+			            \$idshop = \$temshop[0]['Shop']['user_id'];
+						\$this->set('title_for_layout', 'Rao vặt - '.\$temshop[0]['Shop']['namecompany']);
+						\$this->paginate = array('conditions'=>array('Classifiedss.status'=>1,'Classifiedss.user_id'=>\$idshop),'order'=>'Classifiedss.id DESC','limit'=>12);
+						\$this->set('raovat', \$this->paginate('Classifiedss',array()));
+					 }
+					
+					 // cai dat giao dien
+					function bannerheader() {
+					   \$sang = \$this->Tems->find('all');
+					 \$this->layout='themeshop/template';
+					    \$sangurl = \$_SERVER['REQUEST_URI'];
+						\$url = explode(\"/\", \$sangurl);
+					    \$geturl= \$url[2];
+					    \$temshop = \$this->Shop->findAllByName(\$geturl);
+			            \$idshop = \$temshop[0]['Shop']['user_id'];
+						return \$this->Banner->find('all',array('conditions'=>array('Banner.user_id'=>\$idshop),'order'=>'Banner.id DESC','limit'=>1));
+					 }
+					function background() {
+					   \$sang = \$this->Tems->find('all');
+					  \$this->layout='themeshop/template';
+					    \$sangurl = \$_SERVER['REQUEST_URI'];
+						\$url = explode(\"/\", \$sangurl);
+					    \$geturl=\$url[2];
+					    \$temshop = \$this->Shop->findAllByName(\$geturl);
+			            \$idshop = \$temshop[0]['Shop']['user_id'];
+						return \$this->Background->find('all',array('conditions'=>array('Background.user_id'=>\$idshop),'order'=>'Background.id DESC','limit'=>1));
+					 }
+					
+					 function raovatnews() {
+					   \$sang = \$this->Tems->find('all');
+					   \$this->layout='themeshop/template';
+					    \$sangurl = \$_SERVER['REQUEST_URI'];
+						\$url = explode('/', \$sangurl);
+					    \$geturl=\$url[2];
+					    \$temshop = \$this->Shop->findAllByName(\$geturl);
+			            \$idshop = \$temshop[0]['Shop']['user_id'];
+						 return \$temshop = \$this->Classifiedss->find('all',array('conditions'=>array('Classifiedss.status'=>1,'Classifiedss.user_id'=>\$idshop),'order'=>'Classifiedss.id DESC','limit'=>7));
+					 }
+					
+					 function chi_tiet_rao_vat(\$id=null) {
+					 \$this->set('menu','tintuc');
+						 \$sang = \$this->Tems->find('all');
+						\$this->layout='themeshop/template';
+						if (!\$id) {
+							\$this->Session->setFlash(__('Không tồn tại', true));
+							\$this->redirect(array('action' => 'index'));
+						}
+						\$x=\$this->Classifiedss->read(null, \$id);
+						\$this->set('views',\$x);
+						\$this->set('list_others', \$this->Classifiedss->find('all',array('conditions'=>array('Classifiedss.status'=>1,'Classifiedss.scop_id'=>\$x['Classifiedss']['scop_id'],'Classifiedss.id <>'=>\$id),'limit'=>10)));
+					}
+					  function search(\$search_name=null) {
+					   \$pizza = \$_GET['url'];
+					   \$urlshop = explode('/', \$pizza);
+					   \$geturl=\$urlshop[0];
+					 
+					   \$sang = \$this->Tems->find('all');
+					   \$this->layout='themeshop/template';
+					   \$this->set('title_for_layout', '');
+					   \$user = \$this->Session->read('id');
+						 //----------------------------------
+						\$temshop = \$this->Shop->findAllByName(\$geturl);
+			            \$idshop = \$temshop[0]['Shop']['id'];
+						\$product_shop = \$this->Productshop->find('all',array('conditions'=>array('Productshop.status'=>1,'Productshop.shop_id'=>\$idshop,'Productshop.title like'=>'%'.\$search_name.'%'),'order'=>'Productshop.id DESC','limit'=>9));
+						\$this->set('search',\$product_shop);
+					 }
+					
+					 //list product
+					 function danh_sach_san_pham(\$id=null) {
+					 \$this->Session->write('menu','sanpham');
+				
+					   \$pizza = \$_GET['url'];
+					   \$urlshop = explode('/', \$pizza);
+					   \$geturl=\$urlshop[0];
+					   \$this->set('title_for_layout', 'Danh sách sản phẩm');
+					   \$sang = \$this->Tems->find('all');
+					  \$this->layout='themeshop/template';
+					   \$this->set('title_for_layout', '');
+					   \$user = \$this->Session->read('id');
+						\$temshop = \$this->Shop->findAllByName(\$geturl);
+			            \$idshop = \$temshop[0]['Shop']['id'];
+						if(\$id==null) {
+						\$this->paginate=array('conditions'=>array('Productshop.status'=>1,'Productshop.shop_id'=>\$idshop,'Productshop.user_id'=>\$user),'order'=>'Productshop.id DESC','limit'=>9);
+						}
+						else
+						\$this->paginate=array('conditions'=>array('Productshop.status'=>1,'Productshop.categoryshop_id'=>\$id,'Productshop.shop_id'=>\$idshop),'order'=>'Productshop.id DESC','limit'=>9);
+						\$this->set('productshop',\$this->paginate('Productshop',array()));
+					
+					
+						\$cat=\$this->Categoryshop->read(null, \$id);
+					    \$this->set('catid',\$cat);
+					 }
+					
+					 function chi_tiet_san_pham(\$id=null) {
+					 \$this->set('title_for_layout', 'Chi tiết sản phẩm');
+					  \$shop=explode('/',\$this->params['url']['url']);
+						\$shopname=\$shop[0];
+							\$shop=\$this->requestAction('comment/get_shop_id/'.\$shopname);
+							foreach(\$shop as \$key=>\$value){
+							\$user=\$key;
+							}
+					
+					
+					 \$this->Session->write('menu','sanpham');
+					
+						 \$sang = \$this->Tems->find('all');
+						 \$this->layout='themeshop/template';
+						if (!\$id) {
+							\$this->Session->setFlash(__('Không tồn tại', true));
+							\$this->redirect(array('action' => 'index'));
+						}
+						\$x1=\$this->Productshop->findById(\$id);
+				
+				
+							\$catproduct_id=\$x1['Productshop']['categoryshop_id'];
+				
+						\$this->set('views',\$x1);
+						\$this->set('list_others', \$this->Productshop->find('all',array('conditions'=>array('Productshop.status'=>1,'Productshop.categoryshop_id'=>\$catproduct_id,'Productshop.id <>'=>\$id,'Productshop.shop_id'=>\$user),'limit'=>10)));
+						\$this->set('title_for_layout', 'Chi tiết sản phẩm');
+					}
+				
+					 function khuyen_mai1() {
+					    \$pizza = \$_GET['url'];
+					   \$urlshop = explode('/', \$pizza);
+					   \$geturl=\$urlshop[0];
+					   \$temshop = \$this->Shop->findAllByName(\$geturl);
+					   \$sang = \$this->Tems->find('all');
+			         \$this->layout='themeshop/template';
+					  \$this->set('title_for_layout', 'Khuyến mại - '.\$temshop[0]['Shop']['namecompany']);
+					 }
+					
+					 function chinh_sach() {
+					   \$sang = \$this->Tems->find('all');
+					  \$this->layout='themeshop/template';
+					   \$this->set('title_for_layout', '');
+					 }
+					
+					function ban_do() {
+					   \$sang = \$this->Tems->find('all');
+						\$this->layout='themeshop/template';
+							\$this->set('title_for_layout', '');
+					 }
+					function gioi_thieu() {
+					\$this->Session->write('menu','gioithieu');
+				
+			            \$pizza = \$_GET['url'];
+					   \$urlshop = explode('/', \$pizza);
+					   \$geturl=\$urlshop[0];
+					 
+					   \$sang = \$this->Tems->find('all');
+					  \$this->layout='themeshop/template';
+				
+					   \$temshop = \$this->Shop->findAllByName(\$geturl);
+			            \$idshop = \$temshop[0]['Shop']['id'];
+						\$temshop = \$this->Shop->find('all',array('conditions'=>array('Shop.status'=>1,'Shop.id'=>\$idshop),'order'=>'Shop.id DESC'));
+						 \$this->set('title_for_layout','Giới thiệu- '.\$temshop[0]['Shop']['namecompany']);
+						 \$this->set('gioithoi',\$temshop);
+					}
+				
+					function lien_he() {
+					\$this->Session->write('menu','lienhe');
+				
+					   \$sang = \$this->Tems->find('all');
+					   \$this->set('title_for_layout', 'Liên hệ');
+					 \$this->layout='themeshop/template';
+					  // hien ti thong tin shop
+					   \$pizza = \$_GET['url'];
+					   \$urlshop = explode('/', \$pizza);
+					   \$geturl=\$urlshop[0];
+					    \$temshop = \$this->Shop->findAllByName(\$geturl);
+			            \$idshop = \$temshop[0]['Shop']['id'];
+						\$temshop = \$this->Shop->find('all',array('conditions'=>array('Shop.status'=>1,'Shop.id'=>\$idshop),'order'=>'Shop.id DESC'));
+						\$this->set('infomationshop',\$temshop);
+						\$this->set('title_for_layout','Liên hệ - '.\$temshop[0]['Shop']['namecompany']);
+				
+					 }
+				 function send() {
+					   \$sang = \$this->Tems->find('all');
+					   \$this->layout='themeshop/template';
+					  // hien ti thong tin shop
+					   \$pizza = \$_GET['url'];
+					   \$urlshop = explode('/', \$pizza);
+					   \$geturl=\$urlshop[0];
+					    \$temshop = \$this->Shop->findAllByName(\$geturl);
+			            \$idshop = \$temshop[0]['Shop']['id'];
+						\$temshop = \$this->Shop->find('all',array('conditions'=>array('Shop.status'=>1,'Shop.id'=>\$idshop),'order'=>'Shop.id DESC'));
+						\$emailshop = \$temshop[0]['Shop']['email'];
+						// cau hinh gui mail
+						mysql_query('SET NAMES utf8');
+						mysql_query('SET character_set_client=utf8');
+						mysql_query('SET character_set_connection=utf8');
+						if(isset(\$_POST['name']))
+						{
+						\$name=\$_POST['name'];
+						\$mobile=\$_POST['phone'];
+						\$email=\$_POST['email'];
+						\$title=\$_POST['title'];
+						\$content=\$_POST['content'];
+					
+						\$this->Email->from = \$name.'<'.\$email.'>';
+						\$this->Email->to = \$emailshop;
+						\$this->Email->subject = \$title;
+						\$this->Email->template = 'default';
+						\$this->Email->sendAs = 'both';
+						\$this->set('name',\$name);
+						\$this->set('mobile',\$mobile);
+						\$this->set('email',\$email);
+						\$this->set('content',\$content);
+					
+						if(\$this->Email->send())
+						{
+								\$this->Session->setFlash(__('Thêm mới danh mục thành công', true));
+								  echo '<script language=\"javascript\"> alert(\"Gửi email thành công\"); location.href='.DOMAIN.';</script>';
+						}
+						else
+							   \$this->Session->setFlash(__(\"Thêm mơi danh mục thất bại. Vui long thử lại\", true));
+								  echo '<script language=\"javascript\"> alert(\"gửi email không thành công\"); location.href='.DOMAIN.';</script>';
+						}
+				
+					 }
+					
+					 //sidebar phai
+					function helponline(){
+						\$sangurl = \$_SERVER['REQUEST_URI'];
+						\$url = explode('/', \$sangurl);
+					    \$geturl=\$url[2];
+					    \$temshop = \$this->Shop->findAllByName(\$geturl);
+			            \$idshop = \$temshop[0]['Shop']['user_id'];
+					    return \$temshop = \$this->Userscms->find('all',array('conditions'=>array('Userscms.id'=>\$idshop),'order'=>'Userscms.id DESC'));
+					}
+				
+				// danh muc menu ben trai
+					function categoryproduct(){
+						\$sangurl = \$_SERVER['REQUEST_URI'];
+						\$url = explode('/', \$sangurl);
+					    \$geturl=\$url[2];
+					    \$temshop = \$this->Shop->findAllByName(\$geturl);
+			            \$idshop = \$temshop[0]['Shop']['id'];
+					    return \$this->Categoryshop->find('all',array('conditions'=>array('Categoryshop.status'=>1,'Categoryshop.shop_id'=>\$idshop),'order'=>'Categoryshop.id DESC'));
+					}
+				
+					function categoryproductsub(\$id=null){
+						\$sangurl = \$_SERVER['REQUEST_URI'];
+						\$url = explode('/', \$sangurl);
+					    \$geturl=\$url[2];
+					    \$temshop = \$this->Shop->findAllByName(\$geturl);
+			            \$idshop = \$temshop[0]['Shop']['id'];
+					    return \$this->Categoryshop->find('all',array('conditions'=>array('Categoryshop.status'=>1,'Categoryshop.parent_id'=>\$id,'Categoryshop.shop_id'=>\$idshop),'order'=>'Categoryshop.id DESC'));
+					}
+				 }
+				 \n";
+						$stringData .= "?>\n";
