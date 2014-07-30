@@ -1,3 +1,15 @@
+<?php 
+			
+			$shop=explode('/',$this->params['url']['url']); 
+			$shopname=$shop[0];
+				$shop=$this->requestAction('comment/get_shop_id/'.$shopname);
+				
+				
+				foreach($shop as $key=>$value){
+				$shop_id=$key;
+				}
+			
+?>
 <div id="main-center">
 <div id="sanphamchitiet">
     <div class="tops"><?php echo $cat['Category']['name'];?></div>
@@ -9,14 +21,14 @@
                             <div class="intro-content" style="margin: 10px 0; padding: 5px 0;">                           
                                 	<?php if ($itm['Estore_news']['images'] !="") { ?>
                                         <span class="picBox" style="width:128px; height: 98px; float: left;"> 
-                                             <a href="<?php echo DOMAIN?>bepga/indexnews/<?php echo $itm['Estore_news']['id']?>">
+                                             <a href="<?php echo DOMAIN?><?php echo $shopname ;?>/indexnews/<?php echo $itm['Estore_news']['id']?>">
                                                 	<img src="<?php echo DOMAINADESTORE.'timthumb.php?src='.$itm['Estore_news']['images']?>&amp;h=103&amp;w=128&amp;zc=1" width="128" height="103"/>
                                              </a>
                                         </span> 
                                    <?php } ?>   
                                    <div style="padding-left: 140px;"> 
                                     <h3>
-                                        <a  style="color: #237BA0 !important;" href="<?php echo DOMAIN?>bepga/viewnews/<?php echo $itm['Estore_news']['id']?>">
+                                        <a  style="color: #237BA0 !important;" href="<?php echo DOMAIN?><?php echo $shopname ;?>/viewnews/<?php echo $itm['Estore_news']['id']?>">
                                             <?php echo strip_tags($this->Text->truncate( $itm['Estore_news']['title'],130,array('ending' => '...','exact' => false)));?></a>
                                         </a>
                                     </h3>     
@@ -25,7 +37,7 @@
                                     </div>
                                     </div>
                                     <div class="detail" align="right">
-                                    	<a href="<?php echo DOMAIN?>bepga/viewnews/<?php echo $itm['Estore_news']['id']?>">
+                                    	<a href="<?php echo DOMAIN?><?php echo $shopname ;?>/viewnews/<?php echo $itm['Estore_news']['id']?>">
                                     	      <u><i>Chi tiết</i></u> 
     			                      	 </a> 
                                          

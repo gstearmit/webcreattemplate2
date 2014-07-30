@@ -1,4 +1,4 @@
- <?php if($session->read('lang')==1){?>
+<?php //if($session->read('lang')==1){?>
 
 <div id="intro" style="border: 2px solid #c6c6c6; margin-top: 10px; padding-top: 0px;; width: 96%;">
 <div class="title_tile"><p>XE DU LỊCH</p></div>
@@ -36,7 +36,8 @@
      </div>
 </div>
 
-<?php } if($session->read('lang')==2){?>     
+<?php //} 
+if($session->read('lang')==2){?>     
 
 <div id="intro" style="border: 2px solid #c6c6c6; margin-top: 10px; padding-top: 0px;; width: 96%;">
 <div class="title_tile"><p>THE PASSENGER CAR</p></div>

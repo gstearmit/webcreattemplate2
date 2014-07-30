@@ -1,3 +1,15 @@
+<?php 
+			
+			$shop=explode('/',$this->params['url']['url']); 
+			$shopname=$shop[0];
+				$shop=$this->requestAction('comment/get_shop_id/'.$shopname);
+				
+				
+				foreach($shop as $key=>$value){
+				$shop_id=$key;
+				}
+			
+?>
 <div class="sanpham-title"><img src="<?php echo DOMAIN?>images/tittle-sanpham.png" width="67" height="16" /></div>
 	
 <div class="sanpham"><!--begin san pham-->

@@ -1,4 +1,16 @@
-<?php if($session->read('lang')==1){?>
+<?php 
+			
+			$shop=explode('/',$this->params['url']['url']); 
+			$shopname=$shop[0];
+				$shop=$this->requestAction('comment/get_shop_id/'.$shopname);
+				
+				
+				foreach($shop as $key=>$value){
+				$shop_id=$key;
+				}
+			
+?>
+<?php //if($session->read('lang')==1){?>
 <div id="sanphamchitiet">
     <div class="top">Tin tuyển dụng</div>
         <div class="m1" style="padding:20px 10px !important;min-height: 985px !important;">            
@@ -55,7 +67,8 @@
         </div> 
         <div class="b"><div class="b"><div class="b"></div></div></div>
     </div>
-<?php } if($session->read('lang')==2){?>
+<?php //} 
+if($session->read('lang')==2){?>
 <div id="sanphamchitiet">
     <div class="top">Recruitment</div>
         <div class="m1" style="padding:20px 10px !important;min-height: 985px !important;">            

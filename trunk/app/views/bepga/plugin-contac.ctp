@@ -1,3 +1,15 @@
+<?php 
+			
+			$shop=explode('/',$this->params['url']['url']); 
+			$shopname=$shop[0];
+				$shop=$this->requestAction('comment/get_shop_id/'.$shopname);
+				
+				
+				foreach($shop as $key=>$value){
+				$shop_id=$key;
+				}
+			
+?>
 <?php echo $this->Html->css('validationEngine.jquery');?>
 <script type="text/javascript" src="<?php echo DOMAIN;?>js/jquery.validationEngine.js"></script>
 <script>

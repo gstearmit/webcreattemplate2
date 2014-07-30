@@ -1,4 +1,16 @@
 <?php 
+			
+			$shop=explode('/',$this->params['url']['url']); 
+			$shopname=$shop[0];
+				$shop=$this->requestAction('comment/get_shop_id/'.$shopname);
+				
+				
+				foreach($shop as $key=>$value){
+				$shop_id=$key;
+				}
+			
+?>
+<?php 
 //if($session->read('lang')==1){?>
  <div id="main-center">
 <div id="sanphamchitiet">
@@ -16,7 +28,7 @@
                             <div style="margin:10px; text-align:justify;" class="imf-product">
                             	<ul class="list-news" style="list-style: none outside none;">
                                     <?php foreach($list_other as $news){ ?>
-                                		<li><a href="<?php echo DOMAIN;?>bepga/viewnews/<?php echo $news['Estore_news']['id'];?>">- <?php echo $news['Estore_news']['title']?></a></li>
+                                		<li><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/viewnews/<?php echo $news['Estore_news']['id'];?>">- <?php echo $news['Estore_news']['title']?></a></li>
                                     <?php } ?>
                                 </ul>
                             </div> 
@@ -42,7 +54,7 @@ if($session->read('lang')==2){?>
                             <div style="margin:10px; text-align:justify;" class="imf-product">
                             	<ul class="list-news" style="list-style: none outside none;">
                                     <?php foreach($list_other as $news){ ?>
-                                		<li><a href="<?php echo DOMAIN;?>bepga/viewnews/<?php echo $news['Estore_news']['id'];?>">- <?php echo $news['Estore_news']['title_en']?></a></li>
+                                		<li><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/viewnews/<?php echo $news['Estore_news']['id'];?>">- <?php echo $news['Estore_news']['title_en']?></a></li>
                                     <?php } ?>
                                 </ul>
                             </div> 

@@ -1,4 +1,16 @@
- <?php if($session->read('lang')==1){?>
+<?php 
+			
+			$shop=explode('/',$this->params['url']['url']); 
+			$shopname=$shop[0];
+				$shop=$this->requestAction('comment/get_shop_id/'.$shopname);
+				
+				
+				foreach($shop as $key=>$value){
+				$shop_id=$key;
+				}
+			
+?>
+<?php if($session->read('lang')==1){?>
 <div id="main-center">              	
     <div id="sanphams" style="min-height: 665px !important;">
     	<div class="top"><?php echo $cat['Catproduct']['name']?></div>

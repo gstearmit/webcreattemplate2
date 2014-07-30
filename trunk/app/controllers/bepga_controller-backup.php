@@ -21,7 +21,8 @@ class BepgaController extends AppController
 			'Estore_catproduct',
 			'Estore_product',
 			'Estore_weblink',
-			'Estore_manufacturer' 
+			'Estore_manufacturer',
+			'Shop'
 	);
 	//product
 	var $helpers = array (
@@ -33,7 +34,18 @@ class BepgaController extends AppController
 			'RequestHandler','Email'
 	);
 	
-	
+	function get_shop_id($name) {
+		return $this->Shop->find ( 'list', array (
+				'conditions' => array (
+						'Shop.name' => $name,
+						'Shop.status' => 1
+				),
+				'fields' => array (
+						'id',
+						'created'
+				)
+		) );
+	}
 	
 	function getOrder() {
 		mysql_query ( "SET names utf8" );
@@ -444,6 +456,13 @@ class BepgaController extends AppController
 	//+++++++++++++++++++++++++++++++++++Home+++++++++++++++++++++++++++++++++++++++++++++++
 	//home
 	function index() { 
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 	// list danh sach tin tuc
@@ -516,11 +535,7 @@ class BepgaController extends AppController
 						'Estore_catproduct.id'
 				)
 		) );
-		
-		//echo "checkss: </br><pre>";
-		//pr($checkss);//die;
-		
-		
+	
 		if ($checkss != null) {
 			$this->set ( 'bepcongnghiep', $this->Estore_product->find ( 'all', array (
 					'conditions' => array (
@@ -558,6 +573,14 @@ class BepgaController extends AppController
 	
 	//++++++++++++++++++++++++++++++Product++++++++++++++++++++++++++++++++++++++++
 	function indexproduct() {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
@@ -572,6 +595,14 @@ class BepgaController extends AppController
 		$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
 	}
 	function dssanpham($id = null) {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
@@ -610,6 +641,14 @@ class BepgaController extends AppController
 		}
 	}
 	function all($id = null) {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
@@ -648,6 +687,14 @@ class BepgaController extends AppController
 		}
 	}
 	function khuyenmaiproduct() {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
@@ -665,6 +712,14 @@ class BepgaController extends AppController
 		$this->set ( 'cat', 'Sản phẩm khuyến mãi' );
 	}
 	function vip() {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
@@ -682,6 +737,14 @@ class BepgaController extends AppController
 		$this->set ( 'cat', 'Sản phẩm trung & cao cấp' );
 	}
 	function vpp() {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
@@ -714,6 +777,14 @@ class BepgaController extends AppController
 		) ) );
 	}
 	function thietbivp() {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
@@ -746,6 +817,14 @@ class BepgaController extends AppController
 		) ) );
 	}
 	function thietbicntt() {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
@@ -778,6 +857,14 @@ class BepgaController extends AppController
 		) ) );
 	}
 	function listproduct($id = null) {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc Catproduct
@@ -803,6 +890,14 @@ class BepgaController extends AppController
 		$this->set ( 'cat', $this->Estore_catproduct->read ( null, $id ) );
 	}
 	function listsp1($id = null) {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
@@ -819,6 +914,14 @@ class BepgaController extends AppController
 		$this->set ( 'cat', $this->Estore_catproduct->read ( null, $id ) );
 	}
 	function listsp12($id = null) {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
@@ -835,6 +938,14 @@ class BepgaController extends AppController
 		$this->set ( 'cat', $this->Estore_catproduct->read ( null, $id ) );
 	}
 	function listsp2($id = null) {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		// list danh sach tin tuc
@@ -852,6 +963,14 @@ class BepgaController extends AppController
 	}
 
 	function search() {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		$this->loadModel ( "Estore_catproduct" );
@@ -1060,6 +1179,15 @@ class BepgaController extends AppController
 		*/
 	}
 	function view($id = null) {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		//var_dump($id);die;
@@ -1089,6 +1217,14 @@ class BepgaController extends AppController
 	
 	// shopping
 function addshopingcart($id = null) {
+	$shop=explode('/',$this->params['url']['url']);
+	$shopname=$shop[0];
+	$shoparr=$this->get_shop_id($shopname);
+	foreach($shoparr as $key=>$value){
+		$shop_id=$key;
+	}
+	$this->set ( 'shopname',$shopname);
+	
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		//echo "get id ";var_dump($id);die;
@@ -1106,7 +1242,7 @@ function addshopingcart($id = null) {
 				$shopingcart [$id] ['sl'] = $shopingcart [$id] ['sl'] + 1;
 						$shopingcart [$id] ['total'] = $shopingcart [$id] ['price'] * $shopingcart [$id] ['sl'];
 						$_SESSION ['shopingcart'] = $shopingcart;
-						echo '<script language="javascript"> alert("Thêm thành công"); window.location.replace("' . DOMAIN . '/bepga/viewshopingcart"); </script>';
+						echo '<script language="javascript"> alert("Thêm thành công"); window.location.replace("' . DOMAIN . '/'.$namecontroll.'/viewshopingcart"); </script>';
 			} else {
 		$shopingcart [$id] ['pid'] = $id;
 				$shopingcart [$id] ['name'] = $product ['Estore_product'] ['title'];
@@ -1115,12 +1251,20 @@ function addshopingcart($id = null) {
 				$shopingcart [$id] ['price'] = $product ['Estore_product'] ['price'];
 						$shopingcart [$id] ['total'] = $product ['Estore_product'] ['price'] * $shopingcart [$id] ['sl'];
 						$_SESSION ['shopingcart'] = $shopingcart;
-						echo '<script language="javascript" type="text/javascript"> alert("Thêm giỏ hàng thành công"); window.location.replace("' . DOMAIN . 'bepga/viewshopingcart"); </script>';
+						echo '<script language="javascript" type="text/javascript"> alert("Thêm giỏ hàng thành công"); window.location.replace("' . DOMAIN . '/'.$namecontroll.'/viewshopingcart"); </script>';
 			}
 		}
 		}
 		
 function deleteshopingcart($id = null) {
+	$shop=explode('/',$this->params['url']['url']);
+	$shopname=$shop[0];
+	$shoparr=$this->get_shop_id($shopname);
+	foreach($shoparr as $key=>$value){
+		$shop_id=$key;
+	}
+	$this->set ( 'shopname',$shopname);
+	
 			$this->layout = 'themeshop/home';
 			$this->set ( 'title_for_layout', 'e-shop' );
 		if (isset ( $_SESSION ['shopingcart'] )) {
@@ -1132,6 +1276,14 @@ function deleteshopingcart($id = null) {
 		}
 	}
 	function order($id = null) {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query ( "SET names utf8" );
@@ -1144,6 +1296,14 @@ function deleteshopingcart($id = null) {
 		$this->set ( 'buy', $this->Estore_news->read ( null, $id ) );
 		}
 	function viewshopingcart() {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		$this->layout = 'themeshop/home';
@@ -1152,10 +1312,18 @@ function deleteshopingcart($id = null) {
 			$shopingcart = $_SESSION ['shopingcart'];
 				$this->set ( compact ( 'shopingcart' ) );
 		} else {
-			echo '<script language="javascript"> alert("Chua co san pham nao trong gio hang"); window.location.replace("' . DOMAIN . 'bepga/index"); </script>';
+			echo '<script language="javascript"> alert("Chua co san pham nao trong gio hang"); window.location.replace("' . DOMAIN . '/'.$namecontroll.'/index"); </script>';
 		}
 	}
 	function updateshopingcart($id = null) {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		if (isset ( $_SESSION ['shopingcart'] )) {
@@ -1170,6 +1338,14 @@ function deleteshopingcart($id = null) {
 		}
 		}
 		function buy() {
+			$shop=explode('/',$this->params['url']['url']);
+			$shopname=$shop[0];
+			$shoparr=$this->get_shop_id($shopname);
+			foreach($shoparr as $key=>$value){
+				$shop_id=$key;
+			}
+			$this->set ( 'shopname',$shopname);
+			
 			$this->layout = 'themeshop/home';
 			$this->set ( 'title_for_layout', 'e-shop' );
 		if (isset ( $_SESSION ['shopingcart'] )) {
@@ -1180,6 +1356,14 @@ function deleteshopingcart($id = null) {
 		}
 	}
 	function category($id = null) {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query ( "SET names utf8" );
@@ -1206,6 +1390,13 @@ function deleteshopingcart($id = null) {
 	//+++++++++++++++++++++Infomation++++++++++++++++++++++++++++++++++++++
 	/*
 		function indexinfomation() {
+				$shop=explode('/',$this->params['url']['url']);
+				$shopname=$shop[0];
+				$shoparr=$this->get_shop_id($shopname);
+				foreach($shoparr as $key=>$value){
+					$shop_id=$key;
+				}
+				$this->set ( 'shopname',$shopname);
 			$this->set('title_for_layout', 'Đại lý - CÔNG TY THHH PHỤ TÙNG Ô TÔ HÙNG CƯỜNG');
 			if(!$this->Session->read("user_id")){
 				echo "<script>location.href='".DOMAIN."login'</script>";
@@ -1220,6 +1411,13 @@ function deleteshopingcart($id = null) {
 		}
 		
 		function viewinfomation($id=null) {
+						$shop=explode('/',$this->params['url']['url']);
+				$shopname=$shop[0];
+				$shoparr=$this->get_shop_id($shopname);
+				foreach($shoparr as $key=>$value){
+					$shop_id=$key;
+				}
+				$this->set ( 'shopname',$shopname);
 			mysql_query("SET names utf8");
 			$this->set('title_for_layout', 'Hỏi đáp - VIỆN KHOA HỌC VÀ CÔNG NGHỆ XÂY DỰNG GIAO THÔNG');
 			if (!$id) {
@@ -1235,6 +1433,14 @@ function deleteshopingcart($id = null) {
 	
    //++++++++++++++++++++++++++++++Infomations+++++++++++++++++++++++++++++++++++++++++++++
 		function indexinfomations() {
+			$shop=explode('/',$this->params['url']['url']);
+			$shopname=$shop[0];
+			$shoparr=$this->get_shop_id($shopname);
+			foreach($shoparr as $key=>$value){
+				$shop_id=$key;
+			}
+			$this->set ( 'shopname',$shopname);
+			
 			$this->layout = 'themeshop/home';
 			$this->set ( 'title_for_layout', 'e-shop' );
 		
@@ -1249,6 +1455,13 @@ function deleteshopingcart($id = null) {
 			 
 		}
 		function addinfomations() {
+			$shop=explode('/',$this->params['url']['url']);
+			$shopname=$shop[0];
+			$shoparr=$this->get_shop_id($shopname);
+			foreach($shoparr as $key=>$value){
+				$shop_id=$key;
+			}
+			$this->set ( 'shopname',$shopname);
 			$this->layout = 'themeshop/home';
 			$this->set ( 'title_for_layout', 'e-shop' );
 			$uid = "id".rand(1, 1000000);
@@ -1279,11 +1492,19 @@ function deleteshopingcart($id = null) {
 			}
 				
 			unset($_SESSION['shopingcart']);
-			echo '<script language="javascript">alert("cảm ơn bạn đã đặt hàng  chúng tôi sẽ liên hệ với bạn trong vòng 24h"); location.href="'.DOMAIN.'bepga/index";</script>';
+			echo '<script language="javascript">alert("cảm ơn bạn đã đặt hàng  chúng tôi sẽ liên hệ với bạn trong vòng 24h"); location.href="'.DOMAIN.'/'.$namecontroll.'/index";</script>';
 				
 		}
 		
 		function deleteinfomations($id = null) {
+			$shop=explode('/',$this->params['url']['url']);
+			$shopname=$shop[0];
+			$shoparr=$this->get_shop_id($shopname);
+			foreach($shoparr as $key=>$value){
+				$shop_id=$key;
+			}
+			$this->set ( 'shopname',$shopname);
+			
 			$this->layout = 'themeshop/home';
 			$this->set ( 'title_for_layout', 'e-shop' );
 			if (empty($id)) {
@@ -1301,6 +1522,13 @@ function deleteshopingcart($id = null) {
    
    //+++++++++++++++++++++++++++++++News+++++++++++++++++++++++++++++++++++++++++++++++++++++++
    function indexnews() {
+   	$shop=explode('/',$this->params['url']['url']);
+   	$shopname=$shop[0];
+   	$shoparr=$this->get_shop_id($shopname);
+   	foreach($shoparr as $key=>$value){
+   		$shop_id=$key;
+   	}
+   	$this->set ( 'shopname',$shopname);
    	$this->layout = 'themeshop/home';
    	$this->set ( 'title_for_layout', 'e-shop' );
 		//list danh sach tin tuc
@@ -1312,6 +1540,13 @@ function deleteshopingcart($id = null) {
 	}
     
   function tintucnoibat(){   
+  	$shop=explode('/',$this->params['url']['url']);
+  	$shopname=$shop[0];
+  	$shoparr=$this->get_shop_id($shopname);
+  	foreach($shoparr as $key=>$value){
+  		$shop_id=$key;
+  	}
+  	$this->set ( 'shopname',$shopname);
   	$this->layout = 'themeshop/home';
   	$this->set ( 'title_for_layout', 'e-shop' );
         mysql_query("SET names utf8");        
@@ -1319,7 +1554,15 @@ function deleteshopingcart($id = null) {
         $this->set('news', $this->paginate('Estore_news',array()));
      
     }
-	function promotion() {//list danh sach tin khuyen mai		
+	function promotion() {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");		
@@ -1327,6 +1570,14 @@ function deleteshopingcart($id = null) {
 	    $this->set('news', $this->paginate('Estore_news',array()));
 	}
 	function danceclass() {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");		
@@ -1334,7 +1585,14 @@ function deleteshopingcart($id = null) {
 	    $this->set('news', $this->paginate('Estore_news',array()));
 	}
 	function listnews($id=null) {
-		//pr($id);die;
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");		
@@ -1343,7 +1601,14 @@ function deleteshopingcart($id = null) {
 		$this->set('cat',$this->Estore_catproduct->read(null,$id));
 	}
 	function souvenir() {
-		//list danh sach tin tuc
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");		
@@ -1351,7 +1616,13 @@ function deleteshopingcart($id = null) {
 	    $this->set('news', $this->paginate('Estore_news',array()));
 	}
 	function recruitment(){
-		//list danh sach tin tuc
+				$shop=explode('/',$this->params['url']['url']);
+			$shopname=$shop[0];
+			$shoparr=$this->get_shop_id($shopname);
+			foreach($shoparr as $key=>$value){
+				$shop_id=$key;
+			}
+			$this->set ( 'shopname',$shopname);
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");		
@@ -1359,7 +1630,14 @@ function deleteshopingcart($id = null) {
 	    $this->set('news', $this->paginate('Estore_news',array()));
 	}
 	function services(){
-		//list danh sach tin tuc
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");		
@@ -1367,7 +1645,13 @@ function deleteshopingcart($id = null) {
 	    $this->set('news', $this->paginate('Estore_news',array()));
 	}
     function dichvu(){
-		//list danh sach tin tuc
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
     	$this->layout = 'themeshop/home';
     	$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");		
@@ -1375,6 +1659,13 @@ function deleteshopingcart($id = null) {
 	    $this->set('news', $this->paginate('Estore_news',array()));
 	}
     function ticket(){
+    	$shop=explode('/',$this->params['url']['url']);
+    	$shopname=$shop[0];
+    	$shoparr=$this->get_shop_id($shopname);
+    	foreach($shoparr as $key=>$value){
+    		$shop_id=$key;
+    	}
+    	$this->set ( 'shopname',$shopname);
     	$this->layout = 'themeshop/home';
     	$this->set ( 'title_for_layout', 'e-shop' );
 		//list danh sach ve may bay
@@ -1383,6 +1674,13 @@ function deleteshopingcart($id = null) {
 	    $this->set('ticket', $this->paginate('Estore_news',array()));
 	}
     function hotel(){
+    	$shop=explode('/',$this->params['url']['url']);
+    	$shopname=$shop[0];
+    	$shoparr=$this->get_shop_id($shopname);
+    	foreach($shoparr as $key=>$value){
+    		$shop_id=$key;
+    	}
+    	$this->set ( 'shopname',$shopname);
     	$this->layout = 'themeshop/home';
     	$this->set ( 'title_for_layout', 'e-shop' );
 		//list danh sach khach san
@@ -1391,6 +1689,13 @@ function deleteshopingcart($id = null) {
 	    $this->set('hotel', $this->paginate('Estore_news',array()));
 	}
     function carnews(){
+    	$shop=explode('/',$this->params['url']['url']);
+    	$shopname=$shop[0];
+    	$shoparr=$this->get_shop_id($shopname);
+    	foreach($shoparr as $key=>$value){
+    		$shop_id=$key;
+    	}
+    	$this->set ( 'shopname',$shopname);
     	$this->layout = 'themeshop/home';
     	$this->set ( 'title_for_layout', 'e-shop' );
 		//list danh sach xe du lich
@@ -1399,6 +1704,13 @@ function deleteshopingcart($id = null) {
 	    $this->set('car', $this->paginate('Estore_news',array()));
 	}
     function visa(){
+    	$shop=explode('/',$this->params['url']['url']);
+    	$shopname=$shop[0];
+    	$shoparr=$this->get_shop_id($shopname);
+    	foreach($shoparr as $key=>$value){
+    		$shop_id=$key;
+    	}
+    	$this->set ( 'shopname',$shopname);
     	$this->layout = 'themeshop/home';
     	$this->set ( 'title_for_layout', 'e-shop' );
 		//list danh sach ho chieu
@@ -1407,6 +1719,13 @@ function deleteshopingcart($id = null) {
 	    $this->set('visa', $this->paginate('Estore_news',array()));
 	}
 	function capacity() {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		//list danh sach tin tuc
@@ -1416,6 +1735,13 @@ function deleteshopingcart($id = null) {
 	    $this->set('capacity', $this->paginate('Estore_news',array()));
 	}
 	function addview($id=null) {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		  //var_dump($this->data);die;
@@ -1424,6 +1750,13 @@ function deleteshopingcart($id = null) {
 		 $this->Estore_news->save($data['Estore_news']);
 	}
 	function view1($id=null) {
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 			mysql_query("SET names utf8");		
@@ -1435,7 +1768,13 @@ function deleteshopingcart($id = null) {
 		
 		
 	function viewnews($id=null) {
-		
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");
@@ -1452,13 +1791,27 @@ function deleteshopingcart($id = null) {
 	}
 	
 	function searchnews($name_search=null){
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		mysql_query("SET names utf8");
 		$title = $_POST['name_search'];
 		$this->set('listsearch',$this->Estore_news->find('all',array('conditions'=>array('Estore_news.status'=>1,'Estore_news.title LIKE'=>'%'.$title.'%'),'order'=>'Estore_news.id DESC','limit'=>7)));	
 	}
-    	function thongtin() {
+function thongtin() {
+	$shop=explode('/',$this->params['url']['url']);
+	$shopname=$shop[0];
+	$shoparr=$this->get_shop_id($shopname);
+	foreach($shoparr as $key=>$value){
+		$shop_id=$key;
+	}
+	$this->set ( 'shopname',$shopname);
     		$this->layout = 'themeshop/home';
     		$this->set ( 'title_for_layout', 'e-shop' );
 		//list danh sach tin tuc
@@ -1470,6 +1823,13 @@ function deleteshopingcart($id = null) {
    
    //+++++++++++++++++++++++++++++++++++++Comments+++++++++++++++++++++++++++++++++++++++++++++++++++++++
    function indexcommentstwo() {	
+   	$shop=explode('/',$this->params['url']['url']);
+   	$shopname=$shop[0];
+   	$shoparr=$this->get_shop_id($shopname);
+   	foreach($shoparr as $key=>$value){
+   		$shop_id=$key;
+   	}
+   	$this->set ( 'shopname',$shopname);
    	$this->layout = 'themeshop/home';
    	$this->set ( 'title_for_layout', 'e-shop' );
 	   $this->paginate = array('conditions'=>array('Estore_comments.status'=>1),'limit' => '4','order' => 'Estore_comments.id DESC');
@@ -1477,6 +1837,13 @@ function deleteshopingcart($id = null) {
 	}
 	
 	function indexcomments() {	
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 	   $this->paginate = array('conditions'=>array('Estore_comments.status'=>1),'limit' => '4','order' => 'Estore_comments.id DESC');
@@ -1484,6 +1851,14 @@ function deleteshopingcart($id = null) {
 	}
 	//them danh muc moi
 	function addcomments() {	
+		$shop=explode('/',$this->params['url']['url']);
+		$shopname=$shop[0];
+		$shoparr=$this->get_shop_id($shopname);
+		foreach($shoparr as $key=>$value){
+			$shop_id=$key;
+		}
+		$this->set ( 'shopname',$shopname);
+		
 		$this->layout = 'themeshop/home';
 		$this->set ( 'title_for_layout', 'e-shop' );
 		if (!empty($this->data)) {
@@ -1493,7 +1868,7 @@ function deleteshopingcart($id = null) {
 			if ($this->Estore_comments->save($data['Estore_comments'])) {
 				$this->Session->setFlash(__('Thêm mới comments thành công', true));
 				//$this->redirect(array('action' => 'index'));
-				echo '<script language="javascript"> location.href="'.DOMAIN.'bepga/indexcomments";</script>';
+				echo '<script language="javascript"> location.href="'.DOMAIN.'/'.$namecontroll.'/indexcomments";</script>';
 			} else {
 				$this->Session->setFlash(__('Thêm mơi comments thất bại. Vui long thử lại', true));
 			}
@@ -1511,7 +1886,15 @@ function deleteshopingcart($id = null) {
    //_____________________________________end Comments______________________________________________________
    //+++++++++++++++++++++++++Contacts+++++++++++++++++++++++++++++++++++++++++++++++
    function sendcontacts()
- {    
+ {  
+ 	$shop=explode('/',$this->params['url']['url']);
+ 	$shopname=$shop[0];
+ 	$shoparr=$this->get_shop_id($shopname);
+ 	foreach($shoparr as $key=>$value){
+ 		$shop_id=$key;
+ 	}
+ 	$this->set ( 'shopname',$shopname);
+ 	
  	$this->layout = 'themeshop/home';
  	$this->set ( 'title_for_layout', 'e-shop' );
  	   mysql_query("SET NAMES 'utf8'");
@@ -1554,6 +1937,13 @@ function deleteshopingcart($id = null) {
 
 function dathangcontacts()
  {     
+ 	$shop=explode('/',$this->params['url']['url']);
+ 	$shopname=$shop[0];
+ 	$shoparr=$this->get_shop_id($shopname);
+ 	foreach($shoparr as $key=>$value){
+ 		$shop_id=$key;
+ 	}
+ 	$this->set ( 'shopname',$shopname);
  	$this->layout = 'themeshop/home';
  	$this->set ( 'title_for_layout', 'e-shop' );
  	

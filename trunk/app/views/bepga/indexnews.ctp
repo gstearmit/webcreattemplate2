@@ -1,4 +1,16 @@
-<?php if($session->read('lang')==1){?>
+<?php 
+			
+			$shop=explode('/',$this->params['url']['url']); 
+			$shopname=$shop[0];
+				$shop=$this->requestAction('comment/get_shop_id/'.$shopname);
+				
+				
+				foreach($shop as $key=>$value){
+				$shop_id=$key;
+				}
+			
+?>
+<?php // if($session->read('lang')==1){?>
 <div id="sanphamchitiet">
     <div class="top">Tin tức</div>
         <div class="m1" style="padding:20px 10px !important;min-height: 985px !important;">            
@@ -9,14 +21,14 @@
                             <div class="intro-content" style="margin: 10px 0; padding: 5px 0;">                           
                                 	<?php if ($itm['Estore_news']['images'] !="") { ?>
                                         <span class="picBox" style="width:128px; height: 98px; float: left;"> 
-                                             <a href="<?php echo DOMAIN?>bepga/viewnews/<?php echo $itm['Estore_news']['id']?>">
+                                             <a href="<?php echo DOMAIN?><?php echo $shopname ;?>/viewnews/<?php echo $itm['Estore_news']['id']?>">
                                                 	<img src="<?php echo DOMAINAD.'timthumb.php?src='.$itm['Estore_news']['images']?>&amp;h=103&amp;w=128&amp;zc=1" width="128" height="103"/>
                                              </a>
                                         </span> 
                                    <?php } ?>   
                                    <div style="padding-left: 140px;"> 
                                     <h3>
-                                        <a  style="color: #237BA0 !important;" href="<?php echo DOMAIN?>bepga/viewnews/<?php echo $itm['Estore_news']['id']?>">
+                                        <a  style="color: #237BA0 !important;" href="<?php echo DOMAIN?><?php echo $shopname ;?>/viewnews/<?php echo $itm['Estore_news']['id']?>">
                                             <?php echo strip_tags($this->Text->truncate( $itm['Estore_news']['title'],130,array('ending' => '...','exact' => false)));?></a>
                                         </a>
                                     </h3>     
@@ -25,7 +37,7 @@
                                     </div>
                                     </div>
                                     <div class="detail" align="right">
-                                    	<a href="<?php echo DOMAIN?>bepga/viewnews/<?php echo $itm['Estore_news']['id']?>">
+                                    	<a href="<?php echo DOMAIN?><?php echo $shopname ;?>/viewnews/<?php echo $itm['Estore_news']['id']?>">
                                     	      <u><i>Chi tiết</i></u> 
     			                      	 </a> 
                                          
@@ -55,7 +67,8 @@
         </div> 
         <div class="b"><div class="b"><div class="b"></div></div></div>
     </div>
-<?php } if($session->read('lang')==2){?>
+<?php //} 
+                        if($session->read('lang')==2){?>
 <div id="sanphamchitiet">
     <div class="top">News</div>
         <div class="m1" style="padding:20px 10px !important;min-height: 985px !important;">            
@@ -66,14 +79,14 @@
                             <div class="intro-content" style="margin: 10px 0; padding: 5px 0;">                           
                                 	<?php if ($itm['Estore_news']['images'] !="") { ?>
                                         <span class="picBox" style="width:128px; height: 98px; float: left;"> 
-                                             <a href="<?php echo DOMAIN?>bepga/viewnews/<?php echo $itm['Estore_news']['id']?>">
+                                             <a href="<?php echo DOMAIN?><?php echo $shopname ;?>/viewnews/<?php echo $itm['Estore_news']['id']?>">
                                                 	<img src="<?php echo DOMAINAD.'timthumb.php?src='.$itm['Estore_news']['images']?>&amp;h=103&amp;w=128&amp;zc=1" width="128" height="103"/>
                                              </a>
                                         </span> 
                                    <?php } ?>   
                                    <div style="padding-left: 140px;"> 
                                     <h3>
-                                        <a  style="color: #237BA0 !important;" href="<?php echo DOMAIN?>bepga/viewnews/<?php echo $itm['Estore_news']['id']?>">
+                                        <a  style="color: #237BA0 !important;" href="<?php echo DOMAIN?><?php echo $shopname ;?>/viewnews/<?php echo $itm['Estore_news']['id']?>">
                                             <?php echo strip_tags($this->Text->truncate( $itm['Estore_news']['title_en'],130,array('ending' => '...','exact' => false)));?></a>
                                         </a>
                                     </h3>     
@@ -82,7 +95,7 @@
                                     </div>
                                     </div>
                                     <div class="detail" align="right">
-                                    	<a href="<?php echo DOMAIN?>bepga/viewnews/<?php echo $itm['Estore_news']['id']?>">
+                                    	<a href="<?php echo DOMAIN?><?php echo $shopname ;?>/viewnews/<?php echo $itm['Estore_news']['id']?>">
                                     	      <u><i>Detail</i></u> 
     			                      	 </a> 
                                          
