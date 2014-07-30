@@ -14699,7 +14699,7 @@ WizardClass.prototype = {
 			parameters: a,
 			onSuccess: function(g) {
 				
-				alert(g); return 0;
+				//alert(g); return 0;
 				
 //				if (g.responseText.match(/result:1/)) {
 //					Metrics.isSent = true
@@ -14710,7 +14710,8 @@ WizardClass.prototype = {
 //						return
 //					}
 //				}
-//				document.location.href = RS_CFG.urlGuidepost
+//				document.location.href = 
+					//RS_CFG.urlGuidepost
 			}
 		});
 		
