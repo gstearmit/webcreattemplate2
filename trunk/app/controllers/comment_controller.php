@@ -2228,11 +2228,7 @@ class CommentController extends AppController {
 								echo '<script language=\"javascript\"> alert(\"gửi mail không thành công\"); location.href=\"' . DOMAIN . '\";</script>';
 							}
 						}
-						// ________________________________________________________________________
-					}
-						  		
-						  		
-				      \n";
+					 }\n";
 						$stringData .= "?>\n";
 						
 						fwrite ( $fh, $stringData );

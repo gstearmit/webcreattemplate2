@@ -6,7 +6,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '',
-		'database' => 'websitetemplate_dev',
+		'database' => 'freewebmobile',
 		'prefix' => '',
 		'encoding' => 'utf8'
 	);

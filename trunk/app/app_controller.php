@@ -24,7 +24,10 @@ class AppController extends Controller {
 		
 		//ajax
 		//$this->set('isAjax', $this->RequestHandler->isAjax());
-		
+// 		pr(DOCUMENT_ROOT);
+// 		pr(GIANHANG);
+// 		pr(realpath(dirname(__FILE__)));
+// 		die;
 		$urlTmp = $_SERVER['REQUEST_URI'];
 		if (stripos($urlTmp, "?language")) {
 			$urlTmp = explode("?", $urlTmp);
@@ -36,7 +39,7 @@ class AppController extends Controller {
 				$this->Session->delete('language');
 			}
 		}
-		
+		//die;
 // 		// set language
 // 		if($this->Session->read('language') == 'vie' || $this->Session->read('language') == "") {
 // 			Configure::write('Config.language', 'vie');

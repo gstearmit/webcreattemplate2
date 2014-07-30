@@ -1,7 +1,7 @@
 <?php
 
-						  class Eshop0305Controller extends AppController {
-						  var $name = 'Eshop0305';
+						  class Eshop0310Controller extends AppController {
+						  var $name = 'Eshop0310';
 						  var $uses=array('Product','Tems','Shop','Newshop','Productshop','Categoryshop','Userscms','Classifiedss','Banner','Background');
 						  var $helpers = array('Html', 'Form', 'Javascript');
 					
