@@ -1,4 +1,16 @@
-  <?php
+<?php 
+			
+			$shop=explode('/',$this->params['url']['url']); 
+			$shopname=$shop[0];
+				$shop=$this->requestAction('comment/get_shop_id/'.$shopname);
+				
+				
+				foreach($shop as $key=>$value){
+				$shop_id=$key;
+				}
+			
+?>
+<?php
   function char1($str) {
     $str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ|À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)/", 'a', $str);
     $str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ|È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)/", 'e', $str);

@@ -1,4 +1,15 @@
-
+<?php 
+			
+			$shop=explode('/',$this->params['url']['url']); 
+			$shopname=$shop[0];
+				$shop=$this->requestAction('comment/get_shop_id/'.$shopname);
+				
+				
+				foreach($shop as $key=>$value){
+				$shop_id=$key;
+				}
+			
+?>
 <script src="<?php echo DOMAIN;?>home/js/jquery.jqzoom-core.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="<?php echo DOMAIN;?>home/css/jquery.jqzoom.css" type="text/css">
@@ -39,11 +50,11 @@ $(document).ready(function() {
             <b>Giá:</b>  <?php echo number_format( $views['Estore_product']['price'],0); ?> VNĐ<br/></p>
         </div>
             <div class="chitiet"><br />
-            <a href="<?php echo DOMAIN?>bepga/addshopingcart/<?php echo $views['Estore_product']['id'];?>"><img src="<?php echo DOMAIN?>home/images/datmua.jpg"/></a>
+            <a href="<?php echo DOMAIN?><?php echo $shopname ;?>/addshopingcart/<?php echo $views['Estore_product']['id'];?>"><img src="<?php echo DOMAIN?>home/images/datmua.jpg"/></a>
             </div>
             <!--<b>Giá sản phẩm:</b>  <?php echo number_format( $views['Estore_product']['price'],3); ?> VNĐ<br/></p>
             </div>
-            <div class="chitiet"><a href="<?php echo DOMAIN?>bepga/addshopingcart/<?php echo $views['Estore_product']['id'];?>"><img src="<?php echo DOMAIN?>home/images/vietsys_111.jpg"/></a></div><br /><br />
+            <div class="chitiet"><a href="<?php echo DOMAIN?><?php echo $shopname ;?>/addshopingcart/<?php echo $views['Estore_product']['id'];?>"><img src="<?php echo DOMAIN?>home/images/vietsys_111.jpg"/></a></div><br /><br />
             -->
         </div>
         <div class="clearfix"></div>
@@ -61,14 +72,14 @@ $(document).ready(function() {
             <?php foreach($sanphamkhac as $pr){?>
          <div id="dssanpham" align="center">             
         	<div class="img"  id="yahoo" >
-            <a href="<?php echo DOMAIN;?>bepga/view/<?php echo $pr['Estore_product']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINADESTORE.$pr['Estore_product']['images']?>'/></p>"><img src="<?php echo DOMAINADESTORE.'timthumb.php?src='.$pr['Estore_product']['images']?>&amp;h=113&amp;w=168&amp;zc=1" width="168" height="113"/></a>
+            <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_product']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINADESTORE.$pr['Estore_product']['images']?>'/></p>"><img src="<?php echo DOMAINADESTORE.'timthumb.php?src='.$pr['Estore_product']['images']?>&amp;h=113&amp;w=168&amp;zc=1" width="168" height="113"/></a>
             </div>
             <div class="name" align="center">
-            	<h5><a href="<?php echo DOMAIN;?>bepga/view/<?php echo $pr['Estore_product']['id'];?>"><?php echo $pr['Estore_product']['title'];?></a><br />
+            	<h5><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_product']['id'];?>"><?php echo $pr['Estore_product']['title'];?></a><br />
                 Mã:<?php echo $pr['Estore_product']['code'];?>
                 </h5>
                 <h6>Giá: <?php echo number_format( $pr['Estore_product']['price'],3); ?> VNĐ
-                <a href="<?php echo DOMAIN?>bepga/addshopingcart/<?php echo $pr['Estore_product']['id'];?>"><img src="<?php echo DOMAIN?>home/images/datmua.jpg"/></a>
+                <a href="<?php echo DOMAIN?><?php echo $shopname ;?>/addshopingcart/<?php echo $pr['Estore_product']['id'];?>"><img src="<?php echo DOMAIN?>home/images/datmua.jpg"/></a>
                 </h6>                
             </div>
         </div><?php }?>                                    
@@ -109,7 +120,7 @@ $(document).ready(function() {
             </div>
             <!--<b>Giá sản phẩm:</b>  <?php echo number_format( $views['Estore_product']['price'],3); ?> VNĐ<br/></p>
             </div>
-            <div class="chitiet"><a href="<?php echo DOMAIN?>bepga/addshopingcart/<?php echo $views['Estore_product']['id'];?>"><img src="<?php echo DOMAIN?>home/images/vietsys_111.jpg"/></a></div><br /><br />
+            <div class="chitiet"><a href="<?php echo DOMAIN?><?php echo $shopname ;?>/addshopingcart/<?php echo $views['Estore_product']['id'];?>"><img src="<?php echo DOMAIN?>home/images/vietsys_111.jpg"/></a></div><br /><br />
             -->
         </div>
         <div class="noidung">
@@ -128,13 +139,13 @@ $(document).ready(function() {
             <li>
         <div id="dssanpham" align="center">
         	<div class="img" >
-            <a href="<?php echo DOMAIN;?>bepga/view/<?php echo $pr['Estore_product']['id'];?>"><img src="<?php echo DOMAINAD.'timthumb.php?src='.$pr['Estore_product']['images']?>&amp;h=105&amp;w=199&amp;zc=1" width="199" height="105"/></a>
+            <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_product']['id'];?>"><img src="<?php echo DOMAINAD.'timthumb.php?src='.$pr['Estore_product']['images']?>&amp;h=105&amp;w=199&amp;zc=1" width="199" height="105"/></a>
             </div>
             <div class="name" align="center">
-            	<h5><a href="<?php echo DOMAIN;?>bepga/view/<?php echo $pr['Estore_product']['id'];?>"><?php echo $pr['Estore_product']['title_en'];?></a></h5>
+            	<h5><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_product']['id'];?>"><?php echo $pr['Estore_product']['title_en'];?></a></h5>
                 <h6><a href="#tips">Price: <font color="#FF6600">Contact </font></a>
                 <!--<h6><a href="#tips">Giá: <font color="#FF6600"><?php echo $pr['Estore_product']['price'];?> VNĐ</font></a></h6>
-                <h4><a href="<?php echo DOMAIN;?>bepga/view/<?php echo $pr['Estore_product']['id'];?>">Detail</a></h4>-->
+                <h4><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_product']['id'];?>">Detail</a></h4>-->
             </div>
         </div></li><?php }?>                                    
         

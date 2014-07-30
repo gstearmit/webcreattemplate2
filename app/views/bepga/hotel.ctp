@@ -1,4 +1,16 @@
- <?php if($session->read('lang')==1){?>
+<?php 
+			
+			$shop=explode('/',$this->params['url']['url']); 
+			$shopname=$shop[0];
+				$shop=$this->requestAction('comment/get_shop_id/'.$shopname);
+				
+				
+				foreach($shop as $key=>$value){
+				$shop_id=$key;
+				}
+			
+?>
+<?php if($session->read('lang')==1){?>
 
 <div id="intro" style="border: 2px solid #c6c6c6; margin-top: 10px; padding-top: 0px;; width: 96%;">
 <div class="title_tile"><p>KHÁCH SẠN</p></div>

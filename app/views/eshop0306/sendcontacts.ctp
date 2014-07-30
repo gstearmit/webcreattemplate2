@@ -1,4 +1,16 @@
-﻿ <style>
+﻿<?php 
+			
+			$shop=explode('/',$this->params['url']['url']); 
+			$shopname=$shop[0];
+				$shop=$this->requestAction('comment/get_shop_id/'.$shopname);
+				
+				
+				foreach($shop as $key=>$value){
+				$shop_id=$key;
+				}
+			
+?>
+<style>
   #goi-thieu h1,h2,h3{
 	  font-size:12px;
 	  font-weight:normal;

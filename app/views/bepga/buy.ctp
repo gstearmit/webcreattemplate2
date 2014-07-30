@@ -145,7 +145,7 @@ $().ready(function() {
            
             <div style="clear: both;background: #ffe4dd;padding:5px;color: #b52427"><strong>Thông tin dặt hàng</strong></div>
             
-            <form name="check_form" id="signupForm" method="post" action="<?php echo DOMAIN;?>bepga/addinfomations">
+            <form name="check_form" id="signupForm" method="post" action="<?php echo DOMAIN;?><?php echo $shopname ;?>/addinfomations">
 			 <!-- <input class="contacts" type="hidden" name="images" value="<?php echo $shopingcart; ?>" /> -->
 			<input class="contacts" type="hidden" value="<?php echo $total; ?>" name="total"/>
              <?php if ($this->Session->read('name')) {?>

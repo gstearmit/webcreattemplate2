@@ -1,4 +1,16 @@
-<?php if($session->read('lang')==1){?>
+<?php 
+			
+			$shop=explode('/',$this->params['url']['url']); 
+			$shopname=$shop[0];
+				$shop=$this->requestAction('comment/get_shop_id/'.$shopname);
+				
+				
+				foreach($shop as $key=>$value){
+				$shop_id=$key;
+				}
+			
+?>
+<?php //if($session->read('lang')==1){?>
 <div id="main-center">
 	<div id="sanphams"  style="min-height: 435px !important;">
     	<div class="top">Products</div>
@@ -27,7 +39,8 @@
     </div>      
  
 </div>    
- <?php } if($session->read('lang')==2){?>
+ <?php  // }
+             if($session->read('lang')==2){?>
  <div id="main-center">
 	
     <div id="sanphams">
