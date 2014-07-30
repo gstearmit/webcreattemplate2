@@ -1,4 +1,35 @@
-<?php $banner = $this -> requestAction('/bepga/banner');?>
+<?php
+$shop = explode ( '/', $this->params ['url'] ['url'] );
+$shopname = $shop [0];
+$shop = $this->requestAction ( 'comment/get_shop_id/' . $shopname );
+foreach ( $shop as $key => $value ) {
+	$shop_id = $key;
+}
+
+
+
+$user = $this->requestAction ( 'comment/get_user_id/' . $shop_id );
+foreach ( $user as $user ) {
+	$user_id = $user ['Shop'] ['user_id'];
+}
+
+$banner = $this->requestAction ( 'comment/get_banner/' . $user_id );
+
+$tem = $this->requestAction ( 'comment/get_tem/' . $user_id );
+
+foreach ( $tem as $tem ) {
+	$template = $tem ['Tem']['linktems'];
+}
+
+// pr($shopname);
+// echo "shop_id ";pr($shop_id);
+// echo "user_id ";pr($user_id);
+// echo "banner ";pr($banner);
+// echo "tem ";pr($tem);
+// echo "template ";pr($template);
+
+?>
+<?php $banner = $this -> requestAction('/'.$shopname.'/banner');?>
    <?php foreach($banner as $banner){ ?>
       <object width="1000" height="178" title="" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" viewastext="">
          <param name="_cx" value="14552">

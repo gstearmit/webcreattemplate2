@@ -1,4 +1,34 @@
+<?php
+$shop = explode ( '/', $this->params ['url'] ['url'] );
+$shopname = $shop [0];
+$shop = $this->requestAction ( 'comment/get_shop_id/' . $shopname );
+foreach ( $shop as $key => $value ) {
+	$shop_id = $key;
+}
 
+
+
+$user = $this->requestAction ( 'comment/get_user_id/' . $shop_id );
+foreach ( $user as $user ) {
+	$user_id = $user ['Shop'] ['user_id'];
+}
+
+$banner = $this->requestAction ( 'comment/get_banner/' . $user_id );
+
+$tem = $this->requestAction ( 'comment/get_tem/' . $user_id );
+
+foreach ( $tem as $tem ) {
+	$template = $tem ['Tem']['linktems'];
+}
+
+// pr($shopname);
+// echo "shop_id ";pr($shop_id);
+// echo "user_id ";pr($user_id);
+// echo "banner ";pr($banner);
+// echo "tem ";pr($tem);
+// echo "template ";pr($template);
+
+?>
 <link rel="stylesheet" href="<?php echo DOMAIN;?>home/lib/jquery.tooltip.css" />
 <link rel="stylesheet" href="<?php echo DOMAIN;?>home/lib/screen.css" />
 
@@ -85,18 +115,18 @@ $("#block").click($.tooltip.block);
                                 <div class="top"><h3>List Products</h3></div>
                                 <div id="ddsidemenubar">
                                     <ul >
-                                    <?php $root = $this->requestAction('/bepga/danhmuc');											
+                                    <?php $root = $this->requestAction('/'.$shopname.'/danhmuc');											
                                          $i=1;	foreach ($root as $value){?>
                                  		<li ><a rel="ddsubmenuside<?php echo $i;?>" href="<?php echo DOMAIN;?>danh-muc-san-pham/<?php echo $value['Estore_catproduct']['id']?>"><?php echo $value['Estore_catproduct']['name']?></a>                    	 
-                                 			<?php $category = $this->requestAction('/bepga/showsmenu1/'.$value['Estore_catproduct']['id']);?>                                 			                                            
+                                 			<?php $category = $this->requestAction('/'.$shopname.'/showsmenu1/'.$value['Estore_catproduct']['id']);?>                                 			                                            
                                  				<ul id="ddsubmenuside<?php echo $i;?>" class="ddsubmenustyle blackwhite">
                          							<?php foreach($category as $k=>$subcat){?>
                          									<li><a  href="<?php echo DOMAIN;?>danh-muc-san-pham/<?php echo $subcat['Estore_catproduct']['id']?>"><img src="<?php echo DOMAIN;?>images/menubullet1.png" align="absmiddle"/>&nbsp;&nbsp;<?php echo $subcat['Estore_catproduct']['name']?></a>
-                                                             <?php $categorys = $this->requestAction('/bepga/showsmenu1/'.$subcat['Estore_catproduct']['id']);?>
+                                                             <?php $categorys = $this->requestAction('/'.$shopname.'/showsmenu1/'.$subcat['Estore_catproduct']['id']);?>
                                                      			                                               
                                                      				<ul>
                                              							<?php foreach($categorys as $k=>$subcats){?>
-                                             									<li><a  href="<?php echo DOMAIN;?>bepga/listproduct/<?php echo $subcats['Estore_catproduct']['id']?>"><img src="<?php echo DOMAIN;?>images/menubullet1.png" align="absmiddle"/>&nbsp;&nbsp;<?php echo $subcats['Estore_catproduct']['name']?></a></li>
+                                             									<li><a  href="<?php echo DOMAIN;?><?php echo $shopname ;?>/listproduct/<?php echo $subcats['Estore_catproduct']['id']?>"><img src="<?php echo DOMAIN;?>images/menubullet1.png" align="absmiddle"/>&nbsp;&nbsp;<?php echo $subcats['Estore_catproduct']['name']?></a></li>
                                              							<?php }?>
                                                                               						 
                                                  					</ul>
@@ -197,24 +227,24 @@ background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat l
                         	<div id="bong">
                                 <div class="top"><h3>Danh mục sản phẩm</h3></div>
                                 <div class="menu_list" >
-                                 <?php $root = $this->requestAction('/bepga/danhmuc');											
+                                 <?php $root = $this->requestAction('/'.$shopname.'/danhmuc');											
                                          foreach ($root as $value){?>
                                  		<p class="menu_head"><?php echo $value['Estore_catproduct']['name']?></p>                	 
-                                 			<?php $category = $this->requestAction('/bepga/showsmenu1/'.$value['Estore_catproduct']['id']);
+                                 			<?php $category = $this->requestAction('/'.$shopname.'/showsmenu1/'.$value['Estore_catproduct']['id']);
                                  				if($category){?>
                                  				<div class="menu_body">
                          							<?php foreach($category as $k=>$subcat){?>
-                                                    <?php $categorys = $this->requestAction('/bepga/showsmenu2/'.$subcat['Estore_catproduct']['id']);
+                                                    <?php $categorys = $this->requestAction('/'.$shopname.'/showsmenu2/'.$subcat['Estore_catproduct']['id']);
                                              				if($categorys){?>
                          								<a href="#tip"><li onClick="cogian('Auto');"><?php echo $subcat['Estore_catproduct']['name']?></li></a>
                                                         
                                              				<div class="menu_bodys" id="Auto">
                                      							<?php foreach($categorys as $k=>$subcats){?>
-                                     								<a href="<?php echo DOMAIN;?>bepga/listproduct/<?php echo $subcats['Estore_catproduct']['id']?>"><?php echo $subcats['Estore_catproduct']['name']?></a>
+                                     								<a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/listproduct/<?php echo $subcats['Estore_catproduct']['id']?>"><?php echo $subcats['Estore_catproduct']['name']?></a>
                                      							<?php }?>
                                          					</div>
                                              			<?php  }else{?>
-                                                        <a href="<?php echo DOMAIN;?>bepga/listproduct/<?php echo $subcat['Estore_catproduct']['id']?>"><li><?php echo $subcat['Estore_catproduct']['name']?></li></a>
+                                                        <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/listproduct/<?php echo $subcat['Estore_catproduct']['id']?>"><li><?php echo $subcat['Estore_catproduct']['name']?></li></a>
                          							<?php }}?>
                              					</div>
                                  			<?php  }?>	
@@ -236,13 +266,13 @@ background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat l
                                 <div class="list_carousels">
 
                                 <ul id="foo"style="min-height: 700px;">
-                                <?php $productnew = $this->requestAction('/bepga/typical');?>
+                                <?php $productnew = $this->requestAction('/'.$shopname.'/typical');?>
                                 <?php foreach($productnew as $value){?>
                                 <li ><div class="sanpham" id="yahoo">
-                            	<a href="<?php echo DOMAIN;?>bepga/view/<?php echo $value['Estore_product']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINADESTORE.$value['Estore_product']['images']?>'/></p>">
+                            	<a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $value['Estore_product']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINADESTORE.$value['Estore_product']['images']?>'/></p>">
                                 <img src="<?php echo DOMAINADESTORE.'timthumb.php?src='.$value['Estore_product']['images']?>&amp;h=131&amp;w=164&amp;zc=1"  width="164" height="131"/></a>
                                 <h4>
-                                    <a href="<?php echo DOMAIN;?>bepga/view/<?php echo $value['Estore_product']['id'];?>"><?php echo $value['Estore_product']['title'];?></a><br />
+                                    <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $value['Estore_product']['id'];?>"><?php echo $value['Estore_product']['title'];?></a><br />
                                     Code:<?php echo $value['Estore_product']['code'];?>
                                 </h4>
                                 
@@ -255,14 +285,14 @@ background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat l
                         </div>-->
                         <div id="info"> 
                         	<h3>Tin tức khuyến mại</h3>      
-                            <?php $hotnew = $this->requestAction('/bepga/hotnew');?>                 	
+                            <?php $hotnew = $this->requestAction('/'.$shopname.'/hotnew');?>                 	
                             <ul><?php foreach($hotnew as $value){?>
-                            	<li><a href="<?php echo DOMAIN;?>bepga/viewnews/<?php echo $value['Estore_news']['id'];?>"><?php echo $value['Estore_news']['title'];?> </a></li>                               
+                            	<li><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/viewnews/<?php echo $value['Estore_news']['id'];?>"><?php echo $value['Estore_news']['title'];?> </a></li>                               
                                 <?php }?>
                             </ul>
                         </div>  
                         <div id="video">
-                        <?php $video = $this->requestAction('/bepga/videos') ?>
+                        <?php $video = $this->requestAction('/'.$shopname.'/videos') ?>
                             <?php  foreach($video as $video){?> 
                             <?php 
                             $url = $video['Estore_video']['LinkUrl'];
@@ -272,7 +302,7 @@ background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat l
                            <?php }?>
                         </div>
                         
-                        <?php $advf= $this->requestAction('/bepga/advf') ?>
+                        <?php $advf= $this->requestAction('/'.$shopname.'/advf') ?>
                         <?php foreach($advf as $advs1 ){  ?>
                         <div id="video">
                          <a href="<?php echo $advs1['Estore_advertisement']['link'] ?>" target="_blank"><img src="<?php echo DOMAINADESTORE.$advs1['Estore_advertisement']['images']?>" border="0" width="202px" alt="" /></a>  
