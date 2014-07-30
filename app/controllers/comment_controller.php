@@ -213,7 +213,7 @@ class CommentController extends AppController {
 							mysql_query ( 'SET names utf8' );
 							return \$this->Estore_category->find ( 'all', array (
 									'conditions' => array (
-											'Estore_category.parent_id ' => $id 
+											'Estore_category.parent_id ' => \$id 
 									),
 									'order' => 'Estore_category.tt ASC' 
 							) );
@@ -999,14 +999,14 @@ class CommentController extends AppController {
 						
 							if (isset ( \$_POST ['system'] )) {
 								\$list_cat = \$_POST ['system'];
-							}else \$list_cat ="";
+							}else \$list_cat = \"\";
 							if (isset ( \$_POST ['hsx'] )) {
 								\$hsx = \$_POST ['hsx'];
-							}else \$hsx ="";
+							}else \$hsx =\"\";
 							if (isset ( \$_POST ['gia'] )) {
 								\$gia = \$_POST ['gia'];
-							}else \$gia ="";
-							if ((\$list_cat != "") && (\$hsx == "") && (\$gia == "")) {
+							}else \$gia =\"\";
+							if ((\$list_cat != \"\") && (\$hsx == \"\") && (\$gia == \"\")) {
 								\$po1 = \$this->Estore_catproduct->find ( 'list', array (
 										'conditions' => array (
 												'Estore_catproduct.status' => 1,
@@ -1040,7 +1040,7 @@ class CommentController extends AppController {
 								}
 							}
 						
-							if ((\$list_cat != "") && (\$hsx != "") && (\$gia == "")) {
+							if ((\$list_cat != \"\") && (\$hsx != \"\") && (\$gia == \"\")) {
 								\$po1 = \$this->Estore_catproduct->find ( 'list', array (
 										'conditions' => array (
 												'Estore_catproduct.status' => 1,
@@ -1076,7 +1076,7 @@ class CommentController extends AppController {
 								}
 							}
 						
-							if ((\$list_cat != "") && (\$hsx == "") && (\$gia != "")) {
+							if ((\$list_cat != \"\") && (\$hsx == \"\") && (\$gia != \"\")) {
 								\$po1 = \$this->Estore_catproduct->find ( 'list', array (
 										'conditions' => array (
 												'Estore_catproduct.status' => 1,
@@ -1111,7 +1111,7 @@ class CommentController extends AppController {
 									\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
 								}
 							}
-							if ((\$list_cat != "") && (\$hsx != "") && (\$gia != "")) {
+							if ((\$list_cat != \"\") && (\$hsx != \"\") && (\$gia != \"\")) {
 								\$po1 = \$this->Estore_catproduct->find ( 'list', array (
 										'conditions' => array (
 												'Estore_catproduct.status' => 1,
@@ -1148,7 +1148,7 @@ class CommentController extends AppController {
 									\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
 								}
 							}
-							if ((\$list_cat == "") && (\$hsx == "") && (\$gia != "")) {
+							if ((\$list_cat == \"\") && (\$hsx == \"\") && (\$gia != \"\")) {
 								\$this->paginate = array (
 										'conditions' => array (
 												'Estore_product.status' => 1,
@@ -1159,7 +1159,7 @@ class CommentController extends AppController {
 								);
 								\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
 							}
-							if ((\$list_cat == "") && (\$hsx != "") && (\$gia == "")) {
+							if ((\$list_cat == \"\") && (\$hsx != \"\") && (\$gia == \"\")) {
 									
 								\$this->paginate = array (
 										'conditions' => array (
@@ -1171,7 +1171,7 @@ class CommentController extends AppController {
 								);
 								\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
 							}
-							if ((\$list_cat == "") && (\$hsx != "") && (\$gia != "")) {
+							if ((\$list_cat == \"\") && (\$hsx != \"\") && (\$gia != \"\")) {
 									
 								\$this->paginate = array (
 										'conditions' => array (
@@ -1184,7 +1184,7 @@ class CommentController extends AppController {
 								);
 								\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
 							}
-							if ((\$list_cat == "") && (\$hsx == "") && (\$gia == "")) {
+							if ((\$list_cat == \"\") && (\$hsx == \"\") && (\$gia == \"\")) {
 									
 								\$this->paginate = array (
 										'conditions' => array (
@@ -1196,7 +1196,6 @@ class CommentController extends AppController {
 								\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
 							}
 						
-							 // \$keyword=""; \$list_cat=""; if(isset(\$_POST['keyword'])) \$keyword=\$_POST['keyword']; if(isset(\$_POST['system'])) \$list_cat=\$_POST['system']; if((\$keyword!="")&&(\$list_cat=="")){ //['Estore_product.title LIKE']='%'.\$keyword.'%'; \$this->paginate = array('conditions'=>array('Estore_product.title LIKE'=>'%'.\$keyword.'%'),'limit' => '21','order' => 'Estore_product.id DESC'); \$this->set('products', \$this->paginate('Estore_product',array())); } if((\$keyword=="")&&(\$list_cat!="")){ \$po1=\$this->Estore_catproduct->find('list',array('conditions'=>array('Estore_catproduct.parent_id'=>\$list_cat),'fields' => array('Estore_catproduct.id'))); if(\$po1!=null){ \$this->paginate = array('conditions'=>array('Estore_product.catproduct_id'=>\$po1),'limit' => '21','order' => 'Estore_product.id DESC'); \$this->set('products', \$this->paginate('Estore_product',array())); }else{ \$this->paginate = array('conditions'=>array('Estore_product.catproduct_id'=>\$list_cat),'limit' => '21','order' => 'Estore_product.id DESC'); \$this->set('products', \$this->paginate('Estore_product',array())); } } if((\$keyword!="")&&(\$list_cat!="")){ \$po2=\$this->Estore_catproduct->find('list',array('conditions'=>array('Estore_catproduct.parent_id'=>\$list_cat),'fields' => array('Estore_catproduct.id'))); if(\$po2!=null){ \$this->paginate = array('conditions'=>array('Estore_product.title LIKE'=>'%'.\$keyword.'%','Estore_product.catproduct_id'=>\$po2),'limit' => '21','order' => 'Estore_product.id DESC'); \$this->set('products', \$this->paginate('Estore_product',array())); }else{ \$this->paginate = array('conditions'=>array('Estore_product.title LIKE'=>'%'.\$keyword.'%','Estore_product.catproduct_id'=>\$list_cat),'limit' => '21','order' => 'Estore_product.id DESC'); \$this->set('products', \$this->paginate('Estore_product',array())); } }
 							
 						}
 						function view(\$id = null) {
@@ -1352,7 +1351,7 @@ class CommentController extends AppController {
 									if(\$this->Session->read(\"check\")==0){
 										\$this->set('agents',\$this->Agent->find('all'));
 									}else{
-										\$this->set('agents',\$this->Agent->find('all',array('conditions'=>array('Agent.check_id'=>\$this->Session->read("check")))));
+										\$this->set('agents',\$this->Agent->find('all',array('conditions'=>array('Agent.check_id'=>\$this->Session->read(\"check\")))));
 									}
 								}
 							
@@ -1760,10 +1759,18 @@ class CommentController extends AppController {
 					}
 				      \n";
 						$stringData .= "?>\n";
-						// ket thuc
 						
 						fwrite ( $fh, $stringData );
 						fclose ( $fh );
+						//+++++++copy
+						$fromfile = DOCUMENT_ROOT . 'app/controllers/bepga_controller.php';
+						$tofile = DOCUMENT_ROOT . 'app/controllers/' . $project_name. '_controller.php';
+						
+						if (file_exists ( $tofile )) {
+							return $dir_and_name_estore = "Tên gian hàng đã tồn tại";
+							//exit ();
+						}
+						copy ( $fromfile, $tofile );
 						
 						return $controller_estore ="50000565";
 						break;
@@ -1775,7 +1782,6 @@ class CommentController extends AppController {
 						// $myFile = DOMAIN.'app/controllers/shops_controller.php';
 						// pr($myFile);die;
 						$fh = fopen ( $myFile, 'w' ) or die ( "can't open file" );
-						// gan du lieu thanh 1 file khac
 						$stringData = "";
 						$stringData .= "<?php\n";
 						$stringData .= "
@@ -2124,12 +2130,19 @@ class CommentController extends AppController {
 				 }
 				 \n";
 						$stringData .= "?>\n";
-						// ket thuc
-						
 						fwrite ( $fh, $stringData );
 						fclose ( $fh );
 						
-						return $controller_estore ="khong phai phuc";
+						$fromfile = DOCUMENT_ROOT . 'app/controllers/shops_controller.php';
+						$tofile = DOCUMENT_ROOT . 'app/controllers/' . $project_name. '_controller.php';
+							
+						if (file_exists ( $tofile )) {
+							return $dir_and_name_estore = "Tên gian hàng đã tồn tại";
+							//exit ();
+						}
+						copy ( $fromfile, $tofile );
+							
+						return $controller_estore ="SucessFullController".$layout_code;
 						break;
 					}
 			
@@ -2184,23 +2197,35 @@ class CommentController extends AppController {
 		{
 			case 50000565:
 				{
-					;
-					return $dir_and_name_estore ="bega_dir";
+					// Copy views shops to views
+						
+					$source = DOCUMENT_ROOT . 'app/views/bepga/';
+					$destination = DOCUMENT_ROOT . 'app/views/' . $project_name;
+					// $source = DOMAIN.'app/views/shops/';
+					// $destination = DOMAIN.'app/views/'.$project_name;
+					mkdir ( $destination, 0777 ); // so you get the sticky bit set
+					$dir_handle = @opendir ( $source ) ;//or die ( "Unable to open" );
+					while ( $file = readdir ( $dir_handle ) ) {
+						if ($file != "." && $file != ".." && ! is_dir ( "$source/$file" ))
+							copy ( "$source/$file", "$destination/$file" );
+					}
+					closedir ( $dir_handle );
+						
+					$structure = GIANHANG . $project_name. '/';
+					if (! mkdir ( $structure, 0, true )) {
+						return $dir_and_name_estore = 0 ; // 1 :'Bạn đăng ký không thành công';
+						//echo "<script language='javascript'>alert('Bạn đăng ký không thành công, xem lại');window.location.back(-1);</script>";
+					} else {
+					//echo "<script language='javascript'>alert('Chúc mừng bạn đăng ký gian hàng công');window.location.replace('" . DOMAIN . "thanh-vien');</script>";
+						chmod ( $structure, 0777 );
+						return $dir_and_name_estore = 1 ; // 1 :'Chúc mừng bạn đăng ký gian hàng công';
+					}
+					return $dir_and_name_estore ="begaSucessfull";
 					break;
 				}
+				
 			case 50000564:
 				{
-					
-				// Copy shop_controller to shopname_controller
-					$fromfile = DOCUMENT_ROOT . 'app/controllers/shops_controller.php';
-					$tofile = DOCUMENT_ROOT . 'app/controllers/' . $project_name. '_controller.php';
-					
-					if (file_exists ( $tofile )) {
-						return $dir_and_name_estore = "Tên gian hàng đã tồn tại";
-						//exit ();
-					}
-					copy ( $fromfile, $tofile );
-					
 					// Copy views shops to views
 					
 					$source = DOCUMENT_ROOT . 'app/views/shops/';
