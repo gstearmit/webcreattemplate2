@@ -21,7 +21,7 @@ foreach ( $tem as $tem ) {
 	$template = $tem ['Tem']['linktems'];
 }
 
-
+// pr($shopname);
 // echo "shop_id ";pr($shop_id);
 // echo "user_id ";pr($user_id);
 // echo "banner ";pr($banner);
@@ -33,10 +33,10 @@ foreach ( $tem as $tem ) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?php $setting = $this -> requestAction('/bepga/setting');?>
+<?php $setting = $this -> requestAction('/'.$shopname.'/setting');?>
 <?php foreach($setting as $settings){?>
 <link href="http://<?php echo $settings['Estore_setting']['url'];?>/feed" title="<?php echo $settings['Estore_setting']['title'];?> » Feed" type="application/rss+xml" rel="alternate"/>
-<link href="http://<?php echo $settings['Estore_setting']['url'];?>/bepgas/feed" title="<?php echo $settings['Estore_setting']['title'];?> » Comments Feed" type="application/rss+xml" rel="alternate"/>
+<link href="http://<?php echo $settings['Estore_setting']['url'];?>/'.$shopname.'/feed" title="<?php echo $settings['Estore_setting']['title'];?> » Comments Feed" type="application/rss+xml" rel="alternate"/>
 <link href="http://<?php echo $settings['Estore_setting']['url'];?>" title="<?php echo $settings['Estore_setting']['title'];?>" rel="index">
 <meta content="<?php echo $settings['Estore_setting']['keyword'];?>" name="keywords"/>
 <meta content="<?php echo $settings['Estore_setting']['description'];?>" name="description"/>
@@ -214,7 +214,7 @@ function checkScreenWidth()
 <body>
 <div id="floating_banner_left" style="position:absolute; z-index: 99999; overflow:hidden; margin: 217px 0px; left: 0px; width: 105px; border: 0px solid #000;">
 <div id="floating_banner_left_content">
-<?php $adv1= $this->requestAction('/bepga/adv1') ; //pr($adv1);die;?>
+<?php $adv1= $this->requestAction('/'.$shopname.'/adv1') ; //pr($adv1);die;?>
     <?php foreach($adv1 as $advs1 ){  ?>
     <a href="<?php echo $advs1['Estore_advertisement']['link'] ?>" target="_blank"><img src="<?php echo DOMAINADESTORE.$advs1['Estore_advertisement']['images']?>" border="0" width="105px" height="336" alt="" /></a>
     <!--<a href="<?php echo $advs1['Estore_advertisement']['link'] ?>" target="_blank" style="float:left;width:336px; height:120px;background-position:center center; background-image:url(<?php echo DOMAINAD.$advs1['Estore_advertisement']['images']?>&amp;h=336&amp;w=120&amp;zc=1); background-repeat:no-repeat;"> </a>-->
@@ -228,7 +228,7 @@ function checkScreenWidth()
 
 <div id="floating_banner_right" style="position:absolute;z-index: 99999; overflow:hidden; margin: 217px 0; right: 0px; width: 105px; border: 0px solid #000;">
 	<div id="floating_banner_right_content"  >
-    <?php $adv2= $this->requestAction('/bepga/adv2') ?>
+    <?php $adv2= $this->requestAction('/'.$shopname.'/adv2') ?>
     <?php foreach($adv2 as $advs2 ){  ?>
     <a href="<?php echo $advs2['Estore_advertisement']['link'] ?>" target="_blank"><img src="<?php echo DOMAINADESTORE.$advs2['Estore_advertisement']['images']?>" border="0" width="105px" height="336" alt="" /></a><br />
    <?php } ?>
@@ -284,7 +284,7 @@ function checkScreenWidth()
                         <h3 style="background: #E2E2E2; height: 25px;color: #850000;padding: 5px;">Đối tác - Khách hàng</h3>
                         <div class="list_carousels">
                         <ul id="foo6">                        
-                        <?php $dt = $this->requestAction('/bepga/doitac') ?>									
+                        <?php $dt = $this->requestAction('/'.$shopname.'/doitac') ?>									
                          <?php foreach ($dt as $value){?>
                         	<li>
                         	<div class="img">

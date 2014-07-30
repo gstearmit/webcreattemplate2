@@ -1,3 +1,34 @@
+<?php
+$shop = explode ( '/', $this->params ['url'] ['url'] );
+$shopname = $shop [0];
+$shop = $this->requestAction ( 'comment/get_shop_id/' . $shopname );
+foreach ( $shop as $key => $value ) {
+	$shop_id = $key;
+}
+
+
+
+$user = $this->requestAction ( 'comment/get_user_id/' . $shop_id );
+foreach ( $user as $user ) {
+	$user_id = $user ['Shop'] ['user_id'];
+}
+
+$banner = $this->requestAction ( 'comment/get_banner/' . $user_id );
+
+$tem = $this->requestAction ( 'comment/get_tem/' . $user_id );
+
+foreach ( $tem as $tem ) {
+	$template = $tem ['Tem']['linktems'];
+}
+
+// pr($shopname);
+// echo "shop_id ";pr($shop_id);
+// echo "user_id ";pr($user_id);
+// echo "banner ";pr($banner);
+// echo "tem ";pr($tem);
+// echo "template ";pr($template);
+
+?>
 <style>
  #translate-this .translate-this-button {
     background: url("<?php echo DOMAIN?>home/images/flat.png") no-repeat scroll 0 0 transparent !important;
@@ -11,18 +42,18 @@
 	<div id="menus">
               <ul id="nav">
               	<li><a href="<?php echo DOMAIN?>">TRANG CHỦ</a></li>
-                <?php $root = $this->requestAction('/bepga/menucategory');	
+                <?php $root = $this->requestAction('/'.$shopname.'/menucategory');	
  //pr($root); die;				
                     foreach ($root as $value){?>
-               <?php $category = $this->requestAction('/bepga/showcategory/'.$value['Estore_category']['id']);?>
+               <?php $category = $this->requestAction('/'.$shopname.'/showcategory/'.$value['Estore_category']['id']);?>
 			
                <?php foreach($category as $k=>$subcat){?>
 			     
-               <li><a href="<?php echo DOMAIN?>bepga/listnews/<?php echo $subcat['Estore_category']['id'];?>"><?php echo $subcat['Estore_category']['name'];?></a></li> 
+               <li><a href="<?php echo DOMAIN?><?php echo $shopname ;?>/listnews/<?php echo $subcat['Estore_category']['id'];?>"><?php echo $subcat['Estore_category']['name'];?></a></li> 
                 <?php }}?>
-                 <li><a href="<?php echo DOMAIN?>bepga/indexcomments">GÓP Ý</a></li> 
-                 <li><a href="<?php echo DOMAIN?>bepga/thongtin">THÔNG TIN TÀI KHOẢN</a></li>                
-                 <li><a href="<?php echo DOMAIN?>bepga/sendcontacts">LIÊN HỆ</a></li>
+                 <li><a href="<?php echo DOMAIN?><?php echo $shopname ;?>/indexcomments">GÓP Ý</a></li> 
+                 <li><a href="<?php echo DOMAIN?><?php echo $shopname ;?>/thongtin">THÔNG TIN TÀI KHOẢN</a></li>                
+                 <li><a href="<?php echo DOMAIN?><?php echo $shopname ;?>/sendcontacts">LIÊN HỆ</a></li>
                                 
 </ul>		
 

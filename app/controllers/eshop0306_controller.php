@@ -2,6 +2,7 @@
 
 						  class Eshop0306Controller extends AppController {
 						  var $name = 'Eshop0306';
+						  var $namecontroll = 'eshop0306';
 						  var $uses = array (
 								'Estore_category',
 								'Estore_comments',
@@ -1097,7 +1098,7 @@
 									$shopingcart [$id] ['sl'] = $shopingcart [$id] ['sl'] + 1;
 											$shopingcart [$id] ['total'] = $shopingcart [$id] ['price'] * $shopingcart [$id] ['sl'];
 											$_SESSION ['shopingcart'] = $shopingcart;
-											echo '<script language="javascript"> alert("Thêm thành công"); window.location.replace("' . DOMAIN . '/bepga/viewshopingcart"); </script>';
+											echo '<script language="javascript"> alert("Thêm thành công"); window.location.replace("' . DOMAIN . '/'.$namecontroll.'/viewshopingcart"); </script>';
 								} else {
 							$shopingcart [$id] ['pid'] = $id;
 									$shopingcart [$id] ['name'] = $product ['Estore_product'] ['title'];
@@ -1106,7 +1107,7 @@
 									$shopingcart [$id] ['price'] = $product ['Estore_product'] ['price'];
 											$shopingcart [$id] ['total'] = $product ['Estore_product'] ['price'] * $shopingcart [$id] ['sl'];
 											$_SESSION ['shopingcart'] = $shopingcart;
-											echo '<script language="javascript" type="text/javascript"> alert("Thêm giỏ hàng thành công"); window.location.replace("' . DOMAIN . 'bepga/viewshopingcart"); </script>';
+											echo '<script language="javascript" type="text/javascript"> alert("Thêm giỏ hàng thành công"); window.location.replace("' . DOMAIN .$namecontroll.'/viewshopingcart"); </script>';
 								}
 							}
 							}
@@ -1270,7 +1271,7 @@
 								}
 									
 								unset($_SESSION['shopingcart']);
-								echo '<script language="javascript">alert("cảm ơn bạn đã đặt hàng  chúng tôi sẽ liên hệ với bạn trong vòng 24h"); location.href="'.DOMAIN.'bepga/index";</script>';
+								echo '<script language="javascript">alert("cảm ơn bạn đã đặt hàng  chúng tôi sẽ liên hệ với bạn trong vòng 24h"); location.href="'.DOMAIN.$namecontroll.'/index";</script>';
 									
 							}
 							
@@ -1484,7 +1485,7 @@
 								if ($this->Estore_comments->save($data['Estore_comments'])) {
 									$this->Session->setFlash(__('Thêm mới comments thành công', true));
 									//$this->redirect(array('action' => 'index'));
-									echo '<script language="javascript"> location.href="'.DOMAIN.'bepga/indexcomments";</script>';
+									echo '<script language="javascript"> location.href="'.DOMAIN.$namecontroll.'/indexcomments";</script>';
 								} else {
 									$this->Session->setFlash(__('Thêm mơi comments thất bại. Vui long thử lại', true));
 								}

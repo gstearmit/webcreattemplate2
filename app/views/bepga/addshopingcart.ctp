@@ -1,4 +1,14 @@
- 
+<?php			
+			$shop=explode('/',$this->params['url']['url']); 
+			$shopname=$shop[0];
+				$shop=$this->requestAction('comment/get_shop_id/'.$shopname);
+				
+				
+				foreach($shop as $key=>$value){
+				$shop_id=$key;
+				}
+			
+?> 
 <div style="padding: 5px;">
          <div id="gray-title-box">
         <div class="t3"><div class="t3"><div class="t3">
@@ -45,7 +55,7 @@
             </table>
              <div style="float:left; padding-top:15px; padding-right:15px;">Tổng tiên phải thanh toán : <?php echo $total;?> </div>
             <div style="float:left; padding-top:15px; padding-right:20px;"><a href="<?php echo DOMAIN?>products/index"><input type="button" value="Tiếp tục mua" /></a></div>
-            <div style="float:left; padding-top:15px;"><a href="<?php echo DOMAIN?>lien-he-mua-hang"><input type="button" value="Hoàn tất" /></a></div>
+            <div style="float:left; padding-top:15px;"><a href="<?php echo DOMAIN?>products/buy"><input type="button" value="Hoàn tất" /></a></div>
           </div>
                 </div>                  
              </div>            
