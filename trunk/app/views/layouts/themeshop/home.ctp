@@ -1,3 +1,34 @@
+<?php
+$shop = explode ( '/', $this->params ['url'] ['url'] );
+$shopname = $shop [0];
+$shop = $this->requestAction ( 'comment/get_shop_id/' . $shopname );
+foreach ( $shop as $key => $value ) {
+	$shop_id = $key;
+}
+
+
+
+$user = $this->requestAction ( 'comment/get_user_id/' . $shop_id );
+foreach ( $user as $user ) {
+	$user_id = $user ['Shop'] ['user_id'];
+}
+
+$banner = $this->requestAction ( 'comment/get_banner/' . $user_id );
+
+$tem = $this->requestAction ( 'comment/get_tem/' . $user_id );
+
+foreach ( $tem as $tem ) {
+	$template = $tem ['Tem']['linktems'];
+}
+
+
+// echo "shop_id ";pr($shop_id);
+// echo "user_id ";pr($user_id);
+// echo "banner ";pr($banner);
+// echo "tem ";pr($tem);
+// echo "template ";pr($template);
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
