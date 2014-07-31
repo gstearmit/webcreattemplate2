@@ -1,6 +1,7 @@
 <?php
 class User extends AppModel {
    var $name = 'User';
+   var $useTable = 'users';
    var $displayField = 'name';
    var $validate = array(
 		'id' => array(
