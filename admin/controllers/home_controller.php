@@ -2,9 +2,8 @@
 class HomeController extends AppController {
 
 	var $name = 'Home';
-	
-	var $helpers = array('Html','Ajax', 'Form', 'Javascript', 'TvFck');
 	var $uses=array('User','News','Category');
+	var $helpers = array('Html','Ajax', 'Form', 'Javascript', 'TvFck');
 	function index($id = null) {
 		  $this->account();
 		  // $conditions=array('News.status'=>1);
