@@ -2,7 +2,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="<?php echo DOMAIN ?>images/favicon.ico">
+<link href="<?php echo DOMAIN ?>images/favicon.png" type="images/png" rel="icon"/>
 <title>Administractor</title>
 <link rel="stylesheet" href="<?php echo DOMAINAD?>css/reset.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="<?php echo DOMAINAD?>css/style.css" type="text/css" media="screen" />

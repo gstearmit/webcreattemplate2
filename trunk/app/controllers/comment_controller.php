@@ -140,7 +140,7 @@ class CommentController extends AppController {
 		{
 				case 50000565:
 					{
-						$myFile = DOCUMENT_ROOT . 'app/controllers/bepga_controller.php';
+						$myFile = DOCUMENT_ROOT . 'app/controllers/estore_controller.php';
 						// $myFile = DOMAIN.'app/controllers/bepga_controller.php';
 						// pr($myFile);die;
 						$fh = fopen ( $myFile, 'w' ) or die ( "can't open file" );
@@ -601,7 +601,6 @@ class CommentController extends AppController {
 						}
 						
 						// +++++++++++++++++++++++++++++++++++Home+++++++++++++++++++++++++++++++++++++++++++++++
-						// home
 						function index() {
 							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
 							\$shopname = \$shop [0];
@@ -710,9 +709,6 @@ class CommentController extends AppController {
 							
 							
 						}
-						
-						// ---------------------- end home ---------------------------------------
-						
 						// ++++++++++++++++++++++++++++++Product++++++++++++++++++++++++++++++++++++++++
 						function indexproduct() {
 							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
@@ -1524,14 +1520,10 @@ class CommentController extends AppController {
 						function getproduct(\$id = null) {
 							return \$this->Estore_product->read ( null, \$id );
 						}
-						// _______________________________end Product___________________________________
-						
 						// +++++++++++++++++++++Infomation++++++++++++++++++++++++++++++++++++++
 						/*
 						 * function indexinfomation() { \$shop=explode('/',\$this->params['url']['url']); \$shopname=\$shop[0]; \$shoparr=\$this->get_shop_id(\$shopname); foreach(\$shoparr as \$key=>\$value){ \$shop_id=\$key; } \$this->set ( 'shopname',\$shopname); \$this->set('title_for_layout', 'Đại lý - CÔNG TY THHH'); if(!\$this->Session->read(\"user_id\")){ echo \"<script>location.href='\".DOMAIN.\"login'</script>\"; }else{ if(\$this->Session->read(\"check\")==0){ \$this->set('agents',\$this->Agent->find('all')); }else{ \$this->set('agents',\$this->Agent->find('all',array('conditions'=>array('Agent.check_id'=>\$this->Session->read(\"check\"))))); } } } function viewinfomation(\$id=null) { \$shop=explode('/',\$this->params['url']['url']); \$shopname=\$shop[0]; \$shoparr=\$this->get_shop_id(\$shopname); foreach(\$shoparr as \$key=>\$value){ \$shop_id=\$key; } \$this->set ( 'shopname',\$shopname); mysql_query(\"SET names utf8\"); \$this->set('title_for_layout', 'Hỏi đáp - VIỆN KHOA HỌC VÀ CÔNG NGHỆ XÂY DỰNG GIAO THÔNG'); if (!\$id) { \$this->Session->setFlash(__('Không tồn tại', true)); \$this->redirect(array('action' => 'index')); } \$this->set('views', \$this->Estore_news->read(null, \$id)); \$conditions=array('Estore_news.status'=>1,'Estore_news.category_id'=>149,'Estore_news.id <>'=>\$id); \$this->set('list_other',\$this->Estore_news->find('all',array('conditions'=>\$conditions,'order'=>'Estore_news.id DESC','limit'=>7))); }
 						 */
-						// -----------------------Infomation --------------------------------------
-						
 						// ++++++++++++++++++++++++++++++Infomations+++++++++++++++++++++++++++++++++++++++++++++
 						function indexinfomations() {
 							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
@@ -1623,8 +1615,6 @@ class CommentController extends AppController {
 									'action' => 'indexinfomations' 
 							) );
 						}
-						// -------------------------------Infomations--------------------------------------------
-						
 						// +++++++++++++++++++++++++++++++News+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 						function indexnews() {
 							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
@@ -2045,9 +2035,7 @@ class CommentController extends AppController {
 							\$x = \$this->Estore_setting->read ( null, 1 );
 							\$this->set ( 'views', \$x );
 						}
-						// -------------------------------end News-------------------------------------------------------
-						
-						// +++++++++++++++++++++++++++++++++++++Comments+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                        // +++++++++++++++++++++++++++++++++++++Comments+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 						function indexcommentstwo() {
 							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
 							\$shopname = \$shop [0];
@@ -2116,7 +2104,6 @@ class CommentController extends AppController {
 								 */
 							}
 						}
-						// _____________________________________end Comments______________________________________________________
 						// +++++++++++++++++++++++++Contacts+++++++++++++++++++++++++++++++++++++++++++++++
 						function sendcontacts() {
 							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
@@ -2234,7 +2221,7 @@ class CommentController extends AppController {
 						fwrite ( $fh, $stringData );
 						fclose ( $fh );
 						//+++++++copy
-						$fromfile = DOCUMENT_ROOT . 'app/controllers/bepga_controller.php';
+						$fromfile = DOCUMENT_ROOT . 'app/controllers/estore_controller.php';
 						$tofile = DOCUMENT_ROOT . 'app/controllers/' . $project_name. '_controller.php';
 						
 						if (file_exists ( $tofile )) {

@@ -28,7 +28,8 @@
 	content="<?php echo DOMAIN ?>webcreathtml/img/mix/Alatca-sharing.png">
 <meta property="og:site_name"
 	content="Create a free website easily | Free website builder&nbsp;-&nbsp;Alatca">
-<link rel="shortcut icon" href="/favicon.ico">
+<link rel="shortcut icon" href="<?php echo DOMAIN ?>images/favicon.ico">
+<link href="<?php echo DOMAIN ?>images/favicon.png" type="images/png" rel="icon"/>
 <link rel="home" href="/" title="Homepage">
 <link rel="canonical" href="<?php echo DOMAIN ?>">
 <link
