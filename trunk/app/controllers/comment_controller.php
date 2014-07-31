@@ -2334,7 +2334,7 @@ class CommentController extends AppController {
 					   \$this->layout='themeshop/template';
 					    \$sangurl = \$_SERVER['REQUEST_URI'];
 						\$url = explode('/', \$sangurl);
-					    \$geturl=\$url[2];
+					    \$geturl=\$url[1];
 					    \$temshop = \$this->Shop->findAllByName(\$geturl);
 			            \$idshop = \$temshop[0]['Shop']['user_id'];
 						\$this->set('title_for_layout', 'Rao vặt - '.\$temshop[0]['Shop']['namecompany']);
@@ -2358,7 +2358,7 @@ class CommentController extends AppController {
 					  \$this->layout='themeshop/template';
 					    \$sangurl = \$_SERVER['REQUEST_URI'];
 						\$url = explode(\"/\", \$sangurl);
-					    \$geturl=\$url[2];
+					    \$geturl=\$url[1];
 					    \$temshop = \$this->Shop->findAllByName(\$geturl);
 			            \$idshop = \$temshop[0]['Shop']['user_id'];
 						return \$this->Background->find('all',array('conditions'=>array('Background.user_id'=>\$idshop),'order'=>'Background.id DESC','limit'=>1));
@@ -2369,7 +2369,7 @@ class CommentController extends AppController {
 					   \$this->layout='themeshop/template';
 					    \$sangurl = \$_SERVER['REQUEST_URI'];
 						\$url = explode('/', \$sangurl);
-					    \$geturl=\$url[2];
+					    \$geturl=\$url[1];
 					    \$temshop = \$this->Shop->findAllByName(\$geturl);
 			            \$idshop = \$temshop[0]['Shop']['user_id'];
 						 return \$temshop = \$this->Classifiedss->find('all',array('conditions'=>array('Classifiedss.status'=>1,'Classifiedss.user_id'=>\$idshop),'order'=>'Classifiedss.id DESC','limit'=>7));
@@ -2561,7 +2561,7 @@ class CommentController extends AppController {
 					function helponline(){
 						\$sangurl = \$_SERVER['REQUEST_URI'];
 						\$url = explode('/', \$sangurl);
-					    \$geturl=\$url[2];
+					    \$geturl=\$url[1];
 					    \$temshop = \$this->Shop->findAllByName(\$geturl);
 			            \$idshop = \$temshop[0]['Shop']['user_id'];
 					    return \$temshop = \$this->Userscms->find('all',array('conditions'=>array('Userscms.id'=>\$idshop),'order'=>'Userscms.id DESC'));
@@ -2571,7 +2571,7 @@ class CommentController extends AppController {
 					function categoryproduct(){
 						\$sangurl = \$_SERVER['REQUEST_URI'];
 						\$url = explode('/', \$sangurl);
-					    \$geturl=\$url[2];
+					    \$geturl=\$url[1];
 					    \$temshop = \$this->Shop->findAllByName(\$geturl);
 			            \$idshop = \$temshop[0]['Shop']['id'];
 					    return \$this->Categoryshop->find('all',array('conditions'=>array('Categoryshop.status'=>1,'Categoryshop.shop_id'=>\$idshop),'order'=>'Categoryshop.id DESC'));
@@ -2580,7 +2580,7 @@ class CommentController extends AppController {
 					function categoryproductsub(\$id=null){
 						\$sangurl = \$_SERVER['REQUEST_URI'];
 						\$url = explode('/', \$sangurl);
-					    \$geturl=\$url[2];
+					    \$geturl=\$url[1];
 					    \$temshop = \$this->Shop->findAllByName(\$geturl);
 			            \$idshop = \$temshop[0]['Shop']['id'];
 					    return \$this->Categoryshop->find('all',array('conditions'=>array('Categoryshop.status'=>1,'Categoryshop.parent_id'=>\$id,'Categoryshop.shop_id'=>\$idshop),'order'=>'Categoryshop.id DESC'));

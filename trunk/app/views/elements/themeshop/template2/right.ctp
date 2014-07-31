@@ -1,14 +1,26 @@
 <?php 
-			
-			$shop=explode('/',$this->params['url']['url']); 
-			$shopname=$shop[0];
-				$shop=$this->requestAction('comment/get_shop_id/'.$shopname);
-				
-				
-				foreach($shop as $key=>$value){
-				$shop_id=$key;
-				}
-			
+$shop = explode ( '/', $this->params ['url'] ['url'] );
+$shopname = $shop [0];
+$shop = $this->requestAction ( 'comment/get_shop_id/' . $shopname );
+foreach ( $shop as $key => $value ) {
+	$shop_id = $key;
+}
+
+
+
+$user = $this->requestAction ( 'comment/get_user_id/' . $shop_id );
+foreach ( $user as $user ) {
+	$user_id = $user ['Shop'] ['user_id'];
+}
+
+$banner = $this->requestAction ( 'comment/get_banner/' . $user_id );
+
+$tem = $this->requestAction ( 'comment/get_tem/' . $user_id );
+
+foreach ( $tem as $tem ) {
+	$template = $tem ['Tem']['linktems'];
+}
+
 			?>
 <style>
 a{color:black;font-weight:bold;}
@@ -18,7 +30,9 @@ color:red;
 
 </style>
     <div id='side-right' style="margin-top:2px;">
-	<?php $user=$this->requestAction($shopname.'/helponline');
+	<?php
+	//pr($shopname);//die;
+	$user=$this->requestAction($shopname.'/helponline');
 	//pr($user); die;
 	foreach($user as $user){
 	
@@ -27,7 +41,9 @@ color:red;
                 <h2>THÔNG TIN LIÊN HỆ</h2>
                 <div id='call'>
                     <ul>
-					<?php if ($user['Userscms']['phone']!=''){?>
+					<?php 
+				
+					if ($user['Userscms']['phone']!=''){?>
                         <li style="height:23px;"><?php echo $user['Userscms']['phone']?></li>
 						<?php }?>
                         <li style="height:23px;"><?php echo $user['Shops'][0]['phone']?></li>

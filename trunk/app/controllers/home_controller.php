@@ -76,9 +76,9 @@ class HomeController extends AppController {
 		// ++langgue
 		$this->set ( 'Langgue', $this->Langgues->find ( 'all', array (
 				'conditions' => array (
-						'langgues.id > 0' 
+						'Langgues.id > 0' 
 				),
-				'order' => 'langgues.id ASC' 
+				'order' => 'Langgues.id ASC' 
 		) ) );
 		
 		$this->layout = 'launchyoursite';
