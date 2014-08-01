@@ -31,7 +31,7 @@
  * @subpackage    cake.app
  */
 class AppModel extends Model {
-
+var $locale;
 	function setLanguage($locale) {
 		$this->locale = $locale;
 	}

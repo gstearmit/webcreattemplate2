@@ -1,3 +1,4 @@
+<?php //echo "Home Index view";die;?>
 <script type="text/javascript" src="<?php echo DOMAIN ?>webcreathtml/js/validatedatanew.js"></script>
 <?php echo $this->element('creatmenu')?> 
 		<div id="page" class="container">

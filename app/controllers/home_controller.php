@@ -15,10 +15,8 @@ class HomeController extends AppController {
 	
 	// creattemplate
 	function index($id = null) {
-		// echo $this->Session->read('nameuser'); die;
-		$id1 = $this->Session->read ( 'city' ); //
-		                                   // read($name): Dùng để lấy giá trị của Session dựa vào tên của nó
-		
+	/*	
+		$id1 = $this->Session->read ( 'city' );  
 		if ($id == null && $id1 != null)
 			$id = $id1;
 		if ($id == null && $id1 == null)
@@ -48,9 +46,7 @@ class HomeController extends AppController {
 		);
 		$this->set ( 'product', $this->paginate ( 'Product', array () ) );
 		
-		/*
-		 * Get record databse new
-		 */
+		
 		// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		// $this->Productbepga->setDatabase('bega');
 		// pr($this->Productbepga->setDatabase('bega'));
@@ -60,6 +56,8 @@ class HomeController extends AppController {
 		// $this->set('Productall', $cars);
 		// $setDatabaseTwoNew = $this->Home->setDatabaseTwoNew('bega');
 		// pr($setDatabaseTwoNew);
+		*/
+		
 	}
 	function businesswebsites() {
 	}
@@ -67,6 +65,7 @@ class HomeController extends AppController {
 	}
 	function personalwebsites() {
 	}
+	
 	function signin() {
 	}
 	

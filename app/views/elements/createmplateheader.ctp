@@ -1,10 +1,12 @@
-<!doctype html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--[if IE 8]>      <html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>      <html class="ie ie9"> <![endif]-->
 <!--[if gt IE 9]><!-->  <html> <!--<![endif]-->
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <base href="<?php echo DOMAIN ?>">
+<!--  <link rel="shortcut icon" href="<?php echo DOMAIN ?>images/favicon.ico"> -->
+<link href="<?php echo DOMAIN ?>images/favicon.png" type="images/png" rel="icon"/>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Create a free website easily | Free website
@@ -28,8 +30,7 @@
 	content="<?php echo DOMAIN ?>webcreathtml/img/mix/Alatca-sharing.png">
 <meta property="og:site_name"
 	content="Create a free website easily | Free website builder&nbsp;-&nbsp;Alatca">
-<link rel="shortcut icon" href="<?php echo DOMAIN ?>images/favicon.ico">
-<link href="<?php echo DOMAIN ?>images/favicon.png" type="images/png" rel="icon"/>
+
 <link rel="home" href="/" title="Homepage">
 <link rel="canonical" href="<?php echo DOMAIN ?>">
 <link
