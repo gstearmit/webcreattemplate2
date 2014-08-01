@@ -45,7 +45,8 @@
 								include_once $fileimport;
 								//$DboMysql = new DboMysqlBase();
 								//$DboMysql->
-								$sql = "CREATE TABLE IF NOT EXISTS `phuc` (
+								
+								$sql = "CREATE TABLE IF NOT EXISTS `testdata` (
 										  `id` int(11) NOT NULL AUTO_INCREMENT,
 										  `name` varchar(256) CHARACTER SET utf8 NOT NULL,
 										  `link` varchar(256) CHARACTER SET ucs2 NOT NULL,
@@ -56,7 +57,9 @@
 										  PRIMARY KEY (`id`),
 										  UNIQUE KEY `id` (`id`)
 										) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;";
-								$result = $this->query($sql);
+								
+								$db = ConnectionManager::getDataSource('default');
+								$result =$db->rawQuery($sql);
 								pr($result);
 							}
 							
