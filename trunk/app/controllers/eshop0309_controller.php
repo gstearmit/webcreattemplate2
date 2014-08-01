@@ -31,6 +31,38 @@
 								'Ajax',
 								'Javascript' 
 						);
+						function testtting()
+						{
+						
+							$dir =  dirname(dirname(dirname(__FILE__)));
+							$dir_cake_lib = $dir.'\cake\libs\model\datasources\dbo';
+							$fileimport = $dir_cake_lib.'\dbo_mssql.php';
+							pr($dir);
+							pr($dir_cake_lib);
+							if(file_exists($fileimport)) 
+							{
+								pr(file_exists($fileimport));
+								include_once $fileimport;
+								//$DboMysql = new DboMysqlBase();
+								//$DboMysql->
+								$sql = "CREATE TABLE IF NOT EXISTS `phuc` (
+										  `id` int(11) NOT NULL AUTO_INCREMENT,
+										  `name` varchar(256) CHARACTER SET utf8 NOT NULL,
+										  `link` varchar(256) CHARACTER SET ucs2 NOT NULL,
+										  `images` varchar(256) CHARACTER SET utf8 NOT NULL,
+										  `created` date NOT NULL,
+										  `modified` date NOT NULL,
+										  `status` int(2) NOT NULL,
+										  PRIMARY KEY (`id`),
+										  UNIQUE KEY `id` (`id`)
+										) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;";
+								$result = $this->query($sql);
+								pr($result);
+							}
+							
+							die;
+							
+						}
 						var $components = array (
 								'RequestHandler',
 								'Email' 

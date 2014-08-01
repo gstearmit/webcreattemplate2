@@ -1,3 +1,9 @@
+ <?php 
+//  echo "Hoang PHucs";
+//  //if(isset($this->Session->read('language')))
+//  pr($this->Session->read('language'));//die;
+//  pr( __('home'));
+ ?>
  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
    <div class="container">
                 <div class="navbar-header header-sty">
