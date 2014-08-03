@@ -1,7 +1,7 @@
  <div id="news">
               <div style="top:180px;" id="title-news" style="top:180px;"><p>Thêm mới</p></div>
                  <div  class="list-news" >
-                    <?php echo $form->create(null, array( 'url' => DOMAINAD.'comments/edit','type' => 'post')); ?>	
+                    <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'comments/edit','type' => 'post')); ?>	
                 <table style="text-align:left;" border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
                   <tr>
                     <td>Tiêu đề</td>

@@ -43,13 +43,13 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                         <td><?php echo date('d-m-Y', strtotime($value['Banner']['created'])); ?></td>
                         <td>
                             <?php if($value['Banner']['status']==0){?>
-                                 <a href="<?php echo DOMAINAD?>banners/edit/<?php echo $value['Banner']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                                 <a href="javascript:confirmDelete('<?php echo DOMAINAD?>banners/delete/<?php echo $value['Banner']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
-                                 <a href="<?php echo DOMAINAD?>banners/active/<?php echo $value['Banner']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
+                                 <a href="<?php echo DOMAINADESTORE?>banners/edit/<?php echo $value['Banner']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                                 <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>banners/delete/<?php echo $value['Banner']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
+                                 <a href="<?php echo DOMAINADESTORE?>banners/active/<?php echo $value['Banner']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
                             <?php } else {?>
-                                 <a href="<?php echo DOMAINAD?>banners/edit/<?php echo $value['Banner']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                                 <a href="javascript:confirmDelete('<?php echo DOMAINAD?>banners/delete/<?php echo $value['Banner']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
-                                 <a href="<?php echo DOMAINAD?>banners/close/<?php echo $value['Banner']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
+                                 <a href="<?php echo DOMAINADESTORE?>banners/edit/<?php echo $value['Banner']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                                 <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>banners/delete/<?php echo $value['Banner']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
+                                 <a href="<?php echo DOMAINADESTORE?>banners/close/<?php echo $value['Banner']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
                             <?php }?>
                         </td>
                     </tr>

@@ -73,21 +73,21 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                         <td><input type="checkbox" /></td>
                         <td><?php $j=$key+1; echo $j;?></td>
                         <td><?php echo $value['Album']['name'];?></td>
-                        <td><img src="<?php echo DOMAINAD?>/timthumb.php?src=<?php echo $value['Album']['images'];?>&amp;h=45&amp;w=75&amp;zc=1"/></td>
+                        <td><img src="<?php echo DOMAINADESTORE?>/timthumb.php?src=<?php echo $value['Album']['images'];?>&amp;h=45&amp;w=75&amp;zc=1"/></td>
     
                         <td><?php echo date('d-m-Y', strtotime($value['Album']['created'])); ?></td>
                         <?php if($value['Album']['status']==0){?>  
                           <td>
-                             <a href="<?php echo DOMAINAD?>album/edit/<?php echo $value['Album']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>album/delete/<?php echo $value['Album']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
-                             <a href="<?php echo DOMAINAD?>album/active/<?php echo $value['Album']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>album/edit/<?php echo $value['Album']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>album/delete/<?php echo $value['Album']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
+                             <a href="<?php echo DOMAINADESTORE?>album/active/<?php echo $value['Album']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
                         </td>
                         <?php } else {?> 
                           <td>
                             <!-- Icons -->
-                             <a href="<?php echo DOMAINAD?>album/edit/<?php echo $value['Album']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>album/delete/<?php echo $value['Album']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
-                             <a href="<?php echo DOMAINAD?>album/close/<?php echo $value['Album']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>album/edit/<?php echo $value['Album']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>album/delete/<?php echo $value['Album']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
+                             <a href="<?php echo DOMAINADESTORE?>album/close/<?php echo $value['Album']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
                         </td>
                         <?php }?>
                     </tr>

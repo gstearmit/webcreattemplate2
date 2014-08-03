@@ -56,6 +56,6 @@ ddaccordion.init({
     <div id="wrapper">
        <div id="header">
           <h1 class="logo">
-            <img src="<?php echo DOMAINAD?>images/logo.png" />
+            <img src="<?php echo DOMAINADESTORE?>images/logo.png" />
           </h1>
        </div>

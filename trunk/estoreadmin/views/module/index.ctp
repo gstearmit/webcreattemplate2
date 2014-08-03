@@ -1,10 +1,10 @@
-﻿<?php echo $form->create(null, array( 'url' => DOMAINAD.'module/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
+﻿<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'module/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
                     <ul>
                         <li id="toolbar-new">
-                            <a href="<?php echo DOMAINAD?>module/add" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>module/add" class="toolbar">
                                 <span class="icon-32-new"></span>
                                 Thêm mới
                             </a>
@@ -17,7 +17,7 @@
                             </a>
                         </li>
                         <li id="toolbar-unpublish">
-                            <a href="<?php echo DOMAINAD?>home" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>home" class="toolbar">
                                 <span class="icon-32-unpublish"></span>
                                 Đóng
                             </a>
@@ -101,16 +101,16 @@
                         <td style="text-align:center;"><?php echo date('d-m-Y h:i:s', strtotime($value['Module']['created'])); ?></td>
                         <?php if($value['Module']['status']==0){?>  
                         <td>
-                             <a href="<?php echo DOMAINAD?>module/edit/<?php echo $value['Module']['id'] ?>" title="Sửa mục này"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Sửa" /></a>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>module/delete/<?php echo $value['Module']['id'] ?>')" title="Xóa mục này"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Xóa" /></a> 
-                             <a href="<?php echo DOMAINAD?>module/active/<?php echo $value['Module']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>module/edit/<?php echo $value['Module']['id'] ?>" title="Sửa mục này"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Sửa" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>module/delete/<?php echo $value['Module']['id'] ?>')" title="Xóa mục này"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Xóa" /></a> 
+                             <a href="<?php echo DOMAINADESTORE?>module/active/<?php echo $value['Module']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
                         </td>
                         <?php } else {?> 
                           <td>
                             <!-- Icons -->
-                             <a href="<?php echo DOMAINAD?>module/edit/<?php echo $value['Module']['id'] ?>" title="Sửa mục này"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Sửa" /></a>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>module/delete/<?php echo $value['Module']['id'] ?>')" title="Xóa mục này"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Xóa" /></a> 
-                             <a href="<?php echo DOMAINAD?>module/close/<?php echo $value['Module']['id'] ?>" title="Tích vào để không hiển thị mục này" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>module/edit/<?php echo $value['Module']['id'] ?>" title="Sửa mục này"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Sửa" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>module/delete/<?php echo $value['Module']['id'] ?>')" title="Xóa mục này"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Xóa" /></a> 
+                             <a href="<?php echo DOMAINADESTORE?>module/close/<?php echo $value['Module']['id'] ?>" title="Tích vào để không hiển thị mục này" class="icon-4 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
                         </td>
                         <td align="right"><?php echo $value['Module']['id'];?></td>
                         <?php }?>

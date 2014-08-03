@@ -79,19 +79,19 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                         <?php if($value['Answerquestion']['status']==0){?>  
                           <td>
                             <!-- Icons -->
-                            <a href="<?php echo DOMAINAD?>answerquestions/edit/<?php echo $value['Answerquestion']['id'] ?>" title="Trả lời" class="icon-1 info-tooltip"><input type="button" value="Trả lời" /></a>
-                             <a href="<?php echo DOMAINAD?>answerquestions/edit/<?php echo $value['Answerquestion']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                            <a href="javascript:confirmDelete('<?php echo DOMAINAD?>answerquestions/delete/<?php echo $value['Answerquestion']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
-                             <a href="#" title="Edit Meta"><img src="<?php echo DOMAINAD?>images/icons/hammer_screwdriver.png" alt="Edit Meta" /></a>
-                             <a href="<?php echo DOMAINAD?>answerquestions/active/<?php echo $value['Answerquestion']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><input type="button" value="Active" /></a>
+                            <a href="<?php echo DOMAINADESTORE?>answerquestions/edit/<?php echo $value['Answerquestion']['id'] ?>" title="Trả lời" class="icon-1 info-tooltip"><input type="button" value="Trả lời" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>answerquestions/edit/<?php echo $value['Answerquestion']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                            <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>answerquestions/delete/<?php echo $value['Answerquestion']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
+                             <a href="#" title="Edit Meta"><img src="<?php echo DOMAINADESTORE?>images/icons/hammer_screwdriver.png" alt="Edit Meta" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>answerquestions/active/<?php echo $value['Answerquestion']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><input type="button" value="Active" /></a>
                         </td>
                         <?php } else {?> 
                           <td>
                             <!-- Icons -->
-                            <a href="<?php echo DOMAINAD?>answerquestions/edit/<?php echo $value['Answerquestion']['id'] ?>" title="Trả lời" class="icon-1 info-tooltip"><input type="button" value="Trả lời" /></a>
-                             <a href="<?php echo DOMAINAD?>answerquestions/edit/<?php echo $value['Answerquestion']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>answerquestions/delete/<?php echo $value['Answerquestion']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
-                             <a href="#" title="Edit Meta"><img src="<?php echo DOMAINAD?>images/icons/hammer_screwdriver.png" alt="Edit Meta" /></a>
+                            <a href="<?php echo DOMAINADESTORE?>answerquestions/edit/<?php echo $value['Answerquestion']['id'] ?>" title="Trả lời" class="icon-1 info-tooltip"><input type="button" value="Trả lời" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>answerquestions/edit/<?php echo $value['Answerquestion']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>answerquestions/delete/<?php echo $value['Answerquestion']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
+                             <a href="#" title="Edit Meta"><img src="<?php echo DOMAINADESTORE?>images/icons/hammer_screwdriver.png" alt="Edit Meta" /></a>
                         </td>
                         <?php }?>
                     </tr>

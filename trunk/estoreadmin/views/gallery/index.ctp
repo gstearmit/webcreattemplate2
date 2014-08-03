@@ -71,7 +71,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                     <tr>
                         <td><input type="checkbox" /></td>
                         <td><?php $j=$key+1; echo $j;?></td>
-                        <td><img src="<?php echo DOMAINAD?>/timthumb.php?src=<?php echo $value['Gallery']['images'];?>&amp;h=70&amp;w=100&amp;zc=1" alt="thumbnail" /></td>
+                        <td><img src="<?php echo DOMAINADESTORE?>/timthumb.php?src=<?php echo $value['Gallery']['images'];?>&amp;h=70&amp;w=100&amp;zc=1" alt="thumbnail" /></td>
                         <td><?php echo $value['Gallery']['name'];?></td>
                         <?php $album = $this->requestAction('/gallery/getAlbum/'.$value['Gallery']['album_id']);?>         
                          <?php  foreach ($album as $key =>$albums_itm){?>     
@@ -82,9 +82,9 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                         <td><?php echo date('d-m-Y', strtotime($value['Gallery']['created'])); ?></td>
                         <td>
                             <!-- Icons -->
-                             <a href="<?php echo DOMAINAD?>gallery/edit/<?php echo $value['Gallery']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>gallery/delete/<?php echo $value['Gallery']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
-                             <a href="#" title="Edit Meta"><img src="<?php echo DOMAINAD?>images/icons/hammer_screwdriver.png" alt="Edit Meta" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>gallery/edit/<?php echo $value['Gallery']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>gallery/delete/<?php echo $value['Gallery']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
+                             <a href="#" title="Edit Meta"><img src="<?php echo DOMAINADESTORE?>images/icons/hammer_screwdriver.png" alt="Edit Meta" /></a>
                         </td>
                     </tr>
                    <?php }?>

@@ -24,7 +24,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
         
         <div class="tab-content default-tab" id="tab1"> 
             <table>
-               <form action="<?php echo DOMAINAD; ?>category/processing" name="form1" method="post">
+               <form action="<?php echo DOMAINADESTORE; ?>category/processing" name="form1" method="post">
                 <thead>
                     <tr>
                        <th><input class="check-all" type="checkbox" /></th>
@@ -73,13 +73,13 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                         <td><?php echo date('d-m-Y', strtotime($value['City']['created'])); ?></td>
                         <td>
                             <?php if($value['City']['status']==0){?>
-                                 <a href="<?php echo DOMAINAD?>cities/edit/<?php echo $value['City']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                                 <a href="javascript:confirmDelete('<?php echo DOMAINAD?>cities/delete/<?php echo $value['City']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
-                                 <a href="<?php echo DOMAINAD?>cities/active/<?php echo $value['City']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
+                                 <a href="<?php echo DOMAINADESTORE?>cities/edit/<?php echo $value['City']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                                 <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>cities/delete/<?php echo $value['City']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
+                                 <a href="<?php echo DOMAINADESTORE?>cities/active/<?php echo $value['City']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
                             <?php } else {?>
-                                 <a href="<?php echo DOMAINAD?>cities/edit/<?php echo $value['City']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                                 <a href="javascript:confirmDelete('<?php echo DOMAINAD?>cities/delete/<?php echo $value['City']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
-                                 <a href="<?php echo DOMAINAD?>cities/close/<?php echo $value['City']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
+                                 <a href="<?php echo DOMAINADESTORE?>cities/edit/<?php echo $value['City']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                                 <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>cities/delete/<?php echo $value['City']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
+                                 <a href="<?php echo DOMAINADESTORE?>cities/close/<?php echo $value['City']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
 
                             <?php }?>
                         </td>
@@ -95,4 +95,4 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
         
     </div> <!-- End .content-box-content -->
  </div>
- <a href="<?php echo DOMAINAD;?>cities/add"><input type="button" class="button" value="Thêm mới" /></a>
+ <a href="<?php echo DOMAINADESTORE;?>cities/add"><input type="button" class="button" value="Thêm mới" /></a>

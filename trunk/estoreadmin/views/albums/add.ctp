@@ -18,7 +18,7 @@
         
         <div class="tab-content default-tab" id="tab2">
         
-              <?php echo $form->create(null, array( 'url' => DOMAINAD.'album/add','type' => 'post','name'=>'image')); ?>	    
+              <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'album/add','type' => 'post','name'=>'image')); ?>	    
                 
                 <fieldset> 
                     <p>
@@ -28,7 +28,7 @@
             
                    <p>
                         <label>Ảnh đại diện( Chú ý nên up ảnh cỡ chuẩn: width: 105px - height:105px)</label>
-                         <input type="text" size="50" class="text-input medium-input datepicker" name="userfile" readonly="true"> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINAD; ?>upload_pic.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
+                         <input type="text" size="50" class="text-input medium-input datepicker" name="userfile" readonly="true"> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upload_pic.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
                     </p>                   
 
                     <p>

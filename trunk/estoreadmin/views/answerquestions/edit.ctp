@@ -22,7 +22,7 @@
         
         <div class="tab-content default-tab" id="tab2">
         
-               <?php echo $form->create(null, array( 'url' => DOMAINAD.'answerquestions/edit','type' => 'post')); ?>	
+               <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'answerquestions/edit','type' => 'post')); ?>	
                 
                 <fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
                     <p>

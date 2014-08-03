@@ -1,4 +1,4 @@
-﻿<?php echo $form->create(null, array( 'url' => DOMAINAD.'slideshow/edit','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false)));?>
+﻿<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'slideshow/edit','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false)));?>
 <br />  
 <?php
 	//echo $this->Html->script(array('ckeditor/ckeditor','ckfinder/ckfinder'));
@@ -28,7 +28,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>slideshow" class="toolbar">
+                    <a href="<?php echo DOMAINADESTORE?>slideshow" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>
@@ -62,7 +62,7 @@
                  <tr>
                   	<td class="label">Hình ảnh:</td>
                     <td>
-                        <?php echo $this->Form->input('Slideshow.images',array('class'=>'text-input image-input datepicker','name' => 'userfile'));?> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINAD; ?>upslide.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
+                        <?php echo $this->Form->input('Slideshow.images',array('class'=>'text-input image-input datepicker','name' => 'userfile'));?> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upslide.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
                     <!--<?php echo $this->Form->input('Slideshow.images',array('class'=>'text-input image-input datepicker','id' => 'xFilePath'));?>
                     	<input type="button" value="Chọn ảnh" onclick="BrowseServer();" class="button" />-->
                     </td>
@@ -112,7 +112,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>slideshow" class="toolbar">
+                    <a href="<?php echo DOMAINADESTORE?>slideshow" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>

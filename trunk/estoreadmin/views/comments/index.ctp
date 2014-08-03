@@ -76,11 +76,11 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                         <td><?php echo date('d-m-Y', strtotime($value['Comments']['created'])); ?></td>
                         <td>
                              <?php if($value['Comments']['status']==0){?>
-                                 <a href="javascript:confirmDelete('<?php echo DOMAINAD?>comments/delete/<?php echo $value['Comments']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
-                                 <a href="<?php echo DOMAINAD?>comments/active/<?php echo $value['Comments']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
+                                 <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>comments/delete/<?php echo $value['Comments']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
+                                 <a href="<?php echo DOMAINADESTORE?>comments/active/<?php echo $value['Comments']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
                             <?php } else {?>
-                                 <a href="javascript:confirmDelete('<?php echo DOMAINAD?>comments/delete/<?php echo $value['Comments']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
-                                 <a href="<?php echo DOMAINAD?>comments/close/<?php echo $value['Comments']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
+                                 <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>comments/delete/<?php echo $value['Comments']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
+                                 <a href="<?php echo DOMAINADESTORE?>comments/close/<?php echo $value['Comments']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
 
                             <?php }?>
                         </td>

@@ -1,4 +1,4 @@
-﻿<?php echo $form->create(null, array( 'url' => DOMAINAD.'module/add','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false)));?>	   
+﻿<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'module/add','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false)));?>	   
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
@@ -24,7 +24,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>module" class="toolbar">
+                    <a href="<?php echo DOMAINADESTORE?>module" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>
@@ -93,7 +93,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>module" class="toolbar">
+                    <a href="<?php echo DOMAINADESTORE?>module" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>

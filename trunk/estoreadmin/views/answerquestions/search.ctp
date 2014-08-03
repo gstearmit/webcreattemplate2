@@ -15,11 +15,11 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
     <!-- end page-heading -->
     <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
       <tr>
-        <th rowspan="3" class="sized"><img src="<?php echo DOMAINAD?>images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+        <th rowspan="3" class="sized"><img src="<?php echo DOMAINADESTORE?>images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
         <th class="topleft"></th>
         <td id="tbl-border-top">&nbsp;</td>
         <th class="topright"></th>
-        <th rowspan="3" class="sized"><img src="<?php echo DOMAINAD?>images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
+        <th rowspan="3" class="sized"><img src="<?php echo DOMAINADESTORE?>images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
       </tr>
       <tr>
         <td id="tbl-border-left"></td>
@@ -45,14 +45,14 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                     <td><?php echo date('d-m-Y', strtotime($value['News']['created'])); ?></td>
                     <td class="options-width">
 					<?php if($value['News']['status']==0){?>  
-                   	<a href="<?php echo DOMAINAD?>news/edit/<?php echo $value['News']['id'] ?>" title="Sủa" class="icon-1 info-tooltip"></a>
-                    <a href="<?php echo DOMAINAD?>news/active/<?php echo $value['News']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"></a>				 <?php if($value['News']['category_id']!=94){?>
-                    <a href="javascript:confirmDelete('<?php echo DOMAINAD?>news/delete/<?php echo $value['News']['id'] ?>')" title="Xóa" class="icon-2 info-tooltip"></a>
+                   	<a href="<?php echo DOMAINADESTORE?>news/edit/<?php echo $value['News']['id'] ?>" title="Sủa" class="icon-1 info-tooltip"></a>
+                    <a href="<?php echo DOMAINADESTORE?>news/active/<?php echo $value['News']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"></a>				 <?php if($value['News']['category_id']!=94){?>
+                    <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>news/delete/<?php echo $value['News']['id'] ?>')" title="Xóa" class="icon-2 info-tooltip"></a>
 					<?php }} else {?>                  
-                    <a href="<?php echo DOMAINAD?>news/edit/<?php echo $value['News']['id'] ?>" title="Sủa" class="icon-1 info-tooltip"></a>
-                    <a href="<?php echo DOMAINAD?>news/close/<?php echo $value['News']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"></a>
+                    <a href="<?php echo DOMAINADESTORE?>news/edit/<?php echo $value['News']['id'] ?>" title="Sủa" class="icon-1 info-tooltip"></a>
+                    <a href="<?php echo DOMAINADESTORE?>news/close/<?php echo $value['News']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"></a>
                    <?php if($value['News']['category_id']!=94){?>
-                    <a href="javascript:confirmDelete('<?php echo DOMAINAD?>news/delete/<?php echo $value['News']['id'] ?>')" title="Xóa" class="icon-2 info-tooltip"></a><?php }}?>
+                    <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>news/delete/<?php echo $value['News']['id'] ?>')" title="Xóa" class="icon-2 info-tooltip"></a><?php }}?>
                     </td>
                   </tr>
                 <?php }?>
@@ -64,7 +64,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
             <!--  start paging..................................................... -->
             <table border="0" cellpadding="0" cellspacing="0" id="paging-table">
               <tr>
-			  	<td><div><a href="<?php echo DOMAINAD?>news/add" title="Thêm Mới" ><img src="<?php echo DOMAINAD?>images/folder-new.png" /><b>Thêm mới tin</b></a></div>
+			  	<td><div><a href="<?php echo DOMAINADESTORE?>news/add" title="Thêm Mới" ><img src="<?php echo DOMAINADESTORE?>images/folder-new.png" /><b>Thêm mới tin</b></a></div>
                 </td>
                 </tr>
                 <tr height="30"></tr>

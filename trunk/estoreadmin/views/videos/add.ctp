@@ -18,7 +18,7 @@
         
         <div class="tab-content default-tab" id="tab2">
         
-             <?php echo $form->create(null, array( 'url' => DOMAINAD.'videos/add','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>       
+             <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'videos/add','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>       
                 
                 <fieldset> 
                     <p>

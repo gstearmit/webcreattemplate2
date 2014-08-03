@@ -8,7 +8,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 }
 }
 </script>
- <?php echo $form->create(null, array( 'url' => DOMAINAD.'infomations/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
+ <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'infomations/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
      <fieldset class="search">
         
         <legend>Tìm kiếm</legend>
@@ -37,7 +37,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
         
         <div class="tab-content default-tab" id="tab1"> 
             <table>
-                 <form action="<?php echo DOMAINAD; ?>infomations/processing" name="form1" method="post">
+                 <form action="<?php echo DOMAINADESTORE; ?>infomations/processing" name="form1" method="post">
                 <thead>
                     <tr>
                        <th><input class="check-all" name="checkall" type="checkbox" /></th>
@@ -88,7 +88,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                         <td><?php  echo $value['Infomation']['mobile'];?></td>
                         <td><?php  echo $value['Infomation']['address'];?></td>
                         <td>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>infomations/delete/<?php echo $value['Infomation']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>infomations/delete/<?php echo $value['Infomation']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
                         </td>
                     </tr>
                    <?php }?>

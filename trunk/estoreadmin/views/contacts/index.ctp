@@ -15,11 +15,11 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
     <!-- end page-heading -->
     <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
       <tr>
-        <th rowspan="3" class="sized"><img src="<?php echo DOMAINAD?>images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+        <th rowspan="3" class="sized"><img src="<?php echo DOMAINADESTORE?>images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
         <th class="topleft"></th>
         <td id="tbl-border-top">&nbsp;</td>
         <th class="topright"></th>
-        <th rowspan="3" class="sized"><img src="<?php echo DOMAINAD?>images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
+        <th rowspan="3" class="sized"><img src="<?php echo DOMAINADESTORE?>images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
       </tr>
       <tr>
         <td id="tbl-border-left"></td>
@@ -40,7 +40,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                   <?php foreach ($contacts as $key =>$value){?>
                   <tr class="alternate-row">
                     <td width="10"><?php $j=$key+1; echo $j;?></td>
-                    <td><a href="<?php echo DOMAINAD?>contacts/view/<?php echo $value['Contact']['id']?>"><?php echo $value['Contact']['title'];?></a></td>
+                    <td><a href="<?php echo DOMAINADESTORE?>contacts/view/<?php echo $value['Contact']['id']?>"><?php echo $value['Contact']['title'];?></a></td>
                     <td><?php echo $value['Contact']['name'];?></td>  
                     <td><?php echo date('d-m-Y', strtotime($value['Contact']['created'])); ?></td>                  
                     <td><?php  
@@ -54,8 +54,8 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                      </td>
                     <td class="options-width">				  
                   
-                    <a href="<?php echo DOMAINAD?>contacts/feedback/<?php echo $value['Contact']['id'] ?>" title="Gủi phản hồi" class="icon-5 info-tooltip"></a>
-                    <a href="javascript:confirmDelete('<?php echo DOMAINAD?>contacts/delete/<?php echo $value['Contact']['id'] ?>')" title="Xóa" class="icon-2 info-tooltip"></a>
+                    <a href="<?php echo DOMAINADESTORE?>contacts/feedback/<?php echo $value['Contact']['id'] ?>" title="Gủi phản hồi" class="icon-5 info-tooltip"></a>
+                    <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>contacts/delete/<?php echo $value['Contact']['id'] ?>')" title="Xóa" class="icon-2 info-tooltip"></a>
 					
                     </td>
                   </tr>

@@ -1,11 +1,11 @@
-<?php echo $form->create(null, array( 'url' => DOMAINAD.'bgmenu/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>
+<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'bgmenu/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>
 <br />
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
                     <ul>
                         <li id="toolbar-new">
-                            <a href="<?php echo DOMAINAD?>bgmenu/add" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>bgmenu/add" class="toolbar">
                                 <span class="icon-32-new"></span>
                                 Thêm mới
                             </a>
@@ -18,7 +18,7 @@
                             </a>
                         </li>
                         <li id="toolbar-unpublish">
-                            <a href="<?php echo DOMAINAD?>home" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>home" class="toolbar">
                                 <span class="icon-32-unpublish"></span>
                                 Đóng
                             </a>
@@ -42,7 +42,7 @@
     <div class="content-box-content">
         <div class="tab-content default-tab" id="tab1"> 
             <table>
-                <form action="<?php echo DOMAINAD; ?>bgmenu/processing" name="form1" method="post">
+                <form action="<?php echo DOMAINADESTORE; ?>bgmenu/processing" name="form1" method="post">
                 <thead>
                     <tr>
                        <th><input class="check-all" name="checkall" type="checkbox" /></th>
@@ -91,13 +91,13 @@
                         <td><?php echo date('d-m-Y', strtotime($value['Bgmenu']['created'])); ?></td>
                         <td>
                            <?php if($value['Bgmenu']['status']==0){?>
-                                 <a href="<?php echo DOMAINAD?>bgmenu/edit/<?php echo $value['Bgmenu']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                                 <a href="javascript:confirmDelete('<?php echo DOMAINAD?>bgmenu/delete/<?php echo $value['Bgmenu']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
-                                 <a href="<?php echo DOMAINAD?>bgmenu/active/<?php echo $value['Bgmenu']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
+                                 <a href="<?php echo DOMAINADESTORE?>bgmenu/edit/<?php echo $value['Bgmenu']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                                 <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>bgmenu/delete/<?php echo $value['Bgmenu']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
+                                 <a href="<?php echo DOMAINADESTORE?>bgmenu/active/<?php echo $value['Bgmenu']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
                             <?php } else {?>
-                                 <a href="<?php echo DOMAINAD?>bgmenu/edit/<?php echo $value['Bgmenu']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                                 <a href="javascript:confirmDelete('<?php echo DOMAINAD?>bgmenu/delete/<?php echo $value['Bgmenu']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
-                                 <a href="<?php echo DOMAINAD?>bgmenu/close/<?php echo $value['Bgmenu']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
+                                 <a href="<?php echo DOMAINADESTORE?>bgmenu/edit/<?php echo $value['Bgmenu']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                                 <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>bgmenu/delete/<?php echo $value['Bgmenu']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
+                                 <a href="<?php echo DOMAINADESTORE?>bgmenu/close/<?php echo $value['Bgmenu']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
 
                             <?php }?>
                         </td>

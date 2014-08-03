@@ -18,7 +18,7 @@
         
         <div class="tab-content default-tab" id="tab2">
         
-             <?php echo $form->create(null, array( 'url' => DOMAINAD.'cities/add','type' => 'post')); ?>	     
+             <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'cities/add','type' => 'post')); ?>	     
                 
                 <fieldset>
                     <p>

@@ -15,7 +15,7 @@
     
         <?php 
         ?>
-            <?php echo $form->create(null, array( 'url' => DOMAINAD.'news/add','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>     
+            <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'news/add','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>     
             <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">		
 			
               <tr>
@@ -54,7 +54,7 @@
 			<?php foreach($information as $view){?>
 			<tr>
 				<td><?php echo $view['Infomationdetail']['name'];?></td>							
-				<td><img width="100" src="<?php echo DOMAINAD;?><?php echo $view['Infomationdetail']['images'];?>" /></td>				
+				<td><img width="100" src="<?php echo DOMAINADESTORE;?><?php echo $view['Infomationdetail']['images'];?>" /></td>				
 				<td><?php echo $view['Infomationdetail']['quantity']?></td>				
 				<td><?php echo $view['Infomationdetail']['price']?></td>				
 			</tr>

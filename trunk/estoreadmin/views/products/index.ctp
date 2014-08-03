@@ -7,14 +7,14 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 }
 }
 </script>
-<?php echo $form->create(null, array( 'url' => DOMAINAD.'products/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>
+<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'products/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>
 <br />
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
                     <ul>
                         <li id="toolbar-new">
-                            <a href="<?php echo DOMAINAD?>products/add" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>products/add" class="toolbar">
                                 <span class="icon-32-new"></span>
                                 Thêm mới
                             </a>
@@ -27,7 +27,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                             </a>
                         </li>
                         <li id="toolbar-unpublish">
-                            <a href="<?php echo DOMAINAD?>home" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>home" class="toolbar">
                                 <span class="icon-32-unpublish"></span>
                                 Đóng
                             </a>
@@ -71,7 +71,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
     <div class="content-box-content">
         <div class="tab-content default-tab" id="tab1"> 
             <table>
-            <form action="<?php echo DOMAINAD; ?>products/processing" name="form1" method="post">
+            <form action="<?php echo DOMAINADESTORE; ?>products/processing" name="form1" method="post">
             	<thead>
                     <tr>
                        <th width="1%"><input class="check-all" type="checkbox" /></th>
@@ -121,23 +121,23 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                     <tr>
                         <td><input type="checkbox" name="<?php echo $value['Product']['id'] ?>" /></td>
                         <td><?php $j=$key+1; echo $j;?></td>
-                        <td><a href="<?php echo DOMAINAD?>products/edit/<?php echo $value['Product']['id'] ?>" title="Edit"><?php echo $value['Product']['title']; ?></a></td>
+                        <td><a href="<?php echo DOMAINADESTORE?>products/edit/<?php echo $value['Product']['id'] ?>" title="Edit"><?php echo $value['Product']['title']; ?></a></td>
            
                         <td><?php  echo $value['Catproduct']['name'];?></td>
                         <td><?php echo date('d-m-Y', strtotime($value['Product']['created'])); ?></td>
                         <td>
-                             <a href="<?php echo DOMAINAD?>products/edit/<?php echo $value['Product']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>products/delete/<?php echo $value['Product']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>products/edit/<?php echo $value['Product']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>products/delete/<?php echo $value['Product']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a>
                         <?php 
 							if($value['Product']['status']==0)
 							{
 						?>
-                             <a href="<?php echo DOMAINAD?>products/active/<?php echo $value['Product']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>products/active/<?php echo $value['Product']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
                         <?php 
 							}else 
 							{
 						?>
-                            <a href="<?php echo DOMAINAD?>products/close/<?php echo $value['Product']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
+                            <a href="<?php echo DOMAINADESTORE?>products/close/<?php echo $value['Product']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
                         <?php 
 							}
 						?>

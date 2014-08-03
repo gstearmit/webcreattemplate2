@@ -10,7 +10,7 @@
               <div style="top:180px;" id="title-news" style="top:180px;"><p>Sửa</p></div>
                  <div  class="list-news" >
                     
-				 <?php echo $form->create(null, array( 'url' => DOMAINAD.'news/edit','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>             
+				 <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'news/edit','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>             
                 <table style="text-align:left;" border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
                   <tr>
                 
@@ -42,7 +42,7 @@
 				   <tr>
                     <td>Ảnh đại diện</td>
                     <td>                      
-                  <input type="text" size="80" style="height:25px;" name="userfile"  value="<?php echo $edit['News']['images']?>"> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINAD; ?>upload_pic.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
+                  <input type="text" size="80" style="height:25px;" name="userfile"  value="<?php echo $edit['News']['images']?>"> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upload_pic.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
                     </td>
                   </tr>
                    <tr  class="alternate-row">

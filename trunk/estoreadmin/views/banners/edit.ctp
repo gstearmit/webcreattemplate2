@@ -1,4 +1,4 @@
-<?php echo $form->create(null, array( 'url' => DOMAINAD.'banners/edit','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>  
+<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'banners/edit','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>  
 <br />  
 <?php
 	//echo $this->Html->script(array('ckeditor/ckeditor','ckfinder/ckfinder'));
@@ -28,7 +28,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>banners" class="toolbar">
+                    <a href="<?php echo DOMAINADESTORE?>banners" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>
@@ -62,7 +62,7 @@
                 <tr>
                   	<td class="label">Hình ảnh:</td>
                     <td>
-                        <input type="text" size="50" style="height:25px;"  value="<?php echo $edit['Banner']['images']?>" name="userfile" readonly="true"> &nbsp;<a href="javascript:window.open('<?php echo DOMAINAD; ?>gallery.php','userfile','width=500,height=300');window.history.go(1)" ><input type="button" value="Chọn ảnh" class="button" /></a>
+                        <input type="text" size="50" style="height:25px;"  value="<?php echo $edit['Banner']['images']?>" name="userfile" readonly="true"> &nbsp;<a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>gallery.php','userfile','width=500,height=300');window.history.go(1)" ><input type="button" value="Chọn ảnh" class="button" /></a>
                     </td>
                 </tr>
              <tr>
@@ -107,7 +107,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>banners" class="toolbar">
+                    <a href="<?php echo DOMAINADESTORE?>banners" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>

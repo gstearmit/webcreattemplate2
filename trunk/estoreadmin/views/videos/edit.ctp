@@ -18,7 +18,7 @@
         
         <div class="tab-content default-tab" id="tab2">
         
-             <?php echo $form->create(null, array( 'url' => DOMAINAD.'videos/edit','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>       
+             <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'videos/edit','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>       
                 
                 <fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
                     <p>

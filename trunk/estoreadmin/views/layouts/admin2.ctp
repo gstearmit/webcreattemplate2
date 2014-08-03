@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Admin</title>
-<link rel="stylesheet" href="<?php echo DOMAINAD?>css/screen.css" type="text/css" media="screen" title="default" />
+<link rel="stylesheet" href="<?php echo DOMAINADESTORE?>css/screen.css" type="text/css" media="screen" title="default" />
 </head>
 <body>
 <div id="page-top-outer">
@@ -13,7 +13,7 @@
       <table border="0" cellpadding="0" cellspacing="0" >
         <tr>
           <td><input type="text" value="検索する" onblur="if (this.value=='') { this.value='検索する'; }" onfocus="if (this.value=='Search') { this.value=''; }" class="top-search-inp" /></td>
-          <td><input type="image" src="<?php echo DOMAINAD?>images/shared/top_search_btn.gif"  /></td>
+          <td><input type="image" src="<?php echo DOMAINADESTORE?>images/shared/top_search_btn.gif"  /></td>
         </tr>
       </table>
     </div>
@@ -27,7 +27,7 @@
     <!-- start nav-right -->
     <div id="nav-right">
       <div class="nav-divider">&nbsp;</div>
-      <a href="<?php echo DOMAINAD?>login/logout" id="logout"><img src="<?php echo DOMAINAD?>images/shared/nav/nav_logout.gif" width="64" height="14" alt="" /></a>
+      <a href="<?php echo DOMAINADESTORE?>login/logout" id="logout"><img src="<?php echo DOMAINADESTORE?>images/shared/nav/nav_logout.gif" width="64" height="14" alt="" /></a>
       <div class="clear">&nbsp;</div>
       <!--  start account-content -->
       <div class="account-content">
@@ -52,41 +52,41 @@
     <div class="nav">
       <div class="table">
         <ul class="select">
-          <li><a href="<?php echo DOMAINAD?>home""><b>Trang chủ</b></a>
+          <li><a href="<?php echo DOMAINADESTORE?>home""><b>Trang chủ</b></a>
             <!--[if IE 7]><!--></a><!--<![endif]-->
           </li>
         </ul>
         <div class="nav-divider">&nbsp;</div>
         <ul class="select">
-          <li><a href="<?php echo DOMAINAD?>category"><b>Danh mục</b></a> </li>
+          <li><a href="<?php echo DOMAINADESTORE?>category"><b>Danh mục</b></a> </li>
         </ul>
 		<div class="nav-divider">&nbsp;</div>
         <ul class="select">
-          <li><a href="<?php echo DOMAINAD?>products"><b>Sản phẩm</b></a> </li>
+          <li><a href="<?php echo DOMAINADESTORE?>products"><b>Sản phẩm</b></a> </li>
         </ul>
         <div class="nav-divider">&nbsp;</div>
         <ul class="select">
-          <li><a href="<?php echo DOMAINAD?>projects"><b>Công trình</b></a> </li>
+          <li><a href="<?php echo DOMAINADESTORE?>projects"><b>Công trình</b></a> </li>
         </ul>
         <div class="nav-divider">&nbsp;</div>
         <ul class="select">
-          <li><a href="<?php echo DOMAINAD?>news"><b>Tin tức</b></a> </li>
+          <li><a href="<?php echo DOMAINADESTORE?>news"><b>Tin tức</b></a> </li>
         </ul>
         <div class="nav-divider">&nbsp;</div>
         <ul class="select">
-          <li><a href="<?php echo DOMAINAD?>partners"><b>Đối tác</b></a> </li>
+          <li><a href="<?php echo DOMAINADESTORE?>partners"><b>Đối tác</b></a> </li>
         </ul>
         <div class="nav-divider">&nbsp;</div>
         <ul class="select">
-          <li><a href="<?php echo DOMAINAD?>gallery"><b>Thư viện ảnh</b></a> </li>
+          <li><a href="<?php echo DOMAINADESTORE?>gallery"><b>Thư viện ảnh</b></a> </li>
         </ul>
          <div class="nav-divider">&nbsp;</div>
         <ul class="select">
-          <li><a href="<?php echo DOMAINAD?>contacts"><b>Liên hệ</b></a> </li>
+          <li><a href="<?php echo DOMAINADESTORE?>contacts"><b>Liên hệ</b></a> </li>
         </ul>
         <div class="nav-divider">&nbsp;</div>
          <ul class="select">
-          <li><a href="<?php echo DOMAINAD?>accounts"><b>Tài Khoản</b></a> </li>
+          <li><a href="<?php echo DOMAINADESTORE?>accounts"><b>Tài Khoản</b></a> </li>
         </ul>
         <div class="nav-divider">&nbsp;</div>
         <div class="clear"></div>

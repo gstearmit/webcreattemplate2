@@ -6,9 +6,9 @@
 <link rel="shortcut icon" href="<?php echo DOMAIN ?>images/favicon.ico">
 <link href="<?php echo DOMAIN ?>images/favicon.png" type="images/png" rel="icon"/>
 <title>Administractor</title>
-<link rel="stylesheet" href="<?php echo DOMAINAD?>css/reset.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="<?php echo DOMAINAD?>css/style.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="<?php echo DOMAINAD?>css/invalid.css" type="text/css" media="screen" />	
+<link rel="stylesheet" href="<?php echo DOMAINADESTORE?>css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?php echo DOMAINADESTORE?>css/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?php echo DOMAINADESTORE?>css/invalid.css" type="text/css" media="screen" />	
 </head>
   
 	<body id="login">
