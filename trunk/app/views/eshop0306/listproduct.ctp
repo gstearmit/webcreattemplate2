@@ -1,6 +1,4 @@
-<?php 
-//pr($products);die;
-//if($session->read('lang')==1){?>
+<?php //if($session->read('lang')==1){?>
 <div id="main-center">              	
     <div id="sanphams" style="min-height: 680px !important;">
     	<div class="top"><?php echo $cat['Estore_catproduct']['name']?></div>
@@ -19,7 +17,7 @@
                 Mã:<?php echo $pr['Estore_product']['code'];?>
                 </h5>
                 <h6>Giá: <?php echo number_format( $pr['Estore_product']['price'],3); ?> VNĐ
-                <a href="<?php echo DOMAIN?><?php echo $shopname ;?>/addshopingcart/<?php echo $pr['Estore_product']['id'];?>"><img src="<?php echo DOMAIN?>images/datmua.jpg"/></a>
+                <a href="<?php echo DOMAIN?><?php echo $shopname ;?>/addshopingcart/<?php echo $pr['Estore_product']['id'];?>"><img src="<?php echo DOMAIN?>home/images/datmua.jpg"/></a>
                 </h6>                
             </div>
         </div><?php }?>

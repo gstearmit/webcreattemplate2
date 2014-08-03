@@ -227,7 +227,10 @@ background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat l
                         	<div id="bong">
                                 <div class="top"><h3>Danh mục sản phẩm</h3></div>
                                 <div class="menu_list" >
-                                 <?php $root = $this->requestAction('/'.$shopname.'/danhmuc/'.$shop_id);											
+                                 <?php 
+                                 
+                                 $root = $this->requestAction('/'.$shopname.'/danhmuc/'.$shop_id);	
+                                								
                                          foreach ($root as $value){?>
                                  		<p class="menu_head"><?php echo $value['Estore_catproduct']['name']?></p>                	 
                                  			<?php $category = $this->requestAction('/'.$shopname.'/showsmenu1/'.$value['Estore_catproduct']['id']);
