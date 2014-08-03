@@ -227,7 +227,7 @@ background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat l
                         	<div id="bong">
                                 <div class="top"><h3>Danh mục sản phẩm</h3></div>
                                 <div class="menu_list" >
-                                 <?php $root = $this->requestAction('/'.$shopname.'/danhmuc');											
+                                 <?php $root = $this->requestAction('/'.$shopname.'/danhmuc/'.$shop_id);											
                                          foreach ($root as $value){?>
                                  		<p class="menu_head"><?php echo $value['Estore_catproduct']['name']?></p>                	 
                                  			<?php $category = $this->requestAction('/'.$shopname.'/showsmenu1/'.$value['Estore_catproduct']['id']);
@@ -266,7 +266,7 @@ background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat l
                                 <div class="list_carousels">
 
                                 <ul id="foo"style="min-height: 700px;">
-                                <?php $productnew = $this->requestAction('/'.$shopname.'/typical');?>
+                                <?php $productnew = $this->requestAction('/'.$shopname.'/typical/'.$shop_id);?>
                                 <?php foreach($productnew as $value){?>
                                 <li ><div class="sanpham" id="yahoo">
                             	<a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $value['Estore_product']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINADESTORE.$value['Estore_product']['images']?>'/></p>">
@@ -285,14 +285,14 @@ background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat l
                         </div>-->
                         <div id="info"> 
                         	<h3>Tin tức khuyến mại</h3>      
-                            <?php $hotnew = $this->requestAction('/'.$shopname.'/hotnew');?>                 	
+                            <?php $hotnew = $this->requestAction('/'.$shopname.'/hotnew/'.$shop_id);?>                 	
                             <ul><?php foreach($hotnew as $value){?>
                             	<li><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/viewnews/<?php echo $value['Estore_news']['id'];?>"><?php echo $value['Estore_news']['title'];?> </a></li>                               
                                 <?php }?>
                             </ul>
                         </div>  
                         <div id="video">
-                        <?php $video = $this->requestAction('/'.$shopname.'/videos') ?>
+                        <?php $video = $this->requestAction('/'.$shopname.'/videos/'.$shop_id) ?>
                             <?php  foreach($video as $video){?> 
                             <?php 
                             $url = $video['Estore_video']['LinkUrl'];
@@ -302,7 +302,7 @@ background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat l
                            <?php }?>
                         </div>
                         
-                        <?php $advf= $this->requestAction('/'.$shopname.'/advf') ?>
+                        <?php $advf= $this->requestAction('/'.$shopname.'/advf/'.$shop_id) ?>
                         <?php foreach($advf as $advs1 ){  ?>
                         <div id="video">
                          <a href="<?php echo $advs1['Estore_advertisement']['link'] ?>" target="_blank"><img src="<?php echo DOMAINADESTORE.$advs1['Estore_advertisement']['images']?>" border="0" width="202px" alt="" /></a>  
