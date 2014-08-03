@@ -124,3 +124,4 @@
             }?></div>
         </div>  
     </div><!--end newstop--> 
+</div><!-- id="main-center" -->

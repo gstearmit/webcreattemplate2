@@ -44,7 +44,7 @@ foreach ( $tem as $tem ) {
   if($session->read('lang')==2){?>                
  <div id="img">
 	<div class="intro">
-    <?php $setting = $this->requestAction('/'.$shopname.'/setting') ?>
+    <?php $setting = $this->requestAction('/'.$shopname.'/setting/'.$shop_id) ?>
     <?php foreach($setting as $settings ){  ?>
 	<p><h3 style="text-transform: uppercase;"><b><?php echo $settings['Estore_setting']['name_en'] ?></b></h3></p><br />
 	<p><h1>Address: <?php echo $settings['Estore_setting']['address_eg'] ?></h1></p><br />

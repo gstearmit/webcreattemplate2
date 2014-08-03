@@ -29,7 +29,7 @@ foreach ( $tem as $tem ) {
 // echo "template ";pr($template);
 
 ?>
-<?php $banner = $this -> requestAction('/'.$shopname.'/banner');?>
+<?php $banner = $this -> requestAction('/'.$shopname.'/banner/'.$shop_id);?>
    <?php foreach($banner as $banner){ ?>
       <object width="1000" height="178" title="" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" viewastext="">
          <param name="_cx" value="14552">
