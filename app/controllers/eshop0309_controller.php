@@ -31,6 +31,52 @@
 								'Ajax',
 								'Javascript' 
 						);
+						
+						function creatnewdatabase()
+						{
+							$sqlArr = array();
+							$sqlArr[]="CREATE DATABASE IF NOT EXISTS `testqd_eshopbepga` /*!40100 DEFAULT CHARACTER SET utf8 */;";
+							$sqlArr[]="USE `testqd_eshopbepga`;";
+									
+							$sqlArr[]="CREATE TABLE IF NOT EXISTS `estore_advertisements` (
+									  `id` int(50) NOT NULL AUTO_INCREMENT,
+									  `estore_id` int(50) NOT NULL DEFAULT '0',
+									  `name` varchar(256) CHARACTER SET utf8 NOT NULL,
+									  `link` varchar(256) CHARACTER SET ucs2 NOT NULL,
+									  `images` varchar(256) CHARACTER SET utf8 NOT NULL,
+									  `created` date NOT NULL,
+									  `modified` date NOT NULL,
+									  `status` int(2) NOT NULL,
+									  `display` int(2) DEFAULT NULL,
+									  PRIMARY KEY (`id`),
+									  UNIQUE KEY `id` (`id`)
+									) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;";
+// 							$db = ConnectionManager::config('defaultnew', array(
+// 									'className' => 'Cake\Database\Connection',
+// 									'driver' => 'Cake\Database\Driver\Mysql',
+// 									'persistent' => false,
+// 									'host' => 'localhost',
+// 									'login' => 'root',
+// 									'password' => '',
+// 									//'database' => 'my_app',
+// 									'prefix' => false,
+// 									'encoding' => 'utf8',
+// 									'timezone' => 'UTC',
+// 									'cacheMetadata' => true,
+// 							));
+							$db = ConnectionManager::getDataSource('default');
+							//$nameLangueCopy = $db->rawQuery($sql);
+							try {
+								foreach ($sqlArr as $sql) {
+									$db->rawQuery($sql);
+								}
+								$nameLangueCopy = "Sucessfull";
+							} catch (\Exception $exc) {
+								$nameLangueCopy = $exc->getMessage();
+							
+							}	
+						}
+						
 						function sqlview()
 						{
 						
