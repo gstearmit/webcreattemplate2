@@ -15,7 +15,7 @@
         <?php
             echo $this->Html->script(array('ckeditor/ckeditor','ckfinder/ckfinder'));
         ?>
-            <?php echo $form->create(null, array( 'url' => DOMAINAD.'news/add','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>     
+            <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'news/add','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>     
             <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
               <tr>
                 <td width="250">Tiêu đề</td>
@@ -46,7 +46,7 @@
               </tr>
                <tr>
                 <td>Ảnh đại diện</td>
-                <td><img src="<?php echo DOMAINAD;?>/timthumb.php?src=<?php echo $views['News']['images'];?>&amp;h=70&amp;w=100&amp;zc=1" alt="thumbnail" />
+                <td><img src="<?php echo DOMAINADESTORE;?>/timthumb.php?src=<?php echo $views['News']['images'];?>&amp;h=70&amp;w=100&amp;zc=1" alt="thumbnail" />
                 </td>
               </tr>
                <tr  class="alternate-row">

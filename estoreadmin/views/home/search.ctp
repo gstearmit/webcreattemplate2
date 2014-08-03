@@ -27,18 +27,18 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                             <td><?php echo date('d-m-Y', strtotime($value['News']['created'])); ?></td>
                             <td class="options-width">
                             <?php if($value['News']['status']==0){?>  
-                            <a href="<?php echo DOMAINAD?>news/edit/<?php echo $value['News']['id'] ?>" title="Sủa" class="icon-1 info-tooltip"><input type="button" value="Sửa" /></a>
-                            <a href="<?php echo DOMAINAD?>news/active/<?php echo $value['News']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><input type="button" value="Active" /></a>
-                            <a href="javascript:confirmDelete('<?php echo DOMAINAD?>news/delete/<?php echo $value['News']['id'] ?>')" title="Xóa" class="icon-2 info-tooltip"><input type="button" value="Xóa" /></a>
+                            <a href="<?php echo DOMAINADESTORE?>news/edit/<?php echo $value['News']['id'] ?>" title="Sủa" class="icon-1 info-tooltip"><input type="button" value="Sửa" /></a>
+                            <a href="<?php echo DOMAINADESTORE?>news/active/<?php echo $value['News']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><input type="button" value="Active" /></a>
+                            <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>news/delete/<?php echo $value['News']['id'] ?>')" title="Xóa" class="icon-2 info-tooltip"><input type="button" value="Xóa" /></a>
                             <?php } else {?>                  
-                            <a href="<?php echo DOMAINAD?>news/edit/<?php echo $value['News']['id'] ?>" title="Sủa" class="icon-1 info-tooltip"><input type="button" value="Sửa" /></a>
-                            <a href="<?php echo DOMAINAD?>news/close/<?php echo $value['News']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><input type="button" value="Ngắt active" /></a>
-                            <a href="javascript:confirmDelete('<?php echo DOMAINAD?>news/delete/<?php echo $value['News']['id'] ?>')" title="Xóa" class="icon-2 info-tooltip"><input type="button" value="Xóa" /></a><?php }?>
+                            <a href="<?php echo DOMAINADESTORE?>news/edit/<?php echo $value['News']['id'] ?>" title="Sủa" class="icon-1 info-tooltip"><input type="button" value="Sửa" /></a>
+                            <a href="<?php echo DOMAINADESTORE?>news/close/<?php echo $value['News']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><input type="button" value="Ngắt active" /></a>
+                            <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>news/delete/<?php echo $value['News']['id'] ?>')" title="Xóa" class="icon-2 info-tooltip"><input type="button" value="Xóa" /></a><?php }?>
                             </td>
                           </tr>
                         <?php }?>                        
                     </table>
-                     <div style="margin-top:10px;"><a href="<?php echo DOMAINAD?>news/add" title="Thêm Mới"><img src="<?php echo DOMAINAD?>images/folder-new.png" /><b>Thêm mới tin</b></a></div>
+                     <div style="margin-top:10px;"><a href="<?php echo DOMAINADESTORE?>news/add" title="Thêm Mới"><img src="<?php echo DOMAINADESTORE?>images/folder-new.png" /><b>Thêm mới tin</b></a></div>
                     <div id='link_page'>
                               <?php
                                         $paginator->options(array('url' => $this->passedArgs));

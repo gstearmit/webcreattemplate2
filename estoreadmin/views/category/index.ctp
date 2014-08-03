@@ -1,10 +1,10 @@
-﻿<?php echo $form->create(null, array( 'url' => DOMAINAD.'category/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
+﻿<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'category/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
                     <ul>
                         <li id="toolbar-new">
-                            <a href="<?php echo DOMAINAD?>category/add" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>category/add" class="toolbar">
                                 <span class="icon-32-new"></span>
                                 Thêm mới
                             </a>
@@ -17,7 +17,7 @@
                             </a>
                         </li>
                         <li id="toolbar-unpublish">
-                            <a href="<?php echo DOMAINAD?>home" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>home" class="toolbar">
                                 <span class="icon-32-unpublish"></span>
                                 Đóng
                             </a>
@@ -54,7 +54,7 @@
         
         <div class="tab-content default-tab" id="tab1"> 
             <table>
-               <form action="<?php echo DOMAINAD; ?>category/processing" name="form1" method="post">
+               <form action="<?php echo DOMAINADESTORE; ?>category/processing" name="form1" method="post">
                 <thead>
                     <tr>
                        <th><input class="check-all" type="checkbox" /></th>
@@ -108,8 +108,8 @@
                         <td><?php echo $value['Category']['tt'];?></td>
                         <td><?php echo date('d-m-Y', strtotime($value['Category']['created'])); ?></td>
                         <td>
-                         <a href="<?php echo DOMAINAD?>category/edit/<?php echo $value['Category']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                         <a href="<?php echo DOMAINAD?>category/close/<?php echo $value['Category']['id'] ?>" title=" Thùng rác " class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a>
+                         <a href="<?php echo DOMAINADESTORE?>category/edit/<?php echo $value['Category']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                         <a href="<?php echo DOMAINADESTORE?>category/close/<?php echo $value['Category']['id'] ?>" title=" Thùng rác " class="icon-4 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a>
 
                         </td>
                     </tr>
@@ -121,7 +121,7 @@
         </div> <!-- End #tab1 -->
         <div class="tab-content" id="tab2"> 
             <table>
-               <form action="<?php echo DOMAINAD; ?>category/processing" name="form1" method="post">
+               <form action="<?php echo DOMAINADESTORE; ?>category/processing" name="form1" method="post">
                 <thead>
                     <tr>
                        <th><input class="check-all" type="checkbox" /></th>
@@ -173,8 +173,8 @@
                         <td><?php echo $value['Category']['tt'];?></td>
                         <td><?php echo date('d-m-Y', strtotime($value['Category']['created'])); ?></td>
                         <td>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>category/delete/<?php echo $value['Category']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a>
-                             <a href="<?php echo DOMAINAD?>category/active/<?php echo $value['Category']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Phục hồi" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>category/delete/<?php echo $value['Category']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>category/active/<?php echo $value['Category']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/Play-icon.png" alt="Phục hồi" /></a>
                         </td>
                     </tr>
                    <?php }?>

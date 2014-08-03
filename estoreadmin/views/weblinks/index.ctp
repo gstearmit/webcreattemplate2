@@ -1,11 +1,11 @@
-﻿<?php echo $form->create(null, array( 'url' => DOMAINAD.'weblinks/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>
+﻿<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'weblinks/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>
 <br />
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
                     <ul>
                         <li id="toolbar-new">
-                            <a href="<?php echo DOMAINAD?>weblinks/add" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>weblinks/add" class="toolbar">
                                 <span class="icon-32-new"></span>
                                 Thêm mới
                             </a>
@@ -18,7 +18,7 @@
                             </a>
                         </li>
                         <li id="toolbar-unpublish">
-                            <a href="<?php echo DOMAINAD?>home" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>home" class="toolbar">
                                 <span class="icon-32-unpublish"></span>
                                 Đóng
                             </a>
@@ -102,18 +102,18 @@
 
                         <td><?php echo date('d-m-Y', strtotime($value['Weblink']['created'])); ?></td>
                         <td>
-                             <a href="<?php echo DOMAINAD?>weblinks/edit/<?php echo $value['Weblink']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>weblinks/delete/<?php echo $value['Weblink']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>weblinks/edit/<?php echo $value['Weblink']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>weblinks/delete/<?php echo $value['Weblink']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a>
                         <?php 
 							if($value['Weblink']['status']==0)
 							{
 						?>
-                             <a href="<?php echo DOMAINAD?>weblinks/active/<?php echo $value['Weblink']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>weblinks/active/<?php echo $value['Weblink']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
                         <?php 
 							}else 
 							{
 						?>
-                            <a href="<?php echo DOMAINAD?>weblinks/close/<?php echo $value['Weblink']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
+                            <a href="<?php echo DOMAINADESTORE?>weblinks/close/<?php echo $value['Weblink']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
                         <?php 
 							}
 						?>

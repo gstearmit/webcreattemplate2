@@ -11,7 +11,7 @@
         
         <div class="tab-content" id="tab2">
         
-             <?php echo $form->create(null, array( 'url' => DOMAINAD.'news/add','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>     
+             <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'news/add','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>     
                 
                 <fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
                     <p>
@@ -33,7 +33,7 @@
                     </p>
                     <p>
                         <label>Ảnh đại diện</label>
-                         <input type="text" size="50" class="text-input medium-input datepicker" name="userfile" readonly="true"> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINAD; ?>upload_pic.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
+                         <input type="text" size="50" class="text-input medium-input datepicker" name="userfile" readonly="true"> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upload_pic.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
                     </p>
                     <p>
                         <label>Nguồn bài viết </label>

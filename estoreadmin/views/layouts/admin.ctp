@@ -43,7 +43,7 @@ $(document).ready(function(){
   <script type="text/javascript">
     $(function()
       {
-        $.fn.jPicker.defaults.images.clientPath='<?php echo DOMAINAD;?>images/';
+        $.fn.jPicker.defaults.images.clientPath='<?php echo DOMAINADESTORE;?>images/';
         var LiveCallbackElement = $('#Live'),
             LiveCallbackButton = $('#LiveButton');
         $('#Inline').jPicker({window:{title:'Inline Example'}});

@@ -15,7 +15,7 @@
         <?php 
             echo $this->Html->script(array('ckeditor/ckeditor','ckfinder/ckfinder'));
         ?>
-            <?php echo $form->create(null, array( 'url' => DOMAINAD.'news/add','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>     
+            <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'news/add','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>     
             <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
             <tr>
                 <td width="250">Ngày đặt</td>
@@ -90,7 +90,7 @@
                 <td>                      
                    <?php if($views['Infomation']['status']==0){?>
                     <?php echo "Đơn hàng chưa xử lý";?><br />
-                    <a href="<?php echo DOMAINAD?>infomations/active/<?php echo $views['Infomation']['id'] ?>" title="Xử lý đơn hàng" class="icon-5 info-tooltip">Xử lý đơn hàng<img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Xử lý đơn hàng" /></a>
+                    <a href="<?php echo DOMAINADESTORE?>infomations/active/<?php echo $views['Infomation']['id'] ?>" title="Xử lý đơn hàng" class="icon-5 info-tooltip">Xử lý đơn hàng<img src="<?php echo DOMAINADESTORE?>images/icons/Play-icon.png" alt="Xử lý đơn hàng" /></a>
                      <?php } else {?>
                    <?php echo "Đơn hàng đã xử lý";?>
                      <?php }?>

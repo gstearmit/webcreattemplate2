@@ -18,7 +18,7 @@
         
         <div class="tab-content default-tab" id="tab2">
         
-               <?php echo $form->create(null, array( 'url' => DOMAINAD.'manufacturers/edit/Catproduct.id','type' => 'post','name'=>'image')); ?>	
+               <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'manufacturers/edit/Catproduct.id','type' => 'post','name'=>'image')); ?>	
                 
                 <fieldset> 
                     <p>

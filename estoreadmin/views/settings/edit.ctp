@@ -1,4 +1,4 @@
-<?php echo $form->create(null, array( 'url' => DOMAINAD.'settings/edit','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false)));?>
+<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'settings/edit','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false)));?>
 <br />  
 <?php
 	//echo $this->Html->script(array('ckeditor/ckeditor','ckfinder/ckfinder'));
@@ -28,7 +28,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>settings" class="toolbar">
+                    <a href="<?php echo DOMAINADESTORE?>settings" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>
@@ -186,7 +186,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>settings" class="toolbar">
+                    <a href="<?php echo DOMAINADESTORE?>settings" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>

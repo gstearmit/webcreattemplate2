@@ -51,13 +51,13 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                         <td><?php echo date('d-m-Y', strtotime($value['Video']['created'])); ?></td>
                         <td>
                             <?php if($value['Video']['status']==0){?>
-                                 <a href="<?php echo DOMAINAD?>videos/edit/<?php echo $value['Video']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                                 <a href="javascript:confirmDelete('<?php echo DOMAINAD?>videos/delete/<?php echo $value['Video']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
-                                 <a href="<?php echo DOMAINAD?>videos/active/<?php echo $value['Video']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
+                                 <a href="<?php echo DOMAINADESTORE?>videos/edit/<?php echo $value['Video']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                                 <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>videos/delete/<?php echo $value['Video']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
+                                 <a href="<?php echo DOMAINADESTORE?>videos/active/<?php echo $value['Video']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
                             <?php } else {?>
-                                 <a href="<?php echo DOMAINAD?>videos/edit/<?php echo $value['Video']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                                 <a href="javascript:confirmDelete('<?php echo DOMAINAD?>videos/delete/<?php echo $value['Video']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
-                                 <a href="<?php echo DOMAINAD?>videos/close/<?php echo $value['Video']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
+                                 <a href="<?php echo DOMAINADESTORE?>videos/edit/<?php echo $value['Video']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                                 <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>videos/delete/<?php echo $value['Video']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
+                                 <a href="<?php echo DOMAINADESTORE?>videos/close/<?php echo $value['Video']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
                             <?php }?>
                         </td>
                     </tr>

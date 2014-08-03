@@ -1,11 +1,11 @@
-<?php echo $form->create(null, array( 'url' => DOMAINAD.'partners/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>
+<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'partners/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>
 <br />
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
                     <ul>
                         <li id="toolbar-new">
-                            <a href="<?php echo DOMAINAD?>partners/add" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>partners/add" class="toolbar">
                                 <span class="icon-32-new"></span>
                                 Thêm mới
                             </a>
@@ -18,7 +18,7 @@
                             </a>
                         </li>
                         <li id="toolbar-unpublish">
-                            <a href="<?php echo DOMAINAD?>home" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>home" class="toolbar">
                                 <span class="icon-32-unpublish"></span>
                                 Đóng
                             </a>
@@ -50,7 +50,7 @@
     <div class="content-box-content">
         <div class="tab-content default-tab" id="tab1"> 
             <table>
-                 <form action="<?php echo DOMAINAD; ?>partners/processing" name="form1" method="post">
+                 <form action="<?php echo DOMAINADESTORE; ?>partners/processing" name="form1" method="post">
                 <thead>
                     <tr>
                        <th><input class="check-all" name="checkall" type="checkbox" /></th>
@@ -98,17 +98,17 @@
                         <td><input type="checkbox" name="<?php echo $value['Partner']['id'] ?>" /></td>
                         <td><?php $j=$key+1; echo $j;?></td>
                         <td><?php echo $value['Partner']['name'];?></td>
-                        <td><img src="<?php echo DOMAINAD?>/timthumb.php?src=<?php echo $value['Partner']['images'];?>&amp;h=70&amp;w=100&amp;zc=1" alt="thumbnail" /></td>
+                        <td><img src="<?php echo DOMAINADESTORE?>/timthumb.php?src=<?php echo $value['Partner']['images'];?>&amp;h=70&amp;w=100&amp;zc=1" alt="thumbnail" /></td>
                         <td><?php echo date('d-m-Y', strtotime($value['Partner']['created'])); ?></td>
                         <td>
                              <?php if($value['Partner']['status']==0){?>
-                                 <a href="<?php echo DOMAINAD?>partners/edit/<?php echo $value['Partner']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                                 <a href="javascript:confirmDelete('<?php echo DOMAINAD?>partners/delete/<?php echo $value['Partner']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
-                                 <a href="<?php echo DOMAINAD?>partners/active/<?php echo $value['Partner']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
+                                 <a href="<?php echo DOMAINADESTORE?>partners/edit/<?php echo $value['Partner']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                                 <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>partners/delete/<?php echo $value['Partner']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
+                                 <a href="<?php echo DOMAINADESTORE?>partners/active/<?php echo $value['Partner']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
                             <?php } else {?>
-                                 <a href="<?php echo DOMAINAD?>partners/edit/<?php echo $value['Partner']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                                 <a href="javascript:confirmDelete('<?php echo DOMAINAD?>partners/delete/<?php echo $value['Partner']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
-                                 <a href="<?php echo DOMAINAD?>partners/close/<?php echo $value['Partner']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
+                                 <a href="<?php echo DOMAINADESTORE?>partners/edit/<?php echo $value['Partner']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                                 <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>partners/delete/<?php echo $value['Partner']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
+                                 <a href="<?php echo DOMAINADESTORE?>partners/close/<?php echo $value['Partner']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
 
                             <?php }?>
                         </td>

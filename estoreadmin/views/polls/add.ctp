@@ -1,4 +1,4 @@
-<?php echo $form->create(null, array( 'url' => DOMAINAD.'polls/add','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false)));?>
+<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'polls/add','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false)));?>
 <br />  
 <div id="khung">
 	<div id="main">
@@ -25,7 +25,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>polls" class="toolbar">
+                    <a href="<?php echo DOMAINADESTORE?>polls" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>
@@ -96,7 +96,7 @@
                 </a>
             </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>polls" class="toolbar">
+                    <a href="<?php echo DOMAINADESTORE?>polls" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>

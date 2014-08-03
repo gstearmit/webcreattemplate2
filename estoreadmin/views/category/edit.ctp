@@ -1,4 +1,4 @@
-﻿<?php echo $form->create(null, array( 'url' => DOMAINAD.'category/edit','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false))); ?>	
+﻿<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'category/edit','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false))); ?>	
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
@@ -24,7 +24,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>category" class="toolbar">
+                    <a href="<?php echo DOMAINADESTORE?>category" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>
@@ -64,7 +64,7 @@
                   	<td class="label">Liên kết tĩnh:</td>
                     <td>
                     <?php echo $this->Form->input('Category.alias',array('class'=>'text-input alias-input datepicker','maxlength' => '250','id' => 'idalias'));?>
-                    <img width="16" height="16" alt="" onclick="get_alias();" style="cursor: pointer; vertical-align: middle;" src="<?php echo DOMAINAD; ?>images/refresh.png">
+                    <img width="16" height="16" alt="" onclick="get_alias();" style="cursor: pointer; vertical-align: middle;" src="<?php echo DOMAINADESTORE; ?>images/refresh.png">
                     </td>
                 </tr>
                <tr>
@@ -76,7 +76,7 @@
                 <tr>
                     <td class="label">Hình ảnh</td>
                     <td>
-                         <?php echo $this->Form->input('Category.images',array('class'=>'text-input image-input datepicker','name' => 'userfile'));?> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINAD; ?>upload.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
+                         <?php echo $this->Form->input('Category.images',array('class'=>'text-input image-input datepicker','name' => 'userfile'));?> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upload.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
                          <!--<?php echo $this->Form->input('Category.images',array('class'=>'text-input image-input datepicker','id' => 'xFilePath'));?>
                     	<input type="button" value="Chọn ảnh" onclick="BrowseServer();" class="button" />-->
                     </td>
@@ -145,7 +145,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>category" class="toolbar">
+                    <a href="<?php echo DOMAINADESTORE?>category" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>

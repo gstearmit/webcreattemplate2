@@ -3632,3 +3632,5 @@
 2014-07-29 05:24:31 Debug: Notice (8): Use of undefined constant Slideshow - assumed 'Slideshow' in [E:\xampp\htdocs\websitetemplate\estoreadmin\views\slideshow\search.ctp, line 1]
 2014-07-29 06:38:01 Debug: Notice (8): Undefined index: order in [E:\xampp\htdocs\websitetemplate\estoreadmin\views\catproducts\index.ctp, line 113]
 2014-07-29 10:56:55 Debug: Notice (8): Undefined index: order in [E:\xampp\htdocs\websitetemplate\estoreadmin\views\catproducts\index.ctp, line 113]
+2014-08-03 13:42:30 Debug: Notice (8): Undefined index: order in [E:\xampp\htdocs\freemobiweb.mobi\estoreadmin\views\catproducts\index.ctp, line 113]
+2014-08-03 13:50:14 Debug: Notice (8): Undefined index: order in [E:\xampp\htdocs\freemobiweb.mobi\estoreadmin\views\catproducts\index.ctp, line 113]

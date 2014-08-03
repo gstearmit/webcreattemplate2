@@ -1,10 +1,10 @@
-<?php echo $form->create(null, array( 'url' => DOMAINAD.'helps/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
+<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'helps/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
                     <ul>
                         <li id="toolbar-new">
-                            <a href="<?php echo DOMAINAD?>helps/add" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>helps/add" class="toolbar">
                                 <span class="icon-32-new"></span>
                                 Thêm mới
                             </a>
@@ -17,7 +17,7 @@
                             </a>
                         </li>
                         <li id="toolbar-unpublish">
-                            <a href="<?php echo DOMAINAD?>home" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>home" class="toolbar">
                                 <span class="icon-32-unpublish"></span>
                                 Đóng
                             </a>
@@ -110,18 +110,18 @@
                         <td><?php echo $Help['Help']['user_email']; ?></td>   
                         <td><?php echo date('d-m-Y', strtotime($Help['Help']['created'])); ?></td>
                         <td>
-                             <a href="<?php echo DOMAINAD?>helps/edit/<?php echo $Help['Help']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>helps/delete/<?php echo $Help['Help']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>helps/edit/<?php echo $Help['Help']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>helps/delete/<?php echo $Help['Help']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a>
                         <?php 
 							if($Help['Help']['status']==0)
 							{
 						?>
-                             <a href="<?php echo DOMAINAD?>helps/active/<?php echo $Help['Help']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>helps/active/<?php echo $Help['Help']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
                         <?php 
 							}else 
 							{
 						?>
-                            <a href="<?php echo DOMAINAD?>helps/close/<?php echo $Help['Help']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
+                            <a href="<?php echo DOMAINADESTORE?>helps/close/<?php echo $Help['Help']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
                         <?php 
 							}
 						?>

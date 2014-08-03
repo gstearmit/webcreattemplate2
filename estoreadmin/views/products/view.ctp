@@ -12,7 +12,7 @@
    <div id="title-news"><p>Xem sản phẩm</p></div>
         <div id="table-content">
            
-                <?php echo $form->create(null, array( 'url' => DOMAINAD.'products/add','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>     
+                <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'products/add','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>     
                 <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
                   <tr>
                     <td width="250">Tên sản phẩm</td>

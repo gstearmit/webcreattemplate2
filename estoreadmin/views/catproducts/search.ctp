@@ -1,10 +1,10 @@
-﻿<?php echo $form->create(null, array( 'url' => DOMAINAD.'catproducts/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
+﻿<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'catproducts/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
                     <ul>
                         <li id="toolbar-new">
-                            <a href="<?php echo DOMAINAD?>catproducts/add" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>catproducts/add" class="toolbar">
                                 <span class="icon-32-new"></span>
                                 Thêm mới
                             </a>
@@ -17,7 +17,7 @@
                             </a>
                         </li>
                         <li id="toolbar-unpublish">
-                            <a href="<?php echo DOMAINAD?>home" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>home" class="toolbar">
                                 <span class="icon-32-unpublish"></span>
                                 Đóng
                             </a>
@@ -101,7 +101,7 @@
                     <tr>
                         <td><input type="checkbox" name="check_id[]" /></td>
                         <td><?php $j=$key+1; echo $j;?></td>
-                        <td><a href="<?php echo DOMAINAD?>catproducts/edit/<?php echo $value['Catproduct']['id'] ?>" title="Edit">
+                        <td><a href="<?php echo DOMAINADESTORE?>catproducts/edit/<?php echo $value['Catproduct']['id'] ?>" title="Edit">
 							<?php 
 							
 								echo $value['Catproduct']['name'];?>
@@ -114,16 +114,16 @@
                         <td><?php echo date('d-m-Y h:i:s', strtotime($value['Catproduct']['modified'])); ?></td>
                         <?php if($value['Catproduct']['status']==0){?>  
                         <td>
-                             <a href="<?php echo DOMAINAD?>catproducts/edit/<?php echo $value['Catproduct']['id'] ?>" title="Sửa mục này"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Sửa" /></a>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>catproducts/delete/<?php echo $value['Catproduct']['id'] ?>')" title="Xóa mục này"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Xóa" /></a> 
-                             <a href="<?php echo DOMAINAD?>Catproducts/active/<?php echo $value['Catproduct']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>catproducts/edit/<?php echo $value['Catproduct']['id'] ?>" title="Sửa mục này"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Sửa" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>catproducts/delete/<?php echo $value['Catproduct']['id'] ?>')" title="Xóa mục này"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Xóa" /></a> 
+                             <a href="<?php echo DOMAINADESTORE?>Catproducts/active/<?php echo $value['Catproduct']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
                         </td>
                         <?php } else {?> 
                           <td>
                             <!-- Icons -->
-                             <a href="<?php echo DOMAINAD?>catproducts/edit/<?php echo $value['Catproduct']['id'] ?>" title="Sửa mục này"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Sửa" /></a>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>catproducts/delete/<?php echo $value['Catproduct']['id'] ?>')" title="Xóa mục này"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Xóa" /></a> 
-                             <a href="<?php echo DOMAINAD?>catproducts/close/<?php echo $value['Catproduct']['id'] ?>" title="Tích vào để không hiển thị mục này" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
+                             <a href="<?php echo DOMAINADESTORE?>catproducts/edit/<?php echo $value['Catproduct']['id'] ?>" title="Sửa mục này"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Sửa" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>catproducts/delete/<?php echo $value['Catproduct']['id'] ?>')" title="Xóa mục này"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Xóa" /></a> 
+                             <a href="<?php echo DOMAINADESTORE?>catproducts/close/<?php echo $value['Catproduct']['id'] ?>" title="Tích vào để không hiển thị mục này" class="icon-4 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
                         </td>
                         <td align="right"><?php echo $value['Catproduct']['id'];?></td>
                         <?php }?>

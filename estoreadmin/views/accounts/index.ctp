@@ -1,11 +1,11 @@
-﻿<?php echo $form->create(null, array( 'url' => DOMAINAD.'accounts/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>
+﻿<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'accounts/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>
 <br />
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
                     <ul>
                         <li id="toolbar-new">
-                            <a href="<?php echo DOMAINAD?>accounts/add" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>accounts/add" class="toolbar">
                                 <span class="icon-32-new"></span>
                                 Thêm mới
                             </a>
@@ -18,7 +18,7 @@
                             </a>
                         </li>
                         <li id="toolbar-unpublish">
-                            <a href="<?php echo DOMAINAD?>home" class="toolbar">
+                            <a href="<?php echo DOMAINADESTORE?>home" class="toolbar">
                                 <span class="icon-32-unpublish"></span>
                                 Đóng
                             </a>
@@ -80,8 +80,8 @@
                         <td><?php  echo $value['User']['email'];?></td>
                         <td><?php echo date('d-m-Y', strtotime($value['User']['created'])); ?></td>
                         <td>
-                             <a href="<?php echo DOMAINAD?>accounts/edit_pass/<?php echo $value['User']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>accounts/delete/<?php echo $value['User']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
+                             <a href="<?php echo DOMAINADESTORE?>accounts/edit_pass/<?php echo $value['User']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>accounts/delete/<?php echo $value['User']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a> 
                         </td>
                     </tr>
                    <?php }?>

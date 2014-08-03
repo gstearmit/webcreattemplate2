@@ -6,7 +6,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '',
-		'database' => 'freewebmobile',
+		'database' => 'mobifreemobiweb',
 		'prefix' => '',
 		'encoding' => 'utf8'
 	);

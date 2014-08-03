@@ -14,11 +14,11 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
     <!-- end page-heading -->
     <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
       <tr>
-        <th rowspan="3" class="sized"><img src="<?php echo DOMAINAD?>images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+        <th rowspan="3" class="sized"><img src="<?php echo DOMAINADESTORE?>images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
         <th class="topleft"></th>
         <td id="tbl-border-top">&nbsp;</td>
         <th class="topright"></th>
-        <th rowspan="3" class="sized"><img src="<?php echo DOMAINAD?>images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
+        <th rowspan="3" class="sized"><img src="<?php echo DOMAINADESTORE?>images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
       </tr>
       <tr>
         <td id="tbl-border-left"></td>
@@ -39,20 +39,20 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                   <?php foreach ($projects as $key =>$value){?>
                   <tr class="alternate-row">
                     <td width="10"><?php $j=$key+1; echo $j;?></td>
-                    <td><img src="<?php echo DOMAINAD?>/timthumb.php?src=<?php echo $value['Project']['images'];?>&amp;h=70&amp;w=100&amp;zc=1" alt="thumbnail" /></td>                   
+                    <td><img src="<?php echo DOMAINADESTORE?>/timthumb.php?src=<?php echo $value['Project']['images'];?>&amp;h=70&amp;w=100&amp;zc=1" alt="thumbnail" /></td>                   
                     <td><?php echo $value['Project']['name'];?></td>
                       <td><?php echo date('d-m-Y', strtotime($value['Project']['created'])); ?></td>  
                        <td><?php  echo $value['Category']['name'];?></td>
                      
                     <td class="options-width">
 					<?php if($value['Project']['status']==0){?>  
-                   	<a href="<?php echo DOMAINAD?>projects/edit/<?php echo $value['Project']['id'] ?>" title="Sủa" class="icon-1 info-tooltip"></a>
-                    <a href="<?php echo DOMAINAD?>projects/active/<?php echo $value['Project']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"></a>
-                    <a href="javascript:confirmDelete('<?php echo DOMAINAD?>projects/delete/<?php echo $value['Project']['id'] ?>')" title="Xóa" class="icon-2 info-tooltip"></a>
+                   	<a href="<?php echo DOMAINADESTORE?>projects/edit/<?php echo $value['Project']['id'] ?>" title="Sủa" class="icon-1 info-tooltip"></a>
+                    <a href="<?php echo DOMAINADESTORE?>projects/active/<?php echo $value['Project']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"></a>
+                    <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>projects/delete/<?php echo $value['Project']['id'] ?>')" title="Xóa" class="icon-2 info-tooltip"></a>
 					<?php } else {?>                  
-                    <a href="<?php echo DOMAINAD?>projects/edit/<?php echo $value['Project']['id'] ?>" title="Sủa" class="icon-1 info-tooltip"></a>
-                    <a href="<?php echo DOMAINAD?>projects/close/<?php echo $value['Project']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"></a>
-                    <a href="javascript:confirmDelete('<?php echo DOMAINAD?>projects/delete/<?php echo $value['Project']['id'] ?>')" title="Xóa" class="icon-2 info-tooltip"></a><?php }?>
+                    <a href="<?php echo DOMAINADESTORE?>projects/edit/<?php echo $value['Project']['id'] ?>" title="Sủa" class="icon-1 info-tooltip"></a>
+                    <a href="<?php echo DOMAINADESTORE?>projects/close/<?php echo $value['Project']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"></a>
+                    <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>projects/delete/<?php echo $value['Project']['id'] ?>')" title="Xóa" class="icon-2 info-tooltip"></a><?php }?>
                     </td>
                   </tr>
                 <?php }?>
@@ -64,7 +64,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
             <!--  start paging..................................................... -->
             <table border="0" cellpadding="0" cellspacing="0" id="paging-table">
               <tr>
-			  	<td><div><a href="<?php echo DOMAINAD?>projects/add" title="Thêm Mới"><img src="<?php echo DOMAINAD?>images/folder-new.png" /><b>Thêm mới ảnh</b></a></div>
+			  	<td><div><a href="<?php echo DOMAINADESTORE?>projects/add" title="Thêm Mới"><img src="<?php echo DOMAINADESTORE?>images/folder-new.png" /><b>Thêm mới ảnh</b></a></div>
                 </td>
                 </tr>
                 <tr height="30"></tr>

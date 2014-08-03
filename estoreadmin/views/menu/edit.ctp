@@ -1,4 +1,4 @@
-﻿<?php echo $form->create(null, array( 'url' => DOMAINAD.'menu/edit','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false)));?>	   
+﻿<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'menu/edit','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false)));?>	   
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
@@ -24,7 +24,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>menu" class="toolbar">
+                    <a href="<?php echo DOMAINADESTORE?>menu" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>
@@ -61,7 +61,7 @@
                   	<td class="label">Liên kết tĩnh:</td>
                     <td>
                     <?php echo $this->Form->input('Menu.alias',array('class'=>'text-input alias-input datepicker','maxlength' => '250','id' => 'idalias'));?>
-                    <img width="16" height="16" alt="" onclick="get_alias();" style="cursor: pointer; vertical-align: middle;" src="<?php echo DOMAINAD; ?>images/refresh.png">
+                    <img width="16" height="16" alt="" onclick="get_alias();" style="cursor: pointer; vertical-align: middle;" src="<?php echo DOMAINADESTORE; ?>images/refresh.png">
                     </td>
                 </tr>
                <tr>
@@ -130,7 +130,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>menu" class="toolbar">
+                    <a href="<?php echo DOMAINADESTORE?>menu" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>

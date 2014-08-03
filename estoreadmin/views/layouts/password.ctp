@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Administractor</title>
-<link rel="stylesheet" href="<?php echo DOMAINAD?>css/screen.css" type="text/css" media="screen" title="default" />
+<link rel="stylesheet" href="<?php echo DOMAINADESTORE?>css/screen.css" type="text/css" media="screen" title="default" />
 </head>
 <body>
 
@@ -18,11 +18,11 @@
     <!-- end page-heading -->
     <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
       <tr>
-        <th rowspan="3" class="sized"><img src="<?php echo DOMAINAD?>images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+        <th rowspan="3" class="sized"><img src="<?php echo DOMAINADESTORE?>images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
         <th class="topleft"></th>
         <td id="tbl-border-top">&nbsp;</td>
         <th class="topright"></th>
-        <th rowspan="3" class="sized"><img src="<?php echo DOMAINAD?>images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
+        <th rowspan="3" class="sized"><img src="<?php echo DOMAINADESTORE?>images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
       </tr>
       <tr>
         <td id="tbl-border-left"></td>
@@ -33,7 +33,7 @@
               
               
               <div id="dumpcsv">
-                 <?php echo $form->create(null, array( 'url' => DOMAINAD.'login/check_pass','type' => 'post')); ?>	
+                 <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'login/check_pass','type' => 'post')); ?>	
                   <label style="padding-left:250px;" for="file">Nhập địa chỉ Email của bạn để lấy lại mật khẩu</label>
                   <br /><br />
                 <label style="padding-left:250px;" for="file">Email này là email đã được đăng ký với hệ thống lúc khởi tạo tài khoản admin.</label>

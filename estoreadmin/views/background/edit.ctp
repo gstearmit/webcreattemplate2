@@ -1,5 +1,5 @@
 <br />
-<?php echo $form->create(null, array( 'url' => DOMAINAD.'background/edit','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false)));?>	   
+<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'background/edit','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false)));?>	   
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
@@ -25,7 +25,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>background" class="toolbar">
+                    <a href="<?php echo DOMAINADESTORE?>background" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>
@@ -114,7 +114,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>catproducts" class="toolbar">
+                    <a href="<?php echo DOMAINADESTORE?>catproducts" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>

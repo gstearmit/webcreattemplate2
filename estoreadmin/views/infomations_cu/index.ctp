@@ -8,7 +8,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 }
 }
 </script>
- <?php echo $form->create(null, array( 'url' => DOMAINAD.'infomations/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
+ <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'infomations/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
      <fieldset class="search">
         
         <legend>Tìm kiếm</legend>
@@ -37,7 +37,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
         
         <div class="tab-content default-tab" id="tab1"> 
             <table>
-                <form action="<?php echo DOMAINAD; ?>products/processing" name="form1" method="post">
+                <form action="<?php echo DOMAINADESTORE; ?>products/processing" name="form1" method="post">
                 <thead>
                     <tr>
                        
@@ -89,12 +89,12 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                         <td>
                              <?php if($value['Infomation']['status']==0){?>
                                   
-                                 <a href="<?php echo DOMAINAD?>infomations/active/<?php echo $value['Infomation']['id'] ?>" title="Xử lý đơn hàng" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Xử lý đơn hàng" /></a>
-                                 <a href="javascript:confirmDelete('<?php echo DOMAINAD?>infomations/delete/<?php echo $value['Infomation']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a>
+                                 <a href="<?php echo DOMAINADESTORE?>infomations/active/<?php echo $value['Infomation']['id'] ?>" title="Xử lý đơn hàng" class="icon-5 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/Play-icon.png" alt="Xử lý đơn hàng" /></a>
+                                 <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>infomations/delete/<?php echo $value['Infomation']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a>
                             <?php } else {?>
                                  
-                                 <a href="<?php echo DOMAINAD?>infomations/close/<?php echo $value['Infomation']['id'] ?>" title="Đã xử lý" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Đã xử lý" /></a>
-                                    <a href="javascript:confirmDelete('<?php echo DOMAINAD?>infomations/delete/<?php echo $value['Infomation']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a>
+                                 <a href="<?php echo DOMAINADESTORE?>infomations/close/<?php echo $value['Infomation']['id'] ?>" title="Đã xử lý" class="icon-4 info-tooltip"><img src="<?php echo DOMAINADESTORE?>images/icons/success-icon.png" alt="Đã xử lý" /></a>
+                                    <a href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>infomations/delete/<?php echo $value['Infomation']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINADESTORE?>images/icons/cross.png" alt="Delete" /></a>
                             <?php }?>
                               
                         </td>
