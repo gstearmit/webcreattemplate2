@@ -63,7 +63,7 @@
 	//-----------------------------------------store----------------------------------------------------------------------
 	Router::connect('/register-store-1', array('controller' => 'registerstore', 'action' => 'index'));
 	
-
+	Router::connect('/about-us', array('controller' => 'About', 'action' =>'index'));
 	
 // 	Router::connect('/packing-and-loanding', array('controller' => 'news', 'action' => 'packing'));
 // 	Router::connect('/khuyen-mai', array('controller' => 'news', 'action' => 'khuyenmai'));

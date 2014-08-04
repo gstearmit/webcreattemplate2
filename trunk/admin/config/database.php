@@ -6,7 +6,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '',
-		'database' => 'mobifreemobiweb',
+		'database' => 'websitetemplate',
 		'prefix' => '',
 		'encoding' => 'utf8'
 	);

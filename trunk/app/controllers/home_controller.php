@@ -3,11 +3,32 @@ class HomeController extends AppController {
 	var $name = 'Home';
 	var $uses = array (
 			'News',
-			'Product',
 			'Slideshows',
 			'Guest',
 			'Shops',
-			'Langgues' 
+			'Langgues',
+			'Note',
+			'Category',
+			'Categoryshop',
+			'News',
+			'Setting',
+			'Slideshow',
+			'Partner',
+			'Catproduct',
+			'Product',
+			'Tem',
+			'Productshop',
+			'Helps',
+			'Gallery',
+			'Video',
+			'City',
+			'Classifiedss',
+			'Shop',
+			'Newshop',
+			'Banner',
+			'Background',
+			'Userscm',
+			'Order'
 	); // ,'Productbepga'
 	                                                                           // $this->layout = 'creattemplate';
 	var $layout = "creattemplate";
@@ -58,6 +79,14 @@ class HomeController extends AppController {
 		// pr($setDatabaseTwoNew);
 		*/
 		
+	}
+	function noteindex() {
+	  // $this->layout = "creattemplate";
+		return "hoang pyc";
+// 		$this->Note->find ( 'all', array (
+// 				'conditions' => array (),
+// 				'order' => 'Note.id DESC'
+// 		) );
 	}
 	function businesswebsites() {
 	}

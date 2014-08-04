@@ -22,7 +22,8 @@ class CommentController extends AppController {
 			'Banner',
 			'Background',
 			'Userscm',
-			'Order' 
+			'Order',
+			'Note'
 	);
 	
 	
@@ -3190,6 +3191,16 @@ class CommentController extends AppController {
 				'order' => 'Helps.id DESC',
 				'limit' => 2 
 		) );
+	}
+	function noteindex($id=null) {
+		// $this->layout = "creattemplate";
+		//return $id;die;
+		return $this->Note->find ( 'all', array (
+						'conditions' => array (
+								'Note.category_id' =>$id
+		),
+						'order' => 'Note.id DESC'
+				) );
 	}
 	function id_product($catproduct_id) {
 		return $this->Product->read ( null, $catproduct_id );
