@@ -1,3 +1,10 @@
+<?php
+				$id = 92;
+				$setting =  $this->requestAction( '/comment/noteindex/'.$id );
+				
+				//pr ( $setting );
+				//die();
+				?>
 <?php echo $this->element('creatmenu')?> 
 		<div id="page" class="container">
 			<div id="header" class="initialPage">
@@ -16,41 +23,41 @@
 			<hr class="hidden">
 			<div id="content">
 				<div id="twoBlocks">
-					<div id="leftBlock">
+				<?php 
+				$id="";
+				foreach ($setting as $key =>$data){
+					if($data['Note']['location']==1){
+					if($key == 2){
+						$id="leftBlock";
+					}elseif ($key ==3){
+						$id="rightBlock";
+					}
+					?>
+					<div id="<?php echo $id; ?>">
+				
 						<h2>
-							<b>It's free! No Ads. No cost. </b>
+							<b><?php echo  $data['Note']['title']?> </b>
 						</h2>
-						<div class="content">You can now create a website fast and free.
-							We don't place advertising on your site, and never will. We want
-							you to be happy while using our technology.</div>
+						<div class="content"><?php echo  $data['Note']['content'];?></div>
 						<div class="icon">
 							<!-- -->
 						</div>
 					</div>
-					<div id="rightBlock">
-						<h2>
-							<b>Even your grandma can do it!</b>
-						</h2>
-						<div class="content">It really is that easy! All you need is an
-							Internet browser and 5 minutes of your time. No download, no
-							installation, no technical skills required.</div>
-						<div class="icon">
-							<!-- -->
-						</div>
-					</div>
+					<?php }}?>
+					
 					<div class="cleaner">
 						<!-- -->
 					</div>
 				</div>
+				<?php 
+				foreach ($setting as $key => $data){
+				if($data['Note']['location']==2){
+
+				?>
 				<div id="websitesPreview">
-					<h2>Choose from hundreds of modern templates</h2>
+					<h2><?php echo $data['Note']['title']; ?></h2>
 					<div>
-						<p>
-							We know that a good looking website is important to you and here,
-							you're well looked after.<br /> Our graphic design professionals
-							have prepared a wide variety of modern personal templates.
-							There's something for everyone!
-						</p>
+						<?php echo $data['Note']['content']; ?>
 					</div>
 					<div id="selectGroup"></div>
 					<div id="imagesList">
@@ -68,6 +75,7 @@
 						<!-- -->
 					</div>
 				</div>
+				<?php } }?>
 				<div class="cleaner boxSpacer">
 					<!-- -->
 				</div>
@@ -150,32 +158,17 @@
 					</div>
 				</div>
 				<div id="firstBlock" class="open">
+				<?php foreach ($setting as  $key => $data){
+					if($data['Note']['location']==3){
+
+					?>
 					<div id="firstWrapper">
-						<h2 id="firstHeader">Make your own website easily or start a free
-							blog!</h2>
+						<h2 id="firstHeader"><?php echo $data['Note']['title']?></h2>
 						<div id="firstParagraph">
-							<p>Create a free blog today and start publishing your stories.
-								Make your own website and share your hobbies with others. You
-								can build a free personal forum where you can interact and be in
-								contact with your friends and family. Add widgets, such as a
-								chat box, so you can talk live! Making a personal website is
-								fast, free, and fun.</p>
-
-							<p>
-								<strong>Do you know how to make your own website easily? We do!</strong>
-							</p>
-
-							<p>If you want to know how to make your own website for free,
-								with no technical knowledge necessary, or if you want to create
-								a free blog, you have come to the right place. With our online
-								website builder, your website or blog is ready in a matter of
-								minutes. All you need to do is to register, choose the right
-								template for your web and fill in basic information. After these
-								three easy steps, everything is ready to run. Changing the
-								content is as easy as editing an email and you can upload images
-								or texts in no time.&nbsp;</p>
+							<?php echo $data['Note']['content']?>
 						</div>
 					</div>
+					<?php } }?>
 				</div>
 			</div>
 			<hr class="hidden">

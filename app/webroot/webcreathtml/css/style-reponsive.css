@@ -2,6 +2,7 @@
 	background-size:100% !important;
 	
 }
+
 #headerSlogan{
 	
 	width:100% !important;
@@ -33,6 +34,13 @@
 	
 	font-size:22px !important;
 	font-weight:normal !important;
+}
+@media (min-width:900px){
+	
+	.withoutSeparator label{
+	
+	color:#444 !important;
+}
 }
 @media (max-width:1280px);{
 	.menu-top{
@@ -73,6 +81,13 @@
 @media (max-width:800px){
 	.menu-top{
 		width:100% !important;
+	}
+	.initialPage{
+		width:800 !important;
+	}
+	#page{
+		width:800px !important;
+		margin:0px !important;
 	}
 	#header, .container{
 	width:800px !important;
@@ -586,7 +601,7 @@
 	
 }
 	#headerForms form{
-		margin-right:100px !important;
+		margin-right:200px !important;
 		margin-top:150px !important;
 		background:#444444 !important;
 	}

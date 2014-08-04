@@ -103,7 +103,7 @@
             		</div><!-- End menu-left -->
             		<div style="margin-top:20px;">
             		<?php echo $this->element('help');?>
-            		</div>	
+            		</div>	 
             		<?php echo $this->element('video');?>
             		<?php echo $this->element('tigia');?>  	
             	</div><!-- End content-left -->

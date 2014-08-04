@@ -39,7 +39,7 @@
                     <li><a class="current" href="<?php echo DOMAINAD?>catproducts/index">Danh mục Notes</a></li>
                     <li><a href="<?php echo DOMAINAD?>catproducts/add">Thêm danh mục</a></li>
                     <li><a href="<?php echo DOMAINAD?>Notes/index">Danh sách Notes</a></li>
-                    <li><a href="<?php echo DOMAINAD?>products/add">Thêm mới Notes</a></li>
+                    <li><a href="<?php echo DOMAINAD?>Notes/add">Thêm mới Notes</a></li>
                 </ul>
             </li>
             <li id="arrayorder_3">
