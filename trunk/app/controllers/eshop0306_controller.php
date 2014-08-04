@@ -1085,6 +1085,15 @@ class Eshop0306Controller extends AppController {
 		) );
 	}
 	function advf($shop_id= null) {
+// 		$prff = $this->Estore_advertisement->find ( 'all', array (
+// 				'conditions' => array (
+// 						'Estore_advertisement.status' => 1,
+// 						'Estore_advertisement.estore_id' => $shop_id,
+// 						'Estore_advertisement.display' => 2
+// 				),
+// 				'order' => 'Estore_advertisement.id ASC'
+// 		) );
+// 		pr($prff);
 		return $this->Estore_advertisement->find ( 'all', array (
 				'conditions' => array (
 						'Estore_advertisement.status' => 1,
