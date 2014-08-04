@@ -31,6 +31,17 @@
                     <li><a href="<?php echo DOMAINAD?>gallery/add">Thêm ảnh</a></li>
                 </ul>
             </li>
+            <li id="arrayorder_2">
+                <a href="#" class="nav-top-item"> 
+                  Notes
+                </a>
+                <ul>
+                    <li><a class="current" href="<?php echo DOMAINAD?>catproducts/index">Danh mục Notes</a></li>
+                    <li><a href="<?php echo DOMAINAD?>catproducts/add">Thêm danh mục</a></li>
+                    <li><a href="<?php echo DOMAINAD?>Notes/index">Danh sách Notes</a></li>
+                    <li><a href="<?php echo DOMAINAD?>products/add">Thêm mới Notes</a></li>
+                </ul>
+            </li>
             <li id="arrayorder_3">
                 <a href="#" class="nav-top-item"> 
                   Quản lý gian hàng
