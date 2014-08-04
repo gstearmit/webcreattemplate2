@@ -42,4 +42,7 @@ $phpversion_nr = $phpversion_array[0].".".$phpversion_array[2].$phpversion_array
 if (extension_loaded("zlib") && ($phpversion_nr >= 4.04)) { 
     ob_start("ob_gzhandler"); 
 } 
- ?>
+
+}
+?>
+ 
