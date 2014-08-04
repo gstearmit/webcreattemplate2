@@ -34,8 +34,7 @@
 				foreach($shop as $key=>$value){
 				$shop_id=$key;
 				}
-	echo "dsdsddsdsddsds</br>";
-	pr($bepcongnghiep);die;		
+			
 ?>
 <div id="main-center">           
  	 <!--sanpham-->   

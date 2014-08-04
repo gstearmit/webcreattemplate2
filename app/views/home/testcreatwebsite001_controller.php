@@ -1,7 +1,7 @@
 <?php
 
-						  class Testcreatwebsite005Controller extends AppController {
-						  var $name = 'Testcreatwebsite005';
+						  class Testcreatwebsite001Controller extends AppController {
+						  var $name = 'Testcreatwebsite001';
 						  	var $uses = array (
 								'Estore_category',
 								'Estore_comments',
@@ -36,17 +36,27 @@
 								'Email' 
 						);
 						function get_shop_id($name) {
-							return $this->Shop->find ( 'list', array (
+							
+							//return "Hoang CongPHuc";
+							return $this->Shop->find ( 'all', array (
 									'conditions' => array (
 											'Shop.name' => $name,
 											'Shop.status' => 1 
 									),
 									'fields' => array (
-											'id',
-											'created' 
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username', 
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
 									) 
 							) );
 						}
+						
+					
+						
 						function getOrder() {
 							mysql_query ( "SET names utf8" );
 							return $this->Estore_infomation->find ( 'all', array (
@@ -464,9 +474,75 @@
 						
 						// +++++++++++++++++++++++++++++++++++Home+++++++++++++++++++++++++++++++++++++++++++++++
 						function index() {
+							
 							$shop = explode ( '/', $this->params ['url'] ['url'] );
 							$shopname = $shop [0];
 							$shoparr = $this->get_shop_id ( $shopname );
+							pr($shoparr);//die;
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								
+							}
+// 							pr($databasename);
+// 							pr($password);
+// 							pr($username);
+// 							pr($hostname);
+// 							die;
+							$db = new ConnectionManager;
+							$config = array(
+									//'className' => 'Cake\Database\Connection',
+									'driver' => 'mysql',
+									'persistent' => false,
+									'host' =>$hostname,
+									'login' =>$username,
+									'password' =>$password,
+									'database' =>$databasename,
+									'prefix' => false,
+									'encoding' => 'utf8',
+									'timezone' => 'UTC',
+									'cacheMetadata' => true
+							);
+							$db->create($databasename,$config);
+// 							$db = ConnectionManager::config($databasename,array(
+// 									'className' => 'Cake\Database\Connection',
+// 									'driver' => 'Cake\Database\Driver\Mysql',
+// 									'persistent' => false,
+// 									'host' =>$hostname,
+// 									'login' =>$username,
+// 									'password' =>$password,
+// 									'database' =>$databasename,
+// 									'prefix' => false,
+// 									'encoding' => 'utf8',
+// 									'timezone' => 'UTC',
+// 									'cacheMetadata' => true,
+// 									));
+							
+							$shop_id = "9999";
+							$sql= "INSERT INTO `estore_videos` (`estore_id`, `name`, `video`, `LinkUrl`, `created`, `status`, `left`, `right`) VALUES
+($shop_id, 'Gala trong ngay', 'video/upload/c67b28f317fe8740ada0a80316a0559c.flv', 'http://www.youtube.com/watch?v=5z7DEE70dEs&feature=related', '2011-10-02 18:51:33', 1, 0, 0),
+($shop_id, 'Clip gala Bên phải', 'video/upload/64c23f4052d6626521caef72b1bc067f.flv', 'http://www.youtube.com/watch?v=76ZqkGxe_Mc&feature=g-vrec', '2012-06-14 14:46:38', 1, 1, 0);";
+
+							//$dbdefault = ConnectionManager::getDataSource('default');
+							$name = ConnectionManager::getDataSource($databasename);
+							$resul = $name->rawQuery($sql);
+							pr($resul);
+							die;
+							
+// 							pr($name);
+// 							echo "99999999999999999</br>";
+// 							pr($name->config);
+// 							echo "defaulll</br>";
+// 							pr($dbdefault->config);
+// 							$dbdefault->rawQuery($sql);
+// 							die;
+
+							
+							
 							foreach ( $shoparr as $key => $value ) {
 								$shop_id = $key;
 							}
