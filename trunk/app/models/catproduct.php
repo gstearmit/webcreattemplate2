@@ -2,7 +2,20 @@
 class Catproduct extends AppModel {
     var $name = 'Catproduct';
     var $displayField = 'name';
-    var $actsAs = array('Tree');
+      var $actsAs = array('Translate' => array('name'=>'nameTranslation'),'Tree',
+						'Sluggable' => array(					 
+							'label' => 'name',
+							'scope' => false,
+							'conditions' => false,
+							'slugfield' => 'slug',
+							'separator' => '-',
+							'overwrite' => false,
+							'length' => 256,
+							'translation' => 'utf-8',
+							'lower' => true)
+							
+						);
+
 	var $belongsTo = array(
         'ParentCat' => array(
             'className' => 'Catproduct',

@@ -201,6 +201,7 @@ msgstr "Đối tượng nộp thuế VAT"
 msgid "Allrightsreserved"
 msgstr "&copy; 2014 Bản quyền Công ty Alatca."
 
-
+msgid "More_information"
+msgstr "Đọc thêm"
 
 
