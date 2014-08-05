@@ -305,7 +305,7 @@ background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat l
                         <?php $video = $this->requestAction('/'.$shopname.'/videos/'.$shop_id) ?>
                             <?php  foreach($video as $video){?> 
                             <?php 
-                            $url = $video['Estore_video']['LinkUrl'];
+                            $url = $video['estore_videos']['LinkUrl'];
                             parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );     
                             ?>
                            <iframe width="202px" height="202px" src="http://www.youtube.com/embed/<?php echo $my_array_of_vars['v'];?>" frameborder="0" allowfullscreen></iframe>
@@ -317,6 +317,6 @@ background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat l
                         ?>
                         <?php foreach($advf as $advs1 ){  ?>
                         <div id="video">
-                         <a href="<?php echo $advs1['Estore_advertisement']['link'] ?>" target="_blank"><img src="<?php echo DOMAINADESTORE.$advs1['Estore_advertisement']['images']?>" border="0" width="202px" alt="" /></a>  
+                         <a href="<?php echo $advs1['estore_advertisements']['link'] ?>" target="_blank"><img src="<?php echo DOMAINADESTORE.$advs1['estore_advertisements']['images']?>" border="0" width="202px" alt="" /></a>  
                          </div> 	
                          <?php }?>
