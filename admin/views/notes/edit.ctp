@@ -1,7 +1,11 @@
-﻿<?php //pr($Note);die()?>
-<?php
+﻿<?php
 	echo $this->Html->script(array('ckeditor/ckeditor','ckfinder/ckfinder'));
 ?>
+ <link type="text/css" href="<?php echo DOMAIN ?>css/jquery.datepick.css" rel="stylesheet" /> 
+
+	<script type="text/javascript" src="<?php echo DOMAIN;?>js/jquery.datepick.js"></script>	
+		<script type="text/javascript" charset="utf-8">
+
 <script>
 function confirmDelete(delUrl)
 {
@@ -55,20 +59,20 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                     </p>
                     <p>
                         <label>Nội dung tóm tắt (VN)</label>
-                         <?php 	echo $this->Form->input('Note.introduction',array('type'=>'textarea','label' => '')).$this->TvFck->create('News.introduction',array('height'=>'100px','width'=>'900')); ?>
+                         <?php 	echo $this->Form->input('Note.introduction',array('label' => '','type'=>'textarea',)).$this->TvFck->create('Note.introduction',array('height'=>'100px','width'=>'900')); ?>
                     </p>
                    <p>
                         <label>Nội dung tóm tắt (ENG)</label>
-                         <?php 	echo $this->Form->input('Note.introduction_eg',array('type'=>'textarea','label' => '')).$this->TvFck->create('News.introduction',array('height'=>'100px','width'=>'900')); ?>
+                         <?php 	echo $this->Form->input('Note.introduction_eg',array('label' => '','type'=>'textarea',)).$this->TvFck->create('Note.introduction_eg',array('height'=>'100px','width'=>'900')); ?>
                     </p>
                     
                     <p>
                         <label>Nội dung bài viết (VN)</label>
-                        <?php  echo $this->Form->input('Note.content',array('label' => '','type'=>'textarea')).$this->TvFck->create('News.content',array('toolbar'=>'extra','height'=>'300px','width'=>'900')); ?>
+                        <?php  echo $this->Form->input('Note.content',array('label' => '','type'=>'textarea')).$this->TvFck->create('Note.content',array('toolbar'=>'extra','height'=>'300px','width'=>'900')); ?>
                     </p>
                     <p>
                         <label>Nội dung bài viết (ENG)</label>
-                        <?php  echo $this->Form->input('Note.content_eg',array('label' => '','type'=>'textarea')).$this->TvFck->create('News.content',array('toolbar'=>'extra','height'=>'300px','width'=>'900')); ?>
+                        <?php  echo $this->Form->input('Note.content_eg',array('label' => '','type'=>'textarea')).$this->TvFck->create('Note.content_eg',array('toolbar'=>'extra','height'=>'300px','width'=>'900')); ?>
                     </p>
                  
                     <p>
