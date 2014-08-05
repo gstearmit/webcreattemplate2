@@ -210,3 +210,4 @@
 2014-08-04 17:51:20 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'estore_catproducts.name ASC' at line 3</span> in [E:\xampp\htdocs\freemobiweb.mobi\cake\libs\model\datasources\dbo_source.php, line 684]
 2014-08-04 18:04:05 Error: Fatal Error (256): ConnectionManager::getDataSource - Non-existent data source  in [E:\xampp\htdocs\freemobiweb.mobi\cake\libs\model\connection_manager.php, line 102]
 2014-08-04 18:04:27 Error: Fatal Error (256): ConnectionManager::getDataSource - Non-existent data source  in [E:\xampp\htdocs\freemobiweb.mobi\cake\libs\model\connection_manager.php, line 102]
+2014-08-05 09:50:09 Warning: Warning (512): You can not write to a Session from the view in [E:\xampp\htdocs\freemobiweb.mobi\cake\libs\view\helpers\session.php, line 184]

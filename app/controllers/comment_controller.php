@@ -3193,8 +3193,6 @@ class CommentController extends AppController {
 		) );
 	}
 	function noteindex($id=null) {
-		// $this->layout = "creattemplate";
-		//return $id;die;
 		return $this->Note->find ( 'all', array (
 						'conditions' => array (
 								'Note.category_id' =>$id
@@ -3204,7 +3202,7 @@ class CommentController extends AppController {
 	}
 	function id_product($catproduct_id) {
 		return $this->Product->read ( null, $catproduct_id );
-		// pr($this->Product->read(null,$id));die;
+		
 	}
 	function manshoes() {
 		mysql_query ( "SET names utf8" );
@@ -3213,7 +3211,8 @@ class CommentController extends AppController {
 						'Category.status' => 1,
 						'Category.parent_id' => '143' 
 				),
-				'order' => 'Category.id ASC' 
+				'order' => 'Category.id ASC' ,
+				'limit'=>3
 		) );
 		// pr($this->Category->find('all',array('conditions'=>array('Category.status'=>1,'Category.parent_id'=>'143'),'order'=>'Category.id ASC')));die;
 	}

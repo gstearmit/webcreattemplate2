@@ -205,6 +205,10 @@ msgstr "VAT payer"
 msgid "Allrightsreserved"
 msgstr "&copy; 2014 alatca. All rights reserved."
 
+msgid "More_information"
+msgstr "More information"
+
+
 
 
 

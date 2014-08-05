@@ -1,5 +1,3 @@
-
-
 <script type="text/javascript"
 	src="<?php echo DOMAIN ?>webcreathtml/js/validatedatanew.js"></script>
 <?php echo $this->element('creatmenu')?>
@@ -30,44 +28,83 @@
 			<div class="row">
 				<div id="threeBlocks">
 				<?php
+				$langue = $this->Session->read ( 'language' );
+// 				echo "sddsdsdssd</br>";
+ 				
+				if($langue == null )
+				{
+					$urlTmp = $_SERVER['REQUEST_URI'];
+					if (stripos($urlTmp, "?language")) 
+					{
+						$urlTmp = explode("?", $urlTmp);
+						$lang = explode("=", $urlTmp[1]);
+						$lang = $lang[1];
+						if (isset($lang)) {
+							$this->Session->write('language', $lang);
+						} else {
+							$this->Session->delete('language');
+						}
+					}else{
+						$lang ="vie";  // default 
+						$this->Session->write('language', $lang);
+					}
+				}
+				
+				
 				$id = 90;
 				$setting = $this->requestAction ( '/comment/noteindex/' . $id );
 				
-				// pr ( $setting );
+			   // pr ( $setting );
 				// die ();
 				?>
 	
 	<?php
 	$id = "";
 	$icon = "";
+	
 	foreach ( $setting as $key => $data ) {
-		if ($key == 1) {
+    // pr($data ['Note'] ['location']);
+		if ($key == 0) {
 			$id = "leftBlock";
 			$icon = "smart-features";
-		} elseif ($key == 2) {
+		} elseif ($key == 1) {
 			$id = "middleBlock";
 			$icon = "click-mouse";
-		} else {
+		}elseif ($key == 2) {
 			$id = "rightBlock";
 			$icon = "good-company";
 		}
-		if ($data ['Note'] ['location'] == 1) {
+// 		if ($data ['Note'] ['location'] == 1) {
+			//+++++++check Langue++++++++++++
+			if($langue =='vie') 
+			{
+				$titlev = $data['Note']['title'];
+				$introductionv = $data['Note']['introduction'];
+				$contentv = $data['Note']['content'];
+
+			}
+			if($langue =='eng')
+			{
+				$titlev = $data['Note']['title_eg'];
+				$introductionv = $data['Note']['introduction_eg'];
+				$contentv = $data['Note']['content_eg'];
+			}
+
 			?>
 
 	<div id="<?php echo $id; ?>"
 						class="book-content <?php echo $icon; ?> col-lg-4 col-md-4 col-sm-4 col-xs-12 ez-hotro-box item animate_afc d1 animate_start">
 						<h2>
-							<a href="<?php echo DOMAIN ?>webcreathtml/free-website-builder/"><?php echo $data['Note']['title']?></a>
+							<a href="<?php echo DOMAIN ?>webcreathtml/free-website-builder/"><?php echo $titlev;?></a>
 						</h2>
-						<div class="content"><?php  echo $data['Note']['introduction']?></div>
+						<div class="content"><?php  echo $introductionv;?></div>
 						<p class="link">
-							<a href="<?php echo DOMAIN ?>webcreathtml/free-website-builder/">More
-								information...</a>
+							<a href="<?php echo DOMAIN ?>webcreathtml/free-website-builder/"><?php __("More_information")?>...</a>
 						</p>
-					</div>
+	</div>
 
 <?php
-		}
+		//}
 	}
 	?>
 
