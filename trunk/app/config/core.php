@@ -301,3 +301,4 @@
  *
  */
 	Cache::config('default', array('engine' => 'File'));
+	Configure::load('config');

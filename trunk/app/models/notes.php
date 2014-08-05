@@ -3,6 +3,26 @@ class Notes extends AppModel {
     var $name = 'Notes';
     var $displayField = 'name';
     var $useTable = 'notes';
+    var $actsAs = array(
+    		'Translate' => array(
+    				'name' => 'nameTranslation'
+    		)
+    );
+//     var $actsAs = array('Translate'=>array('title'=>'titleTranslation','desc'=>'descTranslation','content'=>'contentTranslation'),
+//     		'Sluggable' => array(
+//     				'label' => 'title',
+//     				'scope' => false,
+//     				'conditions' => false,
+//     				'slugfield' => 'slug',
+//     				'separator' => '-',
+//     				'overwrite' => false,
+//     				'length' => 256,
+//     				'translation' => 'utf-8',
+//     				'lower' => true),
+//     		'Ordered' => array(
+//     				'field' => 'order',
+//     				'foreign_key' => false)
+//     );
     /*
 	var $validate = array(
 		'id' => array(
