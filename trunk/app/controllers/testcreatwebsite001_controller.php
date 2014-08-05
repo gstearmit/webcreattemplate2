@@ -135,25 +135,32 @@
 									'order' => 'Estore_album.id ASC' 
 							) );
 						}
-						// tin tuc
+					
 						function menucategory() {
 							mysql_query ( "SET names utf8" );
-							return $this->Estore_category->find ( 'all', array (
-									'conditions' => array (
-											'Estore_category.status' => 1,
-											'Estore_category.parent_id' => null 
-									),
-									'order' => 'Estore_category.tt ASC' 
-							) );
+							$sql_exc = "SELECT `estore_categories`.`id`, `estore_categories`.`estore_id`, `estore_categories`.`tt`, `estore_categories`.`parent_id`, `estore_categories`.`lft`, `estore_categories`.`rght`, `estore_categories`.`name`, `estore_categories`.`name_en`, `estore_categories`.`created`, `estore_categories`.`modified`, `estore_categories`.`status`, `estore_categories`.`images`, `estore_categories`.`alias` FROM `estore_categories` AS `estore_categories`   WHERE `estore_categories`.`status` = 1 AND `estore_categories`.`parent_id` IS NULL   ORDER BY `estore_categories`.`tt` ASC";
+								
+							$result = $this->connectiondatabase($sql_exc);
+							//pr($result);
+							return $result;
+							
 						}
 						function showcategory($id = null) {
 							mysql_query ( "SET names utf8" );
-							return $this->Estore_category->find ( 'all', array (
-									'conditions' => array (
-											'Estore_category.parent_id ' => $id 
-									),
-									'order' => 'Estore_category.tt ASC' 
-							) );
+							$sql_exc = "SELECT `estore_categories`.`id`, `estore_categories`.`estore_id`,
+									           `estore_categories`.`tt`, `estore_categories`.`parent_id`, 
+									           `estore_categories`.`lft`, `estore_categories`.`rght`, 
+									           `estore_categories`.`name`, `estore_categories`.`name_en`, 
+									           `estore_categories`.`created`, `estore_categories`.`modified`,
+									           `estore_categories`.`status`, `estore_categories`.`images`,
+									           `estore_categories`.`alias` 
+									     FROM `estore_categories` AS `estore_categories`  
+									     WHERE `estore_categories`.`parent_id` = '".$id."'  
+									     ORDER BY `estore_categories`.`tt` ASC";
+							$result = $this->connectiondatabase($sql_exc);
+							//pr($result);
+							return $result;
+
 						}
 						function menunews1() {
 							mysql_query ( "SET names utf8" );
@@ -178,13 +185,14 @@
 							) );
 						}
 						function banner($shop_id=null) {
-							return $this->Estore_banner->find ( 'all', array (
-									'conditions' => array (
-											'Estore_banner.status' => 1,
-						                    'Estore_banner.estore_id' =>$shop_id
-									),
-									'order' => 'Estore_banner.id DESC' 
-							) );
+							$sql_exc = "SELECT estore_banners.*
+									 FROM  estore_banners
+									 WHERE estore_banners.estore_id =".(int)$shop_id." AND estore_banners.status = 1 ORDER BY  estore_banners.id ASC ";
+								
+							$result = $this->connectiondatabase($sql_exc);
+							//pr($result);
+							return $result;
+							
 						}
 						function setting($shop_id=null) {
 							return $this->Estore_setting->find ( 'all', array (
@@ -265,15 +273,13 @@
 						}
 						function videos($shop_id=null) {
 							mysql_query ( "SET names utf8" );
-							return $this->Estore_video->find ( 'all', array (
-									'conditions' => array (
-											'Estore_video.status' => 1,
-											'Estore_video.estore_id' => $shop_id,
-											'Estore_video.left' => 0 
-									),
-									'order' => 'Estore_video.id DESC',
-									'limit' => 1 
-							) );
+							$sql_exc_other = "SELECT estore_videos.*
+											 FROM  estore_videos
+											 WHERE estore_videos.status = 1 AND estore_videos.left= 0 AND estore_videos.estore_id= ".$shop_id." ORDER BY estore_videos.id DESC LIMIT 1";
+							$result_video = $this->connectiondatabase($sql_exc_other);
+							//pr($result_video);
+							
+							return $result_video;
 						}
 						function videosright($shop_id=null) {
 							mysql_query ( "SET names utf8" );
@@ -566,15 +572,15 @@
 							) );
 						}
 						function advf($shop_id= null) {
+							$sql_exc_other = "SELECT estore_advertisements.*
+											 FROM  estore_advertisements
+											 WHERE estore_advertisements.status = 1 AND estore_advertisements.display= 2 AND estore_advertisements.estore_id= ".$shop_id." ORDER BY estore_advertisements.id ";
+							$advf = $this->connectiondatabase($sql_exc_other);
+							//pr($advf);
+								
+							return $advf;
 							
-							return $this->Estore_advertisement->find ( 'all', array (
-									'conditions' => array (
-											'Estore_advertisement.status' => 1,
-						  					'Estore_advertisement.estore_id' => $shop_id,
-											'Estore_advertisement.display' => 2 
-									),
-									'order' => 'Estore_advertisement.id ASC' 
-							) );
+							
 						}
 						function advr($shop_id= null) {
 							return $this->Estore_advertisement->find ( 'all', array (
@@ -1768,16 +1774,47 @@
 							$this->layout = 'themeshop/home';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( "SET names utf8" );
-							$this->paginate = array (
-									'conditions' => array (
-											'Estore_news.status' => 1,
-											'Estore_news.category_id' => $id 
-									),
-									'limit' => '10',
-									'order' => 'Estore_news.id DESC' 
-							);
-							$this->set ( 'listnews', $this->paginate ( 'Estore_news', array () ) );
-							$this->set ( 'cat', $this->Estore_catproduct->read ( null, $id ) );
+
+							$this->paginate();
+							//pr($this->paginate ($id));
+							$this->set ( 'listnews', $this->paginate ($id) );
+							
+							//cat id
+							$sql_exc_cat = "SELECT estore_catproducts.*
+										 FROM estore_catproducts
+									     WHERE estore_catproducts.id = ".$id;
+ 										//$sql_exc_cat = "ORDER BY estore_news.id ASC";
+							$result_cat = $this->connectiondatabase ( $sql_exc_cat );
+							
+							$this->set ( 'cat',$result_cat);
+						}
+						
+						/**
+						 * Overridden paginate method 
+						 */
+						function paginate($id=null) {
+							$recursive = -1;
+							//$this->useTable = false;
+							$sql_exc = "SELECT estore_news.*
+										 FROM estore_news
+									     WHERE estore_news.category_id = ".$id."
+ 										 ORDER BY estore_news.id ASC";
+							$result = $this->connectiondatabase ( $sql_exc );
+							// pr($result);
+							return $result;
+						}
+						/**
+						 * Overridden paginateCount method
+						 */
+						public function paginateCount($id=null) {
+							$sql_exc = "SELECT estore_news.*
+										 FROM estore_news
+									WHERE `estore_news`.`category_id` = '" . $id . "'
+									ORDER BY `estore_news`.`id` ASC";
+							$result = $this->connectiondatabase ( $sql_exc );
+							$this->recursive = $recursive;
+							//$results = $this->query($sql);
+							return count($results);
 						}
 						function souvenir() {
 							$shop = explode ( '/', $this->params ['url'] ['url'] );
@@ -2021,12 +2058,12 @@
 							$this->set ( 'cat', $this->Category->read ( null, $id ) );
 						}
 						function viewnews($id = null) {
-							
 							$shop = explode ( '/', $this->params ['url'] ['url'] );
 							$shopname = $shop [0];
+							
 							$shoparr = $this->get_shop_id ( $shopname );
 							foreach ( $shoparr as $key => $value ) {
-								$shop_id = $key;
+								$shop_id = $value['Shop']['id'];
 							}
 							$this->set ( 'shopname', $shopname );
 							$this->layout = 'themeshop/home';
@@ -2039,28 +2076,23 @@
 										'action' => 'index' 
 								) );
 							}
-							$x = $this->Estore_news->read ( null, $id );
-						 pr($x);
-							$this->set ( 'views', $x );
+// 							$x = $this->Estore_news->read ( null, $id );
+							//$this->set ( 'views', $x );
 							
 							$sql_exc = "SELECT estore_news.*
 									 FROM  estore_news
-									 WHERE estore_news.id = ".(int)$id." AND estore_news.status = 1 AND estore_news.category_id=".$x ['Estore_news'] ['category_id']."  LIMIT 10";
-							
+									 WHERE estore_news.id = ".(int)$id." AND estore_news.status = 1 AND estore_news.category_id= 156  LIMIT 10";
 							$result = $this->connectiondatabase($sql_exc);
-							pr($result);
-							return $result;
-								
+							$this->set ( 'views', $result );
 							
-							
-							$this->set ( 'list_other', $this->Estore_news->find ( 'all', array (
-									'conditions' => array (
-											'Estore_news.status' => 1,
-											'Estore_news.category_id' => $x ['Estore_news'] ['category_id'],
-											'Estore_news.id <>' => $id 
-									),
-									'limit' => 10 
-							) ) );
+							//+++ get new other - lien quan
+							$sql_exc_other = "SELECT estore_news.*
+									 FROM  estore_news
+									 WHERE estore_news.status = 1 AND estore_news.category_id= 156  LIMIT 10";
+							$result_other = $this->connectiondatabase($sql_exc_other);
+// 							echo "Other news </br>";
+// 							pr($result_other);
+							$this->set ( 'list_other', $result_other);
 						}
 						function searchnews($name_search = null) {
 							$shop = explode ( '/', $this->params ['url'] ['url'] );
