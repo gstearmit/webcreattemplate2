@@ -3,6 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--  <link rel="shortcut icon" href="<?php echo DOMAIN ?>images/favicon.ico"> -->
+<link href="<?php echo DOMAIN ?>images/favicon.png" type="images/png" rel="icon"/>
 <title>Administractor</title>
 <?php echo $this->Html->css("reset");?>
 <?php echo $this->Html->css("style");?>

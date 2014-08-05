@@ -33,7 +33,7 @@
 				$id = 90;
 				$setting = $this->requestAction ( '/comment/noteindex/' . $id );
 				
-				 pr ( $setting );
+				// pr ( $setting );
 				// die ();
 				?>
 	
