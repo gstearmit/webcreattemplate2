@@ -31,28 +31,28 @@
 				<div id="threeBlocks">
 				<?php
 				$id = 90;
-				$setting =  $this->requestAction( '/comment/noteindex/'.$id );
+				$setting = $this->requestAction ( '/comment/noteindex/' . $id );
 				
-				//pr ( $setting );
-				//die ();
+				 pr ( $setting );
+				// die ();
 				?>
 	
 	<?php
-	$id ="";
-	$icon="";
-	 foreach ($setting as $key => $data ){
-	if($key ==1){
-	$id="leftBlock";
-	$icon="smart-features";
-}elseif ($key ==2){
-	$id="middleBlock";
-	$icon="click-mouse";
-}else {
-	$id="rightBlock";
-	$icon="good-company";
-}
-	 if($data['Note']['location']==1){
-		?>
+	$id = "";
+	$icon = "";
+	foreach ( $setting as $key => $data ) {
+		if ($key == 1) {
+			$id = "leftBlock";
+			$icon = "smart-features";
+		} elseif ($key == 2) {
+			$id = "middleBlock";
+			$icon = "click-mouse";
+		} else {
+			$id = "rightBlock";
+			$icon = "good-company";
+		}
+		if ($data ['Note'] ['location'] == 1) {
+			?>
 
 	<div id="<?php echo $id; ?>"
 						class="book-content <?php echo $icon; ?> col-lg-4 col-md-4 col-sm-4 col-xs-12 ez-hotro-box item animate_afc d1 animate_start">
@@ -66,9 +66,10 @@
 						</p>
 					</div>
 
-<?php 
- } }
-?>
+<?php
+		}
+	}
+	?>
 
 
 					<div class="cleaner">
@@ -153,10 +154,12 @@
 				</div>
 			</div>
 			<div id="firstBlock" class="open">
-			<?php foreach ($setting as $key => $view){
-				if($view['Note']['location']==2){
-				
-				?>
+			<?php
+			
+foreach ( $setting as $key => $view ) {
+				if ($view ['Note'] ['location'] == 2) {
+					
+					?>
 			
 				<div id="firstWrapper">
 					<h2 id="firstHeader"><?php echo $view['Note']['title']?></h2>
