@@ -243,15 +243,15 @@
 							) );
 						}
 						function hotnew($shop_id=null) {
-							return $this->Estore_news->find ( 'all', array (
-									'conditions' => array (
-											'Estore_news.status' => 1,
-											'Estore_news.estore_id' => $shop_id,
-											'Estore_news.category_id' => 156 
-									),
-									'order' => 'Estore_news.id DESC',
-									'limit' => 6 
-							) );
+							$sql_exc = "SELECT estore_news.*
+									 FROM  estore_news
+									 WHERE estore_news.estore_id =".(int)$shop_id." AND estore_news.status = 1 AND estore_news.category_id = 156 ORDER BY  estore_news.id DESC LIMIT 6 ";
+								
+							$result = $this->connectiondatabase($sql_exc);
+							//pr($result);
+							
+							return $result;
+							
 						}
 						function getinfo($cat = null) {
 							return $this->Estore_news->find ( 'all', array (
@@ -2021,6 +2021,7 @@
 							$this->set ( 'cat', $this->Category->read ( null, $id ) );
 						}
 						function viewnews($id = null) {
+							
 							$shop = explode ( '/', $this->params ['url'] ['url'] );
 							$shopname = $shop [0];
 							$shoparr = $this->get_shop_id ( $shopname );
@@ -2039,8 +2040,19 @@
 								) );
 							}
 							$x = $this->Estore_news->read ( null, $id );
-							// echo "x :";pr($x);
+						 pr($x);
 							$this->set ( 'views', $x );
+							
+							$sql_exc = "SELECT estore_news.*
+									 FROM  estore_news
+									 WHERE estore_news.id = ".(int)$id." AND estore_news.status = 1 AND estore_news.category_id=".$x ['Estore_news'] ['category_id']."  LIMIT 10";
+							
+							$result = $this->connectiondatabase($sql_exc);
+							pr($result);
+							return $result;
+								
+							
+							
 							$this->set ( 'list_other', $this->Estore_news->find ( 'all', array (
 									'conditions' => array (
 											'Estore_news.status' => 1,

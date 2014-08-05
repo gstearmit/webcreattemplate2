@@ -297,7 +297,7 @@ background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat l
                         	<h3>Tin tức khuyến mại</h3>      
                             <?php $hotnew = $this->requestAction('/'.$shopname.'/hotnew/'.$shop_id);?>                 	
                             <ul><?php foreach($hotnew as $value){?>
-                            	<li><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/viewnews/<?php echo $value['Estore_news']['id'];?>"><?php echo $value['Estore_news']['title'];?> </a></li>                               
+                            	<li><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/viewnews/<?php echo $value['estore_news']['id'];?>"><?php echo $value['estore_news']['title'];?> </a></li>                               
                                 <?php }?>
                             </ul>
                         </div>  
