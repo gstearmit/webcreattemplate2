@@ -359,12 +359,7 @@
 							$result = $this->connectiondatabase($sql_exc);
 							//pr($result);
 							return $result;
-// 							return $this->Estore_catproduct->find ( 'all', array (
-// 									'conditions' => array (
-// 											'Estore_catproduct.parent_id ' => $id 
-// 									),
-// 									'order' => 'Estore_catproduct.id ASC' 
-// 							) );
+
 						}
 						
 						
@@ -376,12 +371,6 @@
 							$result = $this->connectiondatabase($sql_exc);
 							//pr($result);
 							return $result;
-// 							return $this->Estore_catproduct->find ( 'all', array (
-// 									'conditions' => array (
-// 											'Estore_catproduct.parent_id ' => $id 
-// 									),
-// 									'order' => 'Estore_catproduct.id ASC' 
-// 							) );
 						}
 						
 						function danhmuc($shopname) {
