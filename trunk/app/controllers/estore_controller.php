@@ -1,7 +1,7 @@
 <?php
 
-						  class Testcreatwebsite005Controller extends AppController {
-						  var $name = 'Testcreatwebsite005';
+						  class TesrrphucController extends AppController {
+						  var $name = 'Tesrrphuc';
 						  	var $uses = array (
 								'Estore_category',
 								'Estore_comments',

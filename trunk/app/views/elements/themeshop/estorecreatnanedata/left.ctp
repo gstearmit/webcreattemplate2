@@ -8,25 +8,6 @@ foreach ( $shop as $key => $value ) {
 	$shop_id = $key;
 }
 
-$user = $this->requestAction ( 'comment/get_user_id/' . $shop_id );
-foreach ( $user as $user ) {
-	$user_id = $user ['Shop'] ['user_id'];
-}
-
-$banner = $this->requestAction ( 'comment/get_banner/' . $user_id );
-
-$tem = $this->requestAction ( 'comment/get_tem/' . $user_id );
-
-foreach ( $tem as $tem ) {
-	$template = $tem ['Tem']['linktems'];
-}
-
-// pr($shopname);
-// echo "shop_id ";pr($shop_id);
-// echo "user_id ";pr($user_id);
-// echo "banner ";pr($banner);
-// echo "tem ";pr($tem);
-// echo "template ";pr($template);
 
 ?>
 <link rel="stylesheet" href="<?php echo DOMAIN;?>home/lib/jquery.tooltip.css" />
@@ -118,7 +99,7 @@ $("#block").click($.tooltip.block);
                                     <ul >
                                     <?php
                                     $root = $this->requestAction('/'.$shopname.'/danhmuc/'.$shopname);
-                                    // pr($root);
+
                                     /*
                                          $i=1;	foreach ($root as $value){?>
                                  		<li ><a rel="ddsubmenuside<?php echo $i;?>" href="<?php echo DOMAIN;?>danh-muc-san-pham/<?php echo $value['Estore_catproduct']['id']?>"><?php echo $value['Estore_catproduct']['name']?></a>                    	 
