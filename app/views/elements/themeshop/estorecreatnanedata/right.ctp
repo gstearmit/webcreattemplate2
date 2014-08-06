@@ -15,29 +15,29 @@ foreach ( $shop as $key => $value ) {
                            <option value="" >Chọn loại sản phẩm</option>
                             <?php 
                             $cat = $this->requestAction('/'.$shopname.'/cat');
-	//pr($cat);
+	                      //pr($cat);
                             ?>
                             <?php foreach($cat as $Catproduct) {?>
-                            <?php //if($Catproduct['Estore_categories']['parent_id']==11) {?>
-                             <option value="<?php echo $Catproduct['Estore_categories']['id']; ?>"><?php echo $Catproduct['Estore_categories']['name']; ?></option>
+                            <?php if($Catproduct['Estore_catproducts']['parent_id']==11) {?>
+                             <option value="<?php echo $Catproduct['Estore_catproducts']['id']; ?>"><?php echo $Catproduct['Estore_catproducts']['name']; ?></option>
                              <?php $catcon = $this->requestAction('/'.$shopname.'/catcon') ?>
                              <?php foreach($catcon as $Catproducts) {?>
-                             <?php if($Catproducts['Estore_categories']['parent_id']==$Catproduct['Estore_categories']['id']){?>
-                             <option value="<?php echo $Catproducts['Estore_categories']['id']; ?>">--<?php echo $Catproducts['Estore_categories']['name']; ?></option>
+                             <?php if($Catproducts['Estore_catproducts']['parent_id']==$Catproduct['Estore_catproducts']['id']){?>
+                             <option value="<?php echo $Catproducts['Estore_catproducts']['id']; ?>">--<?php echo $Catproducts['Estore_catproducts']['name']; ?></option>
                                 <?php $catcons = $this->requestAction('/'.$shopname.'/catcon') ?>
                              <?php foreach($catcons as $Catproductss) {?>
-                             <?php if($Catproductss['Estore_categories']['parent_id']==$Catproducts['Estore_categories']['id']){?>
-                             <option value="<?php echo $Catproductss['Estore_categories']['id']; ?>">----<?php echo $Catproductss['Estore_categories']['name']; ?></option>
+                             <?php if($Catproductss['Estore_catproducts']['parent_id']==$Catproducts['Estore_catproducts']['id']){?>
+                             <option value="<?php echo $Catproductss['Estore_catproducts']['id']; ?>">----<?php echo $Catproductss['Estore_catproducts']['name']; ?></option>
                          }
                             <?php }}}}
-                            //}
+                            }
                             }?>
                  </select>
                  <select style="width: 185px;margin-left: 10px;margin-top:5px; height: 20px; margin-bottom: 5px;" name="hsx">
                            <option value="" >Chọn hãng sản xuất</option>
                             <?php $hsx = $this->requestAction('/'.$shopname.'/hsx') ?>
                             <?php foreach($hsx as $hsx) {?>
-                             <option value="<?php echo $hsx['Estore_manufacturer']['id']; ?>"><?php echo $hsx['Estore_manufacturer']['name']; ?></option>                             
+                             <option value="<?php echo $hsx['Estore_manufacturers']['id']; ?>"><?php echo $hsx['Estore_manufacturers']['name']; ?></option>                             
                             <?php }?>
                  </select>
                  <select style="width: 185px;margin-left: 10px;margin-top:5px; height: 20px; margin-bottom: 5px;" name="gia">
