@@ -28,34 +28,10 @@
 			<div class="row">
 				<div id="threeBlocks">
 				<?php
-				$langue = $this->Session->read ( 'language' );
-// 				echo "sddsdsdssd</br>";
- 				
-				if($langue == null )
-				{
-					$urlTmp = $_SERVER['REQUEST_URI'];
-					if (stripos($urlTmp, "?language")) 
-					{
-						$urlTmp = explode("?", $urlTmp);
-						$lang = explode("=", $urlTmp[1]);
-						$lang = $lang[1];
-						if (isset($lang)) {
-							$this->Session->write('language', $lang);
-						} else {
-							$this->Session->delete('language');
-						}
-					}else{
-						$lang ="vie";  // default 
-						$this->Session->write('language', $lang);
-					}
-				}
-				
 				
 				$id = 90;
 				$setting = $this->requestAction ( '/comment/noteindex/' . $id );
 				
-			   // pr ( $setting );
-				// die ();
 				?>
 	
 	<?php

@@ -26,11 +26,11 @@
 								'Estore_manufacturer',
 								'Shop' 
 						);
-						// product
+						var $paginate = array();
 						var $helpers = array (
 								'Html',
 								'Ajax',
-								'Javascript' 
+								'Javascript','Paginator' 
 						);
 						var $components = array (
 								'RequestHandler',
@@ -1775,15 +1775,22 @@
 							$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( "SET names utf8" );
 
-							$this->paginate();
-							//pr($this->paginate ($id));
-							$this->set ( 'listnews', $this->paginate ($id) );
+							$this->paginate = array (
+										'conditions' => array (
+												'estore_news.status' => 1,
+												'estore_news.category_id' => $id 
+										),
+										'limit' => '10',
+										'order' => 'estore_news.id DESC' 
+								);
+							pr($this->paginate('estore_news',array()));
+							$this->set ( 'listnews',  $this->paginate('estore_news',array()));
 							
 							//cat id
 							$sql_exc_cat = "SELECT estore_catproducts.*
 										 FROM estore_catproducts
-									     WHERE estore_catproducts.id = ".$id;
- 										//$sql_exc_cat = "ORDER BY estore_news.id ASC";
+									     WHERE estore_catproducts.id = '" . $id . "'";
+ 									//	$sql_exc_cat33 = "ORDER BY estore_news.id ASC";
 							$result_cat = $this->connectiondatabase ( $sql_exc_cat );
 							
 							$this->set ( 'cat',$result_cat);
@@ -1792,13 +1799,13 @@
 						/**
 						 * Overridden paginate method 
 						 */
-						function paginate($id=null) {
+						function paginate($conditions, $fields, $order, $limit, $page = 1, $recursive = null, $extra = array()) {
 							$recursive = -1;
 							//$this->useTable = false;
 							$sql_exc = "SELECT estore_news.*
-										 FROM estore_news
-									     WHERE estore_news.category_id = ".$id."
- 										 ORDER BY estore_news.id ASC";
+										 FROM estore_news";
+// 									     WHERE estore_news.category_id = ".$conditions['estore_news.category_id']."
+//  										 ORDER BY estore_news.id ASC";
 							$result = $this->connectiondatabase ( $sql_exc );
 							// pr($result);
 							return $result;
@@ -1806,11 +1813,11 @@
 						/**
 						 * Overridden paginateCount method
 						 */
-						public function paginateCount($id=null) {
+						public function paginateCount($conditions = null, $recursive = 0,$extra = array()) {
 							$sql_exc = "SELECT estore_news.*
-										 FROM estore_news
-									WHERE `estore_news`.`category_id` = '" . $id . "'
-									ORDER BY `estore_news`.`id` ASC";
+										 FROM estore_news";
+// 									WHERE `estore_news`.`category_id` = '".$conditions['estore_news.category_id']."'
+// 									ORDER BY `estore_news`.`id` ASC";
 							$result = $this->connectiondatabase ( $sql_exc );
 							$this->recursive = $recursive;
 							//$results = $this->query($sql);

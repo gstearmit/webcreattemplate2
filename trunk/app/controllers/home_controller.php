@@ -43,41 +43,28 @@ class HomeController extends AppController {
 		if ($id == null && $id1 == null)
 			$id = 2;
 		$this->Session->write ( 'city', $id ); // write($name,$value): Dùng để lưu một giá trị $value vào session đặt tên là $name
-		                                   
-		// các sản phẩm bán chạy
-		                                   // không giới hạn và phân trang theo kiểu silde show
-		                                   // mỗi 1 slide hiển thị 4 sản phẩm
-		$this->set ( 'product_nb', $this->Product->find ( 'all', array (
-				'conditions' => array (
-						'Product.conlai > 0',
-						'Product.city_id' => $id 
-				),
-				'order' => 'Product.created DESC' 
-		) ) );
-		
-		// các sản phẩm trên trang chủ
-		// hiển thị limit là 24 sản phẩm
-		$this->paginate = array (
-				'conditions' => array (
-						'Product.status' => 1,
-						'Product.city_id' => $id 
-				),
-				'limit' => 24,
-				'order' => 'Product.created DESC' 
-		);
-		$this->set ( 'product', $this->paginate ( 'Product', array () ) );
-		
-		
-		// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-		// $this->Productbepga->setDatabase('bega');
-		// pr($this->Productbepga->setDatabase('bega'));
-		// $cars = $this->Productbepga->find('all');
-		// pr($cars);
-		
-		// $this->set('Productall', $cars);
-		// $setDatabaseTwoNew = $this->Home->setDatabaseTwoNew('bega');
-		// pr($setDatabaseTwoNew);
 		*/
+		
+	           $langue = $this->Session->read ( 'language' );
+				if($langue == null )
+				{
+					$urlTmp = $_SERVER['REQUEST_URI'];
+					if (stripos($urlTmp, "?language")) 
+					{
+						$urlTmp = explode("?", $urlTmp);
+						$lang = explode("=", $urlTmp[1]);
+						$lang = $lang[1];
+						if (isset($lang)) {
+							$this->Session->write('language', $lang);
+						} else {
+							$this->Session->delete('language');
+						}
+					}else{
+						$lang ="vie";  // default 
+						$this->Session->write('language', $lang);
+					}
+				}
+				$this->set ( 'langue',$langue);
 		
 	}
 	function noteindex() {
