@@ -9,6 +9,7 @@
 						  		'Estore_products',//eshop products
 						  		'Estore_catproducts',// eshop Estorecatproducts
 						  		'Estore_manufacturers',// eshop Estore_manufacturers
+						  		'Estore_advertisements',//eshop Estore_advertisements
 								'Estore_category',
 								'Estore_comments',
 								'Estore_user',
@@ -233,7 +234,36 @@
 									'order' => 'Categoryestore2.id ASC' 
 							) );
 						}
-						function helpsonline($shop_id=null) {
+						function helpsonline() {
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
+							}
+							
+							$this->Estore_helps->setDataEshop($hostname,$username,$password,$databasename);
+							
 							return $this->Estore_helps->find ( 'all', array (
 									'conditions' => array (
 											'Estore_helps.status' => 1,
@@ -287,8 +317,37 @@
 							
 							return $result_video;
 						}
-						function videosright($shop_id=null) {
+						function videosright() {
 							mysql_query ( "SET names utf8" );
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
+							}
+							
+							$this->Estore_video->setDataEshop($hostname,$username,$password,$databasename);
+							
 							return $this->Estore_video->find ( 'all', array (
 									'conditions' => array (
 											'Estore_video.status' => 1,
@@ -689,15 +748,44 @@
 							
 							
 						}
-						function advr($shop_id= null) {
-							return $this->Estore_advertisement->find ( 'all', array (
+						function advr() {
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
 									'conditions' => array (
-											'Estore_advertisement.status' => 1,
-						  					'Estore_advertisement.estore_id' => $shop_id,
-											'Estore_advertisement.display' => 3 
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
 									),
-									'order' => 'Estore_advertisement.id ASC' 
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
 							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
+							}
+							
+							$this->Estore_advertisements->setDataEshop($hostname,$username,$password,$databasename);
+						  
+							return $this->Estore_advertisements->find ( 'all', array (
+									'conditions' => array (
+											'Estore_advertisements.status' => 1,
+						  					'Estore_advertisements.estore_id' => $shop_id,
+											'Estore_advertisements.display' => 3 
+									),
+									'order' => 'Estore_advertisements.id ASC' 
+							 ));
 						}
 						
 						// +++++++++++++++++++++++++++++++++++Home+++++++++++++++++++++++++++++++++++++++++++++++

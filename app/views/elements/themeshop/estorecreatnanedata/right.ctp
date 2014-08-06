@@ -59,7 +59,8 @@ foreach ( $shop as $key => $value ) {
        <h3>HỖ TRỢ TRỰC TUYẾN</h3>
       <ul style="padding-top:10px;" >
             <ul>
-           <?php $support = $this->requestAction('/'.$shopname.'/helpsonline/'.$shop_id); //pr($support);die; ?>
+           <?php 
+           $support = $this->requestAction('/'.$shopname.'/helpsonline');?>
              <?php  foreach($support as $itm ){?>                   
            <li style="margin: 5px 7px;"><font style="font-size: 12px; color: #4f4444; "><b><?php echo $itm['Estore_helps']['title']?> </b></font><a href="ymsgr:sendIM?<?php echo $itm['Estore_helps']['user_yahoo']?>" style="margin: 0 10px; float: right;"><img align="absmiddle"  src="http://opi.yahoo.com/online?u=<?php echo $itm['Estore_helps']['user_yahoo']?>&amp;m=g&amp;t=1"/></a></li>
            <li style="margin: 5px 7px;"><font style="font-size: 12px; color: #4f4444; "><b><?php echo $itm['Estore_helps']['user_support']?> </b></font><a href="skype:<?php echo $itm['Estore_helps']['user_skype'] ?>?call" style="margin: 0 10px; float: right;"><img src="<?php echo DOMAIN?>home/images/skype.png"/></a></li>
@@ -74,7 +75,7 @@ foreach ( $shop as $key => $value ) {
             <?php }?>  
     </div> 
     <div id="video">
-    <?php $video = $this->requestAction('/'.$shopname.'/videosright/'.$shop_id) ?>
+    <?php $video = $this->requestAction('/'.$shopname.'/videosright') ?>
         <?php  foreach($video as $video){?> 
         <?php 
         $url = $video['Estore_video']['LinkUrl'];
@@ -84,10 +85,10 @@ foreach ( $shop as $key => $value ) {
        <?php }?>
     </div>
     
-    <?php $advr= $this->requestAction('/'.$shopname.'/advr/'.$shop_id) ?>
+    <?php $advr= $this->requestAction('/'.$shopname.'/advr') ?>
     <?php foreach($advr as $advs1 ){  ?>
     <div id="video">
-     <a href="<?php echo $advs1['Estore_advertisement']['link'] ?>" target="_blank"><img src="<?php echo DOMAINADESTORE.$advs1['Estore_advertisement']['images']?>" border="0" width="202px" alt="" /></a>  
+     <a href="<?php echo $advs1['Estore_advertisements']['link'] ?>" target="_blank"><img src="<?php echo DOMAINADESTORE.$advs1['Estore_advertisements']['images']?>" border="0" width="202px" alt="" /></a>  
      </div> 	
      <?php }?>
     <div id="hotline">
