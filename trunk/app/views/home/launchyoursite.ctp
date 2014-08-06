@@ -32,11 +32,15 @@ $eshop = $this->Session->read ( 'eshop' );
 
 
 	<div id="page">
-		<div id="header">
-			<span id="logo"></span>
-			<div id="headerContent" class="fullSize">
+	<div class="container">
+	<div class="row">
+		<div id="header" class="col-xs-12 ">
+			<span id="logo"><img src="../img/layout3-1/AlatcaLogo2.png"/></span>
+			<div id="headerContent" class="fullSize col-xs-6 col-md-4">
 				<h1><?php __('registrationWizard') ?></h1>
 			</div>
+		</div>
+		</div>
 		</div>
 		<hr class="hidden" />
 		<div id="content">
