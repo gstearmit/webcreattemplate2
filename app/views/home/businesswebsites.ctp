@@ -1,3 +1,10 @@
+<?php
+				$id = 93;
+				$setting =  $this->requestAction( '/comment/noteindex/'.$id );
+				
+				//pr ( $setting );
+				//die();
+				?>
 <?php echo $this->element('creatmenu')?> 
 		<div id="page" class="container">
 			<div id="header" class="initialPage">
@@ -12,16 +19,18 @@
 			</div>
 			<hr class="hidden">
 			<div id="content">
+			
 				<div id="websitesPreview">
-					<h2>Business website with content tailored to your business sector</h2>
+				<?php 
+				foreach ($setting as $key => $data){
+				if($data['Note']['location']==1){
+
+				?>
+					<h2><?php echo $data['Note']['title']?></h2>
 					<div>
-						<p>
-							Choose from a wide variety of professionally designed templates
-							spanning all fields of business.<br /> We know your time is
-							valuable, so we prepared all the content you'll need to take your
-							business live and online.
-						</p>
+						<?php echo $data['Note']['content']?>
 					</div>
+					<?php }}?>
 					<div id="selectGroup"></div>
 					<div id="imagesList">
 						<div id="imagesPaging"></div>
@@ -40,25 +49,21 @@
 				</div>
 				<div>
 					<div id="AlatcaFeaturesArea">
+					<?php 
+				foreach ($setting as $key => $data){
+				if($data['Note']['location']==2){
+
+				?>
 						<div id="AlatcaFeatures" class="infoBlock">
 							<h4>
-								<a href="<?php echo DOMAIN ?>webcreathtml/features-business-websites/">Alatca
-									Features</a>
+								<a href="<?php echo DOMAIN ?>webcreathtml/features-business-websites/"><?php echo $data['Note']['title']?></a>
 							</h4>
 							<div id="featuresList">
-								<ul>
-									<li>Your new business website ready in 5 minutes</li>
-									<li>Professional and modern design</li>
-									<li>Content and structure of the website prepared by
-										professionals and tailored to your business category</li>
-									<li>Website statistics and emails</li>
-									<li>Use your own domain</li>
-									<li>Easy and intuitive editing</li>
-									<li>News, photo galleries, blog, RSS and much more...</li>
-								</ul>
+								<?php echo $data['Note']['content']?>
 							</div>
 							<i id="icon"></i>
 						</div>
+						<?php }}?>
 						<p>
 							<a href="<?php echo DOMAIN ?>webcreathtml/features-business-websites/">More
 								information...</a>
@@ -117,34 +122,18 @@
 					</div>
 				</div>
 				<div id="firstBlock" class="open">
+				<?php 
+				foreach ($setting as $key => $data){
+				if($data['Note']['location']==3){
+
+				?>
 					<div id="firstWrapper">
-						<h2 id="firstHeader">Create a website for your business today â€“
-							itâ€™s easy and free</h2>
+						<h2 id="firstHeader"><?php echo $data['Note']['title']?></h2>
 						<div id="firstParagraph">
-							<p>Alatca has the right solution for any kind of business. We
-								know your time is valuable so we prepared all the content you'll
-								need to take your business live and online. While building your
-								website, you can choose from a wide variety of professionally
-								designed templates. You donâ€™t even have to worry about the texts
-								â€“ we prepared basic content for more than 100 business fields.
-								All you need to do is register, choose the best template for
-								your business and fill in the information your customers need to
-								know about you. Creating a website has never been so easy â€“ your
-								business will be online in 5 minutes!</p>
-
-							<p>
-								<strong>Get closer to your customers â€“ create a website for your
-									business</strong>
-							</p>
-
-							<p>Create a website for your restaurant and share your menu
-								online. Take your advertising agency online, show your portfolio
-								and help your customers find you. Create a website for your
-								school and share achievements of your students with everyone.
-								Professional website will benefit your business, start
-								today!&nbsp;</p>
+							<?php echo $data['Note']['content']?>
 						</div>
 					</div>
+					<?php }}?>
 				</div>
 			</div>
 			<hr class="hidden">
