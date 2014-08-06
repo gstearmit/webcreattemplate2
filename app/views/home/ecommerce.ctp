@@ -1,3 +1,10 @@
+<?php
+				$id = 94;
+				$setting =  $this->requestAction( '/comment/noteindex/'.$id );
+				
+				//pr ( $setting );
+				//die();
+				?>
 <?php echo $this->element('creatmenu')?> 
 		<div id="page" class="container">
 			<div id="header" class="initialPage">
@@ -14,72 +21,55 @@
 			<hr class="hidden">
 			<div id="content">
 				<div id="threeBlocks">
-					<div id="leftBlock" class="private-secure">
+				<?php
+	$id ="";
+	$icon="";
+	 foreach ($setting as $key => $data ){
+	if($key ==2){
+	$id="leftBlock";
+	$icon="private-secure";
+}elseif ($key ==3){
+	$id="middleBlock";
+	$icon="fast-easy";
+}else {
+	$id="rightBlock";
+	$icon="e-commerce-price";
+}
+	 if($data['Note']['location']==1){
+		?>
+					<div id="<?php echo $id; ?>" class="<?php echo $icon; ?>">
 						<h2>
-							<a href="<?php echo DOMAIN ?>webcreathtml/features-e-commerce/">Quick setup
-								and free trial</a>
+							<a href="<?php echo DOMAIN ?>webcreathtml/features-e-commerce/"><?php echo $data['Note']['title']?></a>
 						</h2>
-						<div class="content">You can have your new e-shop up and running
-							within a few minutes. Just register and you can immediately start
-							selling on-line!</div>
+						<div class="content"><?php echo $data['Note']['content']?></div>
 						<p class="link">
 							<a href="<?php echo DOMAIN ?>webcreathtml/features-e-commerce/">More
 								information...</a>
 						</p>
 					</div>
-					<div id="middleBlock" class="fast-easy">
-						<h2>
-							<a href="<?php echo DOMAIN ?>webcreathtml/features-e-commerce/">Easy to use
-								interface</a>
-						</h2>
-						<div class="content">Alatca e-shop can truly be run by anyone!
-							Its interface is intuitive and simple, you don't need to have any
-							technical skills.</div>
-						<p class="link">
-							<a href="<?php echo DOMAIN ?>webcreathtml/features-e-commerce/">More
-								information...</a>
-						</p>
-					</div>
-					<div id="rightBlock" class="e-commerce-price">
-						<h2>
-							<a href="<?php echo DOMAIN ?>webcreathtml/pricing-e-commerce/">E-shop from
-								$9.95/month</a>
-						</h2>
-						<div class="content">Get a professional e-shop fast and at a
-							minimum cost. The perfect way to start a business over the
-							Internet!</div>
-						<p class="link">
-							<a href="<?php echo DOMAIN ?>webcreathtml/pricing-e-commerce/">More
-								information...</a>
-						</p>
-					</div>
+					<?php }}?>
 					<div class="cleaner">
 						<!-- -->
 					</div>
 				</div>
 				<div>
 					<div id="AlatcaFeaturesArea">
+					<?php 
+					foreach ($setting as $key => $data){
+					if($data['Note']['location']==2){
+					?>
 						<div id="AlatcaFeatures" class="infoBlock">
 							<h4>
-								<a href="<?php echo DOMAIN ?>webcreathtml/features-e-commerce/">E-commerce
-									features</a>
+								<a href="<?php echo DOMAIN ?>webcreathtml/features-e-commerce/"><?php echo $data['Note']['title']?></a>
 							</h4>
 							<div id="featuresList">
-								<ul>
-									<li>Professional looking e-shop ready in 5 minutes</li>
-									<li>Modern and user-friendly templates</li>
-									<li>Detailed business and website statistics</li>
-									<li>PayPal payment gateway for credit cards</li>
-									<li>Automated product import and export</li>
-									<li>Integration of price comparison portals</li>
-									<li>Product variants (color, size, etc.)</li>
-									<li>Easy and intuitive interface</li>
-								</ul>
+								<?php echo $data['Note']['content']; ?>
 							</div>
 							<i id="icon">
 								<!-- -->
 							</i>
 						</div>
+						<?php }}?>
 						<p>
 							<a href="<?php echo DOMAIN ?>webcreathtml/features-e-commerce/"
 								onclick="_gaq.push(['t2._trackEvent','Demo','OpenDemo']);">More
@@ -139,35 +129,15 @@
 					</div>
 				</div>
 				<div id="firstBlock" class="open">
+				<?php foreach ($setting as $key => $data){
+				if($data['Note']['location']==3){?>
 					<div id="firstWrapper">
-						<h2 id="firstHeader">Create your own online store for free</h2>
+						<h2 id="firstHeader"><?php echo $data['Note']['title']?></h2>
 						<div id="firstParagraph">
-							<p>Just register and start selling immediately. All you need is a
-								few minutes. There is no need to know any web programming to
-								create an online store with Alatca. The user interface is
-								intuitive and simple, so you are free to concentrate on sales
-								instead of worrying about how to create an e-shop for your
-								products. Add your contact information, your business profile, a
-								guestbook, and a product list. Modify the payment and delivery
-								options to suit your business needs!</p>
-
-							<p>
-								<strong>Create an online store, we will help you make it perfect</strong>
-							</p>
-
-							<p>We know you want to attract as many customers as possible
-								after you create a store website, which is why there are
-								hundreds of ready-made templates to choose from and numerous
-								editing opportunities to make your shop professional and
-								custom-built. Read our tips on attracting more clients in our
-								blog or contact our customer service department, we're always
-								happy to help. Make your e-shop really stand out by adding
-								widgets and gadgets. Register and create your own online store
-								at Alatca today!</p>
-
-							<p>&nbsp;</p>
+							<?php echo $data['Note']['content']?>
 						</div>
 					</div>
+					<?php }}?>
 				</div>
 			</div>
 			<hr class="hidden">
