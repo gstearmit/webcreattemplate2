@@ -146,6 +146,7 @@ class BepgaController extends AppController {
 		) );
 	}
 	function helpsonline() {
+		
 		return $this->Estore_helps->find ( 'all', array (
 				'conditions' => array (
 						'Estore_helps.status' => 1 
