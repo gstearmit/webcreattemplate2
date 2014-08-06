@@ -4,9 +4,8 @@
 						  var $name = 'Testcreatwebsite001';
 						  var $shopname ='testcreatwebsite001';
 						  	var $uses = array (
-						  		'Estore_categories',//Catalogueshop
+						  		'Estorecategories',//Catalogueshop
 						  		'Estore_news',//eshop
-						  		'Estore_products',
 								'Estore_category',
 								'Estore_comments',
 								'Estore_user',
@@ -1163,34 +1162,10 @@
 						function search() {
 							$shop = explode ( '/', $this->params ['url'] ['url'] );
 							$shopname = $shop [0];
-							$nameeshop = $this->shopname;
-							$shoparr = $this->Shop->find ( 'all', array (
-									'conditions' => array (
-											'Shop.name' => $nameeshop,
-											'Shop.status' => 1
-									),
-									'fields' => array (
-											'Shop.id',
-											'Shop.created',
-											'Shop.databasename',
-											'Shop.username',
-											'Shop.password',
-											'Shop.hostname',
-											'Shop.ipserver'
-									)
-							) );
-								
-							//++++++++++Connect  data +++++++++++++++++
-							foreach($shoparr as $shop){
-								$databasename = $shop['Shop']['databasename'];
-								$password = $shop['Shop']['password'];
-								$username = $shop['Shop']['username'];
-								$hostname = $shop['Shop']['hostname'];
-								$shop_id = $shop['Shop']['id'];
-									
+							$shoparr = $this->get_shop_id ( $shopname );
+							foreach ( $shoparr as $key => $value ) {
+								$shop_id = $key;
 							}
-							
-							$this->Estore_categories->setDataEshop($hostname,$username,$password,$databasename);
 							$this->set ( 'shopname', $shopname );
 							
 							$this->layout = 'themeshop/home';
@@ -1209,33 +1184,27 @@
 								$gia = $_POST ['gia'];
 							} else
 								$gia = "";
-							
-							echo "list_cat</br>";pr($list_cat);
-							
 							if (($list_cat != "") && ($hsx == "") && ($gia == "")) {
-								$po1 = $this->Estore_categories->find ( 'list', array (
+								$po1 = $this->Estore_catproduct->find ( 'list', array (
 										'conditions' => array (
-												'Estore_categories.status' => 1,
-												'Estore_categories.parent_id' => $list_cat 
+												'Estore_catproduct.status' => 1,
+												'Estore_catproduct.parent_id' => $list_cat 
 										),
 										'fields' => array (
-												'Estore_categories.id' 
+												'Estore_catproduct.id' 
 										) 
 								) );
-								
-							
 								
 								if ($po1 != null) {
 									$this->paginate = array (
 											'conditions' => array (
-													'Estore_products.status' => 1,
-													'Estore_products.catproduct_id' => $po1 
+													'Estore_product.status' => 1,
+													'Estore_product.catproduct_id' => $po1 
 											),
 											'limit' => '21',
-											'order' => 'Estore_products.id DESC' 
+											'order' => 'Estore_product.id DESC' 
 									);
-									$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
-									$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
+									$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
 								} else {
 									$this->paginate = array (
 											'conditions' => array (
@@ -1360,57 +1329,49 @@
 							if (($list_cat == "") && ($hsx == "") && ($gia != "")) {
 								$this->paginate = array (
 										'conditions' => array (
-												'Estore_products.status' => 1,
-												'Estore_products.khoanggia' => $gia 
+												'Estore_product.status' => 1,
+												'Estore_product.khoanggia' => $gia 
 										),
 										'limit' => '21',
-										'order' => 'Estore_products.id DESC' 
+										'order' => 'Estore_product.id DESC' 
 								);
-								$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
-// 								$Estoreshopnews = $this->Estore_products->find('all');
-// 								echo "phuc</br>";pr($Estoreshopnews);
-								
-// 								$this->set ( 'Estoreshopnews', $Estoreshopnews );
-								$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
+								$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
 							}
 							if (($list_cat == "") && ($hsx != "") && ($gia == "")) {
 								
 								$this->paginate = array (
 										'conditions' => array (
-												'Estore_products.status' => 1,
-												'Estore_products.manufacturer' => $hsx 
+												'Estore_product.status' => 1,
+												'Estore_product.manufacturer' => $hsx 
 										),
 										'limit' => '21',
 										'order' => 'Estore_product.id DESC' 
 								);
-								$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
-								$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
+								$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
 							}
 							if (($list_cat == "") && ($hsx != "") && ($gia != "")) {
 								
 								$this->paginate = array (
 										'conditions' => array (
-												'Estore_products.status' => 1,
-												'Estore_products.manufacturer' => $hsx,
-												'Estore_products.khoanggia' => $gia 
+												'Estore_product.status' => 1,
+												'Estore_product.manufacturer' => $hsx,
+												'Estore_product.khoanggia' => $gia 
 										),
 										'limit' => '21',
-										'order' => 'Estore_products.id DESC' 
+										'order' => 'Estore_product.id DESC' 
 								);
-								$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
-								$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
+								$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
 							}
 							if (($list_cat == "") && ($hsx == "") && ($gia == "")) {
 								
 								$this->paginate = array (
 										'conditions' => array (
-												'Estore_products.status' => 1 
+												'Estore_product.status' => 1 
 										),
 										'limit' => '21',
-										'order' => 'Estore_products.id DESC' 
+										'order' => 'Estore_product.id DESC' 
 								);
-								$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
-								$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
+								$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
 							}
 							
 							
@@ -1851,13 +1812,58 @@
 									'limit' => '10',
 											'order' => 'Estore_news.id DESC' 
 									);
-
+			// 			view				
+			// 			Array
+			// 			(
+			// 			    [conditions] => Array
+			// 			        (
+			// 			            [Estore_news.status] => 1
+			// 			            [Estore_news.category_id] => 156
+			// 			        )
+						
+			// 			    [limit] => 10
+			// 			    [order] => Estore_news.id DESC
+			// 			)
+							
 							$this->set('listnews', $this->paginate('Estore_news',array()));
 							
 							$this->Estorecategories->setDataEshop($hostname,$username,$password,$databasename);
 							$this->set('cat',$this->Estorecategories->read(null,$id));
 						}
+// 						function listnews($id = null) {
+// 							$shop = explode ( '/', $this->params ['url'] ['url'] );
+// 							$shopname = $shop [0];
+// 							$shoparr = $this->get_shop_id ( $shopname );
+// 							foreach ( $shoparr as $key => $value ) {
+// 								$shop_id = $key;
+// 							}
+// 							$this->set ( 'shopname', $shopname );
+							
+// 							$this->layout = 'themeshop/home';
+// 							$this->set ( 'title_for_layout', 'e-shop' );
+// 							mysql_query ( "SET names utf8" );
 
+// 							$this->paginate = array (
+// 										'conditions' => array (
+// 												'estore_news.status' => 1,
+// 												'estore_news.category_id' => $id 
+// 										),
+// 										'limit' => '10',
+// 										'order' => 'estore_news.id DESC' 
+// 								);
+// 							pr($this->paginate('estore_news',array()));
+// 							$this->set ( 'listnews',  $this->paginate('estore_news',array()));
+							
+// 							//cat id
+// 							$sql_exc_cat = "SELECT estore_catproducts.*
+// 										 FROM estore_catproducts
+// 									     WHERE estore_catproducts.id = '" . $id . "'";
+//  									//	$sql_exc_cat33 = "ORDER BY estore_news.id ASC";
+// 							$result_cat = $this->connectiondatabase ( $sql_exc_cat );
+							
+// 							$this->set ( 'cat',$result_cat);
+// 						}
+						
 						function getmodolnews()
 						{
 							$nameeshop = $this->shopname;
@@ -1895,6 +1901,33 @@
 							$this->set('Estoreshopnews', $Estoreshopnews);
 						}
 						
+// 						/**
+// 						 * Overridden paginate method 
+// 						 */
+// 						function paginate($conditions, $fields, $order, $limit, $page = 1, $recursive = null, $extra = array()) {
+// 							$recursive = -1;
+// 							//$this->useTable = false;
+// 							$sql_exc = "SELECT estore_news.*
+// 										 FROM estore_news";
+// // 									     WHERE estore_news.category_id = ".$conditions['estore_news.category_id']."
+// //  										 ORDER BY estore_news.id ASC";
+// 							$result = $this->connectiondatabase ( $sql_exc );
+// 							// pr($result);
+// 							return $result;
+// 						}
+// 						/**
+// 						 * Overridden paginateCount method
+// 						 */
+// 						public function paginateCount($conditions = null, $recursive = 0,$extra = array()) {
+// 							$sql_exc = "SELECT estore_news.*
+// 										 FROM estore_news";
+// // 									WHERE `estore_news`.`category_id` = '".$conditions['estore_news.category_id']."'
+// // 									ORDER BY `estore_news`.`id` ASC";
+// 							$result = $this->connectiondatabase ( $sql_exc );
+// 							$this->recursive = $recursive;
+// 							//$results = $this->query($sql);
+// 							return count($results);
+// 						}
 						function souvenir() {
 							$shop = explode ( '/', $this->params ['url'] ['url'] );
 							$shopname = $shop [0];
@@ -2139,7 +2172,7 @@
 						function viewnews($id = null) {
 							$shop = explode ( '/', $this->params ['url'] ['url'] );
 							$shopname = $shop [0];
-							//pr($shopname);
+							
 							$shoparr = $this->get_shop_id ( $shopname );
 							foreach ( $shoparr as $key => $value ) {
 								$shop_id = $value['Shop']['id'];
@@ -2176,41 +2209,15 @@
 						function searchnews($name_search = null) {
 							$shop = explode ( '/', $this->params ['url'] ['url'] );
 							$shopname = $shop [0];
-							$nameeshop = $this->shopname;
-							$shoparr = $this->Shop->find ( 'all', array (
-									'conditions' => array (
-											'Shop.name' => $nameeshop,
-											'Shop.status' => 1
-									),
-									'fields' => array (
-											'Shop.id',
-											'Shop.created',
-											'Shop.databasename',
-											'Shop.username',
-											'Shop.password',
-											'Shop.hostname',
-											'Shop.ipserver'
-									)
-							) );
-								
-							//++++++++++Connect  data +++++++++++++++++
-							foreach($shoparr as $shop){
-								$databasename = $shop['Shop']['databasename'];
-								$password = $shop['Shop']['password'];
-								$username = $shop['Shop']['username'];
-								$hostname = $shop['Shop']['hostname'];
-								$shop_id = $shop['Shop']['id'];
-									
+							$shoparr = $this->get_shop_id ( $shopname );
+							foreach ( $shoparr as $key => $value ) {
+								$shop_id = $key;
 							}
-							//set data news eshop	
-							$this->Estore_news->setDataEshop($hostname,$username,$password,$databasename);
-							
 							$this->set ( 'shopname', $shopname );
 							$this->layout = 'themeshop/home';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( "SET names utf8" );
 							$title = $_POST ['name_search'];
-							
 							$this->set ( 'listsearch', $this->Estore_news->find ( 'all', array (
 									'conditions' => array (
 											'Estore_news.status' => 1,
