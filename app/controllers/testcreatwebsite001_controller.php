@@ -670,7 +670,7 @@
 				*/	
 							
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							$this->paginate = array (
@@ -780,7 +780,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( "SET names utf8" );
@@ -802,7 +802,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( "SET names utf8" );
@@ -848,7 +848,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( "SET names utf8" );
@@ -894,7 +894,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( "SET names utf8" );
@@ -919,7 +919,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( "SET names utf8" );
@@ -944,7 +944,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( "SET names utf8" );
@@ -984,7 +984,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( "SET names utf8" );
@@ -1024,7 +1024,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( "SET names utf8" );
@@ -1064,7 +1064,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc Catproduct
 							mysql_query ( "SET names utf8" );
@@ -1097,7 +1097,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( "SET names utf8" );
@@ -1121,7 +1121,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( "SET names utf8" );
@@ -1145,7 +1145,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( "SET names utf8" );
@@ -1193,7 +1193,7 @@
 							$this->Estore_categories->setDataEshop($hostname,$username,$password,$databasename);
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							//$this->loadModel ( "Estore_catproducts" );
 							
@@ -1429,7 +1429,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// var_dump($id);die;
 							mysql_query ( "SET names utf8" );
@@ -1466,7 +1466,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							
 							$product = $this->Estore_product->read ( null, $id );
@@ -1505,7 +1505,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							if (isset ( $_SESSION ['shopingcart'] )) {
 								$shopingcart = $_SESSION ['shopingcart'];
@@ -1524,7 +1524,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( "SET names utf8" );
 							if (! $id) {
@@ -1544,9 +1544,9 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop View Shopping' );
 							if (isset ( $_SESSION ['shopingcart'] )) {
 								$shopingcart = $_SESSION ['shopingcart'];
@@ -1564,7 +1564,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							if (isset ( $_SESSION ['shopingcart'] )) {
 								$shopingcart = $_SESSION ['shopingcart'];
@@ -1586,7 +1586,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							if (isset ( $_SESSION ['shopingcart'] )) {
 								$shopingcart = $_SESSION ['shopingcart'];
@@ -1604,7 +1604,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( "SET names utf8" );
 							if (! $id) {
@@ -1638,7 +1638,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							
 							if (! $this->Session->read ( "email" )) {
@@ -1661,7 +1661,7 @@
 								$shop_id = $key;
 							}
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							$uid = "id" . rand ( 1, 1000000 );
 							$data ['Estore_infomation'] ['user_id'] = ($this->Session->read ( "id" ) != '' ? $this->Session->read ( "id" ) : $uid);
@@ -1702,7 +1702,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							if (empty ( $id )) {
 								$this->Session->setFlash ( __ ( 'Khôn tồn tại danh mục này', true ) );
@@ -1728,10 +1728,10 @@
 								$shop_id = $key;
 							}
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( "SET names utf8" );
 							$this->paginate = array (
@@ -1752,7 +1752,7 @@
 								$shop_id = $key;
 							}
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( "SET names utf8" );
 							$this->paginate = array (
@@ -1774,7 +1774,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( "SET names utf8" );
 							$this->paginate = array (
@@ -1796,7 +1796,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( "SET names utf8" );
 							$this->paginate = array (
@@ -1812,7 +1812,7 @@
 						
 						function listnews($id=null) {
 							//layout
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							
 							$nameeshop = $this->shopname;
@@ -1909,7 +1909,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( "SET names utf8" );
 							$this->paginate = array (
@@ -1930,7 +1930,7 @@
 								$shop_id = $key;
 							}
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( "SET names utf8" );
 							$this->paginate = array (
@@ -1952,7 +1952,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( "SET names utf8" );
 							$this->paginate = array (
@@ -1973,7 +1973,7 @@
 								$shop_id = $key;
 							}
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( "SET names utf8" );
 							$this->paginate = array (
@@ -1994,7 +1994,7 @@
 								$shop_id = $key;
 							}
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach ve may bay
 							mysql_query ( "SET names utf8" );
@@ -2016,7 +2016,7 @@
 								$shop_id = $key;
 							}
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach khach san
 							mysql_query ( "SET names utf8" );
@@ -2038,7 +2038,7 @@
 								$shop_id = $key;
 							}
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach xe du lich
 							mysql_query ( "SET names utf8" );
@@ -2060,7 +2060,7 @@
 								$shop_id = $key;
 							}
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach ho chieu
 							mysql_query ( "SET names utf8" );
@@ -2082,7 +2082,7 @@
 								$shop_id = $key;
 							}
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( "SET names utf8" );
@@ -2112,7 +2112,7 @@
 								$shop_id = $key;
 							}
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// var_dump($this->data);die;
 							$data = $this->Estore_news->read ( null, $_POST ['id'] );
@@ -2127,7 +2127,7 @@
 								$shop_id = $key;
 							}
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( "SET names utf8" );
 							$this->paginate = array (
@@ -2150,7 +2150,7 @@
 								$shop_id = $value['Shop']['id'];
 							}
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( "SET names utf8" );
 							
@@ -2211,7 +2211,7 @@
 							$this->Estore_news->setDataEshop($hostname,$username,$password,$databasename);
 							
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( "SET names utf8" );
 							$title = $_POST ['name_search'];
@@ -2233,7 +2233,7 @@
 								$shop_id = $key;
 							}
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( "SET names utf8" );
@@ -2249,7 +2249,7 @@
 								$shop_id = $key;
 							}
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							$this->paginate = array (
 									'conditions' => array (
@@ -2268,7 +2268,7 @@
 								$shop_id = $key;
 							}
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							$this->paginate = array (
 									'conditions' => array (
@@ -2289,7 +2289,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							if (! empty ( $this->data )) {
 								// if($this->Session->read('security_code')==$_POST['security']){
@@ -2319,7 +2319,7 @@
 							}
 							$this->set ( 'shopname', $shopname );
 							
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( "SET NAMES 'utf8'" );
 							mysql_query ( "SET character_set_client=utf8" );
@@ -2361,7 +2361,7 @@
 								$shop_id = $key;
 							}
 							$this->set ( 'shopname', $shopname );
-							$this->layout = 'themeshop/home';
+							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							
 							mysql_query ( "SET NAMES 'utf8'" );

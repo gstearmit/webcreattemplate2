@@ -21,13 +21,6 @@ foreach ( $tem as $tem ) {
 	$template = $tem ['Tem']['linktems'];
 }
 
-// pr($shopname);
-// echo "shop_id ";pr($shop_id);
-// echo "user_id ";pr($user_id);
-// echo "banner ";pr($banner);
-// echo "tem ";pr($tem);
-// echo "template ";pr($template);
-
 ?>
 <style>
  #translate-this .translate-this-button {
@@ -42,14 +35,13 @@ foreach ( $tem as $tem ) {
 	<div id="menus">
               <ul id="nav">
               	<li><a href="<?php echo DOMAIN?>">TRANG CHỦ</a></li>
-                <?php $root = $this->requestAction('/'.$shopname.'/menucategory');	
- //pr($root); die;				
+                <?php $root = $this->requestAction('/'.$shopname.'/menucategory');				
                     foreach ($root as $value){?>
-               <?php $category = $this->requestAction('/'.$shopname.'/showcategory/'.$value['Estore_category']['id']);?>
+               <?php $category = $this->requestAction('/'.$shopname.'/showcategory/'.$value['estore_categories']['id']);?>
 			
                <?php foreach($category as $k=>$subcat){?>
 			     
-               <li><a href="<?php echo DOMAIN?><?php echo $shopname ;?>/listnews/<?php echo $subcat['Estore_category']['id'];?>"><?php echo $subcat['Estore_category']['name'];?></a></li> 
+               <li><a href="<?php echo DOMAIN?><?php echo $shopname ;?>/listnews/<?php echo $subcat['estore_categories']['id'];?>"><?php echo $subcat['estore_categories']['name'];?></a></li> 
                 <?php }}?>
                  <li><a href="<?php echo DOMAIN?><?php echo $shopname ;?>/indexcomments">GÓP Ý</a></li> 
                  <li><a href="<?php echo DOMAIN?><?php echo $shopname ;?>/thongtin">THÔNG TIN TÀI KHOẢN</a></li>                

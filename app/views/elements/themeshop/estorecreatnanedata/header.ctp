@@ -21,13 +21,6 @@ foreach ( $tem as $tem ) {
 	$template = $tem ['Tem']['linktems'];
 }
 
-// pr($shopname);
-// echo "shop_id ";pr($shop_id);
-// echo "user_id ";pr($user_id);
-// echo "banner ";pr($banner);
-// echo "tem ";pr($tem);
-// echo "template ";pr($template);
-
 ?>
 <?php $banner = $this -> requestAction('/'.$shopname.'/banner/'.$shop_id);?>
    <?php foreach($banner as $banner){ ?>
@@ -35,8 +28,8 @@ foreach ( $tem as $tem ) {
          <param name="_cx" value="14552">
          <param name="_cy" value="4577">
          <param name="FlashVars" value="">
-         <param name="Movie" value="<?php echo DOMAINADESTORE?><?php echo $banner['Estore_banner']['images'];?>">
-         <param name="Src" value="<?php echo DOMAINADESTORE?><?php echo $banner['Estore_banner']['images'];?>">
+         <param name="Movie" value="<?php echo DOMAINADESTORE?><?php echo $banner['estore_banners']['images'];?>">
+         <param name="Src" value="<?php echo DOMAINADESTORE?><?php echo $banner['estore_banners']['images'];?>">
          <param name="WMode" value="transparent">
          <param name="Play" value="-1">
          <param name="Loop" value="-1">
@@ -59,6 +52,6 @@ foreach ( $tem as $tem ) {
          <param name="ProfilePort" value="0">
          <param name="AllowNetworking" value="all">
          <param name="AllowFullScreen" value="false">
-         <embed width="1000" height="178" src="<?php echo DOMAINADESTORE?><?php echo $banner['Estore_banner']['images'];?>" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" wmode="transparent">
+         <embed width="1000" height="178" src="<?php echo DOMAINADESTORE?><?php echo $banner['estore_banners']['images'];?>" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" wmode="transparent">
       </object>
 <?php }?>

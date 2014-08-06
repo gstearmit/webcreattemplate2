@@ -34,7 +34,8 @@
 				foreach($shop as $key=>$value){
 				$shop_id=$key;
 				}
-			
+	echo "dsdsddsdsddsds</br>";
+	pr($bepcongnghiep);die;		
 ?>
 <div id="main-center">           
  	 <!--sanpham-->   
@@ -121,9 +122,7 @@
             <?php
 				$paginator->options(array('url' => $this->passedArgs));                                    
 				echo $paginator->numbers();
-				?>
-				</div>
-            <?php }?>
+            }?></div>
         </div>  
     </div><!--end newstop--> 
 </div><!-- id="main-center" -->
