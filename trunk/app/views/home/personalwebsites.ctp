@@ -27,9 +27,9 @@
 				$id="";
 				foreach ($setting as $key =>$data){
 					if($data['Note']['location']==1){
-					if($key == 2){
+					if($key == 3){
 						$id="leftBlock";
-					}elseif ($key ==3){
+					}elseif ($key ==4){
 						$id="rightBlock";
 					}
 					?>
@@ -81,25 +81,20 @@
 				</div>
 				<div>
 					<div id="AlatcaFeaturesArea">
+					<?php foreach ($setting as  $key => $data){
+					if($data['Note']['location']==3){
+
+					?>
 						<div id="AlatcaFeatures" class="infoBlock">
 							<h4>
-								<a href="<?php echo DOMAIN ?>webcreathtml/features-personal-websites/">Alatca
-									Features</a>
+								<a href="<?php echo DOMAIN ?>webcreathtml/features-personal-websites/"><?php echo $data['Note']['title']?></a>
 							</h4>
 							<div id="featuresList">
-								<ul>
-									<li>Real time fast editing as you see it in the browser</li>
-									<li>No installation or configuration</li>
-									<li>Use your own domain</li>
-									<li>Photo galleries, polls, forums</li>
-									<li>Blogs, fulltext search, RSS</li>
-									<li>Detailed website statistics</li>
-									<li>Community and social features</li>
-									<li>Plenty of external gadgets and widgets</li>
-								</ul>
+								<?php echo $data['Note']['content']?>
 							</div>
 							<i id="icon"></i>
 						</div>
+						<?php }}?>
 						<p>
 							<a href="<?php echo DOMAIN ?>webcreathtml/features-personal-websites/">More
 								information...</a>
@@ -159,7 +154,7 @@
 				</div>
 				<div id="firstBlock" class="open">
 				<?php foreach ($setting as  $key => $data){
-					if($data['Note']['location']==3){
+					if($data['Note']['location']==4){
 
 					?>
 					<div id="firstWrapper">
