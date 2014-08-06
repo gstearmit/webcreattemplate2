@@ -1,12 +1,12 @@
 <?php
+//echo "lefefsssdsd";
+
 $shop = explode ( '/', $this->params ['url'] ['url'] );
 $shopname = $shop [0];
 $shop = $this->requestAction ( 'comment/get_shop_id/' . $shopname );
 foreach ( $shop as $key => $value ) {
 	$shop_id = $key;
 }
-
-
 
 $user = $this->requestAction ( 'comment/get_user_id/' . $shop_id );
 foreach ( $user as $user ) {
@@ -109,13 +109,17 @@ $("#block").click($.tooltip.block);
 <!--menu left
 <link rel="stylesheet" type="text/css" href="<?php echo DOMAIN;?>css/menuleft/ddlevelsmenu-base.css" />
 <script type="text/javascript" src="<?php echo DOMAIN;?>css/menuleft/ddlevelsmenu.js"></script>
+
 <div id="hotro">
                         
                         	<div id="bong">
                                 <div class="top"><h3>List Products</h3></div>
                                 <div id="ddsidemenubar">
                                     <ul >
-                                    <?php $root = $this->requestAction('/'.$shopname.'/danhmuc');											
+                                    <?php
+                                    $root = $this->requestAction('/'.$shopname.'/danhmuc/'.$shopname);
+                                    // pr($root);
+                                    /*
                                          $i=1;	foreach ($root as $value){?>
                                  		<li ><a rel="ddsubmenuside<?php echo $i;?>" href="<?php echo DOMAIN;?>danh-muc-san-pham/<?php echo $value['Estore_catproduct']['id']?>"><?php echo $value['Estore_catproduct']['name']?></a>                    	 
                                  			<?php $category = $this->requestAction('/'.$shopname.'/showsmenu1/'.$value['Estore_catproduct']['id']);?>                                 			                                            
@@ -133,12 +137,12 @@ $("#block").click($.tooltip.block);
                                                      		
                                                              </li>
                                                             
-                         							<?php }?>
+                         							<?php }  ?>
                                                           						 
                              					</ul>
                                	
                                         </li>
-                        				<?php $i++;}?>	
+                        				<?php $i++;}    */ ?>	
                                     
                                     <br/> &nbsp;                           
                                     </ul>
@@ -222,40 +226,42 @@ background: #e3e3e3;
 background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat left;
   
   }
-</style>                                           
+</style>   
+
                         <div id="hotro">                        
                         	<div id="bong">
                                 <div class="top"><h3>Danh mục sản phẩm</h3></div>
                                 <div class="menu_list" >
                                  <?php 
-                                 
-                                 $root = $this->requestAction('/'.$shopname.'/danhmuc/'.$shop_id);	
-                                								
+                                 $root = $this->requestAction('/'.$shopname.'/danhmuc/'.$shopname);	
+                                // pr($root);		
                                          foreach ($root as $value){?>
-                                 		<p class="menu_head"><?php echo $value['Estore_catproduct']['name']?></p>                	 
-                                 			<?php $category = $this->requestAction('/'.$shopname.'/showsmenu1/'.$value['Estore_catproduct']['id']);
+                                 		<p class="menu_head"><?php echo $value['estore_catproducts']['name']?></p>                	 
+                                 			<?php $category = $this->requestAction('/'.$shopname.'/showsmenu1/'.$value['estore_catproducts']['id']);
                                  				if($category){?>
                                  				<div class="menu_body">
                          							<?php foreach($category as $k=>$subcat){?>
-                                                    <?php $categorys = $this->requestAction('/'.$shopname.'/showsmenu2/'.$subcat['Estore_catproduct']['id']);
+                                                    <?php $categorys = $this->requestAction('/'.$shopname.'/showsmenu2/'.$subcat['estore_catproducts']['id']);
                                              				if($categorys){?>
-                         								<a href="#tip"><li onClick="cogian('Auto');"><?php echo $subcat['Estore_catproduct']['name']?></li></a>
+                         								<a href="#tip"><li onClick="cogian('Auto');"><?php echo $subcat['estore_catproducts']['name']?></li></a>
                                                         
                                              				<div class="menu_bodys" id="Auto">
                                      							<?php foreach($categorys as $k=>$subcats){?>
-                                     								<a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/listproduct/<?php echo $subcats['Estore_catproduct']['id']?>"><?php echo $subcats['Estore_catproduct']['name']?></a>
+                                     								<a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/listproduct/<?php echo $subcats['estore_catproducts']['id']?>"><?php echo $subcats['estore_catproducts']['name']?></a>
                                      							<?php }?>
                                          					</div>
                                              			<?php  }else{?>
-                                                        <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/listproduct/<?php echo $subcat['Estore_catproduct']['id']?>"><li><?php echo $subcat['Estore_catproduct']['name']?></li></a>
+                                                        <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/listproduct/<?php echo $subcat['estore_catproducts']['id']?>"><li><?php echo $subcat['estore_catproducts']['name']?></li></a>
                          							<?php }}?>
                              					</div>
                                  			<?php  }?>	
                          
-                        				<?php }?>
+                        				<?php } ?>
                                 </div>
                             </div>
                          </div>
+                         
+                     
                                 <script type="text/javascript">
                     
                     function cogian(objID){
@@ -269,7 +275,8 @@ background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat l
                                 <div class="list_carousels">
 
                                 <ul id="foo"style="min-height: 700px;">
-                                <?php $productnew = $this->requestAction('/'.$shopname.'/typical/'.$shop_id);?>
+                                <?php $productnew = $this->requestAction('/'.$shopname.'/typical/'.$shop_id); 
+                                ?>
                                 <?php foreach($productnew as $value){?>
                                 <li ><div class="sanpham" id="yahoo">
                             	<a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $value['Estore_product']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINADESTORE.$value['Estore_product']['images']?>'/></p>">
@@ -290,7 +297,7 @@ background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat l
                         	<h3>Tin tức khuyến mại</h3>      
                             <?php $hotnew = $this->requestAction('/'.$shopname.'/hotnew/'.$shop_id);?>                 	
                             <ul><?php foreach($hotnew as $value){?>
-                            	<li><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/viewnews/<?php echo $value['Estore_news']['id'];?>"><?php echo $value['Estore_news']['title'];?> </a></li>                               
+                            	<li><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/viewnews/<?php echo $value['estore_news']['id'];?>"><?php echo $value['estore_news']['title'];?> </a></li>                               
                                 <?php }?>
                             </ul>
                         </div>  
@@ -298,16 +305,18 @@ background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat l
                         <?php $video = $this->requestAction('/'.$shopname.'/videos/'.$shop_id) ?>
                             <?php  foreach($video as $video){?> 
                             <?php 
-                            $url = $video['Estore_video']['LinkUrl'];
+                            $url = $video['estore_videos']['LinkUrl'];
                             parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );     
                             ?>
                            <iframe width="202px" height="202px" src="http://www.youtube.com/embed/<?php echo $my_array_of_vars['v'];?>" frameborder="0" allowfullscreen></iframe>
                            <?php }?>
                         </div>
                         
-                        <?php $advf= $this->requestAction('/'.$shopname.'/advf/'.$shop_id) ?>
+                        <?php $advf= $this->requestAction('/'.$shopname.'/advf/'.$shop_id) ;
+                       // pr($advf);
+                        ?>
                         <?php foreach($advf as $advs1 ){  ?>
                         <div id="video">
-                         <a href="<?php echo $advs1['Estore_advertisement']['link'] ?>" target="_blank"><img src="<?php echo DOMAINADESTORE.$advs1['Estore_advertisement']['images']?>" border="0" width="202px" alt="" /></a>  
+                         <a href="<?php echo $advs1['estore_advertisements']['link'] ?>" target="_blank"><img src="<?php echo DOMAINADESTORE.$advs1['estore_advertisements']['images']?>" border="0" width="202px" alt="" /></a>  
                          </div> 	
                          <?php }?>

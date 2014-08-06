@@ -104,18 +104,17 @@ class BepgaController extends AppController {
 				'order' => 'Estore_category.tt ASC' 
 		) );
 	}
-	function banner($shop_id=null) {
+	function banner() {
 		return $this->Estore_banner->find ( 'all', array (
 				'conditions' => array (
-						'Estore_banner.status' => 1,
-						'Estore_banner.estore_id' =>$shop_id
+						'Estore_banner.status' => 1 
 				),
 				'order' => 'Estore_banner.id DESC' 
 		) );
 	}
-	function setting($shop_id=null) {
+	function setting() {
 		return $this->Estore_setting->find ( 'all', array (
-				'conditions' => array ('estore_setting.estore_id' =>$shop_id),
+				'conditions' => array (),
 				'order' => 'Estore_setting.id DESC' 
 		) );
 	}
@@ -146,12 +145,10 @@ class BepgaController extends AppController {
 				'order' => 'Categoryestore2.id ASC' 
 		) );
 	}
-	function helpsonline($shop_id=null) {
-		//return $shop_id;
+	function helpsonline() {
 		return $this->Estore_helps->find ( 'all', array (
 				'conditions' => array (
-						'Estore_helps.status' => 1,
-						'Estore_helps.estore_id' => $shop_id
+						'Estore_helps.status' => 1 
 				),
 				'order' => 'Estore_helps.id DESC' 
 		) );
@@ -170,11 +167,10 @@ class BepgaController extends AppController {
 				'limit' => 1 
 		) );
 	}
-	function hotnew($shop_id=null) {
+	function hotnew() {
 		return $this->Estore_news->find ( 'all', array (
 				'conditions' => array (
 						'Estore_news.status' => 1,
-						'Estore_news.estore_id' => $shop_id,
 						'Estore_news.category_id' => 156 
 				),
 				'order' => 'Estore_news.id DESC',
@@ -191,24 +187,22 @@ class BepgaController extends AppController {
 				'limit' => 3 
 		) );
 	}
-	function videos($shop_id=null) {
+	function videos() {
 		mysql_query ( "SET names utf8" );
 		return $this->Estore_video->find ( 'all', array (
 				'conditions' => array (
 						'Estore_video.status' => 1,
-						'Estore_video.estore_id' => $shop_id,
 						'Estore_video.left' => 0 
 				),
 				'order' => 'Estore_video.id DESC',
 				'limit' => 1 
 		) );
 	}
-	function videosright($shop_id=null) {
+	function videosright() {
 		mysql_query ( "SET names utf8" );
 		return $this->Estore_video->find ( 'all', array (
 				'conditions' => array (
 						'Estore_video.status' => 1,
-						'Estore_video.estore_id' => $shop_id,
 						'Estore_video.left' => 1 
 				),
 				'order' => 'Estore_video.id DESC',
@@ -295,20 +289,18 @@ class BepgaController extends AppController {
 				'order' => 'Estore_catproduct.id ASC' 
 		) );
 	}
-	function danhmuc($shop_id = Null) {
+	function danhmuc() {
 		return $this->Estore_catproduct->find ( 'all', array (
 				'conditions' => array (
-						'Estore_catproduct.parent_id' => 11,
-						'Estore_catproduct.estore_id' => $shop_id
+						'Estore_catproduct.parent_id' => 11 
 				),
 				'order' => 'Estore_catproduct.name ASC' 
 		) );
 	}
-	function typical($shop_id = Null) {
+	function typical() {
 		return $this->Estore_product->find ( 'all', array (
 				'conditions' => array (
-						'Estore_product.status' => 1,
-						'Estore_product.estore_id' => $shop_id
+						'Estore_product.status' => 1 
 				),
 				'order' => 'Estore_product.id DESC',
 				'limit' => 10 
@@ -441,21 +433,19 @@ class BepgaController extends AppController {
 				'limit' => 1 
 		) );
 	}
-	function advf($shop_id= null) {
+	function advf() {
 		return $this->Estore_advertisement->find ( 'all', array (
 				'conditions' => array (
 						'Estore_advertisement.status' => 1,
-						'Estore_advertisement.estore_id' => $shop_id,
 						'Estore_advertisement.display' => 2 
 				),
 				'order' => 'Estore_advertisement.id ASC' 
 		) );
 	}
-	function advr($shop_id= null) {
+	function advr() {
 		return $this->Estore_advertisement->find ( 'all', array (
 				'conditions' => array (
 						'Estore_advertisement.status' => 1,
-						'Estore_advertisement.estore_id' => $shop_id,
 						'Estore_advertisement.display' => 3 
 				),
 				'order' => 'Estore_advertisement.id ASC' 
