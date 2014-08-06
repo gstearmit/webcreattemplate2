@@ -7,6 +7,8 @@
 						  		'Estore_categories',//Catalogueshop
 						  		'Estore_news',//eshop
 						  		'Estore_products',//eshop products
+						  		'Estore_catproducts',// eshop Estorecatproducts
+						  		'Estore_manufacturers',// eshop Estore_manufacturers
 								'Estore_category',
 								'Estore_comments',
 								'Estore_user',
@@ -536,7 +538,6 @@
 							) );
 						}
 						function cat() {
-							//$this->layout = 'themeshop/estorecreatnanedata';
 							$nameeshop = $this->shopname;
 							$shoparr = $this->Shop->find ( 'all', array (
 									'conditions' => array (
@@ -564,10 +565,10 @@
 									
 							}
 							
-							$this->Estore_categories->setDataEshop($hostname,$username,$password,$databasename);
-							$prff = $this->Estore_categories->find ( 'all', array (
+							$this->Estore_catproducts->setDataEshop($hostname,$username,$password,$databasename);
+							$prff = $this->Estore_catproducts->find ( 'all', array (
 									'conditions' => array (
-											'Estore_categories.status' => 1 
+											'Estore_catproducts.status' => 1 
 									) 
 							) );
 						//	echo "xzxzx";
@@ -576,12 +577,49 @@
 							
 						}
 						function hsx() {
-							return $this->Estore_manufacturer->find ( 'all', array (
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
 									'conditions' => array (
-											'Estore_manufacturer.status' => 1,
-											'Estore_manufacturer.parent_id ' => null 
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
+							}
+								
+							$this->Estore_manufacturers->setDataEshop($hostname,$username,$password,$databasename);
+							$manufacturer =$this->Estore_manufacturers->find ( 'all', array (
+									'conditions' => array (
+											'Estore_manufacturers.status' => 1,
+											'Estore_manufacturers.parent_id ' => null 
 									) 
 							) );
+							
+// 							pr($manufacturer);
+							return $manufacturer;
+// 							return $this->Estore_manufacturer->find ( 'all', array (
+// 									'conditions' => array (
+// 											'Estore_manufacturer.status' => 1,
+// 											'Estore_manufacturer.parent_id ' => null 
+// 									) 
+// 							) );
 						}
 						function catcon() {
 							$nameeshop = $this->shopname;
@@ -611,10 +649,10 @@
 									
 							}
 								
-							$this->Estore_categories->setDataEshop($hostname,$username,$password,$databasename);
-							$prff = $this->Estore_categories->find ( 'all', array (
+							$this->Estore_catproducts->setDataEshop($hostname,$username,$password,$databasename);
+							$prff = $this->Estore_catproducts->find ( 'all', array (
 									'conditions' => array (
-											'Estore_categories.status' => 1
+											'Estore_catproducts.status' => 1
 									)
 							) );
 							//	echo "xzxzx";

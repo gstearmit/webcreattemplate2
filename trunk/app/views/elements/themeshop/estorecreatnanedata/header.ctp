@@ -20,7 +20,8 @@ $tem = $this->requestAction ( 'comment/get_tem/' . $user_id );
 foreach ( $tem as $tem ) {
 	$template = $tem ['Tem']['linktems'];
 }
-
+// pr($shop_id);
+// pr($shopname);
 ?>
 <?php $banner = $this -> requestAction('/'.$shopname.'/banner/'.$shop_id);?>
    <?php foreach($banner as $banner){ ?>

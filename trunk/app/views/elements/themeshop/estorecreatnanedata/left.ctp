@@ -215,7 +215,7 @@ background: #e3e3e3 url(<?php echo DOMAIN;?>home/images/li_menu.png) no-repeat l
                                 <div class="menu_list" >
                                  <?php 
                                  $root = $this->requestAction('/'.$shopname.'/danhmuc/'.$shopname);	
-                                // pr($root);		
+                                 //pr($root);		
                                          foreach ($root as $value){?>
                                  		<p class="menu_head"><?php echo $value['estore_catproducts']['name']?></p>                	 
                                  			<?php $category = $this->requestAction('/'.$shopname.'/showsmenu1/'.$value['estore_catproducts']['id']);

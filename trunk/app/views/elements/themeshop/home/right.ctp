@@ -33,7 +33,7 @@ foreach ( $tem as $tem ) {
       <form action="<?php echo DOMAIN;?><?php echo $shopname ;?>/search" method="post" style="width: 200px;">
                 <select style="width: 185px;margin-left: 10px;margin-top:10px; height: 20px; margin-bottom: 5px;" name="system">
                            <option value="" >Chọn loại sản phẩm</option>
-                            <?php $cat = $this->requestAction('/'.$shopname.'/cat') ?>
+                            <?php $cat = $this->requestAction('/'.$shopname.'/cat');  ?>
                             <?php foreach($cat as $Catproduct) {?>
                             <?php if($Catproduct['Estore_catproduct']['parent_id']==11){?>
                              <option value="<?php echo $Catproduct['Estore_catproduct']['id']; ?>"><?php echo $Catproduct['Estore_catproduct']['name']; ?></option>
