@@ -50,7 +50,7 @@
 			$id = "rightBlock";
 			$icon = "good-company";
 		}
-// 		if ($data ['Note'] ['location'] == 1) {
+	if ($data ['Note'] ['location'] == 1) {
 			//+++++++check Langue++++++++++++
 			if($langue =='vie') 
 			{
@@ -80,7 +80,7 @@
 	</div>
 
 <?php
-		//}
+		}
 	}
 	?>
 
@@ -169,15 +169,28 @@
 			<div id="firstBlock" class="open">
 			<?php
 			
-foreach ( $setting as $key => $view ) {
-				if ($view ['Note'] ['location'] == 2) {
-					
+foreach ( $setting as $key => $data ) {
+				if ($data ['Note'] ['location'] == 2) {
+				if($langue =='vie')
+{
+	$titlev = $data['Note']['title'];
+	$introductionv = $data['Note']['introduction'];
+	$contentv = $data['Note']['content'];
+
+}
+if($langue =='eng')
+{
+	$titlev = $data['Note']['title_eg'];
+	$introductionv = $data['Note']['introduction_eg'];
+	$contentv = $data['Note']['content_eg'];
+}	
+				
 					?>
 			
 				<div id="firstWrapper">
-					<h2 id="firstHeader"><?php echo $view['Note']['title']?></h2>
+					<h2 id="firstHeader"><?php echo $titlev; ?></h2>
 					<div id="firstParagraph">
-						<?php echo $view['Note']['content'];?>
+						<?php echo $contentv;?>
 					</div>
 				</div>
 				<?php } }?>

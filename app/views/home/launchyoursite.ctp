@@ -32,16 +32,14 @@ $eshop = $this->Session->read ( 'eshop' );
 
 
 	<div id="page">
-	<div class="container">
-	<div class="row">
+	
 		<div id="header" class="col-xs-12 ">
-			<span id="logo"><img src="../img/layout3-1/AlatcaLogo2.png"/></span>
-			<div id="headerContent" class="fullSize col-xs-6 col-md-4">
+			<span id="logo"><img src="<?php echo DOMAIN ?>/webcreathtml/img/layout3-1/AlatcaLogo2.png" width="220"/></span>
+			<div id="headerContent" >
 				<h1><?php __('registrationWizard') ?></h1>
 			</div>
 		</div>
-		</div>
-		</div>
+		
 		<hr class="hidden" />
 		<div id="content">
 			<div id="leftColumn">
@@ -440,7 +438,8 @@ $eshop = $this->Session->read ( 'eshop' );
 						<!-- -->
 					</div>
 				</div>
-				<div id="wizardButtons">
+				
+				<div id="wizardButtons" class="col-xs-12 col-sm-6 col-md-8">
 					<div class="buttonToRight">
 						<span id="nextButtonBlock" class="buttonCase">
 							<button id="nextButton" type="submit" ><!-- onclick="return Finish()"  -->
@@ -453,6 +452,7 @@ $eshop = $this->Session->read ( 'eshop' );
 						<!-- -->
 					</div>
 				</div>
+				
 				<!-- id="wizardButtons" -->
 			</div>
 			<div class="cleaner">
@@ -465,7 +465,7 @@ $eshop = $this->Session->read ( 'eshop' );
 
 	<hr class="hidden" />
 	<div id="coverFooter">
-		<div id="footer">
+		<div id="footer" >
 			<p id="footerCopyrights"><?php __('Allrightsreserved');?></p>
 		</div>
 	</div>
