@@ -14,7 +14,7 @@
 <div id="sanphamchitiet">
     <div class="tops"><?php
     //foreach ($cat as $catvl){
-     echo $cat['Estorecategories']['name']; //}?>
+     echo $cat['Estore_categories']['name']; //}?>
      </div>
         <div class="m1" style="padding:20px 10px !important;min-height: 985px !important;">            
              <div class="clearfix"> 		                   

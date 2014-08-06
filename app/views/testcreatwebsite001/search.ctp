@@ -38,7 +38,10 @@
             <?php
 				$paginator->options(array('url' => $this->passedArgs));                                    
 				echo $paginator->numbers();
-            }?></div>
+				?>
+			</div>	
+            <?php }?>
         </div>  
     </div><!--end newstop-->
+    
 </div>

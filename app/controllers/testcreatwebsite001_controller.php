@@ -6,7 +6,7 @@
 						  	var $uses = array (
 						  		'Estore_categories',//Catalogueshop
 						  		'Estore_news',//eshop
-						  		'Estore_products',
+						  		'Estore_products',//eshop products
 								'Estore_category',
 								'Estore_comments',
 								'Estore_user',
@@ -1195,7 +1195,7 @@
 							
 							$this->layout = 'themeshop/home';
 							$this->set ( 'title_for_layout', 'e-shop' );
-							$this->loadModel ( "Estore_catproduct" );
+							//$this->loadModel ( "Estore_catproducts" );
 							
 							if (isset ( $_POST ['system'] )) {
 								$list_cat = $_POST ['system'];
@@ -1210,9 +1210,10 @@
 							} else
 								$gia = "";
 							
-							echo "list_cat</br>";pr($list_cat);
+							
 							
 							if (($list_cat != "") && ($hsx == "") && ($gia == "")) {
+								$this->Estore_categories->setDataEshop($hostname,$username,$password,$databasename);
 								$po1 = $this->Estore_categories->find ( 'list', array (
 										'conditions' => array (
 												'Estore_categories.status' => 1,
@@ -1222,8 +1223,6 @@
 												'Estore_categories.id' 
 										) 
 								) );
-								
-							
 								
 								if ($po1 != null) {
 									$this->paginate = array (
@@ -1239,122 +1238,132 @@
 								} else {
 									$this->paginate = array (
 											'conditions' => array (
-													'Estore_product.status' => 1,
-													'Estore_product.catproduct_id' => $list_cat 
+													'Estore_products.status' => 1,
+													'Estore_products.catproduct_id' => $list_cat 
 											),
 											'limit' => '21',
-											'order' => 'Estore_product.id DESC' 
+											'order' => 'Estore_products.id DESC' 
 									);
-									$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
+									$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
+									$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
 								}
 							}
 							
 							if (($list_cat != "") && ($hsx != "") && ($gia == "")) {
-								$po1 = $this->Estore_catproduct->find ( 'list', array (
+								$this->Estore_categories->setDataEshop($hostname,$username,$password,$databasename);
+								$po1 = $this->Estore_categories->find ( 'list', array (
 										'conditions' => array (
-												'Estore_catproduct.status' => 1,
-												'Estore_catproduct.parent_id' => $list_cat 
+												'Estore_categories.status' => 1,
+												'Estore_categories.parent_id' => $list_cat 
 										),
 										'fields' => array (
-												'Estore_catproduct.id' 
+												'Estore_categories.id' 
 										) 
 								) );
 								
 								if ($po1 != null) {
 									$this->paginate = array (
 											'conditions' => array (
-													'Estore_product.status' => 1,
-													'Estore_product.catproduct_id' => $po1,
-													'Estore_product.manufacturer' => $hsx 
+													'Estore_products.status' => 1,
+													'Estore_products.catproduct_id' => $po1,
+													'Estore_products.manufacturer' => $hsx 
 											),
 											'limit' => '21',
-											'order' => 'Estore_product.id DESC' 
+											'order' => 'Estore_products.id DESC' 
 									);
-									$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
+									$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
+									$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
 								} else {
 									$this->paginate = array (
 											'conditions' => array (
-													'Estore_product.status' => 1,
-													'Estore_product.catproduct_id' => $list_cat,
-													'Estore_product.manufacturer' => $hsx 
+													'Estore_products.status' => 1,
+													'Estore_products.catproduct_id' => $list_cat,
+													'Estore_products.manufacturer' => $hsx 
 											),
 											'limit' => '21',
-											'order' => 'Estore_product.id DESC' 
+											'order' => 'Estore_products.id DESC' 
 									);
-									$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
+									$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
+									$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
 								}
 							}
 							
 							if (($list_cat != "") && ($hsx == "") && ($gia != "")) {
-								$po1 = $this->Estore_catproduct->find ( 'list', array (
+								$this->Estore_categories->setDataEshop($hostname,$username,$password,$databasename);
+								$po1 = $this->Estore_categories->find ( 'list', array (
 										'conditions' => array (
-												'Estore_catproduct.status' => 1,
-												'Estore_catproduct.parent_id' => $list_cat 
+												'Estore_categories.status' => 1,
+												'Estore_categories.parent_id' => $list_cat 
 										),
 										'fields' => array (
-												'Estore_catproduct.id' 
+												'Estore_categories.id' 
 										) 
 								) );
 								
 								if ($po1 != null) {
 									$this->paginate = array (
 											'conditions' => array (
-													'Estore_product.status' => 1,
-													'Estore_product.catproduct_id' => $po1,
-													'Estore_product.khoanggia' => $gia 
+													'Estore_products.status' => 1,
+													'Estore_products.catproduct_id' => $po1,
+													'Estore_products.khoanggia' => $gia 
 											),
 											'limit' => '21',
-											'order' => 'Estore_product.id DESC' 
+											'order' => 'Estore_products.id DESC' 
 									);
-									$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
+									$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
+									$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
 								} else {
 									$this->paginate = array (
 											'conditions' => array (
-													'Estore_product.status' => 1,
-													'Estore_product.catproduct_id' => $list_cat,
-													'Estore_product.khoanggia' => $gia 
+													'Estore_products.status' => 1,
+													'Estore_products.catproduct_id' => $list_cat,
+													'Estore_products.khoanggia' => $gia 
 											),
 											'limit' => '21',
-											'order' => 'Estore_product.id DESC' 
+											'order' => 'Estore_products.id DESC' 
 									);
-									$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
+									$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
+									$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
 								}
 							}
 							if (($list_cat != "") && ($hsx != "") && ($gia != "")) {
-								$po1 = $this->Estore_catproduct->find ( 'list', array (
+								$this->Estore_categories->setDataEshop($hostname,$username,$password,$databasename);
+								$po1 = $this->Estore_categories->find ( 'list', array (
 										'conditions' => array (
-												'Estore_catproduct.status' => 1,
-												'Estore_catproduct.parent_id' => $list_cat 
+												'Estore_categories.status' => 1,
+												'Estore_categories.parent_id' => $list_cat 
 										),
 										'fields' => array (
-												'Estore_catproduct.id' 
+												'Estore_categories.id' 
 										) 
 								) );
 								
 								if ($po1 != null) {
 									$this->paginate = array (
 											'conditions' => array (
-													'Estore_product.status' => 1,
-													'Estore_product.catproduct_id' => $po1,
-													'Estore_product.khoanggia' => $gia,
-													'Estore_product.manufacturer' => $hsx 
+													'Estore_products.status' => 1,
+													'Estore_products.catproduct_id' => $po1,
+													'Estore_products.khoanggia' => $gia,
+													'Estore_products.manufacturer' => $hsx 
 											),
 											'limit' => '21',
-											'order' => 'Estore_product.id DESC' 
+											'order' => 'Estore_products.id DESC' 
 									);
-									$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
+									$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
+									$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
 								} else {
 									$this->paginate = array (
 											'conditions' => array (
-													'Estore_product.status' => 1,
-													'Estore_product.catproduct_id' => $list_cat,
-													'Estore_product.khoanggia' => $gia,
-													'Estore_product.manufacturer' => $hsx 
+													'Estore_products.status' => 1,
+													'Estore_products.catproduct_id' => $list_cat,
+													'Estore_products.khoanggia' => $gia,
+													'Estore_products.manufacturer' => $hsx 
 											),
 											'limit' => '21',
-											'order' => 'Estore_product.id DESC' 
+											'order' => 'Estore_products.id DESC' 
 									);
-									$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
+									$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
+									$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
 								}
 							}
 							if (($list_cat == "") && ($hsx == "") && ($gia != "")) {
@@ -1367,10 +1376,6 @@
 										'order' => 'Estore_products.id DESC' 
 								);
 								$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
-// 								$Estoreshopnews = $this->Estore_products->find('all');
-// 								echo "phuc</br>";pr($Estoreshopnews);
-								
-// 								$this->set ( 'Estoreshopnews', $Estoreshopnews );
 								$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
 							}
 							if (($list_cat == "") && ($hsx != "") && ($gia == "")) {
@@ -1381,7 +1386,7 @@
 												'Estore_products.manufacturer' => $hsx 
 										),
 										'limit' => '21',
-										'order' => 'Estore_product.id DESC' 
+										'order' => 'Estore_products.id DESC' 
 								);
 								$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
 								$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
@@ -1854,8 +1859,8 @@
 
 							$this->set('listnews', $this->paginate('Estore_news',array()));
 							
-							$this->Estorecategories->setDataEshop($hostname,$username,$password,$databasename);
-							$this->set('cat',$this->Estorecategories->read(null,$id));
+							$this->Estore_categories->setDataEshop($hostname,$username,$password,$databasename);
+							$this->set('cat',$this->Estore_categories->read(null,$id));
 						}
 
 						function getmodolnews()
