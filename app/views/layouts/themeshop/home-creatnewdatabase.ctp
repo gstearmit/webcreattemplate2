@@ -256,7 +256,7 @@ function checkScreenWidth()
                     </marquee>
                 </div>
                 <div class="giohang">
-                <a href="<?php echo DOMAIN?>bepga/viewshopingcart">GIỎ HÀNG</a>
+                <a href="<?php echo DOMAIN.$shopname?>/viewshopingcart">GIỎ HÀNG</a>
                 <?php if(isset($_SESSION['shopingcart'])){ $sl=count($_SESSION['shopingcart']);?>
                 <p>Có {<?php echo $sl;?>} sản phẩm</p>
                 <?php }else{?>

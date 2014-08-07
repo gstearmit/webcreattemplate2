@@ -245,22 +245,24 @@ $().ready(function() {
 				<h2 style="padding: 10px 0;"><font color="#a70908" style="font-size: 16px;">Mọi chi tiết xin liên hệ:</font></h2>
 				
 				           
-		     	 	<?php $setting = $this->requestAction('/comment/setting');?>
+		     	 	<?php 
+		     	 	//pr($shopname);
+		     	 	$setting = $this->requestAction('/'.$shopname.'/setting');?>
                	<div>	
                		<ul class="lienhe" style="list-style: none;">
 			     	 	<?php  foreach($setting as $k=>$item){?> 
-                        <li><h1 style="padding: 5px; color: rgb(168, 8, 8); font-size: 21px;"><?php echo $item['Setting']['name'] ?></h1></li>
-	               			<li>Địa chỉ: <?php echo $item['Setting']['address'] ?></li>
-	               			<li>Điện thoại: <?php echo $item['Setting']['phone'] ?> - Hotline: <font color="red"><?php echo $item['Setting']['mobile'] ?></font></li>
-	               			<li> Email:<?php echo $item['Setting']['email'] ?></li>
-	               			<li> Website:<font color="blue" style="font-size:17px;"><?php echo $item['Setting']['url'] ?></font></li>
+                        <li><h1 style="padding: 5px; color: rgb(168, 8, 8); font-size: 21px;"><?php echo $item['Estore_settings']['name'] ?></h1></li>
+	               			<li>Địa chỉ: <?php echo $item['Estore_settings']['address'] ?></li>
+	               			<li>Điện thoại: <?php echo $item['Estore_settings']['phone'] ?> - Hotline: <font color="red"><?php echo $item['Estore_settings']['mobile'] ?></font></li>
+	               			<li> Email:<?php echo $item['Estore_settings']['email'] ?></li>
+	               			<li> Website:<font color="blue" style="font-size:17px;"><?php echo $item['Estore_settings']['url'] ?></font></li>
 	               			
 	               		<?php }?>
 	               	</ul>
 	              </div>
 	              <div>
 	              	<?php  foreach($setting as $k=>$item){?> 
-	              	 	 <?php echo $item['Setting']['content']?>
+	              	 	 <?php echo $item['Estore_settings']['content']?>
 	              	 <?php }?> 
 	              </div>	
 		     </div>          
