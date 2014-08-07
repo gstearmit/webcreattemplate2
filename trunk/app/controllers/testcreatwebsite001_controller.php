@@ -12,6 +12,7 @@
 						  		'Estore_advertisements',//eshop Estore_advertisements
 						  		'Estore_slideshows', //eshop Estore_slideshows
 						  		'Estore_partners', // eshop Estore_partners
+						  		'Estore_infomations',//eshop Estore_infomations
 						  		'Estore_settings',
 								'Estore_category',
 								'Estore_comments',
@@ -1807,18 +1808,39 @@
 						
 						// shopping
 						function addshopingcart($id = null) {
-							$shop = explode ( '/', $this->params ['url'] ['url'] );
-							$shopname = $shop [0];
-							$shoparr = $this->get_shop_id ( $shopname );
-							foreach ( $shoparr as $key => $value ) {
-								$shop_id = $key;
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
 							}
-							$this->set ( 'shopname', $shopname );
+								
+							$this->set ( 'shopname', $nameeshop );
 							
 							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
-							
-							$product = $this->Estore_product->read ( null, $id );
+							$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
+							$product = $this->Estore_products->read ( null, $id );
 							
 							if (! isset ( $_SESSION ['shopingcart'] )) {
 								$_SESSION ['shopingcart'] = array ();
@@ -1832,16 +1854,16 @@
 									$shopingcart [$id] ['sl'] = $shopingcart [$id] ['sl'] + 1;
 									$shopingcart [$id] ['total'] = $shopingcart [$id] ['price'] * $shopingcart [$id] ['sl'];
 									$_SESSION ['shopingcart'] = $shopingcart;
-									echo '<script language="javascript"> alert("Thêm thành công"); window.location.replace("' . DOMAIN .$shopname . '/viewshopingcart"); </script>';
+									echo '<script language="javascript"> alert("Thêm thành công"); window.location.replace("' . DOMAIN .$this->shopname. '/viewshopingcart"); </script>';
 								} else {
 									$shopingcart [$id] ['pid'] = $id;
-									$shopingcart [$id] ['name'] = $product ['Estore_product'] ['title'];
-									$shopingcart [$id] ['images'] = $product ['Estore_product'] ['images'];
+									$shopingcart [$id] ['name'] = $product ['Estore_products'] ['title'];
+									$shopingcart [$id] ['images'] = $product ['Estore_products'] ['images'];
 									$shopingcart [$id] ['sl'] = 1;
-									$shopingcart [$id] ['price'] = $product ['Estore_product'] ['price'];
-									$shopingcart [$id] ['total'] = $product ['Estore_product'] ['price'] * $shopingcart [$id] ['sl'];
+									$shopingcart [$id] ['price'] = $product ['Estore_products'] ['price'];
+									$shopingcart [$id] ['total'] = $product ['Estore_products'] ['price'] * $shopingcart [$id] ['sl'];
 									$_SESSION ['shopingcart'] = $shopingcart;
-									echo '<script language="javascript" type="text/javascript"> alert("Thêm giỏ hàng thành công"); window.location.replace("' . DOMAIN .$shopname . '/viewshopingcart"); </script>';
+									echo '<script language="javascript" type="text/javascript"> alert("Thêm giỏ hàng thành công"); window.location.replace("' . DOMAIN .$this->shopname . '/viewshopingcart"); </script>';
 								}
 							}
 						}
@@ -1885,13 +1907,35 @@
 							$this->set ( 'buy', $this->Estore_news->read ( null, $id ) );
 						}
 						function viewshopingcart() {
-							$shop = explode ( '/', $this->params ['url'] ['url'] );
-							$shopname = $shop [0];
-							$shoparr = $this->get_shop_id ( $shopname );
-							foreach ( $shoparr as $key => $value ) {
-								$shop_id = $key;
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
 							}
-							$this->set ( 'shopname', $shopname );
+							//$this->Estore_news->setDataEshop($hostname,$username,$password,$databasename);
+								
+							$this->set ( 'shopname', $nameeshop );
 							
 							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
@@ -1901,7 +1945,7 @@
 								$shopingcart = $_SESSION ['shopingcart'];
 								$this->set ( compact ( 'shopingcart' ) );
 							} else {
-								echo '<script language="javascript"> alert("Chua co san pham nao trong gio hang"); window.location.replace("' . DOMAIN .$shopname . '/index"); </script>';
+								echo '<script language="javascript"> alert("Chua co san pham nao trong gio hang"); window.location.replace("' . DOMAIN .$this->shopname . '/index"); </script>';
 							}
 						}
 						function updateshopingcart($id = null) {
@@ -1927,13 +1971,34 @@
 							}
 						}
 						function buy() {
-							$shop = explode ( '/', $this->params ['url'] ['url'] );
-							$shopname = $shop [0];
-							$shoparr = $this->get_shop_id ( $shopname );
-							foreach ( $shoparr as $key => $value ) {
-								$shop_id = $key;
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
 							}
-							$this->set ( 'shopname', $shopname );
+								
+							$this->set ( 'shopname', $nameeshop );
 							
 							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
@@ -1941,7 +2006,7 @@
 								$shopingcart = $_SESSION ['shopingcart'];
 								$this->set ( compact ( 'shopingcart' ) );
 							} else {
-								echo '<script language="javascript"> alert("Không có sản phẩm nào trong giỏ hàng của bạn"); window.location.replace("' . DOMAIN . '"); </script>';
+								echo '<script language="javascript"> alert("Không có sản phẩm nào trong giỏ hàng của bạn"); window.location.replace("' . DOMAIN .$this->shopname.'"); </script>';
 							}
 						}
 						function category($id = null) {
@@ -2003,26 +2068,50 @@
 							}
 						}
 						function addinfomations() {
-							$shop = explode ( '/', $this->params ['url'] ['url'] );
-							$shopname = $shop [0];
-							$shoparr = $this->get_shop_id ( $shopname );
-							foreach ( $shoparr as $key => $value ) {
-								$shop_id = $key;
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
 							}
-							$this->set ( 'shopname', $shopname );
+								
+							$this->set ( 'shopname', $nameeshop );
 							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							$uid = "id" . rand ( 1, 1000000 );
-							$data ['Estore_infomation'] ['user_id'] = ($this->Session->read ( "id" ) != '' ? $this->Session->read ( "id" ) : $uid);
-							$data ['Estore_infomation'] ['mobile'] = $_POST ['phone'];
-							$data ['Estore_infomation'] ['address'] = $_POST ['address'];
-							$data ['Estore_infomation'] ['email'] = $_POST ['email'];
-							$data ['Estore_infomation'] ['name'] = $_POST ['name'];
-							$data ['Estore_infomation'] ['phone'] = $_POST ['phone'];
-							$data ['Estore_infomation'] ['total'] = $_POST ['total'];
-							$this->Estore_infomation->save ( $data ['Estore_infomation'] );
+							$data ['Estore_infomations'] ['user_id'] = ($this->Session->read ( "id" ) != '' ? $this->Session->read ( "id" ) : $uid);
+							$data ['Estore_infomations'] ['mobile'] = $_POST ['phone'];
+							$data ['Estore_infomations'] ['address'] = $_POST ['address'];
+							$data ['Estore_infomations'] ['email'] = $_POST ['email'];
+							$data ['Estore_infomations'] ['name'] = $_POST ['name'];
+							$data ['Estore_infomations'] ['phone'] = $_POST ['phone'];
+							$data ['Estore_infomations'] ['total'] = $_POST ['total'];
+							$data ['Estore_infomations'] ['estore_id'] = $shop_id;
 							
-							$info_id = $this->Estore_infomation->getLastInsertId ();
+							$this->Estore_infomations->setDataEshop($hostname,$username,$password,$databasename);
+							$this->Estore_infomations->save ( $data ['Estore_infomations'] );
+							
+							$info_id = $this->Estore_infomations->getLastInsertId ();
 							
 							$shopingcart = $_SESSION ['shopingcart'];
 							// print_r($shopingcart);exit;
@@ -2040,7 +2129,7 @@
 							}
 							
 							unset ( $_SESSION ['shopingcart'] );
-							echo '<script language="javascript">alert("cảm ơn bạn đã đặt hàng  chúng tôi sẽ liên hệ với bạn trong vòng 24h"); location.href="' . DOMAIN .$shopname . '/index";</script>';
+							echo '<script language="javascript">alert("cảm ơn bạn đã đặt hàng  chúng tôi sẽ liên hệ với bạn trong vòng 24h"); location.href="' . DOMAIN .$this->shopname . '/index";</script>';
 						}
 						function deleteinfomations($id = null) {
 							$shop = explode ( '/', $this->params ['url'] ['url'] );

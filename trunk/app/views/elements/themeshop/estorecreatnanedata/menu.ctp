@@ -34,7 +34,7 @@ foreach ( $tem as $tem ) {
  <?php //if($session->read('lang')==1){?>
 	<div id="menus">
               <ul id="nav">
-              	<li><a href="<?php echo DOMAIN?>">TRANG CHỦ</a></li>
+              	<li><a href="<?php echo DOMAIN.$shopname?>">TRANG CHỦ</a></li>
                 <?php $root = $this->requestAction('/'.$shopname.'/menucategory');				
                     foreach ($root as $value){?>
                <?php $category = $this->requestAction('/'.$shopname.'/showcategory/'.$value['estore_categories']['id']);?>

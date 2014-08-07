@@ -45,7 +45,7 @@ if (confirm("Bạn có chắc muốn xóa sản phẩm này không?"))
              <div class="clearfix"> 		                   
                 <div class="roundBoxBody">
                      <div class="text-main" style="padding-top:20px; padding-bottom:20px;">
-                        <?php if($shopingcart){?>
+                        <?php  if($shopingcart){?>
                          <table  class="tblGrid wf" border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
                             <tr>
                                 <th width="100">Hình ảnh</th>
