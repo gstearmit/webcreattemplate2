@@ -1,7 +1,7 @@
 <?php
-class Estore_products extends AppModel {
-    var $name = 'Estore_products';
-    var $useTable = 'estore_products';
+class Estore_partners extends AppModel {
+    var $name = 'Estore_partners';
+    var $useTable = 'estore_partners';
     var $displayField = 'name';
     var $actsAs = array('Tree');
 	

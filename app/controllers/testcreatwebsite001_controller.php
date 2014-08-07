@@ -10,6 +10,9 @@
 						  		'Estore_catproducts',// eshop Estorecatproducts
 						  		'Estore_manufacturers',// eshop Estore_manufacturers
 						  		'Estore_advertisements',//eshop Estore_advertisements
+						  		'Estore_slideshows', //eshop Estore_slideshows
+						  		'Estore_partners', // eshop Estore_partners
+						  		'Estore_settings',
 								'Estore_category',
 								'Estore_comments',
 								'Estore_user',
@@ -202,9 +205,37 @@
 							
 						}
 						function setting($shop_id=null) {
-							return $this->Estore_setting->find ( 'all', array (
-									'conditions' => array ('estore_setting.estore_id' =>$shop_id),
-									'order' => 'Estore_setting.id DESC' 
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
+							}
+							
+							$this->Estore_settings->setDataEshop($hostname,$username,$password,$databasename);
+							return $this->Estore_settings->find ( 'all', array (
+									'conditions' => array ('estore_settings.estore_id' =>$shop_id),
+									'order' => 'Estore_settings.id DESC' 
 									) );
 						}
 						function adv() {
@@ -218,12 +249,40 @@
 							) );
 						}
 						function doitac() {
-							// return $this->Gallery->find('all',array('conditions'=>array('Gallery.status'=>1),'order'=>'Gallery.id DESC','limit'=>2));
-							return $this->Estore_partner->find ( 'all', array (
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
 									'conditions' => array (
-											'Estore_partner.status' => 1 
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
 									),
-									'order' => 'Estore_partner.id DESC' 
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
+							}
+							
+							$this->Estore_partners->setDataEshop($hostname,$username,$password,$databasename);
+							
+						    return $this->Estore_partners->find ( 'all', array (
+									'conditions' => array (
+											'Estore_partners.status' => 1 
+									),
+									'order' => 'Estore_partners.id DESC' 
 							) );
 						}
 						function menu_active() {
@@ -370,11 +429,40 @@
 						}
 						function slideshow() {
 							mysql_query ( "SET names utf8" );
-							return $this->Estore_slideshow->find ( 'all', array (
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
 									'conditions' => array (
-											'Estore_slideshow.status' => 1 
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
 									),
-									'order' => 'Estore_slideshow.id DESC' 
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
+							}
+							
+							$this->Estore_slideshows->setDataEshop($hostname,$username,$password,$databasename);
+						
+							return $this->Estore_slideshows->find ( 'all', array (
+									'conditions' => array (
+											'Estore_slideshows.status' => 1 
+									),
+									'order' => 'Estore_slideshows.id DESC' 
 							) );
 						}
 						function library_image() {
@@ -720,19 +808,77 @@
 
 						}
 						function adv1() {
-							return $this->Estore_advertisement->find ( 'all', array (
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
 									'conditions' => array (
-											'Estore_advertisement.status' => 1,
-											'Estore_advertisement.display' => 0 
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
+							}
+							
+							$this->Estore_advertisements->setDataEshop($hostname,$username,$password,$databasename);
+							
+							return $this->Estore_advertisements->find ( 'all', array (
+									'conditions' => array (
+											'Estore_advertisements.status' => 1,
+											'Estore_advertisements.display' => 0 
 									),
 									'limit' => 1 
 							) );
 						}
 						function adv2() {
-							return $this->Estore_advertisement->find ( 'all', array (
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
 									'conditions' => array (
-											'Estore_advertisement.status' => 1,
-											'Estore_advertisement.display' => 1 
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
+							}
+								
+							$this->Estore_advertisements->setDataEshop($hostname,$username,$password,$databasename);
+								
+							return $this->Estore_advertisements->find ( 'all', array (
+									'conditions' => array (
+											'Estore_advertisements.status' => 1,
+											'Estore_advertisements.display' => 1 
 									),
 									'limit' => 1 
 							) );
@@ -776,6 +922,7 @@
 									
 							}
 							
+							
 							$this->Estore_advertisements->setDataEshop($hostname,$username,$password,$databasename);
 						  
 							return $this->Estore_advertisements->find ( 'all', array (
@@ -790,173 +937,139 @@
 						
 						// +++++++++++++++++++++++++++++++++++Home+++++++++++++++++++++++++++++++++++++++++++++++
 						function index() {
+							$this->layout = 'themeshop/estorecreatnanedata';
+							$this->set ( 'title_for_layout', 'e-shop' );
 							
-							$shop = explode ( '/', $this->params ['url'] ['url'] );
-							$shopname = $shop [0];
-							$shoparr = $this->get_shop_id ( $shopname );
-							//pr($shoparr);//die;
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
 							
-// 							//++++++++++Connect  data +++++++++++++++++
-// 							foreach($shoparr as $shop){
-// 								$databasename = $shop['Shop']['databasename'];
-// 								$password = $shop['Shop']['password'];
-// 								$username = $shop['Shop']['username'];
-// 								$hostname = $shop['Shop']['hostname'];
-								
-// 							}
-// 							$db = new ConnectionManager;
-// 							$config = array(
-// 									//'className' => 'Cake\Database\Connection',
-// 									'driver' => 'mysql',
-// 									'persistent' => false,
-// 									'host' =>$hostname,
-// 									'login' =>$username,
-// 									'password' =>$password,
-// 									'database' =>$databasename,
-// 									'prefix' => false,
-// 									'encoding' => 'utf8',
-// 									'timezone' => 'UTC',
-// 									'cacheMetadata' => true
-// 							);
-// 							$db->create($databasename,$config);
-// 							$shop_id = "9999";
-// 							$sql= "INSERT INTO `estore_videos` (`estore_id`, `name`, `video`, `LinkUrl`, `created`, `status`, `left`, `right`) VALUES
-// 									($shop_id, 'Gala trong ngay', 'video/upload/c67b28f317fe8740ada0a80316a0559c.flv', 'http://www.youtube.com/watch?v=5z7DEE70dEs&feature=related', '2011-10-02 18:51:33', 1, 0, 0),
-// 									($shop_id, 'Clip gala Bên phải', 'video/upload/64c23f4052d6626521caef72b1bc067f.flv', 'http://www.youtube.com/watch?v=76ZqkGxe_Mc&feature=g-vrec', '2012-06-14 14:46:38', 1, 1, 0);";
-															
-// 							$name = ConnectionManager::getDataSource($databasename);
-// 							pr($name->config);die;
-// 							$resul = $name->rawQuery($sql);
-
-							
-// 							pr($resul);
-// 							die;
-							
-// 							pr($name);
-// 							echo "99999999999999999</br>";
-// 							pr($name->config);
-// 							echo "defaulll</br>";
-// 							pr($dbdefault->config);
-// 							$dbdefault->rawQuery($sql);
-// 							die;
-
-							
-					/*		
-						require_once 'app/Config/database.php';
-						$database = new DATABASE_CONFIG;
-						try{
-						        $dblink = new PDO('mysql:host='.$database->default['host'].';dbname='.$database->default['database'], $database->default['login'],  $database->default['password'], array(PDO::ATTR_PERSISTENT => false));
-						        $dblink->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-						        $dblink->exec('SET CHARACTER SET '.$database->default['encoding']);
-						} catch (Exception $e) {
-						        die('DB Error'. $e->getMessage());
-						}
-						pr($database->default['host']);	
-							die;
-						
-							
-							foreach ( $shoparr as $key => $value ) {
-								$shop_id = $key;
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
 							}
-				*/	
-							
-							$this->set ( 'shopname', $shopname );
+							$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
+						
+							$this->set ( 'shopname', $nameeshop );
 							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							$this->paginate = array (
 									'conditions' => array (
-											'Estore_product.status' => 1,
-											'Estore_product.spkuyenmai' => 1 
+											'Estore_products.status' => 1,
+											'Estore_products.spkuyenmai' => 1 
 									),
 									'limit' => '9',
-									'order' => 'Estore_product.id DESC' 
+									'order' => 'Estore_products.id DESC' 
 							);
-							$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
+							$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
+							$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
 							
-							$check1 = $this->Estore_catproduct->find ( 'list', array (
+							$this->Estore_catproducts->setDataEshop($hostname,$username,$password,$databasename);
+							$check1 = $this->Estore_catproducts->find ( 'list', array (
 									'conditions' => array (
-											'Estore_catproduct.parent_id' => 106 
+											'Estore_catproducts.parent_id' => 106 
 									),
 									'fields' => array (
-											'Estore_catproduct.id' 
+											'Estore_catproducts.id' 
 									) 
 							) );
 							
-							$checks = $this->Estore_catproduct->find ( 'list', array (
+							$this->Estore_catproducts->setDataEshop($hostname,$username,$password,$databasename);
+							$checks = $this->Estore_catproducts->find ( 'list', array (
 									'conditions' => array (
-											'Estore_catproduct.parent_id' => $check1 
+											'Estore_catproducts.parent_id' => $check1 
 									),
 									'fields' => array (
-											'Estore_catproduct.id' 
+											'Estore_catproducts.id' 
 									) 
 							) );
 							
 							if ($checks != null) {
-								$this->set ( 'tubep', $this->Estore_product->find ( 'all', array (
+								$this->set ( 'tubep', $this->Estore_products->find ( 'all', array (
 										'conditions' => array (
-												'Estore_product.status' => 1,
-												'Estore_product.catproduct_id' => $check1,
-												'Estore_product.catproduct_id' => $checks 
+												'Estore_products.status' => 1,
+												'Estore_products.catproduct_id' => $check1,
+												'Estore_products.catproduct_id' => $checks 
 										),
 										'limit' => 6,
-										'order' => 'Estore_product.id DESC' 
+										'order' => 'Estore_products.id DESC' 
 								) ) );
 							} else {
-								$this->set ( 'tubep', $this->Estore_product->find ( 'all', array (
+								$this->set ( 'tubep', $this->Estore_products->find ( 'all', array (
 										'conditions' => array (
-												'Estore_product.status' => 1,
-												'Estore_product.catproduct_id' => $check1 
+												'Estore_products.status' => 1,
+												'Estore_products.catproduct_id' => $check1 
 										),
 										'limit' => 6,
-										'order' => 'Estore_product.id DESC' 
+										'order' => 'Estore_products.id DESC' 
 								) ) );
 							}
-							$check2 = $this->Estore_catproduct->find ( 'list', array (
+							
+							$check2 = $this->Estore_catproducts->find ( 'list', array (
 									'conditions' => array (
-											'Estore_catproduct.parent_id' => 107 
+											'Estore_catproducts.parent_id' => 107 
 									),
 									'fields' => array (
-											'Estore_catproduct.id' 
+											'Estore_catproducts.id' 
 									) 
 							) );
 							
-							$checkss = $this->Estore_catproduct->find ( 'list', array (
+							$checkss = $this->Estore_catproducts->find ( 'list', array (
 									'conditions' => array (
-											'Estore_catproduct.parent_id' => $check2 
+											'Estore_catproducts.parent_id' => $check2 
 									),
 									'fields' => array (
-											'Estore_catproduct.id' 
+											'Estore_catproducts.id' 
 									) 
 							) );
 							
 							if ($checkss != null) {
-								$this->set ( 'bepcongnghiep', $this->Estore_product->find ( 'all', array (
+								$this->set ( 'bepcongnghiep', $this->Estore_products->find ( 'all', array (
 										'conditions' => array (
-												'Estore_product.status' => 1,
-												'Estore_product.catproduct_id' => $check2,
-												'Estore_product.catproduct_id' => $checkss 
+												'Estore_products.status' => 1,
+												'Estore_products.catproduct_id' => $check2,
+												'Estore_products.catproduct_id' => $checkss 
 										),
 										'limit' => 6,
-										'order' => 'Estore_product.id DESC' 
+										'order' => 'Estore_products.id DESC' 
 								) ) );
 							} else {
-								$this->set ( 'bepcongnghiep', $this->Estore_product->find ( 'all', array (
+								
+								$this->set ( 'bepcongnghiep', $this->Estore_products->find ( 'all', array (
 										'conditions' => array (
-												'Estore_product.status' => 1,
-												'Estore_product.catproduct_id' => $check2 
+												'Estore_products.status' => 1,
+												'Estore_products.catproduct_id' => $check2 
 										),
 										'limit' => 6,
-										'order' => 'Estore_product.id DESC' 
+										'order' => 'Estore_products.id DESC' 
 								) ) );
 							}
-							$this->set ( 'spvip', $this->Estore_product->find ( 'all', array (
+							$this->set ( 'spvip', $this->Estore_products->find ( 'all', array (
 									'conditions' => array (
-											'Estore_product.status' => 1,
-											'Estore_product.sptieubieu' => '1' 
+											'Estore_products.status' => 1,
+											'Estore_products.sptieubieu' => '1' 
 									),
 									'limit' => 6,
-									'order' => 'Estore_product.id DESC' 
+									'order' => 'Estore_products.id DESC' 
 							) ) );
 							
 							
@@ -1031,49 +1144,75 @@
 							}
 						}
 						function all($id = null) {
-							$shop = explode ( '/', $this->params ['url'] ['url'] );
-							$shopname = $shop [0];
-							$shoparr = $this->get_shop_id ( $shopname );
-							foreach ( $shoparr as $key => $value ) {
-								$shop_id = $key;
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
 							}
-							$this->set ( 'shopname', $shopname );
+								
+							$this->set ( 'shopname', $nameeshop );
 							
 							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( "SET names utf8" );
-							$check = $this->Estore_catproduct->find ( 'list', array (
+							$this->Estore_catproducts->setDataEshop($hostname,$username,$password,$databasename);
+							$check = $this->Estore_catproducts->find ( 'list', array (
 									'conditions' => array (
-											'Estore_catproduct.parent_id' => $id 
+											'Estore_catproducts.parent_id' => $id 
 									),
 									'fields' => array (
-											'Estore_catproduct.id' 
+											'Estore_catproducts.id' 
 									) 
 							) );
-							// var_dump($check); exit();
+							
 							if ($check != null) {
 								$this->paginate = array (
 										'conditions' => array (
-												'Estore_product.status' => 1,
-												'Estore_product.catproduct_id' => $check 
+												'Estore_products.status' => 1,
+												'Estore_products.catproduct_id' => $check 
 										),
-										'order' => 'Estore_product.id DESC',
+										'order' => 'Estore_products.id DESC',
 										'limit' => 18 
 								);
-								$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
-								$this->set ( 'cat', $this->Estore_catproduct->read ( null, $id ) );
+								$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
+								$this->Estore_catproducts->setDataEshop($hostname,$username,$password,$databasename);
+								$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
+								$this->set ( 'cat', $this->Estore_catproducts->read ( null, $id ) );
 							} else {
 								$this->paginate = array (
 										'conditions' => array (
-												'Estore_product.status' => 1,
-												'Estore_product.catproduct_id' => $id 
+												'Estore_products.status' => 1,
+												'Estore_products.catproduct_id' => $id 
 										),
-										'order' => 'Estore_product.id DESC',
+										'order' => 'Estore_products.id DESC',
 										'limit' => 18 
 								);
-								$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
-								$this->set ( 'cat', $this->Estore_catproduct->read ( null, $id ) );
+								$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
+								$this->Estore_catproducts->setDataEshop($hostname,$username,$password,$databasename);
+								$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
+								$this->set ( 'cat', $this->Estore_catproducts->read ( null, $id ) );
 							}
 						}
 						function khuyenmaiproduct() {
@@ -1612,17 +1751,36 @@
 							
 						}
 						function view($id = null) {
-							$shop = explode ( '/', $this->params ['url'] ['url'] );
-							$shopname = $shop [0];
-							$shoparr = $this->get_shop_id ( $shopname );
-							foreach ( $shoparr as $key => $value ) {
-								$shop_id = $key;
-							}
-							$this->set ( 'shopname', $shopname );
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
 							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
+							}
+							$this->set ( 'shopname', $nameeshop );
 							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
-							// var_dump($id);die;
+							$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
 							mysql_query ( "SET names utf8" );
 							if (! $id) {
 								$this->Session->setFlash ( __ ( 'Không tồn tại', true ) );
@@ -1630,21 +1788,21 @@
 										'action' => 'index' 
 								) );
 							}
-							$this->set ( 'views', $this->Estore_product->read ( null, $id ) );
-							$this->set ( 'news', $this->Estore_catproduct->read ( null, $id ) );
-							$name = $this->Estore_product->read ( null, $id );
+							$this->set ( 'views', $this->Estore_products->read ( null, $id ) );
+							$this->set ( 'news', $this->Estore_catproducts->read ( null, $id ) );
+							$name = $this->Estore_products->read ( null, $id );
 							
 							$this->set ( 'views', $name );
 							$this->paginate = array (
 									'conditions' => array (
-											'Estore_product.status' => 1,
-											'Estore_product.catproduct_id' => $name ['Estore_product'] ['catproduct_id'],
-											'Estore_product.id <>' => $name ['Estore_product'] ['id'] 
+											'Estore_products.status' => 1,
+											'Estore_products.catproduct_id' => $name ['Estore_products'] ['catproduct_id'],
+											'Estore_products.id <>' => $name ['Estore_products'] ['id'] 
 									),
-									'order' => 'Estore_product.id DESC',
+									'order' => 'Estore_products.id DESC',
 									'limit' => 8 
 							);
-							$this->set ( 'sanphamkhac', $this->paginate ( 'Estore_product', array () ) );
+							$this->set ( 'sanphamkhac', $this->paginate ( 'Estore_products', array () ) );
 						}
 						
 						// shopping

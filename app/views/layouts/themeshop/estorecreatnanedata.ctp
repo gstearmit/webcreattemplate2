@@ -21,13 +21,6 @@ foreach ( $tem as $tem ) {
 	$template = $tem ['Tem']['linktems'];
 }
 
-// pr($shopname);
-// echo "shop_id ";pr($shop_id);
-// echo "user_id ";pr($user_id);
-// echo "banner ";pr($banner);
-// echo "tem ";pr($tem);
-// echo "template ";pr($template);
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -35,15 +28,15 @@ foreach ( $tem as $tem ) {
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php $setting = $this -> requestAction('/'.$shopname.'/setting');?>
 <?php foreach($setting as $settings){?>
-<link href="http://<?php echo $settings['Estore_setting']['url'];?>/feed" title="<?php echo $settings['Estore_setting']['title'];?> » Feed" type="application/rss+xml" rel="alternate"/>
-<link href="http://<?php echo $settings['Estore_setting']['url'];?>/'.$shopname.'/feed" title="<?php echo $settings['Estore_setting']['title'];?> » Comments Feed" type="application/rss+xml" rel="alternate"/>
-<link href="http://<?php echo $settings['Estore_setting']['url'];?>" title="<?php echo $settings['Estore_setting']['title'];?>" rel="index">
-<meta content="<?php echo $settings['Estore_setting']['keyword'];?>" name="keywords"/>
-<meta content="<?php echo $settings['Estore_setting']['description'];?>" name="description"/>
-<?php if($session->read('lang')==1){?>
-<title><?php echo $settings['Estore_setting']['title'];?></title>
-             <?php } if($session->read('lang')==2){?>
-<title><?php echo $settings['Estore_setting']['title_en'];?></title>
+<link href="http://<?php echo $settings['Estore_settings']['url'];?>/feed" name ="<?php echo $settings['Estore_settings']['name'];?>" title="<?php echo $settings['Estore_settings']['title'];?> » Feed" type="application/rss+xml" rel="alternate"/>
+<link href="http://<?php echo $settings['Estore_settings']['url'];?>/'.$shopname.'/feed" title="<?php echo $settings['Estore_settings']['title'];?> » Comments Feed" type="application/rss+xml" rel="alternate"/>
+<link href="http://<?php echo $settings['Estore_settings']['url'];?>" title="<?php echo $settings['Estore_settings']['title'];?>" rel="index">
+<meta content="<?php echo $settings['Estore_settings']['keyword'];?>" name="keywords"/>
+<meta content="<?php echo $settings['Estore_settings']['description'];?>" name="description"/>
+<?php if($session->read('lang')=='viet'){?>
+<title><?php echo $settings['Estore_settings']['title'];?></title>
+             <?php } if($session->read('lang')=='eng'){?>
+<title><?php echo $settings['Estore_settings']['title_en'];?></title>
              <?php }?>
 
 <?php }?>
@@ -216,8 +209,8 @@ function checkScreenWidth()
 <div id="floating_banner_left_content">
 <?php $adv1= $this->requestAction('/'.$shopname.'/adv1') ; //pr($adv1);die;?>
     <?php foreach($adv1 as $advs1 ){  ?>
-    <a href="<?php echo $advs1['Estore_advertisement']['link'] ?>" target="_blank"><img src="<?php echo DOMAINADESTORE.$advs1['Estore_advertisement']['images']?>" border="0" width="105px" height="336" alt="" /></a>
-    <!--<a href="<?php echo $advs1['Estore_advertisement']['link'] ?>" target="_blank" style="float:left;width:336px; height:120px;background-position:center center; background-image:url(<?php echo DOMAINAD.$advs1['Estore_advertisement']['images']?>&amp;h=336&amp;w=120&amp;zc=1); background-repeat:no-repeat;"> </a>-->
+    <a href="<?php echo $advs1['Estore_advertisements']['link'] ?>" target="_blank"><img src="<?php echo DOMAINADESTORE.$advs1['Estore_advertisements']['images']?>" border="0" width="105px" height="336" alt="" /></a>
+    <!--<a href="<?php echo $advs1['Estore_advertisements']['link'] ?>" target="_blank" style="float:left;width:336px; height:120px;background-position:center center; background-image:url(<?php echo DOMAINAD.$advs1['Estore_advertisements']['images']?>&amp;h=336&amp;w=120&amp;zc=1); background-repeat:no-repeat;"> </a>-->
     <br />
    <?php } ?>
     <!--<a href="#" target="_blank"><img src="lien1.jpg" border="0" width="105px" alt="" /></a><br />-->
@@ -230,7 +223,7 @@ function checkScreenWidth()
 	<div id="floating_banner_right_content"  >
     <?php $adv2= $this->requestAction('/'.$shopname.'/adv2') ?>
     <?php foreach($adv2 as $advs2 ){  ?>
-    <a href="<?php echo $advs2['Estore_advertisement']['link'] ?>" target="_blank"><img src="<?php echo DOMAINADESTORE.$advs2['Estore_advertisement']['images']?>" border="0" width="105px" height="336" alt="" /></a><br />
+    <a href="<?php echo $advs2['Estore_advertisements']['link'] ?>" target="_blank"><img src="<?php echo DOMAINADESTORE.$advs2['Estore_advertisements']['images']?>" border="0" width="105px" height="336" alt="" /></a><br />
    <?php } ?>
 </div>
 </div>
@@ -288,7 +281,7 @@ function checkScreenWidth()
                          <?php foreach ($dt as $value){?>
                         	<li>
                         	<div class="img">
-                            	<a href="<?php echo $value['Estore_partner']['website']?>" target="_blank"><img src="<?php echo DOMAINADESTORE;?><?php echo $value['Estore_partner']['images']?>"  width="121" height="81" /></a>
+                            	<a href="<?php echo $value['Estore_partners']['website']?>" alt="<?php echo $value['Estore_partners']['name']?>" target="_blank"><img src="<?php echo DOMAINADESTORE;?><?php echo $value['Estore_partners']['images']?>"  width="121" height="81" /></a>
                             </div>
                             </li>
                            <?php }?>
