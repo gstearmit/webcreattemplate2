@@ -28,7 +28,7 @@
 
 }
 </style> 
- <?php if($session->read('lang')==1){?>
+ <?php //if($session->read('lang')==1){?>
 <div id="main-center">
 <div id="sanphams" style=";min-height: 668px !important;">
     	<div class="top">Liên hệ</div>
@@ -45,7 +45,8 @@
         <div class="b3"><div class="b3"><div class="b3"></div></div></div>
     </div>
 </div>
- <?php }if($session->read('lang')==2){?>
+ <?php // }
+ if($session->read('lang')==2){?>
  <div id="sanphamchitiet">
     <div class="top">Contact us
         </div>

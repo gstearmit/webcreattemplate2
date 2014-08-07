@@ -10,8 +10,8 @@ class EmailComponent
   /**
    * Send email using SMTP Auth by default.
    */
-    var $from         = 'nhnam17@gmail.com';
-    var $fromName     = "SUNSHINE TRAVEL";
+    var $from         = "phuca4@gmail.com";
+    var $fromName     = "FREEMOBIWEB.MOBI";
     var $smtpUserName = '';  // SMTP username
     var $smtpPassword = ''; // SMTP password
     var $smtpHostNames= "";  // specify main and backup server
