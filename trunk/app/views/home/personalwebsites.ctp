@@ -1,4 +1,5 @@
 <?php
+
 				$id = 92;
 				$setting =  $this->requestAction( '/comment/noteindex/'.$id );
 				
@@ -26,19 +27,36 @@
 				<?php 
 				$id="";
 				foreach ($setting as $key =>$data){
-					if($data['Note']['location']==1){
+				//pr($data); die();
 					if($key == 3){
 						$id="leftBlock";
 					}elseif ($key ==4){
 						$id="rightBlock";
 					}
+					if($data['Note']['location']==1){
+					//$titlev = $data['Note']['title_eg'];
+					if($langue =='vie')
+					{
+						$titlev = $data['Note']['title'];
+						$introductionv = $data['Note']['introduction'];
+						$contentv = $data['Note']['content'];
+					
+					}
+					//pr($titlev);die();
+					if($langue =='eng')
+					{
+						$titlev = $data['Note']['title_eg'];
+						$introductionv = $data['Note']['introduction_eg'];
+						$contentv = $data['Note']['content_eg'];
+					}
+					
 					?>
 					<div id="<?php echo $id; ?>">
 				
 						<h2>
-							<b><?php echo  $data['Note']['title']?> </b>
+							<b><?php echo  $titlev; ?> </b>
 						</h2>
-						<div class="content"><?php echo  $data['Note']['content'];?></div>
+						<div class="content"><?php echo  $contentv;?></div>
 						<div class="icon">
 							<!-- -->
 						</div>
@@ -52,12 +70,23 @@
 				<?php 
 				foreach ($setting as $key => $data){
 				if($data['Note']['location']==2){
-
+				if($langue =='vie')
+{
+	$titlev = $data['Note']['title'];
+	$contentv = $data['Note']['content'];
+		
+}
+//pr($titlev);die();
+if($langue =='eng')
+{
+	$titlev = $data['Note']['title_eg'];
+	$contentv = $data['Note']['content_eg'];
+}
 				?>
 				<div id="websitesPreview">
-					<h2><?php echo $data['Note']['title']; ?></h2>
+					<h2><?php echo $titlev; ?></h2>
 					<div>
-						<?php echo $data['Note']['content']; ?>
+						<?php echo $contentv; ?>
 					</div>
 					<div id="selectGroup"></div>
 					<div id="imagesList">
@@ -83,14 +112,25 @@
 					<div id="AlatcaFeaturesArea">
 					<?php foreach ($setting as  $key => $data){
 					if($data['Note']['location']==3){
-
-					?>
+					if($langue =='vie')
+						{
+							$titlev = $data['Note']['title'];
+							$contentv = $data['Note']['content'];
+						
+						}
+						//pr($titlev);die();
+						if($langue =='eng')
+						{
+							$titlev = $data['Note']['title_eg'];
+							$contentv = $data['Note']['content_eg'];
+						}
+						?>
 						<div id="AlatcaFeatures" class="infoBlock">
 							<h4>
-								<a href="<?php echo DOMAIN ?>webcreathtml/features-personal-websites/"><?php echo $data['Note']['title']?></a>
+								<a href="<?php echo DOMAIN ?>webcreathtml/features-personal-websites/"><?php echo $titlev; ?></a>
 							</h4>
 							<div id="featuresList">
-								<?php echo $data['Note']['content']?>
+								<?php echo $contentv; ?>
 							</div>
 							<i id="icon"></i>
 						</div>
@@ -155,12 +195,23 @@
 				<div id="firstBlock" class="open">
 				<?php foreach ($setting as  $key => $data){
 					if($data['Note']['location']==4){
-
+					if($langue =='vie')
+					{
+						$titlev = $data['Note']['title'];
+						$contentv = $data['Note']['content'];
+					
+					}
+					//pr($titlev);die();
+					if($langue =='eng')
+					{
+						$titlev = $data['Note']['title_eg'];
+						$contentv = $data['Note']['content_eg'];
+					}
 					?>
 					<div id="firstWrapper">
-						<h2 id="firstHeader"><?php echo $data['Note']['title']?></h2>
+						<h2 id="firstHeader"><?php echo $titlev?></h2>
 						<div id="firstParagraph">
-							<?php echo $data['Note']['content']?>
+							<?php echo $contentv; ?>
 						</div>
 					</div>
 					<?php } }?>
