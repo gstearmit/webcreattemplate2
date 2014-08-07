@@ -70,7 +70,7 @@ foreach ( $shop as $key => $value ) {
            <?php $setting = $this->requestAction('/'.$shopname.'/setting') ?>
             <?php foreach($setting as $settings ){  ?>
             <ul>
-           <li style="margin: 10px 2px;"><img src="<?php echo DOMAIN?>home/images/hotline.png" align="absmiddle" /><font  style="font-size: 12px; color: #d00000; padding-left:10px;"><b>Hotline : <?php echo $settings['Estore_setting']['mobile'] ?></b></font></li>
+           <li style="margin: 10px 2px;"><img src="<?php echo DOMAIN?>home/images/hotline.png" align="absmiddle" /><font  style="font-size: 12px; color: #d00000; padding-left:10px;"><b>Hotline : <?php echo $settings['Estore_settings']['mobile'] ?></b></font></li>
            </ul>
             <?php }?>  
     </div> 

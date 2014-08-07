@@ -6,28 +6,6 @@ foreach ( $shop as $key => $value ) {
 	$shop_id = $key;
 }
 
-
-
-$user = $this->requestAction ( 'comment/get_user_id/' . $shop_id );
-foreach ( $user as $user ) {
-	$user_id = $user ['Shop'] ['user_id'];
-}
-
-$banner = $this->requestAction ( 'comment/get_banner/' . $user_id );
-
-$tem = $this->requestAction ( 'comment/get_tem/' . $user_id );
-
-foreach ( $tem as $tem ) {
-	$template = $tem ['Tem']['linktems'];
-}
-
-// pr($shopname);
-// echo "shop_id ";pr($shop_id);
-// echo "user_id ";pr($user_id);
-// echo "banner ";pr($banner);
-// echo "tem ";pr($tem);
-// echo "template ";pr($template);
-
 ?>
 <?php // if($session->read('lang')==1){?>
 <div id="img">
@@ -36,7 +14,7 @@ foreach ( $tem as $tem ) {
     <?php $setting = $this->requestAction('/'.$shopname.'/setting'); ?>
 
     <?php foreach($setting as $settings ){  ?>
-	<?php echo $settings['Estore_setting']['footer'];?>
+	<?php echo $settings['Estore_settings']['footer'];?>
     <?php }?>
 
  </div>

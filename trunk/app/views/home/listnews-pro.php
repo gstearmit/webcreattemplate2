@@ -110,3 +110,73 @@ function danhmuc($shopname) {
 	return $resul;
 		
 }
+
+
+$shop = explode ( '/', $this->params ['url'] ['url'] );
+$shopname = $shop [0];
+$shoparr = $this->get_shop_id ( $shopname );
+//pr($shoparr);//die;
+	
+// 							//++++++++++Connect  data +++++++++++++++++
+// 							foreach($shoparr as $shop){
+// 								$databasename = $shop['Shop']['databasename'];
+// 								$password = $shop['Shop']['password'];
+// 								$username = $shop['Shop']['username'];
+// 								$hostname = $shop['Shop']['hostname'];
+
+// 							}
+// 							$db = new ConnectionManager;
+// 							$config = array(
+// 									//'className' => 'Cake\Database\Connection',
+// 									'driver' => 'mysql',
+// 									'persistent' => false,
+// 									'host' =>$hostname,
+// 									'login' =>$username,
+// 									'password' =>$password,
+// 									'database' =>$databasename,
+// 									'prefix' => false,
+// 									'encoding' => 'utf8',
+// 									'timezone' => 'UTC',
+// 									'cacheMetadata' => true
+// 							);
+// 							$db->create($databasename,$config);
+// 							$shop_id = "9999";
+// 							$sql= "INSERT INTO `estore_videos` (`estore_id`, `name`, `video`, `LinkUrl`, `created`, `status`, `left`, `right`) VALUES
+// 									($shop_id, 'Gala trong ngay', 'video/upload/c67b28f317fe8740ada0a80316a0559c.flv', 'http://www.youtube.com/watch?v=5z7DEE70dEs&feature=related', '2011-10-02 18:51:33', 1, 0, 0),
+// 									($shop_id, 'Clip gala Bên phải', 'video/upload/64c23f4052d6626521caef72b1bc067f.flv', 'http://www.youtube.com/watch?v=76ZqkGxe_Mc&feature=g-vrec', '2012-06-14 14:46:38', 1, 1, 0);";
+	
+// 							$name = ConnectionManager::getDataSource($databasename);
+// 							pr($name->config);die;
+// 							$resul = $name->rawQuery($sql);
+
+	
+// 							pr($resul);
+// 							die;
+	
+// 							pr($name);
+// 							echo "99999999999999999</br>";
+// 							pr($name->config);
+// 							echo "defaulll</br>";
+// 							pr($dbdefault->config);
+// 							$dbdefault->rawQuery($sql);
+// 							die;
+
+	
+/*
+ require_once 'app/Config/database.php';
+ $database = new DATABASE_CONFIG;
+ try{
+ $dblink = new PDO('mysql:host='.$database->default['host'].';dbname='.$database->default['database'], $database->default['login'],  $database->default['password'], array(PDO::ATTR_PERSISTENT => false));
+ $dblink->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+ $dblink->exec('SET CHARACTER SET '.$database->default['encoding']);
+ } catch (Exception $e) {
+ die('DB Error'. $e->getMessage());
+ }
+ pr($database->default['host']);
+ die;
+
+ 	
+ foreach ( $shoparr as $key => $value ) {
+ $shop_id = $key;
+ }
+ */

@@ -14,16 +14,6 @@
     font-weight: bold;
 }
 </style>
-<?php
-//pr($products);
-//echo "<pre>";
-
-//echo "spvip </br>";
-//pr($spvip);
-//echo "<pre>";
-
-//die;
-?>
 <?php 
 			
 			$shop=explode('/',$this->params['url']['url']); 
@@ -41,17 +31,18 @@
     <div id="sanphams"  style="min-height: 460px !important;">
     	<div class="top">Thế giới tủ bếp <p align="right" class="abc"><a style="line-height: 30px;padding-right: 15px;" href="<?php echo DOMAIN;?><?php echo $shopname ;?>/all/106">Xem tất cả &nbsp;&nbsp;<img src="<?php echo DOMAIN;?>home/images/main_li.jpg" /></a></p></div>
         <div style="min-height: 460px;">
-        <?php foreach($tubep as $pr){?>
+        <?php
+        foreach($tubep as $pr){?>
         <div id="dssanpham" align="center">             
         	<div class="img"  id="yahoo" >
-            <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_product']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINADESTORE.$pr['Estore_product']['images']?>' /></p>"><img src="<?php echo DOMAINADESTORE.'timthumb.php?src='.$pr['Estore_product']['images']?>&amp;h=113&amp;w=168&amp;zc=1" width="168" height="113"/></a>
+            <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_products']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINADESTORE.$pr['Estore_products']['images']?>' /></p>"><img src="<?php echo DOMAINADESTORE.'timthumb.php?src='.$pr['Estore_products']['images']?>&amp;h=113&amp;w=168&amp;zc=1" width="168" height="113"/></a>
             </div>
             <div class="name" align="center">
-            	<h5><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_product']['id'];?>"><?php echo $pr['Estore_product']['title'];?></a><br />
-                Mã:<?php echo $pr['Estore_product']['code'];?>
+            	<h5><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_products']['id'];?>"><?php echo $pr['Estore_products']['title'];?></a><br />
+                Mã:<?php echo $pr['Estore_products']['code'];?>
                 </h5>
-                <h6>Giá: <?php echo number_format( $pr['Estore_product']['price'],0); ?> VNĐ
-                <a href="<?php echo DOMAIN?><?php echo $shopname ;?>/addshopingcart/<?php echo $pr['Estore_product']['id'];?>"><img src="<?php echo DOMAIN?>home/images/datmua.jpg"/></a>
+                <h6>Giá: <?php echo number_format( $pr['Estore_products']['price'],0); ?> VNĐ
+                <a href="<?php echo DOMAIN?><?php echo $shopname ;?>/addshopingcart/<?php echo $pr['Estore_products']['id'];?>"><img src="<?php echo DOMAIN?>home/images/datmua.jpg"/></a>
                 </h6>                
             </div>
         </div><?php }?>
@@ -61,17 +52,18 @@
     <div id="sanphams"  style="min-height: 435px !important;">
     	<div class="top">Bếp dự án nhà hàng - khách sạn<p align="right" class="abc"><a style="line-height: 30px;padding-right: 15px;" href="<?php echo DOMAIN;?><?php echo $shopname ;?>/all/107">Xem tất cả &nbsp;&nbsp;<img src="<?php echo DOMAIN;?>home/images/main_li.jpg" /></a></p></div>
         <div style="min-height: 460px;">
-        <?php foreach($bepcongnghiep as $pr){?>
+        <?php
+         foreach($bepcongnghiep as $pr){?>
         <div id="dssanpham" align="center">             
         	<div class="img"  id="yahoo" >
-            <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_product']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINADESTORE.$pr['Estore_product']['images']?>'/></p>"><img src="<?php echo DOMAINADESTORE.'timthumb.php?src='.$pr['Estore_product']['images']?>&amp;h=113&amp;w=168&amp;zc=1" width="168" height="113"/></a>
+            <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_products']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINADESTORE.$pr['Estore_products']['images']?>'/></p>"><img src="<?php echo DOMAINADESTORE.'timthumb.php?src='.$pr['Estore_products']['images']?>&amp;h=113&amp;w=168&amp;zc=1" width="168" height="113"/></a>
             </div>
             <div class="name" align="center">
-            	<h5><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_product']['id'];?>"><?php echo $pr['Estore_product']['title'];?></a><br />
-                Mã:<?php echo $pr['Estore_product']['code'];?>
+            	<h5><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_products']['id'];?>"><?php echo $pr['Estore_products']['title'];?></a><br />
+                Mã:<?php echo $pr['Estore_products']['code'];?>
                 </h5>
-                <h6>Giá: <?php echo number_format( $pr['Estore_product']['price'],0); ?> VNĐ
-                <a href="<?php echo DOMAIN?><?php echo $shopname ;?>/addshopingcart/<?php echo $pr['Estore_product']['id'];?>"><img src="<?php echo DOMAIN?>home/images/datmua.jpg"/></a>
+                <h6>Giá: <?php echo number_format( $pr['Estore_products']['price'],0); ?> VNĐ
+                <a href="<?php echo DOMAIN?><?php echo $shopname ;?>/addshopingcart/<?php echo $pr['Estore_products']['id'];?>"><img src="<?php echo DOMAIN?>home/images/datmua.jpg"/></a>
                 </h6>                
             </div>
         </div><?php }?>
@@ -83,14 +75,14 @@
         <?php foreach($spvip as $pr){?>
         <div id="dssanpham" align="center">             
         	<div class="img"  id="yahoo" >
-            <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_product']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINADESTORE.$pr['Estore_product']['images']?>'/></p>"><img src="<?php echo DOMAINADESTORE.'timthumb.php?src='.$pr['Estore_product']['images']?>&amp;h=113&amp;w=168&amp;zc=1" width="168" height="113"/></a>
+            <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_products']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINADESTORE.$pr['Estore_products']['images']?>'/></p>"><img src="<?php echo DOMAINADESTORE.'timthumb.php?src='.$pr['Estore_products']['images']?>&amp;h=113&amp;w=168&amp;zc=1" width="168" height="113"/></a>
             </div>
             <div class="name" align="center">
-            	<h5><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_product']['id'];?>"><?php echo $pr['Estore_product']['title'];?></a><br />
-                Mã:<?php echo $pr['Estore_product']['code'];?>
+            	<h5><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_products']['id'];?>"><?php echo $pr['Estore_products']['title'];?></a><br />
+                Mã:<?php echo $pr['Estore_products']['code'];?>
                 </h5>
-                <h6>Giá: <?php echo number_format( $pr['Estore_product']['price'],0); ?> VNĐ
-                <a href="<?php echo DOMAIN?><?php echo $shopname ;?>/addshopingcart/<?php echo $pr['Estore_product']['id'];?>"><img src="<?php echo DOMAIN?>home/images/datmua.jpg"/></a>
+                <h6>Giá: <?php echo number_format( $pr['Estore_products']['price'],0); ?> VNĐ
+                <a href="<?php echo DOMAIN?><?php echo $shopname ;?>/addshopingcart/<?php echo $pr['Estore_products']['id'];?>"><img src="<?php echo DOMAIN?>home/images/datmua.jpg"/></a>
                 </h6>                
             </div>
         </div><?php }?>
@@ -102,14 +94,14 @@
         <?php foreach($products as $pr){?>
         <div id="dssanpham" align="center">             
         	<div class="img"  id="yahoo" >
-            <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_product']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINADESTORE.$pr['Estore_product']['images']?>'/></p>"><img src="<?php echo DOMAINADESTORE.'timthumb.php?src='.$pr['Estore_product']['images']?>&amp;h=113&amp;w=168&amp;zc=1" width="168" height="113"/></a>
+            <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_products']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINADESTORE.$pr['Estore_products']['images']?>'/></p>"><img src="<?php echo DOMAINADESTORE.'timthumb.php?src='.$pr['Estore_products']['images']?>&amp;h=113&amp;w=168&amp;zc=1" width="168" height="113"/></a>
             </div>
             <div class="name" align="center">
-            	<h5><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_product']['id'];?>"><?php echo $pr['Estore_product']['title'];?></a><br />
-                Mã:<?php echo $pr['Estore_product']['code'];?>
+            	<h5><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_products']['id'];?>"><?php echo $pr['Estore_products']['title'];?></a><br />
+                Mã:<?php echo $pr['Estore_products']['code'];?>
                 </h5>
-                <h6>Giá: <?php echo number_format( $pr['Estore_product']['price'],0); ?> VNĐ
-                <a href="<?php echo DOMAIN?><?php echo $shopname ;?>/addshopingcart/<?php echo $pr['Estore_product']['id'];?>"><img src="<?php echo DOMAIN?>home/images/datmua.jpg"/></a>
+                <h6>Giá: <?php echo number_format( $pr['Estore_products']['price'],0); ?> VNĐ
+                <a href="<?php echo DOMAIN?><?php echo $shopname ;?>/addshopingcart/<?php echo $pr['Estore_products']['id'];?>"><img src="<?php echo DOMAIN?>home/images/datmua.jpg"/></a>
                 </h6>                
             </div>
         </div><?php }?>
