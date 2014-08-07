@@ -88,6 +88,27 @@ class HomeController extends AppController {
 	function ecommerce() {
 	}
 	function personalwebsites() {
+
+		$langue = $this->Session->read ( 'language' );
+		if($langue == null )
+		{
+			$urlTmp = $_SERVER['REQUEST_URI'];
+			if (stripos($urlTmp, "personal-websites/?language"))
+			{
+				$urlTmp = explode("?", $urlTmp);
+				$lang = explode("=", $urlTmp[1]);
+				$lang = $lang[1];
+				if (isset($lang)) {
+					$this->Session->write('language', $lang);
+				} else {
+					$this->Session->delete('language');
+				}
+			}else{
+				$lang ="vie";  // default
+				$this->Session->write('language', $lang);
+			}
+		}
+		$this->set ( 'langue',$langue);
 	}
 	
 	function signin() {
