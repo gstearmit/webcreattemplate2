@@ -44,37 +44,45 @@ class HomeController extends AppController {
 			$id = 2;
 		$this->Session->write ( 'city', $id ); // write($name,$value): Dùng để lưu một giá trị $value vào session đặt tên là $name
 		*/
-		
-	           $langue = $this->Session->read ( 'language' );
-				if($langue == null )
-				{
-					$urlTmp = $_SERVER['REQUEST_URI'];
-					if (stripos($urlTmp, "?language")) 
-					{
-						$urlTmp = explode("?", $urlTmp);
-						$lang = explode("=", $urlTmp[1]);
-						$lang = $lang[1];
-						if (isset($lang)) {
-							$this->Session->write('language', $lang);
-						} else {
-							$this->Session->delete('language');
-						}
-					}else{
-						$lang ="vie";  // default 
-						$this->Session->write('language', $lang);
-					}
+		$urlTmp = $_SERVER['REQUEST_URI'];
+		if (stripos($urlTmp, "?language")) 
+			{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+			if (isset ( $lang )) {
+				$this->Session->write ( 'language', $lang );
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+			
+			$lang = "vie"; // default
+			$this->Session->write ( 'language', $lang );
+		}
+			
+			// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					$this->Session->write ( 'language', $lang );
+				} else {
+					$this->Session->delete ( 'language' );
 				}
-				$this->set ( 'langue',$langue);
+			} else {
+				$lang = "vie"; // default
+				$this->Session->write ( 'language', $lang );
+			}
+		}
+		$this->set ( 'langue', $langue );
 		
 	}
-	function noteindex() {
-	  // $this->layout = "creattemplate";
-		return "hoang pyc";
-// 		$this->Note->find ( 'all', array (
-// 				'conditions' => array (),
-// 				'order' => 'Note.id DESC'
-// 		) );
-	}
+	function noteindex() {}
 	function businesswebsites() {
 	}
 	function ecommerce() {
@@ -107,24 +115,8 @@ class HomeController extends AppController {
 				$Store ['name'] = $_POST ['storename'];
 				$Store ['slug'] = $this->unicode_convert ( $_POST ['storename'] );
 				$Store ['email'] = $_POST ['mail'];
-				$Store ['user_id'] = 999; // 999 ma khach hang dang ki
-				                          // $Store ['link'] = '';
-				                          // $Store ['business'] ='';
-				                          // $Store ['phone'] = '';
-				                          // $Store ['address'] = '';
-				                          // $Store ['city'] = '';
-				                          // $Store ['namecompany'] = '';
-				                          // $Store ['mobile'] = $_POST ['mobile'];
-				                          // $Store ['fax'] = $_POST ['fax'];
-				                          // $Store ['ckshops'] = 1;
-				                          // $Store ['status'] = 1;
-				                          // // $Store['user_id']=$this->Session->read("id");
-				                          
-				// mkdir("/path/to/my/dir", 0700);
-				                          // pr($Store);die;
-				                          
-				// $this->Shops->save($Store);
-				                          
+				$Store ['user_id'] = 999; 
+				
 				// ++Start Session Eshop
 				$this->Session->write ( 'eshop.storename', $_POST ['storename'] );
 				$this->Session->write ( 'eshop.email', $_POST ['mail'] );
@@ -133,13 +125,10 @@ class HomeController extends AppController {
 				$this->Session->write ( 'eshop.aa62a6988a6', $_POST ['aa62a6988a6'] );
 				$eshop_tmp = $this->Session->read ( 'eshop' );
 				$this->set ( 'title_for_layout', '::Lauch Site' );
-				// pr($this->Session->read('eshop'));die;
-				// $this->set('eshop',$this->Session->read('eshop'));
+				
 			}
 		}
 		function finish() {
-			echo "<div><p>hoangphuc></p></div>";
-			die ();
 		}
 	}
 	function unicode_convert($str) {
