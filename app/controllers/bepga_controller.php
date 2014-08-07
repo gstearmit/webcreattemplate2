@@ -96,6 +96,13 @@ class BepgaController extends AppController {
 	// gioi thieu
 	function menuintroduct() {
 		mysql_query ( "SET names utf8" );
+		pr($this->Estore_category->find ( 'all', array (
+				'conditions' => array (
+						'Estore_category.status' => 1,
+						'Estore_category.parent_id' => '146' 
+				),
+				'order' => 'Estore_category.tt ASC' 
+		) ));
 		return $this->Estore_category->find ( 'all', array (
 				'conditions' => array (
 						'Estore_category.status' => 1,
@@ -119,7 +126,7 @@ class BepgaController extends AppController {
 		) );
 	}
 	function adv() {
-		// return $this->Gallery->find('all',array('conditions'=>array('Gallery.status'=>1),'order'=>'Gallery.id DESC','limit'=>2));
+		
 		return $this->Estore_banner->find ( 'all', array (
 				'conditions' => array (
 						'Estore_banner.status' => 1 
@@ -1989,6 +1996,9 @@ class BepgaController extends AppController {
 		mysql_query ( "SET character_set_client=utf8" );
 		mysql_query ( "SET character_set_connection=utf8" );
 		$x = $this->Estore_setting->read ( null, 1 );
+		
+// 		pr($this->Email);
+		
 		if (isset ( $_POST ['name'] )) {
 			$name = $_POST ['name'];
 			
