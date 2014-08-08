@@ -43,32 +43,7 @@ class HomeController extends AppController {
 		if ($id == null && $id1 == null)
 			$id = 2;
 		$this->Session->write ( 'city', $id ); // write($name,$value): Dùng để lưu một giá trị $value vào session đặt tên là $name
-<<<<<<< .mine
-		*/
-		
-	           $langue = $this->Session->read ( 'language' );
-				if($langue == null )
-				{
-					$urlTmp = $_SERVER['REQUEST_URI'];
-					if (stripos($urlTmp, "?language")) 
-					{
-						$urlTmp = explode("?", $urlTmp);
-						$lang = explode("=", $urlTmp[1]);
-						$lang = $lang[1];
-						if (isset($lang)) {
-							$this->Session->write('language', $lang);
-						} else {
-							$this->Session->delete('language');
-						}
-					}else{
-						$lang ="vie";  // default 
-						$this->Session->write('language', $lang);
-					}
-				}
-				$this->set ( 'langue',$langue);
-		
-=======
-		*/
+*/
 		$urlTmp = $_SERVER['REQUEST_URI'];
 		if (stripos($urlTmp, "?language")) 
 			{
@@ -106,7 +81,7 @@ class HomeController extends AppController {
 		}
 		$this->set ( 'langue', $langue );
 		
->>>>>>> .r102
+
 	}
 	function noteindex() {}
 	function businesswebsites() {
@@ -169,7 +144,7 @@ class HomeController extends AppController {
 				$this->Session->write ( 'eshop.email', $_POST ['mail'] );
 				$this->Session->write ( 'eshop.signup-sent', $_POST ['signup-sent'] );
 				$this->Session->write ( 'eshop.domain', $_POST ['domain'] );
-				$this->Session->write ( 'eshop.aa62a6988a6', $_POST ['aa62a6988a6'] );
+				//$this->Session->write ( 'eshop.aa62a6988a6', $_POST ['aa62a6988a6'] );
 				$eshop_tmp = $this->Session->read ( 'eshop' );
 				$this->set ( 'title_for_layout', '::Lauch Site' );
 				
