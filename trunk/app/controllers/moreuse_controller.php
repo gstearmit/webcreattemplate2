@@ -25,7 +25,17 @@ class MoreuseController extends AppController {
 			'Order' 
 	);
 	
+	function encryptIt( $q ) {
+		$cryptKey  = 'qJB0rGtIn5UB1xG03efyCp';
+		$qEncoded      = base64_encode( mcrypt_encrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), $q, MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ) );
+		return( $qEncoded );
+	}
 	
+	function decryptIt( $q ) {
+		$cryptKey  = 'qJB0rGtIn5UB1xG03efyCp';
+		$qDecoded      = rtrim( mcrypt_decrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), base64_decode( $q ), MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ), "\0");
+		return( $qDecoded );
+	}
 	
 	
 	function finish() {
@@ -33,6 +43,9 @@ class MoreuseController extends AppController {
 		$result_finish = array();
 		if (isset ( $_POST ['wizard'] )) {
 			$wizard = unserialize ( $_POST ['wizard'] );
+			
+			$Eshop = $this->Session->read ( 'Eshop' );
+			$userpass = $Eshop['userpass'];
 			
 			$Store = array ();
 			$Store ['name'] = $wizard ['project_name'];
@@ -73,7 +86,8 @@ class MoreuseController extends AppController {
 			$namedatabase = $slug.'_'.$Store ['layout'];
 			$ipserver = $_SERVER['SERVER_ADDR'];
 			$namwserver = $_SERVER['SERVER_NAME'];
-
+			
+			$Store ['userpass'] = $userpass;
 			$Store ['databasename'] = $namedatabase;
 			$Store ['username'] = "root";
 			$Store ['password'] = "";
@@ -93,7 +107,7 @@ class MoreuseController extends AppController {
 			 				'Shop.status' => 1
 			 		),
 			 		'fields' => array (
-			 				'Shop.id',
+			 				  'Shop.id',
 			 				'Shop.created',
 			 				'Shop.databasename',
 			 				'Shop.username',
@@ -128,17 +142,20 @@ class MoreuseController extends AppController {
 			
 			// $this->sendacountEshop($Store ['email'],$username,$password);
 			 $body = "Cảm ơn bạn đã đăng ký gian hàng Tại FREEMOBIWEB.MOBI  .";
-			 $body.= "Đường dẫn tới gian hàng của bạn : http://freemobiweb.mobi/".$nameproject;
-			 $body.= "    .Hoặc Đường dẫn tới gian hàng của bạn : http://".$nameproject.".freemobiweb.mobi/";
-			 $body.= "     .Bạn có thể truy cập vào trang quản trị của gian hàng theo đường dẫn : http://freemobiweb.mobi/estoreadmin";
-			 $body.= "      .STT Eshop :".$shop_id;
-			 $body.= "      .User name:".$username;
-			 $body.="\n Password:".$password;
-			 $body.= "Xin cảm ơn!";
+			 $body.= "\nĐường dẫn tới gian hàng của bạn : http://freemobiweb.mobi/".$nameproject;
+			 $body.= "\n    .Hoặc Đường dẫn tới gian hàng của bạn : http://".$nameproject.".freemobiweb.mobi/";
+			 $body.= "\n     .Bạn có thể truy cập vào trang quản trị của gian hàng theo đường dẫn : http://freemobiweb.mobi/estoreadmin";
+			 $body.= "\n     .STT Eshop :".$shop_id;
+			 $body.= "\n     .User name :".$email;
+			 $body.="\n      .Password:".$this->decryptIt($userpass);
+			 $body.= "\n Xin cảm ơn!";
+			 
+			 $linkadmin="http://".$nameproject.".freemobiweb.mobi/";
+			 $linkweb="http://freemobiweb.mobi/".$nameproject;
 			 
 			 $detailemailarray = array(
-			 		'linkadmin'=>"http://".$nameproject.".freemobiweb.mobi/",
-			 		'linkweb'=>"http://freemobiweb.mobi/".$nameproject,
+			 		'linkadmin'=>$linkadmin,
+			 		'linkweb'=>$linkweb,
 			 );
 			 
 		     $resultemail = $this->smtpmailereshop($email,'alatcas1@gmail.com','FREEMOBIWEB.MOBI','REGISTER FREEMOBIWEB',$body);
@@ -160,13 +177,18 @@ class MoreuseController extends AppController {
 			//$result = $this->registerEshop ( $slug, $Store ['layout'], $Store ['language'], $shop_id );
 						//pr($result);
 						
-			$result_finish = array(
+			$result_finish12 = array(
+					'nameeshop'=>$nameproject,
 					'shopid'=>$shop_id,
 					'resultemail'=>$resultemail,  // result send email
 					'detailemailarray'=>$detailemailarray,
+					//'registerEshop'=>$result
 			);
-
-			return json_encode($result_finish,true);
+			$result_finish = array(
+					'data'=>$result_finish12
+			);
+// 			pr(json_encode($result_finish,true));
+			return  print_r(json_encode($result_finish,true));
 		} else {
 			return  $result = Null;
 		}

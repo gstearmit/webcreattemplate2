@@ -3521,6 +3521,22 @@ class CommentController extends AppController {
 				'order' => 'Catproduct.id ASC' 
 		) );
 	}
+	function get_eshopView($id) {
+		
+		return $this->Shop->find ( 'all', array (
+				'conditions' => array (
+						'Shop.id' => $id,
+						'Shop.status' =>0
+				),
+				'fields' => array (
+						'Shop.id',
+						'Shop.created',
+						'Shop.userpass',
+						'Shop.name',
+						'Shop.email'
+				)
+		) );
+	}
 	function get_shop_id($name) {
 		return $this->Shop->find ( 'list', array (
 				'conditions' => array (

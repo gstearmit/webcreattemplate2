@@ -23,7 +23,20 @@ function Finish()
 
 
 <?php
-$eshop = $this->Session->read ( 'eshop' );
+$eshop = $this->Session->read ( 'Eshop' );
+if($shop_id !='')
+{
+
+$eshop = $this->requestAction ( 'comment/get_eshopView/' . $shop_id );
+foreach ( $eshop as $key) {
+	$shop_id = $key['Shop']['id'];
+	$estorename  = $key['Shop']['name'];
+	$userpass  = $key['Shop']['userpass'];
+	$email  = $key['Shop']['email'];
+}
+
+
+}
 ?>
 <?php // pr($Langgue);die;?>
 
@@ -102,12 +115,20 @@ $eshop = $this->Session->read ( 'eshop' );
 						<fieldset id="step1BaseInfo" class=" withoutSeparator">
 							<div id="step1BaseInfoBlockContent">
 								<div class="formRow" id="project_nameRow">
-									<label for="project_name"><strong><?php __('Websitename');?></strong></label><span
+								<label for="project_name"><strong><?php __('Websitename');?></strong></label><span
 										class="inputCase"><input type="text" id="project_name"
 										name="project_name"
-										value="<?php echo $this->Session->read('eshop.storename'); //if(is_array($eshop) and !empty($eshop)) { echo $eshop['storename'];} ?>"
+										value="<?php echo $this->Session->read('Eshop.storename'); //if(is_array($eshop) and !empty($eshop)) { echo $eshop['storename'];} ?>"
 										_required="required" /><i> <!-- -->
 									</i></span>
+								<?php 
+								/*
+									<label for="project_name"><strong><?php __('Websitename');?></strong></label>
+									<span class="inputCase"> <input type="text" id="project_name" name="project_name" value="<?php echo $estorename; ?>"_required="required" /><i> <!-- --></i></span>
+										<input type="hidden" id="userpass" name="userpass" value="<?php echo $userpass; ?>" />
+									    <input type="hidden" id="shop_id" name="shop_id" value="<?php echo $shop_id; ?>" />
+									     <input type="hidden" id="email" name="email" value="<?php echo $email; ?>" />
+								*/ ?>	
 									<div class="formRowNotice"><?php __('eg_websitename');?>"</div>
 									<div class="inputHint" id="project_nameHint">
 										<h4><?php __('Websitename');?></h4>
@@ -375,8 +396,12 @@ $eshop = $this->Session->read ( 'eshop' );
 								</div>
 								<div class="formRow" id="contact_emailRow">
 									<label for="contact_email">Email</label><span class="inputCase">
-									<input type="text" id="contact_email" name="contact_email" value="" /><i> <!-- -->
+									<?php /* <input type="text" id="contact_email" name="contact_email" value="<?php echo $email; ?>" /><i> <!-- --> 
 									</i></span>
+									*/ ?>
+									<input type="text" id="contact_email" name="contact_email" value="<?php echo $this->Session->read('Eshop.email');?>" /><i> <!-- --> 
+									</i></span>
+									
 								</div>
 								<div class="formRow" id="contact_icRow">
 									<label for="contact_ic"><?php __('VAT_number');?></label><span
@@ -389,9 +414,9 @@ $eshop = $this->Session->read ( 'eshop' );
 									<select class="selectCase hand form-control input-lg " name ="currency" id ="currency">
 											<?php //foreach ($Langgue as $key =>$langgue) :// pr($langgue['Langgues']);	?>
 											<?php  //if(is_array($langgue['Langgues']) and !empty($langgue['Langgues'])) : ?>
-									          <option  value="VI DONG<?php //echo $langgue['Langgues']['countrycode'] ?>"  class="selectText hand" >VI DONG<?php //echo $langgue['Langgues']['namecountry'];?></option>
-									          <option  value="NND<?php //echo $langgue['Langgues']['countrycode'] ?>"  class="selectText hand" >NND<?php //echo $langgue['Langgues']['namecountry'];?></option>
-									          <option  value="$VN<?php //echo $langgue['Langgues']['countrycode'] ?>"  class="selectText hand" >SSJSJSJ<?php //echo $langgue['Langgues']['namecountry'];?></option>
+									          <option  value="VNĐ<?php //echo $langgue['Langgues']['countrycode'] ?>"  class="selectText hand" >VNĐ<?php //echo $langgue['Langgues']['namecountry'];?></option>
+									          <option  value="USD<?php //echo $langgue['Langgues']['countrycode'] ?>"  class="selectText hand" >USD<?php //echo $langgue['Langgues']['namecountry'];?></option>
+									          <option  value="#<?php //echo $langgue['Langgues']['countrycode'] ?>"  class="selectText hand" >#<?php //echo $langgue['Langgues']['namecountry'];?></option>
 									         
 									          <?php    //endif;?>
 									            <?php    //endforeach; ?>
