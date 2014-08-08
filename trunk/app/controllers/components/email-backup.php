@@ -10,10 +10,10 @@ class EmailComponent
   /**
    * Send email using SMTP Auth by default.
    */
-    var $from         = "alatcas1@gmail.com";
+    var $from         = "phuca4@gmail.com";
     var $fromName     = "FREEMOBIWEB.MOBI";
-    var $smtpUserName = 'alatcas1@gmail.com';  // SMTP username
-    var $smtpPassword = '1alatca*@!123'; // SMTP password
+    var $smtpUserName = 'phuca4@gmail.com';  // SMTP username
+    var $smtpPassword = 'ngoc8750phuca4'; // SMTP password
     var $smtpHostNames= 'smtp.gmail.com';  // specify main and backup server
 	var $smtpAuth= false;  // specify main and backup server
 	var $smtpPort= 465;  // specify main and backup server
@@ -75,7 +75,7 @@ class EmailComponent
     	//vendor('phpmailer'.DS.'class.phpmailer');
     	//vendor('phpmailer'.DS.'class.phpmailer');
     	App::import('Vendor', 'phpmailer', array('file' => 'phpmailer'.DS.'class.phpmailer.php')); 
-	    $mail = new PHPMailer(true);
+	    $mail = new PHPMailer();
 		
 	    $mail->SetLanguage('en');
 		

@@ -8,7 +8,8 @@
 				foreach($shop as $key=>$value){
 				$shop_id=$key;
 				}
-			
+// 	pr($shopname);
+// 	pr($shop_id);		
 ?>
 <?php echo $this->Html->css('validationEngine.jquery');?>
 <script type="text/javascript" src="<?php echo DOMAIN;?>js/jquery.validationEngine.js"></script>
