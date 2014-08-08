@@ -18,7 +18,6 @@
 								'Estore_banners',//eshop Estore_banners
 								'Estore_category',
 								'Estore_comments',//eshop Estore_comments
-								'Estore_contacts',//eshop Estore_contacts
 								'Estore_user',
 								'Estore_news',
 								'Estore_infomation',
@@ -2869,7 +2868,7 @@
 							);
 							$this->set ( 'comment', $this->paginate ( 'Estore_comments', array () ) );
 						}
-						
+						// them danh muc moi
 						function addcomments() {
 							$shop = explode ( '/', $this->params ['url'] ['url'] );
 							$shopname = $shop [0];
@@ -2929,8 +2928,6 @@
 							}
 								
 							$this->set ( 'shopname', $nameeshop );
-							$message= "";
-							$this->set('message',$message);
 							
 							$this->layout = 'themeshop/estorecreatnanedata';
 							$this->set ( 'title_for_layout', 'e-shop' );
@@ -2939,75 +2936,67 @@
 							mysql_query ( "SET character_set_connection=utf8" );
 							$this->Estore_settings->setDataEshop($hostname,$username,$password,$databasename);
 							$x = $this->Estore_settings->read ( null, 1 );
+							//pr($x);
+							pr($_POST);//die;
+							//pr($this->Email);
 							
 							if (isset ( $_POST ['name'] )) {
-								$name = trim($_POST ['name']);
+								$name = $_POST ['name'];
 								$mobile = $_POST ['phone'];
-								$email = trim($_POST ['email']);
-								$title = trim($_POST ['title']);
-								$content = trim($_POST ['content']);
+								$email = $_POST ['email'];
+								$title = $_POST ['title'];
+								$content = $_POST ['content'];
+								$to= $x['Estore_settings']['email'];
+								$from = $email;
+								$from_name = $name;
+								$subject = $title;
+								$body = $content;
+							
+								$this->Email->from = $from;
+								$this->Email->fromName = $from_name;
+								$this->Email->to = $x['Estore_settings']['email'];
+// 								$this->Email->subject = $title;
+
+								//$this->Email->SetFrom($from, $from_name);
+								$this->Email->Subject = $subject;
+								$this->Email->Body = $body;
+//								$this->Email->AddAddress($to);
 								
-								$data = array(
-										'estore_id'=>$x['Estore_settings']['estore_id'],
-									    'name'=>$name,
-										'mobile'=>$mobile,
-										'email'=>$email,
-										'title'=>$title,
-										'content'=>$content
-								);
+								$this->Email->template = 'default';
+								$this->Email->sendAs = 'both';
+								$this->set ( 'name', $name );
+								$this->set ( 'mobile', $mobile );
+								$this->set ( 'email', $email );
+								$this->set ( 'content', $content );
 								
-								if(!empty($data)) {
-									$this->Estore_contacts->setDataEshop($hostname,$username,$password,$databasename);
-									if($this->Estore_contacts->save($data))
-									{
-										$resultemail = $this->smtpmailer($email,'alatcas1@gmail.com','FREEMOBIWEB.MOBI',$x['Estore_settings']['title'],$content);
-										if ($resultemail ==1)
-										{
-											//echo '<script language="javascript"> alert("Gửi mail thành công"); location.href="' . DOMAIN .$this->shopname. '";</script>';
-											$message= "succesfuly";
-											$this->set('message',$message);
-										}
-										else
-										{
-											//echo '<script language="javascript"> alert("gửi mail không thành công"); </script>';
-											$this->set('message',$resultemail);
-										}
-									}
-								}
-			                   
-								
+								if ($this->Email->send ()) {
+								// $this->Session->setFlash(__('Thêm mới danh mục thành công',true));
+								echo '<script language="javascript"> alert("Gửi mail thành công"); location.href="' . DOMAIN .$this->shopname. '";</script>';
+								} else
+									 $this->Session->setFlash(__('gửi mail không thành công .Error :'.$this->Email->ErrorInfo, true));
+									// echo '<script language="javascript"> alert("gửi mail không thành công"); //location.href="'.DOMAIN.'";</script>';
+									//echo '<script language="javascript"> alert("gửi mail không thành công"); </script>';
 							}
 						}
 						
-				  function smtpmailer($to, $from, $from_name, $subject, $body) {
-					       //++++++++ include PhpMailler +++++++++++
-							$libraryPhpMailer = ROOT.'/PhpMailer/';
-							$filename = $libraryPhpMailer.'class.phpmailer.php';
-							if(file_exists($filename))
-							   include($filename);
+						private function smtpmailer($to, $from, $from_name, $subject, $body) {
+							include('module/Shop/src/Shop/library/class.phpmailer.php');
 							global $error;
-					        $mail = new PHPMailer();
-					        $mail->IsSMTP();
-					        $mail->CharSet = "utf-8";
-					        $mail->SMTPDebug = 0;
-					        $mail->SMTPAuth = true;
-					        $mail->SMTPSecure = 'ssl';
-					        $mail->Host = 'smtp.gmail.com';
-					        $mail->Port = 465;
-					        $mail->Username = GUSER;
-					        $mail->Password = GPWD;
-					        $mail->SetFrom($from, $from_name);
-					        $mail->Subject = $subject;
-					        $mail->Body = $body;
-					        $mail->AddAddress($to);
-					        if (!$mail->Send()) {
-					            $error = 'Gởi mail bị lỗi: ' . $mail->ErrorInfo;
-					            return false;
-					        } else {
-					            $error = 'thư của bạn đã được gởi đi ';
-					            return true;
-					        }
-					    }
+							$mail = new \PHPMailer();
+							$mail->IsSMTP();
+							$mail->CharSet = "utf-8";
+							$mail->SMTPDebug = 0;
+							$mail->SMTPAuth = true;
+							$mail->SMTPSecure = 'ssl';
+							$mail->Host = 'smtp.gmail.com';
+							$mail->Port = 465;
+							$mail->Username = GUSER;
+							$mail->Password = GPWD;
+							
+							$mail->SetFrom($from, $from_name);
+							$mail->Subject = $subject;
+							$mail->Body = $body;
+							$mail->AddAddress($to);}
 						
 						
 						

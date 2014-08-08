@@ -182,7 +182,9 @@ img{
 	background:#ffffff;
 	width:1000px;
 	height:auto;
-	margin:0px auto;
+	margin-left: 10%;
+	display: inline-block;
+	
 	}
 #wrapper #body #content{
 	width:1000px;

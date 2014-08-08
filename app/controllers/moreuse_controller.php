@@ -30,19 +30,8 @@ class MoreuseController extends AppController {
 	
 	function finish() {
 		// $string = unserialize('a:21:{s:12:"project_name";s:6:"cxcxcx";s:14:"company_slogan";s:8:"cxcxcxcx";s:8:"language";s:2:"vi";s:11:"branch_type";s:0:"";s:12:"contact_name";s:6:"cxcxcx";s:14:"contact_street";s:12:"cxcxcxcccxcx";s:12:"contact_city";s:4:"cxcx";s:11:"contact_zip";s:7:"xxcxcxx";s:15:"contact_country";s:2:"vn";s:13:"contact_state";s:0:"";s:11:"contact_tel";s:8:"cxcxcxcx";s:13:"contact_email";s:8:"xcxcxcxc";s:10:"contact_ic";s:0:"";s:11:"currency_id";s:0:"";s:5:"taxes";s:3:"yes";s:10:"country_id";s:2:"vn";s:10:"moduleType";s:5:"eshop";s:6:"layout";s:8:"50001014";s:5:"email";s:8:"xcxcxcxc";s:16:"socialNetworking";i:1;s:5:"pages";a:4:{s:7:"aboutUs";s:7:"aboutUs";s:7:"contact";s:7:"contact";s:9:"newsEshop";s:9:"newsEshop";s:15:"termsConditions";s:15:"termsConditions";}}');
-		
-		// echo "<pre>";
-		// print_r($string['project_name']);
-		// echo "</pre>";
-		
-		// echo $string['project_name'];
 		if (isset ( $_POST ['wizard'] )) {
 			$wizard = unserialize ( $_POST ['wizard'] );
-			
-// 			echo "<pre>";
-// 			print_r ( $wizard );
-// 			echo "</pre>";
-			
 			/*
 			 * Array
 				(
@@ -122,17 +111,11 @@ class MoreuseController extends AppController {
 			$Store ['hostname'] = $namwserver;
 			$Store ['ipserver'] = $namwserver;
 			// $Store['user_id']=$this->Session->read("id");
-			
-			pr ( $Store );
-// 			die ();
-			
 			 $this->Shop->save($Store);
 			 $shop_id = $this->Shop->getLastInsertId();
-			 pr($shop_id);
 			 // creat Eshop
 			 //$Store ['language']
 			 //$Store ['layout'] //: id = 50000565 ma eshop bep ga 
-
 			 $result = $this->registerEshop($slug,$Store ['layout'],$Store ['language'],$shop_id);
 			 pr($result);
 		} else {
