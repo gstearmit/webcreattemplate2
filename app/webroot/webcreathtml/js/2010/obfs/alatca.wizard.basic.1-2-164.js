@@ -14698,10 +14698,17 @@ WizardClass.prototype = {
 		new Ajax.Request(this.sendUrl.replace(/\#step[0-9]/i, ""), {
 			method: "post",
 			parameters: a,
-			onSuccess: function(g) {
+			onSuccess: function(data) {
+				//alert(array1); //return 0;
 				
-				alert(g); return 0;
-				
+				 $.each(data, function(i , index){
+						var array = index.data;
+							$.each(array, function(i, index1){
+			                 alert(JSON.stringify(index1));
+							 });
+							
+			            });
+				 
 //				if (g.responseText.match(/result:1/)) {
 //					Metrics.isSent = true
 //				} else {

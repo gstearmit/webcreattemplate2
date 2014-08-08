@@ -35,7 +35,22 @@ class HomeController extends AppController {
 	// var $components = array('RequestHandler');
 	
 	// creattemplate
+
+	function encryptIt( $q ) {
+		$cryptKey  = 'qJB0rGtIn5UB1xG03efyCp';
+		$qEncoded      = base64_encode( mcrypt_encrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), $q, MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ) );
+		return( $qEncoded );
+	}
+	
+	function decryptIt( $q ) {
+		$cryptKey  = 'qJB0rGtIn5UB1xG03efyCp';
+		$qDecoded      = rtrim( mcrypt_decrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), base64_decode( $q ), MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ), "\0");
+		return( $qDecoded );
+	}
+	
 	function index($id = null) {
+
+		
 	/*	
 		$id1 = $this->Session->read ( 'city' );  
 		if ($id == null && $id1 != null)
@@ -115,8 +130,12 @@ class HomeController extends AppController {
 	function signin() {
 	}
 	
+	
+	
 	// launchyoursite
 	function launchyoursite() {
+		
+		
 		
 		// ++langgue
 		$this->set ( 'Langgue', $this->Langgues->find ( 'all', array (
@@ -125,31 +144,47 @@ class HomeController extends AppController {
 				),
 				'order' => 'Langgues.id ASC' 
 		) ) );
-		
+		$this->set ( 'shop_id', '' );
 		$this->layout = 'launchyoursite';
 		if (isset ( $_POST ['storename'] )) {
 			$name = $this->Shops->findAllByName ( $_POST ['storename'] ); // echo ($_POST['tengianhang']);die;
 			if (count ( $name ) == 1) {
-				echo "<script>alert('" . json_encode ( 'Tên gian hàng đã tồn tại!' ) . "');</script>";
+				echo "<script>alert('" . json_encode ( 'Store e-shop already exists!' ) . "');</script>";
 				echo "<script>history.back(-1);</script>";
 			} else {
+			
 				$Store = array ();
-				$Store ['name'] = $_POST ['storename'];
-				$Store ['slug'] = $this->unicode_convert ( $_POST ['storename'] );
-				$Store ['email'] = $_POST ['mail'];
-				$Store ['user_id'] = 999; 
+				$Store ['name'] = trim($_POST ['storename']);
+				$Store ['slug'] = $this->unicode_convert ( trim($_POST ['storename']) );
+				$Store ['email'] = trim($_POST ['mail']);
+				$estorename = $Store ['name'] ;
+				$email = $Store ['email'];
+// 				$input = "SmackFactory";
+// 				$encrypted = $this->encryptIt( $input );
+// 				$decrypted = $this->decryptIt( $encrypted );
+// 				pr($encrypted);
+// 				pr($decrypted);
+// 				die;
 				
+				$userpass = $this->encryptIt(trim($_POST ['pass']));
+				$Store ['userpass'] = $userpass;
+				$Store ['signup-sent'] = trim($_POST ['signup-sent']);
+				$Store ['domain'] = trim($_POST ['domain']);
+				$Store ['user_id'] = 999; 
+// 				$this->Shop->save($Store);
+// 				$shop_id = $this->Shop->getLastInsertId();
 				// ++Start Session Eshop
-				$this->Session->write ( 'eshop.storename', $_POST ['storename'] );
-				$this->Session->write ( 'eshop.email', $_POST ['mail'] );
-				$this->Session->write ( 'eshop.signup-sent', $_POST ['signup-sent'] );
-				$this->Session->write ( 'eshop.domain', $_POST ['domain'] );
-				//$this->Session->write ( 'eshop.aa62a6988a6', $_POST ['aa62a6988a6'] );
-				$eshop_tmp = $this->Session->read ( 'eshop' );
+				$this->Session->write ( 'Eshop.storename', $estorename);
+				$this->Session->write ( 'Eshop.email', $email);
+                $this->Session->write ( 'Eshop.userpass', $userpass);
+				//$this->Session->write ( 'Eshop.shopid', $shop_id);
+				$eshop_tmp = $this->Session->read ( 'Eshop' );
 				$this->set ( 'title_for_layout', '::Lauch Site' );
+				$this->set ( 'shop_id', $shop_id );
 				
 			}
 		}
+	
 		function finish() {
 		}
 	}
