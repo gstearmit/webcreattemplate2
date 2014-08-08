@@ -43,6 +43,31 @@ class HomeController extends AppController {
 		if ($id == null && $id1 == null)
 			$id = 2;
 		$this->Session->write ( 'city', $id ); // write($name,$value): Dùng để lưu một giá trị $value vào session đặt tên là $name
+<<<<<<< .mine
+		*/
+		
+	           $langue = $this->Session->read ( 'language' );
+				if($langue == null )
+				{
+					$urlTmp = $_SERVER['REQUEST_URI'];
+					if (stripos($urlTmp, "?language")) 
+					{
+						$urlTmp = explode("?", $urlTmp);
+						$lang = explode("=", $urlTmp[1]);
+						$lang = $lang[1];
+						if (isset($lang)) {
+							$this->Session->write('language', $lang);
+						} else {
+							$this->Session->delete('language');
+						}
+					}else{
+						$lang ="vie";  // default 
+						$this->Session->write('language', $lang);
+					}
+				}
+				$this->set ( 'langue',$langue);
+		
+=======
 		*/
 		$urlTmp = $_SERVER['REQUEST_URI'];
 		if (stripos($urlTmp, "?language")) 
@@ -81,6 +106,7 @@ class HomeController extends AppController {
 		}
 		$this->set ( 'langue', $langue );
 		
+>>>>>>> .r102
 	}
 	function noteindex() {}
 	function businesswebsites() {
