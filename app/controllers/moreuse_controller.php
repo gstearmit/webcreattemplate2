@@ -29,42 +29,10 @@ class MoreuseController extends AppController {
 	
 	
 	function finish() {
-		// $string = unserialize('a:21:{s:12:"project_name";s:6:"cxcxcx";s:14:"company_slogan";s:8:"cxcxcxcx";s:8:"language";s:2:"vi";s:11:"branch_type";s:0:"";s:12:"contact_name";s:6:"cxcxcx";s:14:"contact_street";s:12:"cxcxcxcccxcx";s:12:"contact_city";s:4:"cxcx";s:11:"contact_zip";s:7:"xxcxcxx";s:15:"contact_country";s:2:"vn";s:13:"contact_state";s:0:"";s:11:"contact_tel";s:8:"cxcxcxcx";s:13:"contact_email";s:8:"xcxcxcxc";s:10:"contact_ic";s:0:"";s:11:"currency_id";s:0:"";s:5:"taxes";s:3:"yes";s:10:"country_id";s:2:"vn";s:10:"moduleType";s:5:"eshop";s:6:"layout";s:8:"50001014";s:5:"email";s:8:"xcxcxcxc";s:16:"socialNetworking";i:1;s:5:"pages";a:4:{s:7:"aboutUs";s:7:"aboutUs";s:7:"contact";s:7:"contact";s:9:"newsEshop";s:9:"newsEshop";s:15:"termsConditions";s:15:"termsConditions";}}');
+		$this->layout = 'ajax';
+		$result_finish ="";
 		if (isset ( $_POST ['wizard'] )) {
 			$wizard = unserialize ( $_POST ['wizard'] );
-			/*
-			 * Array
-				(
-				    [project_name] => gianhang
-				    [company_slogan] => xzxzxzx
-				    [language] => vi
-				    [branch_type] => 
-				    [contact_name] => gianhang
-				    [contact_street] => Ha Noi
-				    [contact_city] => Ha Noi
-				    [contact_zip] => 65656
-				    [contact_country] => vn
-				    [contact_state] => 
-				    [contact_tel] => 565656656565
-				    [contact_email] => phuca4@gmail.com
-				    [contact_ic] => 3232223
-				    [currency_id] => 
-				    [taxes] => yes
-				    [country_id] => vn
-				    [moduleType] => eshop
-				    [layout] => 50000103
-				    [email] => phuca4@gmail.com
-				    [socialNetworking] => 1
-				    [pages] => Array
-				        (
-				            [aboutUs] => aboutUs
-				            [contact] => contact
-				            [newsEshop] => newsEshop
-				            [termsConditions] => termsConditions
-				        )
-				
-				)
-			  */
 			
 			$Store = array ();
 			$Store ['name'] = $wizard ['project_name'];
@@ -101,6 +69,7 @@ class MoreuseController extends AppController {
 			$Store ['images'] = 'img/upload/9d564d3cc9dcf18171f1dc84ebc09e0b.png';
 			$Store ['ckshops'] = 1;
 			$Store ['status'] = 1;
+			
 			$namedatabase = $slug.'_'.$Store ['layout'];
 			$ipserver = $_SERVER['SERVER_ADDR'];
 			$namwserver = $_SERVER['SERVER_NAME'];
@@ -111,17 +80,85 @@ class MoreuseController extends AppController {
 			$Store ['hostname'] = $namwserver;
 			$Store ['ipserver'] = $namwserver;
 			// $Store['user_id']=$this->Session->read("id");
+			
 			 $this->Shop->save($Store);
 			 $shop_id = $this->Shop->getLastInsertId();
-			 // creat Eshop
-			 //$Store ['language']
-			 //$Store ['layout'] //: id = 50000565 ma eshop bep ga 
-			 $result = $this->registerEshop($slug,$Store ['layout'],$Store ['language'],$shop_id);
-			 pr($result);
+			 pr($shop_id);
+			if($shop_id<0) {  $result_finish ="Error Save data eshop";return  $result_finish ;exit;}
+			 //creat subdomain
+			 //Send mail Acout Estore
+			 $shoparr = $this->Shop->find ( 'all', array (
+			 		'conditions' => array (
+			 				'Shop.id' => $shop_id,
+			 				'Shop.status' => 1
+			 		),
+			 		'fields' => array (
+			 				'Shop.id',
+			 				'Shop.created',
+			 				'Shop.databasename',
+			 				'Shop.username',
+			 				'Shop.password',
+			 				'Shop.hostname',
+			 				'Shop.name',
+			 				'Shop.email',
+			 				'Shop.ipserver'
+			 		)
+			 ) );
+			 if(is_array($shoparr) and empty($shoparr))
+			 {
+			 	$result_finish ="Error Not get data eshop";
+			 	return  $result_finish ; exit;
+			 }
+			
+			if(is_array($shoparr) and !empty($shoparr))
+			{
+			  foreach($shoparr as $shop){
+			 	$databasename = $shop['Shop']['databasename'];
+			 	$password = $shop['Shop']['password'];
+			 	$username = $shop['Shop']['username'];
+			 	$hostname = $shop['Shop']['hostname'];
+			 	$shop_id = $shop['Shop']['id'];
+			 	$nameproject = $shop['Shop']['name'];
+			 	$email = trim($shop['Shop']['email']);
+			 		
+			 }
+			 pr($shoparr);
+			 //return  $shoparr ; exit;
+			}
+			
+			// $this->sendacountEshop($Store ['email'],$username,$password);
+			 $body = "Cảm ơn bạn đã đăng ký gian hàng Tại FREEMOBIWEB.MOBI  .";
+			 $body.= "Đường dẫn tới gian hàng của bạn : http://freemobiweb.mobi/".$nameproject;
+			 $body.= "    .Hoặc Đường dẫn tới gian hàng của bạn : http://".$nameproject.".freemobiweb.mobi/";
+			 $body.= "     .Bạn có thể truy cập vào trang quản trị của gian hàng theo đường dẫn : http://freemobiweb.mobi/estoreadmin";
+			 $body.= "      .STT Eshop :".$shop_id;
+			 $body.= "      .User name:".$username;
+			 $body.="\n Password:".$password;
+			 $body.= "Xin cảm ơn!";
+				 
+		     $resultemail = $this->smtpmailereshop($email,'alatcas1@gmail.com','FREEMOBIWEB.MOBI','REGISTER FREEMOBIWEB',$body);
+			if ($resultemail == 1) {
+				// echo '<script language="javascript"> alert("'.$body.'"); location.href="' . DOMAIN .$this->shopname. '";</script>';
+				// $message= "succesfuly";
+				pr($body);
+				 return  $body ; exit;
+				
+			} else {
+				// echo '<script language="javascript"> alert("gửi mail không thành công"); </script>';
+				//return $resultemail;
+				pr($resultemail);
+				return  $resultemail ; exit;
+				
+			}
+			
+			// creat Eshop
+			//$result = $this->registerEshop ( $slug, $Store ['layout'], $Store ['language'], $shop_id );
+						//pr($result);
+			 		
 		} else {
-			$result = Null;
+			return  $result = Null;
 		}
-		die ();
+	die ();
 	}
 
 	//++++++ Register Website Creat++++++++++++++++++++
@@ -137,7 +174,8 @@ class MoreuseController extends AppController {
 			$nameLangueCopy = $this->checkLanguageCode($project_name,$language_code,$layout_code,$shop_id);
 			
 			$dir_and_name_estoreViewCopy = $this->checkLayoutCodeReturnCodeTheme($project_name,$layout_code);
-
+			
+			
 			return $result_code= array(
 					'nameController_Copy'=>$nameController_Copy,
 					'nameLangueCopy'=>$nameLangueCopy,
@@ -147,6 +185,65 @@ class MoreuseController extends AppController {
 				
 			//}
 		}
+		
+		
+		function sendacountEshop($nameproject,$email,$user_name,$password,$subdomain) 
+		 {
+		 	$body = "Cảm ơn bạn đã đăng ký gian hàng Tại FREEMOBIWEB.MOBI";
+		 	$body.= "Đường dẫn tới gian hàng của bạn : http://freemobiweb.mobi/".$nameproject;
+		 	$body.= "Hoặc Đường dẫn tới gian hàng của bạn : http://".$nameproject."/freemobiweb.mobi/";
+		 	$body.= "Bạn có thể truy cập vào trang quản trị của gian hàng theo đường dẫn : http://freemobiweb.mobi/estoreadmin";
+		 		
+		 	$body.= "User name:".$user_name;
+		 	$body.=" Password:".$password;
+		 	$body.= "Xin cảm ơn!";
+		 		
+		 	$this->smtpmailereshop($email,'alatcas1@gmail.com','FREEMOBIWEB.MOBI','REGISTER FREEMOBIWEB',$body);
+		 	if ($resultemail ==1)
+		 	{
+				// echo '<script language="javascript"> alert("'.$body.'"); location.href="' . DOMAIN .$this->shopname. '";</script>';
+			$message = "succesfuly";
+			return $message;
+		 			
+		 	}
+		 	else
+		 	{
+		 		//echo '<script language="javascript"> alert("gửi mail không thành công"); </script>';
+		 		return $resultemail;
+		 	}
+		 }
+		
+		
+		function smtpmailereshop($to, $from, $from_name, $subject, $body) {
+			//++++++++ include PhpMailler +++++++++++
+			$libraryPhpMailer = ROOT.'/PhpMailer/';
+			$filename = $libraryPhpMailer.'class.phpmailer.php';
+			if(file_exists($filename))
+				include($filename);
+			global $error;
+			$mail = new PHPMailer();
+			$mail->IsSMTP();
+			$mail->CharSet = "utf-8";
+			$mail->SMTPDebug = 0;
+			$mail->SMTPAuth = true;
+			$mail->SMTPSecure = 'ssl';
+			$mail->Host = 'smtp.gmail.com';
+			$mail->Port = 465;
+			$mail->Username = GUSER;
+			$mail->Password = GPWD;
+			$mail->SetFrom($from, $from_name);
+			$mail->Subject = $subject;
+			$mail->Body = $body;
+			$mail->AddAddress($to);
+			if (!$mail->Send()) {
+				$error = 'Gởi mail bị lỗi: ' . $mail->ErrorInfo;
+				return false;
+			} else {
+				$error = 'thư của bạn đã được gởi đi ';
+				return true;
+			}
+		}		
+		
 	//++++++++++++++++++++++++++++++++++++
 	/*
 	 * CheckLayoutcode 

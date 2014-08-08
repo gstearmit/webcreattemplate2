@@ -14120,7 +14120,8 @@ WizardClass.prototype = {
 		this.checkUrl = this.selfUrl + "&checkStatus=1";
 		this.verifyUrl = this.selfUrl + "&verifyStatus=1";
 		//this.sendUrl = this.selfUrl ;//+ "&send=1";
-		this.sendUrl = 'finish';
+		//this.sendUrl = 'finish';
+		this.sendUrl = 'finishmoreuse';
 		var d = this;
 		$$("div.formRow").each(function(e) {
 			d.formRowsEl[e.id] = e;
@@ -14699,7 +14700,7 @@ WizardClass.prototype = {
 			parameters: a,
 			onSuccess: function(g) {
 				
-				//alert(g); return 0;
+				alert(g); return 0;
 				
 //				if (g.responseText.match(/result:1/)) {
 //					Metrics.isSent = true
