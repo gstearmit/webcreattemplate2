@@ -30,7 +30,7 @@ class MoreuseController extends AppController {
 	
 	function finish() {
 		$this->layout = 'ajax';
-		$result_finish ="";
+		$result_finish = array();
 		if (isset ( $_POST ['wizard'] )) {
 			$wizard = unserialize ( $_POST ['wizard'] );
 			
@@ -78,13 +78,13 @@ class MoreuseController extends AppController {
 			$Store ['username'] = "root";
 			$Store ['password'] = "";
 			$Store ['hostname'] = $namwserver;
-			$Store ['ipserver'] = $namwserver;
+			$Store ['ipserver'] = $ipserver;
 			// $Store['user_id']=$this->Session->read("id");
 			
 			 $this->Shop->save($Store);
 			 $shop_id = $this->Shop->getLastInsertId();
-			 pr($shop_id);
-			if($shop_id<0) {  $result_finish ="Error Save data eshop";return  $result_finish ;exit;}
+			 
+			if($shop_id<0) { die("Oop! Erro Save data! Please try again !!!");}
 			 //creat subdomain
 			 //Send mail Acout Estore
 			 $shoparr = $this->Shop->find ( 'all', array (
@@ -107,7 +107,7 @@ class MoreuseController extends AppController {
 			 if(is_array($shoparr) and empty($shoparr))
 			 {
 			 	$result_finish ="Error Not get data eshop";
-			 	return  $result_finish ; exit;
+			 	return  $result_finish ; //exit;
 			 }
 			
 			if(is_array($shoparr) and !empty($shoparr))
@@ -122,7 +122,7 @@ class MoreuseController extends AppController {
 			 	$email = trim($shop['Shop']['email']);
 			 		
 			 }
-			 pr($shoparr);
+			 
 			 //return  $shoparr ; exit;
 			}
 			
@@ -135,26 +135,38 @@ class MoreuseController extends AppController {
 			 $body.= "      .User name:".$username;
 			 $body.="\n Password:".$password;
 			 $body.= "Xin cảm ơn!";
-				 
+			 
+			 $detailemailarray = array(
+			 		'linkadmin'=>"http://".$nameproject.".freemobiweb.mobi/",
+			 		'linkweb'=>"http://freemobiweb.mobi/".$nameproject,
+			 );
+			 
 		     $resultemail = $this->smtpmailereshop($email,'alatcas1@gmail.com','FREEMOBIWEB.MOBI','REGISTER FREEMOBIWEB',$body);
 			if ($resultemail == 1) {
 				// echo '<script language="javascript"> alert("'.$body.'"); location.href="' . DOMAIN .$this->shopname. '";</script>';
 				// $message= "succesfuly";
-				pr($body);
-				 return  $body ; exit;
+				
+				// return  $body ; exit;
 				
 			} else {
 				// echo '<script language="javascript"> alert("gửi mail không thành công"); </script>';
 				//return $resultemail;
-				pr($resultemail);
-				return  $resultemail ; exit;
+				
+				//return  $resultemail ; exit;
 				
 			}
 			
 			// creat Eshop
 			//$result = $this->registerEshop ( $slug, $Store ['layout'], $Store ['language'], $shop_id );
 						//pr($result);
-			 		
+						
+			$result_finish = array(
+					'shopid'=>$shop_id,
+					'resultemail'=>$resultemail,  // result send email
+					'detailemailarray'=>$detailemailarray,
+			);
+
+			return json_encode($result_finish,true);
 		} else {
 			return  $result = Null;
 		}
