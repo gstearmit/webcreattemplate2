@@ -43,7 +43,11 @@
 						var $helpers = array (
 								'Html',
 								'Ajax',
+<<<<<<< .mine
+								'Javascript','Paginator' 
+=======
 								'Javascript',//'Paginator' 
+>>>>>>> .r102
 						);
 						var $components = array (
 								'RequestHandler',
@@ -2383,8 +2387,29 @@
 											'order' => 'Estore_news.id DESC' 
 									);
 
+<<<<<<< .mine
+							$this->paginate = array (
+										'conditions' => array (
+												'estore_news.status' => 1,
+												'estore_news.category_id' => $id 
+										),
+										'limit' => '10',
+										'order' => 'estore_news.id DESC' 
+								);
+							pr($this->paginate('estore_news',array()));
+							$this->set ( 'listnews',  $this->paginate('estore_news',array()));
+=======
 							$this->set('listnews', $this->paginate('Estore_news',array()));
+>>>>>>> .r102
 							
+<<<<<<< .mine
+							//cat id
+							$sql_exc_cat = "SELECT estore_catproducts.*
+										 FROM estore_catproducts
+									     WHERE estore_catproducts.id = '" . $id . "'";
+ 									//	$sql_exc_cat33 = "ORDER BY estore_news.id ASC";
+							$result_cat = $this->connectiondatabase ( $sql_exc_cat );
+=======
 							$this->Estore_categories->setDataEshop($hostname,$username,$password,$databasename);
 							$this->set('cat',$this->Estore_categories->read(null,$id));
 						}
@@ -2407,6 +2432,7 @@
 											'Shop.ipserver'
 									)
 							) );
+>>>>>>> .r102
 							
 							//++++++++++Connect  data +++++++++++++++++
 							foreach($shoparr as $shop){
@@ -2426,6 +2452,36 @@
 							$this->set('Estoreshopnews', $Estoreshopnews);
 						}
 						
+<<<<<<< .mine
+						/**
+						 * Overridden paginate method 
+						 */
+						function paginate($conditions, $fields, $order, $limit, $page = 1, $recursive = null, $extra = array()) {
+							$recursive = -1;
+							//$this->useTable = false;
+							$sql_exc = "SELECT estore_news.*
+										 FROM estore_news";
+// 									     WHERE estore_news.category_id = ".$conditions['estore_news.category_id']."
+//  										 ORDER BY estore_news.id ASC";
+							$result = $this->connectiondatabase ( $sql_exc );
+							// pr($result);
+							return $result;
+						}
+						/**
+						 * Overridden paginateCount method
+						 */
+						public function paginateCount($conditions = null, $recursive = 0,$extra = array()) {
+							$sql_exc = "SELECT estore_news.*
+										 FROM estore_news";
+// 									WHERE `estore_news`.`category_id` = '".$conditions['estore_news.category_id']."'
+// 									ORDER BY `estore_news`.`id` ASC";
+							$result = $this->connectiondatabase ( $sql_exc );
+							$this->recursive = $recursive;
+							//$results = $this->query($sql);
+							return count($results);
+						}
+=======
+>>>>>>> .r102
 						function souvenir() {
 							$shop = explode ( '/', $this->params ['url'] ['url'] );
 							$shopname = $shop [0];
