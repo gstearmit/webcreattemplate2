@@ -14699,7 +14699,7 @@ WizardClass.prototype = {
 			method: "post",
 			parameters: a,
 			onSuccess: function(g) {
-//			alert(g); 
+			//alert(g); return 0;
 //			alert(g.responseText.match(/result:1/));
 //			alert(g.responseText.match(/result:reload/));
 //			return 0;
@@ -14707,7 +14707,8 @@ WizardClass.prototype = {
 //	                 alert(JSON.stringify(employee));return 0;
 //					
 //	            });
-				 
+//				 
+				
 				if (g.responseText.match(/result:1/)) {
 					Metrics.isSent = true;
 //					 var body = "Cảm ơn bạn đã đăng ký gian hàng Tại FREEMOBIWEB.MOBI  ."+"\nĐường dẫn tới gian hàng của bạn : http://freemobiweb.mobi/".$nameproject;
