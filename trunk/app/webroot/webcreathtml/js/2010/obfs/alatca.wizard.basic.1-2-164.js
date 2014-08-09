@@ -14698,27 +14698,34 @@ WizardClass.prototype = {
 		new Ajax.Request(this.sendUrl.replace(/\#step[0-9]/i, ""), {
 			method: "post",
 			parameters: a,
-			onSuccess: function(data) {
-				//alert(array1); //return 0;
-				
-				 $.each(data, function(i , index){
-						var array = index.data;
-							$.each(array, function(i, index1){
-			                 alert(JSON.stringify(index1));
-							 });
-							
-			            });
+			onSuccess: function(g) {
+//			alert(g); 
+//			alert(g.responseText.match(/result:1/));
+//			alert(g.responseText.match(/result:reload/));
+//			return 0;
+//				$.each(g, function(i , employee){
+//	                 alert(JSON.stringify(employee));return 0;
+//					
+//	            });
 				 
-//				if (g.responseText.match(/result:1/)) {
-//					Metrics.isSent = true
-//				} else {
-//					if (g.responseText.match(/result:reload/)) {
-//						Metrics.isSent = false;
-//						document.location.href = Wizard.selfUrl.replace(/\#step[0-9]/i, "");
-//						return
-//					}
-//				}
-//				document.location.href = 
+				if (g.responseText.match(/result:1/)) {
+					Metrics.isSent = true;
+//					 var body = "Cảm ơn bạn đã đăng ký gian hàng Tại FREEMOBIWEB.MOBI  ."+"\nĐường dẫn tới gian hàng của bạn : http://freemobiweb.mobi/".$nameproject;
+//					 $body.= "\n    .Hoặc Đường dẫn tới gian hàng của bạn : http://".$nameproject.".freemobiweb.mobi/";
+//					 $body.= "\n     .Bạn có thể truy cập vào trang quản trị của gian hàng theo đường dẫn : http://freemobiweb.mobi/estoreadmin";
+//					 $body.= "\n     .STT Eshop :".$shop_id;
+//					 $body.= "\n     .User name :".$email;
+//					 $body.="\n      .Password:".$this->decryptIt($userpass);
+//					 $body.= "\n Xin cảm ơn!";
+					alert("You have to register booth Success. Please check your mail to activate website and get access code !");
+				} else {
+					if (g.responseText.match(/result:reload/)) {
+						Metrics.isSent = false;
+						document.location.href = Wizard.selfUrl.replace(/\#step[0-9]/i, "");
+						return
+					}
+				}
+				document.location.href = 'http://freemobiweb.mobi';
 					//RS_CFG.urlGuidepost
 			}
 		});
