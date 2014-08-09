@@ -134,14 +134,14 @@ class MoreuseController extends AppController {
 						$logsubdoamin = true;
 					}else $logsubdoamin = $subdoamin;
 					
-// 					$creatdatabasename = $this->creatdatanamefreemobile($dbuser, $namedatabase, $dbpass, $dbpass_validate);
-// 					if($creatdatabasename === true)
-// 					{
-// 						$logcreatdataba = true;
-// 					}else $logcreatdataba = $creatdatabasename;
+					$creatdatabasename = $this->creatdatanamefreemobile($dbuser, $namedatabase, $dbpass, $dbpass_validate);
+					if($creatdatabasename === true)
+					{
+						$logcreatdataba = true;
+					}else $logcreatdataba = $creatdatabasename;
 					
-					if($subdoamin === true )
-						//if($subdoamin === true and  $creatdatabasename === true)
+					//if($subdoamin === true )
+					if($subdoamin === true and  $creatdatabasename === true)
 					{
 						$Store ['username'] = $dbuser;     //$dbuser = "datest";
 						$Store ['password'] = $dbpass;     //$dbname = "datest";
@@ -150,7 +150,7 @@ class MoreuseController extends AppController {
 						$Store ['userpass'] = $userpass;
 						$Store ['hostname'] = $namwserver;
 						$Store ['ipserver'] = $ipserver;
-						$logcreatdataba = "Not use";         // if($subdoamin === true ) not use $creatdatabasename === true
+						//$logcreatdataba = "Not use";         // if($subdoamin === true ) not use $creatdatabasename === true
 					}else die("Ooops! We can't Creat subdomain and creat database . Error : creat data".$logcreatdataba." Error subdomain".$logsubdoamin );
 			}elseif ($namwserver ==='127.0.0.1') {
 				echo "</br> Moi truong localhost </br>";
@@ -208,12 +208,13 @@ class MoreuseController extends AppController {
 			 	$hostname = $shop['Shop']['hostname'];
 			 	$shop_id = $shop['Shop']['id'];
 			 	$nameproject = $shop['Shop']['name'];
-			 	$email = trim($shop['Shop']['email']);
-			 		
-			 }
-			 
-			 //return  $shoparr ; exit;
+			 	$email = trim($shop['Shop']['email']);}
 			}
+			
+			echo "lay tu database len</br>";
+			echo "username";pr($username);
+			echo "password";pr($password);
+			//return  $shoparr ; exit;
 			
 			// $this->sendacountEshop($Store ['email'],$username,$password);
 			 $body = "Cảm ơn bạn đã đăng ký gian hàng Tại FREEMOBIWEB.MOBI  .";
@@ -237,19 +238,25 @@ class MoreuseController extends AppController {
 			if ($resultemail == 1) {
 				// echo '<script language="javascript"> alert("'.$body.'"); location.href="' . DOMAIN .$this->shopname. '";</script>';
 				// $message= "succesfuly";
-				
 				// return  $body ; exit;
-				
 			} else {
 				// echo '<script language="javascript"> alert("gửi mail không thành công"); </script>';
 				//return $resultemail;
-				
 				//return  $resultemail ; exit;
-				
 			}
 			
 			// creat Eshop
-			$result = $this->registerEshop ($namedatabase, $slug, $Store ['layout'], $Store ['language'], $shop_id );
+			if($namwserver != '127.0.0.1'){  // SERVER DIREACT
+				echo "dereacadmin tao database";
+			  $flagConnecting = "Use Connectingnew";
+			  $result = $this->registerEshop ($namedatabase, $slug, $Store ['layout'], $Store ['language'], $shop_id,$flagConnecting,$username ,$password);
+			}elseif($namwserver === '127.0.0.1'){  // LOCALHOST
+				echo "localhost tao database";
+			  $flagConnecting =  '';
+			  $username ='';
+			  $password='';
+			  $result = $this->registerEshop ($namedatabase, $slug, $Store ['layout'], $Store ['language'], $shop_id ,$flagConnecting,$username ,$password);
+			}
 			//pr($result);
 			// deburg 			
 			$result_finish12 = array(
@@ -387,7 +394,7 @@ class MoreuseController extends AppController {
 	
 	
 	//++++++ Register Website Creat++++++++++++++++++++
-	function registerEshop($namedatabase,$project_name,$layout_code,$language_code,$shop_id) {
+	function registerEshop($namedatabase,$project_name,$layout_code,$language_code,$shop_id,$flagConnecting,$username ,$password) {
 		$result_code;
 		// 		$name = $this->Shop->findAllByName( $project_name); // pr(count($name));die;
 		// 		if (count ( $name ) == 1) {
@@ -395,15 +402,22 @@ class MoreuseController extends AppController {
 		// 		} else {
 	
 			$nameController_Copy = $this->checkLayoutCode($project_name,$layout_code);
-			
-			$nameLangueCopy = $this->checkLanguageCode($namedatabase,$project_name,$language_code,$layout_code,$shop_id);
-			
+			$databaseCreat = 'Not subject to yet . Note ceatdata base';
+			  if($flagConnecting !='')
+			  {	
+			  	// SERVER DERECTADMIN
+				$databaseCreat = $this->checkLanguageCode($namedatabase,$project_name,$language_code,$layout_code,$shop_id,$username ,$password);
+			  }elseif($flagConnecting ===''){
+			  	// SERVER localhost
+			  	$databaseCreat = $this->checkLanguageCode($namedatabase,$project_name,$language_code,$layout_code,$shop_id,$username ,$password);
+			  }	
+				
 			$dir_and_name_estoreViewCopy = $this->checkLayoutCodeReturnCodeTheme($project_name,$layout_code);
 			
 			
 			return $result_code= array(
 					'nameController_Copy'=>$nameController_Copy,
-					'nameLangueCopy'=>$nameLangueCopy,
+					'database'=>$databaseCreat,
 					'dir_and_name_estoreViewCopy'=>$dir_and_name_estoreViewCopy,
 			);
 				
@@ -3598,7 +3612,7 @@ class MoreuseController extends AppController {
 	 * checkLanguageCode :$language_code 
 	 * Return : $sql + langue 
 	*/
-	function checkLanguageCode($namedatabase,$project_name,$language_code,$layout_code,$shop_id)
+	function checkLanguageCode($namedatabase,$project_name,$language_code,$layout_code,$shop_id,$username ,$password)
 	{
 		$sql_langue = Null ;
 		//$namedatabase = $project_name.'_'.$layout_code;
@@ -3614,8 +3628,11 @@ class MoreuseController extends AppController {
 							// Truong hop dau tien nen tao 2 ngon ngu co san
 							//return $sql_langue ="vao den vi va EN".$shop_id;break;
 							$arrSql = array();
+						if($username ==='' and $password === '' )
+						{	
 							$arrSql[]="CREATE DATABASE IF NOT EXISTS `".$namedatabase."` /*!40100 DEFAULT CHARACTER SET utf8 */;";
 							$arrSql[]="USE `".$namedatabase."`;";	
+						}		
 							$arrSql[] ="CREATE TABLE IF NOT EXISTS `estore_advertisements` (
 										  `id` int(50) NOT NULL AUTO_INCREMENT,
 										  `estore_id` int(50) NOT NULL DEFAULT '0',
@@ -4238,18 +4255,52 @@ class MoreuseController extends AppController {
 							(9,$shop_id, 'Dân trí', 'http://dantri.com.vn', '0000-00-00', '2012-08-04', 1),
 							(10,$shop_id, '24h', 'http://24h.com.vn', '2012-08-04', '2012-08-04', 1),
 							(11,$shop_id, 'quản trị mạng', 'http://quantrimang.com.vn', '2012-08-04', '2012-08-04', 1);";
-						
-						    $db = ConnectionManager::getDataSource('default');
-							//$nameLangueCopy = $db->rawQuery($sql);
-							try {
-								foreach ($arrSql as $sql) {
-									$db->rawQuery($sql);
+							
+						if($username ==='' and $password === '' )
+							{
+							    $db = ConnectionManager::getDataSource('default');
+								//$nameLangueCopy = $db->rawQuery($sql);
+								try {
+									foreach ($arrSql as $sql) {
+										$db->rawQuery($sql);
+										}
+									$result = "Sucessfull";
+								} catch (\Exception $exc) {
+									$result = $exc->getMessage();
+									
+								}
+							}
+							
+							if($username !='' and $password != '' )
+							{
+								$db = new ConnectionManager;
+								$config = array(
+										//'className' => 'Cake\Database\Connection',
+										'driver' => 'mysql',
+										'persistent' => false,
+										'host' =>'localhost',
+										'login' =>$username,
+										'password' =>$password,
+										'database' =>$namedatabase,
+										'prefix' => false,
+										'encoding' => 'utf8',
+										'timezone' => 'UTC',
+										'cacheMetadata' => true
+								);
+								$db->create($databasename,$config);
+								$name = ConnectionManager::getDataSource($databasename);
+								try {
+									foreach ($arrSql as $sql) {
+										$name->rawQuery($sql);
 									}
-								$result = "Sucessfull";
-							} catch (\Exception $exc) {
-								$result = $exc->getMessage();
+									$result = "Sucessfull";
+								} catch (\Exception $exc) {
+									$result = $exc->getMessage();
+										
+								}
 								
 							}
+								
 							return $result;
 							break;
 						}
