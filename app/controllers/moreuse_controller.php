@@ -43,7 +43,7 @@ class MoreuseController extends AppController {
 		$result_finish = array();
 		if (isset ( $_POST ['wizard'] )) {
 			$wizard = unserialize ( $_POST ['wizard'] );
-			
+			pr($wizard);
 			$Eshop = $this->Session->read ( 'Eshop' );
 			$userpass = $Eshop['userpass'];
 			
@@ -177,20 +177,21 @@ class MoreuseController extends AppController {
 			$result = $this->registerEshop ( $slug, $Store ['layout'], $Store ['language'], $shop_id );
 						//pr($result);
 						
-// 			$result_finish12 = array(
-// 					'nameeshop'=>$nameproject,
-// 					'shopid'=>$shop_id,
-// 					'resultemail'=>$resultemail,  // result send email
-// 					'detailemailarray'=>$detailemailarray,
-// 					'registerEshop'=>$result
-// 			);
-// 			$result_finish = array(
-// 					'data'=>$result_finish12
-// 			);
-// // 			pr(json_encode($result_finish,true));
-// 			return  print_r(json_encode($result_finish,true));
-			$sresult = 'result:1';
-			return print $sresult;
+			$result_finish12 = array(
+					'nameeshop'=>$nameproject,
+					'shopid'=>$shop_id,
+					'resultemail'=>$resultemail,  // result send email
+					'detailemailarray'=>$detailemailarray,
+					'registerEshop'=>$result
+			);
+			$result_finish = array(
+					'data'=>$result_finish12
+			);
+// 			pr(json_encode($result_finish,true));
+			return  print_r(json_encode($result_finish,true));
+
+// 			$sresult = 'result:1';
+// 			return print $sresult;
 		} else {
 		   $sresult='result:reload';
 			return   print $sresult;
@@ -303,10 +304,23 @@ class MoreuseController extends AppController {
 						$stringData .= "
 						  class " . ucfirst ( $project_name) . "Controller extends AppController {
 						  var \$name = '" . ucfirst ( $project_name) . "';
-						  var \$shopname ='".$project_name."';
+						   var \$shopname ='".$project_name."';
 						  	var \$uses = array (
+						  		'Estore_categories',//Catalogueshop
+						  		'Estore_news',//eshop
+						  		'Estore_products',//eshop products
+						  		'Estore_catproducts',// eshop Estorecatproducts
+						  		'Estore_manufacturers',// eshop Estore_manufacturers
+						  		'Estore_advertisements',//eshop Estore_advertisements
+						  		'Estore_slideshows', //eshop Estore_slideshows
+						  		'Estore_partners', // eshop Estore_partners
+						  		'Estore_infomations',//eshop Estore_infomations
+								'Estore_albums',//eshop Estore_albums
+						  		'Estore_settings',//eshop Estore_settings
+								'Estore_banners',//eshop Estore_banners
 								'Estore_category',
-								'Estore_comments',
+								'Estore_comments',//eshop Estore_comments
+								'Estore_contacts',//eshop Estore_contacts
 								'Estore_user',
 								'Estore_news',
 								'Estore_infomation',
@@ -327,118 +341,317 @@ class MoreuseController extends AppController {
 								'Estore_manufacturer',
 								'Shop' 
 						);
-						// product
+						var \$paginate = array();
 						var \$helpers = array (
 								'Html',
 								'Ajax',
-								'Javascript' 
+								'Javascript',//'Paginator' 
 						);
 						var \$components = array (
 								'RequestHandler',
 								'Email' 
 						);
+						
+						function connectiondatabase(\$sql) {
+							\$nameeshop = \$this->shopname;	
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+						
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+							\$db = new ConnectionManager;
+							\$config = array(
+									//'className' => 'Cake\Database\Connection',
+									'driver' => 'mysql',
+									'persistent' => false,
+									'host' =>\$hostname,
+									'login' =>\$username,
+									'password' =>\$password,
+									'database' =>\$databasename,
+									'prefix' => false,
+									'encoding' => 'utf8',
+									'timezone' => 'UTC',
+									'cacheMetadata' => true
+							);
+							\$db->create(\$databasename,\$config);
+							\$name = ConnectionManager::getDataSource(\$databasename);
+							// 							                                    echo \"99999999</br>\";
+							// 							                                    pr(\$name->config);die;
+							/*
+							\$sql = \"SELECT estore_catproducts.*
+									 FROM  estore_catproducts
+									 WHERE estore_catproducts.parent_id= 11 AND estore_catproducts.estore_id =\".(int)\$shop_id.\" ORDER BY  estore_catproducts.name ASC \";
+							//\$resul = \$name->rawQuery(\$sql);
+							 * */
+							 
+							\$resul = \$name->fetchAll(\$sql);
+								
+							//pr(\$resul);
+							return \$resul;
+								
+						}
+						
+						
+						
 						function get_shop_id(\$name) {
-							return \$this->Shop->find ( 'list', array (
+							
+						
+							return \$this->Shop->find ( 'all', array (
 									'conditions' => array (
 											'Shop.name' => \$name,
 											'Shop.status' => 1 
 									),
 									'fields' => array (
-											'id',
-											'created' 
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username', 
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
 									) 
 							) );
 						}
+						
+					
+						
 						function getOrder() {
 							mysql_query ( \"SET names utf8\" );
-							return \$this->Estore_infomation->find ( 'all', array (
-									'order' => 'Estore_infomation.id DESC' 
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+							//set data news eshop	
+							\$this->Estore_infomations->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+						
+							return \$this->Estore_infomations->find ( 'all', array (
+									'order' => 'Estore_infomations.id DESC' 
 							) );
 						}
 						function getAlbum() {
 							mysql_query ( \"SET names utf8\" );
-							return \$this->Estore_album->find ( 'all', array (
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
 									'conditions' => array (
-											'Estore_album.status' => 1 
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+							//set data news eshop	
+							\$this->Estore_albums->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							return \$this->Estore_albums->find ( 'all', array (
+									'conditions' => array (
+											'Estore_albums.status' => 1 
 									),
 									'limit' => '3',
-									'order' => 'Estore_album.id ASC' 
+									'order' => 'Estore_albums.id ASC' 
 							) );
 						}
-						// tin tuc
+					
 						function menucategory() {
 							mysql_query ( \"SET names utf8\" );
-							return \$this->Estore_category->find ( 'all', array (
-									'conditions' => array (
-											'Estore_category.status' => 1,
-											'Estore_category.parent_id' => null 
-									),
-									'order' => 'Estore_category.tt ASC' 
-							) );
+							\$sql_exc = \"SELECT `estore_categories`.`id`, `estore_categories`.`estore_id`, `estore_categories`.`tt`, `estore_categories`.`parent_id`, `estore_categories`.`lft`, `estore_categories`.`rght`, `estore_categories`.`name`, `estore_categories`.`name_en`, `estore_categories`.`created`, `estore_categories`.`modified`, `estore_categories`.`status`, `estore_categories`.`images`, `estore_categories`.`alias` FROM `estore_categories` AS `estore_categories`   WHERE `estore_categories`.`status` = 1 AND `estore_categories`.`parent_id` IS NULL   ORDER BY `estore_categories`.`tt` ASC\";
+								
+							\$result = \$this->connectiondatabase(\$sql_exc);
+							//pr(\$result);
+							return \$result;
+							
 						}
 						function showcategory(\$id = null) {
 							mysql_query ( \"SET names utf8\" );
-							return \$this->Estore_category->find ( 'all', array (
-									'conditions' => array (
-											'Estore_category.parent_id ' => \$id 
-									),
-									'order' => 'Estore_category.tt ASC' 
-							) );
-						}
-						function menunews1() {
-							mysql_query ( \"SET names utf8\" );
-							return \$this->Estore_category->find ( 'all', array (
-									'conditions' => array (
-											'Estore_category.status' => 1,
-											'Estore_category.parent_id' => '156' 
-									),
-									'order' => 'Estore_category.tt DESC' 
-							) );
+							\$sql_exc = \"SELECT `estore_categories`.`id`, `estore_categories`.`estore_id`,
+									           `estore_categories`.`tt`, `estore_categories`.`parent_id`, 
+									           `estore_categories`.`lft`, `estore_categories`.`rght`, 
+									           `estore_categories`.`name`, `estore_categories`.`name_en`, 
+									           `estore_categories`.`created`, `estore_categories`.`modified`,
+									           `estore_categories`.`status`, `estore_categories`.`images`,
+									           `estore_categories`.`alias` 
+									     FROM `estore_categories` AS `estore_categories`  
+									     WHERE `estore_categories`.`parent_id` = '\".\$id.\"'  
+									     ORDER BY `estore_categories`.`tt` ASC\";
+							\$result = \$this->connectiondatabase(\$sql_exc);
+							//pr(\$result);
+							return \$result;
+
 						}
 						
-						// gioi thieu
-						function menuintroduct() {
-							mysql_query ( \"SET names utf8\" );
-							return \$this->Estore_category->find ( 'all', array (
-									'conditions' => array (
-											'Estore_category.status' => 1,
-											'Estore_category.parent_id' => '146' 
-									),
-									'order' => 'Estore_category.tt ASC' 
-							) );
-						}
 						function banner(\$shop_id=null) {
-							return \$this->Estore_banner->find ( 'all', array (
-									'conditions' => array (
-											'Estore_banner.status' => 1,
-						                    'Estore_banner.estore_id' =>\$shop_id
-									),
-									'order' => 'Estore_banner.id DESC' 
-							) );
+							\$sql_exc = \"SELECT estore_banners.*
+									 FROM  estore_banners
+									 WHERE estore_banners.estore_id =\".(int)\$shop_id.\" AND estore_banners.status = 1 ORDER BY  estore_banners.id ASC \";
+								
+							\$result = \$this->connectiondatabase(\$sql_exc);
+							//pr(\$result);
+							return \$result;
+							
 						}
 						function setting(\$shop_id=null) {
-							return \$this->Estore_setting->find ( 'all', array (
-									'conditions' => array ('estore_setting.estore_id' =>\$shop_id),
-									'order' => 'Estore_setting.id DESC' 
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+							
+							\$this->Estore_settings->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							return \$this->Estore_settings->find ( 'all', array (
+									'conditions' => array ('estore_settings.estore_id' =>\$shop_id),
+									'order' => 'Estore_settings.id DESC' 
 									) );
 						}
 						function adv() {
-							// return \$this->Gallery->find('all',array('conditions'=>array('Gallery.status'=>1),'order'=>'Gallery.id DESC','limit'=>2));
-							return \$this->Estore_banner->find ( 'all', array (
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
 									'conditions' => array (
-											'Estore_banner.status' => 1 
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
 									),
-									'order' => 'Estore_banner.id DESC',
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+							
+							\$this->Estore_banners->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							return \$this->Estore_banners->find ( 'all', array (
+									'conditions' => array (
+											'Estore_banners.status' => 1 
+									),
+									'order' => 'Estore_banners.id DESC',
 									'limit' => 2 
 							) );
 						}
 						function doitac() {
-							// return \$this->Gallery->find('all',array('conditions'=>array('Gallery.status'=>1),'order'=>'Gallery.id DESC','limit'=>2));
-							return \$this->Estore_partner->find ( 'all', array (
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
 									'conditions' => array (
-											'Estore_partner.status' => 1 
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
 									),
-									'order' => 'Estore_partner.id DESC' 
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+							
+							\$this->Estore_partners->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							
+						    return \$this->Estore_partners->find ( 'all', array (
+									'conditions' => array (
+											'Estore_partners.status' => 1 
+									),
+									'order' => 'Estore_partners.id DESC' 
 							) );
 						}
 						function menu_active() {
@@ -449,7 +662,36 @@ class MoreuseController extends AppController {
 									'order' => 'Categoryestore2.id ASC' 
 							) );
 						}
-						function helpsonline(\$shop_id=null) {
+						function helpsonline() {
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+							
+							\$this->Estore_helps->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							
 							return \$this->Estore_helps->find ( 'all', array (
 									'conditions' => array (
 											'Estore_helps.status' => 1,
@@ -473,15 +715,15 @@ class MoreuseController extends AppController {
 							) );
 						}
 						function hotnew(\$shop_id=null) {
-							return \$this->Estore_news->find ( 'all', array (
-									'conditions' => array (
-											'Estore_news.status' => 1,
-											'Estore_news.estore_id' => \$shop_id,
-											'Estore_news.category_id' => 156 
-									),
-									'order' => 'Estore_news.id DESC',
-									'limit' => 6 
-							) );
+							\$sql_exc = \"SELECT estore_news.*
+									 FROM  estore_news
+									 WHERE estore_news.estore_id =\".(int)\$shop_id.\" AND estore_news.status = 1 AND estore_news.category_id = 156 ORDER BY  estore_news.id DESC LIMIT 6 \";
+								
+							\$result = \$this->connectiondatabase(\$sql_exc);
+							//pr(\$result);
+							
+							return \$result;
+							
 						}
 						function getinfo(\$cat = null) {
 							return \$this->Estore_news->find ( 'all', array (
@@ -495,18 +737,45 @@ class MoreuseController extends AppController {
 						}
 						function videos(\$shop_id=null) {
 							mysql_query ( \"SET names utf8\" );
-							return \$this->Estore_video->find ( 'all', array (
-									'conditions' => array (
-											'Estore_video.status' => 1,
-											'Estore_video.estore_id' => \$shop_id,
-											'Estore_video.left' => 0 
-									),
-									'order' => 'Estore_video.id DESC',
-									'limit' => 1 
-							) );
+							\$sql_exc_other = \"SELECT estore_videos.*
+											 FROM  estore_videos
+											 WHERE estore_videos.status = 1 AND estore_videos.left= 0 AND estore_videos.estore_id= \".\$shop_id.\" ORDER BY estore_videos.id DESC LIMIT 1\";
+							\$result_video = \$this->connectiondatabase(\$sql_exc_other);
+							//pr(\$result_video);
+							
+							return \$result_video;
 						}
-						function videosright(\$shop_id=null) {
+						function videosright() {
 							mysql_query ( \"SET names utf8\" );
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+							
+							\$this->Estore_video->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							
 							return \$this->Estore_video->find ( 'all', array (
 									'conditions' => array (
 											'Estore_video.status' => 1,
@@ -529,11 +798,40 @@ class MoreuseController extends AppController {
 						}
 						function slideshow() {
 							mysql_query ( \"SET names utf8\" );
-							return \$this->Estore_slideshow->find ( 'all', array (
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
 									'conditions' => array (
-											'Estore_slideshow.status' => 1 
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
 									),
-									'order' => 'Estore_slideshow.id DESC' 
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+							
+							\$this->Estore_slideshows->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+						
+							return \$this->Estore_slideshows->find ( 'all', array (
+									'conditions' => array (
+											'Estore_slideshows.status' => 1 
+									),
+									'order' => 'Estore_slideshows.id DESC' 
 							) );
 						}
 						function library_image() {
@@ -582,29 +880,81 @@ class MoreuseController extends AppController {
 							) );
 						}
 						function showsmenu1(\$id = null) {
-							return \$this->Estore_catproduct->find ( 'all', array (
-									'conditions' => array (
-											'Estore_catproduct.parent_id ' => \$id 
-									),
-									'order' => 'Estore_catproduct.id ASC' 
-							) );
+							\$sql_exc = \"SELECT estore_catproducts.*
+									 FROM  estore_catproducts
+									 WHERE estore_catproducts.parent_id =\".(int)\$id.\" ORDER BY  estore_catproducts.id ASC \";
+							
+							\$result = \$this->connectiondatabase(\$sql_exc);
+							//pr(\$result);
+							return \$result;
+
 						}
+						
+						
 						function showsmenu2(\$id = null) {
-							return \$this->Estore_catproduct->find ( 'all', array (
-									'conditions' => array (
-											'Estore_catproduct.parent_id ' => \$id 
-									),
-									'order' => 'Estore_catproduct.id ASC' 
-							) );
+							\$sql_exc = \"SELECT estore_catproducts.*
+									 FROM  estore_catproducts
+									 WHERE estore_catproducts.parent_id =\".(int)\$id.\" ORDER BY  estore_catproducts.id ASC \";
+								
+							\$result = \$this->connectiondatabase(\$sql_exc);
+							//pr(\$result);
+							return \$result;
 						}
-						function danhmuc(\$shop_id = Null) {
-							return \$this->Estore_catproduct->find ( 'all', array (
+						
+						function danhmuc(\$shopname) {
+							
+							\$shoparr = \$this->Shop->find ( 'all', array (
 									'conditions' => array (
-											'Estore_catproduct.parent_id' => 11,
-						  					'Estore_catproduct.estore_id' => \$shop_id 
+											'Shop.name' => \$shopname,
+											'Shop.status' => 1 
 									),
-									'order' => 'Estore_catproduct.name ASC' 
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username', 
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									) 
 							) );
+
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+							
+							}
+							\$db = new ConnectionManager;
+							\$config = array(
+									//'className' => 'Cake\Database\Connection',
+									'driver' => 'mysql',
+									'persistent' => false,
+									'host' =>\$hostname,
+									'login' =>\$username,
+									'password' =>\$password,
+									'database' =>\$databasename,
+									'prefix' => false,
+									'encoding' => 'utf8',
+									'timezone' => 'UTC',
+									'cacheMetadata' => true
+							);
+							\$db->create(\$databasename,\$config);
+							\$name = ConnectionManager::getDataSource(\$databasename);
+// 							                                    echo \"99999999</br>\";
+// 							                                    pr(\$name->config);die;
+							\$sql = \"SELECT estore_catproducts.*
+									 FROM  estore_catproducts
+									 WHERE estore_catproducts.parent_id= 11 AND estore_catproducts.estore_id =\".(int)\$shop_id.\" ORDER BY  estore_catproducts.name ASC \";
+							//\$resul = \$name->rawQuery(\$sql);
+							\$resul = \$name->fetchAll(\$sql);
+							
+							//pr(\$resul);
+							return \$resul;
+							
 						}
 						function typical(\$shop_id = Null) {
 							return \$this->Estore_product->find ( 'all', array (
@@ -704,171 +1054,391 @@ class MoreuseController extends AppController {
 							) );
 						}
 						function cat() {
-							return \$this->Estore_catproduct->find ( 'all', array (
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
 									'conditions' => array (
-											'Estore_catproduct.status' => 1 
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+							
+							\$this->Estore_catproducts->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							\$prff = \$this->Estore_catproducts->find ( 'all', array (
+									'conditions' => array (
+											'Estore_catproducts.status' => 1 
 									) 
 							) );
+						//	echo \"xzxzx\";
+						//pr(\$prff);
+							return \$prff;
+							
 						}
 						function hsx() {
-							return \$this->Estore_manufacturer->find ( 'all', array (
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
 									'conditions' => array (
-											'Estore_manufacturer.status' => 1,
-											'Estore_manufacturer.parent_id ' => null 
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+								
+							\$this->Estore_manufacturers->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							\$manufacturer =\$this->Estore_manufacturers->find ( 'all', array (
+									'conditions' => array (
+											'Estore_manufacturers.status' => 1,
+											'Estore_manufacturers.parent_id ' => null 
 									) 
 							) );
+							
+// 							pr(\$manufacturer);
+							return \$manufacturer;
+// 							return \$this->Estore_manufacturer->find ( 'all', array (
+// 									'conditions' => array (
+// 											'Estore_manufacturer.status' => 1,
+// 											'Estore_manufacturer.parent_id ' => null 
+// 									) 
+// 							) );
 						}
 						function catcon() {
-							return \$this->Estore_catproduct->find ( 'all', array (
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
 									'conditions' => array (
-											'Estore_catproduct.status' => 1 
-									) 
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
 							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+								
+							\$this->Estore_catproducts->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							\$prff = \$this->Estore_catproducts->find ( 'all', array (
+									'conditions' => array (
+											'Estore_catproducts.status' => 1
+									)
+							) );
+							//	echo \"xzxzx\";
+							//pr(\$prff);
+							return \$prff;
+
 						}
 						function adv1() {
-							return \$this->Estore_advertisement->find ( 'all', array (
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
 									'conditions' => array (
-											'Estore_advertisement.status' => 1,
-											'Estore_advertisement.display' => 0 
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+							
+							\$this->Estore_advertisements->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							
+							return \$this->Estore_advertisements->find ( 'all', array (
+									'conditions' => array (
+											'Estore_advertisements.status' => 1,
+											'Estore_advertisements.display' => 0 
 									),
 									'limit' => 1 
 							) );
 						}
 						function adv2() {
-							return \$this->Estore_advertisement->find ( 'all', array (
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
 									'conditions' => array (
-											'Estore_advertisement.status' => 1,
-											'Estore_advertisement.display' => 1 
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+								
+							\$this->Estore_advertisements->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+								
+							return \$this->Estore_advertisements->find ( 'all', array (
+									'conditions' => array (
+											'Estore_advertisements.status' => 1,
+											'Estore_advertisements.display' => 1 
 									),
 									'limit' => 1 
 							) );
 						}
 						function advf(\$shop_id= null) {
-							return \$this->Estore_advertisement->find ( 'all', array (
-									'conditions' => array (
-											'Estore_advertisement.status' => 1,
-						  					'Estore_advertisement.estore_id' => \$shop_id,
-											'Estore_advertisement.display' => 2 
-									),
-									'order' => 'Estore_advertisement.id ASC' 
-							) );
+							\$sql_exc_other = \"SELECT estore_advertisements.*
+											 FROM  estore_advertisements
+											 WHERE estore_advertisements.status = 1 AND estore_advertisements.display= 2 AND estore_advertisements.estore_id= \".\$shop_id.\" ORDER BY estore_advertisements.id \";
+							\$advf = \$this->connectiondatabase(\$sql_exc_other);
+							//pr(\$advf);
+								
+							return \$advf;
+							
+							
 						}
-						function advr(\$shop_id= null) {
-							return \$this->Estore_advertisement->find ( 'all', array (
+						function advr() {
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
 									'conditions' => array (
-											'Estore_advertisement.status' => 1,
-						  					'Estore_advertisement.estore_id' => \$shop_id,
-											'Estore_advertisement.display' => 3 
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
 									),
-									'order' => 'Estore_advertisement.id ASC' 
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
 							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+							
+							
+							\$this->Estore_advertisements->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+						  
+							return \$this->Estore_advertisements->find ( 'all', array (
+									'conditions' => array (
+											'Estore_advertisements.status' => 1,
+						  					'Estore_advertisements.estore_id' => \$shop_id,
+											'Estore_advertisements.display' => 3 
+									),
+									'order' => 'Estore_advertisements.id ASC' 
+							 ));
 						}
 						
 						// +++++++++++++++++++++++++++++++++++Home+++++++++++++++++++++++++++++++++++++++++++++++
 						function index() {
-							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
-							\$shopname = \$shop [0];
-							\$shoparr = \$this->get_shop_id ( \$shopname );
-							foreach ( \$shoparr as \$key => \$value ) {
-								\$shop_id = \$key;
+							\$this->layout = 'themeshop/estorecreatnanedata';
+							\$this->set ( 'title_for_layout', 'e-shop' );
+							
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
 							}
-							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+							\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+						
+							\$this->set ( 'shopname', \$nameeshop );
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							\$this->paginate = array (
 									'conditions' => array (
-											'Estore_product.status' => 1,
-											'Estore_product.spkuyenmai' => 1 
+											'Estore_products.status' => 1,
+											'Estore_products.spkuyenmai' => 1 
 									),
 									'limit' => '9',
-									'order' => 'Estore_product.id DESC' 
+									'order' => 'Estore_products.id DESC' 
 							);
-							\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
+							\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							\$this->set ( 'products', \$this->paginate ( 'Estore_products', array () ) );
 							
-							\$check1 = \$this->Estore_catproduct->find ( 'list', array (
+							\$this->Estore_catproducts->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							\$check1 = \$this->Estore_catproducts->find ( 'list', array (
 									'conditions' => array (
-											'Estore_catproduct.parent_id' => 106 
+											'Estore_catproducts.parent_id' => 106 
 									),
 									'fields' => array (
-											'Estore_catproduct.id' 
+											'Estore_catproducts.id' 
 									) 
 							) );
 							
-							\$checks = \$this->Estore_catproduct->find ( 'list', array (
+							\$this->Estore_catproducts->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							\$checks = \$this->Estore_catproducts->find ( 'list', array (
 									'conditions' => array (
-											'Estore_catproduct.parent_id' => \$check1 
+											'Estore_catproducts.parent_id' => \$check1 
 									),
 									'fields' => array (
-											'Estore_catproduct.id' 
+											'Estore_catproducts.id' 
 									) 
 							) );
 							
 							if (\$checks != null) {
-								\$this->set ( 'tubep', \$this->Estore_product->find ( 'all', array (
+								\$this->set ( 'tubep', \$this->Estore_products->find ( 'all', array (
 										'conditions' => array (
-												'Estore_product.status' => 1,
-												'Estore_product.catproduct_id' => \$check1,
-												'Estore_product.catproduct_id' => \$checks 
+												'Estore_products.status' => 1,
+												'Estore_products.catproduct_id' => \$check1,
+												'Estore_products.catproduct_id' => \$checks 
 										),
 										'limit' => 6,
-										'order' => 'Estore_product.id DESC' 
+										'order' => 'Estore_products.id DESC' 
 								) ) );
 							} else {
-								\$this->set ( 'tubep', \$this->Estore_product->find ( 'all', array (
+								\$this->set ( 'tubep', \$this->Estore_products->find ( 'all', array (
 										'conditions' => array (
-												'Estore_product.status' => 1,
-												'Estore_product.catproduct_id' => \$check1 
+												'Estore_products.status' => 1,
+												'Estore_products.catproduct_id' => \$check1 
 										),
 										'limit' => 6,
-										'order' => 'Estore_product.id DESC' 
+										'order' => 'Estore_products.id DESC' 
 								) ) );
 							}
-							\$check2 = \$this->Estore_catproduct->find ( 'list', array (
+							
+							\$check2 = \$this->Estore_catproducts->find ( 'list', array (
 									'conditions' => array (
-											'Estore_catproduct.parent_id' => 107 
+											'Estore_catproducts.parent_id' => 107 
 									),
 									'fields' => array (
-											'Estore_catproduct.id' 
+											'Estore_catproducts.id' 
 									) 
 							) );
 							
-							\$checkss = \$this->Estore_catproduct->find ( 'list', array (
+							\$checkss = \$this->Estore_catproducts->find ( 'list', array (
 									'conditions' => array (
-											'Estore_catproduct.parent_id' => \$check2 
+											'Estore_catproducts.parent_id' => \$check2 
 									),
 									'fields' => array (
-											'Estore_catproduct.id' 
+											'Estore_catproducts.id' 
 									) 
 							) );
 							
 							if (\$checkss != null) {
-								\$this->set ( 'bepcongnghiep', \$this->Estore_product->find ( 'all', array (
+								\$this->set ( 'bepcongnghiep', \$this->Estore_products->find ( 'all', array (
 										'conditions' => array (
-												'Estore_product.status' => 1,
-												'Estore_product.catproduct_id' => \$check2,
-												'Estore_product.catproduct_id' => \$checkss 
+												'Estore_products.status' => 1,
+												'Estore_products.catproduct_id' => \$check2,
+												'Estore_products.catproduct_id' => \$checkss 
 										),
 										'limit' => 6,
-										'order' => 'Estore_product.id DESC' 
+										'order' => 'Estore_products.id DESC' 
 								) ) );
 							} else {
-								\$this->set ( 'bepcongnghiep', \$this->Estore_product->find ( 'all', array (
+								
+								\$this->set ( 'bepcongnghiep', \$this->Estore_products->find ( 'all', array (
 										'conditions' => array (
-												'Estore_product.status' => 1,
-												'Estore_product.catproduct_id' => \$check2 
+												'Estore_products.status' => 1,
+												'Estore_products.catproduct_id' => \$check2 
 										),
 										'limit' => 6,
-										'order' => 'Estore_product.id DESC' 
+										'order' => 'Estore_products.id DESC' 
 								) ) );
 							}
-							\$this->set ( 'spvip', \$this->Estore_product->find ( 'all', array (
+							\$this->set ( 'spvip', \$this->Estore_products->find ( 'all', array (
 									'conditions' => array (
-											'Estore_product.status' => 1,
-											'Estore_product.sptieubieu' => '1' 
+											'Estore_products.status' => 1,
+											'Estore_products.sptieubieu' => '1' 
 									),
 									'limit' => 6,
-									'order' => 'Estore_product.id DESC' 
+									'order' => 'Estore_products.id DESC' 
 							) ) );
 							
 							
@@ -883,7 +1453,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( \"SET names utf8\" );
@@ -905,7 +1475,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( \"SET names utf8\" );
@@ -943,49 +1513,75 @@ class MoreuseController extends AppController {
 							}
 						}
 						function all(\$id = null) {
-							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
-							\$shopname = \$shop [0];
-							\$shoparr = \$this->get_shop_id ( \$shopname );
-							foreach ( \$shoparr as \$key => \$value ) {
-								\$shop_id = \$key;
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
 							}
-							\$this->set ( 'shopname', \$shopname );
+								
+							\$this->set ( 'shopname', \$nameeshop );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( \"SET names utf8\" );
-							\$check = \$this->Estore_catproduct->find ( 'list', array (
+							\$this->Estore_catproducts->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							\$check = \$this->Estore_catproducts->find ( 'list', array (
 									'conditions' => array (
-											'Estore_catproduct.parent_id' => \$id 
+											'Estore_catproducts.parent_id' => \$id 
 									),
 									'fields' => array (
-											'Estore_catproduct.id' 
+											'Estore_catproducts.id' 
 									) 
 							) );
-							// var_dump(\$check); exit();
+							
 							if (\$check != null) {
 								\$this->paginate = array (
 										'conditions' => array (
-												'Estore_product.status' => 1,
-												'Estore_product.catproduct_id' => \$check 
+												'Estore_products.status' => 1,
+												'Estore_products.catproduct_id' => \$check 
 										),
-										'order' => 'Estore_product.id DESC',
+										'order' => 'Estore_products.id DESC',
 										'limit' => 18 
 								);
-								\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
-								\$this->set ( 'cat', \$this->Estore_catproduct->read ( null, \$id ) );
+								\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+								\$this->Estore_catproducts->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+								\$this->set ( 'products', \$this->paginate ( 'Estore_products', array () ) );
+								\$this->set ( 'cat', \$this->Estore_catproducts->read ( null, \$id ) );
 							} else {
 								\$this->paginate = array (
 										'conditions' => array (
-												'Estore_product.status' => 1,
-												'Estore_product.catproduct_id' => \$id 
+												'Estore_products.status' => 1,
+												'Estore_products.catproduct_id' => \$id 
 										),
-										'order' => 'Estore_product.id DESC',
+										'order' => 'Estore_products.id DESC',
 										'limit' => 18 
 								);
-								\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
-								\$this->set ( 'cat', \$this->Estore_catproduct->read ( null, \$id ) );
+								\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+								\$this->Estore_catproducts->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+								\$this->set ( 'products', \$this->paginate ( 'Estore_products', array () ) );
+								\$this->set ( 'cat', \$this->Estore_catproducts->read ( null, \$id ) );
 							}
 						}
 						function khuyenmaiproduct() {
@@ -997,7 +1593,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( \"SET names utf8\" );
@@ -1022,7 +1618,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( \"SET names utf8\" );
@@ -1047,7 +1643,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( \"SET names utf8\" );
@@ -1087,7 +1683,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( \"SET names utf8\" );
@@ -1127,7 +1723,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( \"SET names utf8\" );
@@ -1167,7 +1763,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc Catproduct
 							mysql_query ( \"SET names utf8\" );
@@ -1200,7 +1796,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( \"SET names utf8\" );
@@ -1224,7 +1820,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( \"SET names utf8\" );
@@ -1248,7 +1844,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( \"SET names utf8\" );
@@ -1266,15 +1862,39 @@ class MoreuseController extends AppController {
 						function search() {
 							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
 							\$shopname = \$shop [0];
-							\$shoparr = \$this->get_shop_id ( \$shopname );
-							foreach ( \$shoparr as \$key => \$value ) {
-								\$shop_id = \$key;
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
 							}
+							
+							\$this->Estore_categories->setDataEshop(\$hostname,\$username,\$password,\$databasename);
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
-							\$this->loadModel ( \"Estore_catproduct\" );
+							//\$this->loadModel ( \"Estore_catproducts\" );
 							
 							if (isset ( \$_POST ['system'] )) {
 								\$list_cat = \$_POST ['system'];
@@ -1288,210 +1908,248 @@ class MoreuseController extends AppController {
 								\$gia = \$_POST ['gia'];
 							} else
 								\$gia = \"\";
+							
+							
+							
 							if ((\$list_cat != \"\") && (\$hsx == \"\") && (\$gia == \"\")) {
-								\$po1 = \$this->Estore_catproduct->find ( 'list', array (
+								\$this->Estore_categories->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+								\$po1 = \$this->Estore_categories->find ( 'list', array (
 										'conditions' => array (
-												'Estore_catproduct.status' => 1,
-												'Estore_catproduct.parent_id' => \$list_cat 
+												'Estore_categories.status' => 1,
+												'Estore_categories.parent_id' => \$list_cat 
 										),
 										'fields' => array (
-												'Estore_catproduct.id' 
+												'Estore_categories.id' 
 										) 
 								) );
 								
 								if (\$po1 != null) {
 									\$this->paginate = array (
 											'conditions' => array (
-													'Estore_product.status' => 1,
-													'Estore_product.catproduct_id' => \$po1 
+													'Estore_products.status' => 1,
+													'Estore_products.catproduct_id' => \$po1 
 											),
 											'limit' => '21',
-											'order' => 'Estore_product.id DESC' 
+											'order' => 'Estore_products.id DESC' 
 									);
-									\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
+									\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+									\$this->set ( 'products', \$this->paginate ( 'Estore_products', array () ) );
 								} else {
 									\$this->paginate = array (
 											'conditions' => array (
-													'Estore_product.status' => 1,
-													'Estore_product.catproduct_id' => \$list_cat 
+													'Estore_products.status' => 1,
+													'Estore_products.catproduct_id' => \$list_cat 
 											),
 											'limit' => '21',
-											'order' => 'Estore_product.id DESC' 
+											'order' => 'Estore_products.id DESC' 
 									);
-									\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
+									\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+									\$this->set ( 'products', \$this->paginate ( 'Estore_products', array () ) );
 								}
 							}
 							
 							if ((\$list_cat != \"\") && (\$hsx != \"\") && (\$gia == \"\")) {
-								\$po1 = \$this->Estore_catproduct->find ( 'list', array (
+								\$this->Estore_categories->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+								\$po1 = \$this->Estore_categories->find ( 'list', array (
 										'conditions' => array (
-												'Estore_catproduct.status' => 1,
-												'Estore_catproduct.parent_id' => \$list_cat 
+												'Estore_categories.status' => 1,
+												'Estore_categories.parent_id' => \$list_cat 
 										),
 										'fields' => array (
-												'Estore_catproduct.id' 
+												'Estore_categories.id' 
 										) 
 								) );
 								
 								if (\$po1 != null) {
 									\$this->paginate = array (
 											'conditions' => array (
-													'Estore_product.status' => 1,
-													'Estore_product.catproduct_id' => \$po1,
-													'Estore_product.manufacturer' => \$hsx 
+													'Estore_products.status' => 1,
+													'Estore_products.catproduct_id' => \$po1,
+													'Estore_products.manufacturer' => \$hsx 
 											),
 											'limit' => '21',
-											'order' => 'Estore_product.id DESC' 
+											'order' => 'Estore_products.id DESC' 
 									);
-									\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
+									\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+									\$this->set ( 'products', \$this->paginate ( 'Estore_products', array () ) );
 								} else {
 									\$this->paginate = array (
 											'conditions' => array (
-													'Estore_product.status' => 1,
-													'Estore_product.catproduct_id' => \$list_cat,
-													'Estore_product.manufacturer' => \$hsx 
+													'Estore_products.status' => 1,
+													'Estore_products.catproduct_id' => \$list_cat,
+													'Estore_products.manufacturer' => \$hsx 
 											),
 											'limit' => '21',
-											'order' => 'Estore_product.id DESC' 
+											'order' => 'Estore_products.id DESC' 
 									);
-									\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
+									\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+									\$this->set ( 'products', \$this->paginate ( 'Estore_products', array () ) );
 								}
 							}
 							
 							if ((\$list_cat != \"\") && (\$hsx == \"\") && (\$gia != \"\")) {
-								\$po1 = \$this->Estore_catproduct->find ( 'list', array (
+								\$this->Estore_categories->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+								\$po1 = \$this->Estore_categories->find ( 'list', array (
 										'conditions' => array (
-												'Estore_catproduct.status' => 1,
-												'Estore_catproduct.parent_id' => \$list_cat 
+												'Estore_categories.status' => 1,
+												'Estore_categories.parent_id' => \$list_cat 
 										),
 										'fields' => array (
-												'Estore_catproduct.id' 
+												'Estore_categories.id' 
 										) 
 								) );
 								
 								if (\$po1 != null) {
 									\$this->paginate = array (
 											'conditions' => array (
-													'Estore_product.status' => 1,
-													'Estore_product.catproduct_id' => \$po1,
-													'Estore_product.khoanggia' => \$gia 
+													'Estore_products.status' => 1,
+													'Estore_products.catproduct_id' => \$po1,
+													'Estore_products.khoanggia' => \$gia 
 											),
 											'limit' => '21',
-											'order' => 'Estore_product.id DESC' 
+											'order' => 'Estore_products.id DESC' 
 									);
-									\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
+									\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+									\$this->set ( 'products', \$this->paginate ( 'Estore_products', array () ) );
 								} else {
 									\$this->paginate = array (
 											'conditions' => array (
-													'Estore_product.status' => 1,
-													'Estore_product.catproduct_id' => \$list_cat,
-													'Estore_product.khoanggia' => \$gia 
+													'Estore_products.status' => 1,
+													'Estore_products.catproduct_id' => \$list_cat,
+													'Estore_products.khoanggia' => \$gia 
 											),
 											'limit' => '21',
-											'order' => 'Estore_product.id DESC' 
+											'order' => 'Estore_products.id DESC' 
 									);
-									\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
+									\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+									\$this->set ( 'products', \$this->paginate ( 'Estore_products', array () ) );
 								}
 							}
 							if ((\$list_cat != \"\") && (\$hsx != \"\") && (\$gia != \"\")) {
-								\$po1 = \$this->Estore_catproduct->find ( 'list', array (
+								\$this->Estore_categories->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+								\$po1 = \$this->Estore_categories->find ( 'list', array (
 										'conditions' => array (
-												'Estore_catproduct.status' => 1,
-												'Estore_catproduct.parent_id' => \$list_cat 
+												'Estore_categories.status' => 1,
+												'Estore_categories.parent_id' => \$list_cat 
 										),
 										'fields' => array (
-												'Estore_catproduct.id' 
+												'Estore_categories.id' 
 										) 
 								) );
 								
 								if (\$po1 != null) {
 									\$this->paginate = array (
 											'conditions' => array (
-													'Estore_product.status' => 1,
-													'Estore_product.catproduct_id' => \$po1,
-													'Estore_product.khoanggia' => \$gia,
-													'Estore_product.manufacturer' => \$hsx 
+													'Estore_products.status' => 1,
+													'Estore_products.catproduct_id' => \$po1,
+													'Estore_products.khoanggia' => \$gia,
+													'Estore_products.manufacturer' => \$hsx 
 											),
 											'limit' => '21',
-											'order' => 'Estore_product.id DESC' 
+											'order' => 'Estore_products.id DESC' 
 									);
-									\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
+									\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+									\$this->set ( 'products', \$this->paginate ( 'Estore_products', array () ) );
 								} else {
 									\$this->paginate = array (
 											'conditions' => array (
-													'Estore_product.status' => 1,
-													'Estore_product.catproduct_id' => \$list_cat,
-													'Estore_product.khoanggia' => \$gia,
-													'Estore_product.manufacturer' => \$hsx 
+													'Estore_products.status' => 1,
+													'Estore_products.catproduct_id' => \$list_cat,
+													'Estore_products.khoanggia' => \$gia,
+													'Estore_products.manufacturer' => \$hsx 
 											),
 											'limit' => '21',
-											'order' => 'Estore_product.id DESC' 
+											'order' => 'Estore_products.id DESC' 
 									);
-									\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
+									\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+									\$this->set ( 'products', \$this->paginate ( 'Estore_products', array () ) );
 								}
 							}
 							if ((\$list_cat == \"\") && (\$hsx == \"\") && (\$gia != \"\")) {
 								\$this->paginate = array (
 										'conditions' => array (
-												'Estore_product.status' => 1,
-												'Estore_product.khoanggia' => \$gia 
+												'Estore_products.status' => 1,
+												'Estore_products.khoanggia' => \$gia 
 										),
 										'limit' => '21',
-										'order' => 'Estore_product.id DESC' 
+										'order' => 'Estore_products.id DESC' 
 								);
-								\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
+								\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+								\$this->set ( 'products', \$this->paginate ( 'Estore_products', array () ) );
 							}
 							if ((\$list_cat == \"\") && (\$hsx != \"\") && (\$gia == \"\")) {
 								
 								\$this->paginate = array (
 										'conditions' => array (
-												'Estore_product.status' => 1,
-												'Estore_product.manufacturer' => \$hsx 
+												'Estore_products.status' => 1,
+												'Estore_products.manufacturer' => \$hsx 
 										),
 										'limit' => '21',
-										'order' => 'Estore_product.id DESC' 
+										'order' => 'Estore_products.id DESC' 
 								);
-								\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
+								\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+								\$this->set ( 'products', \$this->paginate ( 'Estore_products', array () ) );
 							}
 							if ((\$list_cat == \"\") && (\$hsx != \"\") && (\$gia != \"\")) {
 								
 								\$this->paginate = array (
 										'conditions' => array (
-												'Estore_product.status' => 1,
-												'Estore_product.manufacturer' => \$hsx,
-												'Estore_product.khoanggia' => \$gia 
+												'Estore_products.status' => 1,
+												'Estore_products.manufacturer' => \$hsx,
+												'Estore_products.khoanggia' => \$gia 
 										),
 										'limit' => '21',
-										'order' => 'Estore_product.id DESC' 
+										'order' => 'Estore_products.id DESC' 
 								);
-								\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
+								\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+								\$this->set ( 'products', \$this->paginate ( 'Estore_products', array () ) );
 							}
 							if ((\$list_cat == \"\") && (\$hsx == \"\") && (\$gia == \"\")) {
 								
 								\$this->paginate = array (
 										'conditions' => array (
-												'Estore_product.status' => 1 
+												'Estore_products.status' => 1 
 										),
 										'limit' => '21',
-										'order' => 'Estore_product.id DESC' 
+										'order' => 'Estore_products.id DESC' 
 								);
-								\$this->set ( 'products', \$this->paginate ( 'Estore_product', array () ) );
+								\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+								\$this->set ( 'products', \$this->paginate ( 'Estore_products', array () ) );
 							}
 							
 							
 						}
 						function view(\$id = null) {
-							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
-							\$shopname = \$shop [0];
-							\$shoparr = \$this->get_shop_id ( \$shopname );
-							foreach ( \$shoparr as \$key => \$value ) {
-								\$shop_id = \$key;
-							}
-							\$this->set ( 'shopname', \$shopname );
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
 							
-							\$this->layout = 'themeshop/home';
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+							\$this->set ( 'shopname', \$nameeshop );
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
-							// var_dump(\$id);die;
+							\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
 							mysql_query ( \"SET names utf8\" );
 							if (! \$id) {
 								\$this->Session->setFlash ( __ ( 'Không tồn tại', true ) );
@@ -1499,37 +2157,58 @@ class MoreuseController extends AppController {
 										'action' => 'index' 
 								) );
 							}
-							\$this->set ( 'views', \$this->Estore_product->read ( null, \$id ) );
-							\$this->set ( 'news', \$this->Estore_catproduct->read ( null, \$id ) );
-							\$name = \$this->Estore_product->read ( null, \$id );
+							\$this->set ( 'views', \$this->Estore_products->read ( null, \$id ) );
+							\$this->set ( 'news', \$this->Estore_catproducts->read ( null, \$id ) );
+							\$name = \$this->Estore_products->read ( null, \$id );
 							
 							\$this->set ( 'views', \$name );
 							\$this->paginate = array (
 									'conditions' => array (
-											'Estore_product.status' => 1,
-											'Estore_product.catproduct_id' => \$name ['Estore_product'] ['catproduct_id'],
-											'Estore_product.id <>' => \$name ['Estore_product'] ['id'] 
+											'Estore_products.status' => 1,
+											'Estore_products.catproduct_id' => \$name ['Estore_products'] ['catproduct_id'],
+											'Estore_products.id <>' => \$name ['Estore_products'] ['id'] 
 									),
-									'order' => 'Estore_product.id DESC',
+									'order' => 'Estore_products.id DESC',
 									'limit' => 8 
 							);
-							\$this->set ( 'sanphamkhac', \$this->paginate ( 'Estore_product', array () ) );
+							\$this->set ( 'sanphamkhac', \$this->paginate ( 'Estore_products', array () ) );
 						}
 						
 						// shopping
 						function addshopingcart(\$id = null) {
-							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
-							\$shopname = \$shop [0];
-							\$shoparr = \$this->get_shop_id ( \$shopname );
-							foreach ( \$shoparr as \$key => \$value ) {
-								\$shop_id = \$key;
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
 							}
-							\$this->set ( 'shopname', \$shopname );
+								
+							\$this->set ( 'shopname', \$nameeshop );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
-							
-							\$product = \$this->Estore_product->read ( null, \$id );
+							\$this->Estore_products->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							\$product = \$this->Estore_products->read ( null, \$id );
 							
 							if (! isset ( \$_SESSION ['shopingcart'] )) {
 								\$_SESSION ['shopingcart'] = array ();
@@ -1543,16 +2222,16 @@ class MoreuseController extends AppController {
 									\$shopingcart [\$id] ['sl'] = \$shopingcart [\$id] ['sl'] + 1;
 									\$shopingcart [\$id] ['total'] = \$shopingcart [\$id] ['price'] * \$shopingcart [\$id] ['sl'];
 									\$_SESSION ['shopingcart'] = \$shopingcart;
-									echo '<script language=\"javascript\"> alert(\"Thêm thành công\"); window.location.replace(\"' . DOMAIN .\$shopname . '/viewshopingcart\"); </script>';
+									echo '<script language=\"javascript\"> alert(\"Thêm thành công\"); window.location.replace(\"' . DOMAIN .\$this->shopname. '/viewshopingcart\"); </script>';
 								} else {
 									\$shopingcart [\$id] ['pid'] = \$id;
-									\$shopingcart [\$id] ['name'] = \$product ['Estore_product'] ['title'];
-									\$shopingcart [\$id] ['images'] = \$product ['Estore_product'] ['images'];
+									\$shopingcart [\$id] ['name'] = \$product ['Estore_products'] ['title'];
+									\$shopingcart [\$id] ['images'] = \$product ['Estore_products'] ['images'];
 									\$shopingcart [\$id] ['sl'] = 1;
-									\$shopingcart [\$id] ['price'] = \$product ['Estore_product'] ['price'];
-									\$shopingcart [\$id] ['total'] = \$product ['Estore_product'] ['price'] * \$shopingcart [\$id] ['sl'];
+									\$shopingcart [\$id] ['price'] = \$product ['Estore_products'] ['price'];
+									\$shopingcart [\$id] ['total'] = \$product ['Estore_products'] ['price'] * \$shopingcart [\$id] ['sl'];
 									\$_SESSION ['shopingcart'] = \$shopingcart;
-									echo '<script language=\"javascript\" type=\"text/javascript\"> alert(\"Thêm giỏ hàng thành công\"); window.location.replace(\"' . DOMAIN .\$shopname . '/viewshopingcart\"); </script>';
+									echo '<script language=\"javascript\" type=\"text/javascript\"> alert(\"Thêm giỏ hàng thành công\"); window.location.replace(\"' . DOMAIN .\$this->shopname . '/viewshopingcart\"); </script>';
 								}
 							}
 						}
@@ -1565,7 +2244,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							if (isset ( \$_SESSION ['shopingcart'] )) {
 								\$shopingcart = \$_SESSION ['shopingcart'];
@@ -1584,7 +2263,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( \"SET names utf8\" );
 							if (! \$id) {
@@ -1596,23 +2275,45 @@ class MoreuseController extends AppController {
 							\$this->set ( 'buy', \$this->Estore_news->read ( null, \$id ) );
 						}
 						function viewshopingcart() {
-							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
-							\$shopname = \$shop [0];
-							\$shoparr = \$this->get_shop_id ( \$shopname );
-							foreach ( \$shoparr as \$key => \$value ) {
-								\$shop_id = \$key;
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
 							}
-							\$this->set ( 'shopname', \$shopname );
+							//\$this->Estore_news->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+								
+							\$this->set ( 'shopname', \$nameeshop );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop View Shopping' );
 							if (isset ( \$_SESSION ['shopingcart'] )) {
 								\$shopingcart = \$_SESSION ['shopingcart'];
 								\$this->set ( compact ( 'shopingcart' ) );
 							} else {
-								echo '<script language=\"javascript\"> alert(\"Chua co san pham nao trong gio hang\"); window.location.replace(\"' . DOMAIN .\$shopname . '/index\"); </script>';
+								echo '<script language=\"javascript\"> alert(\"Chua co san pham nao trong gio hang\"); window.location.replace(\"' . DOMAIN .\$this->shopname . '/index\"); </script>';
 							}
 						}
 						function updateshopingcart(\$id = null) {
@@ -1624,7 +2325,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							if (isset ( \$_SESSION ['shopingcart'] )) {
 								\$shopingcart = \$_SESSION ['shopingcart'];
@@ -1638,21 +2339,42 @@ class MoreuseController extends AppController {
 							}
 						}
 						function buy() {
-							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
-							\$shopname = \$shop [0];
-							\$shoparr = \$this->get_shop_id ( \$shopname );
-							foreach ( \$shoparr as \$key => \$value ) {
-								\$shop_id = \$key;
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
 							}
-							\$this->set ( 'shopname', \$shopname );
+								
+							\$this->set ( 'shopname', \$nameeshop );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							if (isset ( \$_SESSION ['shopingcart'] )) {
 								\$shopingcart = \$_SESSION ['shopingcart'];
 								\$this->set ( compact ( 'shopingcart' ) );
 							} else {
-								echo '<script language=\"javascript\"> alert(\"Không có sản phẩm nào trong giỏ hàng của bạn\"); window.location.replace(\"' . DOMAIN . '\"); </script>';
+								echo '<script language=\"javascript\"> alert(\"Không có sản phẩm nào trong giỏ hàng của bạn\"); window.location.replace(\"' . DOMAIN .\$this->shopname.'\"); </script>';
 							}
 						}
 						function category(\$id = null) {
@@ -1664,7 +2386,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( \"SET names utf8\" );
 							if (! \$id) {
@@ -1698,7 +2420,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							
 							if (! \$this->Session->read ( \"email\" )) {
@@ -1714,26 +2436,50 @@ class MoreuseController extends AppController {
 							}
 						}
 						function addinfomations() {
-							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
-							\$shopname = \$shop [0];
-							\$shoparr = \$this->get_shop_id ( \$shopname );
-							foreach ( \$shoparr as \$key => \$value ) {
-								\$shop_id = \$key;
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
 							}
-							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+								
+							\$this->set ( 'shopname', \$nameeshop );
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							\$uid = \"id\" . rand ( 1, 1000000 );
-							\$data ['Estore_infomation'] ['user_id'] = (\$this->Session->read ( \"id\" ) != '' ? \$this->Session->read ( \"id\" ) : \$uid);
-							\$data ['Estore_infomation'] ['mobile'] = \$_POST ['phone'];
-							\$data ['Estore_infomation'] ['address'] = \$_POST ['address'];
-							\$data ['Estore_infomation'] ['email'] = \$_POST ['email'];
-							\$data ['Estore_infomation'] ['name'] = \$_POST ['name'];
-							\$data ['Estore_infomation'] ['phone'] = \$_POST ['phone'];
-							\$data ['Estore_infomation'] ['total'] = \$_POST ['total'];
-							\$this->Estore_infomation->save ( \$data ['Estore_infomation'] );
+							\$data ['Estore_infomations'] ['user_id'] = (\$this->Session->read ( \"id\" ) != '' ? \$this->Session->read ( \"id\" ) : \$uid);
+							\$data ['Estore_infomations'] ['mobile'] = \$_POST ['phone'];
+							\$data ['Estore_infomations'] ['address'] = \$_POST ['address'];
+							\$data ['Estore_infomations'] ['email'] = \$_POST ['email'];
+							\$data ['Estore_infomations'] ['name'] = \$_POST ['name'];
+							\$data ['Estore_infomations'] ['phone'] = \$_POST ['phone'];
+							\$data ['Estore_infomations'] ['total'] = \$_POST ['total'];
+							\$data ['Estore_infomations'] ['estore_id'] = \$shop_id;
 							
-							\$info_id = \$this->Estore_infomation->getLastInsertId ();
+							\$this->Estore_infomations->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							\$this->Estore_infomations->save ( \$data ['Estore_infomations'] );
+							
+							\$info_id = \$this->Estore_infomations->getLastInsertId ();
 							
 							\$shopingcart = \$_SESSION ['shopingcart'];
 							// print_r(\$shopingcart);exit;
@@ -1751,7 +2497,7 @@ class MoreuseController extends AppController {
 							}
 							
 							unset ( \$_SESSION ['shopingcart'] );
-							echo '<script language=\"javascript\">alert(\"cảm ơn bạn đã đặt hàng  chúng tôi sẽ liên hệ với bạn trong vòng 24h\"); location.href=\"' . DOMAIN .\$shopname . '/index\";</script>';
+							echo '<script language=\"javascript\">alert(\"cảm ơn bạn đã đặt hàng  chúng tôi sẽ liên hệ với bạn trong vòng 24h\"); location.href=\"' . DOMAIN .\$this->shopname . '/index\";</script>';
 						}
 						function deleteinfomations(\$id = null) {
 							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
@@ -1762,7 +2508,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							if (empty ( \$id )) {
 								\$this->Session->setFlash ( __ ( 'Khôn tồn tại danh mục này', true ) );
@@ -1781,19 +2527,41 @@ class MoreuseController extends AppController {
 						}
 						// +++++++++++++++++++++++++++++++News+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 						function indexnews() {
-							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
-							\$shopname = \$shop [0];
-							\$shoparr = \$this->get_shop_id ( \$shopname );
-							foreach ( \$shoparr as \$key => \$value ) {
-								\$shop_id = \$key;
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
 							}
-							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+								
+							\$this->set ( 'shopname', \$nameeshop );
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( \"SET names utf8\" );
+							\$this->Estore_news->setDataEshop(\$hostname,\$username,\$password,\$databasename);
 							\$this->paginate = array (
 									'conditions' => array (
 											'Estore_news.status' => 1,
@@ -1812,7 +2580,7 @@ class MoreuseController extends AppController {
 								\$shop_id = \$key;
 							}
 							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( \"SET names utf8\" );
 							\$this->paginate = array (
@@ -1834,7 +2602,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( \"SET names utf8\" );
 							\$this->paginate = array (
@@ -1856,7 +2624,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( \"SET names utf8\" );
 							\$this->paginate = array (
@@ -1869,29 +2637,97 @@ class MoreuseController extends AppController {
 							);
 							\$this->set ( 'news', \$this->paginate ( 'Estore_news', array () ) );
 						}
-						function listnews(\$id = null) {
-							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
-							\$shopname = \$shop [0];
-							\$shoparr = \$this->get_shop_id ( \$shopname );
-							foreach ( \$shoparr as \$key => \$value ) {
-								\$shop_id = \$key;
-							}
-							\$this->set ( 'shopname', \$shopname );
-							
-							\$this->layout = 'themeshop/home';
+						
+						function listnews(\$id=null) {
+							//layout
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
-							mysql_query ( \"SET names utf8\" );
+							
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+							
+							\$this->Estore_news->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							
+							//\$Estoreshopnews = \$this->Estore_news->find('all');
+							//pr(\$Estoreshopnews);
+							
+							mysql_query(\"SET names utf8\");
 							\$this->paginate = array (
 									'conditions' => array (
 											'Estore_news.status' => 1,
 											'Estore_news.category_id' => \$id 
 									),
 									'limit' => '10',
-									'order' => 'Estore_news.id DESC' 
-							);
-							\$this->set ( 'listnews', \$this->paginate ( 'Estore_news', array () ) );
-							\$this->set ( 'cat', \$this->Estore_catproduct->read ( null, \$id ) );
+											'order' => 'Estore_news.id DESC' 
+									);
+
+				      \$this->set('listnews', \$this->paginate('Estore_news',array()));
+							
+							\$this->Estore_categories->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							\$this->set('cat',\$this->Estore_categories->read(null,\$id));
 						}
+
+						function getmodolnews()
+						{
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
+							}
+							
+							\$this->Estore_news->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							
+							\$Estoreshopnews = \$this->Estore_news->find('all');
+							
+							pr(\$Estoreshopnews);
+							\$this->set('Estoreshopnews', \$Estoreshopnews);
+						}
+						
 						function souvenir() {
 							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
 							\$shopname = \$shop [0];
@@ -1901,7 +2737,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( \"SET names utf8\" );
 							\$this->paginate = array (
@@ -1922,7 +2758,7 @@ class MoreuseController extends AppController {
 								\$shop_id = \$key;
 							}
 							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( \"SET names utf8\" );
 							\$this->paginate = array (
@@ -1944,7 +2780,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( \"SET names utf8\" );
 							\$this->paginate = array (
@@ -1965,7 +2801,7 @@ class MoreuseController extends AppController {
 								\$shop_id = \$key;
 							}
 							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( \"SET names utf8\" );
 							\$this->paginate = array (
@@ -1986,7 +2822,7 @@ class MoreuseController extends AppController {
 								\$shop_id = \$key;
 							}
 							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach ve may bay
 							mysql_query ( \"SET names utf8\" );
@@ -2008,7 +2844,7 @@ class MoreuseController extends AppController {
 								\$shop_id = \$key;
 							}
 							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach khach san
 							mysql_query ( \"SET names utf8\" );
@@ -2030,7 +2866,7 @@ class MoreuseController extends AppController {
 								\$shop_id = \$key;
 							}
 							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach xe du lich
 							mysql_query ( \"SET names utf8\" );
@@ -2052,7 +2888,7 @@ class MoreuseController extends AppController {
 								\$shop_id = \$key;
 							}
 							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach ho chieu
 							mysql_query ( \"SET names utf8\" );
@@ -2074,7 +2910,7 @@ class MoreuseController extends AppController {
 								\$shop_id = \$key;
 							}
 							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( \"SET names utf8\" );
@@ -2104,7 +2940,7 @@ class MoreuseController extends AppController {
 								\$shop_id = \$key;
 							}
 							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// var_dump(\$this->data);die;
 							\$data = \$this->Estore_news->read ( null, \$_POST ['id'] );
@@ -2119,7 +2955,7 @@ class MoreuseController extends AppController {
 								\$shop_id = \$key;
 							}
 							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( \"SET names utf8\" );
 							\$this->paginate = array (
@@ -2134,14 +2970,36 @@ class MoreuseController extends AppController {
 							\$this->set ( 'cat', \$this->Category->read ( null, \$id ) );
 						}
 						function viewnews(\$id = null) {
-							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
-							\$shopname = \$shop [0];
-							\$shoparr = \$this->get_shop_id ( \$shopname );
-							foreach ( \$shoparr as \$key => \$value ) {
-								\$shop_id = \$key;
+						
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
 							}
-							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+								
+							\$this->set ( 'shopname', \$nameeshop );
+							  \$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( \"SET names utf8\" );
 							
@@ -2151,9 +3009,11 @@ class MoreuseController extends AppController {
 										'action' => 'index' 
 								) );
 							}
+							\$this->Estore_news->setDataEshop(\$hostname,\$username,\$password,\$databasename);
 							\$x = \$this->Estore_news->read ( null, \$id );
-							// echo \"x :\";pr(\$x);
 							\$this->set ( 'views', \$x );
+							\$this->Estore_news->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+						
 							\$this->set ( 'list_other', \$this->Estore_news->find ( 'all', array (
 									'conditions' => array (
 											'Estore_news.status' => 1,
@@ -2162,19 +3022,46 @@ class MoreuseController extends AppController {
 									),
 									'limit' => 10 
 							) ) );
+						
 						}
 						function searchnews(\$name_search = null) {
 							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
 							\$shopname = \$shop [0];
-							\$shoparr = \$this->get_shop_id ( \$shopname );
-							foreach ( \$shoparr as \$key => \$value ) {
-								\$shop_id = \$key;
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
 							}
+							//set data news eshop	
+							\$this->Estore_news->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							
 							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( \"SET names utf8\" );
 							\$title = \$_POST ['name_search'];
+							
 							\$this->set ( 'listsearch', \$this->Estore_news->find ( 'all', array (
 									'conditions' => array (
 											'Estore_news.status' => 1,
@@ -2185,18 +3072,41 @@ class MoreuseController extends AppController {
 							) ) );
 						}
 						function thongtin() {
-							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
-							\$shopname = \$shop [0];
-							\$shoparr = \$this->get_shop_id ( \$shopname );
-							foreach ( \$shoparr as \$key => \$value ) {
-								\$shop_id = \$key;
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
 							}
-							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+								
+							\$this->set ( 'shopname', \$nameeshop );
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							// list danh sach tin tuc
 							mysql_query ( \"SET names utf8\" );
-							\$x = \$this->Estore_setting->read ( null, 1 );
+							\$this->Estore_settings->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							\$x = \$this->Estore_settings->read ( null, 1 );
+// 							pr(\$x);
 							\$this->set ( 'views', \$x );
 						}
                         // +++++++++++++++++++++++++++++++++++++Comments+++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2208,7 +3118,7 @@ class MoreuseController extends AppController {
 								\$shop_id = \$key;
 							}
 							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							\$this->paginate = array (
 									'conditions' => array (
@@ -2220,15 +3130,38 @@ class MoreuseController extends AppController {
 							\$this->set ( 'comment', \$this->paginate ( 'Estore_comments', array () ) );
 						}
 						function indexcomments() {
-							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
-							\$shopname = \$shop [0];
-							\$shoparr = \$this->get_shop_id ( \$shopname );
-							foreach ( \$shoparr as \$key => \$value ) {
-								\$shop_id = \$key;
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
 							}
-							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+								
+							\$this->set ( 'shopname', \$nameeshop );
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
+							\$this->Estore_comments->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+								
 							\$this->paginate = array (
 									'conditions' => array (
 											'Estore_comments.status' => 1 
@@ -2238,7 +3171,7 @@ class MoreuseController extends AppController {
 							);
 							\$this->set ( 'comment', \$this->paginate ( 'Estore_comments', array () ) );
 						}
-						// them danh muc moi
+						
 						function addcomments() {
 							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
 							\$shopname = \$shop [0];
@@ -2248,7 +3181,7 @@ class MoreuseController extends AppController {
 							}
 							\$this->set ( 'shopname', \$shopname );
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							if (! empty ( \$this->data )) {
 								// if(\$this->Session->read('security_code')==\$_POST['security']){
@@ -2257,7 +3190,7 @@ class MoreuseController extends AppController {
 								if (\$this->Estore_comments->save ( \$data ['Estore_comments'] )) {
 									\$this->Session->setFlash ( __ ( 'Thêm mới comments thành công', true ) );
 									// \$this->redirect(array('action' => 'index'));
-									echo '<script language=\"javascript\"> location.href=\"' . DOMAIN .\$shopname . '/indexcomments\";</script>';
+									echo '<script language=\"javascript\"> location.href=\"' . DOMAIN .\$this->shopname . '/indexcomments\";</script>';
 								} else {
 									\$this->Session->setFlash ( __ ( 'Thêm mơi comments thất bại. Vui long thử lại', true ) );
 								}
@@ -2270,48 +3203,115 @@ class MoreuseController extends AppController {
 						}
 						// +++++++++++++++++++++++++Contacts+++++++++++++++++++++++++++++++++++++++++++++++
 						function sendcontacts() {
-							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
-							\$shopname = \$shop [0];
-							\$shoparr = \$this->get_shop_id ( \$shopname );
-							foreach ( \$shoparr as \$key => \$value ) {
-								\$shop_id = \$key;
+							\$nameeshop = \$this->shopname;
+							\$shoparr = \$this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => \$nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach(\$shoparr as \$shop){
+								\$databasename = \$shop['Shop']['databasename'];
+								\$password = \$shop['Shop']['password'];
+								\$username = \$shop['Shop']['username'];
+								\$hostname = \$shop['Shop']['hostname'];
+								\$shop_id = \$shop['Shop']['id'];
+									
 							}
-							\$this->set ( 'shopname', \$shopname );
+								
+							\$this->set ( 'shopname', \$nameeshop );
+							\$message= \"\";
+							\$this->set('message',\$message);
 							
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							mysql_query ( \"SET NAMES 'utf8'\" );
 							mysql_query ( \"SET character_set_client=utf8\" );
 							mysql_query ( \"SET character_set_connection=utf8\" );
-							\$x = \$this->Estore_setting->read ( null, 1 );
+							\$this->Estore_settings->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+							\$x = \$this->Estore_settings->read ( null, 1 );
+							
 							if (isset ( \$_POST ['name'] )) {
-								\$name = \$_POST ['name'];
-								
+								\$name = trim(\$_POST ['name']);
 								\$mobile = \$_POST ['phone'];
-								\$email = \$_POST ['email'];
-								\$title = \$_POST ['title'];
-								\$content = \$_POST ['content'];
+								\$email = trim(\$_POST ['email']);
+								\$title = trim(\$_POST ['title']);
+								\$content = trim(\$_POST ['content']);
 								
-								\$this->Email->from = \$name . '<' . \$email . '>';
-								\$this->Email->to = \$x ['Estore_setting'] ['email'];
-								\$this->Email->subject = \$title;
-								\$this->Email->template = 'default';
-								\$this->Email->sendAs = 'both';
-								\$this->set ( 'name', \$name );
-								\$this->set ( 'mobile', \$mobile );
-								\$this->set ( 'email', \$email );
-								\$this->set ( 'content', \$content );
+								\$data = array(
+										'estore_id'=>\$x['Estore_settings']['estore_id'],
+									    'name'=>\$name,
+										'email'=>\$email,
+										'title'=>\$title,
+										'content'=>\$content
+								);
 								
-								// pr(\$this->Email->send());die;
-								if (\$this->Email->send ()) {
-									// \$this->Session->setFlash(__('Thêm mới danh mục thành công', true));
-									echo '<script language=\"javascript\"> alert(\"Gửi mail thành công\"); location.href=\"' . DOMAIN . '\";</script>';
-								} else
-									// \$this->Session->setFlash(__('Thêm mơi danh mục thất bại. Vui long thử lại', true));
-									// echo '<script language=\"javascript\"> alert(\"gửi mail không thành công\"); //location.href=\"'.DOMAIN.'\";</script>';
-									echo '<script language=\"javascript\"> alert(\"gửi mail không thành công\"); </script>';
+								if(!empty(\$data)) {
+									\$this->Estore_contacts->setDataEshop(\$hostname,\$username,\$password,\$databasename);
+									if(\$this->Estore_contacts->save(\$data))
+									{
+										\$resultemail = \$this->smtpmailer(\$email,'alatcas1@gmail.com','FREEMOBIWEB.MOBI',\$x['Estore_settings']['title'],\$content);
+										if (\$resultemail ==1)
+										{
+											//echo '<script language=\"javascript\"> alert(\"Gửi mail thành công\"); location.href=\"' . DOMAIN .\$this->shopname. '\";</script>';
+											\$message= \"succesfuly\";
+											\$this->set('message',\$message);
+										}
+										else
+										{
+											//echo '<script language=\"javascript\"> alert(\"gửi mail không thành công\"); </script>';
+											\$this->set('message',\$resultemail);
+										}
+									}
+								}
+			                   
+								
 							}
 						}
+						
+				  function smtpmailer(\$to, \$from, \$from_name, \$subject, \$body) {
+					       //++++++++ include PhpMailler +++++++++++
+							\$libraryPhpMailer = ROOT.'/PhpMailer/';
+							\$filename = \$libraryPhpMailer.'class.phpmailer.php';
+							if(file_exists(\$filename))
+							   include(\$filename);
+							global \$error;
+					        \$mail = new PHPMailer();
+					        \$mail->IsSMTP();
+					        \$mail->CharSet = \"utf-8\";
+					        \$mail->SMTPDebug = 0;
+					        \$mail->SMTPAuth = true;
+					        \$mail->SMTPSecure = 'ssl';
+					        \$mail->Host = 'smtp.gmail.com';
+					        \$mail->Port = 465;
+					        \$mail->Username = GUSER;
+					        \$mail->Password = GPWD;
+					        \$mail->SetFrom(\$from, \$from_name);
+					        \$mail->Subject = \$subject;
+					        \$mail->Body = \$body;
+					        \$mail->AddAddress(\$to);
+					        if (!\$mail->Send()) {
+					            \$error = 'Gởi mail bị lỗi: ' . \$mail->ErrorInfo;
+					            return false;
+					        } else {
+					            \$error = 'thư của bạn đã được gởi đi ';
+					            return true;
+					        }
+					    }
+						
+						
+						
 						function dathangcontacts() {
 							\$shop = explode ( '/', \$this->params ['url'] ['url'] );
 							\$shopname = \$shop [0];
@@ -2320,7 +3320,7 @@ class MoreuseController extends AppController {
 								\$shop_id = \$key;
 							}
 							\$this->set ( 'shopname', \$shopname );
-							\$this->layout = 'themeshop/home';
+							\$this->layout = 'themeshop/estorecreatnanedata';
 							\$this->set ( 'title_for_layout', 'e-shop' );
 							
 							mysql_query ( \"SET NAMES 'utf8'\" );
@@ -2379,383 +3379,13 @@ class MoreuseController extends AppController {
 								echo '<script language=\"javascript\"> alert(\"gửi mail không thành công\"); location.href=\"' . DOMAIN . '\";</script>';
 							}
 						}
-					 }\n";
+					 }
+				           \n";
 						$stringData .= "?>\n";
-						
 						fwrite ( $fh, $stringData );
 						fclose ( $fh );
-						//+++++++copy
+						
 						$fromfile = DOCUMENT_ROOT . 'app/controllers/estore_controller.php';
-						$tofile = DOCUMENT_ROOT . 'app/controllers/' . $project_name. '_controller.php';
-						
-						if (file_exists ( $tofile )) {
-							return $dir_and_name_estore = "Tên gian hàng đã tồn tại";
-							//exit ();
-						}
-						copy ( $fromfile, $tofile );
-						
-						return $controller_estore ="50000565";
-						break;
-					}
-				 case 50000564:
-					{
-						//phuc
-						$myFile = DOCUMENT_ROOT . 'app/controllers/shops_controller.php';
-						// $myFile = DOMAIN.'app/controllers/shops_controller.php';
-						// pr($myFile);die;
-						$fh = fopen ( $myFile, 'w' ) or die ( "can't open file" );
-						$stringData = "";
-						$stringData .= "<?php\n";
-						$stringData .= "
-						  class " . ucfirst ( $project_name) . "Controller extends AppController {
-						  var \$name = '" . ucfirst ( $project_name) . "';
-						  var \$uses=array('Product','Tems','Shop','Newshop','Productshop','Categoryshop','Userscms','Classifiedss','Banner','Background');
-						  var \$helpers = array('Html', 'Form', 'Javascript');
-					
-						  function index() {
-						  \$this->Session->write('menu','home');
-						
-						    \$pizza = \$_GET['url'];
-						   \$urlshop = explode('/', \$pizza);
-						   \$geturl=\$urlshop[0];
-						    \$this->set('title_for_layout', 'Trang chủ');
-						   \$sang = \$this->Tems->find('all');
-						   \$this->layout='themeshop/template';
-						   \$this->set('title_for_layout', '');
-						   \$user = \$this->Session->read('id');
-							\$temshop = \$this->Shop->findAllByName(\$geturl);
-				           \$idshop = \$temshop[0]['Shop']['id'];
-						   	\$this->paginate =array('conditions'=>array('Productshop.status'=>1,'Productshop.shop_id'=>\$idshop),'order'=>'Productshop.id DESC','limit'=>9);
-							\$this->set('productshop',\$this->paginate('Productshop',array()));
-						;
-						 }
-					
-					  function tin_tuc() {
-					  \$this->Session->write('menu','tintuc');
-					      \$pizza = \$_GET['url'];
-					     \$urlshop = explode('/', \$pizza);
-					     \$geturl=\$urlshop[0];
-						 \$temshop = \$this->Shop->findAllByName(\$geturl);
-					     \$sang = \$this->Tems->find('all');
-						\$this->layout='themeshop/template';
-						 \$this->set('title_for_layout', 'Tin tức - '.\$temshop[0]['Shop']['namecompany']);
-						 \$user = \$this->Session->read('id');
-					
-			            \$idshop = \$temshop[0]['Shop']['id'];
-						 \$this->paginate = array('conditions'=>array('Newshop.shop_id'=>\$idshop,'Newshop.categorynewsshop_id'=>219,'Newshop.status'=>1),'limit' => '8','order' => 'Newshop.id DESC');
-				        \$this->set('newsshop', \$this->paginate('Newshop',array()));
-					 }
-					
-					
-				
-					  function khuyen_mai() {
-					      \$pizza = \$_GET['url'];
-					     \$urlshop = explode('/', \$pizza);
-					     \$geturl=\$urlshop[0];
-						 \$temshop = \$this->Shop->findAllByName(\$geturl);
-					     \$sang = \$this->Tems->find('all');
-						\$this->layout='themeshop/template';
-						 \$this->set('title_for_layout', 'Tin tức - '.\$temshop[0]['Shop']['namecompany']);
-						 \$user = \$this->Session->read('id');
-						\$this->Session->write('menu','khuyenmai');
-			            \$idshop = \$temshop[0]['Shop']['id'];
-						 \$this->paginate = array('conditions'=>array('Newshop.shop_id'=>\$idshop,'Newshop.categorynewsshop_id'=>220,'Newshop.status'=>1),'limit' => '8','order' => 'Newshop.id DESC');
-				        \$this->set('khuyenmai', \$this->paginate('Newshop',array()));
-					 }
-					
-					  function chi_tiet_tin_tuc(\$id=null) {
-					  \$this->set('menu','tintuc');
-						 \$sang = \$this->Tems->find('all');
-						 \$this->layout='themeshop/template';
-						 \$this->set('title_for_layout', 'Chi tiết tin');
-						if (!\$id) {
-							\$this->Session->setFlash(__('Không tồn tại', true));
-							\$this->redirect(array('action' => 'index'));
-						}
-						\$x=\$this->Newshop->read(null, \$id);
-						\$this->set('views',\$x);
-						\$this->set('list_others', \$this->Newshop->find('all',array('conditions'=>array('Newshop.status'=>1,'Newshop.categorynewsshop_id'=>\$x['Newshop']['categorynewsshop_id'],'Newshop.id <>'=>\$id),'limit'=>10)));
-					}
-					 // hien thi san phan trong gian hang
-					 function san_pham() {
-					\$this->Session->write('menu','sanpham');
-					   \$pizza = \$_GET['url'];
-					   \$urlshop = explode('/', \$pizza);
-					   \$geturl=\$urlshop[0];
-					   \$temshop = \$this->Shop->findAllByName(\$geturl);
-					   \$sang = \$this->Tems->find('all');
-					  \$this->layout='themeshop/template';
-					   \$this->set('title_for_layout', 'Sản phẩm - '.\$temshop[0]['Shop']['namecompany']);
-					   \$user = \$this->Session->read('id');
-						 //----------------------------------
-						 \$this->set('title_for_layout', 'Sản phẩm');
-			            \$idshop = \$temshop[0]['Shop']['id'];
-						\$product_shop = \$this->Productshop->find('all',array('conditions'=>array('Productshop.status'=>1,'Productshop.shop_id'=>\$idshop),'order'=>'Productshop.id DESC','limit'=>9));
-						\$this->set('productshop',\$product_shop);
-					 }
-					function raovat() {
-					   \$sang = \$this->Tems->find('all');
-					   \$this->layout='themeshop/template';
-					    \$sangurl = \$_SERVER['REQUEST_URI'];
-						\$url = explode('/', \$sangurl);
-					    \$geturl=\$url[1];
-					    \$temshop = \$this->Shop->findAllByName(\$geturl);
-			            \$idshop = \$temshop[0]['Shop']['user_id'];
-						\$this->set('title_for_layout', 'Rao vặt - '.\$temshop[0]['Shop']['namecompany']);
-						\$this->paginate = array('conditions'=>array('Classifiedss.status'=>1,'Classifiedss.user_id'=>\$idshop),'order'=>'Classifiedss.id DESC','limit'=>12);
-						\$this->set('raovat', \$this->paginate('Classifiedss',array()));
-					 }
-					
-					 // cai dat giao dien
-					function bannerheader() {
-					   \$sang = \$this->Tems->find('all');
-					 \$this->layout='themeshop/template';
-					    \$sangurl = \$_SERVER['REQUEST_URI'];
-						\$url = explode(\"/\", \$sangurl);
-					    \$geturl= \$url[2];
-					    \$temshop = \$this->Shop->findAllByName(\$geturl);
-			            \$idshop = \$temshop[0]['Shop']['user_id'];
-						return \$this->Banner->find('all',array('conditions'=>array('Banner.user_id'=>\$idshop),'order'=>'Banner.id DESC','limit'=>1));
-					 }
-					function background() {
-					   \$sang = \$this->Tems->find('all');
-					  \$this->layout='themeshop/template';
-					    \$sangurl = \$_SERVER['REQUEST_URI'];
-						\$url = explode(\"/\", \$sangurl);
-					    \$geturl=\$url[1];
-					    \$temshop = \$this->Shop->findAllByName(\$geturl);
-			            \$idshop = \$temshop[0]['Shop']['user_id'];
-						return \$this->Background->find('all',array('conditions'=>array('Background.user_id'=>\$idshop),'order'=>'Background.id DESC','limit'=>1));
-					 }
-					
-					 function raovatnews() {
-					   \$sang = \$this->Tems->find('all');
-					   \$this->layout='themeshop/template';
-					    \$sangurl = \$_SERVER['REQUEST_URI'];
-						\$url = explode('/', \$sangurl);
-					    \$geturl=\$url[1];
-					    \$temshop = \$this->Shop->findAllByName(\$geturl);
-			            \$idshop = \$temshop[0]['Shop']['user_id'];
-						 return \$temshop = \$this->Classifiedss->find('all',array('conditions'=>array('Classifiedss.status'=>1,'Classifiedss.user_id'=>\$idshop),'order'=>'Classifiedss.id DESC','limit'=>7));
-					 }
-					
-					 function chi_tiet_rao_vat(\$id=null) {
-					 \$this->set('menu','tintuc');
-						 \$sang = \$this->Tems->find('all');
-						\$this->layout='themeshop/template';
-						if (!\$id) {
-							\$this->Session->setFlash(__('Không tồn tại', true));
-							\$this->redirect(array('action' => 'index'));
-						}
-						\$x=\$this->Classifiedss->read(null, \$id);
-						\$this->set('views',\$x);
-						\$this->set('list_others', \$this->Classifiedss->find('all',array('conditions'=>array('Classifiedss.status'=>1,'Classifiedss.scop_id'=>\$x['Classifiedss']['scop_id'],'Classifiedss.id <>'=>\$id),'limit'=>10)));
-					}
-					  function search(\$search_name=null) {
-					   \$pizza = \$_GET['url'];
-					   \$urlshop = explode('/', \$pizza);
-					   \$geturl=\$urlshop[0];
-					 
-					   \$sang = \$this->Tems->find('all');
-					   \$this->layout='themeshop/template';
-					   \$this->set('title_for_layout', '');
-					   \$user = \$this->Session->read('id');
-						 //----------------------------------
-						\$temshop = \$this->Shop->findAllByName(\$geturl);
-			            \$idshop = \$temshop[0]['Shop']['id'];
-						\$product_shop = \$this->Productshop->find('all',array('conditions'=>array('Productshop.status'=>1,'Productshop.shop_id'=>\$idshop,'Productshop.title like'=>'%'.\$search_name.'%'),'order'=>'Productshop.id DESC','limit'=>9));
-						\$this->set('search',\$product_shop);
-					 }
-					
-					 //list product
-					 function danh_sach_san_pham(\$id=null) {
-					 \$this->Session->write('menu','sanpham');
-				
-					   \$pizza = \$_GET['url'];
-					   \$urlshop = explode('/', \$pizza);
-					   \$geturl=\$urlshop[0];
-					   \$this->set('title_for_layout', 'Danh sách sản phẩm');
-					   \$sang = \$this->Tems->find('all');
-					  \$this->layout='themeshop/template';
-					   \$this->set('title_for_layout', '');
-					   \$user = \$this->Session->read('id');
-						\$temshop = \$this->Shop->findAllByName(\$geturl);
-			            \$idshop = \$temshop[0]['Shop']['id'];
-						if(\$id==null) {
-						\$this->paginate=array('conditions'=>array('Productshop.status'=>1,'Productshop.shop_id'=>\$idshop,'Productshop.user_id'=>\$user),'order'=>'Productshop.id DESC','limit'=>9);
-						}
-						else
-						\$this->paginate=array('conditions'=>array('Productshop.status'=>1,'Productshop.categoryshop_id'=>\$id,'Productshop.shop_id'=>\$idshop),'order'=>'Productshop.id DESC','limit'=>9);
-						\$this->set('productshop',\$this->paginate('Productshop',array()));
-					
-					
-						\$cat=\$this->Categoryshop->read(null, \$id);
-					    \$this->set('catid',\$cat);
-					 }
-					
-					 function chi_tiet_san_pham(\$id=null) {
-					 \$this->set('title_for_layout', 'Chi tiết sản phẩm');
-					  \$shop=explode('/',\$this->params['url']['url']);
-						\$shopname=\$shop[0];
-							\$shop=\$this->requestAction('comment/get_shop_id/'.\$shopname);
-							foreach(\$shop as \$key=>\$value){
-							\$user=\$key;
-							}
-					
-					
-					 \$this->Session->write('menu','sanpham');
-					
-						 \$sang = \$this->Tems->find('all');
-						 \$this->layout='themeshop/template';
-						if (!\$id) {
-							\$this->Session->setFlash(__('Không tồn tại', true));
-							\$this->redirect(array('action' => 'index'));
-						}
-						\$x1=\$this->Productshop->findById(\$id);
-				
-				
-							\$catproduct_id=\$x1['Productshop']['categoryshop_id'];
-				
-						\$this->set('views',\$x1);
-						\$this->set('list_others', \$this->Productshop->find('all',array('conditions'=>array('Productshop.status'=>1,'Productshop.categoryshop_id'=>\$catproduct_id,'Productshop.id <>'=>\$id,'Productshop.shop_id'=>\$user),'limit'=>10)));
-						\$this->set('title_for_layout', 'Chi tiết sản phẩm');
-					}
-				
-					 function khuyen_mai1() {
-					    \$pizza = \$_GET['url'];
-					   \$urlshop = explode('/', \$pizza);
-					   \$geturl=\$urlshop[0];
-					   \$temshop = \$this->Shop->findAllByName(\$geturl);
-					   \$sang = \$this->Tems->find('all');
-			         \$this->layout='themeshop/template';
-					  \$this->set('title_for_layout', 'Khuyến mại - '.\$temshop[0]['Shop']['namecompany']);
-					 }
-					
-					 function chinh_sach() {
-					   \$sang = \$this->Tems->find('all');
-					  \$this->layout='themeshop/template';
-					   \$this->set('title_for_layout', '');
-					 }
-					
-					function ban_do() {
-					   \$sang = \$this->Tems->find('all');
-						\$this->layout='themeshop/template';
-							\$this->set('title_for_layout', '');
-					 }
-					function gioi_thieu() {
-					\$this->Session->write('menu','gioithieu');
-				
-			            \$pizza = \$_GET['url'];
-					   \$urlshop = explode('/', \$pizza);
-					   \$geturl=\$urlshop[0];
-					 
-					   \$sang = \$this->Tems->find('all');
-					  \$this->layout='themeshop/template';
-				
-					   \$temshop = \$this->Shop->findAllByName(\$geturl);
-			            \$idshop = \$temshop[0]['Shop']['id'];
-						\$temshop = \$this->Shop->find('all',array('conditions'=>array('Shop.status'=>1,'Shop.id'=>\$idshop),'order'=>'Shop.id DESC'));
-						 \$this->set('title_for_layout','Giới thiệu- '.\$temshop[0]['Shop']['namecompany']);
-						 \$this->set('gioithoi',\$temshop);
-					}
-				
-					function lien_he() {
-					\$this->Session->write('menu','lienhe');
-				
-					   \$sang = \$this->Tems->find('all');
-					   \$this->set('title_for_layout', 'Liên hệ');
-					 \$this->layout='themeshop/template';
-					  // hien ti thong tin shop
-					   \$pizza = \$_GET['url'];
-					   \$urlshop = explode('/', \$pizza);
-					   \$geturl=\$urlshop[0];
-					    \$temshop = \$this->Shop->findAllByName(\$geturl);
-			            \$idshop = \$temshop[0]['Shop']['id'];
-						\$temshop = \$this->Shop->find('all',array('conditions'=>array('Shop.status'=>1,'Shop.id'=>\$idshop),'order'=>'Shop.id DESC'));
-						\$this->set('infomationshop',\$temshop);
-						\$this->set('title_for_layout','Liên hệ - '.\$temshop[0]['Shop']['namecompany']);
-				
-					 }
-				 function send() {
-					   \$sang = \$this->Tems->find('all');
-					   \$this->layout='themeshop/template';
-					  // hien ti thong tin shop
-					   \$pizza = \$_GET['url'];
-					   \$urlshop = explode('/', \$pizza);
-					   \$geturl=\$urlshop[0];
-					    \$temshop = \$this->Shop->findAllByName(\$geturl);
-			            \$idshop = \$temshop[0]['Shop']['id'];
-						\$temshop = \$this->Shop->find('all',array('conditions'=>array('Shop.status'=>1,'Shop.id'=>\$idshop),'order'=>'Shop.id DESC'));
-						\$emailshop = \$temshop[0]['Shop']['email'];
-						// cau hinh gui mail
-						mysql_query('SET NAMES utf8');
-						mysql_query('SET character_set_client=utf8');
-						mysql_query('SET character_set_connection=utf8');
-						if(isset(\$_POST['name']))
-						{
-						\$name=\$_POST['name'];
-						\$mobile=\$_POST['phone'];
-						\$email=\$_POST['email'];
-						\$title=\$_POST['title'];
-						\$content=\$_POST['content'];
-					
-						\$this->Email->from = \$name.'<'.\$email.'>';
-						\$this->Email->to = \$emailshop;
-						\$this->Email->subject = \$title;
-						\$this->Email->template = 'default';
-						\$this->Email->sendAs = 'both';
-						\$this->set('name',\$name);
-						\$this->set('mobile',\$mobile);
-						\$this->set('email',\$email);
-						\$this->set('content',\$content);
-					
-						if(\$this->Email->send())
-						{
-								\$this->Session->setFlash(__('Thêm mới danh mục thành công', true));
-								  echo '<script language=\"javascript\"> alert(\"Gửi email thành công\"); location.href='.DOMAIN.';</script>';
-						}
-						else
-							   \$this->Session->setFlash(__(\"Thêm mơi danh mục thất bại. Vui long thử lại\", true));
-								  echo '<script language=\"javascript\"> alert(\"gửi email không thành công\"); location.href='.DOMAIN.';</script>';
-						}
-				
-					 }
-					
-					 //sidebar phai
-					function helponline(){
-						\$sangurl = \$_SERVER['REQUEST_URI'];
-						\$url = explode('/', \$sangurl);
-					    \$geturl=\$url[1];
-					    \$temshop = \$this->Shop->findAllByName(\$geturl);
-			            \$idshop = \$temshop[0]['Shop']['user_id'];
-					    return \$temshop = \$this->Userscms->find('all',array('conditions'=>array('Userscms.id'=>\$idshop),'order'=>'Userscms.id DESC'));
-					}
-				
-				// danh muc menu ben trai
-					function categoryproduct(){
-						\$sangurl = \$_SERVER['REQUEST_URI'];
-						\$url = explode('/', \$sangurl);
-					    \$geturl=\$url[1];
-					    \$temshop = \$this->Shop->findAllByName(\$geturl);
-			            \$idshop = \$temshop[0]['Shop']['id'];
-					    return \$this->Categoryshop->find('all',array('conditions'=>array('Categoryshop.status'=>1,'Categoryshop.shop_id'=>\$idshop),'order'=>'Categoryshop.id DESC'));
-					}
-				
-					function categoryproductsub(\$id=null){
-						\$sangurl = \$_SERVER['REQUEST_URI'];
-						\$url = explode('/', \$sangurl);
-					    \$geturl=\$url[1];
-					    \$temshop = \$this->Shop->findAllByName(\$geturl);
-			            \$idshop = \$temshop[0]['Shop']['id'];
-					    return \$this->Categoryshop->find('all',array('conditions'=>array('Categoryshop.status'=>1,'Categoryshop.parent_id'=>\$id,'Categoryshop.shop_id'=>\$idshop),'order'=>'Categoryshop.id DESC'));
-					}
-				 }
-				 \n";
-						$stringData .= "?>\n";
-						fwrite ( $fh, $stringData );
-						fclose ( $fh );
-						
-						$fromfile = DOCUMENT_ROOT . 'app/controllers/shops_controller.php';
 						$tofile = DOCUMENT_ROOT . 'app/controllers/' . $project_name. '_controller.php';
 							
 						if (file_exists ( $tofile )) {
@@ -3497,7 +4127,7 @@ class MoreuseController extends AppController {
 				{
 					// Copy views shops to views
 						
-					$source = DOCUMENT_ROOT . 'app/views/bepga/';
+					$source = DOCUMENT_ROOT . 'app/views/estore/';
 					$destination = DOCUMENT_ROOT . 'app/views/' . $project_name;
 					// $source = DOMAIN.'app/views/shops/';
 					// $destination = DOMAIN.'app/views/'.$project_name;
