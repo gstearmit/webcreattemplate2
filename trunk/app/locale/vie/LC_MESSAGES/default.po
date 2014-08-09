@@ -204,4 +204,101 @@ msgstr "&copy; 2014 Bản quyền Công ty Alatca."
 msgid "More_information"
 msgstr "Đọc thêm"
 
+msgid "slogan"
+msgstr "Tạo một trang web miễn phí dễ dàng!"
 
+msgid "Website_name"
+msgstr "Tên website"
+
+msgid "Email_address"
+msgstr "Địa chỉ Email"
+
+msgid "Password"
+msgstr "Mật khẩu"
+
+msgid "Sing_up"
+msgstr "Đăng ký"
+
+msgid "your_site"
+msgstr "Và thiết lập"
+
+msgid "your_website"
+msgstr "Đây là nơi để nhập tên trag web của bạn"
+
+msgid "your_mail"
+msgstr "Địa chỉ email của bạn sẽ được dùng cho phần đăng nhập. đừng lo lắng chúng tôi không spam đâu"
+
+msgid "your_password"
+msgstr "Mật khẩu phải có ít nhất sáu ký tự. Chúng tôi đề nghị có sự kết hợp của chữ và số. "
+
+msgid "Company"
+msgstr "Công ty"
+
+msgid "About_us"
+msgstr "Về chúng tôi"
+
+msgid "Contact_us"
+msgstr "Liên hệ"
+
+msgid "Our_team"
+msgstr "Nhóm chúng tôi"
+
+msgid "Career"
+msgstr "Sự nghiệp"
+
+msgid "Features"
+msgstr "Các tính năng"
+
+msgid "Pricing"
+msgstr "Giá"
+
+msgid "FAQ"
+msgstr "Hỏi đáp"
+
+msgid "User_Testimonials"
+msgstr "Xác nhận người dùng"
+
+msgid "Service"
+msgstr "Điều khoản Dịch vụ"
+
+msgid "Privacy_Policy"
+msgstr "Chính sách bảo mật"
+
+msgid "Affiliate"
+msgstr "Liên kết"
+
+msgid "alatca"
+msgstr "Làm thế nào để sử dụng Alatca?"
+
+msgid "Creat"
+msgstr "Tạo một trang web miễn phí"
+
+msgid "Make"
+msgstr "Làm trang web hoặc blog của riêng bạn. "
+
+msgid "Creat_business"
+msgstr "Tạo một trang web doanh nghiệp. ."
+
+msgid "Create_store"
+msgstr "Tạo ra một cửa hàng trực tuyến."
+
+msgid "Languages"
+msgstr "Ngôn ngữ"
+
+msgid "slogan_personal"
+msgstr "Tạo website cá nhân miễn phí!"
+
+msgid "slogan_personals"
+msgstr "Lý tưởng đối với các trang web cá nhân, blog và thư viện ảnh"
+
+msgid "slogan_business"
+msgstr "Tạo một trang web cho doanh nghiệp của bạn dễ dàng"
+
+msgid "slogan_businesss"
+msgstr "Hơn 15.000.000 người dùng đã tin tưởng chúng tôi"
+
+msgid "slogan_Estore"
+msgstr "Tạo ra một cửa hàng trực tuyến!"
+
+msgid "slogan_Estores"
+msgstr "Bắt đầu bán hàng qua Internet. Nhanh chóng và dễ dàng."

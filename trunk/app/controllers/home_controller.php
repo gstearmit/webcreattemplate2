@@ -100,31 +100,121 @@ class HomeController extends AppController {
 	}
 	function noteindex() {}
 	function businesswebsites() {
-	}
-	function ecommerce() {
-	}
-	function personalwebsites() {
-
-		$langue = $this->Session->read ( 'language' );
-		if($langue == null )
+		$urlTmp = $_SERVER['REQUEST_URI'];
+		if (stripos($urlTmp, "business-websites/?language"))
 		{
-			$urlTmp = $_SERVER['REQUEST_URI'];
-			if (stripos($urlTmp, "personal-websites/?language"))
-			{
-				$urlTmp = explode("?", $urlTmp);
-				$lang = explode("=", $urlTmp[1]);
-				$lang = $lang[1];
-				if (isset($lang)) {
-					$this->Session->write('language', $lang);
+			$urlTmp = explode ( "business-websites/?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+			if (isset ( $lang )) {
+				$this->Session->write ( 'language', $lang );
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+				
+			$lang = "vie"; // default
+			$this->Session->write ( 'language', $lang );
+		}
+			
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					$this->Session->write ( 'language', $lang );
 				} else {
-					$this->Session->delete('language');
+					$this->Session->delete ( 'language' );
 				}
-			}else{
-				$lang ="vie";  // default
-				$this->Session->write('language', $lang);
+			} else {
+				$lang = "vie"; // default
+				$this->Session->write ( 'language', $lang );
 			}
 		}
-		$this->set ( 'langue',$langue);
+		$this->set ( 'langue', $langue );
+	}
+	function ecommerce() {
+		$urlTmp = $_SERVER['REQUEST_URI'];
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+			if (isset ( $lang )) {
+				$this->Session->write ( 'language', $lang );
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+				
+			$lang = "vie"; // default
+			$this->Session->write ( 'language', $lang );
+		}
+			
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					$this->Session->write ( 'language', $lang );
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				$this->Session->write ( 'language', $lang );
+			}
+		}
+		$this->set ( 'langue', $langue );
+	}
+	function personalwebsites() {
+		
+		$urlTmp = $_SERVER['REQUEST_URI'];
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+			if (isset ( $lang )) {
+				$this->Session->write ( 'language', $lang );
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+				
+			$lang = "vie"; // default
+			$this->Session->write ( 'language', $lang );
+		}
+			
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					$this->Session->write ( 'language', $lang );
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				$this->Session->write ( 'language', $lang );
+			}
+		}
+		$this->set ( 'langue', $langue );
+
+	
 	}
 	
 	function signin() {
