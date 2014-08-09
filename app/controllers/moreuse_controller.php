@@ -89,8 +89,8 @@ class MoreuseController extends AppController {
 			
 			$Store ['userpass'] = $userpass;
 			$Store ['databasename'] = $namedatabase;
-			$Store ['username'] = "root";
-			$Store ['password'] = "";
+			$Store ['username'] = Username;
+			$Store ['password'] = Password;
 			$Store ['hostname'] = $namwserver;
 			$Store ['ipserver'] = $ipserver;
 			// $Store['user_id']=$this->Session->read("id");
