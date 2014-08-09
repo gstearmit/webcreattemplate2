@@ -2917,7 +2917,7 @@
 											'Shop.ipserver'
 									)
 							) );
-								
+							
 							//++++++++++Connect  data +++++++++++++++++
 							foreach($shoparr as $shop){
 								$databasename = $shop['Shop']['databasename'];
