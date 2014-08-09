@@ -1,8 +1,8 @@
 <?php
 
-						  class Testcreatwebsite001Controller extends AppController {
-						  var $name = 'Testcreatwebsite001';
-						  var $shopname ='testcreatwebsite001';
+						  class Testting01Controller extends AppController {
+						  var $name = 'Testting01';
+						  var $shopname ='testting01';
 						  	var $uses = array (
 						  		'Estore_categories',//Catalogueshop
 						  		'Estore_news',//eshop
@@ -2950,7 +2950,6 @@
 								$data = array(
 										'estore_id'=>$x['Estore_settings']['estore_id'],
 									    'name'=>$name,
-										'mobile'=>$mobile,
 										'email'=>$email,
 										'title'=>$title,
 										'content'=>$content
@@ -3079,4 +3078,5 @@
 							}
 						}
 					 }
+				           
 ?>
