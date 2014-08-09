@@ -177,21 +177,21 @@ class MoreuseController extends AppController {
 			$result = $this->registerEshop ( $slug, $Store ['layout'], $Store ['language'], $shop_id );
 						//pr($result);
 						
-			$result_finish12 = array(
-					'nameeshop'=>$nameproject,
-					'shopid'=>$shop_id,
-					'resultemail'=>$resultemail,  // result send email
-					'detailemailarray'=>$detailemailarray,
-					'registerEshop'=>$result
-			);
-			$result_finish = array(
-					'data'=>$result_finish12
-			);
-// 			pr(json_encode($result_finish,true));
-			return  print_r(json_encode($result_finish,true));
+// 			$result_finish12 = array(
+// 					'nameeshop'=>$nameproject,
+// 					'shopid'=>$shop_id,
+// 					'resultemail'=>$resultemail,  // result send email
+// 					'detailemailarray'=>$detailemailarray,
+// 					'registerEshop'=>$result
+// 			);
+// 			$result_finish = array(
+// 					'data'=>$result_finish12
+// 			);
+// // 			pr(json_encode($result_finish,true));
+// 			return  print_r(json_encode($result_finish,true));
 
-// 			$sresult = 'result:1';
-// 			return print $sresult;
+			$sresult = 'result:1';
+			return print $sresult;
 		} else {
 		   $sresult='result:reload';
 			return   print $sresult;
