@@ -36,7 +36,22 @@ class MoreuseController extends AppController {
 		$qDecoded      = rtrim( mcrypt_decrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), base64_decode( $q ), MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ), "\0");
 		return( $qDecoded );
 	}
-	
+	function rand_string( $length ) {
+		$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		$size = strlen ( $chars );
+		for($i = 0; $i < $length; $i ++) {
+			$str .= $chars [rand ( 0, $size - 1 )];
+		}
+		return $str;
+	}
+	function randpassword( $length ) {
+		$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-*#&@!?";
+		$size = strlen ( $chars );
+		for($i = 0; $i < $length; $i ++) {
+			$str .= $chars [rand ( 0, $size - 1 )];
+		}
+		return $str;
+	}
 	
 	function finish() {
 		$this->layout = 'ajax';
@@ -48,9 +63,10 @@ class MoreuseController extends AppController {
 			$userpass = $Eshop['userpass'];
 			
 			$Store = array ();
-			$Store ['name'] = $wizard ['project_name'];
 			$slug = $this->unicode_convert( $wizard ['project_name'] );
 			$Store ['slug'] = $slug;
+			//$Store ['name'] = trim($wizard ['project_name']);
+			$Store ['name'] = $slug;
 			
 			$Store ['company_slogan'] = $wizard ['company_slogan'];
 			$Store ['namecompany'] = $wizard ['project_name']; // name cong ty
@@ -83,23 +99,68 @@ class MoreuseController extends AppController {
 			$Store ['ckshops'] = 1;
 			$Store ['status'] = 1;
 			
-			$namedatabase = $slug.'_'.$Store ['layout'];
+			//$namedatabase = $slug.'_'.$Store ['layout'];
 			$ipserver = $_SERVER['SERVER_ADDR'];
 			$namwserver = $_SERVER['SERVER_NAME'];
+			//++++++++++creat data base +++++++
+			// 		$dbuser = "datest";
+			// 		$dbname = "datest";
+			// 		$dbpass = "123456@123";
+			// 		$dbpass_validate = "123456@123";
 			
-			$Store ['userpass'] = $userpass;
-			$Store ['databasename'] = $namedatabase;
-			$Store ['username'] = Username;
-			$Store ['password'] = Password;
-			$Store ['hostname'] = $namwserver;
-			$Store ['ipserver'] = $ipserver;
+			$dbname = $this->rand_string(5); // get ramdom 5 string not get 6 string form $slug : web1234
+			$dbuser = $dbname;
+			$namedatabase = 'admin_'.$dbname;
+			$dbpass = $this->randpassword(9); //"123456@123";
+			$dbpass_validate = $dbpass; // validate directadmin
+				
+			if($namwserver != 'localhost'){  // SERVER DIREACT
+					//creat subdomain and Creat database
+					$subdoamin = $this->creatsubdomainfreemobile($slug);
+					if($subdoamin === true)
+					{
+						$logsubdoamin = true;
+					}else $logsubdoamin = $subdoamin;
+					
+// 					$creatdatabasename = $this->creatdatanamefreemobile($dbuser, $namedatabase, $dbpass, $dbpass_validate);
+// 					if($creatdatabasename === true)
+// 					{
+// 						$logcreatdataba = true;
+// 					}else $logcreatdataba = $creatdatabasename;
+					
+					if($subdoamin === true )
+						//if($subdoamin === true and  $creatdatabasename === true)
+					{
+						$Store ['username'] = $dbuser;     //$dbuser = "datest";
+						$Store ['password'] = $dbpass;     //$dbname = "datest";
+						$Store ['databasename'] = $namedatabase; // 'admin_datest'
+						//+++++++++++++++not need++++++++++++++++++++++++
+						$Store ['userpass'] = $userpass;
+						$Store ['hostname'] = $namwserver;
+						$Store ['ipserver'] = $ipserver;
+					}else die("Ooops! We can't Creat subdomain and creat database . Error : creat data".$logcreatdataba." Error subdomain".$logsubdoamin );
+			}elseif ($namwserver ==='localhost') {
+				// Moi truong localhost
+				$Store ['userpass'] = $userpass;
+				$Store ['databasename'] = $namedatabase;
+				$Store ['username'] = "root"; //Username
+				$Store ['password'] = ''; //Password
+				$Store ['hostname'] = $namwserver;
+				$Store ['ipserver'] = $ipserver;
+				
+				//+++++log++++++++
+				$logsubdoamin = false;
+				$logcreatdataba= false;
+				
+			}	
+		
 			// $Store['user_id']=$this->Session->read("id");
 			
 			 $this->Shop->save($Store);
 			 $shop_id = $this->Shop->getLastInsertId();
 			 
 			if($shop_id<0) { die("Oop! Erro Save data! Please try again !!!");}
-			 //creat subdomain
+			 
 			 //Send mail Acout Estore
 			 $shoparr = $this->Shop->find ( 'all', array (
 			 		'conditions' => array (
@@ -174,10 +235,12 @@ class MoreuseController extends AppController {
 			}
 			
 			// creat Eshop
-			$result = $this->registerEshop ( $slug, $Store ['layout'], $Store ['language'], $shop_id );
+			$result = $this->registerEshop ($namedatabase, $slug, $Store ['layout'], $Store ['language'], $shop_id );
 						//pr($result);
 						
 // 			$result_finish12 = array(
+//					'subdoamin'=>$logsubdoamin,
+//					'creatdatabase'=>$logcreatdataba,
 // 					'nameeshop'=>$nameproject,
 // 					'shopid'=>$shop_id,
 // 					'resultemail'=>$resultemail,  // result send email
@@ -199,8 +262,116 @@ class MoreuseController extends AppController {
 	die ();
 	}
 
+	function creatsubdomainfreemobile($subdomain) {
+		//++++++++ include PhpMailler +++++++++++
+		$libfreemobile = ROOT.'/libfreemobile/';
+		$filename = $libfreemobile.'httpsocket.php';
+		if(file_exists($filename))
+			include($filename);
+		global $error;
+		$server_ip = Server_ip; // IP that User is assigned to
+		$server_login = Server_login;
+		$server_pass = server_pass;
+		$server_host = Server_ip; // where the API connects to
+		$server_ssl = "N";
+		$server_port = 2222;
+		
+		$sock = new HTTPSocket ();
+		if ($server_ssl == 'Y') {
+			$sock->connect ( "ssl://" . $server_host, $server_port );
+		} else {
+			$sock->connect ( $server_host, $server_port );
+		}
+		
+		$sock->set_login ( $server_login, $server_pass );
+		
+		$sock->query ( '/CMD_API_SUBDOMAINS', array (
+				'action' => 'create',
+				'domain' => 'freemobiweb.mobi',
+				'subdomain' => $subdomain,
+				'create' => 'Create' 
+		) );
+		$result = $sock->fetch_parsed_body ();
+		// echo $result;
+		// echo "<pre>";
+		// print_r($result);
+		// echo "</pre>";
+		
+		if ($result ['error'] != "0") {
+			$error = "<b>Error Creating user  on server $server_ip:<br>\n";
+			$error .= $result ['text'] . "<br>\n";
+			$error .= $result ['details'] . "<br></b>\n";
+			return $error;
+		} else {
+			$error = "User  created on server $server_ip<br>\n";
+			return true;
+		}
+		
+		exit ( 0 );
+		$error = "Will connect to: " . ($server_ssl == "Y" ? "https" : "http") . "://" . $server_host . ":" . $server_port . "<br>\n";
+		
+	}
+	
+	function creatdatanamefreemobile($dbuser,$dbname,$dbpass,$dbpass_validate) {
+		//++++++++ include PhpMailler +++++++++++
+		$libfreemobile = ROOT.'/libfreemobile/';
+		$filename = $libfreemobile.'httpsocket.php';
+		if(file_exists($filename))
+			include($filename);
+		global $error;
+		$server_ip = Server_ip; // IP that User is assigned to
+		$server_login = Server_login;
+		$server_pass = server_pass;
+		$server_host = Server_ip; // where the API connects to
+		$server_ssl = "N";
+		$server_port = 2222;
+// 		$dbuser = "datest";
+// 		$dbname = "datest";
+// 		$dbpass = "123456@123";
+// 		$dbpass_validate = "123456@123";
+		
+		$sock = new HTTPSocket ();
+		if ($server_ssl == 'Y') {
+			$sock->connect ( "ssl://" . $server_host, $server_port );
+		} else {
+			$sock->connect ( $server_host, $server_port );
+		}
+		
+		$sock->set_login ( $server_login, $server_pass );
+		
+		$sock->query ( '/CMD_API_DATABASES', array (
+				'action' => 'create',
+				'name' => $dbname,
+				'user' => $dbuser,
+				'passwd' => $dbpass,
+				'passwd2' => $dbpass_validate 
+		) );
+		
+	
+		$result = $sock->fetch_parsed_body ();
+		// echo $result;
+		// echo "<pre>";
+		// print_r($result);
+		// echo "</pre>";
+	
+		if ($result ['error'] != "0") {
+			$error = "<b>Error Creating database  on server $server_ip:<br>\n";
+			$error .= $result ['text'] . "<br>\n";
+			$error .= $result ['details'] . "<br></b>\n";
+			return $error;
+		} else {
+		$error = "database  created on server $server_ip<br>\n";
+		return true;
+		}
+	
+		exit ( 0 );
+		$error = "Will connect to: " . ($server_ssl == "Y" ? "https" : "http") . "://" . $server_host . ":" . $server_port . "<br>\n";
+	
+	}
+	
+	
 	//++++++ Register Website Creat++++++++++++++++++++
-	function registerEshop($project_name,$layout_code,$language_code,$shop_id) {
+	function registerEshop($namedatabase,$project_name,$layout_code,$language_code,$shop_id) {
 		$result_code;
 		// 		$name = $this->Shop->findAllByName( $project_name); // pr(count($name));die;
 		// 		if (count ( $name ) == 1) {
@@ -209,7 +380,7 @@ class MoreuseController extends AppController {
 	
 			$nameController_Copy = $this->checkLayoutCode($project_name,$layout_code);
 			
-			$nameLangueCopy = $this->checkLanguageCode($project_name,$language_code,$layout_code,$shop_id);
+			$nameLangueCopy = $this->checkLanguageCode($namedatabase,$project_name,$language_code,$layout_code,$shop_id);
 			
 			$dir_and_name_estoreViewCopy = $this->checkLayoutCodeReturnCodeTheme($project_name,$layout_code);
 			
@@ -3411,10 +3582,10 @@ class MoreuseController extends AppController {
 	 * checkLanguageCode :$language_code 
 	 * Return : $sql + langue 
 	*/
-	function checkLanguageCode($project_name,$language_code,$layout_code,$shop_id)
+	function checkLanguageCode($namedatabase,$project_name,$language_code,$layout_code,$shop_id)
 	{
 		$sql_langue = Null ;
-		$namedatabase = $project_name.'_'.$layout_code;
+		//$namedatabase = $project_name.'_'.$layout_code;
 		$languagecode_layoutcode = $layout_code.'_'.$language_code;
 		if($languagecode_layoutcode !='')
 		{
