@@ -13,7 +13,7 @@
 							</div>-->
 				</div>
 				<div id="headerSlogan" class="single">
-					<h1 id="slogan">Create a free website easily!</h1>
+					<h1 id="slogan"><?php __('slogan')?></h1>
 				</div>
 			</div>
 			<!-- end row -->
@@ -209,15 +209,14 @@ if($langue =='eng')
 			<fieldset class="withoutSeparator">
 				<div id="registrantFullNameWrapper">
 					<div class="formRow" id="registrantFullNameRow">
-						<label for="registrantFullName" id="registrantFullNameLabel">Website
-							name&nbsp;<b>*</b>
+						<label for="registrantFullName" id="registrantFullNameLabel"><?php __('Website_name') ?>&nbsp;<b>*</b>
 						</label> <span class="inputCase"> <input id="registrantFullName"
 							name="storename" type="text" value="" maxlength="32"> <i> <!-- -->
 						</i>
 						</span>
 						<div class="inputHint" id="registrantFullNameHint">
-							<h4>Website name</h4>
-							<p>This form entry should contain the name of your website.</p>
+							<h4><?php __('Website_name')?></h4>
+							<p><?php __('your_website')?>.</p>
 							<i> <!-- -->
 							</i>
 						</div>
@@ -225,16 +224,14 @@ if($langue =='eng')
 				</div>
 				<div id="signupUserEMailWrapper">
 					<div class="formRow" id="signupUserEMailRow">
-						<label for="signupUserEMail" id="signupUserEMailLabel">Email
-							address&nbsp;<b>*</b>
+						<label for="signupUserEMail" id="signupUserEMailLabel"><?php __('Email_address')?>&nbsp;<b>*</b>
 						</label> <span class="inputCase"> <input id="signupUserEMail"
 							name="mail" type="email" value="" maxlength="255"> <i> <!-- -->
 						</i>
 						</span>
 						<div class="inputHint" id="signupUserEMailHint">
-							<h4>Email address</h4>
-							<p>Your email address will be used as your login. Don't worry,we
-								don't spam.</p>
+							<h4><?php __('Email_address')?></h4>
+							<p><?php __('your_mail')?></p>
 							<i> <!-- -->
 							</i>
 						</div>
@@ -242,14 +239,13 @@ if($langue =='eng')
 				</div>
 				<div id="signupUserPwdWrapper">
 					<div class="formRow" id="signupUserPwdRow">
-						<label for="signupUserPwd" id="signupUserPwdLabel">Password&nbsp;<b>*</b>
+						<label for="signupUserPwd" id="signupUserPwdLabel"><?php __('Password')?>&nbsp;<b>*</b>
 						</label><span class="inputCase"><input id="signupUserPwd"
 							name="pass" type="password" value="" maxlength="255"><i> <!-- -->
 						</i></span>
 						<div class="inputHint" id="signupUserPwdHint">
-							<h4>Password</h4>
-							<p>The password must have at least six characters. We recommend a
-								combination of letters and numbers.</p>
+							<h4><?php __('Password')?></h4>
+							<p><?php __('your_password')?></p>
 							<i> <!-- -->
 							</i>
 						</div>
@@ -279,7 +275,7 @@ if($langue =='eng')
 				</div>
 				<span id="headerSignUpButton" class="buttonCase">
 					<button type="submit" onclick="return validateData234()">
-						<b>Sign up</b> <span>and launch your site</span><i> <!-- -->
+						<b><?php __('Sing_up')?></b> <span><?php __('your_site')?></span><i> <!-- -->
 						</i>
 					</button>
 				</span>
@@ -334,12 +330,12 @@ if($langue =='eng')
 	<div class="top">
 		<div class="content">
 			<div class="column first">
-				<h3 class="footer_header portal">Company</h3>
+				<h3 class="footer_header portal"><?php __('Company')?></h3>
 				<ul class="footer_list portal">
-					<li><a href="<?php echo DOMAIN ?>about-us">About us</a></li>
-					<li><a href="<?php echo DOMAIN ?>webcreathtml/contact/">Contact us</a></li>
-					<li><a href="<?php echo DOMAIN ?>webcreathtml/our-team/">Our team</a></li>
-					<li><a href="<?php echo DOMAIN ?>webcreathtml/jobs/">Career</a></li>
+					<li><a href="<?php echo DOMAIN ?>about-us"><?php __('About_us')?></a></li>
+					<li><a href="<?php echo DOMAIN ?>webcreathtml/contact/"><?php __('Contact_us')?></a></li>
+					<li><a href="<?php echo DOMAIN ?>webcreathtml/our-team/"><?php __('Our_team')?></a></li>
+					<li><a href="<?php echo DOMAIN ?>webcreathtml/jobs/"><?php __('Career')?></a></li>
 					<li><a href="http://blog.Alatca.com/" target="_blank">Blog</a></li>
 				</ul>
 			</div>
@@ -347,17 +343,14 @@ if($langue =='eng')
 				<h3 class="footer_header about-Alatca">Alatca</h3>
 				<ul class="footer_list about-Alatca">
 					<li><a
-						href="<?php echo DOMAIN ?>webcreathtml/free-website-builder/">Features</a></li>
-					<li><a href="<?php echo DOMAIN ?>webcreathtml/pricing/">Pricing</a></li>
-					<li><a href="<?php echo DOMAIN ?>webcreathtml/faq/" target="_blank">FAQ</a></li>
-					<li><a href="<?php echo DOMAIN ?>webcreathtml/Alatca-reviews/">User
-							Testimonials</a></li>
+						href="<?php echo DOMAIN ?>webcreathtml/free-website-builder/"><?php __('Features')?></a></li>
+					<li><a href="<?php echo DOMAIN ?>webcreathtml/pricing/"><?php __('Pricing')?></a></li>
+					<li><a href="<?php echo DOMAIN ?>webcreathtml/faq/" target="_blank"><?php __('FAQ')?></a></li>
+					<li><a href="<?php echo DOMAIN ?>webcreathtml/Alatca-reviews/"><?php __('User_Testimonials')?></a></li>
 					<li><a
-						href="<?php echo DOMAIN ?>webcreathtml/terms-and-conditions/">Terms
-							of Service</a></li>
-					<li><a href="<?php echo DOMAIN ?>webcreathtml/privacy-policy/">Privacy
-							Policy</a></li>
-					<li><a href="http://affiliate.Alatca.com/" target="_blank">Affiliate</a></li>
+						href="<?php echo DOMAIN ?>webcreathtml/terms-and-conditions/"><?php __('Service')?></a></li>
+					<li><a href="<?php echo DOMAIN ?>webcreathtml/privacy-policy/"><?php __('Privacy_Policy')?></a></li>
+					<li><a href="http://affiliate.Alatca.com/" target="_blank"><?php __('Affiliate')?></a></li>
 				</ul>
 			</div>
 			<div id="language_list">
@@ -490,15 +483,12 @@ if($langue =='eng')
 				</div>
 			</div>
 			<div class="column">
-				<h3 class="footer_header create-websites">How to use Alatca?</h3>
+				<h3 class="footer_header create-websites"><?php __('alatca')?></h3>
 				<ul class="footer_list create-websites">
-					<li><a href="<?php echo DOMAIN ?>">Create a free website</a></li>
-					<li><a href="<?php echo DOMAIN ?>webcreathtml/personal-websites/">Make
-							your own website or blog</a></li>
-					<li><a href="<?php echo DOMAIN ?>webcreathtml/business-websites/">Create
-							a business website</a></li>
-					<li><a href="<?php echo DOMAIN ?>webcreathtml/e-commerce/">Create
-							an online store</a></li>
+					<li><a href="<?php echo DOMAIN ?>"><?php __('Creat')?></a></li>
+					<li><a href="<?php echo DOMAIN ?>webcreathtml/personal-websites/"><?php __('Make')?></a></li>
+					<li><a href="<?php echo DOMAIN ?>webcreathtml/business-websites/"><?php __('Creat_business')?></a></li>
+					<li><a href="<?php echo DOMAIN ?>webcreathtml/e-commerce/"><?php __('Create_store')?></a></li>
 					<li><a href=""></a></li>
 				</ul>
 			</div>
@@ -513,14 +503,14 @@ if($langue =='eng')
 						href="https://plus.google.com/105974429523197564509"
 						rel="publisher" title="Google+" target="_blank"></a></li>
 				</ul>
-				<h3>Languages</h3>
+				<h3><?php __('Languages')?></h3>
 				<ul class="languages_short">
-					<li><a href=""><img
+					<li><a href="<?php echo DOMAIN ?>?language=eng"><img
 							src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/en.png"
 							alt="English" width="16" height="11" /><span>English</span></a></li>
-					<li><a href="http://de.Alatca.com/"><img
-							src="<?php echo DOMAIN ?>webcreathtml/img/layout3-2/flags/de.png"
-							alt="Deutsch" width="16" height="11" /><span>Deutsch</span></a></li>
+					<li><a href="<?php echo DOMAIN ?>?language=vie"><img
+							src="<?php echo DOMAIN ?>images/vietnam.gif"
+							alt="Deutsch" width="16" height="11" /><span>Tiếng Việt</span></a></li>
 					<li class="all_languages"><a href="#" id="showLanguages">Show all
 							languages</a></li>
 				</ul>
