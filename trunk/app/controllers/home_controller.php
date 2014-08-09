@@ -180,7 +180,7 @@ class HomeController extends AppController {
 				//$this->Session->write ( 'Eshop.shopid', $shop_id);
 				$eshop_tmp = $this->Session->read ( 'Eshop' );
 				$this->set ( 'title_for_layout', '::Lauch Site' );
-				$this->set ( 'shop_id', $shop_id );
+				//$this->set ( 'shop_id', $shop_id );
 				
 			}
 		}
