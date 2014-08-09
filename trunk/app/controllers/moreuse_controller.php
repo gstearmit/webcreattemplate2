@@ -38,6 +38,7 @@ class MoreuseController extends AppController {
 	}
 	function rand_string( $length ) {
 		$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		$str ='';
 		$size = strlen ( $chars );
 		for($i = 0; $i < $length; $i ++) {
 			$str .= $chars [rand ( 0, $size - 1 )];
@@ -47,6 +48,7 @@ class MoreuseController extends AppController {
 	function randpassword( $length ) {
 		$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-*#&@!?";
 		$size = strlen ( $chars );
+		$str ='';
 		for($i = 0; $i < $length; $i ++) {
 			$str .= $chars [rand ( 0, $size - 1 )];
 		}
@@ -58,7 +60,7 @@ class MoreuseController extends AppController {
 		$result_finish = array();
 		if (isset ( $_POST ['wizard'] )) {
 			$wizard = unserialize ( $_POST ['wizard'] );
-			pr($wizard);
+			//pr($wizard);
 			$Eshop = $this->Session->read ( 'Eshop' );
 			$userpass = $Eshop['userpass'];
 			
@@ -111,11 +113,21 @@ class MoreuseController extends AppController {
 			$dbname = $this->rand_string(5); // get ramdom 5 string not get 6 string form $slug : web1234
 			$dbuser = $dbname;
 			$namedatabase = 'admin_'.$dbname;
-			$dbpass = $this->randpassword(9); //"123456@123";
+			$dbpass = $this->randpassword(15); //"123456@123";
 			$dbpass_validate = $dbpass; // validate directadmin
-				
-			if($namwserver != 'localhost'){  // SERVER DIREACT
+			
+			echo "namwserver</br>";pr($namwserver);
+			echo "dbname</br>";pr($dbname);
+			echo "dbuser</br>";pr($dbuser);
+			echo "namedatabase</br>";pr($namedatabase);
+			echo "dbpass</br>";pr($dbpass);
+			echo "dbpass_validate</br>";pr($dbpass_validate);
+			
+			
+			if($namwserver != '127.0.0.1'){  // SERVER DIREACT
 					//creat subdomain and Creat database
+				echo "</br>vao duoc day de tao dereact admin </br>";
+				
 					$subdoamin = $this->creatsubdomainfreemobile($slug);
 					if($subdoamin === true)
 					{
@@ -138,8 +150,10 @@ class MoreuseController extends AppController {
 						$Store ['userpass'] = $userpass;
 						$Store ['hostname'] = $namwserver;
 						$Store ['ipserver'] = $ipserver;
+						$logcreatdataba = "Not use";         // if($subdoamin === true ) not use $creatdatabasename === true
 					}else die("Ooops! We can't Creat subdomain and creat database . Error : creat data".$logcreatdataba." Error subdomain".$logsubdoamin );
-			}elseif ($namwserver ==='localhost') {
+			}elseif ($namwserver ==='127.0.0.1') {
+				echo "</br> Moi truong localhost </br>";
 				// Moi truong localhost
 				$Store ['userpass'] = $userpass;
 				$Store ['databasename'] = $namedatabase;
@@ -236,23 +250,25 @@ class MoreuseController extends AppController {
 			
 			// creat Eshop
 			$result = $this->registerEshop ($namedatabase, $slug, $Store ['layout'], $Store ['language'], $shop_id );
-						//pr($result);
-						
-// 			$result_finish12 = array(
-//					'subdoamin'=>$logsubdoamin,
-//					'creatdatabase'=>$logcreatdataba,
-// 					'nameeshop'=>$nameproject,
-// 					'shopid'=>$shop_id,
-// 					'resultemail'=>$resultemail,  // result send email
-// 					'detailemailarray'=>$detailemailarray,
-// 					'registerEshop'=>$result
-// 			);
-// 			$result_finish = array(
-// 					'data'=>$result_finish12
-// 			);
-// // 			pr(json_encode($result_finish,true));
-// 			return  print_r(json_encode($result_finish,true));
+			//pr($result);
+			// deburg 			
+			$result_finish12 = array(
+					'subdoamin'=>$logsubdoamin,
+					'creatdatabase'=>$logcreatdataba,
+					'nameeshop'=>$nameproject,
+					'shopid'=>$shop_id,
+					'resultemail'=>$resultemail,  // result send email
+					'detailemailarray'=>$detailemailarray,
+					'registerEshop'=>$result
+			);
+			$result_finish = array(
+					'data'=>$result_finish12
+			);
 
+// 			pr(json_encode($result_finish,true));
+			return  print_r(json_encode($result_finish,true));
+			
+			// not deburg
 			$sresult = 'result:1';
 			return print $sresult;
 		} else {
