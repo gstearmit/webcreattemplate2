@@ -66,9 +66,12 @@ class MoreuseController extends AppController {
 			
 			$Store = array ();
 			$slug = $this->unicode_convert( $wizard ['project_name'] );
-			$Store ['slug'] = $slug;
+			$Store ['slug'] = $slug;                      // $slug is subdomain
 			//$Store ['name'] = trim($wizard ['project_name']);
-			$Store ['name'] = $slug;
+			//$Store ['name'] = $slug;
+			$subname = @substr($slug, 0, 4);              //substr('abcdef', 0, 4);  // abcd
+			$Store ['name'] = $subname.'freemobi';
+			$nameController = $subname.'freemobi';
 			
 			$Store ['company_slogan'] = $wizard ['company_slogan'];
 			$Store ['namecompany'] = $wizard ['project_name']; // name cong ty
@@ -133,7 +136,7 @@ class MoreuseController extends AppController {
 				{
 					$logsubdoamin = true;
 					//+++++++++++copyhtacess++++++++++++++++
-					$logCopyhtcess = $this->copyhtacess($slug);
+					 $logCopyhtcess = $this->copyhtacess($slug,$nameController);
 				}else $logsubdoamin = $subdoamin;
 				
 				//++++++++++++creatdatanamefreemobile++++++++++++++++++
@@ -233,7 +236,7 @@ class MoreuseController extends AppController {
 			 	$username = $shop['Shop']['username'];
 			 	$hostname = $shop['Shop']['hostname'];
 			 	$shop_id = $shop['Shop']['id'];
-			 	$nameproject = $shop['Shop']['name'];
+			 	$nameproject = $shop['Shop']['name'];           // $nameproject is name Ctronller 
 			 	$email = trim($shop['Shop']['email']);}
 			}
 			
@@ -245,14 +248,14 @@ class MoreuseController extends AppController {
 			// $this->sendacountEshop($Store ['email'],$username,$password);
 			 $body = "Cảm ơn bạn đã đăng ký gian hàng Tại FREEMOBIWEB.MOBI  .";
 			 $body.= "\nĐường dẫn tới gian hàng của bạn : http://freemobiweb.mobi/".$nameproject;
-			 $body.= "\n    .Hoặc Đường dẫn tới gian hàng của bạn : http://".$nameproject.".freemobiweb.mobi/";
+			 $body.= "\n    .Hoặc Đường dẫn tới gian hàng của bạn : http://".$slug.".freemobiweb.mobi";
 			 $body.= "\n     .Bạn có thể truy cập vào trang quản trị của gian hàng theo đường dẫn : http://freemobiweb.mobi/estoreadmin";
 			 $body.= "\n     .STT Eshop :".$shop_id;
 			 $body.= "\n     .User name :".$email;
 			 $body.="\n      .Password:".$this->decryptIt($userpass);
 			 $body.= "\n Xin cảm ơn!";
 			 
-			 $linkadmin="http://".$nameproject.".freemobiweb.mobi/";
+			 $linkadmin="http://".$slug.".freemobiweb.mobi/";
 			 $linkweb="http://freemobiweb.mobi/".$nameproject;
 			 
 			 $detailemailarray = array(
@@ -275,13 +278,13 @@ class MoreuseController extends AppController {
 			if($namwserver != IP_SERVER_TEST){  // SERVER DIREACT
 				echo "dereacadmin tao database";
 			  $flagConnecting = "Use Connectingnew";
-			  $result = $this->registerEshop ($namedatabase, $slug, $Store ['layout'], $Store ['language'], $shop_id,$flagConnecting,$username ,$password);
+			  $result = $this->registerEshop ($namedatabase, $nameController, $Store ['layout'], $Store ['language'], $shop_id,$flagConnecting,$username ,$password);
 			}elseif($namwserver === IP_SERVER_TEST){  // LOCALHOST
 				echo "localhost tao database";
 			  $flagConnecting =  '';
 			  $username ='';
 			  $password='';
-			  $result = $this->registerEshop ($namedatabase, $slug, $Store ['layout'], $Store ['language'], $shop_id ,$flagConnecting,$username ,$password);
+			  $result = $this->registerEshop ($namedatabase, $nameController, $Store ['layout'], $Store ['language'], $shop_id ,$flagConnecting,$username ,$password);
 			}
 			//pr($result);
 			// deburg 			
@@ -363,7 +366,7 @@ class MoreuseController extends AppController {
 		
 	}
 	
-	function copyhtacess($slug)
+	function copyhtacess($slug,$nameController)
 	{
 		global $error;
 		$subdomain = $slug;
@@ -381,7 +384,7 @@ class MoreuseController extends AppController {
 			$stringData .= "RewriteEngine On \n";
 			$stringData .= "RewriteCond %{HTTP_HOST} ^".$subdomain.".freemobiweb.mobi$ [OR] \n";
 			$stringData .= "RewriteCond %{HTTP_HOST} ^www.".$subdomain.".freemobiweb.mobi$ \n";
-			$stringData .= "RewriteRule (.*)$ http://freemobiweb.mobi/".$subdomain."$1 [R=301,L] \n";
+			$stringData .= "RewriteRule (.*)$ http://freemobiweb.mobi/".$nameController."$1 [R=301,L] \n";
 			$stringData .= "</IfModule>\n";
 			fwrite ( $fh, $stringData );
 			fclose ( $fh );
@@ -468,25 +471,25 @@ class MoreuseController extends AppController {
 	
 	
 	//++++++ Register Website Creat++++++++++++++++++++
-	function registerEshop($namedatabase,$project_name,$layout_code,$language_code,$shop_id,$flagConnecting,$username ,$password) {
+	function registerEshop($namedatabase,$nameController,$layout_code,$language_code,$shop_id,$flagConnecting,$username ,$password) {
 		$result_code;
 		// 		$name = $this->Shop->findAllByName( $project_name); // pr(count($name));die;
 		// 		if (count ( $name ) == 1) {
 		// 			return $result_code = -1 ; // -1 :'Tên gian hàng đã tồn tại!';
 		// 		} else {
 	
-			$nameController_Copy = $this->checkLayoutCode($project_name,$layout_code);
+			$nameController_Copy = $this->checkLayoutCode($nameController,$layout_code);
 			$databaseCreat = 'Not subject to yet . Note ceatdata base';
 			  if($flagConnecting !='')
 			  {	
 			  	// SERVER DERECTADMIN
-				$databaseCreat = $this->checkLanguageCode($namedatabase,$project_name,$language_code,$layout_code,$shop_id,$username ,$password);
+				$databaseCreat = $this->checkLanguageCode($namedatabase,$nameController,$language_code,$layout_code,$shop_id,$username ,$password);
 			  }elseif($flagConnecting ===''){
 			  	// SERVER localhost
-			  	$databaseCreat = $this->checkLanguageCode($namedatabase,$project_name,$language_code,$layout_code,$shop_id,$username ,$password);
+			  	$databaseCreat = $this->checkLanguageCode($namedatabase,$nameController,$language_code,$layout_code,$shop_id,$username ,$password);
 			  }	
 				
-			$dir_and_name_estoreViewCopy = $this->checkLayoutCodeReturnCodeTheme($project_name,$layout_code);
+			$dir_and_name_estoreViewCopy = $this->checkLayoutCodeReturnCodeTheme($nameController,$layout_code);
 			
 			
 			return $result_code= array(
