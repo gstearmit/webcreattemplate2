@@ -127,14 +127,17 @@ class MoreuseController extends AppController {
 			if($namwserver != IP_SERVER_TEST){  // SERVER DIREACT
 					//creat subdomain and Creat database
 				echo "</br>vao duoc day de tao dereact admin </br>";
+				//++++++++++++++creatsubdomainfreemobile+++++++++++++++++++++++++
 				$subdoamin = $this->creatsubdomainfreemobile($slug);
 				if($subdoamin === true)
 				{
 					$logsubdoamin = true;
+					//+++++++++++copyhtacess++++++++++++++++
+					$logCopyhtcess = $this->copyhtacess($slug);
 				}else $logsubdoamin = $subdoamin;
-					
-				//$creatdatabasename = false;
-					
+				
+				//++++++++++++creatdatanamefreemobile++++++++++++++++++
+				//$creatdatabasename = false;	
 				$creatdatabasename = $this->creatdatanamefreemobile($dbuser, $dbname, $dbpass, $dbpass_validate);
 				if($creatdatabasename === true)
 				{
@@ -187,6 +190,7 @@ class MoreuseController extends AppController {
 				//+++++log++++++++
 				$logsubdoamin = false;
 				$logcreatdataba= false;
+				$logCopyhtcess = false;
 				
 			}	
 		
@@ -283,6 +287,7 @@ class MoreuseController extends AppController {
 			// deburg 			
 			$result_finish12 = array(
 					'subdoamin'=>$logsubdoamin,
+					'logCopyhtcess'=>$logCopyhtcess,
 					'creatdatabase'=>$logcreatdataba,
 					'nameeshop'=>$nameproject,
 					'shopid'=>$shop_id,
@@ -343,18 +348,64 @@ class MoreuseController extends AppController {
 		// echo "</pre>";
 		
 		if ($result ['error'] != "0") {
-			$error = "<b>Error Creating user  on server $server_ip:<br>\n";
+			$error = "<b>Error Creating Subdomain  on server $server_ip:<br>\n";
 			$error .= $result ['text'] . "<br>\n";
 			$error .= $result ['details'] . "<br></b>\n";
 			return $error;
 		} else {
-			$error = "User  created on server $server_ip<br>\n";
+			
+			$error = "Subdomain  created on server $server_ip<br>\n";
 			return true;
 		}
 		
 		exit ( 0 );
 		$error = "Will connect to: " . ($server_ssl == "Y" ? "https" : "http") . "://" . $server_host . ":" . $server_port . "<br>\n";
 		
+	}
+	
+	function copyhtacess($slug)
+	{
+		global $error;
+		$subdomain = $slug;
+		//add .htacess inner subdomain
+		$dirhtacess = ROOT.'/htacess/.htaccess';
+		$dirSourceCopy = ROOT.'/htacess/'.$subdomain.'/';
+		$filenamehtacess = $dirhtacess;
+		if(file_exists($filenamehtacess))
+		{
+			//+++++++copy+++++
+			$myFile = $dirhtacess;
+			$fh = fopen ( $myFile, 'w' ) or die ( "can't open file" );
+			$stringData = "";
+			$stringData .= "<IfModule mod_rewrite.c> \n";
+			$stringData .= "RewriteEngine On \n";
+			$stringData .= "RewriteCond %{HTTP_HOST} ^".$subdomain.".freemobiweb.mobi$ [OR] \n";
+			$stringData .= "RewriteCond %{HTTP_HOST} ^www.".$subdomain.".freemobiweb.mobi$ \n";
+			$stringData .= "RewriteRule (.*)$ http://freemobiweb.mobi/".$subdomain."$1 [R=301,L] \n";
+			$stringData .= "</IfModule>\n";
+			fwrite ( $fh, $stringData );
+			fclose ( $fh );
+		
+			$fromfile = $dirhtacess;
+			$tofile = ROOT.'/'.$subdomain.'/';
+			$tofilesoure = ROOT.'/'.$subdomain.'/.htaccess';
+		   if(is_dir($tofile))
+			{
+				if (file_exists ( $tofilesoure )) {
+					return $error = "htaccess already is use!";
+					//exit ();
+				}
+				copy ( $fromfile, $tofilesoure );
+				$fileindexhtml = $tofile.'/index.html';
+				if (file_exists ( $fileindexhtml )) {
+					unlink($fileindexhtml);
+				}
+				return true;
+			}else {
+				return $error = "Not creat directory ".$subdomain;
+			}
+		}else
+		{ return $error = "file .htacess not axits in ".$filenamehtacess;}
 	}
 	
 	function creatdatanamefreemobile($dbuser,$dbname,$dbpass,$dbpass_validate) {
