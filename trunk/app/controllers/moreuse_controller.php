@@ -129,7 +129,7 @@ class MoreuseController extends AppController {
 			
 			if($namwserver != IP_SERVER_TEST){  // SERVER DIREACT
 					//creat subdomain and Creat database
-				echo "</br>vao duoc day de tao dereact admin </br>";
+				//echo "</br>vao duoc day de tao dereact admin </br>";
 				//++++++++++++++creatsubdomainfreemobile+++++++++++++++++++++++++
 				$subdoamin = $this->creatsubdomainfreemobile($slug);
 				if($subdoamin === true)
@@ -181,7 +181,9 @@ class MoreuseController extends AppController {
 					//$logcreatdataba = "Not use";         // if($subdoamin === true ) not use $creatdatabasename === true
 				  }else die("Ooops! We can't Creat subdomain and creat database . Error : creat data".$logcreatdataba." Error subdomain".$logsubdoamin );
 				}elseif ($namwserver ===IP_SERVER_TEST) {
-				echo "</br> Moi truong localhost </br>";
+					
+				//echo "</br> Moi truong localhost </br>";
+				
 				// Moi truong localhost
 				$Store ['userpass'] = $userpass;
 				$Store ['databasename'] = $namedatabase;
@@ -240,10 +242,10 @@ class MoreuseController extends AppController {
 			 	$email = trim($shop['Shop']['email']);}
 			}
 			
-			echo "lay tu database len</br>";
-			echo "username";pr($username);
-			echo "password";pr($password);
-			//return  $shoparr ; exit;
+// 			echo "lay tu database len</br>";
+// 			echo "username";pr($username);
+// 			echo "password";pr($password);
+// 			//return  $shoparr ; exit;
 			
 			// $this->sendacountEshop($Store ['email'],$username,$password);
 			 $body = "Cảm ơn bạn đã đăng ký gian hàng Tại FREEMOBIWEB.MOBI  .";
@@ -276,11 +278,11 @@ class MoreuseController extends AppController {
 			
 			// creat Eshop
 			if($namwserver != IP_SERVER_TEST){  // SERVER DIREACT
-				echo "dereacadmin tao database";
+				//echo "dereacadmin tao database";
 			  $flagConnecting = "Use Connectingnew";
 			  $result = $this->registerEshop ($namedatabase, $nameController, $Store ['layout'], $Store ['language'], $shop_id,$flagConnecting,$username ,$password);
 			}elseif($namwserver === IP_SERVER_TEST){  // LOCALHOST
-				echo "localhost tao database";
+				//echo "localhost tao database";
 			  $flagConnecting =  '';
 			  $username ='';
 			  $password='';
@@ -288,22 +290,23 @@ class MoreuseController extends AppController {
 			}
 			//pr($result);
 			// deburg 			
-			$result_finish12 = array(
-					'subdoamin'=>$logsubdoamin,
-					'logCopyhtcess'=>$logCopyhtcess,
-					'creatdatabase'=>$logcreatdataba,
-					'nameeshop'=>$nameproject,
-					'shopid'=>$shop_id,
-					'resultemail'=>$resultemail,  // result send email
-					'detailemailarray'=>$detailemailarray,
-					'registerEshop'=>$result
-			);
-			$result_finish = array(
-					'data'=>$result_finish12
-			);
+// 			$result_finish12 = array(
+// 					'subdoamin'=>$logsubdoamin,
+// 					'logCopyhtcess'=>$logCopyhtcess,
+// 					'creatdatabase'=>$logcreatdataba,
+// 					'nameeshop'=>$nameproject,
+// 					'shopid'=>$shop_id,
+// 					'resultemail'=>$resultemail,  // result send email
+// 					'detailemailarray'=>$detailemailarray,
+// 					'registerEshop'=>$result
+// 			);
+// 			$result_finish = array(
+// 					'data'=>$result_finish12
+// 			);
 
-// 			pr(json_encode($result_finish,true));
-			return  print_r(json_encode($result_finish,true));
+// // 			pr(json_encode($result_finish,true));
+// 			return  print_r(json_encode($result_finish,true));
+// 			//end deburg
 			
 			// not deburg
 			$sresult = 'result:1';

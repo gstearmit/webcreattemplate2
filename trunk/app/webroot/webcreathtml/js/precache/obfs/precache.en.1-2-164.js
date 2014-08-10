@@ -1499,23 +1499,24 @@ Layouts.data.items = {
 		module: "eshop",
 		premium: "0",
 		preview: {
-			src: "phuc50021021-27eac27f09-rubicus.jpg",
-			width: 149,
-			height: 134
-		}
-	},
-	layoutId50000564: {
-		id: 50000564,
-		demo: "",
-		module: "eshop",
-		premium: "0",
-		preview: {
 			src: "50021021-27eac27f09-rubicus.jpg",
 			width: 149,
 			height: 134
 		}
 	},
 	/*
+	layoutId50000564: {
+		id: 50000564,
+		demo: "",
+		module: "eshop",
+		premium: "0",
+		preview: {
+			src: "50021011-9212f9219e-rubicus.jpg",
+			width: 149,
+			height: 134
+		}
+	},
+	
 	layoutId50000563: {
 		id: 50000563,
 		module: "eshop",
@@ -2373,7 +2374,7 @@ Layouts.data.items = {
 			height: 134
 		}
 	},
-	*/
+	
 	layoutId50001119: {
 		id: 50001119,
 		demo: "",
@@ -2445,7 +2446,7 @@ Layouts.data.items = {
 			height: 134
 		}
 	},
-	
+	*/
 	layoutId50000126: {
 		id: 50000126,
 		module: "web",

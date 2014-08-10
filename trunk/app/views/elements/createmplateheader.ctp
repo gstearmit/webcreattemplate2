@@ -5,12 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <base href="<?php echo DOMAIN ?>">
-<!--  <link rel="shortcut icon" href="<?php echo DOMAIN ?>images/favicon.ico"> -->
-<link href="<?php echo DOMAIN ?>images/favicon.png" type="images/png" rel="icon"/>
- <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Create a free website easily | Free website
 	builder&nbsp;-&nbsp;Alatca</title>
+<meta content="noodp,noydir" name="robots"/>
+<link href="<?php echo DOMAIN ?>images/favicon.png" type="images/png" rel="icon"/>
 <meta name="keywords"
 	content="Alatca, web sites, for free, creation of web pages, easily, webdesign, blog, picture gallery">
 <meta name="description"
