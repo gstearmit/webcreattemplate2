@@ -14699,7 +14699,8 @@ WizardClass.prototype = {
 			method: "post",
 			parameters: a,
 			onSuccess: function(g) {
-			alert(g); return 0;
+			//alert(g); return 0;
+				
 //			alert(g.responseText.match(/result:1/));
 //			alert(g.responseText.match(/result:reload/));
 //			return 0;
@@ -14718,7 +14719,7 @@ WizardClass.prototype = {
 //					 $body.= "\n     .User name :".$email;
 //					 $body.="\n      .Password:".$this->decryptIt($userpass);
 //					 $body.= "\n Xin cảm ơn!";
-					alert("You have to register booth Success. Please check your mail to activate website and get access code !");
+					alert("You have to register Success. Please check your mail to activate website and get access code !");
 				} else {
 					if (g.responseText.match(/result:reload/)) {
 						Metrics.isSent = false;
@@ -14726,7 +14727,7 @@ WizardClass.prototype = {
 						return
 					}
 				}
-				//document.location.href = 'http://freemobiweb.mobi';
+				document.location.href = 'http://freemobiweb.mobi';
 					//RS_CFG.urlGuidepost
 			}
 		});

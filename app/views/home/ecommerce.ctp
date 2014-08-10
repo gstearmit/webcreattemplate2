@@ -92,16 +92,14 @@ if($langue =='eng')
 						</div>
 						<?php }}?>
 						<p>
-							<a href="<?php echo DOMAIN ?>webcreathtml/features-e-commerce/"
-								onclick="_gaq.push(['t2._trackEvent','Demo','OpenDemo']);">More
+							<a href="<?php echo DOMAIN ?>webcreathtml/features-e-commerce/" onclick="_gaq.push(['t2._trackEvent','Demo','OpenDemo']);">More
 								information...</a>
 						</p>
 					</div>
 					<div id="testimonialsArea" class="quoteBlockArea">
 						<div id="testimonials" class="quoteBlock">
 							<h4>
-								<a href="<?php echo DOMAIN ?>webcreathtml/Alatca-reviews/">User
-									Testimonials</a>
+								<a href="<?php echo DOMAIN ?>webcreathtml/Alatca-reviews/">User Testimonials</a>
 							</h4>
 							<div id="homepageReviewsContent">
 								<div itemscope="" itemtype="http://data-vocabulary.org/Review">
