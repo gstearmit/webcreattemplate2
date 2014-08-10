@@ -116,43 +116,65 @@ class MoreuseController extends AppController {
 			$dbpass = $this->randpassword(15); //"123456@123";
 			$dbpass_validate = $dbpass; // validate directadmin
 			
-			echo "namwserver</br>";pr($namwserver);
-			echo "dbname</br>";pr($dbname);
-			echo "dbuser</br>";pr($dbuser);
-			echo "namedatabase</br>";pr($namedatabase);
-			echo "dbpass</br>";pr($dbpass);
-			echo "dbpass_validate</br>";pr($dbpass_validate);
+// 			echo "namwserver</br>";pr($namwserver);
+// 			echo "dbname</br>";pr($dbname);
+// 			echo "dbuser</br>";pr($dbuser);
+// 			echo "namedatabase</br>";pr($namedatabase);
+// 			echo "dbpass</br>";pr($dbpass);
+// 			echo "dbpass_validate</br>";pr($dbpass_validate);
 			
 			
 			if($namwserver != IP_SERVER_TEST){  // SERVER DIREACT
 					//creat subdomain and Creat database
 				echo "</br>vao duoc day de tao dereact admin </br>";
-				
-					$subdoamin = $this->creatsubdomainfreemobile($slug);
-					if($subdoamin === true)
-					{
-						$logsubdoamin = true;
-					}else $logsubdoamin = $subdoamin;
+				$subdoamin = $this->creatsubdomainfreemobile($slug);
+				if($subdoamin === true)
+				{
+					$logsubdoamin = true;
+				}else $logsubdoamin = $subdoamin;
 					
-					$creatdatabasename = $this->creatdatanamefreemobile($dbuser, $dbname, $dbpass, $dbpass_validate);
-					if($creatdatabasename === true)
-					{
-						$logcreatdataba = true;
-					}else $logcreatdataba = $creatdatabasename;
+				//$creatdatabasename = false;
 					
-					//if($subdoamin === true )
-					if($subdoamin === true and  $creatdatabasename === true)
-					{
-						$Store ['username'] = 'admin_'.$dbuser;     //$dbuser = "datest";
-						$Store ['password'] = $dbpass;     //$dbname = "datest";
-						$Store ['databasename'] = $namedatabase; // 'admin_datest'
-						//+++++++++++++++not need++++++++++++++++++++++++
-						$Store ['userpass'] = $userpass;
-						$Store ['hostname'] = 'localhost'; ////$namwserver;
-						$Store ['ipserver'] = $ipserver;
-						//$logcreatdataba = "Not use";         // if($subdoamin === true ) not use $creatdatabasename === true
-					}else die("Ooops! We can't Creat subdomain and creat database . Error : creat data".$logcreatdataba." Error subdomain".$logsubdoamin );
-			}elseif ($namwserver ===IP_SERVER_TEST) {
+				$creatdatabasename = $this->creatdatanamefreemobile($dbuser, $dbname, $dbpass, $dbpass_validate);
+				if($creatdatabasename === true)
+				{
+					$logcreatdataba = true;
+				}else $logcreatdataba = $creatdatabasename;
+				/*
+				 if($subdoamin === true ){
+				$Store ['username'] = 'admin_'.$dbuser;     //$dbuser = "datest";
+				$Store ['password'] = $dbpass;     //$dbname = "datest";
+				$Store ['databasename'] = $namedatabase; // 'admin_datest'
+				//+++++++++++++++not need++++++++++++++++++++++++
+				$Store ['userpass'] = $userpass;
+				$Store ['hostname'] = 'localhost'; ////$namwserver;
+				$Store ['ipserver'] = $ipserver;
+				$logcreatdataba = "Not use";         // if($subdoamin === true ) not use $creatdatabasename === true
+				}else die("Ooops! We can't Creat subdomain and creat database . Error : ".$logcreatdataba);
+				 
+				if($creatdatabasename === true){
+				$Store ['username'] = 'admin_'.$dbuser;     //$dbuser = "datest";
+				$Store ['password'] = $dbpass;     //$dbname = "datest";
+				$Store ['databasename'] = $namedatabase; // 'admin_datest'
+				//+++++++++++++++not need++++++++++++++++++++++++
+				$Store ['userpass'] = $userpass;
+				$Store ['hostname'] = 'localhost'; ////$namwserver;
+				$Store ['ipserver'] = $ipserver;
+				$logsubdoamin =  "Not use";          // if($subdoamin === true ) not use $creatdatabasename === true
+				}else die("Ooops! We can't creat databasename.  Error: ".$logsubdoamin);
+				*/
+				if($subdoamin === true and  $creatdatabasename === true)
+				{
+					$Store ['username'] = 'admin_'.$dbuser;     //$dbuser = "datest";
+					$Store ['password'] = $dbpass;     //$dbname = "datest";
+					$Store ['databasename'] = $namedatabase; // 'admin_datest'
+					//+++++++++++++++not need++++++++++++++++++++++++
+					$Store ['userpass'] = $userpass;
+					$Store ['hostname'] = 'localhost'; ////$namwserver;
+					$Store ['ipserver'] = $ipserver;
+					//$logcreatdataba = "Not use";         // if($subdoamin === true ) not use $creatdatabasename === true
+				  }else die("Ooops! We can't Creat subdomain and creat database . Error : creat data".$logcreatdataba." Error subdomain".$logsubdoamin );
+				}elseif ($namwserver ===IP_SERVER_TEST) {
 				echo "</br> Moi truong localhost </br>";
 				// Moi truong localhost
 				$Store ['userpass'] = $userpass;
@@ -173,7 +195,7 @@ class MoreuseController extends AppController {
 			 $this->Shop->save($Store);
 			 $shop_id = $this->Shop->getLastInsertId();
 			 
-			if($shop_id<0) { die("Oop! Erro Save data! Please try again !!!");}
+			if($shop_id<0) { die("Oop! Error Save data! Please try again !!!");}
 			 
 			 //Send mail Acout Estore
 			 $shoparr = $this->Shop->find ( 'all', array (
@@ -336,11 +358,12 @@ class MoreuseController extends AppController {
 	}
 	
 	function creatdatanamefreemobile($dbuser,$dbname,$dbpass,$dbpass_validate) {
-		//++++++++ include PhpMailler +++++++++++
+		/*
 		$libcreatdatanamefreemobile = ROOT.'/libfreemobile/';
-		$filename = $libcreatdatanamefreemobile.'httpsocket.php';
-		if(file_exists($filename))
-			include($filename);
+		$filename23 = $libcreatdatanamefreemobile.'httpsocket.php';
+		if(file_exists($filename23))
+		{	include($filename23);}
+	    */	
 		global $error;
 		$server_ip = Server_ip; // IP that User is assigned to
 		$server_login = Server_login;
