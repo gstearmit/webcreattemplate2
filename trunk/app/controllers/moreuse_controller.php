@@ -124,7 +124,7 @@ class MoreuseController extends AppController {
 			echo "dbpass_validate</br>";pr($dbpass_validate);
 			
 			
-			if($namwserver != '127.0.0.1'){  // SERVER DIREACT
+			if($namwserver != IP_SERVER_TEST){  // SERVER DIREACT
 					//creat subdomain and Creat database
 				echo "</br>vao duoc day de tao dereact admin </br>";
 				
@@ -134,7 +134,7 @@ class MoreuseController extends AppController {
 						$logsubdoamin = true;
 					}else $logsubdoamin = $subdoamin;
 					
-					$creatdatabasename = $this->creatdatanamefreemobile($dbuser, $namedatabase, $dbpass, $dbpass_validate);
+					$creatdatabasename = $this->creatdatanamefreemobile($dbuser, $dbname, $dbpass, $dbpass_validate);
 					if($creatdatabasename === true)
 					{
 						$logcreatdataba = true;
@@ -143,23 +143,23 @@ class MoreuseController extends AppController {
 					//if($subdoamin === true )
 					if($subdoamin === true and  $creatdatabasename === true)
 					{
-						$Store ['username'] = $dbuser;     //$dbuser = "datest";
+						$Store ['username'] = 'admin_'.$dbuser;     //$dbuser = "datest";
 						$Store ['password'] = $dbpass;     //$dbname = "datest";
 						$Store ['databasename'] = $namedatabase; // 'admin_datest'
 						//+++++++++++++++not need++++++++++++++++++++++++
 						$Store ['userpass'] = $userpass;
-						$Store ['hostname'] = $namwserver;
+						$Store ['hostname'] = 'localhost'; ////$namwserver;
 						$Store ['ipserver'] = $ipserver;
 						//$logcreatdataba = "Not use";         // if($subdoamin === true ) not use $creatdatabasename === true
 					}else die("Ooops! We can't Creat subdomain and creat database . Error : creat data".$logcreatdataba." Error subdomain".$logsubdoamin );
-			}elseif ($namwserver ==='127.0.0.1') {
+			}elseif ($namwserver ===IP_SERVER_TEST) {
 				echo "</br> Moi truong localhost </br>";
 				// Moi truong localhost
 				$Store ['userpass'] = $userpass;
 				$Store ['databasename'] = $namedatabase;
-				$Store ['username'] = "root"; //Username
-				$Store ['password'] = ''; //Password
-				$Store ['hostname'] = $namwserver;
+				$Store ['username'] = "root";       //Username
+				$Store ['password'] = '';          //Password
+				$Store ['hostname'] = 'localhost'; //$namwserver;
 				$Store ['ipserver'] = $ipserver;
 				
 				//+++++log++++++++
@@ -246,11 +246,11 @@ class MoreuseController extends AppController {
 			}
 			
 			// creat Eshop
-			if($namwserver != '127.0.0.1'){  // SERVER DIREACT
+			if($namwserver != IP_SERVER_TEST){  // SERVER DIREACT
 				echo "dereacadmin tao database";
 			  $flagConnecting = "Use Connectingnew";
 			  $result = $this->registerEshop ($namedatabase, $slug, $Store ['layout'], $Store ['language'], $shop_id,$flagConnecting,$username ,$password);
-			}elseif($namwserver === '127.0.0.1'){  // LOCALHOST
+			}elseif($namwserver === IP_SERVER_TEST){  // LOCALHOST
 				echo "localhost tao database";
 			  $flagConnecting =  '';
 			  $username ='';
@@ -337,8 +337,8 @@ class MoreuseController extends AppController {
 	
 	function creatdatanamefreemobile($dbuser,$dbname,$dbpass,$dbpass_validate) {
 		//++++++++ include PhpMailler +++++++++++
-		$libfreemobile = ROOT.'/libfreemobile/';
-		$filename = $libfreemobile.'httpsocket.php';
+		$libcreatdatanamefreemobile = ROOT.'/libfreemobile/';
+		$filename = $libcreatdatanamefreemobile.'httpsocket.php';
 		if(file_exists($filename))
 			include($filename);
 		global $error;
@@ -777,7 +777,7 @@ class MoreuseController extends AppController {
 							
 							\$this->Estore_settings->setDataEshop(\$hostname,\$username,\$password,\$databasename);
 							return \$this->Estore_settings->find ( 'all', array (
-									'conditions' => array ('estore_settings.estore_id' =>\$shop_id),
+									'conditions' => array ('Estore_settings.estore_id' =>\$shop_id),
 									'order' => 'Estore_settings.id DESC' 
 									) );
 						}
@@ -4287,8 +4287,8 @@ class MoreuseController extends AppController {
 										'timezone' => 'UTC',
 										'cacheMetadata' => true
 								);
-								$db->create($databasename,$config);
-								$name = ConnectionManager::getDataSource($databasename);
+								$db->create($namedatabase,$config);
+								$name = ConnectionManager::getDataSource($namedatabase);
 								try {
 									foreach ($arrSql as $sql) {
 										$name->rawQuery($sql);

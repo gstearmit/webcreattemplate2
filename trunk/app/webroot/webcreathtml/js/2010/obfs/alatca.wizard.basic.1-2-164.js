@@ -14699,7 +14699,7 @@ WizardClass.prototype = {
 			method: "post",
 			parameters: a,
 			onSuccess: function(g) {
-			//alert(g); return 0;
+			alert(g); return 0;
 //			alert(g.responseText.match(/result:1/));
 //			alert(g.responseText.match(/result:reload/));
 //			return 0;
@@ -14726,7 +14726,7 @@ WizardClass.prototype = {
 						return
 					}
 				}
-				document.location.href = 'http://freemobiweb.mobi';
+				//document.location.href = 'http://freemobiweb.mobi';
 					//RS_CFG.urlGuidepost
 			}
 		});
@@ -15147,6 +15147,8 @@ LayoutsClass.prototype = {
 				value: e.id,
 				title: CFG.labels["wizardPage"]["selectTemplate"]
 			}));
+			
+			
 			c.appendChild(new Element("label", {
 				"for": "layout" + e.id
 			}).update(CFG.labels["wizardPage"]["selectTemplate"]));
@@ -15154,12 +15156,50 @@ LayoutsClass.prototype = {
 				Event.observe(c, "touchend", function(h) {
 					Layouts._selectLayout(this.id.replace(/layoutItem/, ""));
 					Event.stop(h)
+					
 				})
 			} else {
 				Event.observe(c, "click", function() {
 					Layouts._selectLayout(this.id.replace(/layoutItem/, ""))
+					
 				})
 			}
+			
+//			//phuc
+//			c.appendChild(new Element("input", {
+//				id: "layoutdemo",
+//				phuc:e.demo,
+//				//href: "http://127.0.0.1/freemobiweb.mobi/bepga",
+//				name: "layoutdemo",
+//				type: "radio",
+//				value: e.id,
+//				title: "click Link demo"
+//			}));
+//			
+////			c.appendChild(new Element("label", {
+////				"for": "layoutdemo" + e.id,
+////				id: "layoutdemolayout",
+////			}));
+//			
+////			//phuc
+//			c.appendChild(new Element("label", {
+//				"for": "layoutdemo" + e.id,
+//				id: "layoutdemolayout",
+//			}).update("click Link demo"));
+//			if (true == TOUCHABLE) {
+//				Event.observe(c, "touchend", function(h) {
+////					Layouts._selectLayout(this.id.replace(/layoutItem/, ""));
+//					Event.stop(h)
+//					//document.location.href = e.demo;
+//				})
+//			} else {
+//				Event.observe(c, "click", function() {
+//					//Layouts._selectLayout(this.id.replace(/layoutItem/, ""))
+//					//document.location.href = e.demo;
+//				})
+//			}
+//			
+			
 			Event.observe(c, "dblclick", function() {
 				Layouts._selectLayout(this.id.replace(/layoutItem/, ""));
 				Wizard.next()

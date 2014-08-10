@@ -20,7 +20,12 @@ function Finish()
 }
 
 </script>
+<style>
+input#layoutdemo {margin-top: 10%;}
+label#layoutdemolayout {margin-top: 9%;font-weight: bold;margin-left: 0%;}
+.layoutItem label{top:152px;left:37px}
 
+</style>
 
 <?php
 $eshop = $this->Session->read ( 'Eshop' );

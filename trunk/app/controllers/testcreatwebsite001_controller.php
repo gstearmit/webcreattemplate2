@@ -273,8 +273,9 @@
 							}
 							
 							$this->Estore_settings->setDataEshop($hostname,$username,$password,$databasename);
+							
 							return $this->Estore_settings->find ( 'all', array (
-									'conditions' => array ('estore_settings.estore_id' =>$shop_id),
+									'conditions' => array ('Estore_settings.estore_id' =>$shop_id),
 									'order' => 'Estore_settings.id DESC' 
 									) );
 						}
