@@ -1,8 +1,8 @@
 <?php
 
-						  class Testnewwebsite04Controller extends AppController {
-						  var $name = 'Testnewwebsite04';
-						   var $shopname ='testnewwebsite04';
+						  class Testnewwebsite01Controller extends AppController {
+						  var $name = 'Testnewwebsite01';
+						   var $shopname ='testnewwebsite01';
 						  	var $uses = array (
 						  		'Estore_categories',//Catalogueshop
 						  		'Estore_news',//eshop

@@ -1495,6 +1495,7 @@ Pages.data = {
 Layouts.data.items = {
 	layoutId50000565: {
 		id: 50000565,
+		demo: "http://freemobiweb.mobi/bepga",
 		module: "eshop",
 		premium: "0",
 		preview: {
@@ -1505,6 +1506,7 @@ Layouts.data.items = {
 	},
 	layoutId50000564: {
 		id: 50000564,
+		demo: "",
 		module: "eshop",
 		premium: "0",
 		preview: {
@@ -2374,6 +2376,7 @@ Layouts.data.items = {
 	*/
 	layoutId50001119: {
 		id: 50001119,
+		demo: "",
 		module: "eshop",
 		premium: "0",
 		preview: {
@@ -2385,6 +2388,7 @@ Layouts.data.items = {
 	
 	layoutId50001118: {
 		id: 50001118,
+		demo: "",
 		module: "eshop",
 		premium: "0",
 		preview: {
@@ -2396,6 +2400,7 @@ Layouts.data.items = {
 	
 	layoutId50001117: {
 		id: 50001117,
+		demo: "",
 		module: "eshop",
 		premium: "0",
 		preview: {
@@ -2407,6 +2412,7 @@ Layouts.data.items = {
 	
 	layoutId50001116: {
 		id: 50001116,
+		demo: "",
 		module: "eshop",
 		premium: "0",
 		preview: {
@@ -2418,6 +2424,7 @@ Layouts.data.items = {
 	
 	layoutId50001115: {
 		id: 50001115,
+		demo: "",
 		module: "eshop",
 		premium: "0",
 		preview: {
@@ -2429,6 +2436,7 @@ Layouts.data.items = {
 	
 	layoutId50001114: {
 		id: 50001114,
+		demo: "",
 		module: "eshop",
 		premium: "0",
 		preview: {
