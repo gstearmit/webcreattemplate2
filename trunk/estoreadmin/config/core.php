@@ -171,7 +171,7 @@
  * Actual value depends on 'Security.level' setting.
  */
 	Configure::write('Session.timeout', '120');
-
+	Configure::write('Config.language', 'eng');
 /**
  * If set to false, sessions are not automatically started.
  */

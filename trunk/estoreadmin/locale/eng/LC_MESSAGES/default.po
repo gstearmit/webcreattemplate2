@@ -1,0 +1,308 @@
+msgid "home"
+msgstr "Home"
+
+msgid "about"
+msgstr "About"
+
+msgid "product"
+msgstr "Product"
+
+msgid "project"
+msgstr "Project"
+
+msgid "agents"
+msgstr "Agents"
+
+msgid "news"
+msgstr "News"
+
+msgid "thuvienanh"
+msgstr "Gallery"
+
+msgid "contact"
+msgstr "Contact"
+
+msgid "partner"
+msgstr "Partner"
+
+msgid "congtrinhtb"
+msgstr "Typical projects"
+
+msgid "support"
+msgstr "Support Online"
+
+msgid "support21"
+msgstr "Contact"
+
+msgid "duantieubieu"
+msgstr "Typical projects"
+
+msgid "counter"
+msgstr "Counter"
+
+msgid "online_day"
+msgstr "Day"
+
+msgid "online_all"
+msgstr "Total"
+
+msgid "sptieubieu"
+msgstr "Typical Products"
+
+msgid "readmore"
+msgstr "Read more"
+
+msgid "weather"
+msgstr "Useful information"
+
+msgid "store"
+msgstr "E-Store"
+
+msgid "consumer"
+msgstr "CONSUMER"
+
+msgid "tour"
+msgstr "TOUR"
+
+msgid "office"
+msgstr "Office"
+
+msgid "Trading_Office"
+msgstr "Trading Office"
+
+msgid "telephone"
+msgstr "Telephone"
+
+msgid "signin"
+msgstr "Sign in"
+
+msgid "register"
+msgstr "Register"
+
+msgid "langue"
+msgstr "English"
+
+msgid "ecommerce"
+msgstr "E-commerce"
+
+msgid "Businesswebsite"
+msgstr "Business website"
+
+msgid "Personalwebsite"
+msgstr "Personal website"
+
+
+msgid "sologan"
+msgstr "Create a free website easily!"
+
+msgid "registrationWizard"
+msgstr "Registration Wizard"
+
+msgid "Step1"
+msgstr "Step 1"
+
+msgid "Enterprojectdetails"
+msgstr "Enter project details"
+
+msgid "Step2"
+msgstr "Step 2"
+
+msgid "Chooseyourtemplate"
+msgstr "Choose your template"
+
+msgid "Step3"
+msgstr "Step 3"
+
+msgid "Finishtheregistration"
+msgstr "Finish the registration"
+
+
+msgid "Selectawebsitetype"
+msgstr "Select a website type"
+
+
+
+
+msgid "Personalwebsite"
+msgstr "Personal website"
+
+msgid "Personalwebsite_detail"
+msgstr "Suitable for personal websites, blogs and photo sharing etc"
+
+
+
+msgid "Businesswebsite"
+msgstr "Business website"
+
+msgid "Businesswebsite_detail"
+msgstr "Ideal for business large or small, hundreds of professional designs"
+
+
+msgid "Eshop"
+msgstr "E-shop"
+
+msgid "Eshop_detail"
+msgstr "Get ahead by selling and managing your products and services on-line"
+
+msgid "Continue"
+msgstr "Continue"
+
+msgid "Websitename"
+msgstr "Website name"
+
+msgid "Websitename_click"
+msgstr "This form entry should contain the name of your website."
+
+
+msgid "Slogan"
+msgstr "Slogan"
+
+msgid "Slogan_click"
+msgstr "You can create a catchphrase for your website."
+
+msgid "Selectyourwebsitetemplate"
+msgstr "Select your website template"
+
+msgid "step1WizardFormErrorText"
+msgstr "The form contains errors. Please alter the highlighted fields and send the form again."
+
+msgid "eg_websitename"
+msgstr "E.g. Anna's Hairdressing"
+
+msgid "Language"
+msgstr "Language"
+
+
+msgid "Companyname"
+msgstr "Company name"
+
+msgid "Address"
+msgstr "Address"
+
+msgid "City"
+msgstr "City"
+
+msgid "ZIP"
+msgstr "ZIP"
+
+msgid "Country"
+msgstr "Country"
+
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "VAT_number"
+msgstr "VAT number"
+
+msgid "Currency"
+msgstr "Currency"
+
+msgid "VAT_payer"
+msgstr "VAT payer"
+
+
+msgid "Allrightsreserved"
+msgstr "&copy; 2014 alatca. All rights reserved."
+
+msgid "More_information"
+msgstr "More information"
+
+msgid "slogan"
+msgstr "Create a free website easily!"
+
+msgid "Website_name"
+msgstr "Website name"
+
+msgid "Email_address"
+msgstr "Email address"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Sing_up"
+msgstr "Sing up"
+
+msgid "your_site"
+msgstr "and launch your site"
+
+msgid "your_website"
+msgstr "This form entry should contain the name of your website"
+
+msgid "your_mail"
+msgstr "Your email address will be used as your login. Don't worry,we don't spam."
+
+msgid "your_password"
+msgstr "Your email address will be used as your login. Don't worry,we don't spam."
+
+msgid "Company"
+msgstr "Company"
+
+msgid "About_us"
+msgstr "About us"
+
+msgid "Contact_us"
+msgstr "Contact us"
+
+msgid "Our_team"
+msgstr "Our team"
+
+msgid "Career"
+msgstr "Sự nghiệp"
+
+msgid "Features"
+msgstr "Features"
+
+msgid "Pricing"
+msgstr "Pricing"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "User_Testimonials"
+msgstr "User Testimonials"
+
+msgid "Service"
+msgstr "Terms of Service"
+
+msgid "Privacy_Policy"
+msgstr "Privacy Policy"
+
+msgid "Affiliate"
+msgstr "Affiliate"
+
+msgid "alatca"
+msgstr "How to use Alatca?"
+
+msgid "Creat"
+msgstr "Create a free website"
+
+msgid "Make"
+msgstr "Make your own website or blog"
+
+msgid "Creat_business"
+msgstr "Create a business website."
+
+msgid "Create_store"
+msgstr "Create an online store."
+
+msgid "Languages"
+msgstr "Languages"
+
+msgid "slogan_personal"
+msgstr "Make your own website for free!"
+
+msgid "slogan_personals"
+msgstr "Ideal for personal web pages, blogs and picture galleries"
+
+msgid "slogan_business"
+msgstr "Create a website for your business easily"
+
+msgid "slogan_businesss"
+msgstr "More than 15,000,000 users already trust us"
+
+msgid "slogan_Estore"
+msgstr "Create an online store!"
+
+msgid "slogan_Estores"
+msgstr "Start selling over the Internet. Quickly and easily."
