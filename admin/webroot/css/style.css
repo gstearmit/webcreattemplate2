@@ -889,5 +889,11 @@ div.wysiwyg iframe { border: 0; margin: 5px 0 0 0; clear: left; width: 97.5% !im
 
 .adm-dv{width:30px;height:30px;}
 
-
-
+#langgue{
+		margin:10px 0px 0px 10px;
+		font-size:14px !important;
+		
+	}
+#langgue img{
+	margin:15px 5px 0px 0px;
+}
