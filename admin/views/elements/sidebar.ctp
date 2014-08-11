@@ -1,10 +1,10 @@
+  
+    
     <div id="sidebar">
        <div id="sidebar-wrapper"> 
-       
-      <a id="langgue" href="<?php echo DOMAIN ?>admin/home/?languages=vie"><img id="langgue" src="<?php echo DOMAIN ?>images/vietnam.gif" />Tiếng Việt</a>
-	 <a id="langgue" href="<?php echo DOMAIN ?>admin/home/?languages=eng"><img  id="langgue"  src="<?php echo DOMAIN ?>images/english.gif" />English</a>
+        
         <h1 id="sidebar-title"><a href="#"></a></h1>
-        <a href="#"><img id="logo" src="<?php echo DOMAINAD?>images/logo.png" alt="Doan Nam" /></a>
+        <a href="#"><img id="logo" src="<?php echo DOMAINAD?>images/logo.png" alt="" /></a>
       
         <div id="profile-links">
              Xin chào, <a href="#" title="Edit your profile"><?php echo $this->Session->read('name'); ?></a><br />
@@ -16,13 +16,14 @@
             
             <li id="arrayorder_1">
                 <a href="<?php echo DOMAINAD?>home" class="nav-top-item no-submenu">
-                    <?php __('home')?>
+                    <?php __('slogan')?> Trang chủ
                 </a>       
             </li>
-            
+          
+		    
             <li id="arrayorder_2">
                 <a href="#" class="nav-top-item"> 
-                 <?php __('product')?>
+                  Sản phẩm
                 </a>
                 <ul>
                     <li><a class="current" href="<?php echo DOMAINAD?>catproducts/index">Danh mục sản phẩm</a></li>

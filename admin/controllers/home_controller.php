@@ -5,6 +5,54 @@ class HomeController extends AppController {
 	var $uses=array('User','News','Category');
 	var $helpers = array('Html','Ajax', 'Form', 'Javascript', 'TvFck');
 	function index($id = null) {
+		
+		$urlTmp = $_SERVER['REQUEST_URI'];
+		
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+			
+			if (isset ( $lang )) {
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+		
+			$lang = "vie"; // default
+			//$this->Session->write ( 'language', $lang );
+			Configure::write('Config.language', $lang);
+		}
+			
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+		
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			}
+		}
+		$this->set ( 'langue', $langue );
+		
+		
+		
+		
 		  $this->account();
 		  // $conditions=array('News.status'=>1);
 		  $this->paginate = array('limit' => '15','order' => 'News.id DESC');
