@@ -1,8 +1,8 @@
 <?php
 
-						  class TessfreemobiController extends AppController {
-						  var $name = 'Tessfreemobi';
-						   var $shopname ='tessfreemobi';
+						  class XuanfreemobiController extends AppController {
+						  var $name = 'Xuanfreemobi';
+						   var $shopname ='xuanfreemobi';
 						  	var $uses = array (
 						  		'Estore_categories',//Catalogueshop
 						  		'Estore_news',//eshop
