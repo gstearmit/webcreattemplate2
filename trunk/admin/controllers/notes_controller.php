@@ -65,16 +65,19 @@ class NotesController extends AppController {
 		if (isset ( $_POST ['keyword'] ))
 			$keyword = $_POST ['keyword'];
 		
-		$x ['News.title like'] = '%' . $keyword . '%';
+		$x ['Note.title like'] = '%' . $keyword . '%';
 		
 		// $this->set('products', $this->paginate('Product',array()));
 		// pr($x);
 		$this->paginate = array (
 				'conditions' => $x,
 				'limit' => '12',
-				'order' => 'News.id DESC' 
+				'order' => 'Note.id DESC' 
 		);
-		$this->set ( 'news', $this->paginate ( 'News', array () ) );
+		$this->set ( 'Notes', $this->paginate ( 'Note', array () ) );
+		$this->loadModel ( "Catproduct" );
+		$list_cat = $this->Catproduct->generatetreelist ( null, null, null, " _ " );
+		$this->set ( compact ( 'list_cat' ) );
 		// $ketquatimkiem=$this->Product->find('all',array('conditions'=>$x,'order' => 'Product.id DESC','limit'=>3));
 		// pr($ketquatimkiem); die;
 		// $this->set('products',$category);

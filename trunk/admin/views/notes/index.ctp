@@ -7,7 +7,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 }
 }
 </script>
- <?php echo $form->create(null, array( 'url' => DOMAINAD.'newshops/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
+ <?php echo $form->create(null, array( 'url' => DOMAINAD.'notes/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
      <fieldset class="search">
         
         <legend>Tìm kiếm</legend>
@@ -18,7 +18,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
         </div>
         <div class="field">
             <label for="field2c">Tiêu đề</label>
-            <input type="text" id="field2c" name="name" class="text-search">
+            <input type="text" id="field2c" name="keyword" class="text-search">
         </div>
         <p style="text-align:center;"> <input type="submit" name="" value="Tìm kiếm" class="button" /></p>
        

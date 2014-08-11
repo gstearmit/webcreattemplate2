@@ -1,6 +1,8 @@
     <div id="sidebar">
        <div id="sidebar-wrapper"> 
-        
+       
+      <a id="langgue" href="<?php echo DOMAIN ?>admin/home/?languages=vie"><img id="langgue" src="<?php echo DOMAIN ?>images/vietnam.gif" />Tiếng Việt</a>
+	 <a id="langgue" href="<?php echo DOMAIN ?>admin/home/?languages=eng"><img  id="langgue"  src="<?php echo DOMAIN ?>images/english.gif" />English</a>
         <h1 id="sidebar-title"><a href="#"></a></h1>
         <a href="#"><img id="logo" src="<?php echo DOMAINAD?>images/logo.png" alt="Doan Nam" /></a>
       
@@ -14,13 +16,13 @@
             
             <li id="arrayorder_1">
                 <a href="<?php echo DOMAINAD?>home" class="nav-top-item no-submenu">
-                    Trang chủ
+                    <?php __('home')?>
                 </a>       
             </li>
             
             <li id="arrayorder_2">
                 <a href="#" class="nav-top-item"> 
-                  Sản phẩm
+                 <?php __('product')?>
                 </a>
                 <ul>
                     <li><a class="current" href="<?php echo DOMAINAD?>catproducts/index">Danh mục sản phẩm</a></li>

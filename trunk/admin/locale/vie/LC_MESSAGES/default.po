@@ -1,0 +1,5 @@
+msgid "home"
+msgstr "Trang chủ"
+
+msgid "product"
+msgstr "Sản phẩm"

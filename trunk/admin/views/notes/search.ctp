@@ -7,7 +7,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 }
 }
 </script>
- <?php echo $form->create(null, array( 'url' => DOMAINAD.'news/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
+ <?php echo $form->create(null, array( 'url' => DOMAINAD.'notes/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
      <fieldset class="search">
         
         <legend>Tìm kiếm</legend>
@@ -18,7 +18,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
         </div>
         <div class="field">
             <label for="field2c">Tiêu đề</label>
-            <input type="text" id="field2c" name="name" class="text-search">
+            <input type="text" id="field2c" name="keyword" class="text-search">
         </div>
         <p style="text-align:center;"> <input type="submit" name="" value="Tìm kiếm" class="button" /></p>
        
@@ -84,20 +84,30 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                     </tr>
                 </tfoot>
                 <tbody>
-                   <?php  foreach ($news as $key =>$value){?>
+                   <?php  foreach ($Notes as $key =>$value){
+                  // pr($Notes);die();
+                   	?>
                     <tr>
-                        <td><input type="checkbox" name="<?php echo $value['News']['id'] ?>" /></td>
+                        <td><input type="checkbox" name="<?php echo $value['Note']['id'] ?>" /></td>
                         <td><?php $j=$key+1; echo $j;?></td>
-                        <td> <?php echo $html->link( $value['News']['title'], '/news/view/'.$value['News']['id']);?></td>
-                        <td><?php  echo $value['Category']['name'];?></td>
-                        <td><?php echo date('d-m-Y', strtotime($value['News']['created'])); ?></td>
+                        <td> <?php echo $html->link( $value['Note']['title'], '/notes/view/'.$value['Note']['id']);?></td>
+                        <td><?php  $cat= $this->requestAction('notes/get_name/'.$value['Note']['category_id']);
+						//echo pr($cat);die;
+						foreach($cat as $cat){
+						echo $cat['Catproduct']['name'];
+						
+						}
+						?></td>
+                        <td><?php echo date('d-m-Y', strtotime($value['Note']['created'])); ?></td>
                         <td>
-                             <?php if($value['News']['status']==0){?>
-                                 <a href="<?php echo DOMAINAD?>news/edit/<?php echo $value['News']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                                <a href="<?php echo DOMAINAD?>news/active/<?php echo $value['News']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
+                             <?php if($value['Note']['status']==0){?>
+                                 <a href="<?php echo DOMAINAD?>notes/edit/<?php echo $value['Note']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
+                                 <a href="javascript:confirmDelete('<?php echo DOMAINAD?>Notes/delete/<?php echo $value['Note']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
+                                 <a href="<?php echo DOMAINAD?>notes/active/<?php echo $value['Note']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
                             <?php } else {?>
-                                 <a href="<?php echo DOMAINAD?>news/edit/<?php echo $value['News']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                                    <a href="<?php echo DOMAINAD?>news/close/<?php echo $value['News']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
+                                 <a href="<?php echo DOMAINAD?>notes/edit/<?php echo $value['Note']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
+                                     <a href="javascript:confirmDelete('<?php echo DOMAINAD?>Notes/delete/<?php echo $value['Note']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
+                                    <a href="<?php echo DOMAINAD?>notes/close/<?php echo $value['Note']['id'] ?>" title="Đóng" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
 
                             <?php }?>
                         </td>

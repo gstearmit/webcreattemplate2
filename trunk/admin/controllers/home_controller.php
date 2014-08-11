@@ -12,6 +12,8 @@ class HomeController extends AppController {
 		  $this->loadModel("Category");
         $list_cat = $this->Category->generatetreelist(null,null,null," _ ");
 		  $this->set(compact('list_cat'));
+		  
+		  
 	}
 	//Them bai viet
 	function add() {
