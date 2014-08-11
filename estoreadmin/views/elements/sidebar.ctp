@@ -14,7 +14,7 @@
             
             <li id="arrayorder_1">
                 <a href="<?php echo DOMAINADESTORE?>home" class="nav-top-item no-submenu">
-                    Trang chủ
+                     <?php __('slogan')?> Trang chủ
                 </a>       
             </li>
 <!--             <li id="arrayorder_2">-->
