@@ -108,7 +108,8 @@
                             </a>
                         </td>
                          <td>
-							<?php echo $value['ParentCat']['name'];?>
+							<?php if(is_array($value['ParentCat']) and !empty($value['ParentCat'])) { echo $value['ParentCat']['name'];}?>
+							<?php if(is_array($value['ParentCat']) and empty($value['ParentCat'])) { echo "Null";}?>
                         </td>
 <!--                        <td style="text-align:center;"><input class="text-input medium-input datepicker" style="text-align:center; width:30% !important;" type="text" value="<?php echo $value['Catproduct']['order'];?>" name="order" /></td>-->
                         <td><?php echo date('d-m-Y h:i:s', strtotime($value['Catproduct']['created'])); ?></td>

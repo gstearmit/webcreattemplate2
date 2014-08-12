@@ -306,3 +306,13 @@ msgstr "Create an online store!"
 
 msgid "slogan_Estores"
 msgstr "Start selling over the Internet. Quickly and easily."
+
+msgid "Please_enter_your_email"
+msgstr "Please enter your Email."
+
+msgid "Please_enter_a_password"
+msgstr "Please enter a password."
+
+msgid "Email_is_not_true_Please_re_enter!"
+msgstr "Email is not true. Please re-enter!"
+
