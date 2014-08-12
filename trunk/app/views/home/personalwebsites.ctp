@@ -6,6 +6,7 @@
 				//pr ( $setting );
 				//die();
 				?>
+
 <?php echo $this->element('creatmenu')?> 
 		<div id="page" class="container">
 			<div id="header" class="initialPage">

@@ -7,7 +7,7 @@
  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
    <div class="container">
                 <div class="navbar-header header-sty">
-                  <a href="index.html" class="navbar-brand"><img class='logo_ez img-responsive' src="<?php echo DOMAIN ?>webcreathtml/img/layout3-1/AlatcaLogo2.png" ></a>
+                  <a href="<?php echo DOMAIN ?>" class="navbar-brand"><img class='logo_ez img-responsive' src="<?php echo DOMAIN ?>webcreathtml/img/layout3-1/AlatcaLogo2.png" ></a>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>

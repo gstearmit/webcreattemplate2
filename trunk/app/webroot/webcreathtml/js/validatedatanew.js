@@ -17,6 +17,7 @@ function validateData234(){
 		   
 		if(registrantFullName =='')
 		{
+			//$('#alert').html('<div class="loi"> Vui lòng nhập store name</div>');
 			alert('Vui lòng nhập store name');
 			document.getElementById("registrantFullName").focus();
 			//check = false;
@@ -152,5 +153,6 @@ function processstep2()
 		return false;
 		
 				
-	} 
+	}
+
 	

@@ -241,7 +241,7 @@ class HomeController extends AppController {
 			//sreachby subdomain is $slug
 			$name = $this->Shops->findAllBySlug ( $_POST ['storename'] ); //echo "subdomain ";pr($name);die;
 			if (count ( $name ) == 1) {
-				echo "<script>alert('" . json_encode ( 'Store e-shop already exists! Plese Try Again!!!' ) . "');</script>";
+				echo "<script>alert('Store e-shop already exists! Plese Try Again!!! ');</script>";
 				echo "<script>history.back(-1);</script>";
 			} else {
 			

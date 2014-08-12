@@ -1,5 +1,5 @@
-<script type="text/javascript" src="<?php echo DOMAIN ?>webcreathtml/js/validatedatanew.js"></script>
 <?php echo $this->element('creatmenu')?>
+
 <div id="page" class="container">
 	<div class="row">
 		<div id="header"
@@ -90,7 +90,7 @@
 				</div>
 			</div>
 
-			<div id="homepageBlock">
+		<!-- 	<div id="homepageBlock">
 				<div id="homepageReviewsArea" class="quoteBlockArea homepageArea">
 					<div id="homepageReviews" class="quoteBlock">
 						<h4>
@@ -135,7 +135,7 @@
 								</blockquote>
 							</div>
 							<div class="waitingBlock">
-								<!-- / -->
+								
 							</div>
 						</div>
 					</div>
@@ -162,9 +162,9 @@
 					</div>
 				</div>
 				<div class="cleaner">
-					<!-- / -->
+					
 				</div>
-			</div>
+			</div> -->
 			<div id="firstBlock" class="open">
 			<?php
 			
