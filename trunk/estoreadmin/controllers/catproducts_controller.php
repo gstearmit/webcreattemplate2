@@ -97,8 +97,9 @@ class CatproductsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
+			pr($this->data['Catproduct']);die;
 		     $data['Catproduct'] = $this->data['Catproduct'];
-            $data['Catproduct']['images'] = $_POST['userfile'];	
+             $data['Catproduct']['images'] = $_POST['userfile'];	
 			if ($this->Catproduct->save($data['Catproduct'])){
 				$this->Session->setFlash(__('Sửa thành công', true));
 				$this->redirect(array('action' => 'index'));
@@ -121,9 +122,7 @@ class CatproductsController extends AppController {
 			$this->Session->setFlash(__('Khôn tồn tại danh mục này', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		$data['Catproduct'] = $this->data['Catproduct'];
-		$data['Catproduct']['id']=$id;
-		$data['Catproduct']['status']=0;	
+			
 		$this->loadModelNew();
      	$catproduct=($this->Catproduct->find ( 'all', array (
 		'conditions' => array (
@@ -151,9 +150,7 @@ class CatproductsController extends AppController {
 			$this->Session->setFlash(__('Khôn tồn tại danh mục này', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		$data['Catproduct'] = $this->data['Catproduct'];
-		$data['Catproduct']['id']=$id;
-		$data['Catproduct']['status']=1;
+		
 		$this->loadModelNew();
 		$catproduct=($this->Catproduct->find ( 'all', array (
 		'conditions' => array (

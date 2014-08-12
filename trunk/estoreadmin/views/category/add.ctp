@@ -58,12 +58,12 @@
                     <?php echo $this->Form->input('Category.name',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
                     </td>
                 </tr>
-                <!--<tr>
+                <tr>
                    	<td width="120" class="label">Tên Danh mục: (Anh)</td>
                     <td>
                     <?php echo $this->Form->input('Category.name_en',array('class'=>'text-input medium-input datepicker','maxlength' => '250'));?>
                     </td>
-                </tr>-->
+                </tr>
                 <tr>
                   	<td class="label">Liên kết tĩnh:</td>
                     <td>

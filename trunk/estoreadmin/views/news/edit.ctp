@@ -120,7 +120,7 @@
                     </td>
                 </tr>
             </table>
-            <?php echo $form->input('id',array('label'=>''));?>
+            <?php echo $form->input('News.id',array('label'=>''));?>
 			<div class="clear"></div>
         </div> <!-- End #tab1 -->
         <div class="tab-content" id="tab2">
