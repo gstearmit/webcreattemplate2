@@ -104,7 +104,11 @@
                         <td><?php $j=$key+1; echo $j;?></td>
                          <td><?php echo $value['Category']['id'];?></td>
                         <td><?php echo $value['Category']['name'];?></td>
-                        <td><?php echo $value['ParentCat']['name'];?></td>
+                        <td>
+                           <?php
+                            if(is_array($value['ParentCat']) and !empty($value['ParentCat'])) { echo $value['ParentCat']['name'];}?>
+							<?php if(is_array($value['ParentCat']) and empty($value['ParentCat'])) { echo "Null";}?>
+                        </td>
                         <td><?php echo $value['Category']['tt'];?></td>
                         <td><?php echo date('d-m-Y', strtotime($value['Category']['created'])); ?></td>
                         <td>

@@ -2,11 +2,53 @@
 class CategoryController extends AppController {
 
 	var $name = 'Category';
-	var $uses=array('Category');
+	var $uses=array('Category','Shop');
 	var $helpers = array('Html', 'Form', 'Javascript', 'TvFck');
-	//list danh sach cac danh muc
+	
+	function loadModelNew($Model)
+	{
+		//++++++++++++connection data +++++++++++++++++
+		$nameeshop = $this->Session->read("name");
+		$shop_id = $this->Session->read("id");
+		$shoparr = $this->Shop->find ( 'all', array (
+				'conditions' => array (
+						'Shop.id' => $shop_id,
+						'Shop.name' => $nameeshop,
+						'Shop.status' => 1
+				),
+				'fields' => array (
+						'Shop.id',
+						'Shop.created',
+						'Shop.databasename',
+						'Shop.username',
+						'Shop.password',
+						'Shop.hostname',
+						'Shop.name',
+						'Shop.email',
+						'Shop.userpass',
+						'Shop.ipserver'
+				)
+		) );
+			
+		if(is_array($shoparr) and !empty($shoparr))
+		{
+			foreach($shoparr as $shop){
+				$databasename = $shop['Shop']['databasename'];
+				$password = $shop['Shop']['password'];
+				$username = $shop['Shop']['username'];
+				$hostname = $shop['Shop']['hostname'];
+				$shop_id = $shop['Shop']['id'];
+				$nameproject = $shop['Shop']['name'];           // $nameproject is name Ctronller
+				$email = trim($shop['Shop']['email']);
+				$userpass = $shop['Shop']['userpass'];
+			}
+		}
+		$this->$Model->setDataEshop($hostname,$username,$password,$databasename);
+	}
+	
 	function index() {	
 	   $this->account();
+	   $this->loadModelNew('Category');
 	  // $conditions=array('Category.status'=>1);	
 	   $this->paginate = array('limit' => '15','order' => 'Category.id DESC');
 	   $this->paginate = array('conditions'=>array('Category.status'=>1),'limit' => '15','order' => 'Category.id DESC');
@@ -24,12 +66,14 @@ class CategoryController extends AppController {
 	function search($name_search=null){
 		mysql_query("SET names utf8");
 		$title = $_POST['name_search'];
+		$this->loadModelNew('Category');
 		$this->paginate = array('conditions'=>array('Category.status'=>1,'Category.name LIKE'=>'%'.$title.'%'),'limit' => '15','order' => 'Category.id DESC');
 	   $this->set('category', $this->paginate('Category',array()));
 	}
 	//them danh muc moi
 	function add() {
-		$this->account();      
+		$this->account();    
+		$this->loadModelNew('Category');
 		if (!empty($this->data)) {
 			$this->Category->create();
 			$data['Category'] = $this->data['Category'];
@@ -49,6 +93,7 @@ class CategoryController extends AppController {
 	//Sua danh muc
 	function edit($id = null) {
 		$this->account();
+		$this->loadModelNew('Category');
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Không tồn tại danh mục này', true));
 			$this->redirect(array('action' => 'index'));
@@ -71,6 +116,7 @@ class CategoryController extends AppController {
 	//dong danh muc
 	function close($id=null) {
 		$this->account();
+		$this->loadModelNew('Category');
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại danh mục này', true));
 			$this->redirect(array('action'=>'index'));
@@ -89,6 +135,7 @@ class CategoryController extends AppController {
 	// kich hoat
 	function active($id=null) {
 		$this->account();
+		$this->loadModelNew('Category');
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại danh mục này', true));
 			$this->redirect(array('action'=>'index'));
@@ -108,6 +155,7 @@ class CategoryController extends AppController {
 	//Xoa danh muc
 	function delete($id = null) {	
 		$this->account();	
+		$this->loadModelNew('Category');
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại danh mục này', true));
 			//$this->redirect(array('action'=>'index'));
@@ -121,6 +169,7 @@ class CategoryController extends AppController {
 	}
 	function processing() {
 		$this->account();
+		$this->loadModelNew('Category');
 		if(isset($_POST['dropdown']))
 			$select=$_POST['dropdown'];
 			
@@ -211,6 +260,7 @@ class CategoryController extends AppController {
 	}
 	//list danh sach cac danh muc
 	function _find_list() {
+		$this->loadModelNew('Category');
 		return $this->Category->generatetreelist(null, null, null, '__');
 	}
 	//check ton tai tai khoan

@@ -2,15 +2,56 @@
 class InfomationsController extends AppController {
 
 	var $name = 'Infomations';
-	var $uses=array('Infomation','News','Infomationdetail');
+	var $uses=array('Infomation','News','Infomationdetail','Shop');
 	//var $uses=array('Estore_infomation','Estore_news','Estore_infomationdetails');
+	function loadModelNew($Model)
+	{
+		//++++++++++++connection data +++++++++++++++++
+		$nameeshop = $this->Session->read("name");
+		$shop_id = $this->Session->read("id");
+		$shoparr = $this->Shop->find ( 'all', array (
+				'conditions' => array (
+						'Shop.id' => $shop_id,
+						'Shop.name' => $nameeshop,
+						'Shop.status' => 1
+				),
+				'fields' => array (
+						'Shop.id',
+						'Shop.created',
+						'Shop.databasename',
+						'Shop.username',
+						'Shop.password',
+						'Shop.hostname',
+						'Shop.name',
+						'Shop.email',
+						'Shop.userpass',
+						'Shop.ipserver'
+				)
+		) );
+			
+		if(is_array($shoparr) and !empty($shoparr))
+		{
+			foreach($shoparr as $shop){
+				$databasename = $shop['Shop']['databasename'];
+				$password = $shop['Shop']['password'];
+				$username = $shop['Shop']['username'];
+				$hostname = $shop['Shop']['hostname'];
+				$shop_id = $shop['Shop']['id'];
+				$nameproject = $shop['Shop']['name'];           // $nameproject is name Ctronller
+				$email = trim($shop['Shop']['email']);
+				$userpass = $shop['Shop']['userpass'];
+			}
+		}
+		$this->$Model->setDataEshop($hostname,$username,$password,$databasename);
+	}
 	function index() {
 		  $this->account();
+		  $this->loadModelNew('Infomation');
 		  $this->paginate = array('limit' => '15','order' => 'Infomation.id DESC');
 	      $this->set('infomations', $this->paginate('Infomation',array()));
-
 	}
 	function delete($id = null) {	
+		$this->loadModelNew('Infomation');
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại danh mục này', true));
 			//$this->redirect(array('action'=>'index'));
@@ -23,13 +64,14 @@ class InfomationsController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	function view($id = null) {
+		
 		if (!$id) {
 			$this->Session->setFlash(__('Không tồn tại', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		
+		$this->loadModelNew('Infomationdetail');
 		$this->set('information',$this->Infomationdetail->find('all',array('conditions'=>array('Infomationdetail.infomations_id'=>$id),'order'=>'Infomationdetail.id ASC')));
-		
+		$this->loadModelNew('Infomation');
 		$this->set('views', $this->Infomation->read(null, $id));
 	}
 	//check ton tai tai khoan
@@ -44,11 +86,13 @@ class InfomationsController extends AppController {
 	function search($name_search=null){
 		mysql_query("SET names utf8");
 		$title = $_POST['name_search'];
+		$this->loadModelNew('Infomation');
 		$this->paginate = array('conditions'=>array('Infomation.name LIKE'=>'%'.$title.'%'),'limit' => '15','order' => 'Infomation.id DESC');
 	   $this->set('infomations', $this->paginate('Infomation',array()));
 	}
     function processing() {
 		$this->account();
+		$this->loadModelNew('Infomation');
 		if(isset($_POST['dropdown']))
 			$select=$_POST['dropdown'];
 			
@@ -90,7 +134,7 @@ class InfomationsController extends AppController {
 			}
 		}
 		else{
-			
+			$this->loadModelNew('Infomation');
 			switch ($select){
 				case 'active':
 				$infomation=($this->Infomation->find('all'));
@@ -137,6 +181,7 @@ class InfomationsController extends AppController {
 	}
     	function close($id=null) {
 		$this->account();
+		$this->loadModelNew('Infomation');
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại bài viết này', true));
 			$this->redirect(array('action'=>'index'));
@@ -155,6 +200,7 @@ class InfomationsController extends AppController {
 	// active tin bai viêt
 	function active($id=null) {
 		$this->account();
+		$this->loadModelNew('Infomation');
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại bài viết này', true));
 			$this->redirect(array('action'=>'index'));
