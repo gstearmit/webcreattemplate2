@@ -1,8 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!doctype html>
 <!--[if IE 8]>      <html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>      <html class="ie ie9"> <![endif]-->
 <!--[if gt IE 9]><!-->  <html> <!--<![endif]-->
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <base href="<?php echo DOMAIN ?>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -91,6 +90,7 @@
     <!-- <script src="jquery.jscroll.min.js"></script> -->
     <script src="<?php echo DOMAIN ?>webcreathtml/js/bootstrap.js"></script>
 	<script src="<?php echo DOMAIN ?>webcreathtml/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<?php echo DOMAIN ?>webcreathtml/js/validatedatanew.js"></script>
     <style type="text/css">
 			  .container .scroll {
 					/* padding: 5px 10px;

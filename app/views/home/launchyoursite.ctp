@@ -52,7 +52,7 @@ foreach ( $eshop as $key) {
 	<div id="page">
 	
 		<div id="header" class="col-xs-12 ">
-			<span id="logo"><img src="<?php echo DOMAIN ?>/webcreathtml/img/layout3-1/AlatcaLogo2.png" width="220"/></span>
+			<a href="<?php echo DOMAIN ?>"><span id="logo"><img src="<?php echo DOMAIN ?>/webcreathtml/img/layout3-1/AlatcaLogo2.png" width="220"/></span></a>
 			<div id="headerContent" >
 				<h1><?php __('registrationWizard') ?></h1>
 			</div>
@@ -214,14 +214,16 @@ foreach ( $eshop as $key) {
 /*
 										       * ?> <div id="wizardButtons"> <div class="buttonToRight"> <span id="nextButtonBlock" class="buttonCase"> <u style="position:absolute;top:0;left:0;width:127px;height:42px;z-index:10;background:#fff;filter: alpha(opacity=0);opacity: 0;"></u> <button id="nextButton" type="submit" onclick="return validateStep2()"><b><cufon class="cufon cufon-canvas" alt="Continue" style="width: 102px; height: 26px;"><canvas width="119" height="31" style="width: 119px; height: 31px; top: -4px; left: -3px;"></canvas><cufontext>Continue</cufontext></cufon></b></button> <cufon class="cufon cufon-canvas" alt=" " style="width: 3px; height: 12px;"><canvas width="16" height="14" style="width: 16px; height: 14px; top: -1px; left: -1px;"></canvas><cufontext> </cufontext></cufon> <i><!-- --></i> </span> </div> <div class="cleaner"> <!-- --> </div> </div>
 										       */
-							?>				
+							?>		
+							
 						</form>
+					
 					<div class="cleaner">
 						<!-- -->
 					</div>
 				</div>
 				<div id="stepArea2" class="stepArea">
-				<form id="step2WizardForm" action="" name"step2WizardForm" method="post" onsubmit="return processstep2();" enctype="application/x-www-form-urlencoded"><!-- step2WizardForm.showWaitingAnimation(); -->
+				<form id="step2WizardForm" action="" name="step2WizardForm" method="post" onsubmit="return processstep2();" enctype="application/x-www-form-urlencoded"><!-- step2WizardForm.showWaitingAnimation(); -->
 					<div id="layoutArea">
 						<h2><?php __('Selectyourwebsitetemplate')?></h2>
 						<div id="layoutsTools">
@@ -312,7 +314,9 @@ foreach ( $eshop as $key) {
 					<div class="cleaner">
 						<!-- -->
 					</div>
+					
 				</form>
+						
 				</div>
 				<div id="stepArea3" class="stepArea">
 					<form id="step3WizardForm" action="" method="post" name ="step3WizardForm"
@@ -468,18 +472,18 @@ foreach ( $eshop as $key) {
 						<!-- -->
 					</div>
 				</div>
-				
+				 
 				<div id="wizardButtons" class="col-xs-12 col-sm-6 col-md-8">
 					<div class="buttonToRight">
 						<span id="nextButtonBlock" class="buttonCase">
-							<button id="nextButton" type="submit" ><!-- onclick="return Finish()"  -->
+							<button id="nextButton" type="submit" ><!-- onclick="return Finish()" --> 
 								<b><?php __('Continue') ?></b>
-							</button> <i> <!-- -->
+							</button> <i> 
 						</i>
 						</span>
 					</div>
 					<div class="cleaner">
-						<!-- -->
+						
 					</div>
 				</div>
 				
