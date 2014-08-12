@@ -51,6 +51,8 @@
         <div class="tab-content default-tab" id="tab2">   
             <table class="input">
                	<tr>
+               	    <?php echo $this->Form->input('Category.estore_id',array('label' => '','type'=>'hidden','class'=>'text-input medium-input datepicker','value'=>$this->Session->read("id")));?>
+                   
                    	<td width="120" class="label">Tên Danh mục: (Việt)</td>
                     <td>
                     <?php echo $this->Form->input('Category.name',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
