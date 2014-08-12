@@ -10,28 +10,39 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 <?php echo $form->create(null, array( 'url' => DOMAINAD.'catproducts/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
      <fieldset class="search">
         
-        <legend>Tìm kiếm</legend>
+        <legend><?php __('search')?></legend>
 
         <div class="field required">
-            <label for="field1c">Danh mục</label>
-             <?php echo $this->Form->input('parent_id',array('type'=>'select','options'=>$list_cat,'empty'=>'Chọn danh mục','class'=>'select-search','label'=>''));?>
+            <label for="field1c"><?php __('Category')?>
+            <?php
+            $abc="";
+            if($_GET['language']=="vie"){
+            	$abc="Chọn danh mục";
+            }else{
+            	$abc="Select a category";
+            }
+            
+             ?>
+             </label>
+             
+             <?php echo $this->Form->input('parent_id',array('type'=>'select','options'=>$list_cat,'empty'=>$abc ,'class'=>'select-search','label'=>''));?>
         </div>
         <div class="field">
-            <label for="field2c">Tiêu đề</label>
+            <label for="field2c"><?php __('Title')?></label>
             <input type="text" id="field2c" name="name" class="text-search">
         </div>
-        <p style="text-align:center;"> <input type="submit" name="" value="Tìm kiếm" class="button" /></p>
+        <p style="text-align:center;"> <input type="submit" name="" value="<?php __('search')?>" class="button" /></p>
        
     </fieldset>
  <?php echo $form->end(); ?>
-  <p><a href="<?php echo DOMAINAD;?>catproducts/add"> <input type="submit" name="" value="Thêm mới" class="button" /></a></p>
+  <p><a href="<?php echo DOMAINAD;?>catproducts/add"> <input type="submit" name="" value="<?php __('Add_New')?>" class="button" /></a></p>
 <div class="content-box">
     <div class="content-box-header">
         
-        <h3>Nội dung</h3>
+        <h3><?php __('content')?></h3>
         
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Danh sách</a></li> <!-- href must be unique and match the id of target div -->
+            <li><a href="#tab1" class="default-tab"><?php __('List')?></a></li> <!-- href must be unique and match the id of target div -->
            
         </ul>
         

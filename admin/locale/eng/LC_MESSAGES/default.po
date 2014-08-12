@@ -306,3 +306,113 @@ msgstr "Create an online store!"
 
 msgid "slogan_Estores"
 msgstr "Start selling over the Internet. Quickly and easily."
+
+// ADMIN //////////////////////////////////
+
+msgid "Category_product"
+msgstr "Category product"
+
+msgid "Add_Category"
+msgstr "Add Category"
+
+msgid "Product_List"
+msgstr "Product List"
+
+msgid "Add_product"
+msgstr "Add prouct"
+
+msgid "list_img"
+msgstr "Product image list"
+
+msgid "Add_img"
+msgstr "Add img"
+
+msgid "Notes"
+msgstr "Notes"
+
+msgid "Category_notes"
+msgstr "Category Notes"
+
+msgid "Notes_List"
+msgstr "Notes List"
+
+msgid "Add_notes"
+msgstr "Add Notes"
+
+msgid "Management_shop"
+msgstr "Management shop"
+
+msgid "News_management"
+msgstr "News management"
+
+msgid "Customer_Management"
+msgstr "Customer Management"
+
+msgid "Oder_Management"
+msgstr "Oder Management"
+
+msgid "Oder_List"
+msgstr "Oder List"
+
+msgid "City"
+msgstr "City"
+
+msgid "Add_city"
+msgstr "Add City"
+
+msgid "City_List"
+msgstr "City List"
+
+msgid "Configuration"
+msgstr "Configuration"
+
+msgid "Web_Configuration"
+msgstr "Website Configuration"
+
+msgid "acount"
+msgstr "Acount"
+
+msgid "Create_acount"
+msgstr "Create acount"
+
+msgid "Online_support"
+msgstr "Online support"
+
+msgid "Online_list"
+msgstr "Online support list"
+
+msgid "Add_Online"
+msgstr "Add Online support list"
+
+msgid "hello"
+msgstr "Hello"
+
+msgid "home_page"
+msgstr "Home page"
+
+msgid "content"
+msgstr "Content"
+
+msgid "news_list"
+msgstr "News List"
+
+msgid "add_news"
+msgstr "Add News"
+
+msgid "search"
+msgstr "Search"
+
+msgid "Category"
+msgstr "Category"
+
+msgid "Select_Category"
+msgstr "Select a category"
+
+msgid "Title"
+msgstr "Title"
+
+msgid "Add_New"
+msgstr "Add New"
+
+msgid "List"
+msgstr "List"
