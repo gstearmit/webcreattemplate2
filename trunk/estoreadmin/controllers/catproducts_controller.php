@@ -2,14 +2,58 @@
 class CatproductsController extends AppController {
 
 	var $name = 'Catproducts';	
-	var $uses=array('Catproduct');
+	var $uses=array(
+			'Catproduct',
+			'Shop',
+	             );
 	var $helpers = array('Html', 'Form', 'Javascript', 'TvFck');
-	//list danh sach cac danh muc
+	function loadModelNew()
+	{
+		//++++++++++++connection data +++++++++++++++++
+		$nameeshop = $this->Session->read("name");
+		$shop_id = $this->Session->read("id");
+		$shoparr = $this->Shop->find ( 'all', array (
+				'conditions' => array (
+						'Shop.id' => $shop_id,
+						'Shop.name' => $nameeshop,
+						'Shop.status' => 1
+				),
+				'fields' => array (
+						'Shop.id',
+						'Shop.created',
+						'Shop.databasename',
+						'Shop.username',
+						'Shop.password',
+						'Shop.hostname',
+						'Shop.name',
+						'Shop.email',
+						'Shop.userpass',
+						'Shop.ipserver'
+				)
+		) );
+			
+		if(is_array($shoparr) and !empty($shoparr))
+		{
+			foreach($shoparr as $shop){
+				$databasename = $shop['Shop']['databasename'];
+				$password = $shop['Shop']['password'];
+				$username = $shop['Shop']['username'];
+				$hostname = $shop['Shop']['hostname'];
+				$shop_id = $shop['Shop']['id'];
+				$nameproject = $shop['Shop']['name'];           // $nameproject is name Ctronller
+				$email = trim($shop['Shop']['email']);
+				$userpass = $shop['Shop']['userpass'];
+			}
+		}
+		$this->Catproduct->setDataEshop($hostname,$username,$password,$databasename);
+	}
 	function index() {	
-	   $this->account();	 
+	   $this->account();
+       // $this->Session->read("id") || !$this->Session->read("name")
+	   $this->loadModelNew();
 	   $this->paginate = array('conditions'=>array(),'limit' => '20','order' => 'Catproduct.id DESC');
 	   $this->set('Catproduct', $this->paginate('Catproduct',array()));
-	   
+	   //pr($this->paginate('Catproduct',array()));die;
        $list_cat = $this->Catproduct->generatetreelist(null,null,null," _ ");
 	   $this->set(compact('list_cat'));
 	}
@@ -18,13 +62,16 @@ class CatproductsController extends AppController {
 	function search($name_search=null){
 		mysql_query("SET names utf8");
 		$title = $_POST['name_search'];
+		$this->loadModelNew();
 		$this->paginate = array('conditions'=>array('Catproduct.status'=>1,'Catproduct.name LIKE'=>'%'.$title.'%'),'limit' => '15','order' => 'Catproduct.id DESC');
 	   $this->set('listsearch', $this->paginate('Catproduct',array()));
 	}
 	//them danh muc moi
 	function add() {
 		$this->account();
+		$this->loadModelNew();
 		if (!empty($this->data)) {
+			//pr($this->data);die;
 			$this->Catproduct->create();
 			$data['Catproduct'] = $this->data['Catproduct'];
             $data['Catproduct']['images'] = $_POST['userfile'];	
@@ -35,13 +82,16 @@ class CatproductsController extends AppController {
 				$this->Session->setFlash(__('Thêm mơi danh mục thất bại. Vui long thử lại', true));
 			}
 		}
-		$this->loadModel("Catproduct");
+		//$this->loadModel("Catproduct");
+		$this->loadModelNew();
         $Catproductlist = $this->Catproduct->generatetreelist(null,null,null," _ ");
         $this->set(compact('Catproductlist'));
 	}
 	//Sua danh muc
 	function edit($id = null) {
+		
 		$this->account();
+		$this->loadModelNew();
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Không tồn tại danh mục này', true));
 			$this->redirect(array('action' => 'index'));
@@ -64,7 +114,9 @@ class CatproductsController extends AppController {
 	
 	//dong danh muc
 	function close($id=null) {
+		
 		$this->account();
+		
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại danh mục này', true));
 			$this->redirect(array('action'=>'index'));
@@ -72,8 +124,18 @@ class CatproductsController extends AppController {
 		$data['Catproduct'] = $this->data['Catproduct'];
 		$data['Catproduct']['id']=$id;
 		$data['Catproduct']['status']=0;	
+		$this->loadModelNew();
+     	$catproduct=($this->Catproduct->find ( 'all', array (
+		'conditions' => array (
+		'Catproduct.id' => $id,
+		))));
 		
-		if ($this->Catproduct->save($data['Catproduct'])) {
+		//pr($catproduct);die;
+		foreach($catproduct as $catproduct) {
+			$catproduct['Catproduct']['status']=0;
+			$flag = $this->Catproduct->save($catproduct['Catproduct']);
+		}
+		if ($flag) {
 			$this->Session->setFlash(__('Danh mục không được hiển thị', true));
 			$this->redirect(array('action'=>'index'));
 		}
@@ -83,6 +145,7 @@ class CatproductsController extends AppController {
 	}
 	// kich hoat
 	function active($id=null) {
+		
 		$this->account();
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại danh mục này', true));
@@ -90,8 +153,19 @@ class CatproductsController extends AppController {
 		}
 		$data['Catproduct'] = $this->data['Catproduct'];
 		$data['Catproduct']['id']=$id;
-		$data['Catproduct']['status']=1;		
-		if ($this->Catproduct->save($data['Catproduct'])) {
+		$data['Catproduct']['status']=1;
+		$this->loadModelNew();
+		$catproduct=($this->Catproduct->find ( 'all', array (
+		'conditions' => array (
+		'Catproduct.id' => $id,
+		))));
+		
+		//pr($catproduct);die;
+		foreach($catproduct as $catproduct) {
+			$catproduct['Catproduct']['status']=1;
+			$flag = $this->Catproduct->save($catproduct['Catproduct']);
+		}
+		if ($flag) {
 			$this->Session->setFlash(__('Danh mục không được hiển thị', true));
 			$this->redirect(array('action'=>'index'));
 		}
@@ -102,11 +176,13 @@ class CatproductsController extends AppController {
    
 	//Xoa danh muc
 	function delete($id = null) {	
+		
 		$this->account();	
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại danh mục này', true));
 			//$this->redirect(array('action'=>'index'));
 		}
+		$this->loadModelNew();
 		if ($this->Catproduct->delete($id)) {
 			$this->Session->setFlash(__('Xóa danh mục thành công', true));
 			$this->redirect(array('action'=>'index'));
@@ -116,6 +192,7 @@ class CatproductsController extends AppController {
 	}
 	 function processing() {
 		$this->account();
+		$this->loadModelNew();
 		if(isset($_POST['dropdown']))
 			$select=$_POST['dropdown'];
 			
@@ -204,6 +281,7 @@ class CatproductsController extends AppController {
 	}
 	//list danh sach cac danh muc
 	function _find_list() {
+		$this->loadModelNew();
 		return $this->Catproduct->generatetreelist(null, null, null, '__');
 	}
 	//check ton tai tai khoan

@@ -4,7 +4,7 @@ class HomeController extends AppController {
 	var $name = 'Home';
 	
 	var $helpers = array('Html','Ajax', 'Form', 'Javascript', 'TvFck');
-	var $uses=array('Estore_user');
+	var $uses=array('Estore_user','Shop');
 	function index() {
 		$urlTmp = $_SERVER['REQUEST_URI'];
 		
