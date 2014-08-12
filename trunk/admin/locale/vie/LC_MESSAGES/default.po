@@ -302,3 +302,113 @@ msgstr "Tạo ra một cửa hàng trực tuyến!"
 
 msgid "slogan_Estores"
 msgstr "Bắt đầu bán hàng qua Internet. Nhanh chóng và dễ dàng."
+
+// ADMIN ///////////////////////////////////////////////////////////////////
+
+msgid "Category_product"
+msgstr "Danh mục sản phẩm"
+
+msgid "Add_Category"
+msgstr "Thêm danh mục"
+
+msgid "Product_List"
+msgstr "Danh sách sản phẩm"
+
+msgid "Add_product"
+msgstr "Thêm sản phẩm mới"
+
+msgid "list_img"
+msgstr "DS ảnh sản phẩm"
+
+msgid "Add_img"
+msgstr "Thêm ảnh mới"
+
+msgid "Notes"
+msgstr "Notes"
+
+msgid "Category_Notes"
+msgstr "Danh mục Notes"
+
+msgid "Notes_List"
+msgstr "Danh sách Notes"
+
+msgid "Add_notes"
+msgstr "Thêm mới Notes"
+
+msgid "Management_shop"
+msgstr "Quản lý gian hàng"
+
+msgid "News_management"
+msgstr "Quản lý tin tức"
+
+msgid "Customer_Management"
+msgstr "Quản lý  khách hàng"
+
+msgid "Oder_Management"
+msgstr "Quản lý đặt hàng"
+
+msgid "Oder_List"
+msgstr "Danh sách đơn hàng"
+
+msgid "City"
+msgstr "Thành phố"
+
+msgid "Add_city"
+msgstr "Thêm Mới"
+
+msgid "City_List"
+msgstr "Danh sách"
+
+msgid "Configuration"
+msgstr "Cấu hình"
+
+msgid "Web_Configuration"
+msgstr "Cấu hình Website"
+
+msgid "acount"
+msgstr "Tài khoản"
+
+msgid "Create_acount"
+msgstr "Tạo tài khoản"
+
+msgid "Online_support"
+msgstr "Hỗ trợ trực tuyến"
+
+msgid "Online_list"
+msgstr "Danh sách"
+
+msgid "Add_Online"
+msgstr "Thêm mới"
+
+msgid "hello"
+msgstr "Xin chào"
+
+msgid "home_page"
+msgstr "Xem trang chủ"
+
+msgid "content"
+msgstr "Nội dung"
+
+msgid "news_list"
+msgstr "Danh sách tin"
+
+msgid "add_news"
+msgstr "Thêm mới tin"
+
+msgid "search"
+msgstr "Tìm kiếm"
+
+msgid "Category"
+msgstr "Danh mục"
+
+msgid "Select_Category"
+msgstr "Chọn danh mục"
+
+msgid "Title"
+msgstr "Tiêu đề"
+
+msgid "Add_New"
+msgstr "Thêm mới"
+
+msgid "List"
+msgstr "Danh sách"

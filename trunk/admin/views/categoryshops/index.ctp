@@ -10,7 +10,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
  <?php echo $form->create(null, array( 'url' => DOMAINAD.'categoryshops/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
      <fieldset class="search">
         
-        <legend>Tìm kiếm</legend>
+        <legend><?php __('search')?></legend>
 
        
         <div class="field">
