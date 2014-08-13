@@ -2,8 +2,52 @@
 class SlideshowController extends AppController {
 
 	var $name = 'Slideshow';
+	var $uses = array (
+			'Shop',
+			'Slideshow'
+			
+	);
+	function loadModelNew($Model) {
+		// ++++++++++++connection data +++++++++++++++++
+		$nameeshop = $this->Session->read ( "name" );
+		$shop_id = $this->Session->read ( "id" );
+		$shoparr = $this->Shop->find ( 'all', array (
+				'conditions' => array (
+						'Shop.id' => $shop_id,
+						'Shop.name' => $nameeshop,
+						'Shop.status' => 1
+				),
+				'fields' => array (
+						'Shop.id',
+						'Shop.created',
+						'Shop.databasename',
+						'Shop.username',
+						'Shop.password',
+						'Shop.hostname',
+						'Shop.name',
+						'Shop.email',
+						'Shop.userpass',
+						'Shop.ipserver'
+				)
+		) );
+	
+		if (is_array ( $shoparr ) and ! empty ( $shoparr )) {
+			foreach ( $shoparr as $shop ) {
+				$databasename = $shop ['Shop'] ['databasename'];
+				$password = $shop ['Shop'] ['password'];
+				$username = $shop ['Shop'] ['username'];
+				$hostname = $shop ['Shop'] ['hostname'];
+				$shop_id = $shop ['Shop'] ['id'];
+				$nameproject = $shop ['Shop'] ['name']; // $nameproject is name Ctronller
+				$email = trim ( $shop ['Shop'] ['email'] );
+				$userpass = $shop ['Shop'] ['userpass'];
+			}
+		}
+		$this->$Model->setDataEshop ( $hostname, $username, $password, $databasename );
+	}
 	function index() {
 		  $this->account();
+		  $this->loadModelNew('Slideshow');
 		  $this->paginate = array('limit' => '15','order' => 'Slideshow.id DESC');
 	      $this->set('slideshow', $this->paginate('Slideshow',array()));
 
@@ -11,6 +55,7 @@ class SlideshowController extends AppController {
 	
 	function add(){
 		$this->account();
+		$this->loadModelNew('Slideshow');
 		if (!empty($this->data)) {
 			$this->Slideshow->create();
 			$data['Slideshow'] = $this->data['Slideshow'];
@@ -26,11 +71,13 @@ class SlideshowController extends AppController {
 	
 	function close($id=null) {
 		$this->account();
+		$this->loadModelNew('Slideshow');
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại ', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		$data['Slideshow'] = $this->data['Slideshow'];
+		$data['Slideshow']['id']= $id;
 		$data['Slideshow']['status']=0;
 		if ($this->Slideshow->save($data['Slideshow'])) {
 			$this->Session->setFlash(__('Hình ảnh không được hiển thị', true));
@@ -43,11 +90,13 @@ class SlideshowController extends AppController {
 	
 	function active($id=null) {
 		$this->account();
+		$this->loadModelNew('Slideshow');
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại ', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		$data['Slideshow'] = $this->data['Slideshow'];
+		$data['Slideshow']['id']= $id;
 		$data['Slideshow']['status']=1;
 		if ($this->Slideshow->save($data['Slideshow'])) {
 			$this->Session->setFlash(__('Hình ảnh được hiển thị', true));
@@ -60,6 +109,7 @@ class SlideshowController extends AppController {
 
 	function edit($id = null) {
 		$this->account();
+		$this->loadModelNew('Slideshow');
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Không tồn tại ', true));
 			$this->redirect(array('action' => 'index'));
@@ -82,7 +132,8 @@ class SlideshowController extends AppController {
 	}
 	// Xoa hinh anh
 	function delete($id = null) {
-		$this->account();		
+		$this->account();	
+		$this->loadModelNew('Slideshow');
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại hình ảnh này', true));
 			//$this->redirect(array('action'=>'index'));
@@ -106,6 +157,7 @@ class SlideshowController extends AppController {
 	}
 	
 	function search()  {
+		$this->loadModelNew('Slideshow');
 		$keyword=$_POST['name'];
 		
 		if($keyword!="")

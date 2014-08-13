@@ -112,7 +112,7 @@ class ManufacturersController extends AppController {
 		$this->loadModelNew();
 		$this->account();
 		if (empty($id)) {
-			$this->Session->setFlash(__('Khôn tồn tại danh mục này', true));
+			$this->Session->setFlash(__('Không tồn tại danh mục này', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		$data['Manufacturer'] = $this->data['Manufacturer'];
@@ -126,24 +126,24 @@ class ManufacturersController extends AppController {
 		$this->redirect(array('action' => 'index'));
 
 	}
-    function closes($id=null) {
-		$this->account();
-		$this->loadModelNew();
-		if (empty($id)) {
-			$this->Session->setFlash(__('Khôn tồn tại danh mục này', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		$data['Manufacturer'] = $this->data['Manufacturer'];
-		$data['Manufacturer']['id']=$id;
-		$data['Manufacturer']['status']=0;		
-		if ($this->Estore_catproduct->save($data['Estore_catproduct'])) {
-			$this->Session->setFlash(__('Danh mục không được hiển thị', true));
-			echo "<script>history.go(-1);</script>";
-		}
-		$this->Session->setFlash(__('Danh mục không close được', true));
-		$this->redirect(array('action' => 'index'));
+//     function closes($id=null) {
+// 		$this->account();
+// 		$this->loadModelNew();
+// 		if (empty($id)) {
+// 			$this->Session->setFlash(__('Khôn tồn tại danh mục này', true));
+// 			$this->redirect(array('action'=>'index'));
+// 		}
+// 		$data['Manufacturer'] = $this->data['Manufacturer'];
+// 		$data['Manufacturer']['id']=$id;
+// 		$data['Manufacturer']['status']=0;		
+// 		if ($this->Estore_catproduct->save($data['Estore_catproduct'])) {
+// 			$this->Session->setFlash(__('Danh mục không được hiển thị', true));
+// 			echo "<script>history.go(-1);</script>";
+// 		}
+// 		$this->Session->setFlash(__('Danh mục không close được', true));
+// 		$this->redirect(array('action' => 'index'));
 
-	}
+// 	}
 	// kich hoat
 	function active($id=null) {
 		$this->account();
