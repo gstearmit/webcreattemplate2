@@ -3,8 +3,51 @@ class VideosController extends AppController {
 
 	var $name = 'Videos';
 	var $helpers = array('Html', 'Form', 'Javascript', 'TvFck');
+	var $uses = array (
+			'Shop',
+			'Video'
+	);
+	function loadModelNew($Model) {
+		// ++++++++++++connection data +++++++++++++++++
+		$nameeshop = $this->Session->read ( "name" );
+		$shop_id = $this->Session->read ( "id" );
+		$shoparr = $this->Shop->find ( 'all', array (
+				'conditions' => array (
+						'Shop.id' => $shop_id,
+						'Shop.name' => $nameeshop,
+						'Shop.status' => 1
+				),
+				'fields' => array (
+						'Shop.id',
+						'Shop.created',
+						'Shop.databasename',
+						'Shop.username',
+						'Shop.password',
+						'Shop.hostname',
+						'Shop.name',
+						'Shop.email',
+						'Shop.userpass',
+						'Shop.ipserver'
+				)
+		) );
+	
+		if (is_array ( $shoparr ) and ! empty ( $shoparr )) {
+			foreach ( $shoparr as $shop ) {
+				$databasename = $shop ['Shop'] ['databasename'];
+				$password = $shop ['Shop'] ['password'];
+				$username = $shop ['Shop'] ['username'];
+				$hostname = $shop ['Shop'] ['hostname'];
+				$shop_id = $shop ['Shop'] ['id'];
+				$nameproject = $shop ['Shop'] ['name']; // $nameproject is name Ctronller
+				$email = trim ( $shop ['Shop'] ['email'] );
+				$userpass = $shop ['Shop'] ['userpass'];
+			}
+		}
+		$this->$Model->setDataEshop ( $hostname, $username, $password, $databasename );
+	}
 	function index() {
 		  $this->account();
+		  $this->loadModelNew ( 'Video' );
 		 // $conditions=array('News.status'=>1);
 		  $this->paginate = array('limit' => '15','order' => 'Video.id DESC');
 	      $this->set('videos', $this->paginate('Video',array()));
@@ -12,6 +55,7 @@ class VideosController extends AppController {
 	//Them bai viet
 	function add() {
 		$this->account();
+		$this->loadModelNew ( 'Video' );
 		if (!empty($this->data)) {
 			$this->Video->create();
 			$data['Video'] = $this->data['Video'];
@@ -25,6 +69,7 @@ class VideosController extends AppController {
 	}
 	//view mot tin 
 	function view($id = null) {
+		$this->loadModelNew ( 'Video' );
 		if (!$id) {
 			$this->Session->setFlash(__('Không tồn tại', true));
 			$this->redirect(array('action' => 'index'));
@@ -34,11 +79,13 @@ class VideosController extends AppController {
 	//close tin tuc
 	function close($id=null) {
 		$this->account();
+		$this->loadModelNew ( 'Video' );
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại bài viết này', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		$data['Video'] = $this->data['Video'];
+		$data['Video']['id']=$id;
 		$data['Video']['status']=0;
 		if ($this->Video->save($data['Video'])) {
 			$this->Session->setFlash(__('Bài viết không được hiển thị', true));
@@ -51,12 +98,14 @@ class VideosController extends AppController {
 	// active tin bai viêt
 	function active($id=null) {
 		$this->account();
+		$this->loadModelNew ( 'Video' );
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại bài viết này', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		$data['Video'] = $this->data['Video'];
 		$data['Video']['status']=1;
+		$data['Video']['id']=$id;
 		if ($this->Video->save($data['Video'])) {
 			$this->Session->setFlash(__('Bài viết được hiển thị', true));
 			$this->redirect(array('action'=>'index'));
@@ -67,6 +116,7 @@ class VideosController extends AppController {
 	// sua tin da dang
 	function edit($id = null) {
 		$this->account();
+		$this->loadModelNew ( 'Video' );
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Không tồn tại ', true));
 			$this->redirect(array('action' => 'index'));
@@ -87,7 +137,8 @@ class VideosController extends AppController {
 	}
 	// Xoa cac dang
 	function delete($id = null) {
-		$this->account();		
+		$this->account();	
+		$this->loadModelNew ( 'Video' );
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại bài viết này', true));
 			//$this->redirect(array('action'=>'index'));
@@ -100,6 +151,7 @@ class VideosController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	function _find_list() {
+		$this->loadModelNew ( 'Category' );
 		return $this->Category->generatetreelist(null, null, null, '__');
 	}
 	//check ton tai tai khoan
