@@ -21,8 +21,8 @@
              <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'banners/add','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>       
                 
                 <fieldset> 
-                    <p>
-                        <label>Tên công ty</label>
+                    <p><?php echo $this->Form->input('Banner.estore_id',array('label' => '','type'=>'hidden','class'=>'text-input medium-input datepicker','value'=>$this->Session->read("id")));?>
+                    <label>Tên công ty</label>
                            <?php echo $form->input('Banner.name',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
                     </p>
                     <p>

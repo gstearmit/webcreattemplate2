@@ -2,15 +2,54 @@
 class AccountsController extends AppController {
 
 	var $name = 'Accounts';
-	var $uses=array('User');
-    
+	var $uses=array('Shop','User');
+	function loadModelNew($Model) {
+		// ++++++++++++connection data +++++++++++++++++
+		$nameeshop = $this->Session->read ( "name" );
+		$shop_id = $this->Session->read ( "id" );
+		$shoparr = $this->Shop->find ( 'all', array (
+				'conditions' => array (
+						'Shop.id' => $shop_id,
+						'Shop.name' => $nameeshop,
+						'Shop.status' => 1
+				),
+				'fields' => array (
+						'Shop.id',
+						'Shop.created',
+						'Shop.databasename',
+						'Shop.username',
+						'Shop.password',
+						'Shop.hostname',
+						'Shop.name',
+						'Shop.email',
+						'Shop.userpass',
+						'Shop.ipserver'
+				)
+		) );
+	
+		if (is_array ( $shoparr ) and ! empty ( $shoparr )) {
+			foreach ( $shoparr as $shop ) {
+				$databasename = $shop ['Shop'] ['databasename'];
+				$password = $shop ['Shop'] ['password'];
+				$username = $shop ['Shop'] ['username'];
+				$hostname = $shop ['Shop'] ['hostname'];
+				$shop_id = $shop ['Shop'] ['id'];
+				$nameproject = $shop ['Shop'] ['name']; // $nameproject is name Ctronller
+				$email = trim ( $shop ['Shop'] ['email'] );
+				$userpass = $shop ['Shop'] ['userpass'];
+			}
+		}
+		$this->$Model->setDataEshop ( $hostname, $username, $password, $databasename );
+	}
 	function index() {
 	   $this->account();
+	   $this->loadModelNew ( 'User' );
 	   $this->set('users',$this->User->find('all'));
 	}
 	function edit_pass($id=null) 
     {
 		$this->account();
+		$this->loadModelNew ( 'User' );
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Không tồn tại ', true));
 			$this->redirect(array('action' => 'index'));
@@ -42,10 +81,11 @@ class AccountsController extends AppController {
 	}
 	
 	function add(){
+		$this->loadModelNew ( 'User' );
 		if(!empty($this->data)){
 			//pr($this->data);die;
 			if($this->data['User']['password']!=$this->data['User']['pass2'])
-	   echo '<script language="javascript"> alert("Hai trường password nhập không khớp"); window.history.back(); </script>';
+	         echo '<script language="javascript"> alert("Hai trường password nhập không khớp"); window.history.back(); </script>';
 	        $this->data['User']['password']=md5($this->data['User']['password']);
 			$this->User->create();
 			if($this->User->save($this->data))
@@ -53,6 +93,7 @@ class AccountsController extends AppController {
 		}
 	}
 	function delete($id=null){
+		$this->loadModelNew ( 'User' );
 		if(!empty($id))
 		$this->User->delete($id);
 		$this->redirect(array('action' => 'index'));

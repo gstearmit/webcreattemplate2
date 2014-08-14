@@ -123,7 +123,11 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                         <td><?php $j=$key+1; echo $j;?></td>
                         <td><a href="<?php echo DOMAINADESTORE?>products/edit/<?php echo $value['Product']['id'] ?>" title="Edit"><?php echo $value['Product']['title']; ?></a></td>
            
-                        <td><?php  echo $value['Catproduct']['name'];?></td>
+                        <td>
+                        <?php  //echo $value['Catproduct']['name'];?>
+                            <?php if(is_array($value['Catproduct']) and !empty($value['Catproduct'])) { echo $value['Catproduct']['name'];}?>
+							<?php if(is_array($value['Catproduct']) and empty($value['Catproduct'])) { echo "Null";}?>
+                        </td>
                         <td><?php echo date('d-m-Y', strtotime($value['Product']['created'])); ?></td>
                         <td>
                              <a href="<?php echo DOMAINADESTORE?>products/edit/<?php echo $value['Product']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>

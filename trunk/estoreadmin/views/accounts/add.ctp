@@ -52,7 +52,8 @@
         <div class="tab-content default-tab" id="tab1">
         	<table class="input">
                	<tr>
-                   	<td width="120" class="label">Tên đăng nhập:</td>
+               	    <?php echo $this->Form->input('User.estore_id',array('label' => '','type'=>'hidden','class'=>'text-input medium-input datepicker','value'=>$this->Session->read("id")));?>
+                   <td width="120" class="label">Tên đăng nhập:</td>
                     <td>
                     <?php echo $this->Form->input('User.name',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
                     </td>

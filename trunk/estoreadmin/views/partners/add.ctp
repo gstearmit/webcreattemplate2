@@ -51,8 +51,8 @@
     <div class="content-box-content">
         <div class="tab-content default-tab" id="tab1">
         	<table class="input">
-               	<tr>
-                   	<td width="120" class="label">Tên đối tác:</td>
+               	<tr><?php echo $this->Form->input('Partner.estore_id',array('label' => '','type'=>'hidden','class'=>'text-input medium-input datepicker','value'=>$this->Session->read("id")));?>
+                   <td width="120" class="label">Tên đối tác:</td>
                     <td>
                     <?php echo $this->Form->input('Partner.name',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
                     </td>
