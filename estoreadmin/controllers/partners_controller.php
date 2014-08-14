@@ -2,8 +2,51 @@
 class PartnersController extends AppController {
 
 	var $name = 'Partners';
+	var $uses = array (
+			'Shop',
+			'Partner'
+	);
+	function loadModelNew($Model) {
+		// ++++++++++++connection data +++++++++++++++++
+		$nameeshop = $this->Session->read ( "name" );
+		$shop_id = $this->Session->read ( "id" );
+		$shoparr = $this->Shop->find ( 'all', array (
+				'conditions' => array (
+						'Shop.id' => $shop_id,
+						'Shop.name' => $nameeshop,
+						'Shop.status' => 1
+				),
+				'fields' => array (
+						'Shop.id',
+						'Shop.created',
+						'Shop.databasename',
+						'Shop.username',
+						'Shop.password',
+						'Shop.hostname',
+						'Shop.name',
+						'Shop.email',
+						'Shop.userpass',
+						'Shop.ipserver'
+				)
+		) );
+	
+		if (is_array ( $shoparr ) and ! empty ( $shoparr )) {
+			foreach ( $shoparr as $shop ) {
+				$databasename = $shop ['Shop'] ['databasename'];
+				$password = $shop ['Shop'] ['password'];
+				$username = $shop ['Shop'] ['username'];
+				$hostname = $shop ['Shop'] ['hostname'];
+				$shop_id = $shop ['Shop'] ['id'];
+				$nameproject = $shop ['Shop'] ['name']; // $nameproject is name Ctronller
+				$email = trim ( $shop ['Shop'] ['email'] );
+				$userpass = $shop ['Shop'] ['userpass'];
+			}
+		}
+		$this->$Model->setDataEshop ( $hostname, $username, $password, $databasename );
+	}
 	function index() {
 		  $this->account();
+		  $this->loadModelNew('Partner');
 		  $this->paginate = array('limit' => '15','order' => 'Partner.id DESC');
 	      $this->set('partners', $this->paginate('Partner',array()));
 
@@ -11,6 +54,7 @@ class PartnersController extends AppController {
 	
 	function add(){
 		$this->account();
+		$this->loadModelNew('Partner');
 		if (!empty($this->data)) {
 			$this->Partner->create();
 			$data['Partner'] = $this->data['Partner'];
@@ -26,11 +70,13 @@ class PartnersController extends AppController {
 	
 	function close($id=null) {
 		$this->account();
+		$this->loadModelNew('Partner');
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại ', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		$data['Partner'] = $this->data['Partner'];
+		$data['Partner']['id']= $id;
 		$data['Partner']['status']=0;
 		if ($this->Partner->save($data['Partner'])) {
 			$this->Session->setFlash(__('Hình ảnh không được hiển thị', true));
@@ -43,6 +89,7 @@ class PartnersController extends AppController {
 	
 	function processing() {
 		$this->account();
+		$this->loadModelNew('Partner');
 		if(isset($_POST['dropdown']))
 			$select=$_POST['dropdown'];
 			
@@ -125,12 +172,14 @@ class PartnersController extends AppController {
 		
 	}
 	function active($id=null) {
+		$this->loadModelNew('Partner');
 		$this->account();
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại ', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		$data['Partner'] = $this->data['Partner'];
+		$data['Partner']['id']= $id;
 		$data['Partner']['status']=1;
 		if ($this->Partner->save($data['Partner'])) {
 			$this->Session->setFlash(__('Hình ảnh được hiển thị', true));
@@ -144,6 +193,7 @@ class PartnersController extends AppController {
 
 	function edit($id = null) {
 		$this->account();
+		$this->loadModelNew('Partner');
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Không tồn tại danh mục này', true));
 			$this->redirect(array('action' => 'index'));
@@ -166,7 +216,8 @@ class PartnersController extends AppController {
 	}
 	// Xoa hinh anh
 	function delete($id = null) {
-		$this->account();		
+		$this->account();	
+		$this->loadModelNew('Partner');
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại hình ảnh này', true));
 			//$this->redirect(array('action'=>'index'));

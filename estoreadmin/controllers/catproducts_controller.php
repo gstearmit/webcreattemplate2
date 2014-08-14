@@ -97,7 +97,7 @@ class CatproductsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			pr($this->data['Catproduct']);die;
+			//pr($this->data['Catproduct']);die;
 		     $data['Catproduct'] = $this->data['Catproduct'];
              $data['Catproduct']['images'] = $_POST['userfile'];	
 			if ($this->Catproduct->save($data['Catproduct'])){

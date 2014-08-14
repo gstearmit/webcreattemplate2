@@ -52,7 +52,8 @@
         <div class="tab-content default-tab" id="tab1">
         	<table class="input">
         		<tr>
-                   	<td width="120" class="label">Tiêu đề:</td>
+        		 <?php echo $this->Form->input('Help.estore_id',array('label' => '','type'=>'hidden','class'=>'text-input medium-input datepicker','value'=>$this->Session->read("id")));?>
+                   <td width="120" class="label">Tiêu đề:</td>
                     <td>
 						<?php echo $this->Form->input('Help.title',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>                   	
 			      </td>
