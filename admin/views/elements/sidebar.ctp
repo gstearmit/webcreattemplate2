@@ -65,10 +65,10 @@
                  <?php __('Notes')?>
                 </a>
                 <ul>
-                    <li><a class="current" href="<?php echo DOMAINAD?>catproducts/index"><?php __('Category_notes')?></a></li>
-                    <li><a href="<?php echo DOMAINAD?>catproducts/add"><?php __('Add_Category')?></a></li>
-                    <li><a href="<?php echo DOMAINAD?>Notes/index"><?php __('Notes_List')?></a></li>
-                    <li><a href="<?php echo DOMAINAD?>Notes/add"><?php __('Add_notes')?></a></li>
+                    <li><a class="current" href="<?php echo DOMAINAD?>catproducts/index<?php echo $langs; ?>"><?php __('Category_notes')?></a></li>
+                    <li><a href="<?php echo DOMAINAD?>catproducts/add<?php echo $langs; ?>"><?php __('Add_Category')?></a></li>
+                    <li><a href="<?php echo DOMAINAD?>Notes/index<?php echo $langs; ?>"><?php __('Notes_List')?></a></li>
+                    <li><a href="<?php echo DOMAINAD?>Notes/add<?php echo $langs; ?>"><?php __('Add_notes')?></a></li>
                 </ul>
             </li>
             <li id="arrayorder_3">
@@ -79,9 +79,9 @@
 				
                 <!--    <li><a href="<?php echo DOMAINAD?>categorynewsshop/index">Danh mục tin tức</a></li> -->
                    
-                    <li><a href="<?php echo DOMAINAD?>newshops/index"> <?php __('News_management')?></a></li>
-					<li><a href="<?php echo DOMAINAD?>shops/index"><?php __('Management_shop')?></a></li>
-					<li><a href="<?php echo DOMAINAD?>userscms/index"> <?php __('Customer_Management')?></a></li>
+                    <li><a href="<?php echo DOMAINAD?>newshops/index<?php echo $langs; ?>"> <?php __('News_management')?></a></li>
+					<li><a href="<?php echo DOMAINAD?>shops/index<?php echo $langs; ?>"><?php __('Management_shop')?></a></li>
+					<li><a href="<?php echo DOMAINAD?>userscms/index<?php echo $langs; ?>"> <?php __('Customer_Management')?></a></li>
 					
 					
                     
@@ -94,7 +94,7 @@
                 </a>
                 <ul>
                     
-                    <li><a href="<?php echo DOMAINAD?>orders/index"><?php __('Oder_List')?></a></li>
+                    <li><a href="<?php echo DOMAINAD?>orders/index<?php echo $langs; ?>"><?php __('Oder_List')?></a></li>
                     
                 </ul>
             </li>
@@ -106,8 +106,8 @@
                 </a>
                 <ul>
                     
-                    <li><a href="<?php echo DOMAINAD?>city/index"><?php __('City_List')?></a></li>
-                    <li><a href="<?php echo DOMAINAD?>city/add"><?php __('Add_city')?></a></li>
+                    <li><a href="<?php echo DOMAINAD?>city/index<?php echo $langs; ?>"><?php __('City_List')?></a></li>
+                    <li><a href="<?php echo DOMAINAD?>city/add<?php echo $langs; ?>"><?php __('Add_city')?></a></li>
                 </ul>
             </li>
            
@@ -125,16 +125,16 @@
             <li id="arrayorder_8">
                 <a href="#" class="nav-top-item"><?php __('acount')?></a>
                 <ul>
-                    <li><a href="<?php echo DOMAINAD?>accounts"><?php __('acount')?></a></li>
-                    <li><a href="<?php echo DOMAINAD?>accounts/add"><?php __('Create_acount')?></a></li>
+                    <li><a href="<?php echo DOMAINAD?>accounts<?php echo $langs; ?>"><?php __('acount')?></a></li>
+                    <li><a href="<?php echo DOMAINAD?>accounts/add<?php echo $langs; ?>"><?php __('Create_acount')?></a></li>
                 </ul>
             </li>   
             
             <li id="arrayorder_9">
                 <a href="#" class="nav-top-item"><?php __('Online_support')?></a>
                 <ul>
-                    <li><a href="<?php echo DOMAINAD?>helps"><?php __('Online_list')?></a></li>
-                    <li><a href="<?php echo DOMAINAD?>helps/add"><?php __('Add_Online')?></a></li>
+                    <li><a href="<?php echo DOMAINAD?>helps<?php echo $langs; ?>"><?php __('Online_list')?></a></li>
+                    <li><a href="<?php echo DOMAINAD?>helps/add<?php echo $langs; ?>"><?php __('Add_Online')?></a></li>
                 </ul>
             </li>
             
@@ -143,7 +143,7 @@
           <li id="arrayorder_11">
                 <a href="#"class="nav-top-item">Video sidebar</a>
                 <ul>
-                    <li><a href="<?php echo DOMAINAD?>videos/edit/1">video</a></li>
+                    <li><a href="<?php echo DOMAINAD?>videos/edit/1<?php echo $langs; ?>">video</a></li>
                 </ul>
             </li>
              

@@ -1,5 +1,21 @@
 ﻿<?php
 	echo $this->Html->script(array('ckeditor/ckeditor','ckfinder/ckfinder'));
+
+	$select = 'Chọn danh mục';
+	$not_active='Chưa kích hoạt';
+	$active='Đã kích hoạt';
+	if(isset($_GET['language'])){
+		if($_GET['language']=='eng'){
+			$select = 'Select Category';
+			$not_active='Not Active';
+			$active='Active';
+		}else {
+			$select = 'Chọn danh mục';
+			
+			$not_active='Chưa kích hoạt';
+			$active='Đã kích hoạt';
+		}
+	}
 ?>
  <link type="text/css" href="<?php echo DOMAIN ?>css/jquery.datepick.css" rel="stylesheet" /> 
 
@@ -18,11 +34,11 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 <div class="content-box"><!-- Start Content Box -->
     <div class="content-box-header">
         
-        <h3>Sửa tin</h3>
+        <h3><?php __('Edit')?></h3>
         
         <ul class="content-box-tabs">
             <li><a href="#tab1"></a></li> <!-- href must be unique and match the id of target div -->
-            <li><a href="#tab2" class="default-tab">Thêm mới tin</a></li>
+            <li><a href="#tab2" class="default-tab"><?php __('Add_New')?></a></li>
         </ul>
         
         <div class="clear"></div>
@@ -39,58 +55,58 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                 
                 <fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
                     <p>
-                        <label>Tên bài viết (VN)</label>
+                        <label><?php __('News_name')?> (VN)</label>
                            <?php echo $form->input('Note.title',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
                            
                     </p>
                      <p>
-                        <label>Tên bài viết (ENG)</label>
+                        <label><?php __('News_name')?>  (ENG)</label>
                            <?php echo $form->input('Note.title_eg',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
                            
                     </p>
                     <p>
-                        <label>Danh mục</label>              
-                        <?php echo $this->Form->input('category_id',array('type'=>'select','options'=>$list_cat,'empty'=>'Chọn danh mục','class'=>'small-input','label'=>''));?>
+                        <label><?php __('Category')?></label>              
+                        <?php echo $this->Form->input('category_id',array('type'=>'select','options'=>$list_cat,'empty'=>$select,'class'=>'small-input','label'=>''));?>
                     </p>
                     <p>
-                        <label>Vị trí </label>
+                        <label><?php __('location')?> </label>
                            <?php echo $form->input('Note.location',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
                            
                     </p>
                     <p>
-                        <label>Nội dung tóm tắt (VN)</label>
+                        <label><?php __('Summary_content')?> (VN)</label>
                          <?php 	echo $this->Form->input('Note.introduction',array('label' => '','type'=>'textarea',)).$this->TvFck->create('Note.introduction',array('height'=>'100px','width'=>'900')); ?>
                     </p>
                    <p>
-                        <label>Nội dung tóm tắt (ENG)</label>
+                        <label><?php __('Summary_content')?> (ENG)</label>
                          <?php 	echo $this->Form->input('Note.introduction_eg',array('label' => '','type'=>'textarea',)).$this->TvFck->create('Note.introduction_eg',array('height'=>'100px','width'=>'900')); ?>
                     </p>
                     
                     <p>
-                        <label>Nội dung bài viết (VN)</label>
+                        <label><?php __('content')?> (VN)</label>
                         <?php  echo $this->Form->input('Note.content',array('label' => '','type'=>'textarea')).$this->TvFck->create('Note.content',array('toolbar'=>'extra','height'=>'300px','width'=>'900')); ?>
                     </p>
                     <p>
-                        <label>Nội dung bài viết (ENG)</label>
+                        <label><?php __('content')?> (ENG)</label>
                         <?php  echo $this->Form->input('Note.content_eg',array('label' => '','type'=>'textarea')).$this->TvFck->create('Note.content_eg',array('toolbar'=>'extra','height'=>'300px','width'=>'900')); ?>
                     </p>
                  
                     <p>
-                        <label>Ảnh đại diện</label>
+                        <label><?php __('Avatar')?></label>
                         <input type="text" size="80" style="height:25px;" name="userfile"  value="<?php echo $edit['Note']['images']?>"> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINAD; ?>upload_pic1.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
                     </p>
                     <p>
-                        <label>Nguồn bài viết </label>
+                        <label><?php __('Source_article')?></label>
                          <?php echo $form->input('Note.source',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
                     </p>
                     <p>
-                        <label>Trạng thái</label>
-                         <?php echo $form->radio('Note.status', array(0 => 'Chưa Active', 1 => 'Đã Active')); ?>
+                        <label><?php __('status')?></label>
+                         <?php echo $form->radio('Note.status', array(0 => $not_active, 1 => $active)); ?>
                          <?php echo $form->input('Note.id',array('label'=>''));?>  
                     </p>
                    
                     <p>
-                        <input class="button" type="submit" value=" Sửa " />
+                        <input class="button" type="submit" value="<?php __('Edit')?>" />
                     </p>
                     
                 </fieldset>

@@ -7,17 +7,39 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 }
 }
 </script>
- <?php echo $form->create(null, array( 'url' => DOMAINAD.'shops/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
+ <?php echo $form->create(null, array( 'url' => DOMAINAD.'shops/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image'));
+	
+ $select='Chọn danh mục';
+ $name='Tên shop';
+ $date='Ngày tạo';
+ $next='Tiếp theo';
+ $pre='Về trước';
+ if(isset($_GET['language'])){
+ 	if($_GET['language']=='eng'){
+ 		$select='Slect Category';
+ 		$name='Shop name';
+ 		$date='Creat date';
+ 		$next='Next';
+ 		$pre='Previous';
+ 	}else {
+ 		$select='Chọn danh mục';
+ 		$name='Tên shop';
+ 		$date='Ngày tạo';
+ 		$next='Tiếp theo';
+ 		$pre='Về trước';
+ 	}
+ }
+ ?> 
      <fieldset class="search">
         
-        <legend>Tìm kiếm</legend>
+        <legend><?php __('search')?></legend>
 
        
         <div class="field">
-            <label for="field2c">Tiêu đề</label>
+            <label for="field2c"><?php __('Title')?></label>
             <input type="text" id="field2c" name="name" class="text-search">
         </div>
-        <p style="text-align:center;"> <input type="submit" name="" value="Tìm kiếm" class="button" /></p>
+        <p style="text-align:center;"> <input type="submit" name="" value="<?php __('search')?>" class="button" /></p>
        
     </fieldset>
      <?php echo $form->end(); ?>
@@ -26,10 +48,10 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 <div class="content-box"><!-- Start Content Box -->
     <div class="content-box-header">
         
-        <h3>Danh sách gian hàng</h3>
+        <h3><?php __('Booth_list')?></h3>
         
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Danh sách gian hàng</a></li> <!-- href must be unique and match the id of target div -->
+            <li><a href="#tab1" class="default-tab"><?php __('Booth_list')?></a></li> <!-- href must be unique and match the id of target div -->
             <li><a href="#tab2"></a></li>
         </ul>
         
@@ -44,13 +66,13 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                 <thead>
                     <tr>
                        <th><input class="check-all" name="checkall" type="checkbox" /></th>
-                       <th>STT</th>
-                       <th><?php echo $this->Paginator->sort('Tên shop','id');?></th>
-                       					   <th>Tên người dùng</th>
-										   <th>Gian hàng nổi bật</th>
+                       <th><?php __('STT')?></th>
+                       <th><?php echo $this->Paginator->sort($name,'id');?></th>
+                       					   <th><?php __('Username')?></th>
+										   <th><?php __('Featured_booth')?></th>
 										   
-                       <th><?php echo $this->Paginator->sort('Ngày tạo','created');?></th>
-                       <th>Xử lý</th>
+                       <th><?php echo $this->Paginator->sort($date,'created');?></th>
+                       <th><?php __('handling')?></th>
                     </tr>
                     
                 </thead>
@@ -60,23 +82,23 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                         <td colspan="6">
                             <div class="bulk-actions align-left">
                                 <select name="dropdown">
-                                    <option value="option1">Lựa chọn</option>
-                                    <option value="active">Active</option>
-                                    <option value="notactive">Hủy Active</option>
-                                    <option value="delete">Delete</option>
+                                    <option value="option1"><?php __('select')?></option>
+                                    <option value="active"><?php __('Active')?></option>
+                                    <option value="notactive"><?php __('Del_active')?></option>
+                                    <option value="delete"><?php __('Delete')?></option>
                                 </select>
-                                <a class="button" href="#" onclick="document.form1.submit();">Thực hiện</a>
+                                <a class="button" href="#" onclick="document.form1.submit();"><?php __('perform')?></a>
                             </div>
                              <div class="pagination">
                                 <a href="#" title="First Page">
                                    <?php
                                         $paginator->options(array('url' => $this->passedArgs));
-                                       echo "&laquo "; echo $paginator->prev('Về trước');
+                                       echo "&laquo "; echo $paginator->prev($pre);
 							       ?> 
                                 </a>
 							     <?php 
 								   echo $paginator->numbers();
-                                   echo $paginator->next('Tiếp theo'); echo "&raquo";
+                                   echo $paginator->next($next); echo "&raquo";
                                 ?>
                               </div>
                             </div> <!-- End .pagination -->
