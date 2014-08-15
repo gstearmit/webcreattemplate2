@@ -10,6 +10,21 @@ class Catproduct extends AppModel {
             'foreignKey' => 'parent_id'
         )
     );
+	var $hasMany = array(
+			'Product' =>
+			array('className' => 'Product',
+					'conditions'    => array('Product.status'=>1),
+					'order'         => '',
+					'limit'         => '',
+					'foreignKey'    => 'catproduct_id',
+					'dependent'     => true,
+					'exclusive'     => false,
+					'finderQuery'   => '',
+					'fields'        => '',
+					'offset'        => '',
+					'counterQuery'  => ''
+			)
+	);
 	var $validate = array(
 		'id' => array(
 			'notempty' => array(
@@ -32,21 +47,7 @@ class Catproduct extends AppModel {
 			),
 		),
 	);
-	var $hasMany = array(
-        'Estore_product' =>
-        array('className' => 'Estore_product',
-                         'conditions'    => array('Estore_product.status'=>1),
-                         'order'         => '',
-                         'limit'         => '',
-                         'foreignKey'    => 'catproduct_id',
-                         'dependent'     => true,
-                         'exclusive'     => false,
-                         'finderQuery'   => '',
-                         'fields'        => '',
-                         'offset'        => '',
-                         'counterQuery'  => ''
-    )
-	);
+	
 	
 }
 ?>

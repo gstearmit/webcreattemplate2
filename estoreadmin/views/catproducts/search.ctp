@@ -102,13 +102,13 @@
                         <td><input type="checkbox" name="check_id[]" /></td>
                         <td><?php $j=$key+1; echo $j;?></td>
                         <td><a href="<?php echo DOMAINADESTORE?>catproducts/edit/<?php echo $value['Catproduct']['id'] ?>" title="Edit">
-							<?php 
-							
-								echo $value['Catproduct']['name'];?>
+							<?php  if(is_array($value['Catproduct']) and !empty($value['Catproduct'])) { echo $value['Catproduct']['name'];}?>
+							<?php if(is_array($value['Catproduct']) and empty($value['Catproduct'])) { echo "Null";}?>
                             </a>
                         </td>
                          <td>
-							<?php echo $value['ParentCat']['name'];?>
+							<?php if(is_array($value['ParentCat']) and !empty($value['ParentCat'])) { echo $value['ParentCat']['name'];}?>
+							<?php if(is_array($value['ParentCat']) and empty($value['ParentCat'])) { echo "Null";}?>
                         </td>
                         <!--<td style="text-align:center;"><input class="text-input medium-input datepicker" style="text-align:center; width:30% !important;" type="text" value="<?php echo $value['Catproduct']['order'];?>" name="order" /></td>-->
                         <td><?php echo date('d-m-Y h:i:s', strtotime($value['Catproduct']['modified'])); ?></td>

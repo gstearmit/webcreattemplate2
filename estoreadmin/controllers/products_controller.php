@@ -54,18 +54,19 @@ class ProductsController extends AppController {
 	function index() {
 		$this->account ();
 		// $conditions=array('News.status'=>1);
-		$this->loadModelNew ( "Product" );
+		$this->loadModelNew("Product");
 		$this->paginate = array (
 				'limit' => '15',
 				'order' => 'Product.id DESC' 
 		);
 		$this->set ( 'product', $this->paginate ( 'Product', array () ) );
-		$this->loadModelNew ( "Catproduct" );
+		$this->loadModelNew("Catproduct" );
 		$this->set ( 'cat', $this->Catproduct->find ( 'all', array (
 				'conditions' => array (
 						'Catproduct.status' => 1 
 				) 
 		) ) );
+		$this->loadModelNew("Catproduct" );
 		$this->set ( 'catcon', $this->Catproduct->find ( 'all', array (
 				'conditions' => array (
 						'Catproduct.status' => 1 
@@ -78,6 +79,7 @@ class ProductsController extends AppController {
 		$this->account ();
 		$this->loadModelNew ( "Product" );
 		if (! empty ( $this->data )) {
+			//pr($this->data);die;
 			$this->Product->create ();
 			$data ['Product'] = $this->data ['Product'];
 			$data ['Product'] ['images'] = $_POST ['userfile'];
@@ -185,12 +187,28 @@ class ProductsController extends AppController {
 			
 			$list_cat = $_POST ['system'];
 		if (($keyword === "") && ($list_cat === "")) {
-			
-		}
+			// DEFAULT seach
+			$this->paginate = array (
+					'limit' => '15',
+					'order' => 'Product.id DESC'
+			);
+			$this->set ( 'product', $this->paginate ( 'Product', array () ) );
+			$this->loadModelNew ( "Catproduct" );
+			$this->set ( 'cat', $this->Catproduct->find ( 'all', array (
+					'conditions' => array (
+							'Catproduct.status' => 1
+					)
+			) ) );
+			$this->set ( 'catcon', $this->Catproduct->find ( 'all', array (
+					'conditions' => array (
+							'Catproduct.status' => 1
+					)
+			) ) );
+		}// END 
 		
 		if (($keyword != "") && ($list_cat == "")) {
 			// ['Product.title LIKE']='%'.$keyword.'%';
-			$this->loadModel ( "Product" );
+			$this->loadModelNew( "Product" );
 			$this->paginate = array (
 					'conditions' => array (
 							'Product.title LIKE' => '%' . $keyword . '%' 
@@ -202,7 +220,7 @@ class ProductsController extends AppController {
 		}
 		
 		if (($keyword == "") && ($list_cat != "")) {
-			$this->loadModel ( "Catproduct" );
+			$this->loadModelNew( "Catproduct" );
 			$portfolio = $this->Catproduct->find ( 'list', array (
 					'conditions' => array (
 							'Catproduct.parent_id' => $list_cat 
@@ -212,7 +230,7 @@ class ProductsController extends AppController {
 					) 
 			) );
 			if ($portfolio != null) {
-				$this->loadModel ( "Product" );
+				$this->loadModelNew ( "Product" );
 				$this->paginate = array (
 						'conditions' => array (
 								'Product.catproduct_id' => $portfolio 
@@ -222,7 +240,7 @@ class ProductsController extends AppController {
 				);
 				$this->set ( 'product', $this->paginate ( 'Product', array () ) );
 			} else {
-				$this->loadModel ( "Product" );
+				$this->loadModelNew ( "Product" );
 				$this->paginate = array (
 						'conditions' => array (
 								'Product.catproduct_id' => $list_cat 
@@ -234,7 +252,7 @@ class ProductsController extends AppController {
 			}
 		}
 		if (($keyword != "") && ($list_cat != "")) {
-			$this->loadModel ( "Catproduct" );
+			$this->loadModelNew ( "Catproduct" );
 			$portfolio = $this->Catproduct->find ( 'list', array (
 					'conditions' => array (
 							'Catproduct.parent_id' => $list_cat 
@@ -244,7 +262,7 @@ class ProductsController extends AppController {
 					) 
 			) );
 			if ($portfolio != null) {
-				$this->loadModel ( "Product" );
+				$this->loadModelNew ( "Product" );
 				$this->paginate = array (
 						'conditions' => array (
 								'Product.title LIKE' => '%' . $keyword . '%',
@@ -255,7 +273,7 @@ class ProductsController extends AppController {
 				);
 				$this->set ( 'product', $this->paginate ( 'Product', array () ) );
 			} else {
-				$this->loadModel ( "Product" );
+				$this->loadModelNew ( "Product" );
 				$this->paginate = array (
 						'conditions' => array (
 								'Product.title LIKE' => '%' . $keyword . '%',
@@ -267,13 +285,13 @@ class ProductsController extends AppController {
 				$this->set ( 'product', $this->paginate ( 'Product', array () ) );
 			}
 		}
-		$this->loadModel ( "Catproduct" );
+		$this->loadModelNew( "Catproduct" );
 		$this->set ( 'cat', $this->Catproduct->find ( 'all', array (
 				'conditions' => array (
 						'Catproduct.status' => 1 
 				) 
 		) ) );
-		$this->loadModel ( "Catproduct" );
+		$this->loadModelNew( "Catproduct" );
 		$this->set ( 'catcon', $this->Catproduct->find ( 'all', array (
 				'conditions' => array (
 						'Catproduct.status' => 1 
@@ -291,8 +309,12 @@ class ProductsController extends AppController {
 			) );
 		}
 		if (! empty ( $this->data )) {
+			//pr($this->data ['Product']);//die;
 			$data ['Product'] = $this->data ['Product'];
 			$data ['Product'] ['images'] = $_POST ['userfile'];
+			
+			//pr($data ['Product']);die;
+			$this->loadModelNew ( "Product" );
 			if ($this->Product->save ( $data ['Product'] )) {
 				$this->Session->setFlash ( __ ( 'Bài viết sửa thành công', true ) );
 				$this->redirect ( array (
@@ -305,10 +327,10 @@ class ProductsController extends AppController {
 		if (empty ( $this->data )) {
 			$this->data = $this->Product->read ( null, $id );
 		}
-		$this->loadModel ( "Catproduct" );
+		$this->loadModelNew( "Catproduct" );
 		$list_cat = $this->Catproduct->generatetreelist ( null, null, null, " _ " );
 		$this->set ( compact ( 'list_cat' ) );
-		$this->loadModel ( "Manufacturer" );
+		$this->loadModelNew( "Manufacturer" );
 		$list_cat1 = $this->Manufacturer->generatetreelist ( null, null, null, " _ " );
 		$this->set ( compact ( 'list_cat1' ) );
 		$this->set ( 'edit', $this->Product->findById ( $id ) );
@@ -328,7 +350,7 @@ class ProductsController extends AppController {
 	}
 	function processing() {
 		$this->account ();
-		$this->loadModel ( "Product" );
+		$this->loadModelNew( "Product" );
 		if (isset ( $_POST ['dropdown'] ))
 			$select = $_POST ['dropdown'];
 		
@@ -420,7 +442,7 @@ class ProductsController extends AppController {
 	// Xoa cac dang
 	function delete($id = null) {
 		$this->account ();
-		$this->loadModel ( "Product" );
+		$this->loadModelNew ( "Product" );
 		if (empty ( $id )) {
 			$this->Session->setFlash ( __ ( 'Khôn tồn tại bài viết này', true ) );
 			// $this->redirect(array('action'=>'index'));
@@ -437,7 +459,7 @@ class ProductsController extends AppController {
 		) );
 	}
 	function _find_list() {
-		$this->loadModel ( "Catproduct" );
+		$this->loadModelNew( "Catproduct" );
 		return $this->Catproduct->generatetreelist ( null, null, null, '__' );
 	}
 	// check ton tai tai khoan
