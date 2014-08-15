@@ -3,7 +3,45 @@ class AlbumController extends AppController {
 
 	var $name = 'Albums';	
 	var $helpers = array('Html', 'Form', 'Javascript', 'TvFck');
-	//list danh sach cac danh muc
+    var $uses=array('Shop','User');
+	function loadModelNew($Model) {
+		// ++++++++++++connection data +++++++++++++++++
+		$nameeshop = $this->Session->read ( "name" );
+		$shop_id = $this->Session->read ( "id" );
+		$shoparr = $this->Shop->find ( 'all', array (
+				'conditions' => array (
+						'Shop.id' => $shop_id,
+						'Shop.name' => $nameeshop,
+						'Shop.status' => 1
+				),
+				'fields' => array (
+						'Shop.id',
+						'Shop.created',
+						'Shop.databasename',
+						'Shop.username',
+						'Shop.password',
+						'Shop.hostname',
+						'Shop.name',
+						'Shop.email',
+						'Shop.userpass',
+						'Shop.ipserver'
+				)
+		) );
+	
+		if (is_array ( $shoparr ) and ! empty ( $shoparr )) {
+			foreach ( $shoparr as $shop ) {
+				$databasename = $shop ['Shop'] ['databasename'];
+				$password = $shop ['Shop'] ['password'];
+				$username = $shop ['Shop'] ['username'];
+				$hostname = $shop ['Shop'] ['hostname'];
+				$shop_id = $shop ['Shop'] ['id'];
+				$nameproject = $shop ['Shop'] ['name']; // $nameproject is name Ctronller
+				$email = trim ( $shop ['Shop'] ['email'] );
+				$userpass = $shop ['Shop'] ['userpass'];
+			}
+		}
+		$this->$Model->setDataEshop ( $hostname, $username, $password, $databasename );
+	}
 	function index() {	
 	   $this->account();	 
 	  // $conditions=array('Catproduct.status'=>1);	
