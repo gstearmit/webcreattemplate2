@@ -75,7 +75,7 @@
                
                 <fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
                     <p>
-                        <label>Tên sản phẩm (VN)</label>
+                        <label><?php __('Product_name')?>)</label>
                            <?php echo $form->input('Product.title',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
                     </p>
                     

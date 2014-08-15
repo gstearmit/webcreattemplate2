@@ -15,7 +15,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
        
         <div class="field">
             <label for="field2c">Tên khách</label>
-            <input type="text" id="field2c" name="name" class="text-search">
+            <input type="text" id="field2c" name="name" class="text-search"><br/>
 			<label for="field2c">Tên sản phẩm</label>
 			 <input type="text" id="field2c" name="name" class="text-search">
         </div>

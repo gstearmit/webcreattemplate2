@@ -326,7 +326,7 @@ msgstr "Thêm ảnh mới"
 msgid "Notes"
 msgstr "Notes"
 
-msgid "Category_Notes"
+msgid "Category_notes"
 msgstr "Danh mục Notes"
 
 msgid "Notes_List"
@@ -503,6 +503,9 @@ msgstr "Ảnh đại diện"
 msgid "Background"
 msgstr "Hình nền"
 
+msgid "Images_name"
+msgstr "Tên ảnh"
+
 msgid "List_images"
 msgstr "Danh sách ảnh"
 
@@ -514,3 +517,30 @@ msgstr "Sửa danh mục"
 
 msgid "Edit"
 msgstr "Sửa"
+
+msgid "News_list"
+msgstr "Danh sách tin"
+
+msgid "News_name"
+msgstr "Tên bài viết"
+
+msgid "Summary_content"
+msgstr "Nội dung tóm tắt"
+
+msgid "Source_article"
+msgstr "Nguồn bài viết"
+
+msgid "Shop_name"
+msgstr "Tên Shop"
+
+msgid "Booth_list"
+msgstr "Danh sách gian hàng"
+
+msgid "Username"
+msgstr "Tên người dùng"
+
+msgid "Featured_booth"
+msgstr "Gian hàng nổi bật"
+
+msgid "Username_list"
+msgstr "Danh sách tài khoản"

@@ -507,6 +507,9 @@ msgstr "Avatar"
 msgid "Background"
 msgstr "Background"
 
+msgid "Images_name"
+msgstr "Images Name"
+
 msgid "List_images"
 msgstr "List Images"
 
@@ -518,3 +521,30 @@ msgstr "Edit category"
 
 msgid "Edit"
 msgstr "Edit"
+
+msgid "News_list"
+msgstr "News list"
+
+msgid "News_name"
+msgstr "News name"
+
+msgid "Summary_content"
+msgstr "Summary content"
+
+msgid "Source_article"
+msgstr "Source article"
+
+msgid "Shop_name"
+msgstr "Shop name"
+
+msgid "Booth_list"
+msgstr "Booth list"
+
+msgid "Username"
+msgstr "Username"
+
+msgid "Featured_booth"
+msgstr "Featured booth"
+
+msgid "Username_list"
+msgstr "Username list"

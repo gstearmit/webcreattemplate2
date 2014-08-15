@@ -1,5 +1,21 @@
 <?php
 	echo $this->Html->script(array('ckeditor/ckeditor','ckfinder/ckfinder'));
+
+	$not_active="Chưa Active";
+	$Active_s="Đã Active";
+	if(isset($_GET['language'])){
+		if($_GET['language']=='vie'){
+				
+			$not_active="Chưa Active";
+			$Active_s="Đã Active";
+		}else {
+				
+			$city="Select City";
+			$not_active="Not Active";
+			$Active_s="Active";
+		}
+	
+	}
 ?>
 
 <div class="content-box"><!-- Start Content Box -->
@@ -26,28 +42,28 @@
                 
                 <fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
                      <p>
-                        <label>Tên ảnh</label>
+                        <label><?php __('Images_name')?></label>
                            <?php echo $form->input('Gallery.name',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
                     </p>
                      <p>
-                        <label>Thuộc sản phẩm</label>  
+                        <label><?php __('In_product')?></label>  
                         <?php echo $this->Form->input('product_id', array('type'=>'select', 'label'=>'', 'options'=>$list_cat, 'default'=>''));?>
                     </p>
                     
                     
                      
                     <p>
-                        <label>Ảnh đại diện </label>
+                        <label><?php __('Avatar')?> </label>
                          <input type="text" size="50" class="text-input medium-input datepicker" name="userfile" readonly="true"> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINAD; ?>upload_pic1.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
                     </p>
                    
                     
                     <p>
-                        <label>Trạng thái</label>
-                         <?php echo $form->radio('Gallery.status', array(0 => 'Chưa Active', 1 => 'Đã Active'), array('value' => '1','legend'=>'')); ?>  
+                        <label><?php __('status')?></label>
+                         <?php echo $form->radio('Gallery.status', array(0 => $not_active, 1 => $Active_s), array('value' => '1','legend'=>'')); ?>  
                     </p>
                     <p>
-                        <input class="button" type="submit" value="Thêm mới" />
+                        <input class="button" type="submit" value="<?php __('Add_New')?>" />
                     </p>
                     
                 </fieldset>

@@ -24,6 +24,51 @@ class NotesController extends AppController {
 		$list_cat = $this->Catproduct->generatetreelist ( null, null, null, " _ " );
 		$this->set ( compact ( 'list_cat' ) );
 		// print_r($list_cat);
+		
+		// /////// ngôn ngư
+		$urlTmp = $_SERVER['REQUEST_URI'];
+		
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+		
+			if (isset ( $lang )) {
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+		
+			$lang = "vie"; // default
+			//$this->Session->write ( 'language', $lang );
+			Configure::write('Config.language', $lang);
+		}
+			
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+		
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			}
+		}
+		$this->set ( 'langue', $langue );
 	}
 	// Them bai viet
 	function add() {
@@ -45,6 +90,52 @@ class NotesController extends AppController {
 		$this->loadModel ( "Catproduct" );
 		$list_cat = $this->Catproduct->generatetreelist ( null, null, null, " _ " );
 		$this->set ( compact ( 'list_cat' ) );
+		
+
+		// /////// ngôn ngư
+		$urlTmp = $_SERVER['REQUEST_URI'];
+		
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+		
+			if (isset ( $lang )) {
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+		
+			$lang = "vie"; // default
+			//$this->Session->write ( 'language', $lang );
+			Configure::write('Config.language', $lang);
+		}
+			
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+		
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			}
+		}
+		$this->set ( 'langue', $langue );
 	}
 	// view mot tin
 	function view($id = null) {
@@ -55,6 +146,7 @@ class NotesController extends AppController {
 			) );
 		}
 		$this->set ( 'views', $this->Note->read ( null, $id ) );
+		
 	}
 	
 	/*
@@ -81,6 +173,50 @@ class NotesController extends AppController {
 		// $ketquatimkiem=$this->Product->find('all',array('conditions'=>$x,'order' => 'Product.id DESC','limit'=>3));
 		// pr($ketquatimkiem); die;
 		// $this->set('products',$category);
+		// /////// ngôn ngư
+		$urlTmp = $_SERVER['REQUEST_URI'];
+		
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+		
+			if (isset ( $lang )) {
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+		
+			$lang = "vie"; // default
+			//$this->Session->write ( 'language', $lang );
+			Configure::write('Config.language', $lang);
+		}
+			
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+		
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			}
+		}
+		$this->set ( 'langue', $langue );
 	}
 	function processing() {
 		$this->account ();
@@ -241,6 +377,51 @@ function edit($id = null) {
         $list_cat = $this->Catproduct->generatetreelist(null,null,null," _ ");
         $this->set(compact('list_cat'));
 		$this->set('edit',$this->Note->findById($id));
+		
+		// /////// ngôn ngư
+		$urlTmp = $_SERVER['REQUEST_URI'];
+		
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+		
+			if (isset ( $lang )) {
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+		
+			$lang = "vie"; // default
+			//$this->Session->write ( 'language', $lang );
+			Configure::write('Config.language', $lang);
+		}
+			
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+		
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			}
+		}
+		$this->set ( 'langue', $langue );
 	}
 	// Xoa cac dang
 	function delete($id = null) {
