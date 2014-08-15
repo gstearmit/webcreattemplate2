@@ -7,6 +7,34 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 }
 }
 </script>
+ <?php
+ 
+ 			
+             	$abc="Chọn danh mục";
+            	$dm ="Tên danh mục";
+            	$date="Ngày tạo";
+            	$pre ="Về trước";
+            	$next ="Tiếp theo";
+ 			
+			if(isset($_GET['language'])){
+				if($_GET['language']=="vie"){
+				$abc="Chọn danh mục";
+				$dm ="Tên danh mục";
+				$date="Ngày tạo";
+				$pre ="Về trước";
+				$next ="Tiếp theo";
+            	
+            }else{
+            	$abc="Select a category";
+				$dm ="Category";
+				$date="Creation date";
+				$pre ="Previous";
+				$next ="Next";
+            }
+		}
+			
+            
+             ?>
 <?php echo $form->create(null, array( 'url' => DOMAINAD.'catproducts/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
      <fieldset class="search">
         
@@ -14,15 +42,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 
         <div class="field required">
             <label for="field1c"><?php __('Category')?>
-            <?php
-            $abc="";
-            if($_GET['language']=="vie"){
-            	$abc="Chọn danh mục";
-            }else{
-            	$abc="Select a category";
-            }
-            
-             ?>
+           
              </label>
              
              <?php echo $this->Form->input('parent_id',array('type'=>'select','options'=>$list_cat,'empty'=>$abc ,'class'=>'select-search','label'=>''));?>
@@ -60,12 +80,12 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                 <thead>
                     <tr>
                        <th><input class="check-all" type="checkbox" /></th>
-                       <th>STT</th>
-                       <th><?php echo $this->Paginator->sort('Tên danh mục','id');?></th>
+                       <th><?php __('STT')?></th>
+                       <th><?php echo $this->Paginator->sort($dm,'id');?></th>
                       
-                       <th>Vị trí</th>
-                       <th><?php echo $this->Paginator->sort('Ngày tạo','created');?></th>
-                       <th>Xử lý</th>
+                       <th><?php __('location')?></th>
+                       <th><?php echo $this->Paginator->sort($date,'created');?></th>
+                       <th><?php __('handling')?></th>
                     </tr>
                     
                 </thead>
@@ -75,23 +95,23 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                         <td colspan="6">
                             <div class="bulk-actions align-left">
                                 <select name="dropdown">
-                                    <option value="option1">Lựa chọn</option>
-                                    <option value="active">Active</option>
-                                    <option value="notactive">Hủy Active</option>
-                                    <option value="delete">Delete</option>
+                                    <option value="option1"><?php __('select')?></option>
+                                    <option value="active"><?php __('Active')?></option>
+                                    <option value="notactive"><?php __('Del_active')?></option>
+                                    <option value="delete"><?php __('Delete')?></option>
                                 </select>
-                                <a class="button" href="#" onclick="document.form1.submit();">Thực hiện</a>
+                                <a class="button" href="#" onclick="document.form1.submit();"><?php __('perform')?></a>
                             </div>
                              <div class="pagination">
                                 <a href="#" title="First Page">
                                    <?php
                                         $paginator->options(array('url' => $this->passedArgs));
-                                       echo "&laquo "; echo $paginator->prev('Về trước');
+                                       echo "&laquo "; echo $paginator->prev($pre);
 							       ?> 
                                 </a>
 							     <?php 
 								   echo $paginator->numbers();
-                                   echo $paginator->next('Tiếp theo'); echo "&raquo";
+                                   echo $paginator->next($next); echo "&raquo";
                                 ?>
                               </div>
                             </div> <!-- End .pagination -->

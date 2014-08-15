@@ -9,7 +9,7 @@
         
         <ul class="content-box-tabs">
             <li><a href="#tab1"></a></li> <!-- href must be unique and match the id of target div -->
-            <li><a href="#tab2" class="default-tab">Thêm mới </a></li>
+            <li><a href="#tab2" class="default-tab"><?php __('Add_New')?> </a></li>
         </ul>
         
         <div class="clear"></div>
