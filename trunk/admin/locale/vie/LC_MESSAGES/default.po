@@ -412,3 +412,105 @@ msgstr "Thêm mới"
 
 msgid "List"
 msgstr "Danh sách"
+
+msgid "STT"
+msgstr "STT"
+
+msgid "location"
+msgstr "Vị trí"
+
+msgid "handling"
+msgstr "Xử lý"
+
+msgid "perform"
+msgstr "Thực hiện"
+
+msgid "select"
+msgstr "Lựa chọn"
+
+msgid "Active"
+msgstr "Kích hoạt"
+
+msgid "Del_active"
+msgstr "Bỏ kích hoạt"
+
+msgid "Delete"
+msgstr "Xóa"
+
+msgid "status"
+msgstr "Trạng thái"
+
+msgid "No."
+msgstr "Số thứ tự"
+
+msgid "Main_category"
+msgstr "Tên Danh mục cha"
+
+msgid "In_category"
+msgstr "Thuộc danh mục"
+
+msgid "img"
+msgstr "Hình ảnh"
+
+msgid "Product_name"
+msgstr "Tên sản phẩm"
+
+msgid "New_price"
+msgstr "Giá mới"
+
+msgid "Old_price"
+msgstr "Giá cũ"
+
+msgid "date_discounts"
+msgstr "Ngày bắt đầu giảm giá"
+
+msgid "End_date_discounts"
+msgstr "Ngày kết thúc giảm giá"
+
+msgid "From_day"
+msgstr "Từ ngày"
+
+msgid "To_day"
+msgstr "Đến ngày"
+
+msgid "Price"
+msgstr "Giá"
+
+msgid "Number_product"
+msgstr "Số lượng sản phẩm"
+
+msgid "Quantity_sold"
+msgstr "Số lượng đã bán"
+
+msgid "Description_products"
+msgstr "Mô tả tóm tắt sản phẩm"
+
+msgid "Detail_description_products"
+msgstr "Mô tả chi tiết sản phẩm"
+
+msgid "Content1"
+msgstr "Nội dung 1"
+
+msgid "Content2"
+msgstr "Nội dung 2"
+
+msgid "Content3"
+msgstr "Nội dung 3"
+
+msgid "Avatar"
+msgstr "Ảnh đại diện"
+
+msgid "Background"
+msgstr "Hình nền"
+
+msgid "List_images"
+msgstr "Danh sách ảnh"
+
+msgid "In_product"
+msgstr "Thuộc sản phẩm"
+
+msgid "Edit_category"
+msgstr "Sửa danh mục"
+
+msgid "Edit"
+msgstr "Sửa"

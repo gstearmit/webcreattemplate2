@@ -7,15 +7,35 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 }
 }
 </script>
+<?php 
+$galary = 'Tên ảnh';
+$date ='Ngày tạo';
+$next = 'Tiếp theo';
+$pre ='Về trước';
+if(isset($_GET['language'])){
+	if($_GET['language']=='eng'){
+		$galary = 'Gallery name';
+		$date ='Creat date';
+		$next = 'Next';
+		$pre ='Previous';
+	}else {
+		$galary = 'Tên ảnh';
+		$date ='Ngày tạo';
+		$next = 'Tiếp theo';
+		$pre ='Về trước';
+	}
+}
 
-<p><a href="<?php echo DOMAINAD;?>gallery/add"> <input type="submit" name="" value="Thêm mới" class="button" /></a></p>
+?>
+<p><a href="<?php echo DOMAINAD;?>gallery/add"> <input type="submit" name="" value="<?php __('Add_New')?>" class="button" /></a></p>
+
 <div class="content-box"><!-- Start Content Box -->
     <div class="content-box-header">
         
-        <h3>Danh sách ảnh</h3>
+        <h3><?php __('List_images')?></h3>
         
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Danh sách </a></li> <!-- href must be unique and match the id of target div -->
+            <li><a href="#tab1" class="default-tab"><?php __('List')?></a></li> <!-- href must be unique and match the id of target div -->
             <li><a href="#tab2"></a></li>
         </ul>
         
@@ -30,11 +50,11 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                 <thead>
                     <tr>
                        <th><input class="check-all" name="checkall" type="checkbox" /></th>
-                       <th>STT</th>
-                       <th><?php echo $this->Paginator->sort('Gallery name','id');?></th>
-                      <th>Thuộc sản phẩm</th>
-                       <th><?php echo $this->Paginator->sort('Ngày tạo','created');?></th>
-                       <th>Xử lý</th>
+                       <th><?php __('STT')?></th>
+                       <th><?php echo $this->Paginator->sort($galary,'id');?></th>
+                      <th><?php __('In_product')?></th>
+                       <th><?php echo $this->Paginator->sort($date,'created');?></th>
+                       <th><?php __('handling')?></th>
                     </tr>
                     
                 </thead>
@@ -47,12 +67,12 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                                 <a href="#" title="First Page">
                                    <?php
                                         $paginator->options(array('url' => $this->passedArgs));
-                                       echo "&laquo "; echo $paginator->prev('Về trước');
+                                       echo "&laquo "; echo $paginator->prev($pre);
 							       ?> 
                                 </a>
 							     <?php 
 								   echo $paginator->numbers();
-                                   echo $paginator->next('Tiếp theo'); echo "&raquo";
+                                   echo $paginator->next($next); echo "&raquo";
                                 ?>
                               </div>
                             </div> <!-- End .pagination -->

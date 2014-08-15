@@ -1,6 +1,6 @@
   
      <?php  $langs= null;
-                    $urlcart = DOMAIN;
+                    $urlcart ="";
                     if(isset($_GET['language'])){
                     $abc=$_GET['language'];
                     if($abc =='vie'){
@@ -15,7 +15,7 @@
 					$url1 = str_replace(DOMAIN, "", $url);
 					$url12 = split("[?]", $url1);
 					//$urlcart1 = split("[/]", $url12[0]);
-					$urlcart = $url12[0];
+					$urlcart = DOMAIN.$url12[0];
 					}
 					}else{
 						$url = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
@@ -27,8 +27,8 @@
                     ?>
     <div id="sidebar">
        <div id="sidebar-wrapper"> 
-        <a id="langgue" href="<?php echo DOMAIN.$urlcart ?>?language=vie"><img id="langgue" align="absmiddle" src="<?php echo DOMAIN ?>images/vietnam.gif" />Tiếng Việt</a>
-	   <a id="langgue" href="<?php echo DOMAIN.$urlcart ?>?language=eng"><img  id="langgue" align="absmiddle" src="<?php echo DOMAIN ?>images/english.gif" />English</a>
+        <a id="langgue" href="<?php echo $urlcart ?>?language=vie"><img id="langgue" align="absmiddle" src="<?php echo DOMAIN ?>images/vietnam.gif" />Tiếng Việt</a>
+	   <a id="langgue" href="<?php echo $urlcart ?>?language=eng"><img  id="langgue" align="absmiddle" src="<?php echo DOMAIN ?>images/english.gif" />English</a>
         <h1 id="sidebar-title"><a href="#"></a></h1>
         <a href="#"><img id="logo" src="<?php echo DOMAINAD?>images/logo.png" alt="" /></a>
       

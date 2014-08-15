@@ -416,3 +416,105 @@ msgstr "Add New"
 
 msgid "List"
 msgstr "List"
+
+msgid "STT"
+msgstr "No."
+
+msgid "location"
+msgstr "Location"
+
+msgid "handling"
+msgstr "Handling"
+
+msgid "perform"
+msgstr "Perform"
+
+msgid "select"
+msgstr "Select"
+
+msgid "Active"
+msgstr "Active"
+
+msgid "Del_active"
+msgstr "Delete Active"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "status"
+msgstr "Status"
+
+msgid "No."
+msgstr "No."
+
+msgid "Main_category"
+msgstr "Main category name"
+
+msgid "In_category"
+msgstr "In category"
+
+msgid "Product_name"
+msgstr "Product Name"
+
+msgid "New_price"
+msgstr "New price"
+
+msgid "Old_price"
+msgstr "Old price"
+
+msgid "img"
+msgstr "Images"
+
+msgid "date_discounts"
+msgstr "Start date discounts"
+
+msgid "End_date_discounts"
+msgstr "End date discounts"
+
+msgid "From_day"
+msgstr "From day"
+
+msgid "To_day"
+msgstr "To day"
+
+msgid "Price"
+msgstr "Price"
+
+msgid "Number_product"
+msgstr "Number of product"
+
+msgid "Quantity_sold"
+msgstr "Quantity sold"
+
+msgid "Description_products"
+msgstr "Brief description about products"
+
+msgid "Detail_description_products"
+msgstr "Detailed description about products "
+
+msgid "Content1"
+msgstr "Content 1"
+
+msgid "Content2"
+msgstr "Content 2"
+
+msgid "Content3"
+msgstr "Content 3"
+
+msgid "Avatar"
+msgstr "Avatar"
+
+msgid "Background"
+msgstr "Background"
+
+msgid "List_images"
+msgstr "List Images"
+
+msgid "In_product"
+msgstr "In product"
+
+msgid "Edit_category"
+msgstr "Edit category"
+
+msgid "Edit"
+msgstr "Edit"
