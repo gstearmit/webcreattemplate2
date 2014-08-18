@@ -544,3 +544,75 @@ msgstr "Gian hàng nổi bật"
 
 msgid "Username_list"
 msgstr "Danh sách tài khoản"
+
+msgid "Customer_name"
+msgstr "Tên khách"
+
+msgid "Number"
+msgstr "Số lượng"
+
+msgid "List_order"
+msgstr "Danh sách đặt hàng"
+
+msgid "Payment"
+msgstr "Thanh toán"
+
+msgid "Total_money"
+msgstr "Tổng tiền"
+
+msgid "Has_delivered"
+msgstr "Đã giao hàng"
+
+msgid "Not_yet_delivered"
+msgstr "Chưa giao hàng"
+
+msgid "Company_name"
+msgstr "Tên công ty"
+
+msgid "Headquarters"
+msgstr "Trụ sở"
+
+msgid "Trading_Office"
+msgstr "Văn phòng giao dịch"
+
+msgid "Phone"
+msgstr "Điện thoại"
+
+msgid "Mobile"
+msgstr "Di động"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "Tile_Website"
+msgstr "Tiêu đề website"
+
+msgid "Copyright"
+msgstr "Bản quyền"
+
+msgid "Keyword"
+msgstr "Từ khóa"
+
+msgid "Description"
+msgstr "Mô tả"
+
+msgid "Sign_up"
+msgstr "Đăng ký"
+
+msgid "Sign_up_shop"
+msgstr "Đăng ký dành cho cửa hàng"
+
+msgid "Img_header"
+msgstr "Ảnh header"
+
+msgid "Img_body"
+msgstr "ảnh body"
+
+msgid "Img_footer"
+msgstr "Ảnh footer"

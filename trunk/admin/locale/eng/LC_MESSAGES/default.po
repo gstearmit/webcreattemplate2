@@ -548,3 +548,75 @@ msgstr "Featured booth"
 
 msgid "Username_list"
 msgstr "Username list"
+
+msgid "Customer_name"
+msgstr "Customer name"
+
+msgid "Number"
+msgstr "Number"
+
+msgid "List_order"
+msgstr "List order"
+
+msgid "Payment"
+msgstr "Payment"
+
+msgid "Total_money"
+msgstr "Total money"
+
+msgid "Has_delivered"
+msgstr "Has delivered"
+
+msgid "Not_yet_delivered"
+msgstr "Not yet delivered"
+
+msgid "Company_name"
+msgstr "Company name"
+
+msgid "Headquarters"
+msgstr "Headquarters"
+
+msgid "Trading_Office"
+msgstr "Trading Office"
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "Mobile"
+msgstr "Mobile"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "Tile_Website"
+msgstr "Tile_Website"
+
+msgid "Copyright"
+msgstr "Copyright"
+
+msgid "Keyword"
+msgstr "Keyword"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Sign_up"
+msgstr "Sign up"
+
+msgid "Sign_up_shop"
+msgstr "Sign up shop"
+
+msgid "Img_header"
+msgstr "Images header"
+
+msgid "Img_body"
+msgstr "Images body"
+
+msgid "Img_footer"
+msgstr "Images footer"
