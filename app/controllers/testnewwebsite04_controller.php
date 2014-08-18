@@ -580,7 +580,7 @@
 						function showsmenu1($id = null) {
 							$sql_exc = "SELECT estore_catproducts.*
 									 FROM  estore_catproducts
-									 WHERE estore_catproducts.parent_id =".(int)$id." ORDER BY  estore_catproducts.id ASC ";
+									 WHERE estore_catproducts.parent_id =".(int)$id." AND estore_catproducts.status = 1 ORDER BY  estore_catproducts.id ASC ";
 							
 							$result = $this->connectiondatabase($sql_exc);
 							//pr($result);
@@ -592,7 +592,7 @@
 						function showsmenu2($id = null) {
 							$sql_exc = "SELECT estore_catproducts.*
 									 FROM  estore_catproducts
-									 WHERE estore_catproducts.parent_id =".(int)$id." ORDER BY  estore_catproducts.id ASC ";
+									 WHERE estore_catproducts.parent_id =".(int)$id." AND estore_catproducts.status = 1 ORDER BY  estore_catproducts.id ASC ";
 								
 							$result = $this->connectiondatabase($sql_exc);
 							//pr($result);

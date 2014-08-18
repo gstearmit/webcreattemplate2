@@ -1,5 +1,22 @@
 <?php
-
+	Router::mapResources("posts");
+	Router::parseExtensions();
+	Router::connect(
+	"/:controller/:id",
+	array("action" => "edit", "[method]" => "PUT"),
+	array("action" => "index", "[method]" => "GET"),
+	array("action" => "view", "[method]" => "GET"),
+	array("id" => "[0-9]+")
+	);
+// 		Router::resourceMap(array(
+// 		array('action' => 'index', 'method' => 'GET', 'id' => false),
+// 		array('action' => 'view', 'method' => 'GET', 'id' => true),
+// 		array('action' => 'add', 'method' => 'POST', 'id' => false),
+// 		array('action' => 'edit', 'method' => 'PUT', 'id' => true),
+// 		array('action' => 'delete', 'method' => 'DELETE', 'id' => true),
+// 		array('action' => 'update', 'method' => 'POST', 'id' => true)
+// 		));
+	
 	Router::connect('/', array('controller' => 'home', 'action' => 'index'));	
     Router::connect('/business-websites', array('controller' => 'home', 'action' => 'businesswebsites'));
    // Router::connect('/e-commerce', array('controller' => 'home', 'action' => 'ecommerce'));
@@ -87,7 +104,7 @@
 // 	Router::connect('/dang-nhap', array('controller' => 'login', 'action' => 'index'));
 // 	 Router::connect('/lien-he', array('controller' => 'contacts', 'action' => 'send'));
 	 
-	
+	//require CAKE . 'Config' . DS . 'routes.php';	
 /**products/viewshopingcart
 
  * ...and connect the rest of 'Pages' controller's urls.
