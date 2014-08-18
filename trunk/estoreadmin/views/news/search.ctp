@@ -26,7 +26,7 @@
                     </ul>
                     <div class="clr"></div>
                 </div>
-        <div class="pagetitle icon-48-nhomtin"><h2>Sản phẩm</h2></div>
+        <div class="pagetitle icon-48-nhomtin"><h2>Tin Tức</h2></div>
 		<div class="clr"></div>
 	</div>
 </div>
@@ -109,7 +109,12 @@
                         <td><input type="checkbox" /></td>
                         <td><?php $j=$key+1; echo $j;?></td>
                         <td><a href="<?php echo DOMAINADESTORE?>news/edit/<?php echo $value['News']['id'] ?>" title="Edit"><?php echo $value['News']['title']; ?></a></td>
-                        <td><?php  echo $value['Category']['name'];?></td>
+                        <td>
+                           <?php  //echo $value['Category']['name'];?>
+                         <?php if(is_array($value['Category']) and !empty($value['Category'])) { echo $value['Category']['name'];}?>
+						 <?php if(is_array($value['Category']) and empty($value['Category'])) { //echo "Null";
+                                }?>
+                        </td>
                         <td><?php echo date('d-m-Y', strtotime($value['News']['modified'])); ?></td>
                         <td>
                              <a href="<?php echo DOMAINADESTORE?>news/edit/<?php echo $value['News']['id'] ?>" title="Edit"><img src="<?php echo DOMAINADESTORE?>images/icons/pencil.png" alt="Edit" /></a>

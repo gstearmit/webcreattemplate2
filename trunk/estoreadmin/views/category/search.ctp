@@ -34,7 +34,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                     </ul>
                     <div class="clr"></div>
                 </div>
-        <div class="pagetitle icon-48-nhomtin"><h2>Danh mục sản phẩm</h2></div>
+        <div class="pagetitle icon-48-nhomtin"><h2>Danh mục tin tức</h2></div>
 		<div class="clr"></div>
 	</div>
 </div>
@@ -108,8 +108,18 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                     <tr>
                         <td><input type="checkbox" /></td>
                         <td><?php $j=$key+1; echo $j;?></td>
-                        <td><?php echo $value['Category']['name'];?></td>
-                        <td><?php echo $value['ParentCat']['name'];?></td>
+                        <td>
+                        <?php //echo $value['Category']['name'];?>
+                         <?php if(is_array($value['Category']) and !empty($value['Category'])) { echo $value['Category']['name'];}?>
+						 <?php if(is_array($value['Category']) and empty($value['Category'])) { echo "Null";}?>
+                      
+                        </td>
+                        <td>
+                        <?php //echo $value['ParentCat']['name'];?>
+                        <?php if(is_array($value['ParentCat']) and !empty($value['ParentCat'])) { echo $value['ParentCat']['name'];}?>
+						<?php if(is_array($value['ParentCat']) and empty($value['ParentCat'])) { echo "Null";}?>
+                      
+                        </td>
                         <td><?php echo date('d-m-Y', strtotime($value['Category']['created'])); ?></td>
                         <?php if($value['Category']['status']==0){?>  
                           <td>
