@@ -7,7 +7,50 @@ class CityController extends AppController {
 		  $this->account();
 		  $this->paginate = array('limit' => '15','order' => 'City.id DESC');
 	      $this->set('City', $this->paginate('City',array()));
-
+	      // /////// ngôn ngư
+	      $urlTmp = $_SERVER['REQUEST_URI'];
+	      
+	      if (stripos($urlTmp, "?language"))
+	      {
+	      	$urlTmp = explode ( "?", $urlTmp );
+	      	$lang = explode ( "=", $urlTmp [1] );
+	      	$lang = $lang [1];
+	      
+	      	if (isset ( $lang )) {
+	      		//$this->Session->write ( 'language', $lang );
+	      		Configure::write('Config.language', $lang);
+	      	} else {
+	      		$this->Session->delete ( 'language' );
+	      	}
+	      } else {
+	      
+	      	$lang = "vie"; // default
+	      	//$this->Session->write ( 'language', $lang );
+	      	Configure::write('Config.language', $lang);
+	      }
+	      	
+	      // +++++ check Langue
+	      $langue = $this->Session->read ( 'language' );
+	      
+	      if ($langue == null) {
+	      	$urlTmp = $_SERVER ['REQUEST_URI'];
+	      	if (stripos ( $urlTmp, "?language" )) {
+	      		$urlTmp = explode ( "?", $urlTmp );
+	      		$lang = explode ( "=", $urlTmp [1] );
+	      		$lang = $lang [1];
+	      		if (isset ( $lang )) {
+	      			//$this->Session->write ( 'language', $lang );
+	      			Configure::write('Config.language', $lang);
+	      		} else {
+	      			$this->Session->delete ( 'language' );
+	      		}
+	      	} else {
+	      		$lang = "vie"; // default
+	      		//$this->Session->write ( 'language', $lang );
+	      		Configure::write('Config.language', $lang);
+	      	}
+	      }
+	      $this->set ( 'langue', $langue );
 	}
 	
 	function add(){
@@ -23,6 +66,51 @@ class CityController extends AppController {
 				$this->Session->setFlash(__('Thêm mơi danh mục thất bại. Vui long thử lại', true));
 			}
 		}
+		
+		// /////// ngôn ngư
+		$urlTmp = $_SERVER['REQUEST_URI'];
+			
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+		
+			if (isset ( $lang )) {
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+		
+			$lang = "vie"; // default
+			//$this->Session->write ( 'language', $lang );
+			Configure::write('Config.language', $lang);
+		}
+		
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+			
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			}
+		}
+		$this->set ( 'langue', $langue );
 	}
 	
 	function close($id=null) {
@@ -163,7 +251,50 @@ class CityController extends AppController {
 			$this->data = $this->City->read(null, $id);
 			$this->set('edit',$this->City->read(null, $id));
 		}
+		// /////// ngôn ngư
+		$urlTmp = $_SERVER['REQUEST_URI'];
+		 
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+			 
+			if (isset ( $lang )) {
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+			 
+			$lang = "vie"; // default
+			//$this->Session->write ( 'language', $lang );
+			Configure::write('Config.language', $lang);
+		}
 		
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+		 
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			}
+		}
+		$this->set ( 'langue', $langue );
 	}
 	// Xoa hinh anh
 	function delete($id = null) {
@@ -200,7 +331,50 @@ class CityController extends AppController {
 				$this->paginate = array('conditions'=>$x,'limit' => '12','order' => 'City.id DESC');
 				$this->set('city', $this->paginate('City',array()));
 			
-	
+				// /////// ngôn ngư
+				$urlTmp = $_SERVER['REQUEST_URI'];
+				 
+				if (stripos($urlTmp, "?language"))
+				{
+					$urlTmp = explode ( "?", $urlTmp );
+					$lang = explode ( "=", $urlTmp [1] );
+					$lang = $lang [1];
+					 
+					if (isset ( $lang )) {
+						//$this->Session->write ( 'language', $lang );
+						Configure::write('Config.language', $lang);
+					} else {
+						$this->Session->delete ( 'language' );
+					}
+				} else {
+					 
+					$lang = "vie"; // default
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				}
+				
+				// +++++ check Langue
+				$langue = $this->Session->read ( 'language' );
+				 
+				if ($langue == null) {
+					$urlTmp = $_SERVER ['REQUEST_URI'];
+					if (stripos ( $urlTmp, "?language" )) {
+						$urlTmp = explode ( "?", $urlTmp );
+						$lang = explode ( "=", $urlTmp [1] );
+						$lang = $lang [1];
+						if (isset ( $lang )) {
+							//$this->Session->write ( 'language', $lang );
+							Configure::write('Config.language', $lang);
+						} else {
+							$this->Session->delete ( 'language' );
+						}
+					} else {
+						$lang = "vie"; // default
+						//$this->Session->write ( 'language', $lang );
+						Configure::write('Config.language', $lang);
+					}
+				}
+				$this->set ( 'langue', $langue );
 	}
 
 }
