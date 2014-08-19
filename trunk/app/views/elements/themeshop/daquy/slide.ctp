@@ -117,7 +117,7 @@ ul { list-style-type: none;}
 
                 <li class="sliderImage">
 
-                    <a href=""><img alt="<?php echo $slideshows['Eshopdaquyslideshow']['name']?>" title="<?php echo $slideshows['Eshopdaquyslideshow']['name']?>" src="<?php echo DOMAINAD;?><?php echo $slideshows['Eshopdaquyslideshow']['images']?>" /></a>
+                    <a href=""><img alt="<?php echo $slideshows['Eshopdaquyslideshow']['name']?>" title="<?php echo $slideshows['Eshopdaquyslideshow']['name']?>" src="<?php echo DOMAINADBUSINISS;?><?php echo $slideshows['Eshopdaquyslideshow']['images']?>" /></a>
 
                     <span class="top"><a style="color:#fff;" href=""></a></span>
 

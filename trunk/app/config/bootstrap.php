@@ -1,5 +1,6 @@
 ﻿<?php
 define('DOMAINAD','http://'.$_SERVER["HTTP_HOST"].'/freemobiweb.mobi/admin/');
+define('DOMAINADBUSINISS','http://'.$_SERVER["HTTP_HOST"].'/freemobiweb.mobi/businessadmin/');
 define('DOMAINADESTORE','http://'.$_SERVER["HTTP_HOST"].'/freemobiweb.mobi/estoreadmin/');
 define('DOMAIN','http://'.$_SERVER["HTTP_HOST"].'/freemobiweb.mobi/');
 

@@ -7,7 +7,7 @@ $shopname = $shop [0];
 		<div class="title-sidebar">
 			<p>
 				Danh mục sản phẩm <img
-					src="<?php echo DOMAIN; ?>images/hinhanh1.png">
+					src="<?php echo DOMAIN; ?>daquybusniss/images/hinhanh1.png">
 			</p>
 
 		</div>
@@ -53,7 +53,7 @@ $shopname = $shop [0];
 		<!-- class="category-product -->
 
 		<a href="<?php echo DOMAIN; ?><?php echo $shopname;?>/viewnew/98"><img
-			src="<?php echo DOMAIN; ?>images/nhandathangtheoyeucau.png"
+			src="<?php echo DOMAIN; ?>daquybusniss/images/nhandathangtheoyeucau.png"
 			style="margin-bottom: 10px;"></a>
 
 		<div class="title-sidebar">
@@ -87,10 +87,10 @@ $shopname = $shop [0];
 										?>
 								   <embed width="195" height="140"
 						type="application/x-shockwave-flash"
-						src="<?php echo DOMAIN?>images/mediaplayer.swf" style=""
+						src="<?php echo DOMAIN?>daquybusniss/images/mediaplayer.swf" style=""
 						id="playlist" name="playlist" quality="high"
 						allowfullscreen="true" wmode="transparent"
-						flashvars=" file=<?php echo DOMAINAD?><?php echo $videos['Eshopdaquyvideo']['video'];?>&amp;displayheight=125&amp;width=195&amp;height=140&amp;">
+						flashvars=" file=<?php echo DOMAINADBUSINISS?><?php echo $videos['Eshopdaquyvideo']['video'];?>&amp;displayheight=125&amp;width=195&amp;height=140&amp;">
 					<?php }     ?>
 							
 						   <?php
@@ -106,10 +106,10 @@ $shopname = $shop [0];
 					
 					<embed width="195" height="140"
 						type="application/x-shockwave-flash"
-						src="<?php echo DOMAIN?>images/mediaplayer.swf" style=""
+						src="<?php echo DOMAIN?>daquybusniss/images/mediaplayer.swf" style=""
 						id="playlist" name="playlist" quality="high"
 						allowfullscreen="true" wmode="transparent"
-						flashvars=" file=<?php echo DOMAINAD?><?php echo $videos['Eshopdaquyvideo']['video'];?>&amp;displayheight=125&amp;width=195&amp;height=140&amp;">
+						flashvars=" file=<?php echo DOMAINADBUSINISS?><?php echo $videos['Eshopdaquyvideo']['video'];?>&amp;displayheight=125&amp;width=195&amp;height=140&amp;">
 						<?php }    ?>
 					
 				
@@ -133,7 +133,7 @@ $shopname = $shop [0];
 				<a
 					href="javascript:load_video_ajax(<?php echo $videos['Eshopdaquyvideo']['id']; ?>)"
 					style="text-decoration: none; margin-left: 5px; line-height: 22px; font-size: 13px;"><img
-					src="<?php echo DOMAIN; ?>images/tron2.png"
+					src="<?php echo DOMAIN; ?>daquybusniss/images/tron2.png"
 					style="float: left; margin-top: 6px;" /> <?php echo $videos['Eshopdaquyvideo']['name'];?> </a>
 			</p>
                      <?php }?>
@@ -177,7 +177,7 @@ $shopname = $shop [0];
 						<p>
 							<a
 								href="skype:<?php echo $helpsonline['Eshopdaquyhelps']['skype'];?>?call"><img
-								border="0" src="<?php echo DOMAIN?>images/skype.png"></a>
+								border="0" src="<?php echo DOMAIN?>daquybusniss/images/skype.png"></a>
 						</p>
 					</td>
 
@@ -203,7 +203,7 @@ $shopname = $shop [0];
               <?php foreach($tintucnoibats as $tintucnoibat){?>
                <li>
 					<h1>
-						<a href="<?php echo DOMAIN;?><?php echo $shopname;?>/viewnew/<?php echo $tintucnoibat['Eshopdaquynew']['id'];?>"><div style=" overflow:hidden; width:67px; height:67px; background-image:url(<?php echo DOMAINAD?>/timthumb.php?src=<?php echo $tintucnoibat['Eshopdaquynew']['images'];?>&amp;h=67&amp;w=67&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img"></div></a>
+						<a href="<?php echo DOMAIN;?><?php echo $shopname;?>/viewnew/<?php echo $tintucnoibat['Eshopdaquynew']['id'];?>"><div style=" overflow:hidden; width:67px; height:67px; background-image:url(<?php echo DOMAINADBUSINISS?>/timthumb.php?src=<?php echo $tintucnoibat['Eshopdaquynew']['images'];?>&amp;h=67&amp;w=67&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img"></div></a>
 					</h1>
 					<p>
 						<a href="<?php echo DOMAIN;?><?php echo $shopname;?>/viewnew/<?php echo $tintucnoibat['Eshopdaquynew']['id'];?>"><?php echo $tintucnoibat['Eshopdaquynew']['title'];?></a>
@@ -213,7 +213,7 @@ $shopname = $shop [0];
            </ul>
 			<p style="float: right; padding-right: 5px;">
 				<a href="<?php echo DOMAIN;?><?php echo $shopname;?>/indexnew"><img
-					src="<?php echo DOMAIN;?>images/detail-news.png" /></a>
+					src="<?php echo DOMAIN;?>daquybusniss/images/detail-news.png" /></a>
 			</p>
 		</div>
 		<!-- class="main-sidebar" -->
@@ -234,7 +234,7 @@ $shopname = $shop [0];
 											<li><a
 						href="<?php echo $doitac['Eshopdaquypartner']['website']; ?>"
 						style="text-decoration: none;" target="_blank"><img
-							src="<?php echo DOMAINAD; ?><?php echo $doitac['Eshopdaquypartner']['images']; ?>"
+							src="<?php echo DOMAINADBUSINISS; ?><?php echo $doitac['Eshopdaquypartner']['images']; ?>"
 							style="width: 184px; margin-left: 7px; margin-top: 3px; border: 10px solid:#FF0000;" /></a>
 
 
@@ -291,7 +291,7 @@ Histats.track_hits();} catch(err){};
 				foreach ( $sanphamnoibats as $sanphamnoibat ) {
 					?>
 				<a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $sanphamnoibat['Eshopdaquyproduct']['id']; ?>"
-					style="text-decoration: none;"><img src="<?php echo DOMAINAD; ?>
+					style="text-decoration: none;"><img src="<?php echo DOMAINADBUSINISS; ?>
 					<?php echo $sanphamnoibat['Eshopdaquyproduct']['images']; ?>" style="height: 110px; width: 155px; margin-left: 20px; margin-top: 3px;" /></a>
 				<p style="text-align: center;">
 					<a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $sanphamnoibat['Eshopdaquyproduct']['id']; ?>" style="text-decoration: none;"><?php echo $sanphamnoibat['Eshopdaquyproduct']['title']; ?></a>

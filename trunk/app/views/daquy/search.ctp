@@ -13,7 +13,7 @@ margin: 4px;
              <?php foreach ($products as $productview):?>
                     <li class="seacrch_li">
                      <?php  if($productview['Eshopdaquyproduct']['images']!='') {?>
-                        <a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $productview['Eshopdaquyproduct']['id']?>">   <img src="<?php echo DOMAINAD.$productview['Eshopdaquyproduct']['images'];?>"  alt="<?php echo $productview['Eshopdaquyproduct']['title']?>"/> </a>
+                        <a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $productview['Eshopdaquyproduct']['id']?>">   <img src="<?php echo DOMAINADBUSINISS.$productview['Eshopdaquyproduct']['images'];?>"  alt="<?php echo $productview['Eshopdaquyproduct']['title']?>"/> </a>
                          <?php }
                          else {?>
                          <div class="style_img"></div>

@@ -13,12 +13,12 @@
       <li>
         <h1>
           <a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Eshopdaquyproduct']['id'];?>" data-tooltip="sticky<?php echo $i; ?>">
-           <div style=" overflow:hidden; width:160px; height:128px; background-image:url(<?php echo DOMAINAD?>/timthumb.php?src=<?php echo $listproduct['Eshopdaquyproduct']['images'];?>&amp;h=128&amp;w=163&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img">             
+           <div style=" overflow:hidden; width:160px; height:128px; background-image:url(<?php echo DOMAINADBUSINISS?>/timthumb.php?src=<?php echo $listproduct['Eshopdaquyproduct']['images'];?>&amp;h=128&amp;w=163&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img">             
            </div> 
         </h1>
         <h2><a style="color:#0266A8;" href="<?php echo DOMAIN;?>chi-tiet-san-pham/<?php echo $listproduct['Eshopdaquyproduct']['id'];?>"><?php echo $listproduct['Eshopdaquyproduct']['title'];?></a></h2>
         
-        <div class="div"><a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Eshopdaquyproduct']['id'];?>"><img src="<?php echo DOMAIN;?>images/detail1.png" style="margin-top:10px;" /></a></h2>
+        <div class="div"><a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Eshopdaquyproduct']['id'];?>"><img src="<?php echo DOMAIN;?>daquybusniss/images/detail1.png" style="margin-top:10px;" /></a></h2>
         </div>
       </li>
 	  <?php $i++ ?>
@@ -44,7 +44,7 @@
 foreach($a as $listproduct) {
 ?>
 <div id="sticky<?php echo $i; ?>" class="atip" style=" display: block;">	
-<img src="<?php echo DOMAINAD; ?><?php echo $listproduct['Eshopdaquyproduct']['images']; ?>">
+<img src="<?php echo DOMAINADBUSINISS; ?><?php echo $listproduct['Eshopdaquyproduct']['images']; ?>">
 </div>
 <?php $i++ ?>
 <?php } ?>
