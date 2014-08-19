@@ -1,0 +1,48 @@
+
+
+ #push {
+	height: 43px; /* .push must be the same height as .footer */
+    padding-top:10px;
+}
+
+.clearfix{
+	clear:both;
+	float:none;
+}
+#bigPic {
+    height: 320px;
+	padding-top:10px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+}
+
+#bigPic img{
+	position:absolute;
+	display:none;
+}
+ul#thumbs li.active{
+	padding:2px;
+}
+ul#thumbs, ul#thumbs li{
+	margin:0 0 0 3px;
+	padding:0;
+	list-style:none;
+}
+	
+ul#thumbs li{
+	float:left;
+	margin-bottom:5px;
+	padding:3px;
+	cursor:pointer;
+}
+ul#thumbs img{
+	float:left;
+	width:107px;
+	height:68px;
+	line-height:68px;
+	overflow:hidden;
+	position:relative;
+	z-index:1;		
+}
