@@ -10,10 +10,10 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 <div class="content-box"><!-- Start Content Box -->
     <div class="content-box-header">
         
-        <h3>Tài khoản</h3>
+        <h3><?php __('acount')?></h3>
         
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Tài khoản</a></li> <!-- href must be unique and match the id of target div -->
+            <li><a href="#tab1" class="default-tab"><?php __('acount')?></a></li> <!-- href must be unique and match the id of target div -->
             <li><a href="#tab2"></a></li>
         </ul>
         
@@ -28,11 +28,11 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                 <thead>
                     <tr>
                        <th><input class="check-all" type="checkbox" /></th>
-                       <th>STT</th>
-                       <th>Tên đăng nhập</th>
-                       <th>Email</th>
-                       <th>Ngày tạo</th>
-                       <th>Xử lý</th>
+                       <th><?php __('STT')?></th>
+                       <th><?php __('Username')?></th>
+                       <th><?php __('Email')?></th>
+                       <th><?php __('Creat_date')?></th>
+                       <th><?php __('Handling')?></th>
                     </tr>
                     
                 </thead>

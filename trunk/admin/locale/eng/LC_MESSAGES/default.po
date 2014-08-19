@@ -620,3 +620,27 @@ msgstr "Images body"
 
 msgid "Img_footer"
 msgstr "Images footer"
+
+msgid "Creat_date"
+msgstr "Date Creat"
+
+msgid "New_password"
+msgstr "New password"
+
+msgid "Old_password"
+msgstr "Old password"
+
+msgid "Change_account"
+msgstr "Change account"
+
+msgid "Email_password_retrieval"
+msgstr "Email password retrieval"
+
+msgid "Enter_your_password_again"
+msgstr "Enter your password again"
+
+msgid "Skype"
+msgstr "Skype name"
+
+msgid "Name"
+msgstr "Name"
