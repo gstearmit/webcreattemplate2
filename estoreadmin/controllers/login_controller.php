@@ -19,6 +19,7 @@ class LoginController extends AppController {
 	}
 	
 	function login() {
+	
 		$ipserver = $_SERVER['SERVER_ADDR'];
 		$namwserver = $_SERVER['SERVER_NAME'];
 		if($namwserver != IP_SERVER_TEST){  // SERVER DIREACT
@@ -56,7 +57,7 @@ class LoginController extends AppController {
 									'Shop.ipserver'
 											)
 									) );
-			
+		}
 			if(is_array($chek) and !empty($chek))
 			{
 				foreach($chek as $shop){
@@ -68,23 +69,28 @@ class LoginController extends AppController {
 					$nameproject = $shop['Shop']['name'];           // $nameproject is name Ctronller
 					$email = trim($shop['Shop']['email']);
 					$userpass = $shop['Shop']['userpass'];
+					//pr($chek);die();
 				}
 			}
 			
 			
 			if($userpass!=$this->encryptIt($data['Shop']['userpass'])){
+				echo "9999999999999999999999999";
 					echo "<script>alert('".json_encode('Incorrect password !')."');</script>";
 					echo "<script>location.href='".DOMAINADESTORE."'</script>";
+					pr($userpass);die();
 				}
-			if($email != $data['Shop']['email'])
+			if($email != $data['Shop']['email']){
 				echo "<script>alert('".json_encode('Email is not true. Please re-enter!')."');</script>";
 				echo "<script>location.href='".DOMAINADESTORE."'</script>";
 			}
-			
+			//pr($data);die();
 			if($userpass===$this->encryptIt($data['Shop']['userpass']) and $email===$data['Shop']['email']){
+				//echo "jdfnvjkfdnvlfdjgol";
 				$this->Session->write('id',$shop_id);
 				$this->Session->write('name',$nameproject);
 				$this->redirect('/home');
+				
 			}
 		
 		
@@ -135,5 +141,5 @@ class LoginController extends AppController {
 		$this->layout='login';
 	}
 
-}
+	}
 ?>
