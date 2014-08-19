@@ -1,5 +1,8 @@
 <?php
+    Router::mapResources("restproducts");
+    Router::mapResources("products");
 	Router::mapResources("posts");
+
 	Router::parseExtensions();
 	Router::connect(
 	"/:controller/:id",
@@ -8,6 +11,7 @@
 	array("action" => "view", "[method]" => "GET"),
 	array("id" => "[0-9]+")
 	);
+	
 // 		Router::resourceMap(array(
 // 		array('action' => 'index', 'method' => 'GET', 'id' => false),
 // 		array('action' => 'view', 'method' => 'GET', 'id' => true),
