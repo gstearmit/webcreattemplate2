@@ -1,3 +1,16 @@
+<?php 
+	$active='Đã Active';
+	$not_active='Chưa Active';
+if(isset($_GET['language'])){
+	if($_GET['language']=='eng'){
+		$active='Active';
+		$not_active='Not Active';
+	}else {
+		$active='Đã Active';
+		$not_active='Chưa Active';
+	}
+}
+?>
 <div class="content-box"><!-- Start Content Box -->
     <div class="content-box-header">
         
@@ -5,7 +18,7 @@
         
         <ul class="content-box-tabs">
             <li><a href="#tab1"></a></li> <!-- href must be unique and match the id of target div -->
-            <li><a href="#tab2" class="default-tab">Sửa</a></li>
+            <li><a href="#tab2" class="default-tab"><?php __('Edit')?></a></li>
         </ul>
         
         <div class="clear"></div>
@@ -22,7 +35,7 @@
                 
                 <fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
                     <p>
-                        <label>Tên công ty</label>
+                        <label><?php __('Company')?></label>
                            <?php echo $form->input('Video.name',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
                     </p>
                     <p>
@@ -31,12 +44,12 @@
                     </p>
                    
                      <p>
-                        <label>Trạng thái</label>
+                        <label><?php __('status')?></label>
                         <?php echo $form->input('Video.id',array('label' => '','type'=>'hidden'));?>
-                         <?php echo $form->radio('Video.status', array(0 => 'Chưa Active', 1 => 'Đã Active'), array('value' => '1','legend'=>'')); ?>  
+                         <?php echo $form->radio('Video.status', array(0 => $not_active, 1 => $active), array('value' => '1','legend'=>'')); ?>  
                     </p>
                     <p>
-                        <input class="button" type="submit" value=" Sửa " />
+                        <input class="button" type="submit" value=" <?php __('Edit')?> " />
                     </p>
                     
                 </fieldset>

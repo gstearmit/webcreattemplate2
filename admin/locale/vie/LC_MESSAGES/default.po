@@ -616,3 +616,27 @@ msgstr "ảnh body"
 
 msgid "Img_footer"
 msgstr "Ảnh footer"
+
+msgid "Creat_date"
+msgstr "Ngày tạo"
+
+msgid "New_password"
+msgstr "Mật khẩu mới"
+
+msgid "Old_password"
+msgstr "Mật khẩu cũ"
+
+msgid "Change_account"
+msgstr "Thay đôi tài khoản"
+
+msgid "Email_password_retrieval"
+msgstr "Email lấy lại mật khẩu"
+
+msgid "Enter_your_password_again"
+msgstr "Nhập lại mật khẩu"
+
+msgid "Skype"
+msgstr "Tên Skype"
+
+msgid "Name"
+msgstr "Tên"

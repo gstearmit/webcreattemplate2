@@ -7,15 +7,30 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 }
 }
 </script>
-
- <p><a href="<?php echo DOMAINAD;?>helps/add"> <input type="submit" name="" value="Thêm mới" class="button" /></a></p>
+<?php 
+$name='Nhân Viên';
+$next='Tiếp theo';
+$pre='Về trước';
+if(isset($_GET['language'])){
+	if($_GET['language']=='eng'){
+	$name='Staff';
+	$next='Next';
+	$pre='Previous';
+	}else {
+	$name='Nhân Viên';
+	$next='Tiếp theo';
+	$pre='Về trước';
+	}
+}		
+?>
+ <p><a href="<?php echo DOMAINAD;?>helps/add"> <input type="submit" name="" value="<?php __('Add_New')?>" class="button" /></a></p>
 <div class="content-box"><!-- Start Content Box -->
     <div class="content-box-header">
         
-        <h3>Danh sách hỗ trợ trực tuyến</h3>
+        <h3><?php __('Online_list')?></h3>
         
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Danh sách</a></li> <!-- href must be unique and match the id of target div -->
+            <li><a href="#tab1" class="default-tab"><?php __('List')?></a></li> <!-- href must be unique and match the id of target div -->
             <li><a href="#tab2"></a></li>
         </ul>
         
@@ -30,14 +45,14 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                 <thead>
                     <tr>
                        <th><input class="check-all" type="checkbox" /></th>
-                       <th>STT</th>
+                       <th><?php __('STT')?></th>
                       <!-- <th>Tiêu đề</th> -->
-                       <th><?php echo $this->Paginator->sort('Nhân viên','id');?></th>
+                       <th><?php echo $this->Paginator->sort($name,'id');?></th>
                       <!--  <th>Yahoo</th> -->
-                       <th>Skype</th>
-                       <th>Điện thoại</th>
-                       <th>Ngày tạo</th>
-                       <th>Xử lý</th>
+                       <th><?php __('Skype')?></th>
+                       <th><?php __('Phone')?></th>
+                       <th><?php __('Creat_date')?></th>
+                       <th><?php __('handling')?></th>
                     </tr>
                     
                 </thead>
@@ -50,12 +65,12 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                                 <a href="#" title="First Page">
                                    <?php
                                         $paginator->options(array('url' => $this->passedArgs));
-                                       echo "&laquo "; echo $paginator->prev('Về trước');
+                                       echo "&laquo "; echo $paginator->prev($pre);
 							       ?> 
                                 </a>
 							     <?php 
 								   echo $paginator->numbers();
-                                   echo $paginator->next('Tiếp theo'); echo "&raquo";
+                                   echo $paginator->next($next); echo "&raquo";
                                 ?>
                               </div>
                             </div> <!-- End .pagination -->
