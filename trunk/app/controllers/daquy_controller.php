@@ -19,7 +19,8 @@ class DaquyController extends AppController {
 			'Eshopdaquypartner',
  			'Eshopdaquygallery',
  			'Eshopdaquybanner',
-			'Eshopdaquypoll'	
+			'Eshopdaquypoll',
+			'Eshopdaquycontacts',	
 		);
 	function loadModelNew($Model) {
 		// ++++++++++++connection data +++++++++++++++++
@@ -708,6 +709,17 @@ class DaquyController extends AppController {
 	function indexnew($id = null) {
 		$this->set ( 'shopname', $this->shopname );
 		$this->layout = 'themeshop/daquy';
+		$this->loadModelNew('Eshopdaquycategory');
+		$namenews = $this->Eshopdaquycategory->find ( 'all', array (
+									'conditions' => array (
+											'Eshopdaquycategory.id' => $id,
+											'Eshopdaquycategory.status' => 1
+									),
+									'fields' => array (
+											'Eshopdaquycategory.name'
+									)
+							) );
+		$this->set ( 'namecategory', $namenews);
 		$this->loadModelNew('Eshopdaquynew');
 		mysql_query ( "SET names utf8" );
 		$this->paginate = array (
@@ -888,44 +900,124 @@ class DaquyController extends AppController {
 	//----------------------end Plugin---------------------------------
 	
 	//+++++++++++++++++++Contact++++++++++++++++++++++++++++
-	function send()
+	function sendcontacts()
 	{     
-	mysql_query("SET NAMES 'utf8'");
-	mysql_query("SET character_set_client=utf8");
-	mysql_query("SET character_set_connection=utf8");
-	$x=$this->Settings->read(null,1);
-	if(isset($_POST['name']))
-	{
-		$name=$_POST['name'];
+	               $nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+								
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
+							}
+
+						
+							
+							$this->set ( 'shopname', $this->shopname );
+							$this->set ( 'shop_id', $shop_id);
+		                    $this->layout = 'themeshop/daquy';
+							$message= "";
+							$this->set('message',$message);
+							
+							$this->set ( 'title_for_layout', 'e-shop' );
+							mysql_query ( "SET NAMES 'utf8'" );
+							mysql_query ( "SET character_set_client=utf8" );
+							mysql_query ( "SET character_set_connection=utf8" );
+							$this->Eshopdaquysetting->setDataEshop($hostname,$username,$password,$databasename);
+							$x = $this->Eshopdaquysetting->read ( null, 1 );
+							
+							//die;
+							if (isset ( $_POST ['name'] )) {
+								$name = trim($_POST ['name']);
+								$mobile = $_POST ['phone'];
+								$email = trim($_POST ['email']);
+								$title = trim($_POST ['title']);
+								$content = trim($_POST ['content']);
+								if($email==='') {
+											//echo '<script language="javascript"> alert("gửi mail không thành công"); </script>';
+											$this->set('message','Error Mail !!!!');
+											//exit;
+										}
+								$data = array(
+										'estore_id'=>$x['Eshopdaquysetting']['estore_id'],
+									    'name'=>$name,
+										'email'=>$email,
+										'title'=>$title,
+										'content'=>$content
+								);
+								
+								if(!empty($data)) {
+									$this->Eshopdaquycontacts->setDataEshop($hostname,$username,$password,$databasename);
+									if($this->Eshopdaquycontacts->save($data))
+									{
+										$resultemail = $this->smtpmailer($email,'alatcas1@gmail.com','FREEMOBIWEB.MOBI',$x['Eshopdaquysetting']['title'],$content);
+										if ($resultemail ==1)
+										{
+											//echo '<script language="javascript"> alert("Gửi mail thành công"); location.href="' . DOMAIN .$this->shopname. '";</script>';
+											$message= "succesfuly";
+											$this->set('message',$message);
+										}
+										else
+										{
+											//echo '<script language="javascript"> alert("gửi mail không thành công"); </script>';
+											$this->set('message',$resultemail);
+										}
+									}
+								}
+			                   
+								
+							}
+						}
 	
-		$mobile=$_POST['phone'];
-		$email=$_POST['email'];
-		$title=$_POST['title'];
-		$content=$_POST['content'];
-	
-		$this->Email->from = $name.'<'.$email.'>';
-		$this->Email->to = $x['Settings']['email'];
-		$this->Email->subject = $title;
-		$this->Email->template = 'default';
-		$this->Email->sendAs = 'both';
-		$this->set('name',$name);
-		$this->set('mobile',$mobile);
-		$this->set('email',$email);
-		$this->set('content',$content);
-	
-		//pr($this->Email->send());die;
-		if($this->Email->send())
-		{
-			$this->Session->setFlash(__('Thêm mới danh mục thành công', true));
-			echo '<script language="javascript"> alert("Gửi mail thành công"); location.href="'.DOMAIN.'";</script>';
+	function smtpmailer($to, $from, $from_name, $subject, $body) {
+		//++++++++ include PhpMailler +++++++++++
+		$libraryPhpMailer = ROOT.'/PhpMailer/';
+		$filename = $libraryPhpMailer.'class.phpmailer.php';
+		if(file_exists($filename))
+			include($filename);
+		global $error;
+		$mail = new PHPMailer();
+		$mail->IsSMTP();
+		$mail->CharSet = "utf-8";
+		$mail->SMTPDebug = 0;
+		$mail->SMTPAuth = true;
+		$mail->SMTPSecure = 'ssl';
+		$mail->Host = 'smtp.gmail.com';
+		$mail->Port = 465;
+		$mail->Username = GUSER;
+		$mail->Password = GPWD;
+		$mail->SetFrom($from, $from_name);
+		$mail->Subject = $subject;
+		$mail->Body = $body;
+		$mail->AddAddress($to);
+		if (!$mail->Send()) {
+			$error = 'Gởi mail bị lỗi: ' . $mail->ErrorInfo;
+			return false;
+		} else {
+			$error = 'thư của bạn đã được gởi đi ';
+			return true;
 		}
-		else
-			$this->Session->setFlash(__('Thêm mơi danh mục thất bại. Vui long thử lại', true));
-		echo '<script language="javascript"> alert("gửi mail không thành công"); location.href="'.DOMAIN.'";</script>';
 	}
 	
-	
-	}
+
 	
 	function dathang()
 	{      mysql_query("SET NAMES 'utf8'");

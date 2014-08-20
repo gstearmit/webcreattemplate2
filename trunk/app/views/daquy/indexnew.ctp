@@ -1,10 +1,19 @@
 <div class="title-content">
-   <p>Tin tức</p>
+   <p>
+   <?php
+  
+    foreach ($namecategory as $namecategoryss)
+    {
+    	echo $namecategoryss['Eshopdaquycategory']['name'];
+    }
+    ?>
+   
+   </p>
 </div>
 <div class="list-text">
    <div class="text-main">
     <?php
-    echo $this->Help->getData($news,array('url'=>$shopname.'/viewnew','image'=>true,'introduction'=>true));
+    echo $this->Help->getdaquy($news,array('url'=>$shopname.'/viewnew','image'=>true,'introduction'=>true));
     ?>
 </div>
    

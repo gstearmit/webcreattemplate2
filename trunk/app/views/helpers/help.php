@@ -4,7 +4,65 @@
 // Version : 1.0
 class HelpHelper extends AppHelper {
 	// return hot news
+	//tin tuc da quy
+	function getdaquy($y=array(),$x=array('url'=>'news/view','image'=>false,'introduction'=>false,'parentClass'=>NULL,'childClass'=>NULL,'type'=>false,'data'=>false))
+	{
+		if(isset($x['type'])&&$x['type']==true)
+		{ $parent='<div ';
+		$child='<div ';
+		$endparent=$endchild='</div>';
+		}
+		else
+		{
+			$parent='<ul ';
+			$child='<li ';
+			$endparent='</ul>';
+			$endchild='</li>';
+		}
 	
+		if(isset($x['parentClass']))// them class
+			$parent.='class="'.$x['parentClass'].'">';
+		else
+			$parent.='>';
+		$child.=(isset($x['childClass']))? 'class="'.$x['childClass'].'">' : '>'; //them class
+			
+		$data=$parent;
+		if(isset($x['data'])&&$x['data']==true)	{
+			foreach($y as $y){
+				$data.=$child;
+				if(isset($x['image'])&&$x['image']==true)
+				if(isset($x['url']))
+					$data.='<a href="'.DOMAIN.$x['url'].'/'.$y['Product']['id'].'"><img src="'.DOMAINADBUSINISS.$y['Product']['images'].'"></a>';
+				else
+					$data.='<a href="'.DOMAIN.'products/view/'.$y['Product']['id'].'"><img src="'.DOMAINADBUSINISS.$y['Product']['images'].'"></a>';
+				if(isset($x['url']))
+					$data.='<a href="'.DOMAIN.$x['url'].'/'.$y['Product']['id'].'"><span>'.$y['Product']['title'].'</span></a>';
+				else
+					$data.='<a href="'.DOMAIN.'products/view/'.$y['Product']['id'].'"><span>'.$y['Product']['title'].'</span></a>';
+				if(isset($x['introduction'])&&$x['introduction']==true)
+					$data.='<div>'.$y['Product']['introduction'].'</div>';
+				$data.=$endchild;
+			}
+		} else{
+			foreach($y as $y){
+				$data.=$child;
+				if(isset($x['image'])&&$x['image']==true)
+				if(isset($x['url']))
+					$data.='<a href="'.DOMAIN.$x['url'].'/'.$y['Eshopdaquynew']['id'].'"><img src="'.DOMAINADBUSINISS.$y['Eshopdaquynew']['images'].'"></a>';
+				else
+					$data.='<a href="'.DOMAIN.'news/view/'.$y['Eshopdaquynew']['id'].'"><img src="'.DOMAINADBUSINISS.$y['Eshopdaquynew']['images'].'"></a>';
+				if(isset($x['url']))
+					$data.='<a href="'.DOMAIN.$x['url'].'/'.$y['Eshopdaquynew']['id'].'"><span>'.$y['Eshopdaquynew']['title'].'</span></a>';
+				else
+					$data.='<a href="'.DOMAIN.'news/view/'.$y['Eshopdaquynew']['id'].'"><span>'.$y['Eshopdaquynew']['title'].'</span></a>';
+				if(isset($x['introduction'])&&$x['introduction']==true)
+					$data.='<div>'.$y['Eshopdaquynew']['introduction'].'</div>';
+				$data.=$endchild;
+			}
+		}
+		$data.=$endparent;
+		return $data;
+	}
 	function getHotNews($condition=array(),$x=array('url'=>'news/view','image'=>false,'introduction'=>false,'class_ul'=>NULL,'class_li'=>NULL))
 	{
 		$this->News=&ClassRegistry::init('News');		
@@ -93,6 +151,8 @@ class HelpHelper extends AppHelper {
 		$data.=$endparent;
 		return $data;
 	}
+	
+	
 	
 	//return linkweb
 	function getLink()

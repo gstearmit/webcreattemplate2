@@ -4,6 +4,9 @@
 <div class="product">
    <ul>
      <?php
+     if(empty($listproducts)) echo '<h3 style="text-align: center;"> data is being update</h3>';
+     if(is_array($listproducts) and !empty($listproducts))
+     {
      foreach($listproducts as $listproduct){?>
       <li>
         <h1>
@@ -13,10 +16,10 @@
         </h1>
         <h2><a style="color:#0266A8;" href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Eshopdaquyproduct']['id'];?>"><?php echo $listproduct['Eshopdaquyproduct']['title'];?></a></h2>
         
-        <div class="div"><a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Eshopdaquyproduct']['id'];?>"><img src="<?php echo DOMAIN;?>images/detail1.png" style="margin-top:10px;" /></a></h2>
+        <div class="div"><a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Eshopdaquyproduct']['id'];?>"><img src="<?php echo DOMAIN;?>daquybusniss/images/detail1.png" style="margin-top:10px;" /></a></h2>
         </div>
       </li>
-      <?php }?>
+      <?php } }?>
    </ul>
 </div>
 <div id='link_page'>
