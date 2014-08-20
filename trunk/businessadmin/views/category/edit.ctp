@@ -1,4 +1,4 @@
-﻿<?php echo $form->create(null, array( 'url' => DOMAINAD.'category/edit','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false))); ?>	
+﻿<?php echo $form->create(null, array( 'url' => DOMAINADBUSINISS.'category/edit','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false))); ?>	
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
@@ -24,7 +24,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>category" class="toolbar">
+                    <a href="<?php echo DOMAINADBUSINISS?>category" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>
@@ -51,32 +51,32 @@
                	<tr>
                    	<td width="120" class="label">Tên Danh mục:</td>
                     <td>
-                    <?php echo $this->Form->input('Category.name',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
+                    <?php echo $this->Form->input('Eshopdaquycategory.name',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
                     </td>
                 </tr>
                 <tr>
                   	<td class="label">Liên kết tĩnh:</td>
                     <td>
-                    <?php echo $this->Form->input('Category.alias',array('class'=>'text-input alias-input datepicker','maxlength' => '250','id' => 'idalias'));?>
-                    <img width="16" height="16" alt="" onclick="get_alias();" style="cursor: pointer; vertical-align: middle;" src="<?php echo DOMAINAD; ?>images/refresh.png">
+                    <?php echo $this->Form->input('Eshopdaquycategory.alias',array('class'=>'text-input alias-input datepicker','maxlength' => '250','id' => 'idalias'));?>
+                    <img width="16" height="16" alt="" onclick="get_alias();" style="cursor: pointer; vertical-align: middle;" src="<?php echo DOMAINADBUSINISS; ?>images/refresh.png">
                     </td>
                 </tr>
                <tr>
                   	<td class="label">Tên Danh mục cha</td>
                     <td>
-                    <?php  echo $form->select('Category.parent_id', $list_cat, null,array('empty'=>'Chọn danh mục','class'=>'small-input')); ?>
+                    <?php  echo $form->select('Eshopdaquycategory.parent_id', $list_cat, null,array('empty'=>'Chọn danh mục','class'=>'small-input')); ?>
                     </td>
                 </tr>
                 <tr>
                   	<td class="label">Số thứ tự:</td>
                     <td>
-                    <?php echo $this->Form->input('Category.order',array('class'=>'text-input medium-input datepicker','maxlength' => '10','style' => 'width:100px !important','value' => '0'));?>
+                    <?php echo $this->Form->input('Eshopdaquycategory.order',array('class'=>'text-input medium-input datepicker','maxlength' => '10','style' => 'width:100px !important','value' => '0'));?>
                     </td>
                 </tr>
                 <tr>
                   	<td class="label">Trang thái:</td>
-                    <td><input type="radio" value="0" id="categorytatus0" name="data[Category][status]" <?php if($this->data['Category']['status'] == 0 ) echo "checked"; ?>> Chưa Active 
-                    	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="categorytatus1" name="data[Category][status]" <?php if($this->data['Category']['status'] == 1 ) echo "checked"; ?>> Đã Active
+                    <td><input type="radio" value="0" id="categorytatus0" name="data[Eshopdaquycategory][status]" <?php if($this->data['Eshopdaquycategory']['status'] == 0 ) echo "checked"; ?>> Chưa Active 
+                    	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="categorytatus1" name="data[Eshopdaquycategory][status]" <?php if($this->data['Eshopdaquycategory']['status'] == 1 ) echo "checked"; ?>> Đã Active
                     </td>
                 </tr>
                 <tr>
@@ -103,7 +103,7 @@
         <div class="tab-content" id="tab2">
             <div class="clear"></div>
         </div>
-        <?php echo $form->input('Category.id',array('label'=>''));?>
+        <?php echo $form->input('Eshopdaquycategory.id',array('label'=>''));?>
     </div> 
 </div>
 <div id="khung">
@@ -131,7 +131,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>category" class="toolbar">
+                    <a href="<?php echo DOMAINADBUSINISS?>category" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>

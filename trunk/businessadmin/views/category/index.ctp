@@ -1,10 +1,10 @@
-﻿<?php echo $form->create(null, array( 'url' => DOMAINAD.'category/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
+﻿<?php echo $form->create(null, array( 'url' => DOMAINADBUSINISS.'category/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
                     <ul>
                         <li id="toolbar-new">
-                            <a href="<?php echo DOMAINAD?>category/add" class="toolbar">
+                            <a href="<?php echo DOMAINADBUSINISS?>category/add" class="toolbar">
                                 <span class="icon-32-new"></span>
                                 Thêm mới
                             </a>
@@ -17,7 +17,7 @@
                             </a>
                         </li>
                         <li id="toolbar-unpublish">
-                            <a href="<?php echo DOMAINAD?>home" class="toolbar">
+                            <a href="<?php echo DOMAINADBUSINISS?>home" class="toolbar">
                                 <span class="icon-32-unpublish"></span>
                                 Đóng
                             </a>
@@ -100,28 +100,26 @@
                     <tr>
                         <td><input type="checkbox" name="check_id[]" /></td>
                         <td><?php $j=$key+1; echo $j;?></td>
-                        <td><a href="<?php echo DOMAINAD?>category/edit/<?php echo $value['Category']['id'] ?>" title="Edit">
-							<?php 
-							
-								echo $value['Category']['name'];?>
+                        <td><a href="<?php echo DOMAINADBUSINISS?>category/edit/<?php echo $value['Eshopdaquycategory']['id'] ?>" title="Edit">
+							<?php echo $value['Eshopdaquycategory']['name'];?>
                             </a>
                         </td>
-                        <td><?php echo $value['Category']['order'];?></td>
-                        <td><?php echo date('d-m-Y h:i:s', strtotime($value['Category']['modified'])); ?></td>
-                        <?php if($value['Category']['status']==0){?>  
+                        <td><?php echo $value['Eshopdaquycategory']['order'];?></td>
+                        <td><?php echo date('d-m-Y h:i:s', strtotime($value['Eshopdaquycategory']['modified'])); ?></td>
+                        <?php if($value['Eshopdaquycategory']['status']==0){?>  
                         <td>
-                             <a href="<?php echo DOMAINAD?>category/edit/<?php echo $value['Category']['id'] ?>" title="Sửa mục này"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Sửa" /></a>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>category/delete/<?php echo $value['Category']['id'] ?>')" title="Xóa mục này"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Xóa" /></a> 
-                             <a href="<?php echo DOMAINAD?>category/active/<?php echo $value['Category']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
+                             <a href="<?php echo DOMAINADBUSINISS?>category/edit/<?php echo $value['Eshopdaquycategory']['id'] ?>" title="Sửa mục này"><img src="<?php echo DOMAINADBUSINISS?>images/icons/pencil.png" alt="Sửa" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADBUSINISS?>category/delete/<?php echo $value['Eshopdaquycategory']['id'] ?>')" title="Xóa mục này"><img src="<?php echo DOMAINADBUSINISS?>images/icons/cross.png" alt="Xóa" /></a> 
+                             <a href="<?php echo DOMAINADBUSINISS?>category/active/<?php echo $value['Eshopdaquycategory']['id'] ?>" title="Kích hoạt" class="icon-5 info-tooltip"><img src="<?php echo DOMAINADBUSINISS?>images/icons/Play-icon.png" alt="Kích hoạt" /></a>
                         </td>
                         <?php } else {?> 
                           <td>
                             <!-- Icons -->
-                             <a href="<?php echo DOMAINAD?>category/edit/<?php echo $value['Category']['id'] ?>" title="Sửa mục này"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Sửa" /></a>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>category/delete/<?php echo $value['Category']['id'] ?>')" title="Xóa mục này"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Xóa" /></a> 
-                             <a href="<?php echo DOMAINAD?>category/close/<?php echo $value['Category']['id'] ?>" title="Tích vào để không hiển thị mục này" class="icon-4 info-tooltip"><img src="<?php echo DOMAINAD?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
+                             <a href="<?php echo DOMAINADBUSINISS?>category/edit/<?php echo $value['Eshopdaquycategory']['id'] ?>" title="Sửa mục này"><img src="<?php echo DOMAINADBUSINISS?>images/icons/pencil.png" alt="Sửa" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADBUSINISS?>category/delete/<?php echo $value['Eshopdaquycategory']['id'] ?>')" title="Xóa mục này"><img src="<?php echo DOMAINADBUSINISS?>images/icons/cross.png" alt="Xóa" /></a> 
+                             <a href="<?php echo DOMAINADBUSINISS?>category/close/<?php echo $value['Eshopdaquycategory']['id'] ?>" title="Tích vào để không hiển thị mục này" class="icon-4 info-tooltip"><img src="<?php echo DOMAINADBUSINISS?>images/icons/success-icon.png" alt="Ngắt kích hoạt" /></a>
                         </td>
-                        <td align="right"><?php echo $value['Category']['id'];?></td>
+                        <td align="right"><?php echo $value['Eshopdaquycategory']['id'];?></td>
                         <?php }?>
                     </tr>
                    <?php }?>

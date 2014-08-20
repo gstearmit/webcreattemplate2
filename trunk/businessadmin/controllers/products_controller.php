@@ -101,6 +101,7 @@ class ProductsController extends AppController {
 			$this->redirect(array('action'=>'index'));
 		}
 		$data['Eshopdaquyproduct'] = $this->data['Eshopdaquyproduct'];
+		$data['Eshopdaquyproduct']['id']= $id;
 		$data['Eshopdaquyproduct']['status']=0;
 		if ($this->Eshopdaquyproduct->save($data['Eshopdaquyproduct'])) {
 			$this->Session->setFlash(__('Bài viết không được hiển thị', true));
@@ -120,6 +121,7 @@ class ProductsController extends AppController {
 			$this->redirect(array('action'=>'index'));
 		}
 		$data['Eshopdaquyproduct'] = $this->data['Eshopdaquyproduct'];
+		$data['Eshopdaquyproduct']['id']= $id;
 		$data['Eshopdaquyproduct']['status']=1;
 		if ($this->Eshopdaquyproduct->save($data['Eshopdaquyproduct'])) {
 			$this->Session->setFlash(__('Bài viết được hiển thị', true));
