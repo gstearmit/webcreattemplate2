@@ -1,7 +1,8 @@
 <?php
-class City extends AppModel {
-    var $name = 'City';
+class Eshopdaquycity extends AppModel {
+    var $name = 'Eshopdaquycity';
     var $displayField = 'name';
+	//var $useTable = 'eshop_city';
 	var $validate = array(
 		'id' => array(
 			'notempty' => array(

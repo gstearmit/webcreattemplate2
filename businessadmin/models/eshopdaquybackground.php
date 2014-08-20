@@ -1,5 +1,5 @@
 <?php
-class Background extends AppModel {
-    var $name = 'Background';
+class EshopdaquyBackground extends AppModel {
+    var $name = 'EshopdaquyBackground';
 }
 ?>

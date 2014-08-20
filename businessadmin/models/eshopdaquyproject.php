@@ -1,7 +1,8 @@
 <?php
-class Product extends AppModel {
-    var $name = 'Product';
+class Eshopdaquyproject extends AppModel {
+    var $name = 'Eshopdaquyproject';
     var $displayField = 'name';
+	var $useTable = 'eshop_project';
 	var $validate = array(
 		'id' => array(
 			'notempty' => array(
@@ -13,21 +14,20 @@ class Product extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'title' => array(
+		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Xin vui lòng điền thông tin',
+				'message' => 'Xin vui lòng điển thông tin',
 				'allowEmpty' => false,
 				'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		
-		'catproduct_id' => array(
+				'category_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Xin vui lòng điền thông tin',
+				'message' => 'Xin vui lòng chọn danh mục',
 				'allowEmpty' => false,
 				'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -36,9 +36,9 @@ class Product extends AppModel {
 		),
 	);
 	 var $belongsTo = array( 
-					'Catproduct' => array(
-							'className'     => 'Catproduct', 
-							'foreignKey'    => 'catproduct_id' 				 
+					'Eshopdaquycategory' => array(
+							'className'     => 'Eshopdaquycategory', 
+							'foreignKey'    => 'category_id' 				 
 												 
 					)				
 			); 
