@@ -173,7 +173,7 @@ ul#thumblist li a.zoomThumbActive{
                                             <li><a href="<?php echo DOMAIN.$shopname;?>/aboutus">Giới thiệu</a></li>
                                             <li><a href="<?php echo DOMAIN.$shopname;?>/indexproduct">Sản phẩm</a></li>
                                             <li><a href="<?php echo DOMAIN.$shopname;?>/indexnew/">Tin tức</a></li>
-                                            <li><a href="<?php echo DOMAIN.$shopname;?>/send">Liên hệ</a></li>
+                                            <li><a href="<?php echo DOMAIN.$shopname;?>/sendcontacts">Liên hệ</a></li>
                                       </ul>
                                   </div> <!---id="menu-footer"-->
                     				

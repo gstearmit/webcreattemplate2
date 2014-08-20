@@ -22,7 +22,7 @@ $shopname = $shop [0];
 		<li><img src="<?php echo DOMAIN; ?>daquybusniss/images/chuv.png"></li>
 				<?php } ?>
 					
-				<li><a href="<?php echo DOMAIN.$shopname;?>/send"><span> LIÊN HỆ </span></a></li>
+				<li><a href="<?php echo DOMAIN.$shopname;?>/sendcontacts"><span> LIÊN HỆ </span></a></li>
 		<li style="margin-top: 0px;"><img
 			src="<?php echo DOMAIN; ?>daquybusniss/images/chuv.png"></li>
 

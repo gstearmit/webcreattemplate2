@@ -127,11 +127,12 @@
 <div class="product">
 <ul>
 <?php $tranhdaquy = $this->requestAction('/'.$shopname.'/tranhdaquy'); 
- 
 	 $a= array();
 	 $i = 2;  // luu tru de hien thi toolstip
 	 $j = 0;  
-	 
+	 if(empty($tranhdaquy)) echo '<h3 style="text-align: center;"> data is being update</h3>';
+	 if(is_array($tranhdaquy) and !empty($tranhdaquy))
+	 {
 	 foreach($tranhdaquy as $listproduct) // pr($listproduct);die; // giong mang $tranhdaquy
 	 {
      	 $a[$j++] = $listproduct; ?>
@@ -162,7 +163,7 @@
 				  </li>
 			  </p>
 	       <?php $i++ ?>
-  <?php } ?>
+  <?php } } ?>
  </ul>
 </div>
 
@@ -178,8 +179,12 @@
 	 $i = 100;
 	 $j = 0;
 
-$daquytho = $this->requestAction('/'.$shopname.'/daquytho'); ?>
-     <?php foreach($daquytho as $listproduct){ $b[$j++] = $listproduct; ?>
+     $daquytho = $this->requestAction('/'.$shopname.'/daquytho'); ?>
+     <?php
+     if(empty($daquytho)) echo '<h3 style="text-align: center;"> data is being update</h3>';
+     if(is_array($daquytho) and !empty($daquytho))
+     {
+      foreach($daquytho as $listproduct){ $b[$j++] = $listproduct; ?>
       <li>
         <h1>
           <a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Eshopdaquyproduct']['id'];?>" data-tooltip="sticky<?php echo $i; ?>">
@@ -192,7 +197,7 @@ $daquytho = $this->requestAction('/'.$shopname.'/daquytho'); ?>
         </div>
       </li>
 	  <?php $i++ ?>
-      <?php }?>
+      <?php } }?>
    </ul>
 </div>
 
@@ -205,11 +210,12 @@ $daquytho = $this->requestAction('/'.$shopname.'/daquytho'); ?>
  $c= array();
 	 $i = 200;
 	 $j = 0;
-
-
-
 $daphongthuy = $this->requestAction('/'.$shopname.'/daphongthuy'); ?>
-     <?php foreach($daphongthuy as $listproduct){ $c[$j++] = $listproduct;?>
+     <?php
+     if(empty($daphongthuy)) echo '<h3 style="text-align: center;"> data is being update</h3>';
+     if(is_array($daphongthuy) and !empty($daphongthuy))
+     {
+      foreach($daphongthuy as $listproduct){ $c[$j++] = $listproduct;?>
       <li>
         <h1>
           <a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Eshopdaquyproduct']['id'];?>" data-tooltip="sticky<?php echo $i; ?>">
@@ -222,7 +228,7 @@ $daphongthuy = $this->requestAction('/'.$shopname.'/daphongthuy'); ?>
         </div>
       </li>
 	  <?php $i++ ?>
-      <?php }  ?>
+      <?php } } ?>
    </ul>
 </div>
 
@@ -235,9 +241,12 @@ $daphongthuy = $this->requestAction('/'.$shopname.'/daphongthuy'); ?>
  $d= array();
 	 $i = 300;
 	 $j = 0;
-
 $trangsuc = $this->requestAction('/'.$shopname.'/trangsuc'); ?>
-     <?php foreach($trangsuc as $listproduct){ $d[$j++] = $listproduct;?>
+     <?php 
+       if(empty($trangsuc)) echo '<h3 style="text-align: center;"> data is being update</h3>';
+     if(is_array($trangsuc) and !empty($trangsuc))
+     {
+     foreach($trangsuc as $listproduct){ $d[$j++] = $listproduct;?>
       <li>
         <h1>
           <a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Eshopdaquyproduct']['id'];?>" data-tooltip="sticky<?php echo $i; ?>">
@@ -250,7 +259,7 @@ $trangsuc = $this->requestAction('/'.$shopname.'/trangsuc'); ?>
         </div>
       </li>
 	  <?php $i++ ?>
-      <?php } ?>
+      <?php } }?>
    </ul>
 </div>
 
