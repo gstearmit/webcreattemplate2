@@ -1,7 +1,8 @@
 <?php
-class Slideshow extends AppModel {
-    var $name = 'Slideshow';
+class Eshopdaquyslideshow extends AppModel {
+    var $name = 'Eshopdaquyslideshow';
     var $displayField = 'name';
+	var $useTable = 'eshop_slideshows';
    	var $validate = array(
 		'id' => array(
 			'notempty' => array(

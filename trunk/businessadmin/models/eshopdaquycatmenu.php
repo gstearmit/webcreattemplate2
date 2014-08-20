@@ -1,11 +1,12 @@
 <?php
-class Catmenu extends AppModel {
-    var $name = 'Catmenu';
+class Eshopdaquycatmenu extends AppModel {
+    var $name = 'Eshopdaquycatmenu';
     var $displayField = 'name';
     var $actsAs = array('Tree');
+	//var $useTable = 'eshop_bgmenus';
 	var $belongsTo = array(
         'ParentCat' => array(
-            'className' => 'Catmenu',
+            'className' => 'Eshopdaquycatmenu',
             'foreignKey' => 'parent_id'
         )
     );
@@ -32,9 +33,9 @@ class Catmenu extends AppModel {
 		),
 	);
 	var $hasMany = array(
-        'Menu' =>
-        array('className' => 'Menu',
-                         'conditions'    => array('Menu.status'=>1),
+        'Eshopdaquymenu' =>
+        array('className' => 'Eshopdaquymenu',
+                         'conditions'    => array('Eshopdaquymenu.status'=>1),
                          'order'         => '',
                          'limit'         => '',
                          'foreignKey'    => 'menu_id',

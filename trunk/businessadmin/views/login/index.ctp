@@ -1,17 +1,22 @@
 ﻿<div id="login-inner">
- <?php echo $form->create(null, array( 'url' => DOMAINAD.'login/login','type' => 'post')); ?>	
+ <?php echo $form->create(null, array( 'url' => DOMAINADBUSINISS.'login/login','type' => 'post')); ?>	
 				
     <div class="notification information png_bg">
     </div>
     
     <p>
-        <label>Username</label>
-        <?php echo $form->input('EshopdaquyUser.name',array( 'label' => '','class'=>'text-input'));?>
+        <label>Email</label>
+        <?php echo $form->input('Shop.email',array( 'label' => '','class'=>'text-input'));?>
     </p>
     <div class="clear"></div>
     <p>
         <label>Password</label>
-       <?php echo $form->input('EshopdaquyUser.password',array( 'label' => '','type'=>'password','class'=>'text-input'));?>
+       <?php echo $form->input('Shop.userpass',array( 'label' => '','type'=>'password','class'=>'text-input'));?>
+    </p>
+     <div class="clear"></div>
+     <p>
+        <label>STT Shop</label>
+       <?php echo $form->input('Shop.id',array( 'label' => '','type'=>'text','class'=>'text-input'));?>
     </p>
     <div class="clear"></div>
     <p id="remember-password">

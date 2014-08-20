@@ -1,4 +1,4 @@
-﻿<?php echo $form->create(null, array( 'url' => DOMAINAD.'catproducts/add','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false)));?>	   
+﻿<?php echo $form->create(null, array( 'url' => DOMAINADBUSINISS.'catproducts/add','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false)));?>	   
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
@@ -24,7 +24,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>catproducts" class="toolbar">
+                    <a href="<?php echo DOMAINADBUSINISS?>catproducts" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>
@@ -51,35 +51,35 @@
                	<tr>
                    	<td width="120" class="label">Tên Danh mục:</td>
                     <td>
-                    <?php echo $this->Form->input('Catproduct.name',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
+                    <?php echo $this->Form->input('Eshopdaquycatproduct.name',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
                     </td>
                 </tr>
                 <tr>
                   	<td class="label">Liên kết tĩnh:</td>
                     <td>
-                    <?php echo $this->Form->input('Catproduct.alias',array('class'=>'text-input alias-input datepicker','maxlength' => '250','id' => 'idalias'));?>
-                    <img width="16" height="16" alt="" onclick="get_alias();" style="cursor: pointer; vertical-align: middle;" src="<?php echo DOMAINAD; ?>images/refresh.png">
+                    <?php echo $this->Form->input('Eshopdaquycatproduct.alias',array('class'=>'text-input alias-input datepicker','maxlength' => '250','id' => 'idalias'));?>
+                    <img width="16" height="16" alt="" onclick="get_alias();" style="cursor: pointer; vertical-align: middle;" src="<?php echo DOMAINADBUSINISS; ?>images/refresh.png">
                     </td>
                 </tr>
                 
                 <tr>
                   	<td class="label">Tên Danh mục cha</td>
                     <td>
-                    <?php  echo $form->select('Catproduct.parent_id', $Catproductlist, null,array('empty'=>'Chọn danh mục','class'=>'small-input')); ?>
+                    <?php  echo $form->select('Eshopdaquycatproduct.parent_id', $Eshopdaquycatproductlist, null,array('empty'=>'Chọn danh mục','class'=>'small-input')); ?>
                     </td>
                 </tr>
                
                 <tr>
                   	<td class="label">Số thứ tự:</td>
                     <td>
-                    <?php echo $this->Form->input('Catproduct.order',array('class'=>'text-input medium-input datepicker','maxlength' => '10','style' => 'width:100px !important','value' => '0'));?>
+                    <?php echo $this->Form->input('Eshopdaquycatproduct.order',array('class'=>'text-input medium-input datepicker','maxlength' => '10','style' => 'width:100px !important','value' => '0'));?>
 					</td>
                 </tr>
                 <tr>
                   	<td class="label">Trang thái:</td>
                     <td>
-                    <input type="radio" value="0" id="CatproductStatus0" name="data[Catproduct][status]"> Chưa Active 
-                    	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="CatproductStatus1" name="data[Catproduct][status]"> Đã Active
+                    <input type="radio" value="0" id="EshopdaquycatproductStatus0" name="data[Eshopdaquycatproduct][status]"> Chưa Active 
+                    	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="EshopdaquycatproductStatus1" name="data[Eshopdaquycatproduct][status]"> Đã Active
                     </td>
                 </tr>
                
@@ -117,7 +117,7 @@
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINAD?>catproducts" class="toolbar">
+                    <a href="<?php echo DOMAINADBUSINISS?>catproducts" class="toolbar">
                         <span class="icon-32-cancel"></span>
                         Hủy
                     </a>

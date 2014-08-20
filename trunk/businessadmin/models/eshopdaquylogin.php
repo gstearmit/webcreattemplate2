@@ -1,8 +1,16 @@
 <?php
-class Login extends AppModel {
-   var $name = 'Login';
-   var $displayField = 'name';
-   var $validate = array(
+class Eshopdaquynew extends AppModel {
+    var $name = 'Eshopdaquynew';
+    var $displayField = 'name';
+	var $useTable = 'eshop_news';
+	var $belongsTo = array( 
+					'Category' => array(
+							'className'     => 'Category', 
+							'foreignKey'    => 'category_id' 				 
+												 
+					)				
+			); 
+	var $validate = array(
 		'id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -13,27 +21,37 @@ class Login extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'name' => array(
+		'title' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Xin vui lòng nhập tên',
+				'message' => 'Xin vui lòng điển thông tin',
 				'allowEmpty' => false,
 				'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'password' => array(
+		'content' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Xin vui lòng nhập mật khẩu',
+				'message' => 'Xin vui lòng điển thông tin',
 				'allowEmpty' => false,
 				'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		
+		'category_id' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Xin vui lòng chọn danh mục',
+				'allowEmpty' => false,
+				'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 	);
+	
 }
 ?>

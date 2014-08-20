@@ -1,11 +1,13 @@
 <?php
-class Category extends AppModel {
-    var $name = 'Category';
+class Eshopdaquycatproduct extends AppModel {
+    var $name = 'Eshopdaquycatproduct';
     var $displayField = 'name';
     var $actsAs = array('Tree');
+	var $useTable = 'eshop_catproducts';
+	
 	var $belongsTo = array(
-        'ParentCat' => array(
-            'className' => 'Category',
+        'ParentCatNew' => array(
+            'className' => 'Eshopdaquycatproduct',
             'foreignKey' => 'parent_id'
         )
     );
@@ -31,13 +33,14 @@ class Category extends AppModel {
 			),
 		),
 	);
+	// product- quan hệ n -1 voi catproduct
 	var $hasMany = array(
-        'News' =>
-        array('className' => 'News',
-                         'conditions'    => array('News.status'=>1),
+        'Eshopdaquyproduct' =>
+        array('className' => 'Eshopdaquyproduct',
+                         'conditions'    => array('Eshopdaquyproduct.status'=>1),
                          'order'         => '',
                          'limit'         => '',
-                         'foreignKey'    => 'category_id',
+                         'foreignKey'    => 'catproduct_id',
                          'dependent'     => true,
                          'exclusive'     => false,
                          'finderQuery'   => '',
@@ -46,5 +49,6 @@ class Category extends AppModel {
                          'counterQuery'  => ''
     )
 	);
+	
 }
 ?>

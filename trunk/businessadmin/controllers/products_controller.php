@@ -2,57 +2,107 @@
 class ProductsController extends AppController {
 
 	var $name = 'Products';
+	var $uses=array(
+			'Eshopdaquyproduct',
+			'Eshopdaquycatproduct',
+			'Shop',
+	             );
 	var $helpers = array('Html', 'Form', 'Javascript', 'TvFck');
+	function loadModelNew($Model)
+	{
+		//++++++++++++connection data +++++++++++++++++
+		$nameeshop = $this->Session->read("name");
+		$shop_id = $this->Session->read("id");
+		$shoparr = $this->Shop->find ( 'all', array (
+				'conditions' => array (
+						'Shop.id' => $shop_id,
+						'Shop.name' => $nameeshop,
+						'Shop.status' => 1
+				),
+				'fields' => array (
+						'Shop.id',
+						'Shop.created',
+						'Shop.databasename',
+						'Shop.username',
+						'Shop.password',
+						'Shop.hostname',
+						'Shop.name',
+						'Shop.email',
+						'Shop.userpass',
+						'Shop.ipserver'
+				)
+		) );
+			
+		if(is_array($shoparr) and !empty($shoparr))
+		{
+			foreach($shoparr as $shop){
+				$databasename = $shop['Shop']['databasename'];
+				$password = $shop['Shop']['password'];
+				$username = $shop['Shop']['username'];
+				$hostname = $shop['Shop']['hostname'];
+				$shop_id = $shop['Shop']['id'];
+				$nameproject = $shop['Shop']['name'];           // $nameproject is name Ctronller
+				$email = trim($shop['Shop']['email']);
+				$userpass = $shop['Shop']['userpass'];
+			}
+		}
+		$this->$Model->setDataEshop($hostname,$username,$password,$databasename);
+	}
 	function index() {
 		  $this->account();
+		  $this->loadModelNew('Eshopdaquyproduct');	   
 		 // $conditions=array('News.status'=>1);
-		  $this->paginate = array('limit' => '15','order' => 'Product.id DESC');
-	      $this->set('product', $this->paginate('Product',array()));
-		  $this->loadModel("Catproduct");
-        $list_cat = $this->Catproduct->generatetreelist(null,null,null," _ ");
+		  $this->paginate = array('limit' => '15','order' => 'Eshopdaquyproduct.id DESC');
+	      $this->set('product', $this->paginate('Eshopdaquyproduct',array()));
+		
+		$this->loadModelNew('Eshopdaquycatproduct');	   
+        $list_cat = $this->Eshopdaquycatproduct->generatetreelist(null,null,null," _ ");
         $this->set(compact('list_cat'));
 	}
 	
 	//Them bai viet
 	function add() {
 		$this->account();
+		$this->loadModelNew('Eshopdaquyproduct');	   
 		if (!empty($this->data)) {
-			$this->Product->create();
-			$data['Product'] = $this->data['Product'];
-			$data['Product']['images']=$_POST['userfile'];
-			$data['Product']['images1']=$_POST['userfile1'];
-			$data['Product']['images2']=$_POST['userfile2'];
-			$data['Product']['images3']=$_POST['userfile3'];
-			$data['Product']['images4']=$_POST['userfile4'];
-			if ($this->Product->save($data['Product'])) {
+			$this->Eshopdaquyproduct->create();
+			$data['Eshopdaquyproduct'] = $this->data['Eshopdaquyproduct'];
+			$data['Eshopdaquyproduct']['images']=$_POST['userfile'];
+			$data['Eshopdaquyproduct']['images1']=$_POST['userfile1'];
+			$data['Eshopdaquyproduct']['images2']=$_POST['userfile2'];
+			$data['Eshopdaquyproduct']['images3']=$_POST['userfile3'];
+			$data['Eshopdaquyproduct']['images4']=$_POST['userfile4'];
+			if ($this->Eshopdaquyproduct->save($data['Eshopdaquyproduct'])) {
 				$this->Session->setFlash(__('Thêm mới danh mục thành công', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('Thêm mơi danh mục thất bại. Vui long thử lại', true));
 			}
 		}
-		$this->loadModel("Catproduct");
-        $list_cat = $this->Catproduct->generatetreelist(null,null,null," _ ");
+		$this->loadModelNew("Eshopdaquycatproduct");
+        $list_cat = $this->Eshopdaquycatproduct->generatetreelist(null,null,null," _ ");
         $this->set(compact('list_cat'));
 	}
 	//view mot tin 
 	function view($id = null) {
+	    $this->loadModelNew('Eshopdaquyproduct');	   
 		if (!$id) {
 			$this->Session->setFlash(__('Không tồn tại', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('views', $this->Product->read(null, $id));
+		$this->set('views', $this->Eshopdaquyproduct->read(null, $id));
 	}
 	//close tin tuc
 	function close($id=null) {
 		$this->account();
+		$this->loadModelNew('Eshopdaquyproduct');	   
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại bài viết này', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		$data['Product'] = $this->data['Product'];
-		$data['Product']['status']=0;
-		if ($this->Product->save($data['Product'])) {
+		$data['Eshopdaquyproduct'] = $this->data['Eshopdaquyproduct'];
+		$data['Eshopdaquyproduct']['status']=0;
+		if ($this->Eshopdaquyproduct->save($data['Eshopdaquyproduct'])) {
 			$this->Session->setFlash(__('Bài viết không được hiển thị', true));
 			$this->redirect(array('action'=>'index'));
 		}
@@ -64,87 +114,75 @@ class ProductsController extends AppController {
 	// active tin bai viêt
 	function active($id=null) {
 		$this->account();
+		$this->loadModelNew('Eshopdaquyproduct');	   
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại bài viết này', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		$data['Product'] = $this->data['Product'];
-		$data['Product']['status']=1;
-		if ($this->Product->save($data['Product'])) {
+		$data['Eshopdaquyproduct'] = $this->data['Eshopdaquyproduct'];
+		$data['Eshopdaquyproduct']['status']=1;
+		if ($this->Eshopdaquyproduct->save($data['Eshopdaquyproduct'])) {
 			$this->Session->setFlash(__('Bài viết được hiển thị', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		$this->Session->setFlash(__('Bài viết không hiển được bài viết', true));
 		$this->redirect(array('action' => 'index'));
 	}
-	// tim kiem san pham
-	/*function search() {
-		$data['Product']=$this->data['Product'];
-		$category=$data['Product']['catproduct_id'];
-		$this->paginate = array('conditions'=>array('Product.catproduct_id'=>$category),'limit' => '15','order' => 'Product.id DESC');
-	    $this->set('product', $this->paginate('Product',array()));
-		 $this->loadModel("Catproduct");
-        $list_cat = $this->Catproduct->generatetreelist(null,null,null," _ ");
-        $this->set(compact('list_cat'));
-		
-	}*/
+	
 	function search() {
-		$this->loadModel("Catproduct");
+	   $this->loadModelNew("Eshopdaquycatproduct");
 	   $keyword="";
 	   $list_cat="";
 	  
-	   if(isset($_POST['keyword']))
-		$keyword=$_POST['keyword'];
-		
-		if(isset($_POST['list_cat']))
-		$list_cat=$_POST['list_cat'];
+	   if(isset($_POST['keyword'])) $keyword=$_POST['keyword'];
+	   if(isset($_POST['list_cat'])) $list_cat=$_POST['list_cat'];
+	   
 		$x=array();
-		if($keyword!="")
-		$x['Product.title like']='%'.$keyword.'%';
-		
-		if($list_cat!="")
-		$x['Product.catproduct_id']=$list_cat;
+		if($keyword!="") $x['Eshopdaquyproduct.title like']='%'.$keyword.'%'; 
+		if($list_cat!="") $x['Eshopdaquyproduct.catproduct_id']=$list_cat;
 		//pr($x);exit;
 		$tt =array();
-		$portfolio=$this->Catproduct->find('all',array('conditions'=>array('Catproduct.parent_id'=>$x)));		
+		$portfolio=$this->Eshopdaquycatproduct->find('all',array('conditions'=>array('Eshopdaquycatproduct.parent_id'=>$x)));		
 		//pr($portfolio);
 		foreach($portfolio as $key){
-		$tt[]=$key['Catproduct']['id'];
+		$tt[]=$key['Eshopdaquycatproduct']['id'];
 		}
 		for($i=0;$i<count($tt);$i++)
 		 if($list_cat==$tt[$i])
-		 $list_cat=$this->Catproduct->find('list',array('conditions'=>array('Catproduct.parent_id'=>$tt[$i]),'fields'=>array('Catproduct.id')));	
+		 $list_cat=$this->Eshopdaquycatproduct->find('list',array('conditions'=>array('Eshopdaquycatproduct.parent_id'=>$tt[$i]),'fields'=>array('Eshopdaquycatproduct.id')));	
 		 if($list_cat!="")
-		$x['Product.catproduct_id']=$list_cat;
+		$x['Eshopdaquyproduct.catproduct_id']=$list_cat;
 		//pr($x); die;
 		//
-	    //$this->set('products', $this->paginate('Product',array()));	
+	    //$this->set('products', $this->paginate('Eshopdaquyproduct',array()));	
 		//pr($x);
-		$this->paginate = array('conditions'=>$x,'limit' => '12','order' => 'Product.id DESC');
-		$this->set('product', $this->paginate('Product',array()));	
-		//$ketquatimkiem=$this->Product->find('all',array('conditions'=>$x,'order' => 'Product.id DESC','limit'=>3));	
+		$this->loadModelNew("Eshopdaquyproduct");
+		$this->paginate = array('conditions'=>$x,'limit' => '12','order' => 'Eshopdaquyproduct.id DESC');
+		$this->set('product', $this->paginate('Eshopdaquyproduct',array()));	
+		//$ketquatimkiem=$this->Eshopdaquyproduct->find('all',array('conditions'=>$x,'order' => 'Eshopdaquyproduct.id DESC','limit'=>3));	
 		//pr($ketquatimkiem); die;
 		//$this->set('products',$category);
-		 $this->loadModel("Catproduct");
-        $list_cat = $this->Catproduct->generatetreelist(null,null,null," _ ");
+		$this->loadModelNew("Eshopdaquycatproduct");
+        $list_cat = $this->Eshopdaquycatproduct->generatetreelist(null,null,null," _ ");
         $this->set(compact('list_cat'));
 		
 	}
 	// sua tin da dang
 	function edit($id = null) {
 		$this->account();
+		$this->loadModelNew("Eshopdaquyproduct");
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Không tồn tại ', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			$data['Product'] = $this->data['Product'];
-			$data['Product']['images']=$_POST['userfile'];
-			$data['Product']['images1']=$_POST['userfile1'];
-			$data['Product']['images2']=$_POST['userfile2'];
-			$data['Product']['images3']=$_POST['userfile3'];
-			$data['Product']['images4']=$_POST['userfile4'];
-			if ($this->Product->save($data['Product'])) {
+			$data['Eshopdaquyproduct'] = $this->data['Eshopdaquyproduct'];
+			$data['Eshopdaquyproduct']['images']=$_POST['userfile'];
+			$data['Eshopdaquyproduct']['images1']=$_POST['userfile1'];
+			$data['Eshopdaquyproduct']['images2']=$_POST['userfile2'];
+			$data['Eshopdaquyproduct']['images3']=$_POST['userfile3'];
+			$data['Eshopdaquyproduct']['images4']=$_POST['userfile4'];
+			if ($this->Eshopdaquyproduct->save($data['Eshopdaquyproduct'])) {
 				$this->Session->setFlash(__('Bài viết sửa thành công', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -152,15 +190,16 @@ class ProductsController extends AppController {
 			}
 		}
 		if (empty($this->data)) {
-			$this->data = $this->Product->read(null, $id);
+			$this->data = $this->Eshopdaquyproduct->read(null, $id);
 		}
-		$this->loadModel("Catproduct");
-        $list_cat = $this->Catproduct->generatetreelist(null,null,null," _ ");
+		$this->loadModelNew("Eshopdaquycatproduct");
+        $list_cat = $this->Eshopdaquycatproduct->generatetreelist(null,null,null," _ ");
         $this->set(compact('list_cat'));
-		$this->set('edit',$this->Product->findById($id));
+		$this->set('edit',$this->Eshopdaquyproduct->findById($id));
 	}
 	function processing() {
 		$this->account();
+		$this->loadModelNew("Eshopdaquyproduct");
 		if(isset($_POST['dropdown']))
 			$select=$_POST['dropdown'];
 			
@@ -169,27 +208,27 @@ class ProductsController extends AppController {
 			
 			switch ($select){
 				case 'active':
-				$products=($this->Product->find('all'));
+				$products=($this->Eshopdaquyproduct->find('all'));
 				foreach($products as $product) {
-					$product['Product']['status']=1;
-					$this->Product->save($product['Product']);					
+					$product['Eshopdaquyproduct']['status']=1;
+					$this->Eshopdaquyproduct->save($product['Eshopdaquyproduct']);					
 				}
 				//vong lap active
 				break;
 				case 'notactive':	
 				//vong lap huy
-				$products=($this->Product->find('all'));
+				$products=($this->Eshopdaquyproduct->find('all'));
 				foreach($products as $product) {
-					$new['Product']['status']=0;
-					$this->Product->save($product['Product']);					
+					$new['Eshopdaquyproduct']['status']=0;
+					$this->Eshopdaquyproduct->save($product['Eshopdaquyproduct']);					
 				}
 				break;
 				case 'delete':
-				$products=($this->Product->find('all'));
+				$products=($this->Eshopdaquyproduct->find('all'));
 				foreach($products as $product) {
-					$this->Product->delete($product['Product']['id']);					
+					$this->Eshopdaquyproduct->delete($product['Eshopdaquyproduct']['id']);					
 				}
-				if($this->Product->find('count')<1)
+				if($this->Eshopdaquyproduct->find('count')<1)
 					$this->redirect(array('action' => 'index'));	
 				 else
 				 {
@@ -205,33 +244,33 @@ class ProductsController extends AppController {
 			
 			switch ($select){
 				case 'active':
-				$products=($this->Product->find('all'));
+				$products=($this->Eshopdaquyproduct->find('all'));
 				foreach($products as $product) {
-					if(isset($_POST[$product['Product']['id']]))
+					if(isset($_POST[$product['Eshopdaquyproduct']['id']]))
 					{
-						$product['Product']['status']=1;
-						$this->Product->save($product['Product']);
+						$product['Eshopdaquyproduct']['status']=1;
+						$this->Eshopdaquyproduct->save($product['Eshopdaquyproduct']);
 					}
 				}
 				//vong lap active
 				break;
 				case 'notactive':	
 				//vong lap huy
-				$products=($this->Product->find('all'));
+				$products=($this->Eshopdaquyproduct->find('all'));
 				foreach($products as $product) {
-					if(isset($_POST[$product['Product']['id']]))
+					if(isset($_POST[$product['Eshopdaquyproduct']['id']]))
 					{
-						$new['Product']['status']=0;
-						$this->Product->save($product['Product']);
+						$new['Eshopdaquyproduct']['status']=0;
+						$this->Eshopdaquyproduct->save($product['Eshopdaquyproduct']);
 					}
 				}
 				break;
 				case 'delete':
-				$products=($this->Product->find('all'));
+				$products=($this->Eshopdaquyproduct->find('all'));
 				foreach($products as $product) {
-					if(isset($_POST[$product['Product']['id']]))
+					if(isset($_POST[$product['Eshopdaquyproduct']['id']]))
 					{
-					    $this->Product->delete($product['Product']['id']);
+					    $this->Eshopdaquyproduct->delete($product['Eshopdaquyproduct']['id']);
 						$this->redirect(array('action'=>'index'));
 					}
 										
@@ -249,12 +288,13 @@ class ProductsController extends AppController {
 	}
 	// Xoa cac dang
 	function delete($id = null) {
-		$this->account();		
+		$this->account();
+        $this->loadModelNew("Eshopdaquyproduct");		
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại bài viết này', true));
 			//$this->redirect(array('action'=>'index'));
 		}
-		if ($this->Product->delete($id)) {
+		if ($this->Eshopdaquyproduct->delete($id)) {
 			$this->Session->setFlash(__('Xóa bài viết thành công', true));
 			$this->redirect(array('action'=>'index'));
 		}
@@ -262,7 +302,8 @@ class ProductsController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	function _find_list() {
-		return $this->Catproduct->generatetreelist(null, null, null, '__');
+	    $this->loadModelNew("Eshopdaquyproduct");
+		return $this->Eshopdaquycatproduct->generatetreelist(null, null, null, '__');
 	}
 	//check ton tai tai khoan
 	function account(){

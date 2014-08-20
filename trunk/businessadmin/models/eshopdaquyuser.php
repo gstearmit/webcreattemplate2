@@ -1,6 +1,6 @@
 <?php
-class EshopdaquyUser extends AppModel {
-   var $name = 'EshopdaquyUser';
+class Eshopdaquyuser extends AppModel {
+   var $name = 'Eshopdaquyuser';
    var $displayField = 'name';
    var $useTable = 'eshop_users';
    var $validate = array(
