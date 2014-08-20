@@ -75,7 +75,7 @@ class LoginController extends AppController {
 			
 			
 			if($userpass!=$this->encryptIt($data['Shop']['userpass'])){
-				echo "9999999999999999999999999";
+				
 					echo "<script>alert('".json_encode('Incorrect password !')."');</script>";
 					echo "<script>location.href='".DOMAINADESTORE."'</script>";
 					pr($userpass);die();

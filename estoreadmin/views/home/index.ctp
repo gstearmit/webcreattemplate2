@@ -12,9 +12,8 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 </script>
 <?php echo $this->Html->css("layout2");?>
 <div>
-<h3>Chọn Ngôn ngữ </h3>
-    <li id="languediv"><a href="<?php echo DOMAINAD;?>home?language=vie"><img id="langgue" align="absmiddle" src="<?php echo DOMAIN ?>images/vietnam.gif" />Tiếng Việt</a></li>
-	<li id="languediv"><a href="<?php echo DOMAINAD; ?>home?language=eng"><img  id="langgue" align="absmiddle" src="<?php echo DOMAIN ?>images/english.gif" />English</a></li>
+
+    
 </div>
 <div style="height:20px;"></div>
 
@@ -22,11 +21,11 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 <div class="content-box"><!-- Start Content Box -->
     <div class="content-box-header">
         
-        <h3>Nội dung</h3>
+        <h3><?php __('Content')?></h3>
         
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Danh sách tin</a></li> <!-- href must be unique and match the id of target div -->
-            <li><a href="#tab2">Thêm mới tin</a></li>
+            <li><a href="#tab1" class="default-tab"><?php __('News_list')?></a></li> <!-- href must be unique and match the id of target div -->
+            <li><a href="#tab2"><?php __('Add_new')?></a></li>
         </ul>
         
         <div class="clear"></div>
