@@ -1,313 +1,219 @@
+msgid "hello"
+msgstr "Xin chào"
+
+msgid "home_page"
+msgstr "Xem trang chủ"
+
 msgid "home"
 msgstr "Trang chủ"
 
-msgid "about"
-msgstr "Giới thiệu"
+msgid "Content"
+msgstr "Nội dung"
 
 msgid "product"
 msgstr "Sản phẩm"
 
-msgid "project"
-msgstr "Dự án"
+msgid "Category_product"
+msgstr "Danh mục sản phẩm"
 
-msgid "agents"
-msgstr "Đại lý"
+msgid "Add_Category"
+msgstr "Thêm danh mục"
 
-msgid "news"
+msgid "Product_list"
+msgstr "Danh sách sản phẩm"
+
+msgid "Add_product"
+msgstr "Thêm sản phẩm mới"
+
+msgid "Search"
+msgstr "Tìm kiếm"
+
+msgid "Help"
+msgstr "Trợ giúp"
+
+msgid "Close"
+msgstr "Đóng"
+
+msgid "No."
+msgstr "STT"
+
+msgid "Big_category"
+msgstr "Danh mục cha"
+
+msgid "Tackle"
+msgstr "Xử lý"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Select"
+msgstr "Lựa chọn"
+
+msgid "Active"
+msgstr "Active"
+
+msgid "Cancel_Active"
+msgstr "Hủy Active"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Implement"
+msgstr "Thực hiện"
+
+msgid "Manage_products_category"
+msgstr "Quản lý danh mục sản phẩm"
+
+msgid "Edit_category"
+msgstr "Sửa danh mục"
+
+msgid "Save"
+msgstr "Lưu"
+
+msgid "Reset"
+msgstr "Nhập lại"
+
+msgid "Cancel"
+msgstr "Hủy"
+
+msgid "Category"
+msgstr "Danh mục"
+
+msgid "Category_name"
+msgstr "Tên danh mục"
+
+msgid "Add_category"
+msgstr "Thêm danh mục"
+
+msgid "Static_linking"
+msgstr "Liên kết tĩnh"
+
+msgid "Image"
+msgstr "Hình ảnh"
+
+msgid "STT"
+msgstr "Số thứ tự"
+
+msgid "Status"
+msgstr "Trạng thái"
+
+msgid "Unactive"
+msgstr "Chưa Active"
+
+msgid "Activated"
+msgstr "Đã active"
+
+msgid "Product_Manage"
+msgstr "Quản lý sản phẩm"
+
+msgid "Edit"
+msgstr "Sửa"
+
+msgid "Edit_product"
+msgstr "Sửa sản phẩm"
+
+msgid "Product_name"
+msgstr "Tên sản phẩm"
+
+msgid "In_category"
+msgstr "Thuộc danh mục"
+
+msgid "Product_code"
+msgstr "Mã sản phẩm"
+
+msgid "Producer"
+msgstr "Hãng sản xuất"
+
+msgid "Product_price"
+msgstr "Giá sản phẩm"
+
+msgid "Price_level"
+msgstr "Thuộc khoảng giá"
+
+msgid "Old_image"
+msgstr "Hình ảnh cũ"
+
+msgid "Product_image"
+msgstr "Ảnh sản phẩm"
+
+msgid "Product_description"
+msgstr "Mô tả sản phẩm"
+
+msgid "Producers_list"
+msgstr "Danh sách hãng sản xuất"
+
+msgid "Add_new"
+msgstr "Thêm mới"
+
+msgid "Orders"
+msgstr "Đơn hàng"
+
+msgid "News"
 msgstr "Tin tức"
 
-msgid "thuvienanh"
-msgstr "Thư viện ảnh"
+msgid "News_category"
+msgstr "Danh mục tin tức"
 
-msgid "contact"
-msgstr "Liên hệ"
+msgid "Add_category_news"
+msgstr "Thêm mới danh mục tin tức"
 
-msgid "partner"
+msgid "News_list"
+msgstr "Danh sách tin tức"
+
+msgid "Add_news"
+msgstr "Thêm mới tin"
+
+msgid "Comments_management"
+msgstr "Quản lý góp ý"
+
+msgid "Comments_list"
+msgstr "Danh sách góp ý"
+
+msgid "Ad_management"
+msgstr "Quản lý quảng cáo"
+
+msgid "Ad_list"
+msgstr "Danh sách quảng cáo"
+
+
+msgid "Slideshow_management"
+msgstr "Quản lý Slideshow"
+
+msgid "Slide_image"
+msgstr "Ảnh slide"
+
+msgid "Video_management"
+msgstr "Quản lý video"
+
+msgid "Video_list"
+msgstr "Danh sách video"
+
+msgid "Add_video"
+msgstr "Thêm video"
+
+msgid "Account"
+msgstr "Tài khoản"
+
+msgid "Creat_account"
+msgstr "Tạo tài khoản"
+
+msgid "Partners"
 msgstr "Đối tác"
 
-msgid "congtrinhtb"
-msgstr "Công trình tiêu biểu"
+msgid "Partners_list"
+msgstr "Danh sách đối tác"
 
-msgid "support"
-msgstr "Hỗ trợ trực tuyến"
+msgid "Link_website"
+msgstr "Liên kết website"
 
-msgid "support21"
-msgstr "LIÊN HỆ"
+msgid "Link_list"
+msgstr "Danh sách link"
 
-msgid "duantieubieu"
-msgstr "Dự án tiêu biểu"
+msgid "Hotline"
+msgstr "Hotline"
 
-msgid "counter"
-msgstr "Thống kê truy cập"
+msgid "Hotline_change"
+msgstr "Thay đổi hotline"
 
-msgid "online_day"
-msgstr "Truy cập trong ngày"
-
-msgid "online_all"
-msgstr "Tổng số truy cập"
-
-msgid "sptieubieu"
-msgstr "Sản phẩm tiêu biểu"
-
-msgid "readmore"
-msgstr "Chi tiết"
-
-msgid "weather"
-msgstr "Thông tin hữu ích"
-
-msgid "store"
-msgstr "GIAN HÀNG"
-
-msgid "consumer"
-msgstr "TIÊU DÙNG"
-
-msgid "tour"
-msgstr "DU LỊCH"
-
-msgid "office"
-msgstr "Trụ sở"
-
-msgid "Trading_Office"
-msgstr "Văn phòng giao dịch"
-
-msgid "telephone"
-msgstr "Điện thoại"
-
-
-msgid "signin"
-msgstr "Đăng nhập"
-
-msgid "register"
-msgstr "Đăng kí"
-
-msgid "langue"
-msgstr "Tiếng việt"
-
-msgid "ecommerce"
-msgstr "E-Store"
-
-msgid "Businesswebsite"
-msgstr "Website kinh doanh"
-
-msgid "Personalwebsite"
-msgstr "Website cá nhân"
-
-msgid "sologan"
-msgstr "Tạo trang web miễn phí!"
-
-
-msgid "registrationWizard"
-msgstr "Hướng dẫn đăng ký"
-
-msgid "Step1"
-msgstr "Bước 1"
-
-msgid "Enterprojectdetails"
-msgstr "Thông tin về dự án"
-
-
-msgid "Step2"
-msgstr "Bước 2"
-
-msgid "Chooseyourtemplate"
-msgstr "Chọn mẫu giao diện"
-
-msgid "Step3"
-msgstr "Bước 3"
-
-msgid "Finishtheregistration"
-msgstr "Kết thúc đăng ký"
-
-msgid "Selectawebsitetype"
-msgstr "Chọn loại website"
-
-msgid "Personalwebsite"
-msgstr "Cá nhân"
-
-msgid "Personalwebsite_detail"
-msgstr "Thích hợp cho website cá nhân , blog và chia sẻ hình ảnh."
-
-
-
-msgid "Businesswebsite"
-msgstr "Doanh Nghiệp"
-
-msgid "Businesswebsite_detail"
-msgstr "Với các mẫu giao diện chuyên nghiệp cho trang web của doanh nghiệp."
-
-
-msgid "Eshop"
-msgstr "E-shop"
-
-msgid "Eshop_detail"
-msgstr "Thích hợp với việc bán sản phẩm/dịch vụ trực tuyến. Nhanh chóng và dễ dàng. "
-
-msgid "Continue"
-msgstr "Tiếp tục"
-
-msgid "Websitename"
-msgstr "Tên website"
-
-msgid "Websitename_click"
-msgstr "Tên của dự án nên nêu ra được mục tiêu của dự án. Tên này cũng sẽ xuất hiện trên khắp các trang web.."
-
-msgid "Slogan"
-msgstr "Triết lý kinh Doanh"
-
-msgid "Slogan_click"
-msgstr "Bạn có thể tạo khẩu hiệu cho trang web của bạn."
-
-msgid "Selectyourwebsitetemplate"
-msgstr "Chọn mẫu giao diện của bạn"
-
-
-msgid "step1WizardFormErrorText"
-msgstr "Form này có lỗi. Xin vui lòng điền các trường  được đánh dấu và gửi lại."
-
-msgid "eg_websitename"
-msgstr "Ví dụ: Studio tóc Anh Phương"
-
-msgid "Language"
-msgstr "Ngôn ngữ"
-
-msgid "Companyname"
-msgstr "Tên công ty"
-
-msgid "Address"
-msgstr "Địa Chỉ"
-
-msgid "City"
-msgstr "Thành Phố"
-
-msgid "ZIP"
-msgstr "Số bưu điện"
-
-msgid "Country"
-msgstr "Quốc gia"
-
-msgid "Phone"
-msgstr "Số điện thoại"
-
-
-msgid "VAT_number"
-msgstr "Mã số đăng ký kinh doanh"
-
-msgid "Currency"
-msgstr "Tiền tệ"
-
-msgid "VAT_payer"
-msgstr "Đối tượng nộp thuế VAT"
-
-msgid "Allrightsreserved"
-msgstr "&copy; 2014 Bản quyền Công ty Alatca."
-
-msgid "More_information"
-msgstr "Đọc thêm"
-
-msgid "slogan"
-msgstr "Tạo một trang web miễn phí dễ dàng!"
-
-msgid "Website_name"
-msgstr "Tên website"
-
-msgid "Email_address"
-msgstr "Địa chỉ Email"
-
-msgid "Password"
-msgstr "Mật khẩu"
-
-msgid "Sing_up"
-msgstr "Đăng ký"
-
-msgid "your_site"
-msgstr "Và thiết lập"
-
-msgid "your_website"
-msgstr "Đây là nơi để nhập tên trag web của bạn"
-
-msgid "your_mail"
-msgstr "Địa chỉ email của bạn sẽ được dùng cho phần đăng nhập. đừng lo lắng chúng tôi không spam đâu"
-
-msgid "your_password"
-msgstr "Mật khẩu phải có ít nhất sáu ký tự. Chúng tôi đề nghị có sự kết hợp của chữ và số. "
-
-msgid "Company"
-msgstr "Công ty"
-
-msgid "About_us"
-msgstr "Về chúng tôi"
-
-msgid "Contact_us"
-msgstr "Liên hệ"
-
-msgid "Our_team"
-msgstr "Nhóm chúng tôi"
-
-msgid "Career"
-msgstr "Sự nghiệp"
-
-msgid "Features"
-msgstr "Các tính năng"
-
-msgid "Pricing"
-msgstr "Giá"
-
-msgid "FAQ"
-msgstr "Hỏi đáp"
-
-msgid "User_Testimonials"
-msgstr "Xác nhận người dùng"
-
-msgid "Service"
-msgstr "Điều khoản Dịch vụ"
-
-msgid "Privacy_Policy"
-msgstr "Chính sách bảo mật"
-
-msgid "Affiliate"
-msgstr "Liên kết"
-
-msgid "alatca"
-msgstr "Làm thế nào để sử dụng Alatca?"
-
-msgid "Creat"
-msgstr "Tạo một trang web miễn phí"
-
-msgid "Make"
-msgstr "Làm trang web hoặc blog của riêng bạn. "
-
-msgid "Creat_business"
-msgstr "Tạo một trang web doanh nghiệp. ."
-
-msgid "Create_store"
-msgstr "Tạo ra một cửa hàng trực tuyến."
-
-msgid "Languages"
-msgstr "Ngôn ngữ"
-
-msgid "slogan_personal"
-msgstr "Tạo website cá nhân miễn phí!"
-
-msgid "slogan_personals"
-msgstr "Lý tưởng đối với các trang web cá nhân, blog và thư viện ảnh"
-
-msgid "slogan_business"
-msgstr "Tạo một trang web cho doanh nghiệp của bạn dễ dàng"
-
-msgid "slogan_businesss"
-msgstr "Hơn 15.000.000 người dùng đã tin tưởng chúng tôi"
-
-msgid "slogan_Estore"
-msgstr "Tạo ra một cửa hàng trực tuyến!"
-
-msgid "slogan_Estores"
-msgstr "Bắt đầu bán hàng qua Internet. Nhanh chóng và dễ dàng."
-
-msgid "Please_enter_your_email"
-msgstr "Xin vui lòng nhập Email đăng nhập."
-
-msgid "Please_enter_a_password"
-msgstr "Xin vui lòng nhập mật khẩu."
-
-msgid "Email_is_not_true_Please_re_enter!"
-msgstr "Tên đăng nhập không đúng. Xin vui lòng nhập lại !"
+msgid "Website_configuration"
+msgstr "Cấu hình website"
