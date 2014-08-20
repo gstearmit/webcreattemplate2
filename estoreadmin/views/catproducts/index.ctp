@@ -102,9 +102,10 @@
                         <td><input type="checkbox" name="<?php echo $value['Catproduct']['id'] ?>" /></td>
                         <td><?php $j=$key+1; echo $j;?></td>
                         <td><a href="<?php echo DOMAINADESTORE?>catproducts/edit/<?php echo $value['Catproduct']['id'] ?>" title="Edit">
-							<?php 
-							
-								echo $value['Catproduct']['name'];?>
+							<?php //echo $value['Catproduct']['name'];?>
+							  <?php if(is_array($value['Catproduct']) and !empty($value['Catproduct'])) { echo $value['Catproduct']['name'];}?>
+							 <?php if(is_array($value['Catproduct']) and empty($value['Catproduct'])) { echo "Null";}?>
+                       
                             </a>
                         </td>
                          <td>
