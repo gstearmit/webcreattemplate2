@@ -3,6 +3,7 @@ class Category extends AppModel {
     var $name = 'Category';
     var $displayField = 'name';
     var $actsAs = array('Tree');
+    var $useTable = 'estore_categories';
 	
 	var $validate = array(
 		'id' => array(

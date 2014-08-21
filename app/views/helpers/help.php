@@ -3,7 +3,64 @@
 // company : VTM Group
 // Version : 1.0
 class HelpHelper extends AppHelper {
-	// return hot news
+  function getestoredq($y=array(),$x=array('url'=>'news/view','image'=>false,'introduction'=>false,'parentClass'=>NULL,'childClass'=>NULL,'type'=>false,'data'=>false))
+	{
+		if(isset($x['type'])&&$x['type']==true)
+		{ $parent='<div ';
+		$child='<div ';
+		$endparent=$endchild='</div>';
+		}
+		else
+		{
+			$parent='<ul ';
+			$child='<li ';
+			$endparent='</ul>';
+			$endchild='</li>';
+		}
+	
+		if(isset($x['parentClass']))// them class
+			$parent.='class="'.$x['parentClass'].'">';
+		else
+			$parent.='>';
+		$child.=(isset($x['childClass']))? 'class="'.$x['childClass'].'">' : '>'; //them class
+			
+		$data=$parent;
+		if(isset($x['data'])&&$x['data']==true)	{
+			foreach($y as $y){
+				$data.=$child;
+				if(isset($x['image'])&&$x['image']==true)
+				if(isset($x['url']))
+					$data.='<a href="'.DOMAIN.$x['url'].'/'.$y['Estore_products']['id'].'"><img src="'.DOMAINADBUSINISS.$y['Estore_products']['images'].'"></a>';
+				else
+					$data.='<a href="'.DOMAIN.'products/view/'.$y['Estore_products']['id'].'"><img src="'.DOMAINADBUSINISS.$y['Estore_products']['images'].'"></a>';
+				if(isset($x['url']))
+					$data.='<a href="'.DOMAIN.$x['url'].'/'.$y['Estore_products']['id'].'"><span>'.$y['Estore_products']['title'].'</span></a>';
+				else
+					$data.='<a href="'.DOMAIN.'products/view/'.$y['Estore_products']['id'].'"><span>'.$y['Estore_products']['title'].'</span></a>';
+				if(isset($x['introduction'])&&$x['introduction']==true)
+					$data.='<div>'.$y['Estore_products']['introduction'].'</div>';
+				$data.=$endchild;
+			}
+		} else{
+			foreach($y as $y){
+				$data.=$child;
+				if(isset($x['image'])&&$x['image']==true)
+				if(isset($x['url']))
+					$data.='<a href="'.DOMAIN.$x['url'].'/'.$y['Estore_news']['id'].'"><img src="'.DOMAINADBUSINISS.$y['Estore_news']['images'].'"></a>';
+				else
+					$data.='<a href="'.DOMAIN.'news/view/'.$y['Estore_news']['id'].'"><img src="'.DOMAINADBUSINISS.$y['Estore_news']['images'].'"></a>';
+				if(isset($x['url']))
+					$data.='<a href="'.DOMAIN.$x['url'].'/'.$y['Estore_news']['id'].'"><span>'.$y['Estore_news']['title'].'</span></a>';
+				else
+					$data.='<a href="'.DOMAIN.'news/view/'.$y['Estore_news']['id'].'"><span>'.$y['Estore_news']['title'].'</span></a>';
+				if(isset($x['introduction'])&&$x['introduction']==true)
+					$data.='<div>'.$y['Estore_news']['introduction'].'</div>';
+				$data.=$endchild;
+			}
+		}
+		$data.=$endparent;
+		return $data;
+	}
 	//tin tuc da quy
 	function getdaquy($y=array(),$x=array('url'=>'news/view','image'=>false,'introduction'=>false,'parentClass'=>NULL,'childClass'=>NULL,'type'=>false,'data'=>false))
 	{
