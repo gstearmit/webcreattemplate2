@@ -1,7 +1,7 @@
 ﻿<?php
-class DaquyController extends AppController {
-	var $name = 'Daquy';
-	var $shopname = 'daquy';
+class EstoredaquyController extends AppController {
+	var $name = 'Estoredaquy';
+	var $shopname = 'estoredaquy';
 	var $components = array('Email');
 	var $uses = array (
 			'Shop',
@@ -27,7 +27,7 @@ class DaquyController extends AppController {
 		
 		//++++++++++++connection data +++++++++++++++++
 		$nameeshop = $this->shopname;
-		//$shop_id = 275; //$this->Session->read("id");
+		//$shop_id = 276; //$this->Session->read("id");
 		$shoparr = $this->Shop->find ( 'all', array (
 				'conditions' => array (
 						//'Shop.id' => $shop_id,
