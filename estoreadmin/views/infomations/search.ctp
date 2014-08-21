@@ -1,4 +1,17 @@
-
+<?php 
+$back='Về trước';
+$next='Tiếp theo';
+if(isset($_GET['language'])){
+	if($_GET['language']=='eng'){
+		$back='Back';
+		$next='Next';
+	}else {
+		$back='Về trước';
+		$next='Tiếp theo';
+	}
+	
+}
+?>
 <script>
 function confirmDelete(delUrl)
 {
@@ -11,22 +24,22 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
  <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'infomations/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
      <fieldset class="search">
         
-        <legend>Tìm kiếm</legend>
+        <legend><?php __('Search')?></legend>
         <div class="field">
-            <label for="field2c">Tiêu đề</label>
+            <label for="field2c"><?php __('Title')?></label>
             <input type="text" id="field2c" name="name_search" class="text-search">
         </div>
-        <p style="text-align:center;"> <input type="submit" name="" value="Tìm kiếm" class="button" /></p>
+        <p style="text-align:center;"> <input type="submit" name="" value="<?php __('Search')?>" class="button" /></p>
        
     </fieldset>
      <?php echo $form->end(); ?>
 <div class="content-box">
     <div class="content-box-header">
         
-        <h3>Danh sách đơn hàng</h3>
+        <h3><?php __('Orders_list')?></h3>
         
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Danh sách tin</a></li> 
+            <li><a href="#tab1" class="default-tab"><?php __('Orders_list')?></a></li> 
             <li><a href="#tab2"></a></li>
         </ul>
         
@@ -41,11 +54,11 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                 <thead>
                     <tr>
                        <th><input class="check-all" name="checkall" type="checkbox" /></th>
-                       <th>STT</th>
-                       <th>Tên khách hàng</th>
-                       <th>Điện thoại</th>
-                       <th>Địa chỉ</th>
-                       <th>Xử lý</th>
+                       <th><?php __('No.')?></th>
+                       <th><?php __('Custommer_name')?></th>
+                       <th><?php __('Telephone_number')?></th>
+                       <th><?php __('Address')?></th>
+                       <th><?php __('Tackle')?></th>
                     </tr>
                 </thead>
              
@@ -54,22 +67,21 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                         <td colspan="6">
                            <div class="bulk-actions align-left">
                                 <select name="dropdown">
-                                    <option value="option1">Lựa chọn</option>
-
-                                    <option value="delete">Delete</option>
+                                    <option value="option1"><?php __('Select')?></option>
+                                    <option value="delete"><?php __('Delete')?></option>
                                 </select>
-                                <a class="button" href="#" onclick="document.form1.submit();">Thực hiện</a>
+                                <a class="button" href="#" onclick="document.form1.submit();"><?php __('Implement')?></a>
                             </div>
                              <div class="pagination">
                                 <a href="#" title="First Page">
                                    <?php
                                         $paginator->options(array('url' => $this->passedArgs));
-                                       echo "&laquo "; echo $paginator->prev('Về trước');
+                                       echo "&laquo "; echo $paginator->prev($back);
 							       ?> 
                                 </a>
 							     <?php 
 								   echo $paginator->numbers();
-                                   echo $paginator->next('Tiếp theo'); echo "&raquo";
+                                   echo $paginator->next($next); echo "&raquo";
                                 ?>
                               </div>
                             </div> 

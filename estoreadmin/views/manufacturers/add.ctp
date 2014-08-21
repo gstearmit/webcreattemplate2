@@ -1,11 +1,25 @@
-﻿<div class="content-box">
+﻿<?php 
+$Active ='Đã Active';
+$not_Active ='Chưa Active';
+if(isset($_GET['language'])){
+	if($_GET['language']=='eng'){
+		$Active ='Active';
+		$not_Active ='Not Active';
+	}else {
+		$Active ='Đã Active';
+		$not_Active ='Chưa Active';
+	}
+	
+}
+?>
+<div class="content-box">
     <div class="content-box-header">
         
-        <h3>Thêm mới </h3>
+        <h3><?php __('Add_new')?></h3>
         
         <ul class="content-box-tabs">
             <li><a href="#tab1"></a></li> 
-            <li><a href="#tab2" class="default-tab">Thêm mới</a></li>
+            <li><a href="#tab2" class="default-tab"><?php __('Add_new')?></a></li>
         </ul>
         
         <div class="clear"></div>
@@ -22,7 +36,7 @@
                 
                 <fieldset> 
                     <p>
-                        <label>Tên Hãng</label>
+                        <label><?php __('Producer')?></label>
                         <?php echo $form->input('Manufacturer.name',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
                     </p>
                      <!--<p>
@@ -33,8 +47,8 @@
                     </p>-->
 
                     <p>
-                        <label>Trạng thái</label>
-                         <?php echo $form->radio('Manufacturer.status', array(0 => 'Chưa Active', 1 => 'Đã Active'), array('value' => '1','legend'=>'')); ?>
+                        <label><?php __('Status')?></label>
+                         <?php echo $form->radio('Manufacturer.status', array(0 => $not_Active, 1 => $Active), array('value' => '1','legend'=>'')); ?>
                     </p>
                     <p>
                         <input class="button" type="submit" value="Thêm mới" />
