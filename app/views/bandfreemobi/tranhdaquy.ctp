@@ -11,7 +11,7 @@
       <li>
         <h1>
           <a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Estore_products']['id'];?>">
-           <div style=" overflow:hidden; width:160px; height:128px; background-image:url(<?php echo DOMAINADBUSINISS?>/timthumb.php?src=<?php echo $listproduct['Estore_products']['images'];?>&amp;h=128&amp;w=160&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img">             
+           <div style=" overflow:hidden; width:160px; height:128px; background-image:url(<?php echo DOMAINADESTORE?>/timthumb.php?src=<?php echo $listproduct['Estore_products']['images'];?>&amp;h=128&amp;w=160&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img">             
            </div> 
         </h1>
         <h2><a style="color:#0266A8;" href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Estore_products']['id'];?>"><?php echo $listproduct['Estore_products']['title'];?></a></h2>

@@ -16,8 +16,8 @@
     
                 <div class="bg-center-ha-chi-tiet">
                     <div class="clearfix">
-                        <a href="<?php echo DOMAINADBUSINISS;?><?php echo $views['Estore_products']['images']?>" class="jqzoom" rel='gal1'  title="triumph" >
-                            <img style="width:320px;" src="<?php echo DOMAINADBUSINISS;?><?php echo $views['Estore_products']['images']?>"  title="triumph"/>
+                        <a href="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images']?>" class="jqzoom" rel='gal1'  title="triumph" >
+                            <img style="width:320px;" src="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images']?>"  title="triumph"/>
                         </a>
                     </div>
                  </div>
@@ -28,23 +28,23 @@
                         <ul id="thumblist" class="clearfix" >
                         <?php if($views['Estore_products']['images']){?>
                             <li>
-                               <a class="zoomThumbActive" href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo DOMAINADBUSINISS;?><?php echo $views['Estore_products']['images']?>',largeimage: '<?php echo DOMAINADBUSINISS;?><?php echo $views['Estore_products']['images']?>'}"><img style="width:50px; height:40px;" src='<?php echo DOMAINADBUSINISS;?><?php echo $views['Estore_products']['images']?>'></a>
+                               <a class="zoomThumbActive" href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images']?>',largeimage: '<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images']?>'}"><img style="width:50px; height:40px;" src='<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images']?>'></a>
                             </li>
                             <?php }if($views['Estore_products']['images1']){?>
                             <li>
-                               <a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo DOMAINADBUSINISS;?><?php echo $views['Estore_products']['images1']?>',largeimage: '<?php echo DOMAINADBUSINISS;?><?php echo $views['Estore_products']['images1']?>'}"><img style="width:50px; height:40px;" src='<?php echo DOMAINADBUSINISS;?><?php echo $views['Estore_products']['images1']?>'></a>
+                               <a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images1']?>',largeimage: '<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images1']?>'}"><img style="width:50px; height:40px;" src='<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images1']?>'></a>
                             </li>
                             <?php }if($views['Estore_products']['images2']){?>
                             <li>
-                               <a  href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo DOMAINADBUSINISS;?><?php echo $views['Estore_products']['images2']?>',largeimage: '<?php echo DOMAINADBUSINISS;?><?php echo $views['Estore_products']['images2']?>'}"><img style="width:50px; height:40px;" src='<?php echo DOMAINADBUSINISS;?><?php echo $views['Estore_products']['images2']?>'></a>
+                               <a  href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images2']?>',largeimage: '<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images2']?>'}"><img style="width:50px; height:40px;" src='<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images2']?>'></a>
                             </li>
                             <?php }if($views['Estore_products']['images3']){?>
                             <li>
-                               <a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo DOMAINADBUSINISS;?><?php echo $views['Estore_products']['images3']?>',largeimage: '<?php echo DOMAINADBUSINISS;?><?php echo $views['Estore_products']['images3']?>'}"><img style="width:50px; height:40px;" src='<?php echo DOMAINADBUSINISS;?><?php echo $views['Estore_products']['images3']?>'></a>
+                               <a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images3']?>',largeimage: '<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images3']?>'}"><img style="width:50px; height:40px;" src='<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images3']?>'></a>
                             </li>
                             <?php }if($views['Estore_products']['images4']){?>
                             <li>
-                              <a  href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo DOMAINADBUSINISS;?><?php echo $views['Estore_products']['images4']?>',largeimage: '<?php echo DOMAINADBUSINISS;?><?php echo $views['Estore_products']['images4']?>'}"><img style="width:50px; height:40px;" src='<?php echo DOMAINADBUSINISS;?><?php echo $views['Estore_products']['images4']?>'></a>
+                              <a  href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: '<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images4']?>',largeimage: '<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images4']?>'}"><img style="width:50px; height:40px;" src='<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images4']?>'></a>
                             </li>
                             <?php }?>
                         </ul>
@@ -156,7 +156,7 @@
           <li>
         <h1>
           <a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Estore_products']['id'];?>" data-tooltip="sticky<?php echo $i; ?>">
-           <div style=" overflow:hidden; width:160px; height:128px; background-image:url(<?php echo DOMAINADBUSINISS?>/timthumb.php?src=<?php echo $listproduct['Estore_products']['images'];?>&amp;h=128&amp;w=160&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img">             
+           <div style=" overflow:hidden; width:160px; height:128px; background-image:url(<?php echo DOMAINADESTORE?>/timthumb.php?src=<?php echo $listproduct['Estore_products']['images'];?>&amp;h=128&amp;w=160&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img">             
            </div> 
         </h1>
         <h2><a style="color:#0266A8;" href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Estore_products']['id'];?>"><?php echo $listproduct['Estore_products']['title'];?></a></h2>
@@ -176,7 +176,7 @@
 foreach($a as $listproduct) {
 ?>
 <div id="sticky<?php echo $i; ?>" class="atip" style=" display: block;">	
-<img src="<?php echo DOMAINADBUSINISS; ?><?php echo $listproduct['Estore_products']['images']; ?>">
+<img src="<?php echo DOMAINADESTORE; ?><?php echo $listproduct['Estore_products']['images']; ?>">
 </div>
 <?php $i++ ?>
 <?php } ?>

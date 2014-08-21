@@ -46,7 +46,7 @@
 
              <div class="boder-img"><a href="<?php echo DOMAIN;?>chi-tiet-san-pham/<?php echo $listproduct['Product']['id'];?>/<?php echo $listproduct['Product']['alias'];?>">
 
-             <div style=" overflow:hidden; width:156px; height:107px; background-image:url(<?php echo DOMAINADBUSINISS?>/timthumb.php?src=<?php echo $listproduct['Product']['images'];?>&amp;h=107&amp;w=156&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#FFF; margin:auto;" class="img">             
+             <div style=" overflow:hidden; width:156px; height:107px; background-image:url(<?php echo DOMAINADESTORE?>/timthumb.php?src=<?php echo $listproduct['Product']['images'];?>&amp;h=107&amp;w=156&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#FFF; margin:auto;" class="img">             
 
                    </div>
 

@@ -33,7 +33,7 @@
 			<?php if($row['status'] =1) 
 					 { // hiển thị silde anh chạy  ?>
 						<div id="dialog" title=" ">
-						  <embed  width="400px;" height= "600px;" src="<?php echo DOMAINADBUSINISS; ?><?php echo $row['images']; ?>" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" wmode="transparent">
+						  <embed  width="400px;" height= "600px;" src="<?php echo DOMAINADESTORE; ?><?php echo $row['images']; ?>" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" wmode="transparent">
 						</div>
 			   <?php }   ?> 
 			 <?php if($row['status'] =0) { ?> <?php } ?>
@@ -51,7 +51,7 @@
 <div class="product">
 <?php $gioithieu = $this->requestAction('home/gioithieu'); ?>
      <?php foreach($gioithieu as $gioithieu){?>
-<div class="hinhanhgioithieu"><img src="<?php echo DOMAINADBUSINISS; ?><?php echo $gioithieu['Eshopdaquynew']['images'] ?>" style="height:110px; width:130px; margin-left:50px; float:left;" ></div>
+<div class="hinhanhgioithieu"><img src="<?php echo DOMAINADESTORE; ?><?php echo $gioithieu['Eshopdaquynew']['images'] ?>" style="height:110px; width:130px; margin-left:50px; float:left;" ></div>
 <p class="noidunggioithieu" style="float:left; padding-left:50px; width:526px;"><a href="<?php echo DOMAIN; ?>tin-tuc/chi-tiet-tin/97" ><font style="font-weight:700; color:#CCCCC; font-size:14px;"><?php echo $gioithieu['Eshopdaquynew']['title']; ?></font></a> </p>
 <div class="noidunggioithieu" style="float:left; padding-left:50px; width:526px;"><?php echo $gioithieu['Eshopdaquynew']['introduction']; ?></div>
 <p><a href="<?php echo DOMAIN; ?>tin-tuc/chi-tiet-tin/97" style="float:right; margin-right:20px;"> Xem chi tiết >> </a></p>
@@ -91,7 +91,7 @@
 						 data-tooltip="sticky<?php  echo $i; ?> ">
 						 <!-- chế độ thumbnail -->
 						   <div 
-							   style=" overflow:hidden; width:160px; height:127px; background-image:url(<?php echo DOMAINADBUSINISS?>/timthumb.php?src=<?php echo $listproduct['Estore_products']['images'];?>&amp;h=127&amp;w=160&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img">             
+							   style=" overflow:hidden; width:160px; height:127px; background-image:url(<?php echo DOMAINADESTORE?>/timthumb.php?src=<?php echo $listproduct['Estore_products']['images'];?>&amp;h=127&amp;w=160&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img">             
 						   </div>
 					   </a>
 					</h1>
@@ -146,7 +146,7 @@
 						 data-tooltip="sticky<?php  echo $i; ?> ">
 						 <!-- chế độ thumbnail -->
 						   <div 
-							   style=" overflow:hidden; width:160px; height:127px; background-image:url(<?php echo DOMAINADBUSINISS?>/timthumb.php?src=<?php echo $listproduct['Estore_products']['images'];?>&amp;h=127&amp;w=160&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img">             
+							   style=" overflow:hidden; width:160px; height:127px; background-image:url(<?php echo DOMAINADESTORE?>/timthumb.php?src=<?php echo $listproduct['Estore_products']['images'];?>&amp;h=127&amp;w=160&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img">             
 						   </div>
 					   </a>
 					</h1>
@@ -188,7 +188,7 @@
       <li>
         <h1>
           <a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Estore_products']['id'];?>" data-tooltip="sticky<?php echo $i; ?>">
-           <div style=" overflow:hidden; width:160px; height:127px; background-image:url(<?php echo DOMAINADBUSINISS?>/timthumb.php?src=<?php echo $listproduct['Estore_products']['images'];?>&amp;h=127&amp;w=160&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img">             
+           <div style=" overflow:hidden; width:160px; height:127px; background-image:url(<?php echo DOMAINADESTORE?>/timthumb.php?src=<?php echo $listproduct['Estore_products']['images'];?>&amp;h=127&amp;w=160&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img">             
            </div> 
         </h1>
         <h2><a style="color:#5a5152;" href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Estore_products']['id'];?>"><?php echo $listproduct['Estore_products']['title'];?></a></h2>
@@ -219,7 +219,7 @@ $daphongthuy = $this->requestAction('/'.$shopname.'/daphongthuy'); ?>
       <li>
         <h1>
           <a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Estore_products']['id'];?>" data-tooltip="sticky<?php echo $i; ?>">
-           <div style=" overflow:hidden; width:160px; height:127px; background-image:url(<?php echo DOMAINADBUSINISS?>/timthumb.php?src=<?php echo $listproduct['Estore_products']['images'];?>&amp;h=127&amp;w=160&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img">             
+           <div style=" overflow:hidden; width:160px; height:127px; background-image:url(<?php echo DOMAINADESTORE?>/timthumb.php?src=<?php echo $listproduct['Estore_products']['images'];?>&amp;h=127&amp;w=160&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img">             
            </div> 
         </h1>
         <h2><a style="color:#5a5152;" href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Estore_products']['id'];?>"><?php echo $listproduct['Estore_products']['title'];?></a></h2>
@@ -250,7 +250,7 @@ $trangsuc = $this->requestAction('/'.$shopname.'/trangsuc'); ?>
       <li>
         <h1>
           <a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Estore_products']['id'];?>" data-tooltip="sticky<?php echo $i; ?>">
-           <div style=" overflow:hidden; width:160px; height:127px; background-image:url(<?php echo DOMAINADBUSINISS?>/timthumb.php?src=<?php echo $listproduct['Estore_products']['images'];?>&amp;h=127&amp;w=160&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img">             
+           <div style=" overflow:hidden; width:160px; height:127px; background-image:url(<?php echo DOMAINADESTORE?>/timthumb.php?src=<?php echo $listproduct['Estore_products']['images'];?>&amp;h=127&amp;w=160&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img">             
            </div> 
         </h1>
         <h2><a style="color:#5a5152;" href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $listproduct['Estore_products']['id'];?>"><?php echo $listproduct['Estore_products']['title'];?></a></h2>
@@ -270,7 +270,7 @@ $trangsuc = $this->requestAction('/'.$shopname.'/trangsuc'); ?>
 foreach($a as $listproduct) {
 ?>
 <div id="sticky<?php echo $i; ?>" class="atip" style=" display: block;">	
-<img src="<?php echo DOMAINADBUSINISS; ?><?php echo $listproduct['Estore_products']['images']; ?>">
+<img src="<?php echo DOMAINADESTORE; ?><?php echo $listproduct['Estore_products']['images']; ?>">
 </div>
 <?php $i++ ?>
 <?php } ?>
@@ -278,7 +278,7 @@ foreach($a as $listproduct) {
 foreach($b as $listproduct) {
 ?>
 <div id="sticky<?php echo $i; ?>" class="atip" style=" display: block;">	
-<img src="<?php echo DOMAINADBUSINISS; ?><?php echo $listproduct['Estore_products']['images']; ?>">
+<img src="<?php echo DOMAINADESTORE; ?><?php echo $listproduct['Estore_products']['images']; ?>">
 </div>
 <?php $i++ ?>
 <?php } ?>
@@ -286,7 +286,7 @@ foreach($b as $listproduct) {
 foreach($c as $listproduct) {
 ?>
 <div id="sticky<?php echo $i; ?>" class="atip" style=" display: block;">	
-<img src="<?php echo DOMAINADBUSINISS; ?><?php echo $listproduct['Estore_products']['images']; ?>">
+<img src="<?php echo DOMAINADESTORE; ?><?php echo $listproduct['Estore_products']['images']; ?>">
 </div>
 <?php $i++ ?>
 <?php } ?>
@@ -294,7 +294,7 @@ foreach($c as $listproduct) {
 foreach($d as $listproduct) {
 ?>
 <div id="sticky<?php echo $i; ?>" class="atip" style=" display: block;">	
-<img src="<?php echo DOMAINADBUSINISS; ?><?php echo $listproduct['Estore_products']['images']; ?>">
+<img src="<?php echo DOMAINADESTORE; ?><?php echo $listproduct['Estore_products']['images']; ?>">
 </div>
 <?php $i++ ?>
 <?php } ?>

@@ -35,11 +35,16 @@ z-index: 25;
 }
 
 /*****************content*******************************/
-#threeBlocks #leftBlock, #threeBlocks #middleBlock, #threeBlocks #rightBlock{width: 282px;}
+#threeBlocks #leftBlock, #threeBlocks #middleBlock, #threeBlocks #rightBlock{width: 252px;}
 #middleBlock {margin: 0 15px;}
+div#rightBlock {
+margin: 0px 15px;
+border-radius: 6px;
+}
 div#leftBlock {
 left: 15px;
 }
+
 /***************sing-in****************/
 #headerSignIn123 {
 width: 262px;

@@ -44,6 +44,7 @@
 	  #coverPage.initialPage 
 {
 	 background-image:url('../../img/layout3-1/bgrHeaderHome2.jpg');
+	 background-repeat: repeat-y;
 	 
 }
 	  #coverPage.initialPageLogged 
