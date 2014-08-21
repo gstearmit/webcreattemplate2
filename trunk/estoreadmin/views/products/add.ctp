@@ -1,5 +1,27 @@
 <?php echo $javascript->link('jquery.datepick', true); ?>
 <?php echo $html->css('jquery.datepick'); ?>
+<?php 
+$cc ='Sản phẩm trung & cao cấp';
+$km='Sản phẩm khuyến mại';
+$select='Chọn danh mục';
+$hsx='Chọn hãng sản xuất';
+if(isset($_GET['language'])){
+	if($_GET['language']=='eng'){
+		$cc ='Medium and senior products';
+		$km='Fromotional products';
+		$select='Select Category';
+		$hsx='Select Producer';
+		
+	}else {
+		$cc ='Sản phẩm trung & cao cấp';
+		$km='Sản phẩm khuyến mại';
+		$select='Chọn danh mục';
+		$hsx='Chọn hãng sản xuất';
+		
+	}
+	
+}
+?>
 <style>
 </style>
 <script type="text/javascript">
@@ -57,41 +79,41 @@ $(function() {
 				<li id="toolbar-new">
 					<a href="javascript:void(0);" onclick="javascript:document.adminForm.submit();" class="toolbar">
                         <span class="icon-32-save"></span>
-                        Lưu
+                        <?php __('Save')?>
 					</a>
                 </li>
                 <li id="toolbar-refresh">
                     <a href="javascript:void(0);" class="toolbar" onclick="javascript:document.adminForm.reset();">
                     <span class="icon-32-refresh">
                     </span>
-                    Reset
+                    <?php __('Reset')?>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li id="toolbar-help">
                     <a href="#messages" rel="modal" class="toolbar">
                         <span class="icon-32-help"></span>
-                        Trợ giúp
+                        <?php __('Help')?>
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
                     <a href="<?php echo DOMAINADESTORE?>products" class="toolbar">
                         <span class="icon-32-cancel"></span>
-                        Hủy
+                       <?php __('Calcel')?>
                     </a>
                 </li>
             </ul>
             <div class="clr"></div>
         </div>
-		<div class="pagetitle icon-48-category-add"><h2>Quản lý sản phẩm</h2></div>
+		<div class="pagetitle icon-48-category-add"><h2><?php __('Product_Manage')?></h2></div>
 		<div class="clr"></div>
 	</div>
 </div>
 <div class="content-box"><!-- Start Content Box -->
     <div class="content-box-header">
-        <h3>Thêm mới sản phẩm</h3>
+        <h3><?php __('Add_new')?></h3>
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Nội dung</a></li> <!-- href must be unique and match the id of target div -->
+            <li><a href="#tab1" class="default-tab"><?php __('Content')?></a></li> <!-- href must be unique and match the id of target div -->
             <li><a href="#tab2"></a></li>
         </ul>
         <div class="clear"></div>
@@ -100,13 +122,13 @@ $(function() {
         <div class="tab-content default-tab" id="tab1">
         	<table class="input">
                	<tr><?php echo $this->Form->input('Product.estore_id',array('label' => '','type'=>'hidden','class'=>'text-input medium-input datepicker','value'=>$this->Session->read("id")));?>
-                   <td width="120" class="label">Tên sản phẩm: </td>
+                   <td width="120" class="label"><?php __('Product_name')?>: </td>
                     <td>
                     <?php echo $this->Form->input('Product.title',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
                     </td>
                 </tr>
                 <tr>
-                   	<td width="120" class="label">Mã sản phẩm:</td>
+                   	<td width="120" class="label"><?php __('Product_code')?>:</td>
                     <td>
                     <?php echo $this->Form->input('Product.code',array('class'=>'text-input medium-input datepicker','maxlength' => '250','style' => 'width:200px !important'));?>
                     </td>
@@ -118,7 +140,7 @@ $(function() {
                     </td>
                 </tr>-->
                 <tr>
-                  	<td class="label">Liên kết tĩnh:</td>
+                  	<td class="label"><?php __('Static_linking')?>:</td>
                     <td>
                     <?php echo $this->Form->input('Product.alias',array('class'=>'text-input alias-input datepicker','maxlength' => '250','id' => 'idalias'));?>
                     <img width="16" height="16" alt="" onclick="get_alias();" style="cursor: pointer; vertical-align: middle;" src="<?php echo DOMAINADESTORE; ?>images/refresh.png">
@@ -126,15 +148,15 @@ $(function() {
                 </tr>
                
                 <tr>
-                  	<td class="label">Thuộc danh mục:</td>
-                    <td><?php echo $this->Form->input('catproduct_id',array('type'=>'select','options'=>$list_cat,'empty'=>'Chọn danh mục','class'=>'small-input','label'=>''));?></td>
+                  	<td class="label"><?php __('In_category')?>:</td>
+                    <td><?php echo $this->Form->input('catproduct_id',array('type'=>'select','options'=>$list_cat,'empty'=>$select,'class'=>'small-input','label'=>''));?></td>
                 </tr>
                 <tr>
                 	<td class="label"></td>
                 	<td>
-                		<?php echo $this->Form->input('Product.sptieubieu',array('type'=>'checkbox','style'=>'float:left; margin-left:10px;','label'=>'Sản phẩm trung & cao cấp'));?>
+                		<?php echo $this->Form->input('Product.sptieubieu',array('type'=>'checkbox','style'=>'float:left; margin-left:10px;','label'=>$cc));?>
                         <br />
-                        <?php echo $this->Form->input('Product.spkuyenmai',array('type'=>'checkbox','style'=>'float:left; margin-left:10px;','label'=>'Sản phẩm khuyến mại'));?>
+                        <?php echo $this->Form->input('Product.spkuyenmai',array('type'=>'checkbox','style'=>'float:left; margin-left:10px;','label'=>$km));?>
                 	<!--<br />
                 		<?php echo $this->Form->input('Product.display',array('type'=>'checkbox','style'=>'float:left; margin-left:10px;','label'=>'Sản phẩm khuyến mại'));?>
                     -->    
@@ -148,25 +170,25 @@ $(function() {
                     </td>
                 </tr>--> 
                 <tr>
-                    <td width="120" class="label">Hãng sản xuất</td>  
-                    <td><?php echo $this->Form->input('manufacturer',array('type'=>'select','options'=>$list_cat1,'empty'=>'Chọn hãng sản xuất','class'=>'small-input','label'=>''));?>
+                    <td width="120" class="label"><?php __('Producer')?></td>  
+                    <td><?php echo $this->Form->input('manufacturer',array('type'=>'select','options'=>$list_cat1,'empty'=>$hsx,'class'=>'small-input','label'=>''));?>
                     </td>
                 </tr>
                 <tr>
-                   	<td width="120" class="label">Giá sản phẩm:</td>
+                   	<td width="120" class="label"><?php __('Product_price')?>:</td>
                     <td>
                     <?php echo $this->Form->input('Product.price',array('class'=>'text-input medium-input datepicker','maxlength' => '250','style' => 'width:200px !important'));?>
                     </td>
                 </tr>              
                <tr>
-                   	<td width="120" class="label">Thuộc khoản giá</td>
+                   	<td width="120" class="label"><?php __('Price_level')?></td>
                     <td>
                     <?php echo $form->select('Product.khoanggia',$gia);?>
                     </td>
                 </tr> 
                
                 <tr>
-                  	<td class="label">Ảnh sản phẩm:</td>
+                  	<td class="label"><?php __('Product_image')?>:</td>
                     <td>
                         <?php echo $this->Form->input('Product.images',array('class'=>'text-input image-input datepicker','name' => 'userfile'));?> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upload.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
                     </td>
@@ -188,7 +210,7 @@ $(function() {
                      </td>
                 </tr>-->
                 <tr>
-                	<td class="label">Mô tả sản phẩm </td>
+                	<td class="label"><?php __('Product_description')?></td>
                 	<td>
                     <?php  echo $this->Form->input('content',array('label' => '','type'=>'textarea')).$this->TvFck->create('Product.content',array('toolbar'=>'extra','skin'=>'kama','height'=>'300px','width'=>'700px')); ?>
                     </td>
@@ -200,10 +222,10 @@ $(function() {
                     </td>
                 </tr>-->
                 <tr>
-                  	<td class="label">Trạng thái:</td>
+                  	<td class="label"><?php __('Statust')?>:</td>
                     <td>
-                    <input type="radio" value="0" id="ProductStatus0" name="data[Product][status]"> Chưa Active 
-                    	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="ProductStatus1" name="data[Product][status]"> Đã Active
+                    <input type="radio" value="0" id="ProductStatus0" name="data[Product][status]">  <?php __('Unactive')?>
+                    	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="ProductStatus1" name="data[Product][status]"> <?php __('Activated')?>
                     </td>
                 </tr>
                 
@@ -223,33 +245,33 @@ $(function() {
 				<li id="toolbar-new">
 					<a href="javascript:void(0);" onclick="javascript:document.adminForm.submit();" class="toolbar">
                         <span class="icon-32-save"></span>
-                        Lưu
+                       <?php __('Save')?>
 					</a>
                 </li>
                 <li id="toolbar-refresh">
                     <a href="javascript:void(0);" class="toolbar" onclick="javascript:document.adminForm.reset();">
                     <span class="icon-32-refresh">
                     </span>
-                    Reset
+                   <?php __('Reset')?>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li id="toolbar-help">
                     <a href="#messages" rel="modal" class="toolbar">
                         <span class="icon-32-help"></span>
-                        Trợ giúp
+                        <?php __('Help')?>
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
                     <a href="<?php echo DOMAINADESTORE?>products" class="toolbar">
                         <span class="icon-32-cancel"></span>
-                        Hủy
+                       <?php __('Cancel')?>
                     </a>
                 </li>
             </ul>
             <div class="clr"></div>
         </div>
-		<div class="pagetitle icon-48-category-add"><h2>Quản lý sản phẩm</h2></div>
+		<div class="pagetitle icon-48-category-add"><h2><?php __('Product_Manage')?></h2></div>
 		<div class="clr"></div>
 	</div>
 </div>

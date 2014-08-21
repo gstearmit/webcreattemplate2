@@ -43,6 +43,9 @@ msgstr "Danh mục cha"
 msgid "Tackle"
 msgstr "Xử lý"
 
+msgid "Location"
+msgstr "Vị trí"
+
 msgid "ID"
 msgstr "ID"
 
@@ -124,6 +127,12 @@ msgstr "Mã sản phẩm"
 msgid "Producer"
 msgstr "Hãng sản xuất"
 
+msgid "Edit_information"
+msgstr "Chỉnh sửa thông tin"
+
+msgid "Brand_name"
+msgstr "Tên hãng"
+
 msgid "Product_price"
 msgstr "Giá sản phẩm"
 
@@ -139,6 +148,9 @@ msgstr "Ảnh sản phẩm"
 msgid "Product_description"
 msgstr "Mô tả sản phẩm"
 
+msgid "List"
+msgstr "Danh sách"
+
 msgid "Producers_list"
 msgstr "Danh sách hãng sản xuất"
 
@@ -147,6 +159,21 @@ msgstr "Thêm mới"
 
 msgid "Orders"
 msgstr "Đơn hàng"
+
+msgid "Title"
+msgstr "Tiêu đề"
+
+msgid "Orders_list"
+msgstr "Danh sách đơn hàng"
+
+msgid "Custommer_name"
+msgstr "Tên khách hàng"
+
+msgid "Telephone_number"
+msgstr "Điện thoại"
+
+msgid "Address"
+msgstr "Địa chỉ"
 
 msgid "News"
 msgstr "Tin tức"

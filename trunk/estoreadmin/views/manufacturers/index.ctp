@@ -7,14 +7,33 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 }
 }
 </script>
-
+<?php 
+$name ='Tên';
+$date='Ngày tạo';
+$back='Về trước';
+$next='Tiếp theo';
+if(isset($_GET['language'])){
+	if($_GET['language']=='eng'){
+		$name ='Name';
+		$date='Creat Date';
+		$back='Back';
+		$next='Next';
+	}else {
+		$name ='Tên';
+		$date='Ngày tạo';
+		$back='Về trước';
+		$next='Tiếp theo';
+	}
+	
+}
+?>
 <div class="content-box">
     <div class="content-box-header">
         
-        <h3>Danh sách hãng sản xuất</h3>
+        <h3><?php __('Producers_list')?></h3>
         
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Danh sách </a></li> <!-- href must be unique and match the id of target div -->
+            <li><a href="#tab1" class="default-tab"><?php __('List')?> </a></li> <!-- href must be unique and match the id of target div -->
             <li><a href="#tab2"></a></li>
         </ul>
         
@@ -29,12 +48,12 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                 <thead>
                     <tr>
                        <th><input class="check-all" type="checkbox" /></th>
-                       <th>STT</th>
-                       <th><?php echo $this->Paginator->sort('Tên','id');?></th>
+                       <th><?php __('STT')?></th>
+                       <th><?php echo $this->Paginator->sort($name,'id');?></th>
   
-                       <th>Vị trí</th>
-                       <th><?php echo $this->Paginator->sort('Ngày tạo','created');?></th>
-                       <th>Xử lý</th>
+                       <th><?php __('Location')?></th>
+                       <th><?php echo $this->Paginator->sort($date,'created');?></th>
+                       <th><?php __('Tackle')?></th>
                     </tr>
                     
                 </thead>
@@ -44,23 +63,23 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                         <td colspan="6">
                             <div class="bulk-actions align-left">
                                 <select name="dropdown">
-                                    <option value="option1">Lựa chọn</option>
-                                    <option value="option2">Active</option>
-                                    <option value="option2">Hủy Active</option>
-                                    <option value="option3">Delete</option>
+                                      <option value="option1"><?php __('Select')?></option>
+                                    <option value="active"><?php __('Active')?></option>
+                                    <option value="notactive"><?php __('Cancel_Active')?></option>
+                                    <option value="delete"><?php __('Delete')?></option>
                                 </select>
-                                <a class="button" href="#">Thực hiện</a>
+                                <a class="button" href="#"><?php __('Implement')?></a>
                             </div>
                              <div class="pagination">
                                 <a href="#" title="First Page">
                                    <?php
                                         $paginator->options(array('url' => $this->passedArgs));
-                                       echo "&laquo "; echo $paginator->prev('Về trước');
+                                       echo "&laquo "; echo $paginator->prev($back);
 							       ?> 
                                 </a>
 							     <?php 
 								   echo $paginator->numbers();
-                                   echo $paginator->next('Tiếp theo'); echo "&raquo";
+                                   echo $paginator->next($next); echo "&raquo";
                                 ?>
                               </div>
                             </div> <!-- End .pagination -->

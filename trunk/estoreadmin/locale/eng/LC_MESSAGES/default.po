@@ -133,11 +133,23 @@ msgstr "Old image"
 msgid "Product_image"
 msgstr "Product image"
 
+msgid "List"
+msgstr "List"
+
+msgid "Location"
+msgstr "Location"
+
 msgid "Product_description"
 msgstr "Product description"
 
 msgid "Producer"
 msgstr "Producer"
+
+msgid "Edit_information"
+msgstr "Edit information"
+
+msgid "Brand_name"
+msgstr "Brand name"
 
 msgid "Producers_list"
 msgstr "Producers list"
@@ -147,6 +159,21 @@ msgstr "Add new"
 
 msgid "Orders"
 msgstr "Orders"
+
+msgid "Title"
+msgstr "Title"
+
+msgid "Orders_list"
+msgstr "Orders list"
+
+msgid "Custommer_name"
+msgstr "Custommer name"
+
+msgid "Telephone_number"
+msgstr "Telephone number"
+
+msgid "Address"
+msgstr "Address"
 
 msgid "News"
 msgstr "News"

@@ -6,26 +6,26 @@
                         <li id="toolbar-new">
                             <a href="<?php echo DOMAINADESTORE?>category/add" class="toolbar">
                                 <span class="icon-32-new"></span>
-                                Thêm mới
+                               <?php __('Add_new')?>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li id="toolbar-help">
                             <a href="#messages" rel="modal" class="toolbar">
                                 <span class="icon-32-help"></span>
-                                Trợ giúp
+                               <?php __('Help')?>
                             </a>
                         </li>
                         <li id="toolbar-unpublish">
                             <a href="<?php echo DOMAINADESTORE?>home" class="toolbar">
                                 <span class="icon-32-unpublish"></span>
-                                Đóng
+                               <?php __('Close')?>
                             </a>
                         </li>
                     </ul>
                     <div class="clr"></div>
                 </div>
-        <div class="pagetitle icon-48-nhomtin"><h2>Danh mục tin tức</h2></div>
+        <div class="pagetitle icon-48-nhomtin"><h2><?php __('News_category')?></h2></div>
 		<div class="clr"></div>
 	</div>
 </div>
