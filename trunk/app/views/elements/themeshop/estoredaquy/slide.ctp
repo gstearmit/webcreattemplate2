@@ -118,7 +118,7 @@ ul { list-style-type: none;}
 
                 <li class="sliderImage">
 
-                    <a href=""><img alt="<?php echo $slideshows['Estore_slideshows']['name']?>" title="<?php echo $slideshows['Estore_slideshows']['name']?>" src="<?php echo DOMAINADBUSINISS;?><?php echo $slideshows['Estore_slideshows']['images']?>" /></a>
+                    <a href=""><img alt="<?php echo $slideshows['Estore_slideshows']['name']?>" title="<?php echo $slideshows['Estore_slideshows']['name']?>" src="<?php echo DOMAINADESTORE;?><?php echo $slideshows['Estore_slideshows']['images']?>" /></a>
 
                     <span class="top"><a style="color:#fff;" href=""></a></span>
 

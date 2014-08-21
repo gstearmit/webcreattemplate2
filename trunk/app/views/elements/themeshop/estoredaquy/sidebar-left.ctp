@@ -90,7 +90,7 @@ $shopname = $shop [0];
 						src="<?php echo DOMAIN?>daquybusniss/images/mediaplayer.swf" style=""
 						id="playlist" name="playlist" quality="high"
 						allowfullscreen="true" wmode="transparent"
-						flashvars=" file=<?php echo DOMAINADBUSINISS?><?php echo $videos['Estore_video']['video'];?>&amp;displayheight=125&amp;width=195&amp;height=140&amp;">
+						flashvars=" file=<?php echo DOMAINADESTORE?><?php echo $videos['Estore_video']['video'];?>&amp;displayheight=125&amp;width=195&amp;height=140&amp;">
 					<?php }     ?>
 							
 						   <?php
@@ -109,7 +109,7 @@ $shopname = $shop [0];
 						src="<?php echo DOMAIN?>daquybusniss/images/mediaplayer.swf" style=""
 						id="playlist" name="playlist" quality="high"
 						allowfullscreen="true" wmode="transparent"
-						flashvars=" file=<?php echo DOMAINADBUSINISS?><?php echo $videos['Estore_video']['video'];?>&amp;displayheight=125&amp;width=195&amp;height=140&amp;">
+						flashvars=" file=<?php echo DOMAINADESTORE?><?php echo $videos['Estore_video']['video'];?>&amp;displayheight=125&amp;width=195&amp;height=140&amp;">
 						<?php }    ?>
 					
 				
@@ -203,7 +203,7 @@ $shopname = $shop [0];
               <?php foreach($tintucnoibats as $tintucnoibat){?>
                <li>
 					<h1>
-						<a href="<?php echo DOMAIN;?><?php echo $shopname;?>/viewnew/<?php echo $tintucnoibat['Estore_news']['id'];?>"><div style=" overflow:hidden; width:67px; height:67px; background-image:url(<?php echo DOMAINADBUSINISS?>/timthumb.php?src=<?php echo $tintucnoibat['Estore_news']['images'];?>&amp;h=67&amp;w=67&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img"></div></a>
+						<a href="<?php echo DOMAIN;?><?php echo $shopname;?>/viewnew/<?php echo $tintucnoibat['Estore_news']['id'];?>"><div style=" overflow:hidden; width:67px; height:67px; background-image:url(<?php echo DOMAINADESTORE?>/timthumb.php?src=<?php echo $tintucnoibat['Estore_news']['images'];?>&amp;h=67&amp;w=67&amp;zc=1); background-position:center center; background-repeat:no-repeat; background-color:#fff; margin:auto;" class="img"></div></a>
 					</h1>
 					<p>
 						<a href="<?php echo DOMAIN;?><?php echo $shopname;?>/viewnew/<?php echo $tintucnoibat['Estore_news']['id'];?>"><?php echo $tintucnoibat['Estore_news']['title'];?></a>
@@ -234,7 +234,7 @@ $shopname = $shop [0];
 											<li><a
 						href="<?php echo $doitac['Estore_partner']['website']; ?>"
 						style="text-decoration: none;" target="_blank"><img
-							src="<?php echo DOMAINADBUSINISS; ?><?php echo $doitac['Estore_partner']['images']; ?>"
+							src="<?php echo DOMAINADESTORE; ?><?php echo $doitac['Estore_partner']['images']; ?>"
 							style="width: 184px; margin-left: 7px; margin-top: 3px; border: 10px solid:#FF0000;" /></a>
 
 
@@ -291,7 +291,7 @@ Histats.track_hits();} catch(err){};
 				foreach ( $sanphamnoibats as $sanphamnoibat ) {
 					?>
 				<a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $sanphamnoibat['Estore_products']['id']; ?>"
-					style="text-decoration: none;"><img src="<?php echo DOMAINADBUSINISS; ?>
+					style="text-decoration: none;"><img src="<?php echo DOMAINADESTORE; ?>
 					<?php echo $sanphamnoibat['Estore_products']['images']; ?>" style="height: 110px; width: 155px; margin-left: 20px; margin-top: 3px;" /></a>
 				<p style="text-align: center;">
 					<a href="<?php echo DOMAIN.$shopname;?>/viewproduct/<?php echo $sanphamnoibat['Estore_products']['id']; ?>" style="text-decoration: none;"><?php echo $sanphamnoibat['Estore_products']['title']; ?></a>

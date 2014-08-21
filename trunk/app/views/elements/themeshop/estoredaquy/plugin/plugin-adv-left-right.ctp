@@ -49,7 +49,7 @@ function checkScreenWidth()
 <div id="floating_banner_left_content">
  <?php $advleft = $this -> requestAction('/'.$shopname.'/advleft');?>
      <?php foreach($advleft as $advlefts){?>
-        <a href="" target="_blank" ><img src="<?php echo DOMAINADBUSINISS;?><?php echo $advlefts['Estore_advertisement']['images'];?>" border="0" width="120px" height="" alt="" /></a><br />
+        <a href="" target="_blank" ><img src="<?php echo DOMAINADESTORE;?><?php echo $advlefts['Estore_advertisement']['images'];?>" border="0" width="120px" height="" alt="" /></a><br />
      <?php }?>
 </div>
 </div>
@@ -57,7 +57,7 @@ function checkScreenWidth()
 	<div id="floating_banner_right_content"  >
     <?php $advright = $this -> requestAction('/'.$shopname.'/advright');?>
      <?php foreach($advright as $advrights){?>
-        <a href="" target="_blank" ><img src="<?php echo DOMAINADBUSINISS;?><?php echo $advrights['Estore_advertisement']['images'];?>" border="0" width="120px" height="" alt="" /></a>
+        <a href="" target="_blank" ><img src="<?php echo DOMAINADESTORE;?><?php echo $advrights['Estore_advertisement']['images'];?>" border="0" width="120px" height="" alt="" /></a>
      <?php }?>
 </div>
 </div>
