@@ -106,7 +106,7 @@ class CatproductsController extends AppController {
 
 	function search($name_search=null){
 		mysql_query("SET names utf8");
-		$title = $_POST['name_search'];
+		$title = @$_POST['name_search'];
 		$this->loadModelNew();
 		$this->paginate = array('conditions'=>array('Catproduct.status'=>1,'Catproduct.name LIKE'=>'%'.$title.'%'),'limit' => '15','order' => 'Catproduct.id DESC');
 	   $this->set('listsearch', $this->paginate('Catproduct',array()));

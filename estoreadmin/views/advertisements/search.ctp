@@ -1,4 +1,24 @@
-﻿<?php // pr($advertisement);//die();?>
+﻿<?php 
+$web ='Tên website';
+$update='Cập nhật';
+$back='Về trước';
+$next='Tiếp theo';
+if(isset($_GET['language'])){
+	if($_GET['language']=='eng'){
+		$web ='Website name';
+		$update='Update';
+		$back='Back';
+		$next='Next';
+	}else {
+		$web ='Tên website';
+		$update='Cập nhật';
+		$back='Về trước';
+		$next='Tiếp theo';
+	}
+	
+}
+?>
+<?php // pr($advertisement);//die();?>
 <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'advertisements/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>
 <br />
 <div id="khung">
@@ -8,26 +28,26 @@
                         <li id="toolbar-new">
                             <a href="<?php echo DOMAINADESTORE?>advertisements/add" class="toolbar">
                                 <span class="icon-32-new"></span>
-                                Thêm mới
+                                <?php __('Save')?>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li id="toolbar-help">
                             <a href="#messages" rel="modal" class="toolbar">
                                 <span class="icon-32-help"></span>
-                                Trợ giúp
+                                <?php __('Help')?>
                             </a>
                         </li>
                         <li id="toolbar-unpublish">
                             <a href="<?php echo DOMAINADESTORE?>home" class="toolbar">
                                 <span class="icon-32-unpublish"></span>
-                                Đóng
+                               <?php __('Close')?>
                             </a>
                         </li>
                     </ul>
                     <div class="clr"></div>
                 </div>
-        <div class="pagetitle icon-48-nhomtin"><h2>Quảng cáo</h2></div>
+        <div class="pagetitle icon-48-nhomtin"><h2><?php __('Advertisement')?></h2></div>
 		<div class="clr"></div>
 	</div>
 </div>
@@ -35,15 +55,15 @@
     <div class="content-box-header">
         <table class="timkiem">
         	<tr>
-            	<td valign="top">Tìm kiếm</td>
+            	<td valign="top"><?php __('Search')?></td>
             	<td><input type="text" id="field2c" name="name" class="text-input"></td>
 
 
-                    <td><input type="submit" name="" value="Tìm kiếm" class="button" /></td>
+                    <td><input type="submit" name="" value="<?php __('Search')?>" class="button" /></td>
             </tr>
         </table>
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Quảng cáo dọc</a></li> 
+            <li><a href="#tab1" class="default-tab"><?php __('Vertical_advertisement')?></a></li> 
             <li><a href="#tab2"></a></li>
         </ul>
         <div class="clear"></div>
@@ -55,12 +75,12 @@
                 <thead>
                     <tr>
                        <th><input class="check-all" type="checkbox" /></th>
-                       <th>STT</th>
-                       <th><?php echo $this->Paginator->sort('Tên website','id');?></th>
-                       <th>Ảnh</th>  
-                       <th>Vị trí</th>
-                       <th>Ngày tạo</th>                         
-                       <th>Xử lý</th>
+                       <th><?php __('No.')?></th>
+                       <th><?php echo $this->Paginator->sort($web,'id');?></th>
+                       <th><?php __('Image')?></th>  
+                       <th><?php __('Position')?></th>
+                       <th><?php __('Creat_date')?></th>                         
+                       <th><?php __('Tackle')?></th>
                     </tr>
                     
                 </thead>
@@ -70,23 +90,23 @@
                         <td colspan="6">
                             <div class="bulk-actions align-left">
                                 <select name="dropdown">
-                                    <option value="option1">Lựa chọn</option>
-                                    <option value="option2">Active</option>
-                                    <option value="option2">Hủy Active</option>
-                                    <option value="option3">Delete</option>
+                                    <option value="option1"><?php __('Select')?></option>
+                                    <option value="active"><?php __('Active')?></option>
+                                    <option value="notactive"><?php __('Cancel_Active')?></option>
+                                    <option value="delete"><?php __('Delete')?></option>
                                 </select>
-                                <a class="button" href="#">Thực hiện</a>
+                                <a class="button" href="#"><?php __('Implement')?>n</a>
                             </div>
                              <div class="pagination">
                                 <a href="#" title="First Page">
                                    <?php
                                         $paginator->options(array('url' => $this->passedArgs));
-                                       echo "&laquo "; echo $paginator->prev('Về trước');
+                                       echo "&laquo "; echo $paginator->prev($back);
 							       ?> 
                                 </a>
 							     <?php 
 								   echo $paginator->numbers();
-                                   echo $paginator->next('Tiếp theo'); echo "&raquo";
+                                   echo $paginator->next($next); echo "&raquo";
                                 ?>
                               </div>
                             </div> <!-- End .pagination -->

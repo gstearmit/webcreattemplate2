@@ -109,10 +109,55 @@ class CategoryController extends AppController {
 	}
 	function search($name_search=null){
 		mysql_query("SET names utf8");
-		$title = $_POST['name_search'];
+		$title = @$_POST['name_search'];
 		$this->loadModelNew('Category');
 		$this->paginate = array('conditions'=>array('Category.status'=>1,'Category.name LIKE'=>'%'.$title.'%'),'limit' => '15','order' => 'Category.id DESC');
 	   $this->set('category', $this->paginate('Category',array()));
+	   
+	   //NGÔN NGỮ
+	   $urlTmp = $_SERVER['REQUEST_URI'];
+	    
+	   if (stripos($urlTmp, "?language"))
+	   {
+	   	$urlTmp = explode ( "?", $urlTmp );
+	   	$lang = explode ( "=", $urlTmp [1] );
+	   	$lang = $lang [1];
+	   
+	   	if (isset ( $lang )) {
+	   		//$this->Session->write ( 'language', $lang );
+	   		Configure::write('Config.language', $lang);
+	   	} else {
+	   		$this->Session->delete ( 'language' );
+	   	}
+	   } else {
+	   
+	   	$lang = "vie"; // default
+	   	//$this->Session->write ( 'language', $lang );
+	   	Configure::write('Config.language', $lang);
+	   }
+	   
+	   // +++++ check Langue
+	   $langue = $this->Session->read ( 'language' );
+	    
+	   if ($langue == null) {
+	   	$urlTmp = $_SERVER ['REQUEST_URI'];
+	   	if (stripos ( $urlTmp, "?language" )) {
+	   		$urlTmp = explode ( "?", $urlTmp );
+	   		$lang = explode ( "=", $urlTmp [1] );
+	   		$lang = $lang [1];
+	   		if (isset ( $lang )) {
+	   			//$this->Session->write ( 'language', $lang );
+	   			Configure::write('Config.language', $lang);
+	   		} else {
+	   			$this->Session->delete ( 'language' );
+	   		}
+	   	} else {
+	   		$lang = "vie"; // default
+	   		//$this->Session->write ( 'language', $lang );
+	   		Configure::write('Config.language', $lang);
+	   	}
+	   }
+	   $this->set ( 'langue', $langue );
 	}
 	//them danh muc moi
 	function add() {
@@ -133,6 +178,51 @@ class CategoryController extends AppController {
 		$this->loadModel("Category");
         $categorylist = $this->Category->generatetreelist(null,null,null," _ ");
         $this->set(compact('categorylist'));
+        
+        //NGÔN NGỮ
+        $urlTmp = $_SERVER['REQUEST_URI'];
+        	
+        if (stripos($urlTmp, "?language"))
+        {
+        	$urlTmp = explode ( "?", $urlTmp );
+        	$lang = explode ( "=", $urlTmp [1] );
+        	$lang = $lang [1];
+        
+        	if (isset ( $lang )) {
+        		//$this->Session->write ( 'language', $lang );
+        		Configure::write('Config.language', $lang);
+        	} else {
+        		$this->Session->delete ( 'language' );
+        	}
+        } else {
+        
+        	$lang = "vie"; // default
+        	//$this->Session->write ( 'language', $lang );
+        	Configure::write('Config.language', $lang);
+        }
+        
+        // +++++ check Langue
+        $langue = $this->Session->read ( 'language' );
+        	
+        if ($langue == null) {
+        	$urlTmp = $_SERVER ['REQUEST_URI'];
+        	if (stripos ( $urlTmp, "?language" )) {
+        		$urlTmp = explode ( "?", $urlTmp );
+        		$lang = explode ( "=", $urlTmp [1] );
+        		$lang = $lang [1];
+        		if (isset ( $lang )) {
+        			//$this->Session->write ( 'language', $lang );
+        			Configure::write('Config.language', $lang);
+        		} else {
+        			$this->Session->delete ( 'language' );
+        		}
+        	} else {
+        		$lang = "vie"; // default
+        		//$this->Session->write ( 'language', $lang );
+        		Configure::write('Config.language', $lang);
+        	}
+        }
+        $this->set ( 'langue', $langue );
 	}
 	//Sua danh muc
 	function edit($id = null) {
@@ -156,6 +246,51 @@ class CategoryController extends AppController {
 			$this->data = $this->Category->read(null, $id);
 		}
 		$this->set('list_cat',$this->_find_list());
+		
+		//NGÔN NGỮ
+		$urlTmp = $_SERVER['REQUEST_URI'];
+		 
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+		
+			if (isset ( $lang )) {
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+		
+			$lang = "vie"; // default
+			//$this->Session->write ( 'language', $lang );
+			Configure::write('Config.language', $lang);
+		}
+		
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+		 
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			}
+		}
+		$this->set ( 'langue', $langue );
 	}
 	//dong danh muc
 	function close($id=null) {

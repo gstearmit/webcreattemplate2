@@ -3,7 +3,16 @@
 <?php
 	echo $this->Html->script(array('ckeditor/ckeditor','ckfinder/ckfinder'));
 ?>
-
+<?php 
+$select='Chọn danh mục';
+if(isset($_GET['language'])){
+	if($_GET['language']=='eng'){
+		$select='Select Category';
+	}else {
+		$select='Chọn danh mục';
+		}
+}
+?>
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
@@ -11,42 +20,42 @@
 				<li id="toolbar-new">
 					<a href="javascript:void(0);" onclick="javascript:document.adminForm.submit();" class="toolbar">
                         <span class="icon-32-save"></span>
-                        Lưu
+                        <?php __('Save')?>
 					</a>
                 </li>
                 <li id="toolbar-refresh">
                     <a href="javascript:void(0);" class="toolbar" onclick="javascript:document.adminForm.reset();">
                     <span class="icon-32-refresh">
                     </span>
-                    Reset
+                   <?php __('Reset')?>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li id="toolbar-help">
                     <a href="#messages" rel="modal" class="toolbar">
                         <span class="icon-32-help"></span>
-                        Trợ giúp
+                       <?php __('Help')?>
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
                     <a href="<?php echo DOMAINADESTORE?>news" class="toolbar">
                         <span class="icon-32-cancel"></span>
-                        Hủy
+                        <?php __('Cancel')?>
                     </a>
                 </li>
             </ul>
             <div class="clr"></div>
         </div>
-		<div class="pagetitle icon-48-category-add"><h2>Quản trị tin tức</h2></div>
+		<div class="pagetitle icon-48-category-add"><h2><?php __('News_management')?></h2></div>
 		<div class="clr"></div>
 	</div>
 </div>
 <div class="content-box"><!-- Start Content Box -->
     <div class="content-box-header">
-        <h3>Thêm tin tức</h3>
+        <h3><?php __('Add_new')?></h3>
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Tiếng việt</a></li> <!-- href must be unique and match the id of target div -->
-            <li><a href="#tab2">Tiếng anh</a></li>
+            <li><a href="#tab1" class="default-tab"><?php __('Vietnamese')?></a></li> <!-- href must be unique and match the id of target div -->
+            <li><a href="#tab2"><?php __('English')?></a></li>
         </ul>
         <div class="clear"></div>
     </div> <!-- End .content-box-header -->
@@ -55,7 +64,7 @@
         	<table class="input">
                	<tr>
                	   <?php echo $this->Form->input('News.estore_id',array('label' => '','type'=>'hidden','class'=>'text-input medium-input datepicker','value'=>$this->Session->read("id")));?>
-                   	<td width="120" class="label">Tiêu đề bài viết:</td>
+                   	<td width="120" class="label"><?php __('Title')?>:</td>
                     <td>
                     <?php echo $this->Form->input('News.title',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
                     </td>
@@ -67,26 +76,26 @@
                     </td>
                 </tr>-->
                 <tr>
-                  	<td class="label">Liên kết tĩnh:</td>
+                  	<td class="label"><?php __('Static_linking')?>:</td>
                     <td>
                     <?php echo $this->Form->input('News.alias',array('class'=>'text-input alias-input datepicker','maxlength' => '250','id' => 'idalias'));?>
                     <img width="16" height="16" alt="" onclick="get_alias();" style="cursor: pointer; vertical-align: middle;" src="<?php echo DOMAINADESTORE; ?>images/refresh.png">
                     </td>
                 </tr>
                 <tr>
-                  	<td class="label">Thuộc danh mục:</td>
-                    <td><?php echo $this->Form->input('category_id',array('type'=>'select','options'=>$list_cat,'empty'=>'Chọn danh mục','class'=>'small-input','label'=>''));?></td>
+                  	<td class="label"><?php __('In_category')?>:</td>
+                    <td><?php echo $this->Form->input('category_id',array('type'=>'select','options'=>$list_cat,'empty'=>$select,'class'=>'small-input','label'=>''));?></td>
                 </tr>
                 
                 <tr>
-                  	<td class="label">Trang thái:</td>
+                  	<td class="label"><?php __('Status')?>:</td>
                     <td>
-                    <input type="radio" value="0" id="NewsStatus0" name="data[News][status]"> Chưa Active 
-                    	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="NewsStatus1" name="data[News][status]"> Đã Active
+                    <input type="radio" value="0" id="NewsStatus0" name="data[News][status]"> <?php __('Unactive')?> 
+                    	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="NewsStatus1" name="data[News][status]"> <?php __('Activated')?>
                     </td>
                 </tr>
                 <tr>
-                  	<td class="label">Hình ảnh:</td>
+                  	<td class="label"><?php __('Image')?>:</td>
                     <td>
                         <?php echo $this->Form->input('News.images',array('class'=>'text-input image-input datepicker','name' => 'userfile'));?> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upload.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
                     </td>
@@ -96,7 +105,7 @@
                     </td>-->
                 </tr>
                 <tr>
-                	<td class="label">Mô tả tóm tắt</td>
+                	<td class="label"><?php __('Brief_description')?></td>
                     <td><?php  echo $this->Form->input('introduction').$this->TvFck->create('News.introduction',array('height'=>'100px','width'=>'750px')); ?></td>
                 </tr>
                 <!--<tr>
@@ -104,7 +113,7 @@
                     <td><?php  echo $this->Form->input('introduction_en').$this->TvFck->create('News.introduction_en',array('height'=>'100px','width'=>'750px')); ?></td>
                 </tr>-->
                 <tr>
-                	<td class="label">Nội dung bài viết</td>
+                	<td class="label"><?php __('Article_content')?></td>
                 	<td>
                 	<?php  echo $this->Form->input('content',array('label' => '','type'=>'textarea')).$this->TvFck->create('News.content',array('toolbar'=>'extra','height'=>'300px','width'=>'750px')); ?>	
 
@@ -118,10 +127,10 @@
                     </td>
                 </tr>-->
               <tr>
-                  	<td class="label">Trạng thái:</td>
+                  	<td class="label"><?php __('Status')?>:</td>
                     <td>
-                    <input type="radio" value="0" id="NewsStatus0" name="data[News][status]"> Chưa Active 
-                    	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="NewsStatus1" name="data[News][status]"> Đã Active
+                    <input type="radio" value="0" id="NewsStatus0" name="data[News][status]"> <?php __('Unactive')?> 
+                    	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="NewsStatus1" name="data[News][status]"> <?php __('Activated')?>
                     </td>
                 </tr>
             </table>
@@ -140,33 +149,33 @@
 				<li id="toolbar-new">
 					<a href="javascript:void(0);" onclick="javascript:document.adminForm.submit();" class="toolbar">
                         <span class="icon-32-save"></span>
-                        Lưu
+                       <?php __('Save')?>
 					</a>
                 </li>
                 <li id="toolbar-refresh">
                     <a href="javascript:void(0);" class="toolbar" onclick="javascript:document.adminForm.reset();">
                     <span class="icon-32-refresh">
                     </span>
-                    Reset
+                   <?php __('Reset')?>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li id="toolbar-help">
                     <a href="#messages" rel="modal" class="toolbar">
                         <span class="icon-32-help"></span>
-                        Trợ giúp
+                       <?php __('Help')?>
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
                     <a href="<?php echo DOMAINADESTORE?>news" class="toolbar">
                         <span class="icon-32-cancel"></span>
-                        Hủy
+                        <?php __('Cancel')?>
                     </a>
                 </li>
             </ul>
             <div class="clr"></div>
         </div>
-		<div class="pagetitle icon-48-category-add"><h2>Quản trị tin tức</h2></div>
+		<div class="pagetitle icon-48-category-add"><h2><?php __('News_management')?></h2></div>
 		<div class="clr"></div>
 	</div>
 </div>

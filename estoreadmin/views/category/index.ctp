@@ -1,4 +1,24 @@
-﻿<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'category/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
+﻿<?php 
+$cat ='Tên danh mục';
+$date='Ngày tạo';
+$back='Về trước';
+$next='Tiếp theo';
+if(isset($_GET['language'])){
+	if($_GET['language']=='eng'){
+		$cat ='Category name';
+		$date='Creat date';
+		$back='Back';
+		$next='Next';
+	}else {
+		$cat ='Tên danh mục';
+		$date='Ngày tạo';
+		$back='Về trước';
+		$next='Tiếp theo';
+	}
+	
+}
+?>
+<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'category/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
 <div id="khung">
 	<div id="main">
 		<div class="toolbar-list" id="toolbar">
@@ -34,15 +54,15 @@
         
         <table class="timkiem">
         	<tr>
-            	<td valign="top">Tìm kiếm</td>
+            	<td valign="top"><?php __('Search')?></td>
             	<td><input type="text" id="field2c" name="name_search" class="text-input"/></td>
-                <td><input type="submit" name="" value="Tìm kiếm" class="button" /></td>
+                <td><input type="submit" name="" value="<?php __('Search')?>" class="button" /></td>
             </tr>
         </table>
         
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Danh sách tin</a></li> <!-- href must be unique and match the id of target div -->
-            <li><a href="#tab2">Thùng rác</a></li>
+            <li><a href="#tab1" class="default-tab"><?php __('News_list')?></a></li> <!-- href must be unique and match the id of target div -->
+            <li><a href="#tab2"><?php __('Trash')?></a></li>
         </ul>
         
         <div class="clear"></div>
@@ -58,13 +78,13 @@
                 <thead>
                     <tr>
                        <th><input class="check-all" type="checkbox" /></th>
-                       <th>STT</th>
-                       <th>ID</th>
-                       <th><?php echo $this->Paginator->sort('Tên danh mục','id');?></th>
-                       <th>Danh mục cha</th>
-                       <th>Vị trí</th>
-                       <th><?php echo $this->Paginator->sort('Ngày tạo','created');?></th>
-                       <th>Xử lý</th>
+                       <th><?php __('No.')?></th>
+                       <th><?php __('ID')?></th>
+                       <th><?php echo $this->Paginator->sort($cat,'id');?></th>
+                       <th><?php __('Big_category')?></th>
+                       <th><?php __('Position')?></th>
+                       <th><?php echo $this->Paginator->sort($date,'created');?></th>
+                       <th><?php __('Tackle')?></th>
                     </tr>
                     
                 </thead>
@@ -73,23 +93,23 @@
                         <td colspan="6">
                             <div class="bulk-actions align-left">
                                 <select name="dropdown">
-                                    <option value="option1">Lựa chọn</option>
-                                    <option value="active">Active</option>
-                                    <option value="notactive">Hủy Active</option>
-                                    <option value="delete">Delete</option>
+                                    <option value="option1"><?php __('Select')?></option>
+                                    <option value="active"><?php __('Active')?></option>
+                                    <option value="notactive"><?php __('Cancel_Active')?></option>
+                                    <option value="delete"><?php __('Delete')?></option>
                                 </select>
-                                <a class="button" href="#" onclick="document.form1.submit();">Thực hiện</a>
+                                <a class="button" href="#" onclick="document.form1.submit();"><?php __('Implement')?></a>
                             </div>
                              <div class="pagination">
                                 <a href="#" title="First Page">
                                    <?php
                                         $paginator->options(array('url' => $this->passedArgs));
-                                       echo "&laquo "; echo $paginator->prev('Về trước');
+                                       echo "&laquo "; echo $paginator->prev($back);
 							       ?> 
                                 </a>
 							     <?php 
 								   echo $paginator->numbers();
-                                   echo $paginator->next('Tiếp theo'); echo "&raquo";
+                                   echo $paginator->next($next); echo "&raquo";
                                 ?>
                               </div>
                             </div> 

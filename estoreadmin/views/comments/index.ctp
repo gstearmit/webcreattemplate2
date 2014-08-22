@@ -1,3 +1,20 @@
+<?php 
+$date='Ngày tạo';
+$back='Về trước';
+$next='Tiếp theo';
+if(isset($_GET['language'])){
+	if($_GET['language']=='eng'){
+		$date='Creat Date';
+		$back='Back';
+		$next='Next';
+	}else {
+		$date='Ngày tạo';
+		$back='Về trước';
+		$next='Tiếp theo';
+	}
+	
+}
+?>
 <script>
 function confirmDelete(delUrl)
 {
@@ -10,10 +27,10 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 <div class="content-box"><!-- Start Content Box -->
     <div class="content-box-header">
         
-        <h3>Nội dung</h3>
+        <h3><?php __('Content')?></h3>
         
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Danh sách tin</a></li> <!-- href must be unique and match the id of target div -->
+            <li><a href="#tab1" class="default-tab"><?php __('News_list')?></a></li> <!-- href must be unique and match the id of target div -->
             <li><a href="#tab2"></a></li>
         </ul>
         
@@ -27,12 +44,12 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                 
                 <thead>
                     <tr>
-                       <th>STT</th>
-                       <th>Tên</th>
-                       <th>Email</th>
-                       <th>Nội dung</th>
-                       <th><?php echo $this->Paginator->sort('Ngày tạo','created');?></th>
-                       <th>Xử lý</th>
+                       <th><?php __('No.')?></th>
+                       <th><?php __('Name')?></th>
+                       <th><?php __('Email')?></th>
+                       <th><?php __('Content')?></th>
+                       <th><?php echo $this->Paginator->sort($date,'created');?></th>
+                       <th><?php __('Tackle')?></th>
                     </tr>
                     
                 </thead>
@@ -53,12 +70,12 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                                 <a href="#" title="First Page">
                                    <?php
                                         $paginator->options(array('url' => $this->passedArgs));
-                                       echo "&laquo "; echo $paginator->prev('Về trước');
+                                       echo "&laquo "; echo $paginator->prev($back);
 							       ?> 
                                 </a>
 							     <?php 
 								   echo $paginator->numbers();
-                                   echo $paginator->next('Tiếp theo'); echo "&raquo";
+                                   echo $paginator->next($next); echo "&raquo";
                                 ?>
                               </div>
                             </div> <!-- End .pagination -->

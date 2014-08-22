@@ -187,8 +187,29 @@ msgstr "Thêm mới danh mục tin tức"
 msgid "News_list"
 msgstr "Danh sách tin tức"
 
+msgid "Trash"
+msgstr "Thùng rác"
+
+msgid "Position"
+msgstr "Vị trí"
+
 msgid "Add_news"
 msgstr "Thêm mới tin"
+
+msgid "News_management"
+msgstr "Quản trị tin tức"
+
+msgid "Brief_description"
+msgstr "Mô tả tóm tắt"
+
+msgid "Article_content"
+msgstr "Nội dung bài viết"
+
+msgid "Vietnamese"
+msgstr "Tiếng Việt"
+
+msgid "English"
+msgstr "Tiếng Anh"
 
 msgid "Comments_management"
 msgstr "Quản lý góp ý"
@@ -196,12 +217,53 @@ msgstr "Quản lý góp ý"
 msgid "Comments_list"
 msgstr "Danh sách góp ý"
 
+msgid "Name"
+msgstr "Tên"
+
 msgid "Ad_management"
 msgstr "Quản lý quảng cáo"
 
 msgid "Ad_list"
 msgstr "Danh sách quảng cáo"
 
+msgid "Advertisement"
+msgstr "Quảng cáo"
+
+msgid "Vertical_advertisement"
+msgstr "Quảng cáo dọc"
+
+msgid "Creat_date"
+msgstr "Ngày tạo"
+
+msgid "Add_advertisement"
+msgstr "Thêm mới quảng cáo"
+
+msgid "Edit_advertisement"
+msgstr "Sửa quảng cáo"
+
+msgid "Image_name"
+msgstr "Tên ảnh"
+
+msgid "Website_name"
+msgstr "Tên website"
+
+msgid "Ad_position"
+msgstr "Vị trí quảng cáo"
+
+msgid "Current_location"
+msgstr "Vị trí hiện tại"
+
+msgid "Advertisement_running_in_the_left"
+msgstr "Quảng cáo chạy bên trái"
+
+msgid "Advertisement_running_in_the_right"
+msgstr "Quảng cáo chạy bên phải"
+
+msgid "Advertisement_in_the_left"
+msgstr "Quảng cáo bên trái"
+
+msgid "Advertisement_in_the_right"
+msgstr "Quảng cáo bên phải"
 
 msgid "Slideshow_management"
 msgstr "Quản lý Slideshow"
