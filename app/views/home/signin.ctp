@@ -1,7 +1,7 @@
 <form id="headerSignIn123"
 	action="http://localhost/websitetemplate/webcreathtml/sign-in/"
 	method="post" enctype="application/x-www-form-urlencoded"
-	style="display: block; visibility: visible; top: 21px;margin-left: 46%;">
+	style="display: block; visibility: visible; top: 21px;">
 	<!-- style="display: block; visibility: visible; top: 7px;z-index: 1032;position: absolute;" -->
 	<input type="hidden" name="login" value="1">
 	<div class="formRow">

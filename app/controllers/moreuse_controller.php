@@ -66,13 +66,22 @@ class MoreuseController extends AppController {
 			
 			$Store = array ();
 			$slug = $this->unicode_convert( $wizard ['project_name'] );
-			$Store ['slug'] = $slug;                      // $slug is subdomain
-			//$Store ['name'] = trim($wizard ['project_name']);
-			//$Store ['name'] = $slug;
-			$subname = @substr($slug, 0, 4);              //substr('abcdef', 0, 4);  // abcd
+			$Store ['slug'] = @strtolower($slug);                    // chuyen het thanh ki tu thuong 
+			$slug_lower =  @strtolower($slug);                    // $slug is subdomain
+			
+			$subname = @substr($slug_lower, 0, 4);              //substr('abcdef', 0, 4);  // abcd
 		                                                 //substr('abcdef', 0, 4);  // abcd
-			$Store ['name'] = $subname.'freemobi';
-			$nameController = $subname.'freemobi';
+		                                                 
+// 			$Store ['name'] = @strtolower($slug);
+// 			$nameController = @strtolower($slug);
+			
+			$namctoller = $this->rand_string(6);
+			$nameController = @strtolower($subname.$namctoller);
+			$Store ['name'] = $nameController;           // $Store ['name'] : is name controller
+														 // $nameController : is name controller
+			
+			//$Store ['name'] = $subname.'freemobi';
+			//$nameController = $subname.'freemobi';
 
 // 			$slug_lenght = @strlen($slug);
 // 			if($slug_lenght>0)
@@ -135,44 +144,31 @@ class MoreuseController extends AppController {
 			$Store ['fax'] = '';
 			$Store ['email'] = $wizard ['contact_email'];
 			$Store ['user_id'] = 999; // 999 ma khach hang dang ki
-			$Store ['link'] = 'http://'.$slug.'.freemobiweb.mobi';
+			$Store ['link'] = 'http://'.$slug_lower.'.freemobiweb.mobi';
 			$Store ['images'] = 'img/upload/9d564d3cc9dcf18171f1dc84ebc09e0b.png';
 			$Store ['ckshops'] = 1;
 			$Store ['status'] = 1;
 			
-			//$namedatabase = $slug.'_'.$Store ['layout'];
+			//$namedatabase = $slug_lower.'_'.$Store ['layout'];
 			$ipserver = $_SERVER['SERVER_ADDR'];
 			$namwserver = $_SERVER['SERVER_NAME'];
 			//++++++++++creat data base +++++++
-			// 		$dbuser = "datest";
-			// 		$dbname = "datest";
-			// 		$dbpass = "123456@123";
-			// 		$dbpass_validate = "123456@123";
-			
 			$dbname = $this->rand_string(5); // get ramdom 5 string not get 6 string form $slug : web1234
 			$dbuser = $dbname;
 			$namedatabase = 'admin_'.$dbname;
 			$dbpass = $this->randpassword(15); //"123456@123";
 			$dbpass_validate = $dbpass; // validate directadmin
+		
 			
-// 			echo "namwserver</br>";pr($namwserver);
-// 			echo "dbname</br>";pr($dbname);
-// 			echo "dbuser</br>";pr($dbuser);
-// 			echo "namedatabase</br>";pr($namedatabase);
-// 			echo "dbpass</br>";pr($dbpass);
-// 			echo "dbpass_validate</br>";pr($dbpass_validate);
-			
-			
-			if($namwserver != IP_SERVER_TEST){  // SERVER DIREACT
-					//creat subdomain and Creat database
-				//echo "</br>vao duoc day de tao dereact admin </br>";
+			if($namwserver != IP_SERVER_TEST)
+			{  // SERVER DIREACT
 				//++++++++++++++creatsubdomainfreemobile+++++++++++++++++++++++++
-				$subdoamin = $this->creatsubdomainfreemobile($slug);
+				$subdoamin = $this->creatsubdomainfreemobile($slug_lower);
 				if($subdoamin === true)
 				{
 					$logsubdoamin = true;
 					//+++++++++++copyhtacess++++++++++++++++
-					 $logCopyhtcess = $this->copyhtacess($slug,$nameController);
+					 $logCopyhtcess = $this->copyhtacess($slug_lower,$nameController);
 				}else $logsubdoamin = $subdoamin;
 				
 				//++++++++++++creatdatanamefreemobile++++++++++++++++++
@@ -182,29 +178,7 @@ class MoreuseController extends AppController {
 				{
 					$logcreatdataba = true;
 				}else $logcreatdataba = $creatdatabasename;
-				/*
-				 if($subdoamin === true ){
-				$Store ['username'] = 'admin_'.$dbuser;     //$dbuser = "datest";
-				$Store ['password'] = $dbpass;     //$dbname = "datest";
-				$Store ['databasename'] = $namedatabase; // 'admin_datest'
-				//+++++++++++++++not need++++++++++++++++++++++++
-				$Store ['userpass'] = $userpass;
-				$Store ['hostname'] = 'localhost'; ////$namwserver;
-				$Store ['ipserver'] = $ipserver;
-				$logcreatdataba = "Not use";         // if($subdoamin === true ) not use $creatdatabasename === true
-				}else die("Ooops! We can't Creat subdomain and creat database . Error : ".$logcreatdataba);
-				 
-				if($creatdatabasename === true){
-				$Store ['username'] = 'admin_'.$dbuser;     //$dbuser = "datest";
-				$Store ['password'] = $dbpass;     //$dbname = "datest";
-				$Store ['databasename'] = $namedatabase; // 'admin_datest'
-				//+++++++++++++++not need++++++++++++++++++++++++
-				$Store ['userpass'] = $userpass;
-				$Store ['hostname'] = 'localhost'; ////$namwserver;
-				$Store ['ipserver'] = $ipserver;
-				$logsubdoamin =  "Not use";          // if($subdoamin === true ) not use $creatdatabasename === true
-				}else die("Ooops! We can't creat databasename.  Error: ".$logsubdoamin);
-				*/
+			
 				if($subdoamin === true and  $creatdatabasename === true)
 				{
 					$Store ['username'] = 'admin_'.$dbuser;     //$dbuser = "datest";
@@ -216,7 +190,7 @@ class MoreuseController extends AppController {
 					$Store ['ipserver'] = $ipserver;
 					//$logcreatdataba = "Not use";         // if($subdoamin === true ) not use $creatdatabasename === true
 				  }else die("Ooops! We can't Creat subdomain and creat database . Error : creat data".$logcreatdataba." Error subdomain".$logsubdoamin );
-				}elseif ($namwserver ===IP_SERVER_TEST) {
+			}elseif ($namwserver ===IP_SERVER_TEST) {
 					
 				//echo "</br> Moi truong localhost </br>";
 				
@@ -286,14 +260,14 @@ class MoreuseController extends AppController {
 			// $this->sendacountEshop($Store ['email'],$username,$password);
 			 $body = "Cảm ơn bạn đã đăng ký gian hàng Tại FREEMOBIWEB.MOBI  .";
 			 $body.= "\nĐường dẫn tới gian hàng của bạn : http://freemobiweb.mobi/".$nameproject;
-			 $body.= "\n    .Hoặc Đường dẫn tới gian hàng của bạn : http://".$slug.".freemobiweb.mobi";
+			 $body.= "\n    .Hoặc Đường dẫn tới gian hàng của bạn : http://".$slug_lower.".freemobiweb.mobi";
 			 $body.= "\n     .Bạn có thể truy cập vào trang quản trị của gian hàng theo đường dẫn : http://freemobiweb.mobi/estoreadmin";
 			 $body.= "\n     .STT Eshop :".$shop_id;
 			 $body.= "\n     .User name :".$email;
 			 $body.="\n      .Password:".$this->decryptIt($userpass);
 			 $body.= "\n Xin cảm ơn!";
 			 
-			 $linkadmin="http://".$slug.".freemobiweb.mobi/";
+			 $linkadmin="http://".$slug_lower.".freemobiweb.mobi/";
 			 $linkweb="http://freemobiweb.mobi/".$nameproject;
 			 
 			 $detailemailarray = array(
@@ -325,7 +299,7 @@ class MoreuseController extends AppController {
 			  $result = $this->registerEshop ($namedatabase, $nameController, $Store ['layout'], $Store ['language'], $shop_id ,$flagConnecting,$username ,$password);
 			}
 			//pr($result);
-			// deburg 			
+// 			// deburg 			
 // 			$result_finish12 = array(
 // 					'subdoamin'=>$logsubdoamin,
 // 					'logCopyhtcess'=>$logCopyhtcess,
@@ -344,7 +318,7 @@ class MoreuseController extends AppController {
 // 			return  print_r(json_encode($result_finish,true));
 // 			//end deburg
 			
-			// not deburg
+		//	not deburg
 			$sresult = 'result:1';
 			return print $sresult;
 		} else {
@@ -405,10 +379,10 @@ class MoreuseController extends AppController {
 		
 	}
 	
-	function copyhtacess($slug,$nameController)
+	function copyhtacess($slug_lower,$nameController)
 	{
 		global $error;
-		$subdomain = $slug;
+		$subdomain = $slug_lower;
 		//add .htacess inner subdomain
 		$dirhtacess = ROOT.'/htacess/.htaccess';
 		$dirSourceCopy = ROOT.'/htacess/'.$subdomain.'/';
@@ -1732,7 +1706,7 @@ class MoreuseController extends AppController {
 						$stringData .= "<?php\n";
 						$stringData .= "
 						 class " . ucfirst ( $project_name) . "Controller extends AppController {
-						  var $name = '" . ucfirst ( $project_name) . "';
+						  var \$name = '" . ucfirst ( $project_name) . "';
 						   var \$shopname ='".$project_name."';
 						  	var \$uses = array (
 						  		'Estore_categories',//Catalogueshop
@@ -5946,6 +5920,10 @@ class MoreuseController extends AppController {
 							  `content_en` text NOT NULL,
 							  `images` varchar(256) NOT NULL,
 							  `images_en` varchar(256) NOT NULL,
+							  `images1` varchar(250) DEFAULT NULL,
+							  `images2` varchar(250) DEFAULT NULL,
+							  `images3` varchar(250) NOT NULL,
+							  `images4` varchar(250) DEFAULT NULL,
 							  `catproduct_id` int(10) NOT NULL,
 							  `display` int(2) NOT NULL,
 							  `created` datetime DEFAULT NULL,
@@ -5996,6 +5974,7 @@ class MoreuseController extends AppController {
 							  `id` int(50) NOT NULL AUTO_INCREMENT,
 							  `estore_id` int(50) NOT NULL DEFAULT '0',
 							  `name` varchar(256) CHARACTER SET utf8 NOT NULL,
+							  `map` text CHARACTER SET utf8 NOT NULL,
 							  `title` varchar(250) CHARACTER SET utf8 NOT NULL,
 							  `info_other` varchar(250) CHARACTER SET utf8 NOT NULL,
 							  `address` varchar(256) CHARACTER SET utf8 NOT NULL,

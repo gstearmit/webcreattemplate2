@@ -239,15 +239,17 @@ class HomeController extends AppController {
 		if (isset ( $_POST ['storename'] )) {
 			//$name = $this->Shops->findAllByName ( $_POST ['storename'] ); // echo ($_POST['tengianhang']);die;
 			//sreachby subdomain is $slug
-			$name = $this->Shops->findAllBySlug ( $_POST ['storename'] ); //echo "subdomain ";pr($name);die;
+			$name = $this->Shops->findAllBySlug ( @strtolower($_POST ['storename'] )); //echo "subdomain ";pr($name);die;
+			//$name = $this->Shops->findAllByName ( @strtolower($_POST ['storename'] )); //echo "subdomain ";pr($name);die;
+					
 			if (count ( $name ) == 1) {
 				echo "<script>alert('Store e-shop already exists! Plese Try Again!!! ');</script>";
 				echo "<script>history.back(-1);</script>";
 			} else {
 			
 				$Store = array ();
-				$Store ['name'] = trim($_POST ['storename']);
-				$Store ['slug'] = $this->unicode_convert ( trim($_POST ['storename']) );
+				$Store ['name'] = trim(@strtolower($_POST ['storename']));
+				$Store ['slug'] = $this->unicode_convert ($Store ['name']);
 				$Store ['email'] = trim($_POST ['mail']);
 				$estorename = $Store ['name'] ;
 				$email = $Store ['email'];
