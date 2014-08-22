@@ -1,3 +1,3 @@
 <?php
-echo json_encode($products); ?>
+print "{data:".json_encode($products)."}"?>
 
