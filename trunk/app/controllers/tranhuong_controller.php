@@ -1,8 +1,8 @@
 <?php
 
-						  class WebcreatdaquyController extends AppController {
-						  var $name = 'Webcreatdaquy';
-						   var $shopname ='webcreatdaquy';
+						  class TranhuongController extends AppController {
+						  var $name = 'Tranhuong';
+						   var $shopname ='tranhuong';
 						    var $components = array('Email');
 							var $uses = array (
 									'Shop',
