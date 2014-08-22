@@ -4834,6 +4834,120 @@ class MoreuseController extends AppController {
 								$arrSql[]="CREATE DATABASE IF NOT EXISTS `".$namedatabase."` /*!40100 DEFAULT CHARACTER SET utf8 */;";
 								$arrSql[]="USE `".$namedatabase."`;";
 							}
+							
+							$arrSql[] ="CREATE TABLE IF NOT EXISTS `estore_infomationdetails` (
+							  `id` int(11) NOT NULL AUTO_INCREMENT,
+							  `estore_id` int(50) NOT NULL DEFAULT '0',
+							  `infomations_id` int(11) NOT NULL,
+							  `product_id` int(11) NOT NULL,
+							  `name` varchar(250) CHARACTER SET utf8 NOT NULL,
+							  `images` varchar(250) NOT NULL,
+							  `quantity` int(11) NOT NULL,
+							  `price` int(11) NOT NULL,
+							  PRIMARY KEY (`id`)
+							) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;";
+							
+							$arrSql[]="INSERT INTO `estore_infomationdetails` (`id`, `estore_id`, `infomations_id`, `product_id`, `name`, `images`, `quantity`, `price`) VALUES
+							(5,$shop_id, 36, 19, 'sp14', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_27.jpg', 1, 200),
+							(6,$shop_id, 36, 20, 'sp13', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_20.jpg', 1, 400),
+							(7,$shop_id, 37, 20, 'sp13', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_20.jpg', 2, 400),
+							(8,$shop_id, 37, 19, 'sp14', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_27.jpg', 1, 200),
+							(9,$shop_id, 38, 21, 'sp2', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_17.jpg', 1, 300),
+							(10,$shop_id, 38, 27, 'sp3', '/khieuvu/estoreadmin/webroot/upload/image/files/3.jpg', 1, 200),
+							(11,$shop_id, 39, 27, 'sp3', '/khieuvu/estoreadmin/webroot/upload/image/files/3.jpg', 23, 200),
+							(12,$shop_id, 40, 25, 'sp1', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_09.jpg', 3, 120),
+							(13,$shop_id, 40, 26, 'sp43', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_20.jpg', 1, 120000),
+							(14,$shop_id, 41, 21, 'sp2', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_17.jpg', 2, 300),
+							(15,$shop_id, 41, 19, 'sp14', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_27.jpg', 1, 200),
+							(16,$shop_id, 41, 26, 'sp43', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_20.jpg', 1, 120000),
+							(17,$shop_id, 42, 26, 'sp43', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_20.jpg', 5, 120000),
+							(18,$shop_id, 43, 32, 'sp565', '/khieuvu/estoreadmin/webroot/upload/image/files/bg_menu_20.jpg', 2, 20000),
+							(19,$shop_id, 44, 64, 'sp5', '/estoreadmin/webroot/upload/image/files/vietsys_53.jpg', 1, 40000),
+							(20,$shop_id, 44, 48, 'sp4', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1, 300000),
+							(21,$shop_id, 44, 61, 'sp2', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1, 300000),
+							(22,$shop_id, 44, 49, 'sp5', '/estoreadmin/webroot/upload/image/files/vietsys_53.jpg', 1, 40000),
+							(23,$shop_id, 45, 63, 'sp4', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1, 300000),
+							(24,$shop_id, 46, 49, 'sp5', '/estoreadmin/webroot/upload/image/files/vietsys_53.jpg', 1, 40000),
+							(25,$shop_id, 46, 50, 'sp6', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1, 300000),
+							(26,$shop_id, 47, 64, 'sp5', '/estoreadmin/webroot/upload/image/files/vietsys_53.jpg', 1, 40000),
+							(27,$shop_id, 47, 78, 'sp4', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1, 300000),
+							(28,$shop_id, 48, 73, 'sp4', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1, 300000),
+							(29,$shop_id, 51, 243, 'Tủ chữ L nhiều ngăn', 'img/upload/e06b30abc2aa67efdccf89e55f45cafc.jpg', 1, 4500000),
+							(30,$shop_id, 51, 245, 'Bếp cho quán ăn vừa và nhỏ', 'img/upload/3007b340574bcfd67cc42fd18c74d9b0.jpg', 1, 160000),
+							(31,$shop_id, 52, 243, 'Tủ chữ L nhiều ngăn', 'img/upload/e06b30abc2aa67efdccf89e55f45cafc.jpg', 1, 4500000),
+							(32,$shop_id, 52, 232, 'Bếp trung bình chữ I', 'img/upload/06e0bd26dd69280f9c14e247b49a3ec6.jpg', 2, 2300000),
+							(33,$shop_id, 53, 218, 'Bến nhà hàng', 'img/upload/3007b340574bcfd67cc42fd18c74d9b0.jpg', 3, 3500000),
+							(34,$shop_id, 53, 243, 'Tủ chữ L nhiều ngăn', 'img/upload/e06b30abc2aa67efdccf89e55f45cafc.jpg', 1, 4500000),
+							(35,$shop_id, 54, 243, 'Tủ chữ L nhiều ngăn', 'img/upload/e06b30abc2aa67efdccf89e55f45cafc.jpg', 1, 4500000),
+							(36,$shop_id, 54, 231, 'Bếp trung bình chữ I', 'img/upload/06e0bd26dd69280f9c14e247b49a3ec6.jpg', 3, 2300000);";
+							
+							$arrSql[] ="CREATE TABLE IF NOT EXISTS `estore_infomations` (
+							  `id` int(50) NOT NULL AUTO_INCREMENT,
+							  `estore_id` int(50) NOT NULL DEFAULT '0',
+							  `idnew` int(10) NOT NULL,
+							  `user_id` varchar(200) CHARACTER SET utf8 DEFAULT NULL COMMENT 'null',
+							  `name` varchar(250) CHARACTER SET utf8 NOT NULL,
+							  `email` varchar(255) CHARACTER SET utf8 NOT NULL,
+							  `address` varchar(300) CHARACTER SET utf8 NOT NULL,
+							  `mobile` int(15) DEFAULT NULL,
+							  `comment` varchar(300) CHARACTER SET utf8 NOT NULL,
+							  `deal` text CHARACTER SET utf8,
+							  `company` varchar(255) CHARACTER SET utf8 NOT NULL,
+							  `phone` varchar(150) CHARACTER SET utf8 DEFAULT NULL,
+							  `fax` varchar(150) CHARACTER SET utf8 DEFAULT NULL,
+							  `country` varchar(10) CHARACTER SET utf8 DEFAULT NULL,
+							  `datereturn` varchar(250) CHARACTER SET utf8 DEFAULT NULL,
+							  `fullname_male` varchar(25) CHARACTER SET utf8 DEFAULT NULL,
+							  `fullname_female` varchar(25) CHARACTER SET utf8 DEFAULT NULL,
+							  `questions_day` varchar(250) CHARACTER SET utf8 DEFAULT NULL,
+							  `wedding_day` varchar(250) CHARACTER SET utf8 DEFAULT NULL,
+							  `title_question` varchar(250) CHARACTER SET utf8 DEFAULT NULL,
+							  `wedding_title` varchar(250) CHARACTER SET utf8 DEFAULT NULL,
+							  `name_product` varchar(250) NOT NULL,
+							  `images` varchar(250) NOT NULL,
+							  `sl` varchar(250) NOT NULL,
+							  `price` varchar(250) NOT NULL,
+							  `total` varchar(250) NOT NULL,
+							  `orther` varchar(250) CHARACTER SET utf8 DEFAULT NULL,
+							  `created` datetime NOT NULL,
+							  `status` int(2) NOT NULL,
+							  PRIMARY KEY (`id`)
+							) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;";
+							
+							$arrSql[]="INSERT INTO `estore_infomations` (`id`, `estore_id`, `idnew`, `user_id`, `name`, `email`, `address`, `mobile`, `comment`, `deal`, `company`, `phone`, `fax`, `country`, `datereturn`, `fullname_male`, `fullname_female`, `questions_day`, `wedding_day`, `title_question`, `wedding_title`, `name_product`, `images`, `sl`, `price`, `total`, `orther`, `created`, `status`) VALUES
+							(52,$shop_id, 0, 'id173768', 'Hoang Cong Phuc', 'phuca4@gmail.com', 'Ha Noi', 2147483647, '', NULL, '', '84972607988', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '9100000', NULL, '2014-07-25 08:57:55', 0),
+							(53,$shop_id, 0, 'id98603', 'Hoang Phuc', 'phuca4@gmail.com', 'Ha Noi', 2147483647, '', NULL, '', '84972607988', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '15000000', NULL, '2014-07-25 09:04:11', 0),
+							(54,$shop_id, 0, 'id686188', 'Hoang Cong Phuc', 'phuca4@gmail.com', 'Ha Noi', 2147483647, '', NULL, '', '84972607988', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '11400000', NULL, '2014-07-25 09:10:40', 0);";
+								
+							$arrSql[] ="CREATE TABLE IF NOT EXISTS `estore_manufacturers` (
+							  `id` int(50) unsigned NOT NULL AUTO_INCREMENT,
+							  `estore_id` int(50) unsigned NOT NULL DEFAULT '0',
+							  `parent_id` int(10) DEFAULT NULL,
+							  `lft` int(10) DEFAULT NULL,
+							  `rght` int(10) DEFAULT NULL,
+							  `name` varchar(250) CHARACTER SET utf8 NOT NULL,
+							  `created` date NOT NULL,
+							  `modified` datetime NOT NULL,
+							  `status` int(2) NOT NULL,
+							  `char` int(10) DEFAULT NULL,
+							  PRIMARY KEY (`id`)
+							) ENGINE=MyISAM AUTO_INCREMENT=271 DEFAULT CHARSET=latin1;";
+							
+							$arrSql[]="INSERT INTO `estore_manufacturers` (`id`, `estore_id`, `parent_id`, `lft`, `rght`, `name`, `created`, `modified`, `status`, `char`) VALUES
+							(135,$shop_id, NULL, 1, 28, 'Rigth', '2012-05-18', '2012-09-13 17:55:06', 1, NULL),
+							(136,$shop_id, NULL, 29, 62, 'Toyota', '2012-05-18', '2012-06-04 06:57:18', 1, NULL),
+							(137,$shop_id, NULL, 63, 80, 'Daewoo', '2012-05-18', '2012-06-21 06:25:09', 1, NULL),
+							(138,$shop_id, NULL, 81, 92, 'Ford', '2012-05-18', '2012-06-19 13:11:22', 1, NULL),
+							(139,$shop_id, NULL, 93, 116, 'BMW', '2012-05-18', '2012-05-18 13:50:13', 1, NULL),
+							(140,$shop_id, NULL, 117, 130, 'Nissan', '2012-05-18', '2012-05-18 13:50:25', 1, NULL),
+							(141,$shop_id, NULL, 131, 144, 'Suzuki', '2012-05-18', '2012-05-18 13:50:51', 1, NULL),
+							(142,$shop_id, NULL, 145, 168, 'Audi', '2012-05-24', '2012-05-24 08:07:17', 1, NULL),
+							(143,$shop_id, NULL, 169, 184, 'Mitsubishi', '2012-05-24', '2012-05-24 08:08:10', 1, NULL),
+							(144,$shop_id, NULL, 185, 200, 'Kia', '2012-05-24', '2014-07-27 10:05:08', 1, NULL),
+							(145,$shop_id, NULL, 201, 214, 'Ford', '2012-05-24', '2012-06-21 06:11:02', 0, NULL),
+							(146,$shop_id, NULL, 215, 230, 'Hyundai', '2012-05-24', '2012-06-19 13:00:19', 1, NULL),
+							(148,$shop_id, NULL, 231, 244, 'Mercedes ', '2012-05-28', '2012-05-28 07:49:40', 1, NULL);";
+							
 							$arrSql[] ="CREATE TABLE IF NOT EXISTS `estore_advertisements` (
 							  `id` int(11) NOT NULL AUTO_INCREMENT,
 							  `estore_id` int(50) NOT NULL DEFAULT '0',
@@ -5005,6 +5119,8 @@ class MoreuseController extends AppController {
 							$arrSql[] ="CREATE TABLE IF NOT EXISTS `estore_comments` (
 							  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 							  `estore_id` int(50) unsigned NOT NULL DEFAULT '0',
+							  `name` varchar(50) NOT NULL,
+ 							  `user_id` int(10) NOT NULL,
 							  `title` varchar(100) NOT NULL,
 							  `content` text NOT NULL,
 							  `id_news` int(10) NOT NULL,
@@ -5451,8 +5567,8 @@ class MoreuseController extends AppController {
 						{	
 							$arrSql[]="CREATE DATABASE IF NOT EXISTS `".$namedatabase."` /*!40100 DEFAULT CHARACTER SET utf8 */;";
 							$arrSql[]="USE `".$namedatabase."`;";	
-						}		
-							$arrSql[] ="CREATE TABLE IF NOT EXISTS `estore_advertisements` (
+						}	
+						$arrSql[] ="CREATE TABLE IF NOT EXISTS `estore_advertisements` (
 										  `id` int(50) NOT NULL AUTO_INCREMENT,
 										  `estore_id` int(50) NOT NULL DEFAULT '0',
 										  `name` varchar(256) CHARACTER SET utf8 NOT NULL,
