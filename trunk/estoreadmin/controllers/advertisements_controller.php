@@ -51,6 +51,51 @@ class AdvertisementsController extends AppController {
 				'order' => 'Advertisement.id DESC' 
 		);
 		$this->set ( 'Advertisements', $this->paginate ( 'Advertisement', array () ) );
+		
+		//NGÔN NGỮ
+		$urlTmp = $_SERVER['REQUEST_URI'];
+			
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+		
+			if (isset ( $lang )) {
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+		
+			$lang = "vie"; // default
+			//$this->Session->write ( 'language', $lang );
+			Configure::write('Config.language', $lang);
+		}
+		
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+			
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			}
+		}
+		$this->set ( 'langue', $langue );
 	}
 	function add() {
 		$this->account ();
@@ -68,6 +113,51 @@ class AdvertisementsController extends AppController {
 				$this->Session->setFlash ( __ ( 'Thêm mơi danh mục thất bại. Vui long thử lại', true ) );
 			}
 		}
+		
+		//NGÔN NGỮ
+		$urlTmp = $_SERVER['REQUEST_URI'];
+			
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+		
+			if (isset ( $lang )) {
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+		
+			$lang = "vie"; // default
+			//$this->Session->write ( 'language', $lang );
+			Configure::write('Config.language', $lang);
+		}
+		
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+			
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			}
+		}
+		$this->set ( 'langue', $langue );
 	}
 	// close tin tuc
 	function close($id = null) {
@@ -94,16 +184,61 @@ class AdvertisementsController extends AppController {
 		) );
 	}
 	function search() {
-		$keyword = $_POST ['name'];
+		$keyword = @$_POST ['name'];
 		$this->loadModelNew ( 'Advertisement' );
 		if ($keyword != "")
 			$x ['Advertisement.name like'] = '%' . $keyword . '%';
 		$this->paginate = array (
-				'conditions' => $x,
+				'conditions' => @$x,
 				'limit' => '12',
 				'order' => 'Advertisement.id DESC' 
 		);
 		$this->set ( 'Advertisements', $this->paginate ( 'Advertisement', array () ) );
+		
+		//NGÔN NGỮ
+		$urlTmp = $_SERVER['REQUEST_URI'];
+			
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+		
+			if (isset ( $lang )) {
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+		
+			$lang = "vie"; // default
+			//$this->Session->write ( 'language', $lang );
+			Configure::write('Config.language', $lang);
+		}
+		
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+			
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			}
+		}
+		$this->set ( 'langue', $langue );
 	}
 	
 	// active tin bai viêt
@@ -174,6 +309,51 @@ class AdvertisementsController extends AppController {
 			$this->data = $this->Advertisement->read ( null, $id );
 			$this->set ( 'edit', $this->Advertisement->read ( null, $id ) );
 		}
+		
+		//NGÔN NGỮ
+		$urlTmp = $_SERVER['REQUEST_URI'];
+			
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+		
+			if (isset ( $lang )) {
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+		
+			$lang = "vie"; // default
+			//$this->Session->write ( 'language', $lang );
+			Configure::write('Config.language', $lang);
+		}
+		
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+			
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			}
+		}
+		$this->set ( 'langue', $langue );
 	}
 	function _find_list() {
 		$this->loadModelNew ( 'Portfolio' );

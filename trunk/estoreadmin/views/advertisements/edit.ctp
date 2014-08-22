@@ -10,41 +10,41 @@
 				<li id="toolbar-new">
 					<a href="javascript:void(0);" onclick="javascript:document.adminForm.submit();" class="toolbar">
                         <span class="icon-32-save"></span>
-                        Lưu
+                        <?php __('Save')?>
 					</a>
                 </li>
                 <li id="toolbar-refresh">
                     <a href="javascript:void(0);" class="toolbar" onclick="javascript:document.adminForm.reset();">
                     <span class="icon-32-refresh">
                     </span>
-                    Reset
+                    <?php __('Reset')?>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li id="toolbar-help">
                     <a href="#messages" rel="modal" class="toolbar">
                         <span class="icon-32-help"></span>
-                        Trợ giúp
+                        <?php __('Help')?>
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
                     <a href="<?php echo DOMAINADESTORE?>advertisements" class="toolbar">
                         <span class="icon-32-cancel"></span>
-                        Hủy
+                       <?php __('Cancel')?>
                     </a>
                 </li>
             </ul>
             <div class="clr"></div>
         </div>
-		<div class="pagetitle icon-48-category-add"><h2>Quảng cáo</h2></div>
+		<div class="pagetitle icon-48-category-add"><h2><?php __('Advertisement')?></h2></div>
 		<div class="clr"></div>
 	</div>
 </div>
 <div class="content-box"><!-- Start Content Box -->
     <div class="content-box-header">
-        <h3> Sửa quảng cáo </h3>
+        <h3> <?php __('Edit_advertisement')?> </h3>
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Sửa quảng cáo</a></li> <!-- href must be unique and match the id of target div -->
+            <li><a href="#tab1" class="default-tab"><?php __('Edit_advertisement')?></a></li> <!-- href must be unique and match the id of target div -->
         </ul>
         <div class="clear"></div>
     </div> <!-- End .content-box-header -->
@@ -52,30 +52,30 @@
         <div class="tab-content default-tab" id="tab1">
         	<table class="input">
                	<tr>
-                   	<td width="120" class="label">Tên ảnh:</td>
+                   	<td width="120" class="label"><?php __('Image_name')?>:</td>
                     <td>
                     <?php echo $this->Form->input('Advertisement.name',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
                     <?php echo $this->Form->input('Advertisement.id',array());?>
                     </td>
                 </tr>
                 <tr>
-                   	<td width="120" class="label">Tên website:</td>
+                   	<td width="120" class="label"><?php __('Website_name')?>:</td>
                     <td>
                     <?php echo $this->Form->input('Advertisement.link',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
                     </td>
                 </tr>
                 <tr>
-                  	<td class="label">Hình ảnh:</td>
+                  	<td class="label"><?php __('Image')?>:</td>
                     <td>
                     <?php echo $this->Form->input('Advertisement.images',array('class'=>'text-input image-input datepicker','name' => 'userfile'));?> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upslide.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
                     
                     </td>
                 </tr>
                 <tr>
-                  	<td class="label">Vị trí quảng cáo:</td>
+                  	<td class="label"><?php __('Ad_position')?>:</td>
                     <td>
                     
-                    <label>Vị trí hiện tại:</label> <?php 
+                    <label><?php __('Current_location')?>:</label> <?php 
 							if($edit['Advertisement']['display']==0){?>
                             Chạy bên trái
                         <?php }?>
@@ -92,17 +92,17 @@
                             Sidebar bên phải
                         <?php }?><br /><br /><br />
                         <label> Vị trí thay thế tại:</label>
-                    <input type="radio" value="0" name="data[Advertisement][display]"  /> Quảng cáo chạy bên trái<br />
-                    <input type="radio" value="1" name="data[Advertisement][display]"/> Quảng cáo chạy bên phải<br />
-                    <input type="radio" value="2"  name="data[Advertisement][display]"/> Sidebar bên trái<br />
-                    <input type="radio" value="3"  name="data[Advertisement][display]"/> Sidebar bên phải<br />
+                    <input type="radio" value="0" name="data[Advertisement][display]"  /> <?php __('Advertisement_running_in_the_left')?><br />
+                    <input type="radio" value="1" name="data[Advertisement][display]"/> <?php __('Advertisement_running_in_the_right')?><br />
+                    <input type="radio" value="2"  name="data[Advertisement][display]"/><?php __('Advertisement_in_the_left')?><br />
+                    <input type="radio" value="3"  name="data[Advertisement][display]"/>  <?php __('Advertisement_in_the_right')?><br />
                     </td>
                 </tr>
              <tr>
-                  	<td class="label">Trang thái:</td>
+                  	<td class="label"><?php __('Status')?>:</td>
                     <td>
-                    <input type="radio" value="0" id="AdvertisementStatus0" name="data[Advertisement][status]"> Chưa Active 
-                    	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="AdvertisementStatus1" name="data[Advertisement][status]"> Đã Active
+                    <input type="radio" value="0" id="AdvertisementStatus0" name="data[Advertisement][status]"> <?php __('Unactive')?>
+                    	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="AdvertisementStatus1" name="data[Advertisement][status]"> <?php __('Activated')?>
                     </td>
                 </tr>
                
@@ -122,33 +122,33 @@
 				<li id="toolbar-new">
 					<a href="javascript:void(0);" onclick="javascript:document.adminForm.submit();" class="toolbar">
                         <span class="icon-32-save"></span>
-                        Lưu
+                       <?php __('Save')?>
 					</a>
                 </li>
                 <li id="toolbar-refresh">
                     <a href="javascript:void(0);" class="toolbar" onclick="javascript:document.adminForm.reset();">
                     <span class="icon-32-refresh">
                     </span>
-                    Reset
+                    <?php __('Reset')?>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li id="toolbar-help">
                     <a href="#messages" rel="modal" class="toolbar">
                         <span class="icon-32-help"></span>
-                        Trợ giúp
+                        <?php __('Help')?>
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
                     <a href="<?php echo DOMAINADESTORE?>advertisements" class="toolbar">
                         <span class="icon-32-cancel"></span>
-                        Hủy
+                       <?php __('Cancel')?>
                     </a>
                 </li>
             </ul>
             <div class="clr"></div>
         </div>
-		<div class="pagetitle icon-48-category-add"><h2>Quảng cáo</h2></div>
+		<div class="pagetitle icon-48-category-add"><h2><?php __('Advertisement')?></h2></div>
 
 		<div class="clr"></div>
 	</div>

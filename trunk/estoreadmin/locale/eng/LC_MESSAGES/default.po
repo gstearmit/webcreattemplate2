@@ -187,8 +187,29 @@ msgstr "Add category news"
 msgid "News_list"
 msgstr "News list"
 
+msgid "News_management"
+msgstr "News management"
+
+msgid "Brief_description"
+msgstr "Brief description"
+
+msgid "Article_content"
+msgstr "Article content"
+
+msgid "Vietnamese"
+msgstr "Vietnamese"
+
+msgid "English"
+msgstr "English"
+
 msgid "Add_news"
 msgstr "Add news"
+
+msgid "Trash"
+msgstr "Trash"
+
+msgid "Position"
+msgstr "Position"
 
 msgid "Comments_management"
 msgstr "Comments management"
@@ -196,11 +217,53 @@ msgstr "Comments management"
 msgid "Comments_list"
 msgstr "Comments list"
 
+msgid "Name"
+msgstr "Name"
+
 msgid "Ad_management"
 msgstr "Ad management"
 
 msgid "Ad_list"
 msgstr "Ad list"
+
+msgid "Advertisement"
+msgstr "Advertisement"
+
+msgid "Creat_date"
+msgstr "Creat date"
+
+msgid "Add_advertisement"
+msgstr "Add advertisement"
+
+msgid "Image_name"
+msgstr "Image name"
+
+msgid "Website_name"
+msgstr "Website name"
+
+msgid "Edit_advertisement"
+msgstr "Edit advertisement"
+
+msgid "Ad_position"
+msgstr "Ad position"
+
+msgid "Current_location"
+msgstr "Current location"
+
+msgid "Advertisement_running_in_the_left"
+msgstr "Advertisement running in the left"
+
+msgid "Advertisement_running_in_the_right"
+msgstr "Advertisement running in the right"
+
+msgid "Advertisement_in_the_left"
+msgstr "Advertisement in the left"
+
+msgid "Advertisement_in_the_right"
+msgstr "Advertisement in the right"
+
+msgid "Vertical_advertisement"
+msgstr "Vertical advertisement"
 
 msgid "Slideshow_management"
 msgstr "Slideshow management"
