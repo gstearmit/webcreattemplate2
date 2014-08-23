@@ -1,5 +1,5 @@
 <div class="title-content">
-   <p><?php echo $cat['Eshopdaquycatproduct']['name'];?></p> <!-- lay dươc cha cua sản phẩm -->
+   <p><?php echo $cat['Estore_catproduct']['name'];?></p> <!-- lay dươc cha cua sản phẩm -->
 </div>
 <div class="product"><!-- div nay co tac dung do het san pham ra ngoai thoi-->
    <ul>
