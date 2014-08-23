@@ -1,7 +1,4 @@
 <?php 
-// Programing by : Nguyen Van Cong
-// company : VTM Group
-// Version : 1.0
 class HelpHelper extends AppHelper {
   function getestoredq($y=array(),$x=array('url'=>'news/view','image'=>false,'introduction'=>false,'parentClass'=>NULL,'childClass'=>NULL,'type'=>false,'data'=>false))
 	{
@@ -30,9 +27,9 @@ class HelpHelper extends AppHelper {
 				$data.=$child;
 				if(isset($x['image'])&&$x['image']==true)
 				if(isset($x['url']))
-					$data.='<a href="'.DOMAIN.$x['url'].'/'.$y['Estore_products']['id'].'"><img src="'.DOMAINADBUSINISS.$y['Estore_products']['images'].'"></a>';
+					$data.='<a href="'.DOMAIN.$x['url'].'/'.$y['Estore_products']['id'].'"><img src="'.DOMAINADESTORE.$y['Estore_products']['images'].'"></a>';
 				else
-					$data.='<a href="'.DOMAIN.'products/view/'.$y['Estore_products']['id'].'"><img src="'.DOMAINADBUSINISS.$y['Estore_products']['images'].'"></a>';
+					$data.='<a href="'.DOMAIN.'products/view/'.$y['Estore_products']['id'].'"><img src="'.DOMAINADESTORE.$y['Estore_products']['images'].'"></a>';
 				if(isset($x['url']))
 					$data.='<a href="'.DOMAIN.$x['url'].'/'.$y['Estore_products']['id'].'"><span>'.$y['Estore_products']['title'].'</span></a>';
 				else
@@ -46,9 +43,9 @@ class HelpHelper extends AppHelper {
 				$data.=$child;
 				if(isset($x['image'])&&$x['image']==true)
 				if(isset($x['url']))
-					$data.='<a href="'.DOMAIN.$x['url'].'/'.$y['Estore_news']['id'].'"><img src="'.DOMAINADBUSINISS.$y['Estore_news']['images'].'"></a>';
+					$data.='<a href="'.DOMAIN.$x['url'].'/'.$y['Estore_news']['id'].'"><img src="'.DOMAINADESTORE.$y['Estore_news']['images'].'"></a>';
 				else
-					$data.='<a href="'.DOMAIN.'news/view/'.$y['Estore_news']['id'].'"><img src="'.DOMAINADBUSINISS.$y['Estore_news']['images'].'"></a>';
+					$data.='<a href="'.DOMAIN.'news/view/'.$y['Estore_news']['id'].'"><img src="'.DOMAINADESTORE.$y['Estore_news']['images'].'"></a>';
 				if(isset($x['url']))
 					$data.='<a href="'.DOMAIN.$x['url'].'/'.$y['Estore_news']['id'].'"><span>'.$y['Estore_news']['title'].'</span></a>';
 				else
