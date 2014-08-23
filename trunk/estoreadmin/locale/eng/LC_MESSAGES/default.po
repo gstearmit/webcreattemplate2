@@ -271,11 +271,32 @@ msgstr "Slideshow management"
 msgid "Slide_image"
 msgstr "Slide image"
 
+msgid "Slideshow_image_management"
+msgstr "Slideshow image management"
+
+msgid "Image_list"
+msgstr "Image list"
+
+msgid "Add_image"
+msgstr "Add image"
+
+msgid "Edit_image"
+msgstr "Edit image"
+
 msgid "Video_management"
 msgstr "Video management"
 
 msgid "Video_list"
 msgstr "Video list"
+
+msgid "Company_name"
+msgstr "Company name"
+
+msgid "Left"
+msgstr "Left"
+
+msgid "Right"
+msgstr "Right"
 
 msgid "Add_video"
 msgstr "Add video"
@@ -283,8 +304,29 @@ msgstr "Add video"
 msgid "Account"
 msgstr "Account"
 
+msgid "Change_account"
+msgstr "Change account"
+
+msgid "Username"
+msgstr "Username"
+
 msgid "Creat_account"
 msgstr "Creat account"
+
+msgid "Email_for_password_reset"
+msgstr "Email for password reset"
+
+msgid "Old_password"
+msgstr "Old password"
+
+msgid "New_password"
+msgstr "New password"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Reset_password"
+msgstr "Reset password"
 
 msgid "Partners"
 msgstr "Partners"
@@ -292,11 +334,20 @@ msgstr "Partners"
 msgid "Partners_list"
 msgstr "Partners list"
 
+msgid "Partner_name"
+msgstr "Partner name"
+
 msgid "Link_website"
 msgstr "Link website"
 
 msgid "Link_list"
 msgstr "Link list"
+
+msgid "Add_website_link"
+msgstr "Add website link"
+
+msgid "Add_links"
+msgstr "Add links"
 
 msgid "Hotline"
 msgstr "Hotline"
@@ -304,5 +355,50 @@ msgstr "Hotline"
 msgid "Hotline_change"
 msgstr "Hotline change"
 
+msgid "Skype_name"
+msgstr "Skype name"
+
+msgid "Yahoo_name"
+msgstr "Yahoo name"
+
+msgid "Name_support"
+msgstr "Name support"
+
+msgid "Hotline_list"
+msgstr "Hotline list"
+
+msgid "Hotline_management"
+msgstr "Hotline management"
+
+msgid "Avatar"
+msgstr "Avatar"
+
+msgid "Banner_management"
+msgstr "Banner management"
+
+msgid "Image_banner"
+msgstr "Image banner"
+
 msgid "Website_configuration"
 msgstr "Website configuration"
+
+msgid "Website_title"
+msgstr "Website title"
+
+msgid "Other_information"
+msgstr "Other information"
+
+msgid "User_information"
+msgstr "User information"
+
+msgid "Footter_information"
+msgstr "Footter information"
+
+msgid "Keyword"
+msgstr "Keyword"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Contact_information"
+msgstr "Contact information"

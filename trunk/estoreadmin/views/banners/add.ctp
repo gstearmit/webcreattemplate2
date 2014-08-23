@@ -1,11 +1,25 @@
+<?php 
+$active='Đã Active';
+$not_active='Chưa Active';
+if(isset($_GET['language'])){
+	if($_GET['language']=='eng'){
+		$active='Activeted';
+		$not_active='Unactive';
+	}else {
+		$active='Đã Active';
+        $not_active='Chưa Active';
+	}
+	
+}
+?>
 <div class="content-box"><!-- Start Content Box -->
     <div class="content-box-header">
         
-        <h3>Cấu hình website</h3>
+        <h3><?php __('Banner_management')?></h3>
         
         <ul class="content-box-tabs">
             <li><a href="#tab1"></a></li> <!-- href must be unique and match the id of target div -->
-            <li><a href="#tab2" class="default-tab">Cấu hình</a></li>
+            <li><a href="#tab2" class="default-tab"><?php __('Add_new')?></a></li>
         </ul>
         
         <div class="clear"></div>
@@ -22,20 +36,20 @@
                 
                 <fieldset> 
                     <p><?php echo $this->Form->input('Banner.estore_id',array('label' => '','type'=>'hidden','class'=>'text-input medium-input datepicker','value'=>$this->Session->read("id")));?>
-                    <label>Tên công ty</label>
+                    <label><?php __('Company_name')?></label>
                            <?php echo $form->input('Banner.name',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
                     </p>
                     <p>
-                        <label>Ảnh banner</label>
+                        <label><?php __('Image_banner')?></label>
                         <input type="text" size="50" style="height:25px;" name="userfile" readonly="true"> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>gallery.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png,swf)
                     </p>
                    
                      <p>
-                        <label>Trạng thái</label>
-                         <?php echo $form->radio('Banner.status', array(0 => 'Chưa Active', 1 => 'Đã Active'), array('value' => '1','legend'=>'')); ?>  
+                        <label><?php __('Status')?></label>
+                         <?php echo $form->radio('Banner.status', array(0 => $not_active, 1 => $active), array('value' => '1','legend'=>'')); ?>  
                     </p>
                     <p>
-                        <input class="button" type="submit" value="Thêm mới" />
+                        <input class="button" type="submit" value="<?php __('Add_new')?>" />
                     </p>
                     
                 </fieldset>
