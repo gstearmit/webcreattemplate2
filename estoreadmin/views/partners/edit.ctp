@@ -10,41 +10,41 @@
 				<li id="toolbar-new">
 					<a href="javascript:void(0);" onclick="javascript:document.adminForm.submit();" class="toolbar">
                         <span class="icon-32-save"></span>
-                        Lưu
+                         <?php __('Save')?>
 					</a>
                 </li>
                 <li id="toolbar-refresh">
                     <a href="javascript:void(0);" class="toolbar" onclick="javascript:document.adminForm.reset();">
                     <span class="icon-32-refresh">
                     </span>
-                    Reset
+                     <?php __('Reset')?>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li id="toolbar-help">
                     <a href="#messages" rel="modal" class="toolbar">
                         <span class="icon-32-help"></span>
-                        Trợ giúp
+                       <?php __('Help')?>
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
                     <a href="<?php echo DOMAINADESTORE?>partners" class="toolbar">
                         <span class="icon-32-cancel"></span>
-                        Hủy
+                       <?php __('Cancel')?>
                     </a>
                 </li>
             </ul>
             <div class="clr"></div>
         </div>
-		<div class="pagetitle icon-48-category-add"><h2>Đôi tác</h2></div>
+		<div class="pagetitle icon-48-category-add"><h2><?php __('Partners')?></h2></div>
 		<div class="clr"></div>
 	</div>
 </div>
 <div class="content-box"><!-- Start Content Box -->
     <div class="content-box-header">
-        <h3> Sửa </h3>
+        <h3> <?php __('Edit')?></h3>
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Sửa</a></li> <!-- href must be unique and match the id of target div -->
+            <li><a href="#tab1" class="default-tab"><?php __('Edit')?></a></li> <!-- href must be unique and match the id of target div -->
         </ul>
         <div class="clear"></div>
     </div> <!-- End .content-box-header -->
@@ -52,38 +52,38 @@
         <div class="tab-content default-tab" id="tab1">
         	<table class="input">
                	<tr>
-                   	<td width="120" class="label">Tên đối tác:</td>
+                   	<td width="120" class="label"><?php __('Partner_name')?>:</td>
                     <td>
                     <?php echo $this->Form->input('Partner.name',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
                      <?php echo $this->Form->input('Partner.id',array());?>
                     </td>
                 </tr>
                 <tr>
-                   	<td width="120" class="label">Điện thoại:</td>
+                   	<td width="120" class="label"><?php __('Telephone_number')?>:</td>
                     <td>
                     <?php echo $this->Form->input('Partner.phone',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
                     </td>
                 </tr>
                 <tr>
-                   	<td width="120" class="label">Email:</td>
+                   	<td width="120" class="label"><?php __('Email')?>:</td>
                     <td>
                     <?php echo $this->Form->input('Partner.email',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
                     </td>
                 </tr>
                 <tr>
-                   	<td width="120" class="label">Địa chỉ:</td>
+                   	<td width="120" class="label"><?php __('Address')?>:</td>
                     <td>
                     <?php echo $this->Form->input('Partner.address',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
                     </td>
                 </tr>
                 <tr>
-                   	<td width="120" class="label">Website:</td>
+                   	<td width="120" class="label"><?php __('Website')?>:</td>
                     <td>
                     <?php echo $this->Form->input('Partner.website',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
                     </td>
                 </tr>
                 <tr>
-                  	<td class="label">Hình ảnh:</td>
+                  	<td class="label"><?php __('Image')?>:</td>
                     <td>
                         <?php echo $this->Form->input('Partner.images',array('class'=>'text-input image-input datepicker','name' => 'userfile'));?> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upload.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
                     <!--<?php echo $this->Form->input('Partner.images',array('class'=>'text-input image-input datepicker','id' => 'xFilePath'));?>
@@ -91,10 +91,10 @@
                     </td>
                 </tr>
              <tr>
-                  	<td class="label">Trang thái:</td>
+                  	<td class="label"><?php __('Status')?>:</td>
                     <td>
-                    <input type="radio" value="0" id="PartnerStatus0" name="data[Partner][status]"> Chưa Active 
-                    	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="PartnerStatus1" name="data[Partner][status]"> Đã Active
+                    <input type="radio" value="0" id="PartnerStatus0" name="data[Partner][status]"> <?php __('Unactive')?>
+                    	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="PartnerStatus1" name="data[Partner][status]"><?php __('Activated')?>
                     </td>
                 </tr>
                
@@ -114,33 +114,33 @@
 				<li id="toolbar-new">
 					<a href="javascript:void(0);" onclick="javascript:document.adminForm.submit();" class="toolbar">
                         <span class="icon-32-save"></span>
-                        Lưu
+                         <?php __('Save')?>
 					</a>
                 </li>
                 <li id="toolbar-refresh">
                     <a href="javascript:void(0);" class="toolbar" onclick="javascript:document.adminForm.reset();">
                     <span class="icon-32-refresh">
                     </span>
-                    Reset
+                    <?php __('Reset')?>
                     </a>
                 </li>
                 <li class="divider"></li>
                 <li id="toolbar-help">
                     <a href="#messages" rel="modal" class="toolbar">
                         <span class="icon-32-help"></span>
-                        Trợ giúp
+                       <?php __('Help')?>
                     </a>
                 </li>
                 <li id="toolbar-unpublish">
                     <a href="<?php echo DOMAINADESTORE?>partners" class="toolbar">
                         <span class="icon-32-cancel"></span>
-                        Hủy
+                         <?php __('Cancel')?>
                     </a>
                 </li>
             </ul>
             <div class="clr"></div>
         </div>
-		<div class="pagetitle icon-48-category-add"><h2>Đối tác</h2></div>
+		<div class="pagetitle icon-48-category-add"><h2><?php __('Partners')?></h2></div>
 
 		<div class="clr"></div>
 	</div>

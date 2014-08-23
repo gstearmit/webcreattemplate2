@@ -10,10 +10,10 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
 <div class="content-box"><!-- Start Content Box -->
     <div class="content-box-header">
         
-        <h3>Nội dung</h3>
+        <h3><?php __('Content')?></h3>
         
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Ảnh banner</a></li> <!-- href must be unique and match the id of target div -->
+            <li><a href="#tab1" class="default-tab"><?php __('List')?></a></li> <!-- href must be unique and match the id of target div -->
             <li><a href="#tab2"></a></li>
         </ul>
         
@@ -26,11 +26,11 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
             <table>
                 <thead>
                     <tr>
-                       <th>STT</th>
-                       <th>Tiêu đề</th>
-                       <th>Ảnh đại diện</th>
-                       <th>Ngày tạo</th>
-                       <th>Xử lý</th>
+                       <th><?php __('No.')?></th>
+                       <th><?php __('Title')?></th>
+                       <th><?php __('Avatar')?></th>
+                       <th><?php __('Creat_date')?></th>
+                       <th><?php __('Tackle')?></th>
                     </tr>
                     
                 </thead>

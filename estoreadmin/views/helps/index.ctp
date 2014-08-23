@@ -1,3 +1,23 @@
+<?php 
+$name ='Nhân Viên';
+$update='Cập nhật';
+$back='Về trước';
+$next='Tiếp theo';
+if(isset($_GET['language'])){
+	if($_GET['language']=='eng'){
+		$name ='Staff';
+		$update='Update';
+		$back='Back';
+		$next='Next';
+	}else {
+		$name ='Nhân viên';
+		$update='Cập nhật';
+		$back='Về trước';
+		$next='Tiếp theo';
+	}
+	
+}
+?>
 <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'helps/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
 <div id="khung">
 	<div id="main">
@@ -6,26 +26,26 @@
                         <li id="toolbar-new">
                             <a href="<?php echo DOMAINADESTORE?>helps/add" class="toolbar">
                                 <span class="icon-32-new"></span>
-                                Thêm mới
+                               <?php __('Add_new')?>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li id="toolbar-help">
                             <a href="#messages" rel="modal" class="toolbar">
                                 <span class="icon-32-help"></span>
-                                Trợ giúp
+                                <?php __('Help')?>
                             </a>
                         </li>
                         <li id="toolbar-unpublish">
                             <a href="<?php echo DOMAINADESTORE?>home" class="toolbar">
                                 <span class="icon-32-unpublish"></span>
-                                Đóng
+                                 <?php __('Close')?>
                             </a>
                         </li>
                     </ul>
                     <div class="clr"></div>
                 </div>
-        <div class="pagetitle icon-48-nhomtin"><h2>Quảng lý hotline</h2></div>
+        <div class="pagetitle icon-48-nhomtin"><h2><?php __('Hotline_management')?></h2></div>
 		<div class="clr"></div>
 	</div>
 </div>
@@ -41,7 +61,7 @@
         </table>-->
         
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Danh sách hotline</a></li> <!-- href must be unique and match the id of target div -->
+            <li><a href="#tab1" class="default-tab"><?php __('Hotline_list')?></a></li> <!-- href must be unique and match the id of target div -->
             <li><a href="#tab2"></a></li>
         </ul>
         
@@ -56,15 +76,15 @@
                 <thead>
                     <tr>
                        <th><input class="check-all" type="checkbox" /></th>
-                        <th>STT</th>
-                       <th>Tiêu đề</th>
-                       <th><?php echo $this->Paginator->sort('Nhân viên','id');?></th>
-                       <th>Yahoo</th>                      
-                       <th>Skype</th>
-                       <th>Điện thoại</th> 
-                       <th>Email</th> 
-                        <th>Ngày cập nhật</th>                     
-                       <th>Xử lý</th>
+                        <th><?php __('No.')?></th>
+                       <th><?php __('Title')?></th>
+                       <th><?php echo $this->Paginator->sort($name,'id');?></th>
+                       <th><?php __('Yahoo_name')?></th>                      
+                       <th><?php __('Skype_name')?></th>
+                       <th><?php __('Telephone_number')?></th> 
+                       <th><?php __('Email')?></th> 
+                        <th><?php __('Creat_date')?></th>                     
+                       <th><?php __('Tackle')?></th>
                     </tr>
                     
                 </thead>
@@ -74,22 +94,23 @@
                         <td colspan="6">
                             <div class="bulk-actions align-left">
                                 <select name="dropdown">
-                                    <option value="option1">active</option>
-                                    <option value="option2">Edit</option>
-                                    <option value="option3">Delete</option>
+                                    
+                                    <option value="active"><?php __('Active')?></option>
+                                    <option value="notactive"><?php __('Cancel_Active')?></option>
+                                    <option value="delete"><?php __('Delete')?></option>
                                 </select>
-                                <a class="button" href="#">Apply to selected</a>
+                                <a class="button" href="#"><?php __('Implement')?></a>
                             </div>
                              <div class="pagination">
                                 <a href="#" title="First Page">
                                    <?php
                                         $paginator->options(array('url' => $this->passedArgs));
-                                       echo "&laquo "; echo $paginator->prev('Về trước');
+                                       echo "&laquo "; echo $paginator->prev($back);
 							       ?> 
                                 </a>
 							     <?php 
 								   echo $paginator->numbers();
-                                   echo $paginator->next('Tiếp theo'); echo "&raquo";
+                                   echo $paginator->next($next); echo "&raquo";
                                 ?>
                               </div>
                             </div> <!-- End .pagination -->

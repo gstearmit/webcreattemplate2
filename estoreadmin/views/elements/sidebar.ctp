@@ -161,13 +161,20 @@
             <li id="arrayorder_9">
                 <a href="#" class="nav-top-item"><?php __('Hotline')?></a>
                 <ul>
-                    <li><a href="<?php echo DOMAINADESTORE?>helps/edit/7<?php echo $langs ?>"><?php __('Hotline_change')?></a></li>
-                   
+                	<li><a href="<?php echo DOMAINADESTORE?>helps/<?php echo $langs ?>"><?php __('Hotline')?></a></li>
+                    <li><a href="<?php echo DOMAINADESTORE?>helps/add<?php echo $langs ?>"><?php __('Add_new')?></a></li>
+                   	
                 </ul>
             </li>
-            <li id="arrayorder_12">
-                <a href="<?php echo DOMAINADESTORE?>banners/edit/1<?php echo $langs ?>" class="nav-top-item no-submenu">Banner</a>
-            </li>  
+            <li id="arrayorder_9">
+                <a href="#" class="nav-top-item"><?php __('Banner')?></a>
+                <ul>
+                	<li><a href="<?php echo DOMAINADESTORE?>banners/<?php echo $langs ?>"><?php __('List')?></a></li>
+                    <li><a href="<?php echo DOMAINADESTORE?>banners/add<?php echo $langs ?>"><?php __('Add_new')?></a></li>
+                   	
+                </ul>
+            </li>
+            
             <li id="arrayorder_7">
                 <a href="<?php echo DOMAINADESTORE?>settings/edit/1<?php echo $langs ?>" class="nav-top-item no-submenu"><?php __('Website_configuration')?></a>
             </li> 
