@@ -1,8 +1,8 @@
 <?php
 
-						 class WebbepgastoreController extends AppController {
-						  var  $name = 'Webbepgastore';
-						   var $shopname ='webbepgastore';
+						 class ClotfzakjuController extends AppController {
+						  var $name = 'Clotfzakju';
+						   var $shopname ='clotfzakju';
 						  	var $uses = array (
 						  		'Estore_categories',//Catalogueshop
 						  		'Estore_news',//eshop

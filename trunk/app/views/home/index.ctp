@@ -339,7 +339,7 @@ if($langue =='eng')
 				</ul>
 			</div>
 			<div class="column">
-				<h3 class="footer_header about-Alatca">Alatca</h3>
+				<h3 class="footer_header about-Alatca">FreeMobi</h3>
 				<ul class="footer_list about-Alatca">
 					<li><a
 						href="<?php echo DOMAIN ?>webcreathtml/free-website-builder/"><?php __('Features')?></a></li>
@@ -499,7 +499,7 @@ if($langue =='eng')
 					<li class="twitter"><a href="http://twitter.com/Alatca"
 						title="Twitter" target="_blank"></a></li>
 					<li class="googleplus"><a
-						href="https://plus.google.com/105974429523197564509"
+						href="https://plus.google.com/"
 						rel="publisher" title="Google+" target="_blank"></a></li>
 				</ul>
 				<h3><?php __('Languages')?></h3>

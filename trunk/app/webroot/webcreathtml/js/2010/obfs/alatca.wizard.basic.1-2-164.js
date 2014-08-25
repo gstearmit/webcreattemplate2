@@ -3,6 +3,7 @@ var Cufon = (function() {
 		return e.replace.apply(null, arguments)
 	};
 	
+	// Object V or e.Dom
 	var v = e.DOM = {
 		ready: (function() {
 			var M = false,
@@ -1048,6 +1049,8 @@ var Cufon = (function() {
 	return e
 })();
 
+
+
 Cufon.registerEngine("vml", (function() {
 	var e = document.namespaces;
 	if (!e) {
@@ -1273,6 +1276,8 @@ Cufon.registerEngine("vml", (function() {
 		return z
 	}
 })());
+
+
 Cufon.registerEngine("canvas", (function() {
 	var b = document.createElement("canvas");
 	if (!b || !b.getContext || !b.getContext.apply) {
@@ -3729,7 +3734,9 @@ Cufon.registerFont({
 			w: 357
 		}
 	}
-});/*!
+});
+
+/*!
  * The following copyright notice may not be removed under any circumstances.
  * 
  * Copyright:
@@ -5860,8 +5867,13 @@ Cufon.registerFont({
 	}
 });
 
+// het cufon
+
+
+// Object Prototype
 var Prototype = {
-	Version: "1.6.1",
+	Version: "1.6.1",// property
+	// method
 	Browser: (function() {
 		var b = navigator.userAgent;
 		var a = Object.prototype.toString.call(window.opera) == "[object Opera]";
@@ -5873,6 +5885,8 @@ var Prototype = {
 			MobileSafari: /Apple.*Mobile.*Safari/.test(b)
 		}
 	})(),
+	
+	// Object new 
 	BrowserFeatures: {
 		XPath: !! document.evaluate,
 		SelectorsAPI: !! document.querySelector,
@@ -5907,6 +5921,8 @@ var Prototype = {
 if (Prototype.Browser.MobileSafari) {
 	Prototype.BrowserFeatures.SpecificElementExtensions = false
 }
+
+
 var Abstract = {};
 
 var Try = {
@@ -5924,6 +5940,8 @@ var Try = {
 	}
 };
 
+
+// New Object Class
 var Class = (function() {
 	function a() {}
 	function b() {
@@ -5989,6 +6007,9 @@ var Class = (function() {
 		}
 	}
 })();
+
+
+
 (function() {
 	var d = Object.prototype.toString;
 
@@ -6194,6 +6215,8 @@ Object.extend(Function.prototype, (function() {
 		methodize: b
 	}
 })());
+
+
 Date.prototype.toJSON = function() {
 	return '"' + this.getUTCFullYear() + "-" + (this.getUTCMonth() + 1).toPaddedString(2) + "-" + this.getUTCDate().toPaddedString(2) + "T" + this.getUTCHours().toPaddedString(2) + ":" + this.getUTCMinutes().toPaddedString(2) + ":" + this.getUTCSeconds().toPaddedString(2) + 'Z"'
 };
@@ -6480,6 +6503,7 @@ Object.extend(String.prototype, (function() {
 		interpolate: interpolate
 	}
 })());
+
 var Template = Class.create({
 	initialize: function(a, b) {
 		this.template = a.toString();
@@ -6911,6 +6935,8 @@ Array.from = $A;
 		}
 		return A
 	}
+	
+	
 	Object.extend(s, Enumerable);
 	if (!s._reverse) {
 		s._reverse = s.reverse
@@ -11409,7 +11435,8 @@ FormClass.prototype = {
 	},
 	
 	_setButtonsEvents: function() {
-		var a = $(".textButton"); //".buttonCase", ".buttonCaseWhite", 
+		//var a = $(".textButton"); //".buttonCase", ".buttonCaseWhite", 
+		var a = $(".buttonCase", ".buttonCaseWhite", ".textButton");
 		var d = a.length;
 		for (var b = 0; b < d; b++) {
 			Event.observe(a[b], "mouseover", function(f) {
@@ -12419,29 +12446,29 @@ SelectBoxClass.prototype = {
 		return false
 	},
 	
-//	setBoxValue: function(c, b, a) {
-//		this.baseEl.value = c;
-//		if (null != this.selectedItem && null != $(this.itemIdPrefix + this.selectedItem)) {
-//			$(this.itemIdPrefix + this.selectedItem).removeClassName("selected")
-//		}
-//		this.selectedItem = c;
-//		if (null != $(this.itemIdPrefix + this.selectedItem)) {
-//			$(this.itemIdPrefix + this.selectedItem).addClassName("selected")
-//		}
-//		this._setBoxText(c);
-//		if (!b) {
-//			this.hide()
-//		}
-//		if (!a) {
-//			this.onSelect()
-//		}
-//		this.userOnSelect();
-//		
-//		Forms.hideHint();
-//		
-//		return false
-//	},
-//	
+	setBoxValue: function(c, b, a) {
+		this.baseEl.value = c;
+		if (null != this.selectedItem && null != $(this.itemIdPrefix + this.selectedItem)) {
+			$(this.itemIdPrefix + this.selectedItem).removeClassName("selected")
+		}
+		this.selectedItem = c;
+		if (null != $(this.itemIdPrefix + this.selectedItem)) {
+			$(this.itemIdPrefix + this.selectedItem).addClassName("selected")
+		}
+		this._setBoxText(c);
+		if (!b) {
+			this.hide()
+		}
+		if (!a) {
+			this.onSelect()
+		}
+		this.userOnSelect();
+		
+		Forms.hideHint();
+		
+		return false
+	},
+	
 	_setBoxText: function(a) {
 		if (this.data[a]) {
 			this.textEl.value = html_entity_decode(this.data[a])
@@ -14326,16 +14353,16 @@ WizardClass.prototype = {
 				
 				$(this.infoPrefix + this.step).observe("mouseover", function() {
 					this.addClassName("hover");
-					if ("function" == typeof(Cufon) && true == Cufon.initialized) {
-						Cufon.replace("#" + this.id + " h3")
-					}
+//					if ("function" == typeof(Cufon) && true == Cufon.initialized) {
+//						Cufon.replace("#" + this.id + " h3")
+//					}
 				});
 				
 				$(this.infoPrefix + this.step).observe("mouseout", function() {
 					this.removeClassName("hover");
-					if ("function" == typeof(Cufon) && true == Cufon.initialized) {
-						Cufon.replace("#" + this.id + " h3")
-					}
+//					if ("function" == typeof(Cufon) && true == Cufon.initialized) {
+//						Cufon.replace("#" + this.id + " h3")
+//					}
 				});
 				
 				this.infoLink = this.step
@@ -14563,41 +14590,41 @@ WizardClass.prototype = {
 	},
 	
 	_setupForModule: function() {
-//		if (null != this.moduleTypeErrorEl) {
-//			this.moduleTypeErrorEl.update();
-//			
-//			this.moduleTypeErrorEl.hide()
-//		}
-//		if ("undefined" != typeof(CFG) && CFG.labels["wizardPage"]["projectNameLabel"][this.selectedModule]) {
-//			this.projectLabelEl.innerHTML = CFG.labels["wizardPage"]["projectNameLabel"][this.selectedModule]
-//		}
-//		if (MODULE_WEB == this.selectedModule) {
-//			this.formRowsEl.languageRow.show();
-//			
-//			this.formRowsEl.branch_typeRow.hide()
-//		} else {
-//			if (MODULE_BRANCH == this.selectedModule) {
-//				this.formRowsEl.branch_typeRow.show();
-//				
-//				BranchTypes.correctWindowLink();
-//				
-//				this.formRowsEl.languageRow.hide();
-//				
-//				Languages.setBoxValue(Languages.defaultValue)
-//			} else {
-//				if (MODULE_ESHOP == this.selectedModule) {
-//					this.formRowsEl.languageRow.show();
-//					
-//					this.formRowsEl.branch_typeRow.hide()
-//				}
-//			}
-//		}
-//		if ("undefined" != typeof(Layouts) && 1 === this.step) {
-//			Layouts.reset()
-//		}
-//		if ("undefined" != typeof(BranchTypes) && (MODULE_BRANCH != this.selectedModule)) {
-//			BranchTypes.reset()
-//		}
+		if (null != this.moduleTypeErrorEl) {
+			this.moduleTypeErrorEl.update();
+			
+			this.moduleTypeErrorEl.hide()
+		}
+		if ("undefined" != typeof(CFG) && CFG.labels["wizardPage"]["projectNameLabel"][this.selectedModule]) {
+			this.projectLabelEl.innerHTML = CFG.labels["wizardPage"]["projectNameLabel"][this.selectedModule]
+		}
+		if (MODULE_WEB == this.selectedModule) {
+			this.formRowsEl.languageRow.show();
+			
+			this.formRowsEl.branch_typeRow.hide()
+		} else {
+			if (MODULE_BRANCH == this.selectedModule) {
+				this.formRowsEl.branch_typeRow.show();
+				
+				BranchTypes.correctWindowLink();
+				
+				this.formRowsEl.languageRow.hide();
+				
+				Languages.setBoxValue(Languages.defaultValue)
+			} else {
+				if (MODULE_ESHOP == this.selectedModule) {
+					this.formRowsEl.languageRow.show();
+					
+					this.formRowsEl.branch_typeRow.hide()
+				}
+			}
+		}
+		if ("undefined" != typeof(Layouts) && 1 === this.step) {
+			Layouts.reset()
+		}
+		if ("undefined" != typeof(BranchTypes) && (MODULE_BRANCH != this.selectedModule)) {
+			BranchTypes.reset()
+		}
 	},
 	
 	_showWaiting: function() {

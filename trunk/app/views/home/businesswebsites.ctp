@@ -44,7 +44,6 @@
 
 	?>
 
-				?>
 					<h2><?php echo $titlev; ?></h2>
 					<div>
 						<?php echo $contentv; ?>

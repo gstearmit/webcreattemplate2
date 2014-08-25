@@ -1,10 +1,11 @@
 <script type="text/javascript"
-		src="<?php echo DOMAIN ?>webcreathtml/js/2010/obfs/alatca.wizard.basic.1-2-164.js?error=1&amp;lang=en"></script>
+		src="<?php echo DOMAIN ?>webcreathtml/js/2010/obfs/alatca.wizard.basic.1-2-164.js?error=1&lang=vi"></script>
 	<script type="text/javascript"
 		src="<?php echo DOMAIN ?>webcreathtml/js/precache/obfs/precache.en.1-2-164.js"></script>
 	<script type="text/javascript"
 		src="<?php echo DOMAIN ?>webcreathtml/_system/client/js/resources/en.wizard.1-2-164.js"></script>
 	<div style="display: none;">
+	<?php /* ?>
 		<script type="text/javascript"
 			src="http://www.googleadservices.com/pagead/conversion.js"></script>
 		<noscript>
@@ -50,6 +51,10 @@
 		</noscript>
 		<img height="1" width="1" alt=""
 			src="//www.googleadservices.com/pagead/conversion/1002742868/imp.gif?label=4Na0CNTxqVUQ1MiS3gM&amp;guid=ON&amp;script=0" />
+			
+		*/
+		?>
+		
 	</div>
 </body>
 </html>

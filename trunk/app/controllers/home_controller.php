@@ -224,9 +224,6 @@ class HomeController extends AppController {
 	
 	// launchyoursite
 	function launchyoursite() {
-		
-		
-		
 		// ++langgue
 		$this->set ( 'Langgue', $this->Langgues->find ( 'all', array (
 				'conditions' => array (
