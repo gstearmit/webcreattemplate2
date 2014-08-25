@@ -1,4 +1,6 @@
-
+<script src="<?php echo DOMAIN;?>webcreathtml/js/bootstrap.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="<?php //echo DOMAIN ?>webcreathtml/css/bootstrap.css" />
+ -->
 <script type="text/javascript">
 function showWaitingAnimation()
 {
@@ -90,7 +92,7 @@ foreach ( $eshop as $key) {
 							</div>
 							<p><?php __('Personalwebsite_detail') ?>.</p>
 						</div>
-						<div id="moduleAreabranch" class="moduleBlock">
+						<div id="moduleAreabranch" class="moduleBlock selected">
 							<i class="unitPng"> <!-- -->
 							</i>
 							<input type="radio" name="moduleType" class="moduleKey"
@@ -114,7 +116,7 @@ foreach ( $eshop as $key) {
 					<div class="cleaner">
 						<!-- -->
 					</div>
-					<form id="step1WizardForm" name="step1WizardForm" action="<?php //echo DOMAIN ?>launch-your-site-step2" method="post" onsubmit="Forms.showWaitingAnimation();return Wizard.process();" style="display: none;" enctype="application/x-www-form-urlencoded">
+					<form id="step1WizardForm" name="step1WizardForm" action="" method="post" onsubmit="Forms.showWaitingAnimation();return Wizard.process();" style="display: none;" enctype="application/x-www-form-urlencoded">
 						<input type="hidden" id="action" name="action" value="<?php echo DOMAIN ?>launch-your-site-step2">
 						<p class="errorFormList" id="step1WizardFormErrorText" style="display: none;"><?php __('step1WizardFormErrorText');?></p>
 						<fieldset id="step1BaseInfo" class=" withoutSeparator">
@@ -190,18 +192,34 @@ foreach ( $eshop as $key) {
 										</i>
 									</div>
 								</div>
-								<div class="formRow" id="branch_typeRow" style="display: none;">
+								<?php /*?>
+								<div class="formRow" id="branch_typeRow" ><!-- style="display: none;" -->
 									<label for="branch_type"><strong>Business category</strong></label>
 									<div class="selectCase">
 										<input type="hidden" id="branch_type" name="branch_type"
-											value="" _required="required" _type="text" /><input
-											readonly="readonly" type="text" id="branch_typeText"
+											value="" _required="required" _type="text" />
+											<input
+											 type="text" id="branch_typeText" readonly="readonly"
 											class="selectText" value="" /><i> <!-- -->
-										</i><a href="#" id="branch_typeShowAll" class="selectShowAll">View all</a>
+										</i>
+										
 									</div>
-									<div class="formRowNotice">E.g.: &quot;Hair Salon&quot; or
-										&quot;Tax services&quot;</div>
+									<div class="formRowNotice"><?php __('eg_bussinis');?></div>
 								</div>
+							*/?>
+							<div class="formRow" id="branch_typeRow">
+							<label for="branch_type"><strong>Ngành nghề kinh doanh</strong></label>
+							<div class="selectCase">
+							<input type="hidden" id="branch_type" name="branch_type" value="" _required="required" _type="text">
+							<input type="text" id="branch_typeText" class="selectText" value="">
+							<i><!-- --></i>
+							<a href="#businissregister" id="branch_typeShowAll" class="selectShowAll" data-toggle="modal" style="visibility: visible; right: -85px;">Xem tất cả</a>
+							<div class="selectBox" style="width: 0px; display: none;">
+							<a id="branch_typeSBIBAND_CHOIR_MUSIC_CLUB" href="#">Ban nhạc/ Đội hợp ca/ Câu lạc bộ âm nhạc</a>
+							<a id="branch_typeSBIDOCTOR" href="#">Bác sĩ</a>
+							<a id="branch_typeSBICHIROPRACTOR_OSTEOPATH" href="#">Bác sĩ Chiropractor (trị liệu thần kinh cột sống) / Xương - Khớp</a>
+							<a id="branch_typeSBIVETERINARIANS" href="#">Bác sĩ thú y</a>
+							<a id="branch_typeSBIINSURANCE_SERVICES" href="#">Bảo hiểm</a><a id="branch_typeSBIBREEDER" href="#">Chăn nuôi</a><a id="branch_typeSBIOTHER_EDUCATIONAL_SERVICES" href="#">Các dịch vụ giáo dục</a><a id="branch_typeSBIOTHER_BUSINESS_SERVICES" href="#">Các ngành nghề, dịch vụ khác</a><a id="branch_typeSBIFAITH_BASED_ORGANIZATIONS" href="#">Các tổ chức tín ngưỡng</a><a id="branch_typeSBISPORTS_CLUBS" href="#">Câu lạc bộ đêm/ Hiệp hội/ Liên đoàn thể thao</a><a id="branch_typeSBICLUBS_ASSOCIATIONS" href="#">Câu lạc bộ/ Hiệp hội</a><a id="branch_typeSBIGENERIC_BUSINESS_TYPE" href="#">Công ty</a><a id="branch_typeSBITRAVEL" href="#">Công ty du lịch</a><a id="branch_typeSBIARCHITECTURAL_FIRM" href="#">Công ty kiến trúc</a><a id="branch_typeSBIHUMAN_RESOURCES" href="#">Công ty nhân sự/ Tuyển dụng</a><a id="branch_typeSBIWEB_DEVELOPMENT" href="#">Công ty phát triển mạng</a><a id="branch_typeSBIADVERTISING_AGENCY" href="#">Công ty quảng cáo</a><a id="branch_typeSBICONTRACTORS" href="#">Công ty xây dựng</a><a id="branch_typeSBIDEVELOPER_CONSTRUCTION_COMPANY" href="#">Công ty xây dựng và phát triển đô thị</a><a id="branch_typeSBIGARDENING_LANDSCAPING" href="#">Cửa hàng bán dụng cụ sân vườn</a><a id="branch_typeSBISPORTS_OUTDOOR" href="#">Cửa hàng bán quần áo và dụng cụ thể thao</a><a id="branch_typeSBIGLASS_AND_GLAZING_CONTRACTORS" href="#">Cửa hàng bán và sửa chữa cửa sổ, cửa ra vào</a><a id="branch_typeSBIMOTORCYCLE_SHOP" href="#">Cửa hàng bán xe máy</a><a id="branch_typeSBIBICYCLE_SHOP" href="#">Cửa hàng bán xe đạp</a><a id="branch_typeSBISHOE_STORE" href="#">Cửa hàng giày dép</a><a id="branch_typeSBILAUNDRY_CLEANING_IRONING_SERVICES" href="#">Cửa hàng giặt là</a><a id="branch_typeSBIFLORIST_FLOWER_SHOP" href="#">Cửa hàng hoa</a><a id="branch_typeSBIOPTICIAN" href="#">Cửa hàng kính mắt</a><a id="branch_typeSBITAILORING" href="#">Cửa hàng may mặc</a><a id="branch_typeSBICOMPUTER_STORE" href="#">Cửa hàng máy tính và linh kiện điện tử</a><a id="branch_typeSBIGROCER_GROCERY" href="#">Cửa hàng thực phẩm</a><a id="branch_typeSBIJEWELER" href="#">Cửa hàng vàng bạc đá quý</a><a id="branch_typeSBIHARDWARE_STORES" href="#">Cửa hàng vật liệu gia dụng</a><a id="branch_typeSBITOY_STORE" href="#">Cửa hàng đồ chơi</a><a id="branch_typeSBIANTIQUES_STORE" href="#">Cửa hàng đồ cổ</a><a id="branch_typeSBIFURNITURE_STORE" href="#">Cửa hàng đồ gỗ</a><a id="branch_typeSBICARPENTER_FRAMING_CONTRACTORS" href="#">Cửa hàng đồ gỗ/ Cửa hàng đóng khung tranh</a><a id="branch_typeSBIPET_CARE" href="#">Dịch vụ cho thú cưng</a><a id="branch_typeSBIMOVING_STORAGE_SERVICES" href="#">Dịch vụ chuyển nhà/ Kho bãi</a><a id="branch_typeSBICOURIER_SERVICES" href="#">Dịch vụ chuyển phát</a><a id="branch_typeSBIPRINTING_SERVICES" href="#">Dịch vụ in ấn/ Sao chép</a><a id="branch_typeSBIREAL_ESTATE" href="#">Dịch vụ môi giới nhà đất/ Bất động sản</a><a id="branch_typeSBIFUNERAL_HOMES" href="#">Dịch vụ tang lễ</a><a id="branch_typeSBICONSULTING_GROUP" href="#">Dịch vụ tư vấn</a><a id="branch_typeSBICLEANING_SERVICES" href="#">Dịch vụ vệ sinh</a><a id="branch_typeSBICHILDCARE" href="#">Dịch vụ y tế</a><a id="branch_typeSBICATERING_SERVICES" href="#">Dịch vụ ăn uống</a><a id="branch_typeSBIGOODS_TRANSPORTION_HAULING" href="#">Giao thông vận tải/ Vận chuyển hàng hóa</a><a id="branch_typeSBISCHOOL_COLLEGE" href="#">Giáo dục/ Trường học/ Đại học</a><a id="branch_typeSBIHOMEOWNERS_ASSOCIATION" href="#">Hiệp hội Người sở hữu chung cư</a><a id="branch_typeSBINIGHTCLUB_DISCO" href="#">Hộp đêm/ Vũ trường</a><a id="branch_typeSBIHOTEL" href="#">Khách sạn/ Nhà nghỉ/ Nhà trọ</a><a id="branch_typeSBIACCOUNTANT_TAX_SERVICES" href="#">Kế toán / Dịch vụ tư vấn thuế</a><a id="branch_typeSBIHVAC_SERVICES" href="#">Lắp đặt điều hòa/ Sưởi</a><a id="branch_typeSBIARTIST_DESIGNER" href="#">Nghệ sĩ/ Thiết kế</a><a id="branch_typeSBIRESTAURANT" href="#">Nhà hàng</a><a id="branch_typeSBIFARMERS_MARKETS" href="#">Nhà nông/ Trang trại</a><a id="branch_typeSBIPHARMACY" href="#">Nhà thuốc</a><a id="branch_typeSBIKINDERGARTEN" href="#">Nhà trẻ</a><a id="branch_typeSBIPHOTOGRAPHY" href="#">Photo studio</a><a id="branch_typeSBIDENTIST" href="#">Phòng khám nha khoa</a><a id="branch_typeSBIGYM_FITNESS_SPORTS_CENTERS" href="#">Phòng tập thể hình/ Trung tâm thể dục thể thao</a><a id="branch_typeSBIPR_MARKETING" href="#">PR/ Marketing/ Truyền thông</a><a id="branch_typeSBISPA_BEAUTY" href="#">Spa/ Thẩm mỹ viện</a><a id="branch_typeSBIPAINTER_PAPERHANGER" href="#">Sơn tường/ Giấy dán tường</a><a id="branch_typeSBITAXI_LIMO" href="#">Taxi, dịch vụ giao thông vận tải</a><a id="branch_typeSBIWEB_DESIGN" href="#">Thiết kế trang web</a><a id="branch_typeSBIINTERIOR_DESIGN_RENOVATIONS" href="#">Thiết kế và sửa chữa nội thất</a><a id="branch_typeSBILIBRARY" href="#">Thư viện</a><a id="branch_typeSBIBEAUTY_HAIR_SALONS" href="#">Thẩm mỹ viện/ Salon tóc &amp; Hớt tóc nam</a><a id="branch_typeSBIBEAUTY_NAIL_SALONS" href="#">Thẩm mỹ viện/ Tiệm nails</a><a id="branch_typeSBIFASHION_CLOTHING_STORE" href="#">Thời trang/ Cửa hàng quần áo, giày dép</a><a id="branch_typeSBIROOFER" href="#">Thợ lợp ngói</a><a id="branch_typeSBIPLUMBER" href="#">Thợ sửa chữa ống nước</a><a id="branch_typeSBILOCKSMITH" href="#">Thợ sửa khóa</a><a id="branch_typeSBIELECTRICIAN_ELECTRICAL_CONTRACTORS" href="#">Thợ điện/ Công ty điện</a><a id="branch_typeSBIBAKERY_PASTRY_SHOP" href="#">Tiệm bánh mỳ/ Quán kem</a><a id="branch_typeSBICAFE_BAR" href="#">Tiệm cà phê/ Quán Bar</a><a id="branch_typeSBIBOOKSTORE" href="#">Tiệm sách</a><a id="branch_typeSBIHOME_DECOR_ACCESSORIES" href="#">Trang trí nội thất/ đồ dùng gia dụng</a><a id="branch_typeSBIAMUSEMENT_RECREATION" href="#">Trung tâm giải trí/ thể dục thể thao (Bowling/Bi-da/Bắn phi tiêu)</a><a id="branch_typeSBIAUTO_CAR_BODY_REPAIR_SHOP" href="#">Trung tâm sửa chữa xe ô tô</a><a id="branch_typeSBIBABYSITTING" href="#">Trông trẻ</a><a id="branch_typeSBIDRIVING_SCHOOL" href="#">Trường dạy lái xe</a><a id="branch_typeSBIINVESTMENT_ADVISER" href="#">Tư vấn tài chính</a><a id="branch_typeSBIIT_CONSULTING_SERVICES" href="#">Tư vấn và dịch vụ IT</a><a id="branch_typeSBINON_PROFIT_ORGANIZATIONS" href="#">Tổ chức phi lợi nhuận</a><a id="branch_typeSBIEVENT_PLANNING" href="#">Tổ chức sự kiện (Đám cưới/ Tiệc tùng/ Liên hoan công ty)</a><a id="branch_typeSBIRETIREMENT_HOMES" href="#">Viện dưỡng lão</a><a id="branch_typeSBILAW_OFFICE_NOTARY" href="#">Văn phòng luật/ Công chứng</a><a id="branch_typeSBISTATIONERY" href="#">Văn phòng phẩm</a><a id="branch_typeSBIPHYSIOTHERAPIST_MASSEUSE" href="#">Vật lý trị liệu/ Salon massage</a><a id="branch_typeSBIHOME_IMPROVEMENT_BUILDING_SUPPLIES" href="#">Xây dựng</a><a id="branch_typeSBIELECTRONICS_ELECTRICAL_APPLIANCES" href="#">Điện tử/ Điện gia dụng</a><a id="branch_typeSBIAUTO_CAR_DEALERSHIP" href="#">Đại lý xe ô tô</a></div></div><div class="formRowNotice">Ví dụ: "Salon tóc" hoặc "Dịch vụ thuế"</div></div>
 							</div>
 						</fieldset>
 						<div class="cleaner">
@@ -505,6 +523,38 @@ foreach ( $eshop as $key) {
 	</div>
 </div>
 <!-- id="coverPage" class="normal -->
-
-
-
+<script type="text/javascript">/*<![CDATA[*/Languages.run();BranchTypes.run();CountriesWithUS.run();UnitedStates.run();Currencies.run();Wizard.setPortalWizard(1);RS_CFG['domain_registered']='';RS_CFG['urlGuidepost']='http://cms.eshopkinhdoanh.webnode.vn/?aw=1';RS_CFG['system_time'] = 1408892608;var precachedFiles = new PrecachedFiles('http://static-cdn1.webnode.com/');/*]]>*/</script>
+<div id="businissregister" class="modal hide fade selectWindow" tabindex="-1" >
+   <div class="modal-header">
+      
+            <div class="hgroup title">
+				<h2>Chọn ngành nghề:</h2>
+				<button type="button" class="close selectWindowClose" data-dismiss="modal" aria-hidden="true">×</button>
+				<div class="selectWindowItems">
+				<div class="swItemsCol" style="height: 839px;">
+				<a id="branch_typeSBIWBAND_CHOIR_MUSIC_CLUB" href="#" class="firstAlpha">Ban nhạc/ Đội hợp ca/ Câu lạc bộ âm nhạc</a>
+				<a id="branch_typeSBIWDOCTOR" href="#">Bác sĩ</a>
+				<a id="branch_typeSBIWCHIROPRACTOR_OSTEOPATH" href="#">Bác sĩ Chiropractor (trị liệu thần kinh cột sống) / Xương - Khớp</a>
+				<a id="branch_typeSBIWVETERINARIANS" href="#">Bác sĩ thú y</a>
+				<a id="branch_typeSBIWINSURANCE_SERVICES" href="#">Bảo hiểm</a>
+				<a id="branch_typeSBIWBREEDER" href="#" class="firstAlpha">Chăn nuôi</a>
+				<a id="branch_typeSBIWOTHER_EDUCATIONAL_SERVICES" href="#">Các dịch vụ giáo dục</a>
+				<a id="branch_typeSBIWOTHER_BUSINESS_SERVICES" href="#">Các ngành nghề, dịch vụ khác</a>
+				<a id="branch_typeSBIWFAITH_BASED_ORGANIZATIONS" href="#">Các tổ chức tín ngưỡng</a>
+				<a id="branch_typeSBIWSPORTS_CLUBS" href="#">Câu lạc bộ đêm/ Hiệp hội/ Liên đoàn thể thao</a>
+				<a id="branch_typeSBIWCLUBS_ASSOCIATIONS" href="#">Câu lạc bộ/ Hiệp hội</a>
+				<a id="branch_typeSBIWGENERIC_BUSINESS_TYPE" href="#">Công ty</a>
+				<a id="branch_typeSBIWTRAVEL" href="#">Công ty du lịch</a>
+				<a id="branch_typeSBIWARCHITECTURAL_FIRM" href="#">Công ty kiến trúc</a>
+				<a id="branch_typeSBIWHUMAN_RESOURCES" href="#">Công ty nhân sự/ Tuyển dụng</a>
+				<a id="branch_typeSBIWWEB_DEVELOPMENT" href="#">Công ty phát triển mạng</a>
+				<a id="branch_typeSBIWADVERTISING_AGENCY" href="#">Công ty quảng cáo</a>
+				<a id="branch_typeSBIWCONTRACTORS" href="#">Công ty xây dựng</a>
+				<a id="branch_typeSBIWDEVELOPER_CONSTRUCTION_COMPANY" href="#">Công ty xây dựng và phát triển đô thị</a>
+				<a id="branch_typeSBIWGARDENING_LANDSCAPING" href="#">Cửa hàng bán dụng cụ sân vườn</a><a id="branch_typeSBIWSPORTS_OUTDOOR" href="#">Cửa hàng bán quần áo và dụng cụ thể thao</a><a id="branch_typeSBIWGLASS_AND_GLAZING_CONTRACTORS" href="#">Cửa hàng bán và sửa chữa cửa sổ, cửa ra vào</a><a id="branch_typeSBIWMOTORCYCLE_SHOP" href="#">Cửa hàng bán xe máy</a><a id="branch_typeSBIWBICYCLE_SHOP" href="#">Cửa hàng bán xe đạp</a><a id="branch_typeSBIWSHOE_STORE" href="#">Cửa hàng giày dép</a><a id="branch_typeSBIWLAUNDRY_CLEANING_IRONING_SERVICES" href="#">Cửa hàng giặt là</a><a id="branch_typeSBIWFLORIST_FLOWER_SHOP" href="#">Cửa hàng hoa</a><a id="branch_typeSBIWOPTICIAN" href="#">Cửa hàng kính mắt</a><a id="branch_typeSBIWTAILORING" href="#">Cửa hàng may mặc</a><a id="branch_typeSBIWCOMPUTER_STORE" href="#">Cửa hàng máy tính và linh kiện điện tử</a><a id="branch_typeSBIWGROCER_GROCERY" href="#">Cửa hàng thực phẩm</a><a id="branch_typeSBIWJEWELER" href="#">Cửa hàng vàng bạc đá quý</a></div><div class="swItemsCol" style="height: 839px;"><a id="branch_typeSBIWHARDWARE_STORES" href="#">Cửa hàng vật liệu gia dụng</a><a id="branch_typeSBIWTOY_STORE" href="#">Cửa hàng đồ chơi</a><a id="branch_typeSBIWANTIQUES_STORE" href="#">Cửa hàng đồ cổ</a><a id="branch_typeSBIWFURNITURE_STORE" href="#">Cửa hàng đồ gỗ</a><a id="branch_typeSBIWCARPENTER_FRAMING_CONTRACTORS" href="#">Cửa hàng đồ gỗ/ Cửa hàng đóng khung tranh</a><a id="branch_typeSBIWPET_CARE" href="#" class="firstAlpha">Dịch vụ cho thú cưng</a><a id="branch_typeSBIWMOVING_STORAGE_SERVICES" href="#">Dịch vụ chuyển nhà/ Kho bãi</a><a id="branch_typeSBIWCOURIER_SERVICES" href="#">Dịch vụ chuyển phát</a><a id="branch_typeSBIWPRINTING_SERVICES" href="#">Dịch vụ in ấn/ Sao chép</a><a id="branch_typeSBIWREAL_ESTATE" href="#">Dịch vụ môi giới nhà đất/ Bất động sản</a><a id="branch_typeSBIWFUNERAL_HOMES" href="#">Dịch vụ tang lễ</a><a id="branch_typeSBIWCONSULTING_GROUP" href="#">Dịch vụ tư vấn</a><a id="branch_typeSBIWCLEANING_SERVICES" href="#">Dịch vụ vệ sinh</a><a id="branch_typeSBIWCHILDCARE" href="#">Dịch vụ y tế</a><a id="branch_typeSBIWCATERING_SERVICES" href="#">Dịch vụ ăn uống</a><a id="branch_typeSBIWGOODS_TRANSPORTION_HAULING" href="#" class="firstAlpha">Giao thông vận tải/ Vận chuyển hàng hóa</a><a id="branch_typeSBIWSCHOOL_COLLEGE" href="#">Giáo dục/ Trường học/ Đại học</a><a id="branch_typeSBIWHOMEOWNERS_ASSOCIATION" href="#" class="firstAlpha">Hiệp hội Người sở hữu chung cư</a><a id="branch_typeSBIWNIGHTCLUB_DISCO" href="#">Hộp đêm/ Vũ trường</a><a id="branch_typeSBIWHOTEL" href="#" class="firstAlpha">Khách sạn/ Nhà nghỉ/ Nhà trọ</a><a id="branch_typeSBIWACCOUNTANT_TAX_SERVICES" href="#">Kế toán / Dịch vụ tư vấn thuế</a><a id="branch_typeSBIWHVAC_SERVICES" href="#" class="firstAlpha">Lắp đặt điều hòa/ Sưởi</a><a id="branch_typeSBIWARTIST_DESIGNER" href="#" class="firstAlpha">Nghệ sĩ/ Thiết kế</a><a id="branch_typeSBIWRESTAURANT" href="#">Nhà hàng</a><a id="branch_typeSBIWFARMERS_MARKETS" href="#">Nhà nông/ Trang trại</a><a id="branch_typeSBIWPHARMACY" href="#">Nhà thuốc</a><a id="branch_typeSBIWKINDERGARTEN" href="#">Nhà trẻ</a><a id="branch_typeSBIWPHOTOGRAPHY" href="#" class="firstAlpha">Photo studio</a><a id="branch_typeSBIWDENTIST" href="#">Phòng khám nha khoa</a><a id="branch_typeSBIWGYM_FITNESS_SPORTS_CENTERS" href="#">Phòng tập thể hình/ Trung tâm thể dục thể thao</a><a id="branch_typeSBIWPR_MARKETING" href="#">PR/ Marketing/ Truyền thông</a><a id="branch_typeSBIWSPA_BEAUTY" href="#" class="firstAlpha">Spa/ Thẩm mỹ viện</a></div><div class="swItemsCol last" style="height: 839px;"><a id="branch_typeSBIWPAINTER_PAPERHANGER" href="#">Sơn tường/ Giấy dán tường</a><a id="branch_typeSBIWTAXI_LIMO" href="#" class="firstAlpha">Taxi, dịch vụ giao thông vận tải</a><a id="branch_typeSBIWWEB_DESIGN" href="#">Thiết kế trang web</a><a id="branch_typeSBIWINTERIOR_DESIGN_RENOVATIONS" href="#">Thiết kế và sửa chữa nội thất</a><a id="branch_typeSBIWLIBRARY" href="#">Thư viện</a><a id="branch_typeSBIWBEAUTY_HAIR_SALONS" href="#">Thẩm mỹ viện/ Salon tóc &amp; Hớt tóc nam</a><a id="branch_typeSBIWBEAUTY_NAIL_SALONS" href="#">Thẩm mỹ viện/ Tiệm nails</a><a id="branch_typeSBIWFASHION_CLOTHING_STORE" href="#">Thời trang/ Cửa hàng quần áo, giày dép</a><a id="branch_typeSBIWROOFER" href="#">Thợ lợp ngói</a><a id="branch_typeSBIWPLUMBER" href="#">Thợ sửa chữa ống nước</a><a id="branch_typeSBIWLOCKSMITH" href="#">Thợ sửa khóa</a><a id="branch_typeSBIWELECTRICIAN_ELECTRICAL_CONTRACTORS" href="#">Thợ điện/ Công ty điện</a><a id="branch_typeSBIWBAKERY_PASTRY_SHOP" href="#">Tiệm bánh mỳ/ Quán kem</a><a id="branch_typeSBIWCAFE_BAR" href="#">Tiệm cà phê/ Quán Bar</a><a id="branch_typeSBIWBOOKSTORE" href="#">Tiệm sách</a><a id="branch_typeSBIWHOME_DECOR_ACCESSORIES" href="#">Trang trí nội thất/ đồ dùng gia dụng</a><a id="branch_typeSBIWAMUSEMENT_RECREATION" href="#">Trung tâm giải trí/ thể dục thể thao (Bowling/Bi-da/Bắn phi tiêu)</a><a id="branch_typeSBIWAUTO_CAR_BODY_REPAIR_SHOP" href="#">Trung tâm sửa chữa xe ô tô</a><a id="branch_typeSBIWBABYSITTING" href="#">Trông trẻ</a><a id="branch_typeSBIWDRIVING_SCHOOL" href="#">Trường dạy lái xe</a><a id="branch_typeSBIWINVESTMENT_ADVISER" href="#">Tư vấn tài chính</a><a id="branch_typeSBIWIT_CONSULTING_SERVICES" href="#">Tư vấn và dịch vụ IT</a><a id="branch_typeSBIWNON_PROFIT_ORGANIZATIONS" href="#">Tổ chức phi lợi nhuận</a><a id="branch_typeSBIWEVENT_PLANNING" href="#">Tổ chức sự kiện (Đám cưới/ Tiệc tùng/ Liên hoan công ty)</a><a id="branch_typeSBIWRETIREMENT_HOMES" href="#" class="firstAlpha">Viện dưỡng lão</a><a id="branch_typeSBIWLAW_OFFICE_NOTARY" href="#">Văn phòng luật/ Công chứng</a><a id="branch_typeSBIWSTATIONERY" href="#">Văn phòng phẩm</a><a id="branch_typeSBIWPHYSIOTHERAPIST_MASSEUSE" href="#">Vật lý trị liệu/ Salon massage</a><a id="branch_typeSBIWHOME_IMPROVEMENT_BUILDING_SUPPLIES" href="#" class="firstAlpha">Xây dựng</a><a id="branch_typeSBIWELECTRONICS_ELECTRICAL_APPLIANCES" href="#" class="firstAlpha">Điện tử/ Điện gia dụng</a><a id="branch_typeSBIWAUTO_CAR_DEALERSHIP" href="#">Đại lý xe ô tô</a><div class="cleaner">
+				</div></div>
+				</div>
+		  </div>
+	</div>			
+				
+</div>

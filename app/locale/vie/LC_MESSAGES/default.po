@@ -165,6 +165,9 @@ msgid "step1WizardFormErrorText"
 msgstr "Form này có lỗi. Xin vui lòng điền các trường  được đánh dấu và gửi lại."
 
 msgid "eg_websitename"
+msgstr "http://eshophaird.freemobiweb.mobi "
+
+msgid "eg_bussinis"
 msgstr "Ví dụ: Studio tóc Anh Phương"
 
 msgid "Language"
@@ -268,7 +271,7 @@ msgid "Affiliate"
 msgstr "Liên kết"
 
 msgid "alatca"
-msgstr "Làm thế nào để sử dụng Alatca?"
+msgstr "Sử dụng FreeMobi?"
 
 msgid "Creat"
 msgstr "Tạo một trang web miễn phí"

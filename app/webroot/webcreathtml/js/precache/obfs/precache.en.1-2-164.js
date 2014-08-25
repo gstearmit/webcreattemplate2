@@ -11186,6 +11186,7 @@ Layouts.data.typesItems = {
 };
 
 Layouts.data.basicGroupsItems = {
+	50000566: 50000045,	
     50000565: 50000045,
 	50000564: 50000045,
 	50000563: 50000045,

@@ -1637,7 +1637,16 @@ legend {
 .selectShowAll:hover {
 	border:0;
 }
-
+.selectWindow {
+    background: url("../../../img/2010/wizard/bgrSelectWin.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 538px;
+    left: 13%;
+    position: absolute;
+    top: 5%;
+    width: 948px;
+    z-index: 25;
+}
+/*
 .selectWindow {
 	position:absolute;
 	top:0;
@@ -1647,6 +1656,7 @@ legend {
 	background:url(../../../img/2010/wizard/bgrSelectWin.png) 0 0 no-repeat;
 	z-index:25;
 }
+*/
 
 .selectWindow h2 {
 	position:absolute;

@@ -167,7 +167,10 @@ msgid "step1WizardFormErrorText"
 msgstr "The form contains errors. Please alter the highlighted fields and send the form again."
 
 msgid "eg_websitename"
-msgstr "E.g. Anna's Hairdressing"
+msgstr "E.g. http://eshophaird.freemobiweb.mobi"
+
+msgid "eg_bussinis"
+msgstr "E.g.: &quot;Hair Salon&quot; or &quot;Tax services&quot;"
 
 msgid "Language"
 msgstr "Language"
@@ -272,7 +275,7 @@ msgid "Affiliate"
 msgstr "Affiliate"
 
 msgid "alatca"
-msgstr "How to use Alatca?"
+msgstr "How to use FreeMobi?"
 
 msgid "Creat"
 msgstr "Create a free website"
