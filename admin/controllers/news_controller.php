@@ -5,7 +5,7 @@ class NewsController extends AppController {
 	var $helpers = array('Html', 'Form', 'Javascript', 'TvFck');
 	function index() {
 		  $this->account();
-		 // $conditions=array('News.status'=>1);
+		  //$conditions=array('News.status'=>1);
 		  $this->paginate = array('limit' => '10','order' => 'News.id DESC');
 	      $this->set('news', $this->paginate('News',array()));
 		  $this->loadModel("Category");
