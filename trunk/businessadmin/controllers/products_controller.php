@@ -58,6 +58,51 @@ class ProductsController extends AppController {
 		$this->loadModelNew('Eshopdaquycatproduct');	   
         $list_cat = $this->Eshopdaquycatproduct->generatetreelist(null,null,null," _ ");
         $this->set(compact('list_cat'));
+        
+        // NGÔN NGỮ
+        $urlTmp = $_SERVER['REQUEST_URI'];
+        
+        if (stripos($urlTmp, "?language"))
+        {
+        	$urlTmp = explode ( "?", $urlTmp );
+        	$lang = explode ( "=", $urlTmp [1] );
+        	$lang = $lang [1];
+        
+        	if (isset ( $lang )) {
+        		//$this->Session->write ( 'language', $lang );
+        		Configure::write('Config.language', $lang);
+        	} else {
+        		$this->Session->delete ( 'language' );
+        	}
+        } else {
+        
+        	$lang = "vie"; // default
+        	//$this->Session->write ( 'language', $lang );
+        	Configure::write('Config.language', $lang);
+        }
+         
+        // +++++ check Langue
+        $langue = $this->Session->read ( 'language' );
+        
+        if ($langue == null) {
+        	$urlTmp = $_SERVER ['REQUEST_URI'];
+        	if (stripos ( $urlTmp, "?language" )) {
+        		$urlTmp = explode ( "?", $urlTmp );
+        		$lang = explode ( "=", $urlTmp [1] );
+        		$lang = $lang [1];
+        		if (isset ( $lang )) {
+        			//$this->Session->write ( 'language', $lang );
+        			Configure::write('Config.language', $lang);
+        		} else {
+        			$this->Session->delete ( 'language' );
+        		}
+        	} else {
+        		$lang = "vie"; // default
+        		//$this->Session->write ( 'language', $lang );
+        		Configure::write('Config.language', $lang);
+        	}
+        }
+        $this->set ( 'langue', $langue );
 	}
 	
 	//Them bai viet
@@ -82,6 +127,51 @@ class ProductsController extends AppController {
 		$this->loadModelNew("Eshopdaquycatproduct");
         $list_cat = $this->Eshopdaquycatproduct->generatetreelist(null,null,null," _ ");
         $this->set(compact('list_cat'));
+        
+        // NGÔN NGỮ
+        $urlTmp = $_SERVER['REQUEST_URI'];
+        
+        if (stripos($urlTmp, "?language"))
+        {
+        	$urlTmp = explode ( "?", $urlTmp );
+        	$lang = explode ( "=", $urlTmp [1] );
+        	$lang = $lang [1];
+        
+        	if (isset ( $lang )) {
+        		//$this->Session->write ( 'language', $lang );
+        		Configure::write('Config.language', $lang);
+        	} else {
+        		$this->Session->delete ( 'language' );
+        	}
+        } else {
+        
+        	$lang = "vie"; // default
+        	//$this->Session->write ( 'language', $lang );
+        	Configure::write('Config.language', $lang);
+        }
+         
+        // +++++ check Langue
+        $langue = $this->Session->read ( 'language' );
+        
+        if ($langue == null) {
+        	$urlTmp = $_SERVER ['REQUEST_URI'];
+        	if (stripos ( $urlTmp, "?language" )) {
+        		$urlTmp = explode ( "?", $urlTmp );
+        		$lang = explode ( "=", $urlTmp [1] );
+        		$lang = $lang [1];
+        		if (isset ( $lang )) {
+        			//$this->Session->write ( 'language', $lang );
+        			Configure::write('Config.language', $lang);
+        		} else {
+        			$this->Session->delete ( 'language' );
+        		}
+        	} else {
+        		$lang = "vie"; // default
+        		//$this->Session->write ( 'language', $lang );
+        		Configure::write('Config.language', $lang);
+        	}
+        }
+        $this->set ( 'langue', $langue );
 	}
 	//view mot tin 
 	function view($id = null) {
@@ -167,6 +257,51 @@ class ProductsController extends AppController {
 		$this->loadModelNew("Eshopdaquycatproduct");
         $list_cat = $this->Eshopdaquycatproduct->generatetreelist(null,null,null," _ ");
         $this->set(compact('list_cat'));
+        
+        // NGÔN NGỮ
+        $urlTmp = $_SERVER['REQUEST_URI'];
+        
+        if (stripos($urlTmp, "?language"))
+        {
+        	$urlTmp = explode ( "?", $urlTmp );
+        	$lang = explode ( "=", $urlTmp [1] );
+        	$lang = $lang [1];
+        
+        	if (isset ( $lang )) {
+        		//$this->Session->write ( 'language', $lang );
+        		Configure::write('Config.language', $lang);
+        	} else {
+        		$this->Session->delete ( 'language' );
+        	}
+        } else {
+        
+        	$lang = "vie"; // default
+        	//$this->Session->write ( 'language', $lang );
+        	Configure::write('Config.language', $lang);
+        }
+         
+        // +++++ check Langue
+        $langue = $this->Session->read ( 'language' );
+        
+        if ($langue == null) {
+        	$urlTmp = $_SERVER ['REQUEST_URI'];
+        	if (stripos ( $urlTmp, "?language" )) {
+        		$urlTmp = explode ( "?", $urlTmp );
+        		$lang = explode ( "=", $urlTmp [1] );
+        		$lang = $lang [1];
+        		if (isset ( $lang )) {
+        			//$this->Session->write ( 'language', $lang );
+        			Configure::write('Config.language', $lang);
+        		} else {
+        			$this->Session->delete ( 'language' );
+        		}
+        	} else {
+        		$lang = "vie"; // default
+        		//$this->Session->write ( 'language', $lang );
+        		Configure::write('Config.language', $lang);
+        	}
+        }
+        $this->set ( 'langue', $langue );
 		
 	}
 	// sua tin da dang
@@ -198,6 +333,51 @@ class ProductsController extends AppController {
         $list_cat = $this->Eshopdaquycatproduct->generatetreelist(null,null,null," _ ");
         $this->set(compact('list_cat'));
 		$this->set('edit',$this->Eshopdaquyproduct->findById($id));
+		
+		// NGÔN NGỮ
+		$urlTmp = $_SERVER['REQUEST_URI'];
+		
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+		
+			if (isset ( $lang )) {
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+		
+			$lang = "vie"; // default
+			//$this->Session->write ( 'language', $lang );
+			Configure::write('Config.language', $lang);
+		}
+		 
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+		
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			}
+		}
+		$this->set ( 'langue', $langue );
 	}
 	function processing() {
 		$this->account();

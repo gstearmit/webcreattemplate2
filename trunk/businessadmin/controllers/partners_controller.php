@@ -6,6 +6,51 @@ class PartnersController extends AppController {
 		  $this->account();
 		  $this->paginate = array('limit' => '15','order' => 'Partner.id DESC');
 	      $this->set('partners', $this->paginate('Partner',array()));
+	      
+	      // NGÔN NGỮ
+	      $urlTmp = $_SERVER['REQUEST_URI'];
+	      	
+	      if (stripos($urlTmp, "?language"))
+	      {
+	      	$urlTmp = explode ( "?", $urlTmp );
+	      	$lang = explode ( "=", $urlTmp [1] );
+	      	$lang = $lang [1];
+	      
+	      	if (isset ( $lang )) {
+	      		//$this->Session->write ( 'language', $lang );
+	      		Configure::write('Config.language', $lang);
+	      	} else {
+	      		$this->Session->delete ( 'language' );
+	      	}
+	      } else {
+	      
+	      	$lang = "vie"; // default
+	      	//$this->Session->write ( 'language', $lang );
+	      	Configure::write('Config.language', $lang);
+	      }
+	      
+	      // +++++ check Langue
+	      $langue = $this->Session->read ( 'language' );
+	      	
+	      if ($langue == null) {
+	      	$urlTmp = $_SERVER ['REQUEST_URI'];
+	      	if (stripos ( $urlTmp, "?language" )) {
+	      		$urlTmp = explode ( "?", $urlTmp );
+	      		$lang = explode ( "=", $urlTmp [1] );
+	      		$lang = $lang [1];
+	      		if (isset ( $lang )) {
+	      			//$this->Session->write ( 'language', $lang );
+	      			Configure::write('Config.language', $lang);
+	      		} else {
+	      			$this->Session->delete ( 'language' );
+	      		}
+	      	} else {
+	      		$lang = "vie"; // default
+	      		//$this->Session->write ( 'language', $lang );
+	      		Configure::write('Config.language', $lang);
+	      	}
+	      }
+	      $this->set ( 'langue', $langue );
 
 	}
 	
@@ -22,6 +67,51 @@ class PartnersController extends AppController {
 				$this->Session->setFlash(__('Thêm mơi danh mục thất bại. Vui long thử lại', true));
 			}
 		}
+		
+		// NGÔN NGỮ
+		$urlTmp = $_SERVER['REQUEST_URI'];
+		
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+			 
+			if (isset ( $lang )) {
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+			 
+			$lang = "vie"; // default
+			//$this->Session->write ( 'language', $lang );
+			Configure::write('Config.language', $lang);
+		}
+		 
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+		
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			}
+		}
+		$this->set ( 'langue', $langue );
 	}
 	
 	function close($id=null) {
@@ -163,6 +253,50 @@ class PartnersController extends AppController {
 			$this->set('edit',$this->Partner->read(null, $id));
 		}
 		
+		// NGÔN NGỮ
+		$urlTmp = $_SERVER['REQUEST_URI'];
+		
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+		
+			if (isset ( $lang )) {
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+		
+			$lang = "vie"; // default
+			//$this->Session->write ( 'language', $lang );
+			Configure::write('Config.language', $lang);
+		}
+			
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+		
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			}
+		}
+		$this->set ( 'langue', $langue );
 	}
 	// Xoa hinh anh
 	function delete($id = null) {

@@ -5,13 +5,58 @@ class NewsController extends AppController {
 	var $helpers = array('Html', 'Form', 'Javascript', 'TvFck');
 	function index() {
 		  $this->account();
-		 // $conditions=array('News.status'=>1);
+		 //$conditions=array('News.status'=>1);
 		  $this->paginate = array('limit' => '10','order' => 'News.id DESC');
 	      $this->set('news', $this->paginate('News',array()));
 		  $this->loadModel("Category");
         $list_cat = $this->Category->generatetreelist(null,null,null," _ ");
 		  $this->set(compact('list_cat'));
 		  
+		  
+		  // NGÔN NGỮ
+		  $urlTmp = $_SERVER['REQUEST_URI'];
+		  
+		  if (stripos($urlTmp, "?language"))
+		  {
+		  	$urlTmp = explode ( "?", $urlTmp );
+		  	$lang = explode ( "=", $urlTmp [1] );
+		  	$lang = $lang [1];
+		  
+		  	if (isset ( $lang )) {
+		  		//$this->Session->write ( 'language', $lang );
+		  		Configure::write('Config.language', $lang);
+		  	} else {
+		  		$this->Session->delete ( 'language' );
+		  	}
+		  } else {
+		  
+		  	$lang = "vie"; // default
+		  	//$this->Session->write ( 'language', $lang );
+		  	Configure::write('Config.language', $lang);
+		  }
+		  	
+		  // +++++ check Langue
+		  $langue = $this->Session->read ( 'language' );
+		  
+		  if ($langue == null) {
+		  	$urlTmp = $_SERVER ['REQUEST_URI'];
+		  	if (stripos ( $urlTmp, "?language" )) {
+		  		$urlTmp = explode ( "?", $urlTmp );
+		  		$lang = explode ( "=", $urlTmp [1] );
+		  		$lang = $lang [1];
+		  		if (isset ( $lang )) {
+		  			//$this->Session->write ( 'language', $lang );
+		  			Configure::write('Config.language', $lang);
+		  		} else {
+		  			$this->Session->delete ( 'language' );
+		  		}
+		  	} else {
+		  		$lang = "vie"; // default
+		  		//$this->Session->write ( 'language', $lang );
+		  		Configure::write('Config.language', $lang);
+		  	}
+		  }
+		  $this->set ( 'langue', $langue );
 	}
 	//Them bai viet
 	function add() {
@@ -30,6 +75,51 @@ class NewsController extends AppController {
 		$this->loadModel("Category");
         $list_cat = $this->Category->generatetreelist(null,null,null," _ ");
         $this->set(compact('list_cat'));
+        
+        // NGÔN NGỮ
+        $urlTmp = $_SERVER['REQUEST_URI'];
+        
+        if (stripos($urlTmp, "?language"))
+        {
+        	$urlTmp = explode ( "?", $urlTmp );
+        	$lang = explode ( "=", $urlTmp [1] );
+        	$lang = $lang [1];
+        
+        	if (isset ( $lang )) {
+        		//$this->Session->write ( 'language', $lang );
+        		Configure::write('Config.language', $lang);
+        	} else {
+        		$this->Session->delete ( 'language' );
+        	}
+        } else {
+        
+        	$lang = "vie"; // default
+        	//$this->Session->write ( 'language', $lang );
+        	Configure::write('Config.language', $lang);
+        }
+        	
+        // +++++ check Langue
+        $langue = $this->Session->read ( 'language' );
+        
+        if ($langue == null) {
+        	$urlTmp = $_SERVER ['REQUEST_URI'];
+        	if (stripos ( $urlTmp, "?language" )) {
+        		$urlTmp = explode ( "?", $urlTmp );
+        		$lang = explode ( "=", $urlTmp [1] );
+        		$lang = $lang [1];
+        		if (isset ( $lang )) {
+        			//$this->Session->write ( 'language', $lang );
+        			Configure::write('Config.language', $lang);
+        		} else {
+        			$this->Session->delete ( 'language' );
+        		}
+        	} else {
+        		$lang = "vie"; // default
+        		//$this->Session->write ( 'language', $lang );
+        		Configure::write('Config.language', $lang);
+        	}
+        }
+        $this->set ( 'langue', $langue );
 	}
 	//view mot tin 
 	function view($id = null) {

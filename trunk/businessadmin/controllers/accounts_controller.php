@@ -6,6 +6,51 @@ class AccountsController extends AppController {
 	function index() {
 	   $this->account();
 	   $this->set('users',$this->User->find('all'));
+	   
+	   // NGÔN NGỮ
+	   $urlTmp = $_SERVER['REQUEST_URI'];
+	   	
+	   if (stripos($urlTmp, "?language"))
+	   {
+	   	$urlTmp = explode ( "?", $urlTmp );
+	   	$lang = explode ( "=", $urlTmp [1] );
+	   	$lang = $lang [1];
+	   
+	   	if (isset ( $lang )) {
+	   		//$this->Session->write ( 'language', $lang );
+	   		Configure::write('Config.language', $lang);
+	   	} else {
+	   		$this->Session->delete ( 'language' );
+	   	}
+	   } else {
+	   
+	   	$lang = "vie"; // default
+	   	//$this->Session->write ( 'language', $lang );
+	   	Configure::write('Config.language', $lang);
+	   }
+	   
+	   // +++++ check Langue
+	   $langue = $this->Session->read ( 'language' );
+	   	
+	   if ($langue == null) {
+	   	$urlTmp = $_SERVER ['REQUEST_URI'];
+	   	if (stripos ( $urlTmp, "?language" )) {
+	   		$urlTmp = explode ( "?", $urlTmp );
+	   		$lang = explode ( "=", $urlTmp [1] );
+	   		$lang = $lang [1];
+	   		if (isset ( $lang )) {
+	   			//$this->Session->write ( 'language', $lang );
+	   			Configure::write('Config.language', $lang);
+	   		} else {
+	   			$this->Session->delete ( 'language' );
+	   		}
+	   	} else {
+	   		$lang = "vie"; // default
+	   		//$this->Session->write ( 'language', $lang );
+	   		Configure::write('Config.language', $lang);
+	   	}
+	   }
+	   $this->set ( 'langue', $langue );
 	}
 	function edit_pass($id=null) {
 		$this->account();
@@ -16,6 +61,51 @@ class AccountsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->User->read(null, $id);
 		}		
+		
+		// NGÔN NGỮ
+		$urlTmp = $_SERVER['REQUEST_URI'];
+		 
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+		
+			if (isset ( $lang )) {
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+		
+			$lang = "vie"; // default
+			//$this->Session->write ( 'language', $lang );
+			Configure::write('Config.language', $lang);
+		}
+		
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+		 
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			}
+		}
+		$this->set ( 'langue', $langue );
 	}
 	function check_pass() {
 		if (!empty($this->data)){
@@ -49,6 +139,50 @@ class AccountsController extends AppController {
 			if($this->User->save($this->data))
 			$this->redirect(array('action' => 'index'));
 		}
+		// NGÔN NGỮ
+		$urlTmp = $_SERVER['REQUEST_URI'];
+			
+		if (stripos($urlTmp, "?language"))
+		{
+			$urlTmp = explode ( "?", $urlTmp );
+			$lang = explode ( "=", $urlTmp [1] );
+			$lang = $lang [1];
+		
+			if (isset ( $lang )) {
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			} else {
+				$this->Session->delete ( 'language' );
+			}
+		} else {
+		
+			$lang = "vie"; // default
+			//$this->Session->write ( 'language', $lang );
+			Configure::write('Config.language', $lang);
+		}
+		
+		// +++++ check Langue
+		$langue = $this->Session->read ( 'language' );
+			
+		if ($langue == null) {
+			$urlTmp = $_SERVER ['REQUEST_URI'];
+			if (stripos ( $urlTmp, "?language" )) {
+				$urlTmp = explode ( "?", $urlTmp );
+				$lang = explode ( "=", $urlTmp [1] );
+				$lang = $lang [1];
+				if (isset ( $lang )) {
+					//$this->Session->write ( 'language', $lang );
+					Configure::write('Config.language', $lang);
+				} else {
+					$this->Session->delete ( 'language' );
+				}
+			} else {
+				$lang = "vie"; // default
+				//$this->Session->write ( 'language', $lang );
+				Configure::write('Config.language', $lang);
+			}
+		}
+		$this->set ( 'langue', $langue );
 	}
 	function delete($id=null){
 		if(!empty($id))

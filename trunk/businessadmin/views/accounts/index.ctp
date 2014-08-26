@@ -7,26 +7,26 @@
                         <li id="toolbar-new">
                             <a href="<?php echo DOMAINAD?>accounts/add" class="toolbar">
                                 <span class="icon-32-new"></span>
-                                Thêm mới
+                               <?php __('Add_new')?>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li id="toolbar-help">
                             <a href="#messages" rel="modal" class="toolbar">
                                 <span class="icon-32-help"></span>
-                                Trợ giúp
+                                <?php __('Help')?>
                             </a>
                         </li>
                         <li id="toolbar-unpublish">
                             <a href="<?php echo DOMAINAD?>home" class="toolbar">
                                 <span class="icon-32-unpublish"></span>
-                                Đóng
+                                <?php __('Close')?>
                             </a>
                         </li>
                     </ul>
                     <div class="clr"></div>
                 </div>
-        <div class="pagetitle icon-48-nhomtin"><h2>Tài khoản</h2></div>
+        <div class="pagetitle icon-48-nhomtin"><h2><?php __('Account')?></h2></div>
 		<div class="clr"></div>
 	</div>
 </div>
@@ -34,15 +34,15 @@
     <div class="content-box-header">
         <table class="timkiem">
         	<tr>
-            	<td valign="top">Tìm kiếm</td>
+            	<td valign="top"><?php __('Search')?></td>
             	<td><input type="text" id="field2c" name="name" class="text-input"></td>
 
 
-                    <td><input type="submit" name="" value="Tìm kiếm" class="button" /></td>
+                    <td><input type="submit" name="" value="<?php __('Search')?>" class="button" /></td>
             </tr>
         </table>
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Danh sách ảnh</a></li> 
+            <li><a href="#tab1" class="default-tab"><?php __('List')?></a></li> 
             <li><a href="#tab2"></a></li>
         </ul>
         <div class="clear"></div>
@@ -54,11 +54,11 @@
                 <thead>
                     <tr>
                        <th><input class="check-all" type="checkbox" /></th>
-                       <th>STT</th>
-                       <th>Tên đăng nhập</th>
-                       <th>Email</th>
-                       <th>Ngày tạo</th>
-                       <th>Xử lý</th>
+                       <th><?php __('No.')?></th>
+                       <th><?php __('Username')?></th>
+                       <th><?php __('Email')?></th>
+                       <th><?php __('Creat_date')?></th>
+                       <th><?php __('Tackle')?></th>
                     </tr>
                     
                 </thead>
@@ -80,8 +80,8 @@
                         <td><?php  echo $value['User']['email'];?></td>
                         <td><?php echo date('d-m-Y', strtotime($value['User']['created'])); ?></td>
                         <td>
-                             <a href="<?php echo DOMAINAD?>accounts/edit_pass/<?php echo $value['User']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
-                             <a href="javascript:confirmDelete('<?php echo DOMAINAD?>accounts/delete/<?php echo $value['User']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
+                             <a href="<?php echo DOMAINADBUSINISS?>accounts/edit_pass/<?php echo $value['User']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
+                             <a href="javascript:confirmDelete('<?php echo DOMAINADBUSINISS?>accounts/delete/<?php echo $value['User']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a> 
                         </td>
                     </tr>
                    <?php }?>

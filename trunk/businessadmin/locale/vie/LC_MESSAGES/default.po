@@ -1,0 +1,452 @@
+msgid "hello"
+msgstr "Xin chào"
+
+msgid "Logout"
+msgstr "Thoát"
+
+msgid "home_page"
+msgstr "Xem trang chủ"
+
+msgid "home"
+msgstr "Trang chủ"
+
+msgid "Content"
+msgstr "Nội dung"
+
+msgid "product"
+msgstr "Sản phẩm"
+
+msgid "Category_product"
+msgstr "Danh mục sản phẩm"
+
+msgid "Add_Category"
+msgstr "Thêm danh mục"
+
+msgid "Product_list"
+msgstr "Danh sách sản phẩm"
+
+msgid "Add_product"
+msgstr "Thêm sản phẩm mới"
+
+msgid "Search"
+msgstr "Tìm kiếm"
+
+msgid "Help"
+msgstr "Trợ giúp"
+
+msgid "Close"
+msgstr "Đóng"
+
+msgid "No."
+msgstr "STT"
+
+msgid "Big_category"
+msgstr "Danh mục cha"
+
+msgid "Tackle"
+msgstr "Xử lý"
+
+msgid "Location"
+msgstr "Vị trí"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Select"
+msgstr "Lựa chọn"
+
+msgid "Active"
+msgstr "Active"
+
+msgid "Cancel_Active"
+msgstr "Hủy Active"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Implement"
+msgstr "Thực hiện"
+
+msgid "Manage_products_category"
+msgstr "Quản lý danh mục sản phẩm"
+
+msgid "Edit_category"
+msgstr "Sửa danh mục"
+
+msgid "Save"
+msgstr "Lưu"
+
+msgid "Reset"
+msgstr "Nhập lại"
+
+msgid "Cancel"
+msgstr "Hủy"
+
+msgid "Category"
+msgstr "Danh mục"
+
+msgid "Category_name"
+msgstr "Tên danh mục"
+
+msgid "Add_category"
+msgstr "Thêm danh mục"
+
+msgid "Static_linking"
+msgstr "Liên kết tĩnh"
+
+msgid "Image"
+msgstr "Hình ảnh"
+
+msgid "STT"
+msgstr "Số thứ tự"
+
+msgid "Status"
+msgstr "Trạng thái"
+
+msgid "Unactive"
+msgstr "Chưa Active"
+
+msgid "Activated"
+msgstr "Đã active"
+
+msgid "Product_Manage"
+msgstr "Quản lý sản phẩm"
+
+msgid "Edit"
+msgstr "Sửa"
+
+msgid "Edit_product"
+msgstr "Sửa sản phẩm"
+
+msgid "Product_name"
+msgstr "Tên sản phẩm"
+
+msgid "In_category"
+msgstr "Thuộc danh mục"
+
+msgid "Product_code"
+msgstr "Mã sản phẩm"
+
+msgid "Producer"
+msgstr "Hãng sản xuất"
+
+msgid "Edit_information"
+msgstr "Chỉnh sửa thông tin"
+
+msgid "Brand_name"
+msgstr "Tên hãng"
+
+msgid "Product_price"
+msgstr "Giá sản phẩm"
+
+msgid "Price_level"
+msgstr "Thuộc khoảng giá"
+
+msgid "Old_image"
+msgstr "Hình ảnh cũ"
+
+msgid "Product_image"
+msgstr "Ảnh sản phẩm"
+
+msgid "Product_description"
+msgstr "Mô tả sản phẩm"
+
+msgid "Yes"
+msgstr "Có"
+
+msgid "No"
+msgstr "Không"
+
+msgid "Hide"
+msgstr "Ẩn"
+
+msgid "Show"
+msgstr "Hiện"
+
+msgid "Select_image"
+msgstr "Chọn ảnh"
+
+msgid "List"
+msgstr "Danh sách"
+
+msgid "Featured_products"
+msgstr "Sản phẩm nổi bật"
+
+msgid "Gemstone_paintings"
+msgstr "Tranh đá quý"
+
+msgid "Rough_gems"
+msgstr "Đá quý thô"
+
+msgid "Stone_fengshui"
+msgstr "Đá phong thủy"
+
+msgid "Jewelry"
+msgstr "Trang sức"
+
+msgid "Producers_list"
+msgstr "Danh sách hãng sản xuất"
+
+msgid "Add_new"
+msgstr "Thêm mới"
+
+msgid "Orders"
+msgstr "Đơn hàng"
+
+msgid "Title"
+msgstr "Tiêu đề"
+
+msgid "Orders_list"
+msgstr "Danh sách đơn hàng"
+
+msgid "Custommer_name"
+msgstr "Tên khách hàng"
+
+msgid "Telephone_number"
+msgstr "Điện thoại"
+
+msgid "Mobile"
+msgstr "Di động"
+
+msgid "Address"
+msgstr "Địa chỉ"
+
+msgid "News"
+msgstr "Tin tức"
+
+msgid "News_category"
+msgstr "Danh mục tin tức"
+
+msgid "Add_category_news"
+msgstr "Thêm mới danh mục tin tức"
+
+msgid "News_list"
+msgstr "Danh sách tin tức"
+
+msgid "Trash"
+msgstr "Thùng rác"
+
+msgid "Position"
+msgstr "Vị trí"
+
+msgid "Add_news"
+msgstr "Thêm mới tin"
+
+msgid "Home_page_news"
+msgstr "Tin trang chủ"
+
+msgid "Last_news"
+msgstr "Tin mới"
+
+msgid "News_management"
+msgstr "Quản trị tin tức"
+
+msgid "Brief_description"
+msgstr "Mô tả tóm tắt"
+
+msgid "Article_content"
+msgstr "Nội dung bài viết"
+
+msgid "Vietnamese"
+msgstr "Tiếng Việt"
+
+msgid "English"
+msgstr "Tiếng Anh"
+
+msgid "Comments_management"
+msgstr "Quản lý góp ý"
+
+msgid "Comments_list"
+msgstr "Danh sách góp ý"
+
+msgid "Name"
+msgstr "Tên"
+
+msgid "Ad_management"
+msgstr "Quản lý quảng cáo"
+
+msgid "Ad_list"
+msgstr "Danh sách quảng cáo"
+
+msgid "Advertisement"
+msgstr "Quảng cáo"
+
+msgid "Vertical_advertisement"
+msgstr "Quảng cáo dọc"
+
+msgid "Creat_date"
+msgstr "Ngày tạo"
+
+msgid "Add_advertisement"
+msgstr "Thêm mới quảng cáo"
+
+msgid "Edit_advertisement"
+msgstr "Sửa quảng cáo"
+
+msgid "Image_name"
+msgstr "Tên ảnh"
+
+msgid "Website_name"
+msgstr "Tên website"
+
+msgid "Ad_position"
+msgstr "Vị trí quảng cáo"
+
+msgid "Current_location"
+msgstr "Vị trí hiện tại"
+
+msgid "Advertisement_running_in_the_left"
+msgstr "Quảng cáo chạy bên trái"
+
+msgid "Advertisement_running_in_the_right"
+msgstr "Quảng cáo chạy bên phải"
+
+msgid "Advertisement_in_the_left"
+msgstr "Quảng cáo bên trái"
+
+msgid "Advertisement_in_the_right"
+msgstr "Quảng cáo bên phải"
+
+msgid "Slideshow_management"
+msgstr "Quản lý Slideshow"
+
+msgid "Slide_image"
+msgstr "Ảnh slide"
+
+msgid "Edit_image"
+msgstr "Sửa hình ảnh"
+
+msgid "Add_image"
+msgstr "Thêm mới ảnh"
+
+msgid "Slideshow_image_management"
+msgstr "Quản lý ảnh Slideshow"
+
+msgid "Image_list"
+msgstr "Danh sách ảnh"
+
+msgid "Video_management"
+msgstr "Quản lý video"
+
+msgid "Video_list"
+msgstr "Danh sách video"
+
+msgid "Add_video"
+msgstr "Thêm video"
+
+msgid "Company_name"
+msgstr "Tên công ty"
+
+msgid "Left"
+msgstr "Trái"
+
+msgid "Right"
+msgstr "Phải"
+
+msgid "Account"
+msgstr "Tài khoản"
+
+msgid "Change_account"
+msgstr "Thay đổi tài khoản"
+
+msgid "Username"
+msgstr "Tên đăng nhập"
+
+msgid "Creat_account"
+msgstr "Tạo tài khoản"
+
+msgid "Email_for_password_reset"
+msgstr "Email lấy lại mật khẩu"
+
+msgid "Old_password"
+msgstr "Mật khẩu cũ"
+
+msgid "Password"
+msgstr "Mật khẩu"
+
+msgid "Reset_password"
+msgstr "Nhập lại mật khẩu"
+
+msgid "New_password"
+msgstr "Mật khẩu mới"
+
+msgid "Partners"
+msgstr "Đối tác"
+
+msgid "Partner_name"
+msgstr "Tên đối tác"
+
+msgid "Partners_list"
+msgstr "Danh sách đối tác"
+
+msgid "Link_website"
+msgstr "Liên kết website"
+
+msgid "Link_list"
+msgstr "Danh sách link"
+
+msgid "Add_website_link"
+msgstr "Thêm link liên kết website"
+
+msgid "Add_links"
+msgstr "Thêm links"
+
+msgid "Hotline"
+msgstr "Hotline"
+
+msgid "Hotline_management"
+msgstr "Quản lý hotline"
+
+msgid "Hotline_list"
+msgstr "Danh sách hotline"
+
+msgid "Name_support"
+msgstr "Tên người hỗ trợ"
+
+msgid "Skype_name"
+msgstr "Tên Skype"
+
+msgid "Yahoo_name"
+msgstr "Tên Yahoo"
+
+msgid "Hotline_change"
+msgstr "Thay đổi hotline"
+
+msgid "Avatar"
+msgstr "Ảnh đại diện"
+
+msgid "Banner_management"
+msgstr "Quản lý banner"
+
+msgid "Image_banner"
+msgstr "Ảnh banner"
+
+msgid "Website_configuration"
+msgstr "Cấu hình website"
+
+msgid "Website_title"
+msgstr "Tiêu đề website"
+
+msgid "Other_information"
+msgstr "Thông tin khác"
+
+msgid "User_information"
+msgstr "Thông tin tài khoản"
+
+msgid "Footter_information"
+msgstr "Thông tin footter"
+
+msgid "Keyword"
+msgstr "Từ khóa"
+
+msgid "Description"
+msgstr "Mô tả"
+
+msgid "Contact_information"
+msgstr "Thông tin liên hệ"
+
+msgid "About_Us"
+msgstr "Giới thiệu website"
+
+msgid "Image_video"
+msgstr "Ảnh Video"
