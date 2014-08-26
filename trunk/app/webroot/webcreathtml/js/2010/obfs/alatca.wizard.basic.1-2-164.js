@@ -12718,6 +12718,7 @@ SelectBoxClass.prototype = {
 		return false
 	},
 	
+	//get Businiss doanhnghiep
 	getHtml: function() {
 		var a = new Element("div", {
 			"class": "selectCase"
@@ -13102,16 +13103,16 @@ Object.extend(DispatchOrderClass.prototype, {
 	itemWithTrack: new Object(),
 	showTrackingUrl: false,
 	onSelect: function() {
-		if (true == this.itemWithTrack[this.selectedItem]) {
-			$("trackingCodeRow").show();
-			
-			this.showTrackingUrl = true
-		} else {
-			$("trackingCodeRow").hide();
-			
-			$("trackingCode").value = "";
-			this.showTrackingUrl = false
-		}
+//		if (true == this.itemWithTrack[this.selectedItem]) {
+//			$("trackingCodeRow").show();
+//			
+//			this.showTrackingUrl = true
+//		} else {
+//			$("trackingCodeRow").hide();
+//			
+//			$("trackingCode").value = "";
+//			this.showTrackingUrl = false
+//		}
 	},
 	
 	validate: function() {
@@ -13121,14 +13122,14 @@ Object.extend(DispatchOrderClass.prototype, {
 		} else {
 			Element.removeClassName($(this.baseId.replace(/Select/, "Row")), "error")
 		}
-		if (true == this.showTrackingUrl) {
-			if ("" == $("trackingCode").value) {
-				Element.addClassName($("trackingCodeRow"), "error");
-				return false
-			} else {
-				Element.removeClassName($("trackingCodeRow"), "error")
-			}
-		}
+//		if (true == this.showTrackingUrl) {
+//			if ("" == $("trackingCode").value) {
+//				Element.addClassName($("trackingCodeRow"), "error");
+//				return false
+//			} else {
+//				Element.removeClassName($("trackingCodeRow"), "error")
+//			}
+//		}
 		return true
 	},
 	
@@ -14547,9 +14548,9 @@ WizardClass.prototype = {
 					if (null != b) {
 						Forms.createAlertHint(b, a + "Error", this.validationRules[a].error)
 					}
-					if ("branch_type" == a) {
-						Metrics.set("wizard_step1_branch_error", 1)
-					}
+//					if ("branch_type" == a) {
+//						Metrics.set("wizard_step1_branch_error", 1)
+//					}
 				}
 			}
 		}
@@ -14575,11 +14576,11 @@ WizardClass.prototype = {
 				a.addClassName("selModule");
 				this._setupForModule();
 				
-				Metrics.set("project_type", this.selectedModule);
-				if ("branch" != this.selectedModule) {
-					Metrics.set("wizard_step1_branch_type", "");
-					Metrics.set("wizard_step1_branch_error", "")
-				}
+//				Metrics.set("project_type", this.selectedModule);
+//				if ("branch" != this.selectedModule) {
+//					Metrics.set("wizard_step1_branch_type", "");
+//					Metrics.set("wizard_step1_branch_error", "")
+//				}
 				break;
 				return true
 			}
