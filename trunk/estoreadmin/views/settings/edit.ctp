@@ -1,3 +1,4 @@
+<?php  //pr($Setting);die();?>
 <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'settings/edit','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false)));?>
 <br />  
 <?php
@@ -152,6 +153,7 @@
                     <?php  echo $this->Form->input('description',array('type'=>'textarea','rows' => '2')); ?>
                     </td>
                 </tr>
+                 
             </table>
 			<div class="clear"></div>
         </div> <!-- End #tab1 -->
