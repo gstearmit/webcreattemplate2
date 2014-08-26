@@ -49,7 +49,7 @@ class SettingsController extends AppController {
 		  $this->account();	
 		  $this->loadModelNew ( 'Setting' );
 	      $this->set('Setting', $this->Setting->read(null,1));
-	      
+	     // pr($Setting);die();
 	      
 	}
 	//Them bai viet
