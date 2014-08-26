@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title><?php //if(is_array($eshop) and !empty($eshop)) { echo $eshop['storename'];} ?></title>
@@ -20,6 +20,12 @@ top: -19px;
 <!--[if gte IE 8]><link rel="stylesheet" type="text/css" media="all" href="<?php echo DOMAIN ?>webcreathtml/css/2010/obfs/alatca.admin.ie8.1-2-164.css" /><![endif]-->
 <!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="<?php echo DOMAIN ?>webcreathtml/css/2010/obfs/alatca.admin.ie7.1-2-164.css" /><![endif]-->
 <!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="<?php echo DOMAIN ?>webcreathtml/css/2010/obfs/alatca.admin.ie6.1-2-164.css" /><![endif]-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!--
+
+<script src="<?php echo DOMAIN;?>webcreathtml/js/bootstrap.js"></script> 
+ <link rel="stylesheet" type="text/css" href="<?php echo DOMAIN ?>webcreathtml/css/bootstrap.css" />
+-->
 <link href="<?php echo DOMAIN ?>webcreathtml/css/singup-responsive.css" rel="stylesheet"> 
     <!--  <script src="<?php echo DOMAIN ?>webcreathtml/js/bootstrap.js"></script>
 	<script src="<?php echo DOMAIN ?>webcreathtml/js/bootstrap.min.js"></script>-->
