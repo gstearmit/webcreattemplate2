@@ -1,3 +1,20 @@
+<?php 
+$name ='Nhân viên';
+$back='Về trước';
+$next='Tiếp theo';
+if(isset($_GET['language'])){
+	if($_GET['language']=='eng'){
+		$name ='Staff';
+		$back='Back';
+		$next='Next';
+	}else {
+		$name ='Nhân viên';
+		$back='Về trước';
+		$next='Tiếp theo';
+	}
+	
+}
+?>
 <?php echo $form->create(null, array( 'url' => DOMAINAD.'helps/search','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?> 
 <div id="khung">
 	<div id="main">
@@ -6,26 +23,26 @@
                         <li id="toolbar-new">
                             <a href="<?php echo DOMAINAD?>helps/add" class="toolbar">
                                 <span class="icon-32-new"></span>
-                                Thêm mới
+                                <?php __('Add_new')?>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li id="toolbar-help">
                             <a href="#messages" rel="modal" class="toolbar">
                                 <span class="icon-32-help"></span>
-                                Trợ giúp
+                                <?php __('Help')?>
                             </a>
                         </li>
                         <li id="toolbar-unpublish">
                             <a href="<?php echo DOMAINAD?>home" class="toolbar">
                                 <span class="icon-32-unpublish"></span>
-                                Đóng
+                               <?php __('Close')?>
                             </a>
                         </li>
                     </ul>
                     <div class="clr"></div>
                 </div>
-        <div class="pagetitle icon-48-nhomtin"><h2>Quảng lý hotline</h2></div>
+        <div class="pagetitle icon-48-nhomtin"><h2><?php __('Hotline_management')?></h2></div>
 		<div class="clr"></div>
 	</div>
 </div>
@@ -34,14 +51,14 @@
         
         <table class="timkiem">
         	<tr>
-            	<td valign="top">Tìm kiếm</td>
+            	<td valign="top"><?php __('Search')?></td>
             	<td><input type="text" id="field2c" name="name" class="text-input"></td>
-                <td><input type="submit" name="" value="Tìm kiếm" class="button" /></td>
+                <td><input type="submit" name="" value="<?php __('Search')?>" class="button" /></td>
             </tr>
         </table>
         
         <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab">Danh sách hotline</a></li> <!-- href must be unique and match the id of target div -->
+            <li><a href="#tab1" class="default-tab"><?php __('Hotline_list')?></a></li> <!-- href must be unique and match the id of target div -->
             <li><a href="#tab2"></a></li>
         </ul>
         
@@ -56,14 +73,14 @@
                 <thead>
                     <tr>
                        <th><input class="check-all" type="checkbox" /></th>
-                       <th>STT</th>
-                       <th>Tiêu đề</th>
-                       <th><?php echo $this->Paginator->sort('Nhân viên','id');?></th>
-                       <th>Yahoo</th>
-                       <th>Skype</th>
-                       <th>Điện thoại</th>
-                       <th>Cập nhật</th>
-                       <th>Xử lý</th>
+                       <th><?php __('No.')?></th>
+                       <th><?php __('Title')?></th>
+                       <th><?php echo $this->Paginator->sort($name,'id');?></th>
+                       <th><?php __('Yahoo_name')?></th>
+                       <th><?php __('Skype_name')?></th>
+                       <th><?php __('Telephone_number')?></th>
+                       <th><?php __('Update')?></th>
+                       <th><?php __('Tackle')?></th>
                     </tr>
                     
                 </thead>
@@ -73,22 +90,22 @@
                         <td colspan="6">
                             <div class="bulk-actions align-left">
                                 <select name="dropdown">
-                                    <option value="option1">active</option>
-                                    <option value="option2">Edit</option>
-                                    <option value="option3">Delete</option>
+                                    <option value="active"><?php __('Active')?></option>
+                                    <option value="notactive"><?php __('Edit')?></option>
+                                    <option value="delete"><?php __('Delete')?></option>
                                 </select>
-                                <a class="button" href="#">Apply to selected</a>
+                                <a class="button" href="#"><?php __('Implement')?></a>
                             </div>
                              <div class="pagination">
                                 <a href="#" title="First Page">
                                    <?php
                                         $paginator->options(array('url' => $this->passedArgs));
-                                       echo "&laquo "; echo $paginator->prev('Về trước');
+                                       echo "&laquo "; echo $paginator->prev($back);
 							       ?> 
                                 </a>
 							     <?php 
 								   echo $paginator->numbers();
-                                   echo $paginator->next('Tiếp theo'); echo "&raquo";
+                                   echo $paginator->next($next); echo "&raquo";
                                 ?>
                               </div>
                             </div> <!-- End .pagination -->
@@ -108,7 +125,7 @@
                         <td><?php echo $Help['Help']['sdt']; ?></td>
                         <td><?php echo date('d-m-Y', strtotime($Help['Help']['created'])); ?></td>
                         <td>
-                             <a href="<?php echo DOMAINAD?>helps/edit/<?php echo $Help['Help']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
+                             <a href="<?php echo DOMAINADBUSINISS?>helps/edit/<?php echo $Help['Help']['id'] ?>" title="Edit"><img src="<?php echo DOMAINAD?>images/icons/pencil.png" alt="Edit" /></a>
                              <a href="javascript:confirmDelete('<?php echo DOMAINAD?>helps/delete/<?php echo $Help['Help']['id'] ?>')" title="Delete"><img src="<?php echo DOMAINAD?>images/icons/cross.png" alt="Delete" /></a>
                         <?php 
 							if($Help['Help']['status']==0)

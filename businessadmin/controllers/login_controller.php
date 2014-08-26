@@ -56,7 +56,7 @@ function login() {
 						'Shop.ipserver'
 				)
 		) );
-			
+	}
 		if(is_array($chek) and !empty($chek))
 		{
 			foreach($chek as $shop){
@@ -76,7 +76,7 @@ function login() {
 			echo "<script>alert('".json_encode('Incorrect password !')."');</script>";
 			echo "<script>location.href='".DOMAINADESTORE."'</script>";
 		}
-		if($email != $data['Shop']['email'])
+		if($email != $data['Shop']['email']){
 			echo "<script>alert('".json_encode('Email is not true. Please re-enter!')."');</script>";
 		echo "<script>location.href='".DOMAINADESTORE."'</script>";
 	}
