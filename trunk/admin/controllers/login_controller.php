@@ -51,7 +51,7 @@ class LoginController extends AppController {
 
 	// chon layout
 	function beforeFilter(){
-		$this->layout='login';
+		$this->layout='loginnew';
 	}
 
 }
