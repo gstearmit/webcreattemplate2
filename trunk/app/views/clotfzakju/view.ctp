@@ -27,26 +27,42 @@
                                     <div class="product-images">
                                         <div class="box">
                                             <div class="primary">
-                                                <img src="<?php echo DOMAIN ?>clothingstore/img/thumbnails/db_file_img_228_480xauto.jpg" data-zoom-image="img/thumbnails/db_file_img_228_640xauto.jpg" alt="Chaser Overalls" />
+                                               <?php if($views['Estore_products']['images']!=''){?> <img src="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images'];?>" data-zoom-image="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images'];?>" alt="Chaser Overalls" /><?php }?>
+                                               <?php if($views['Estore_products']['images']==''){?> <img src="<?php echo DOMAINAD;?>clothingstore/img/db_file_img_no.jpg" data-zoom-image="<?php echo DOMAINAD;?>clothingstore/img/db_file_img_no.jpg" alt="Chaser Overalls" /><?php }?>
+                                               
                                             </div>
 
                                             <div class="thumbs" id="gallery">
                                                 <ul class="thumbs-list">
                                                     <li>
-                                                        <a class="active" href="#" data-image="img/thumbnails/db_file_img_228_480xauto.jpg" title="Chaser Overalls" data-zoom-image="img/thumbnails/db_file_img_228_640xauto.jpg">
-                                                            <img src="<?php echo DOMAIN ?>clothingstore/img/thumbnails/db_file_img_228_160xauto.jpg" alt="Chaser Overalls" />
+                                                        <a class="active" href="#" data-image="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images1'];?>" title="Chaser Overalls" data-zoom-image="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images1'];?>">
+                                                           <?php if($views['Estore_products']['images1']!=''){?>  <img src="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images1'];?>" alt="Chaser Overalls" /><?php }?>
+                                                            <?php if($views['Estore_products']['images1']==''){?> <img src="<?php echo DOMAINAD;?>clothingstore/img/db_file_img_2.jpg" data-zoom-image="<?php echo DOMAINAD;?>clothingstore/img/db_file_img_2.jpg" alt="Chaser Overalls" /><?php }?>
+                                               
                                                         </a>
                                                     </li>
+                                                     <?php if($views['Estore_products']['images2']!=''){?>
+	                                                    <li>
+	                                                        <a  href="#" data-image="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images2'];?>" title="Chaser Overalls" data-zoom-image="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images2'];?>">
+	                                                            <img src="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images2'];?>" alt="Chaser Overalls" />
+	                                                            
+	                                                        </a>
+	                                                    </li>
+                                                    <?php }?>
+                                                    <?php if($views['Estore_products']['images3']!=''){?> 
                                                     <li>
-                                                        <a  href="#" data-image="img/thumbnails/db_file_img_229_480xauto.jpg" title="Chaser Overalls" data-zoom-image="img/thumbnails/db_file_img_229_640xauto.jpg">
-                                                            <img src="<?php echo DOMAIN ?>clothingstore/img/thumbnails/db_file_img_229_160xauto.jpg" alt="Chaser Overalls" />
+                                                        <a  href="#" data-image="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images3'];?>" title="Chaser Overalls" data-zoom-image="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images3'];?>">
+                                                            <img src="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images3'];?>" alt="Chaser Overalls" />
                                                         </a>
                                                     </li>
+                                                    <?php }?>
+                                                    <?php if($views['Estore_products']['images4']!=''){?>
                                                     <li>
-                                                        <a  href="#" data-image="img/thumbnails/db_file_img_227_480xauto.jpg" title="Chaser Overalls" data-zoom-image="img/thumbnails/db_file_img_227_640xauto.jpg">
-                                                            <img src="<?php echo DOMAIN ?>clothingstore/img/thumbnails/db_file_img_227_160xauto.jpg" alt="Chaser Overalls" />
+                                                        <a  href="#" data-image="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images4'];?>" title="Chaser Overalls" data-zoom-image="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images4'];?>">
+                                                            <img src="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images4'];?>" alt="Chaser Overalls" />
                                                         </a>
                                                     </li>
+                                                    <?php }?>
                                                 </ul>
                                             </div>
 
@@ -116,23 +132,24 @@
                                                     <form enctype="multipart/form-data" action="#" onsubmit="return false;" method="post">
                                                         
                                                         <div class="details">
-                                                            <h1>Chaser Overalls</h1>
-                                                            <div class="prices"><span class="price">£92.00</span></div>
+                                                            <h1><?php echo $views['Estore_products']['title'];?></h1>
+                                                            <div class="prices"><span class="price">£<?php echo $views['Estore_products']['price'];?></span></div>
 
                                                             <div class="meta">
                                                                 <div class="sku">
                                                                     <i class="icon-pencil"></i>
-                                                                    <span rel="tooltip" title="SKU is 0092">0092</span>
+                                                                    <span rel="tooltip" title="SKU is <?php echo $views['Estore_products']['price'];?>"><?php echo $views['Estore_products']['price'];?></span>
                                                                 </div>
-
+															<!--  
                                                                 <div class="categories">
                                                                     <span><i class="icon-tags"></i><a href="category.html" title="Dresses">Dresses</a></span>, <a href="category.html" title="Womens">Womens</a>
                                                                 </div>
+                                                           -->     
                                                             </div>
                                                         </div>
 
                                                         <div class="short-description">
-                                                            <p>Vintage-style faux leather short overalls. Long adjustable straps with brass detailing, exposed zip at back, and side slant pockets with single rear welt pocket.</p>
+                                                            <p><?php echo $views['Estore_products']['content'];?></p>
                                                         </div>
                                                         
                                                         <div class="options">
