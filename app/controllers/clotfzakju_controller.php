@@ -1990,29 +1990,31 @@
 							$this->set ( 'shopname', $nameeshop );
 							$this->layout = 'themeshop/clothingstore';
 							$this->set ( 'title_for_layout', 'e-shop' );
-// 							$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
-// 							mysql_query ( "SET names utf8" );
-// 							if (! $id) {
-// 								$this->Session->setFlash ( __ ( 'Không tồn tại', true ) );
-// 								$this->redirect ( array (
-// 										'action' => 'index' 
-// 								) );
-// 							}
-// 							$this->set ( 'views', $this->Estore_products->read ( null, $id ) );
-// 							$this->set ( 'news', $this->Estore_catproducts->read ( null, $id ) );
-// 							$name = $this->Estore_products->read ( null, $id );
+							$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
+							mysql_query ( "SET names utf8" );
+							if (! $id) {
+								$this->Session->setFlash ( __ ( 'Không tồn tại', true ) );
+								$this->redirect ( array (
+										'action' => 'index' 
+								) );
+							}
+							$this->set ( 'views', $this->Estore_products->read ( null, $id ) );
+							$this->Estore_catproducts->setDataEshop($hostname,$username,$password,$databasename);
+							$this->set ( 'news', $this->Estore_catproducts->read ( null, $id ) );
 							
-// 							$this->set ( 'views', $name );
-// 							$this->paginate = array (
-// 									'conditions' => array (
-// 											'Estore_products.status' => 1,
-// 											'Estore_products.catproduct_id' => $name ['Estore_products'] ['catproduct_id'],
-// 											'Estore_products.id <>' => $name ['Estore_products'] ['id'] 
-// 									),
-// 									'order' => 'Estore_products.id DESC',
-// 									'limit' => 8 
-// 							);
-// 							$this->set ( 'sanphamkhac', $this->paginate ( 'Estore_products', array () ) );
+							$name = $this->Estore_products->read ( null, $id );
+							
+							$this->set ( 'views', $name );
+							$this->paginate = array (
+									'conditions' => array (
+											'Estore_products.status' => 1,
+											'Estore_products.catproduct_id' => $name ['Estore_products'] ['catproduct_id'],
+											'Estore_products.id <>' => $name ['Estore_products'] ['id'] 
+									),
+									'order' => 'Estore_products.id DESC',
+									'limit' => 8 
+							);
+							$this->set ( 'sanphamkhac', $this->paginate ( 'Estore_products', array () ) );
 						}
 						function loginregister(){
 							$nameeshop = $this->shopname;
