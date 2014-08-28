@@ -87,7 +87,7 @@ foreach ( $tem as $tem ) {
             <div class="row">
                 <div class="span8">							
                     <div class="logo">
-                        <a href="index.html" title="&larr; Back home">
+                        <a href="<?php echo DOMAIN.$shopname?>" title="&larr; Back home">
                             <img src="<?php echo DOMAIN ?>clothingstore/img/logo.png" alt="La Boutique" />
                         </a>
                     </div>
@@ -101,7 +101,7 @@ foreach ( $tem as $tem ) {
                             <div class="search">
                                 <div class="qs_s">
 
-                                    <form method="post" action="search.html">
+                                    <form method="post" action="#">
                                         <input type="text" name="query" id="query" placeholder="Search&hellip;" autocomplete="off" value="">
                                     </form>
 
@@ -109,7 +109,7 @@ foreach ( $tem as $tem ) {
                                     <div id="autocomplete-results" style="display: none;">	
                                         <ul>
                                             <li>
-                                                <a title="Lisette Dress" href="product.html">
+                                                <a title="Lisette Dress" href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php //echo $pr['Estore_product']['id'];?>">
                                                     <div class="image">
                                                         <img src="<?php echo DOMAIN ?>clothingstore/img/db_file_img_48_60x60.jpg" alt="" />
                                                     </div>
@@ -117,7 +117,7 @@ foreach ( $tem as $tem ) {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a title="Malta Dress" href="product.html">
+                                                <a title="Malta Dress" href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php //echo $pr['Estore_product']['id'];?>">
                                                     <div class="image">
                                                         <img src="<?php echo DOMAIN ?>clothingstore/img/db_file_img_137_60x60.jpg" alt="" />
                                                     </div>
@@ -125,7 +125,7 @@ foreach ( $tem as $tem ) {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a title="Marais Dress" href="product.html">
+                                                <a title="Marais Dress" href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php //echo $pr['Estore_product']['id'];?>">
                                                     <div class="image">
                                                         <img src="<?php echo DOMAIN ?>clothingstore/img/db_file_img_42_60x60.jpg" alt="" />
                                                     </div>
@@ -133,7 +133,7 @@ foreach ( $tem as $tem ) {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a title="Millay Dress" href="product.html">
+                                                <a title="Millay Dress" href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php //echo $pr['Estore_product']['id'];?>">
                                                     <div class="image">
                                                         <img src="<?php echo DOMAIN ?>clothingstore/img/db_file_img_107_60x60.jpg" alt="" />
                                                     </div>
@@ -141,7 +141,7 @@ foreach ( $tem as $tem ) {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a title="Momoko Dress" href="product.html">
+                                                <a title="Momoko Dress" href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php //echo $pr['Estore_product']['id'];?>">
                                                     <div class="image">
                                                         <img src="<?php echo DOMAIN ?>clothingstore/img/db_file_img_132_60x60.jpg" alt="" />
                                                     </div>
@@ -164,7 +164,7 @@ foreach ( $tem as $tem ) {
                             
                             <!-- Mini cart -->
                             <div class="mini-cart">
-                                <a href="cart.html" title="Go to cart &rarr;">
+                                <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/viewshopingcart" title="Go to cart &rarr;">
                                     <span>3</span>
                                 </a>									
                             </div>
@@ -195,39 +195,63 @@ foreach ( $tem as $tem ) {
 				        <ul id="menu-main-navigation" class="main-menu">
 				            <li class="menu-item-home menu-item-has-children megamenu-parent " data-width=""><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>">Home</a>
 				                <ul class="sub-menu">
-				                    <li class="megamenu-heading"><a href="#MegaMenuHeading"><h3>Responsive Full Width Megamenu</h3></a></li>
+				                    <li class="megamenu-heading"><a href="#MegaMenuHeading"><h3>About Us</h3></a></li>
 				                    <li class="menu-item-has-children megamenu-column">
 				                        <a href="#MegaMenuColumn">Mega Menu Column</a>
-				                        <ul class="sub-menu">
-				                            <li class="megamenu-heading"><a href="#MegaMenuHeading">Display images</a></li>
+				                          <ul class="sub-menu">
+				                          <?php $setting = $this->requestAction('/'.$shopname.'/setting'); ?>
+                                          <?php  foreach($setting as $settings ){  ?>
+										    <li class="megamenu-heading"><a href="#MegaMenuHeading"><?php echo $settings['Estore_settings']['name_en'];?></a></li>
 				                            <li class="megamenu-content">
 				                                <p><img title="" alt="" src="<?php echo DOMAIN ?>clothingstore/img/img01.jpg"></p>
-				                                <p>Praesent a dolor sem. Sed scelerisque, tellus id pulvinar tristique, erat eros rutrum mi, id adipiscing arcu sem vel est. Ut ac turpis ipsum. Mauris leo nulla, vestibulum id bibendum.</p></li>
+				                                <p><?php echo $settings['Estore_settings']['info_other'];?> </p>
+				                            </li>
+				                            <?php }?>
 				                        </ul>
 				                    </li>
-				                    <li class="menu-item-has-children megamenu-column"><a href="#MegaMenuColumn">Mega Menu Column</a>
+				                    <?php //pr($session->read('language'));?>
+				                     <?php $video = $this->requestAction('/'.$shopname.'/videos/'.$shop_id) ?>
+			                         <li class="menu-item-has-children megamenu-column"><a href="#MegaMenuColumn">Mega Menu Column</a>
 				                        <ul class="sub-menu">
-				                            <li class="megamenu-heading"><a href="#MegaMenuHeading">Display videos</a></li>
-				                            <li class="megamenu-content"><p> <iframe src='http://player.vimeo.com/video/68161548?title=1&amp;byline=1&amp;portrait=1&amp;color=' width='225' height='144' frameborder='0'></iframe>
-				                                </p>
-				                                <p>Praesent a dolor sem. Sed scelerisque, tellus id pulvinar tristique, erat eros rutrum mi, id adipiscing arcu sem vel est. Ut ac turpis ipsum. Mauris leo nulla, vestibulum id bibendum.</p></li>
+				                         <?php  foreach($video as $video){?> 
+			                            <?php 
+			                            $url = $video['estore_videos']['LinkUrl'];
+			                            parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );     
+			                            ?>
+			                          
+				                            <li class="megamenu-heading"><a href="#MegaMenuHeading">videos</a></li>
+				                            <li class="megamenu-content">
+						                            <p> 
+						                             <iframe width="202px" height="202px" src="http://www.youtube.com/embed/<?php echo $my_array_of_vars['v'];?>" frameborder="0" allowfullscreen></iframe>
+					                               </p>
+				                                <p><?php echo $video['estore_videos']['name'];?></p></li>
+				                            <?php }?>
 				                        </ul>
 				                    </li>
+				                   
+													                    
 				                    <li class="menu-item-has-children megamenu-column"><a href="#MegaMenuColumn">Mega Menu Column</a>
 				                        <ul class="sub-menu">
 				                            <li class="megamenu-heading"><a href="#MegaMenuHeading">And Google maps!</a></li>
 				                            <li class="megamenu-content">
+				                       <?php $setting = $this->requestAction('/'.$shopname.'/setting'); ?>
+                                       <?php  foreach($setting as $settings ){  ?>
+										 <p><?php echo $settings['Estore_settings']['map'];?>  </p>
 				                                <p>
-				                                    <iframe width="100%" height="144" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<?php echo DOMAIN ?>clothingstore/https://maps.google.co.uk/?ie=UTF8&amp;t=m&amp;ll=52.204004,0.122824&amp;spn=0.005865,0.014677&amp;z=11&amp;output=embed"></iframe>
+				                                    <strong><?php echo $settings['Estore_settings']['name_en'];?></strong><br>
+				                                    <em class="icon-map-marker icon-large"></em><?php echo $settings['Estore_settings']['address_eg'];?><br>
+				                                    <em class="icon-phone icon-large"></em> <?php echo $settings['Estore_settings']['phone'];?><br>
+				                                    <em class="icon-eye-open icon-large"></em> <?php echo $settings['Estore_settings']['mobile'];?><br>
+				                                    <em class="icon-envelope icon-large"></em> <?php echo $settings['Estore_settings']['email'];?><br>
+				                               
+				                               
 				                                </p>
-				                                <p>
-				                                    <strong>La Boutique</strong><br>
-				                                    <em class="icon-map-marker icon-large"></em> Regent Ave, Cambridge<br>
-				                                    <em class="icon-phone icon-large"></em> +1 800-123-4567
-				                                </p>
+				                        <?php }?>
 				                            </li>
 				                        </ul>
 				                    </li>
+				                    
+				                    
 				                </ul>
 				            </li>
 				            <li class="menu-item-has-children"><a href="category.html">Shop</a>
@@ -320,8 +344,11 @@ foreach ( $tem as $tem ) {
 				                </ul>
 				            </li>
 				            
-				            <li ><a href="blog.html">Blog</a></li>
-				            <li ><a href="cart.html">Cart</a></li>
+				            
+				            
+				            
+				            <li ><a href="<?php echo DOMAIN?><?php echo $shopname ;?>/indexcomments">Blog</a></li>
+				            <li ><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/viewshopingcart">Cart</a></li>
 				            <li class="menu-item-has-children megamenu-parent" data-width="400">
 				                <a href="contact-us.html">Contact Us</a>
 				                <ul class="sub-menu">

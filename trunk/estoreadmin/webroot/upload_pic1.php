@@ -1,3 +1,4 @@
+<?php include 'resize_img.php';?>
 <?php
 /*
 
@@ -27,7 +28,7 @@ class FileUploader {
 
  // script để thực hiện quá trình upload
 	
-	function __construct($fileTypesAllowed = 'jpg, jpeg, gif, png', $fileSizeMax = 10, $uploadDir = 'img/upload/') {
+	function __construct($fileTypesAllowed = 'jpg, jpeg, gif, png', $fileSizeMax = 3, $uploadDir = 'img/upload/') {
 		$this->fileTypesAllowed = strtolower($fileTypesAllowed);
 		$this->fileSizeMax = $fileSizeMax;
 		$this->uploadDir = $uploadDir;
@@ -117,12 +118,20 @@ class FileUploader {
 	/*
 	Function: Move file to destination folder
 	*/
-	function moveFile($i) {
+	function moveFile($i) {		
+		$image_info = getimagesize($this->files[$i]['tmp_name']);
+		if($image_info[0]>500){
+		$image = new SimpleImage();
+	   $image->load($this->files[$i]['tmp_name']);
+	   $image->resizeToWidth(500);
+	   $image->save($this->files[$i]['tmp_name']);
+		}
 		if (!@file_exists($this->files[$i]['newName'])) {
 			if (!@move_uploaded_file($this->files[$i]['tmp_name'], $this->files[$i]['newName'])) {
 				echo '<div id="error">Không thể up file <u>'.$this->files[$i]['name'].'</u> Lên server,Làm lại</div>';
 				return false;
 			} else {
+				   
 				echo '<div id="successful">File <u>'.$this->files[$i]['name'].'</u> Hoàn Thành </div>';
 			}
 		} else {
@@ -149,7 +158,7 @@ class FileUploader {
 			$link = '[url='.$link.']Download File[/url]';
 		}
 		$return .= "<tr><td>BBCode:</td><td><input type=\"text\" onclick=\"this.select()\" value=\"$link\" size=\"50\"></td></tr></table>";
-		$return .= "<tr><td colspan=\"2\"><a href=\"javascript:window.opener.document.image.userfile.value='$link_bs';window.close();window.history.go(1);\">close</a></td> </tr></table>";
+		$return .= "<tr><td colspan=\"2\"><a href=\"javascript:window.opener.document.image.userfile1.value='$link_bs';window.close();window.history.go(1);\">close</a></td> </tr></table>";
 		return $return;
 	}
 }

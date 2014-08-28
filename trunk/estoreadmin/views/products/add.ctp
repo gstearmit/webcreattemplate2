@@ -192,10 +192,35 @@ $(function() {
                     <td>
                         <?php echo $this->Form->input('Product.images',array('class'=>'text-input image-input datepicker','name' => 'userfile'));?> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upload.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
                     </td>
+                   
                     <!--<td>
                     <?php echo $this->Form->input('Product.images',array('class'=>'text-input image-input datepicker','id' => 'xFilePath'));?>
                     	<input type="button" value="Chọn ảnh" onclick="BrowseServer();" class="button" />
                     </td>-->
+                </tr>
+                <tr>
+                     <td class="label"><?php __('Product_image')?><?php echo  1?>:</td>
+                    <td>
+                        <?php echo $this->Form->input('Product.images1',array('class'=>'text-input image-input datepicker','name' => 'images1'));?> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upload1.php','images1','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
+                    </td>
+                </tr>
+                 <tr>
+                     <td class="label"><?php __('Product_image')?><?php echo  2?>:</td>
+                    <td>
+                        <?php echo $this->Form->input('Product.images2',array('class'=>'text-input image-input datepicker','name' => 'images2'));?> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upload2.php','images2','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
+                    </td>
+                </tr>
+                 <tr>
+                     <td class="label"><?php __('Product_image')?><?php echo  3?>:</td>
+                    <td>
+                        <?php echo $this->Form->input('Product.images3',array('class'=>'text-input image-input datepicker','name' => 'images3'));?> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upload3.php','images3','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
+                    </td>
+                </tr>
+                 <tr>
+                     <td class="label"><?php __('Product_image')?><?php echo  4?>:</td>
+                    <td>
+                        <?php echo $this->Form->input('Product.images4',array('class'=>'text-input image-input datepicker','name' => 'images4'));?> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upload4.php','images4','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
+                    </td>
                 </tr>
                 <!--<tr>
                 	<td class="label">Tóm tắt (Tiếng Việt)</td>

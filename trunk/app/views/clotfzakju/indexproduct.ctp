@@ -13,16 +13,16 @@
 <?php //if($session->read('lang')==1){?>
 <div id="main-center">
 	<div id="sanphams"  style="min-height: 435px !important;">
-    	<div class="top">Products</div>
+    	<div class="top">DANH SÁCH SẢN PHẨM</div>
         <div style="min-height: 634px;">
         <?php foreach($products as $pr){?>
         <div id="dssanpham" align="center">             
         	<div class="img"  id="yahoo" >
-            <a href="<?php echo DOMAIN;?>chi-tiet-san-pham/<?php echo $pr['Product']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINAD.$pr['Product']['images']?>'/></p>"><img src="<?php echo DOMAINAD.'timthumb.php?src='.$pr['Product']['images']?>&amp;h=131&amp;w=164&amp;zc=1" width="164" height="131"/></a>
+            <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_products']['id'];?>" title="<p align='center'> <img src='<?php echo DOMAINADESTORE.$pr['Estore_products']['images']?>'/></p>"><img src="<?php echo DOMAINADESTORE.'timthumb.php?src='.$pr['Estore_products']['images']?>&amp;h=131&amp;w=164&amp;zc=1" width="168" height="111"/></a>
             </div>
             <div class="name" align="center">
-            	<h5><a href="<?php echo DOMAIN;?>chi-tiet-san-pham/<?php echo $pr['Product']['id'];?>"><?php echo $pr['Product']['title'];?></a><br />
-                Code:<?php echo $pr['Product']['code'];?>
+            	<h5><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_products']['id'];?>"><?php echo $pr['Estore_products']['title'];?></a><br />
+                Code:<?php echo $pr['Estore_products']['code'];?>
                 </h5>                
             </div>
         </div><?php }?>
@@ -44,17 +44,17 @@
  <div id="main-center">
 	
     <div id="sanphams">
-    	<div class="top">Product</div>
+    	<div class="top">PRODUCTS</div>
         <?php foreach($products as $pr){?>	
          <div id="dssanpham" align="center">
         	<div class="img" >
-            <a href="<?php echo DOMAIN;?>chi-tiet-san-pham/<?php echo $pr['Product']['id'];?>"><img src="<?php echo DOMAINAD.'timthumb.php?src='.$pr['Product']['images']?>&amp;h=105&amp;w=199&amp;zc=1" width="199" height="105"/></a>
+            <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_products']['id'];?>"><img src="<?php echo DOMAINADESTORE.'timthumb.php?src='.$pr['Estore_products']['images']?>&amp;h=105&amp;w=199&amp;zc=1" width="168" height="111"/></a>
             </div>
             <div class="name" align="center">
-            	<h5><a href="<?php echo DOMAIN;?>chi-tiet-san-pham/<?php echo $pr['Product']['id'];?>"><?php echo $pr['Product']['title_en'];?></a></h5>
+            	<h5><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_products']['id'];?>"><?php echo $pr['Estore_products']['title_en'];?></a></h5>
                 <h6><a href="#tips">Price: <font color="#FF6600">Contact </font></a>
-                <!--<h6><a href="#tips">Giá: <font color="#FF6600"><?php echo number_format( $pr['Product']['price'],3); ?> VNĐ</font></a></h6>-->
-                <h4><a href="<?php echo DOMAIN;?>chi-tiet-san-pham/<?php echo $pr['Product']['id'];?>">Detail</a></h4>
+                <!--<h6><a href="#tips">Giá: <font color="#FF6600"><?php echo number_format( $pr['Estore_products']['price'],3); ?> VNĐ</font></a></h6>-->
+                <h4><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_products']['id'];?>">Detail</a></h4>
             </div>
         </div>
         <?php }?> 

@@ -10,91 +10,216 @@
 				}
 			
 ?>
-<?php echo $html->css('register-news'); ?>
-<?php echo $javascript->link('jquery.validate', true); ?>
-<style>
-.rowPost .col2 {
-    float: left;
-    margin-right: 5px;
-    text-align: left;
-    width: 30%;
-}
 
-.rowPost .col1 {
-    float: left;
-    margin-left: 120px;
-    margin-right: 5px;
-    text-align: left;
-    width: 36%;
-}
-input {
-    float: left;
+<!-- Content section -->		
+            <section class="main">
+                
+                <!-- Blog post -->
+                <section class="blog_post">
 
-}
-</style>
- <div id="main-center">
-                	<div id="sanphams" style="margin:1px 0 !important;">
-                        	<div class="top">Góp ý</div>
-    <div style="margin:10px; color: black;">
-    <h2 style="padding-top: 20px;"><u>Góp ý của khách hàng:</u></h2>
-                            <?php foreach($comment as $comment ){  ?>
-                            <div class="noidung" style="border-bottom: 1px dotted silver; padding: 5px;" >                            
-                            <div class="main">
-                            <h3><?php echo $comment['Estore_comments']['name'];?> </h3><i>Email:<?php echo $comment['Estore_comments']['email'];?> - ( Ngày: <?php echo date('d-m-Y', strtotime($comment['Estore_comments']['created'])); ?>)</i> <br />
-                            
-                            <p><?php echo $comment['Estore_comments']['content'];?></p>
-                            
+
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="span9">
+
+                                <section class="post-list">
+                                    <article class="post post-grid">
+                                        <div class="box">
+                                            <div class="box-image">
+                                                <a href="#">
+                                                    <img src="<?php echo DOMAIN ?>clothingstore/img/thumbnails/db_file_img_272_640xauto.jpg" alt="" title="" />
+                                                </a>
+                                            </div>
+                                            <div class="box-header">
+                                                <h3>
+                                                    <a href="#">
+                                                        Cold Front									
+                                                    </a>
+                                                </h3>
+                                                <ul class="post-meta">
+                                                    <li><i class="icon-user"></i> &nbsp; Sicilia Tfingi</li>
+                                                    <li><i class="icon-calendar"></i> &nbsp; 05/01/2013</li>
+                                                    <li><i class="icon-comment-alt"></i> &nbsp; 3 comments</li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="box-content">
+                                                <p>Sweet cookie muffin drag&eacute;e donut. Tart icing chocolate tiramisu wafer. Chocolate cake jelly drag&eacute;e I love marshmallow.</p>
+                                            </div>
+
+                                            <div class="box-footer">
+                                                <div class="pull-right">
+                                                    <a class="btn btn-small" href="#" title="">
+                                                        Read more &nbsp; <i class="icon-chevron-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="post post-grid">
+                                        <div class="box">
+                                            <div class="box-image">
+                                                <a href="#">
+                                                    <img src="<?php echo DOMAIN ?>clothingstore/img/thumbnails/db_file_img_273_640xauto.jpg" alt="" title="" />
+                                                </a>
+                                            </div>
+                                            <div class="box-header">
+                                                <h3>
+                                                    <a href="#">
+                                                        Properly Position a Brand to Gain Optimal Benefits									
+                                                    </a>
+                                                </h3>
+                                                <ul class="post-meta">
+                                                    <li><i class="icon-user"></i> &nbsp; Sicilia Tfingi</li>
+                                                    <li><i class="icon-calendar"></i> &nbsp; 03/14/2013</li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="box-content">
+                                                <p>Unless one has a clear notion of the underlying concepts of brand identity design, it is difficult to understand the true significance of it. For the common man, this can be best described as the logo of a company that enables a business organization or a product manufacturer to garner and generate the popularity that it should attain.</p>
+                                            </div>
+
+                                            <div class="box-footer">
+                                                <div class="pull-right">
+                                                    <a class="btn btn-small" href="#" title="">
+                                                        Read more &nbsp; <i class="icon-chevron-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="post post-grid">
+                                        <div class="box">
+                                            <div class="box-image">
+                                                <a href="#">
+                                                    <img src="<?php echo DOMAIN ?>clothingstore/img/thumbnails/db_file_img_274_640xauto.jpg" alt="" title="" />
+                                                </a>
+                                            </div>
+                                            <div class="box-header">
+                                                <h3>
+                                                    <a href="#">
+                                                        Summer 2014									
+                                                    </a>
+                                                </h3>
+                                                <ul class="post-meta">
+                                                    <li><i class="icon-user"></i> &nbsp; Sicilia Tfingi</li>
+                                                    <li><i class="icon-calendar"></i> &nbsp; 01/31/2013</li>
+                                                    <li><i class="icon-comment-alt"></i> &nbsp; 0 comments</li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="box-content">
+                                                <p>Muffin carrot cake sweet roll icing. Sesame snaps gummi bears drag&eacute;e tart cheesecake jelly-o pie. Muffin cookie pie fruitcake I love I love brownie. Sweet roll croissant cookie lollipop tootsie roll caramels jelly-o.</p>
+                                            </div>
+
+                                            <div class="box-footer">
+                                                <div class="pull-right">
+                                                    <a class="btn btn-small" href="#" title="">
+                                                        Read more &nbsp; <i class="icon-chevron-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </section>
+
+                                
+
+                                
+
                             </div>
-                            </div>
-                            <?php }?>
-                            <?php if($paginator->numbers()!=null){?>
-                    		   <h3 style="text-align:right; margin:7px 15px; color: green; font-size: 12px;">
-                                <?php $paginator->options(array('url' => $this->passedArgs));
-                                echo $paginator->prev('<<');echo "&nbsp;&nbsp;&nbsp;";
-                                echo $paginator->numbers();echo "&nbsp;&nbsp;&nbsp;";
-                                echo $paginator->next('>>');
-                                echo "</span>";?>
-                                </h3>
-                            <?php }?>
-           <div id="comment" style="padding:50px 10px;">
 
-                <?php echo $form->create(null, array( 'url' => DOMAIN.'bepga/addcomments','type' => 'post')); ?>	
-                    <h2 ><u>Gửi chia sẻ của bạn:</u></h2>
-                    <div style="margin-bottom:6px; margin-top:15px; float:left; width:98%;">
-                    <span style="float:left; margin-right:20px;">Họ tên:</span>
-                    <?php echo $form->input('Estore_comments.name',array( 'label' => '','style'=>'width:200px;height:25px;float:left;'));?>
-                     <span style="float:left; margin-right:6px; margin-left:6px;">Email:</span>
-                     <?php echo $form->input('Estore_comments.email',array( 'label' => '','style'=>'width:200px;height:25px;float:left;'));?></div>
-                     <span style="float:left; margin-right:6px; margin-left:0px;">Nội Dung:</span>
-                    <p><?php echo $form->input('Estore_comments.content',array( 'label' => '','rows'=>10,'cols'=>60));?></p>           
-                   
-                    <div class="rowPost" style="padding-bottom: 45px !important;">
-					<!--
-                    <div class="captcha">
-                        <label>
-                            Nhập mã an toàn</label>(<span class="redfont">*</span>)
-					</div>
-					-->
-                    <div class="inputcaptcha">
-                        <!--
-                        <div class="col1">
-                        
-                         <input id="security" class="required" name="security" />     
-                               </div>
-                               <div class="col2"><img alt="" id="captcha" src="<?php echo DOMAIN?>user/create_image" />
-                               </div>
-						-->
-                        <div class="col1" style="padding-top: 20px;">
-                         <input style="padding:5px;width: 50px;" type="submit" value="Gửi"/>
-                        <input style="padding:5px;width: 70px;" type="reset" value="nhập lại" />
-                        </div>
-                        
-                    </div>
-					
+                            <div class="span3">                                
+                                <!-- Blog categories -->
+<div class="widget Menu">
+    <h3 class="widget-title widget-title ">Fashion playground</h3>
+    <ul class='menu-widget'>
+        <li class="level1"><a href="blog.html" title="Trends" class="title">Trends</a></li>
+        <li class="level1"><a href="blog.html" title="Get the look" class="title">Get the look</a></li>
+        <li class="level1"><a href="blog.html" title="Miscellaneous" class="title">Miscellaneous</a></li>
+        <li class="level1"><a href="blog.html" title="New collection" class="title">New collection</a></li>
+    </ul>
+</div>
+<!-- End class="widget Menu" -->	
+<!-- TopSellingProducts -->
+<div class="widget TopSellingProducts">
+    <h3 class="widget-title widget-title ">Top selling products</h3>
+    <ul class="product-list-small">
+        <li>			
+            <div class="image">
+                <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php //echo $pr['Estore_product']['id'];?>" title="El Silencio">
+                    <img src="<?php echo DOMAIN ?>clothingstore/img/thumbnails/db_file_img_32_160xauto.jpg" alt="El Silencio" />
+                </a>
+            </div>
+
+            <div class="desc">
+                <h6>
+                    <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php //echo $pr['Estore_product']['id'];?>" title="El Silencio">El Silencio</a>
+                </h6>
+
+                <div class="price">
+                    £55.00										
                 </div>
-  </div>             
-                    
-                     
-                </form>                            
-             </div>
-             </div></div>
+
+                 <div class="rating rating-3">
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                </div>
+            </div>
+        </li>
+        <li>			
+            <div class="image">
+                <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php //echo $pr['Estore_product']['id'];?>" title="Lisette Dress">
+                    <img src="<?php echo DOMAIN ?>clothingstore/img/thumbnails/db_file_img_48_160xauto.jpg" alt="Lisette Dress" />
+                </a>
+            </div>
+
+            <div class="desc">
+                <h6>
+                    <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php //echo $pr['Estore_product']['id'];?>" title="Lisette Dress">Lisette Dress</a>
+                </h6>
+
+                <div class="price">
+                    £58.00										
+                </div>
+
+                <div class="rating rating-0">
+                    <a href="#">No reviews &mdash; be the first?</a>
+                </div>
+            </div>
+        </li>
+        <li>			
+            <div class="image">
+                <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php //echo $pr['Estore_product']['id'];?>" title="Dustbowl Snapback">
+                    <img src="<?php echo DOMAIN ?>clothingstore/img/thumbnails/db_file_img_34_160xauto.jpg" alt="Dustbowl Snapback" />
+                </a>
+            </div>
+
+            <div class="desc">
+                <h6>
+                    <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php //echo $pr['Estore_product']['id'];?>" title="Dustbowl Snapback">Dustbowl Snapback</a>
+                </h6>
+
+                <div class="price">
+                    £28.00										
+                </div>
+
+                <div class="rating rating-0">
+                    <a href="#">No reviews &mdash; be the first?</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<!-- End  class="widget TopSellingProducts" -->											
+                            </div>
+
+                        </div>
+                    </div>
+                </section>                
+                <!-- End class="blog_post" -->
+                
+            </section>
+          <!-- End class="main" -->

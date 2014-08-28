@@ -128,6 +128,10 @@ class ProductsController extends AppController {
 			$this->Product->create ();
 			$data ['Product'] = $this->data ['Product'];
 			$data ['Product'] ['images'] = $_POST ['userfile'];
+			$data ['Product'] ['images1'] = $_POST ['images1'];
+			$data ['Product'] ['images2'] = $_POST ['images2'];
+			$data ['Product'] ['images3'] = $_POST ['images3'];
+			$data ['Product'] ['images4'] = $_POST ['images4'];
 			if ($this->Product->save ( $data ['Product'] )) {
 				$this->Session->setFlash ( __ ( 'Thêm mới danh mục thành công', true ) );
 				$this->redirect ( array (
