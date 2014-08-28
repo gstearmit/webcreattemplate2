@@ -1,3 +1,10 @@
+<style>
+.promos .box {
+    color: #939694;
+    width: 323px;
+    height: 100px;
+}
+</style>
             <!-- Content section -->		
             <section class="main">
                 
@@ -19,12 +26,13 @@
                     <div class="span6">
                         <h3><?php echo $slide['Estore_slideshows']['name'];?></h3>
                         <br />
-                        <!-- <p>The iconic Font Awesome for Bootstrap</p>  -->
+                        <!-- <p>The iconic Font Awesome for Bootstrap</p>  
                         <br /> 
                         <a class="btn btn-small" title="" href="/retina-ready-icons">Find out more</a> 
                         <a class="btn btn-primary btn-small" title="" href="<?php echo DOMAIN?><?php echo $shopname ;?>/addshopingcart/<?php  //echo $pr['Estore_product']['id'];?>">
                             Buy now &nbsp; <em class="icon-chevron-right"></em>
                         </a>
+                        -->
                     </div>
                 </div>
             </div>
@@ -38,44 +46,17 @@
 <section class="promos">
     <div class="container">
         <div class="row">
-            <div class="span4">
+            <?php $advr= $this->requestAction('/'.$shopname.'/advapp') ?>
+              <?php foreach($advr as $advs1 ){  ?>
+   
+          <div class="span4">
                 <div class="free-shipping">
                     <div class="box border-top">
-                        <img src="<?php echo DOMAIN ?>clothingstore/img/free-shipping.png" alt="" />
-                        <div class="hgroup title">
-                            <h3>Free UK shipping!</h3>
-                            <h5>This is a snappy sub-title</h5>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque beatae tempore porro officiis!</p>
+                     <a href="<?php echo $advs1['Estore_advertisements']['link'] ?>" target="_blank"><img src="<?php echo DOMAINADESTORE.$advs1['Estore_advertisements']['images']?>" style="width: 373px;height: 100px; " alt="" /></a> 
                     </div>
                 </div>
-            </div>
-
-            <div class="span4">
-                <div class="world-shipping">
-                    <div class="box border-top">
-                        <img src="<?php echo DOMAIN ?>clothingstore/img/world-shipping.png" alt="" />
-                        <div class="hgroup title">
-                            <h3>We're now global!</h3>
-                            <h5>This is a snappy sub-title</h5>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque beatae tempore porro officiis!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="span4">
-                <div class="low-price">
-                    <div class="box border-top">
-                        <img src="<?php echo DOMAIN ?>clothingstore/img/low-price.png" alt="" />
-                        <div class="hgroup title">
-                            <h3>Lowest price guarantee!</h3>
-                            <h5>This is a snappy sub-title</h5>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque beatae tempore porro officiis!</p>
-                    </div>
-                </div>
-            </div>
+            </div>  
+      <?php }?>      
         </div>
     </div>
 </section>
@@ -100,7 +81,13 @@
 										                    <span class="price">£<?php echo $pr['Estore_products']['price']?></span>
 										                </div>
 										                <h3><?php echo $pr['Estore_products']['title']?></h3>
+										               
 										            </div>
+										             <div>
+										                <a class="btn btn-primary btn-small" title="" href="<?php echo DOMAIN?><?php echo $shopname ;?>/addshopingcart/<?php  echo $pr['Estore_products']['id'];?>">
+								                            Buy now &nbsp; <em class="icon-chevron-right"></em>
+								                        </a>
+								                        </div> 
 										
 										        </a>
 										    </li>
