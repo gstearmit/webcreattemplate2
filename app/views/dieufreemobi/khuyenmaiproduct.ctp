@@ -30,7 +30,7 @@
                 </h6>                
             </div>
         </div><?php }?>
-        </div>
+        
         <div style="float: left; text-align:right;width: 572px;color: black; font-size: 12px;">
          <?php if($paginator->numbers()!=null){?>
             
