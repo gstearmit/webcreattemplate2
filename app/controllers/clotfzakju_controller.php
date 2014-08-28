@@ -646,7 +646,7 @@
 // 							                                    pr($name->config);die;
 							$sql = "SELECT estore_catproducts.*
 									 FROM  estore_catproducts
-									 WHERE estore_catproducts.parent_id= 11 AND estore_catproducts.estore_id =".(int)$shop_id." ORDER BY  estore_catproducts.name ASC ";
+									 WHERE estore_catproducts.parent_id= 0 AND estore_catproducts.estore_id =".(int)$shop_id." ORDER BY  estore_catproducts.name ASC ";
 							//$resul = $name->rawQuery($sql);
 							$resul = $name->fetchAll($sql);
 							
@@ -1143,13 +1143,35 @@
 						}
 						// ++++++++++++++++++++++++++++++Product++++++++++++++++++++++++++++++++++++++++
 						function indexproduct() {
-							$shop = explode ( '/', $this->params ['url'] ['url'] );
-							$shopname = $shop [0];
-							$shoparr = $this->get_shop_id ( $shopname );
-							foreach ( $shoparr as $key => $value ) {
-								$shop_id = $key;
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
 							}
-							$this->set ( 'shopname', $shopname );
+							
+							
+							$this->set ( 'shopname', $nameeshop );
 							
 							$this->layout = 'themeshop/clothingstore';
 							$this->set ( 'title_for_layout', 'e-shop' );
@@ -1157,12 +1179,13 @@
 							mysql_query ( "SET names utf8" );
 							$this->paginate = array (
 									'conditions' => array (
-											'Estore_product.status' => 1 
+											'Estore_products.status' => 1 
 									),
-									'order' => 'Estore_product.id DESC',
+									'order' => 'Estore_products.id DESC',
 									'limit' => 9 
 							);
-							$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
+							$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
+							$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
 						}
 						function dssanpham($id = null) {
 							$shop = explode ( '/', $this->params ['url'] ['url'] );
@@ -1283,13 +1306,36 @@
 							}
 						}
 						function khuyenmaiproduct() {
-							$shop = explode ( '/', $this->params ['url'] ['url'] );
-							$shopname = $shop [0];
-							$shoparr = $this->get_shop_id ( $shopname );
-							foreach ( $shoparr as $key => $value ) {
-								$shop_id = $key;
+							
+							$nameeshop = $this->shopname;
+							$shoparr = $this->Shop->find ( 'all', array (
+									'conditions' => array (
+											'Shop.name' => $nameeshop,
+											'Shop.status' => 1
+									),
+									'fields' => array (
+											'Shop.id',
+											'Shop.created',
+											'Shop.databasename',
+											'Shop.username',
+											'Shop.password',
+											'Shop.hostname',
+											'Shop.ipserver'
+									)
+							) );
+							
+							//++++++++++Connect  data +++++++++++++++++
+							foreach($shoparr as $shop){
+								$databasename = $shop['Shop']['databasename'];
+								$password = $shop['Shop']['password'];
+								$username = $shop['Shop']['username'];
+								$hostname = $shop['Shop']['hostname'];
+								$shop_id = $shop['Shop']['id'];
+									
 							}
-							$this->set ( 'shopname', $shopname );
+							
+							
+							$this->set ( 'shopname', $nameeshop );
 							
 							$this->layout = 'themeshop/clothingstore';
 							$this->set ( 'title_for_layout', 'e-shop' );
@@ -1298,13 +1344,14 @@
 							
 							$this->paginate = array (
 									'conditions' => array (
-											'Estore_product.status' => 1,
-											'Estore_product.spkuyenmai' => 1 
+											'Estore_products.status' => 1,
+											'Estore_products.spkuyenmai' => 1 
 									),
-									'order' => 'Estore_product.id DESC',
+									'order' => 'Estore_products.id DESC',
 									'limit' => 18 
 							);
-							$this->set ( 'products', $this->paginate ( 'Estore_product', array () ) );
+							$this->Estore_products->setDataEshop($hostname,$username,$password,$databasename);
+							$this->set ( 'products', $this->paginate ( 'Estore_products', array () ) );
 							$this->set ( 'cat', 'Sản phẩm khuyến mãi' );
 						}
 						function vip() {

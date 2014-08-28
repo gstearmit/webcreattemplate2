@@ -23,7 +23,9 @@ foreach ( $shop as $key => $value ) {
 </div>
 <!-- End class="twitter-bar" -->            
 <!-- Footer -->
+<?php /* ?>
 <div class="footer">
+
     <div class="container">
         <div class="row">	
                         
@@ -216,7 +218,9 @@ foreach ( $shop as $key => $value ) {
             </div>
         </div>
     </div>
+  
 </div>
+  <?php */ ?>
 <!-- End id="footer" -->
             <!-- Credits bar -->
 <div class="credits">

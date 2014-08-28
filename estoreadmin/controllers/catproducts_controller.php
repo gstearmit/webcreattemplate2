@@ -160,10 +160,19 @@ class CatproductsController extends AppController {
 		$this->account();
 		$this->loadModelNew();
 		if (!empty($this->data)) {
-			//pr($this->data);die;
-			$this->Catproduct->create();
-			$data['Catproduct'] = $this->data['Catproduct'];
-            $data['Catproduct']['images'] = $_POST['userfile'];	
+			if($this->data['Catproduct']['parent_id']=='')
+			{
+				
+				$this->Catproduct->create();
+				$data['Catproduct'] = $this->data['Catproduct'];
+				$data['Catproduct']['parent_id']= 0;
+				$data['Catproduct']['images'] = $_POST['userfile'];
+			}else {
+				$this->Catproduct->create();
+				$data['Catproduct'] = $this->data['Catproduct'];
+				$data['Catproduct']['images'] = $_POST['userfile'];
+			}//parent_id
+			
 			if ($this->Catproduct->save($data['Catproduct'])){
 				$this->Session->setFlash(__('Thêm mới danh mục thành công', true));
 				$this->redirect(array('action' => 'index'));

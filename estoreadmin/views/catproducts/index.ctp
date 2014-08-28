@@ -77,8 +77,8 @@ if(isset($_GET['language'])){
                        <th width="1%"><input class="check-all" type="checkbox" name="checkall" /></th>
                        <th width="7%"><?php __('No.')?></th>
                        <th><?php echo $this->Paginator->sort($cat,'id');?></th>
-                       <th><?php __('Big_category')?></th>
-<!--                       <th style="text-align:center;">Vị trí</th>-->
+ <!--                       <th><?php  __('Big_category')?></th>
+                      <th style="text-align:center;">Vị trí</th>-->
                        <th><?php echo $this->Paginator->sort($update,'modified');?></th>
                        <th><?php __('Tackle')?></th>
                        <th width="3%"><?php __('ID')?></th>
@@ -120,17 +120,19 @@ if(isset($_GET['language'])){
                     <tr>
                         <td><input type="checkbox" name="<?php echo $value['Catproduct']['id'] ?>" /></td>
                         <td><?php $j=$key+1; echo $j;?></td>
-                        <td><a href="<?php echo DOMAINADESTORE?>catproducts/edit/<?php echo $value['Catproduct']['id'] ?>" title="Edit">
+                      <td><a href="<?php echo DOMAINADESTORE?>catproducts/edit/<?php echo $value['Catproduct']['id'] ?>" title="Edit">
 							<?php //echo $value['Catproduct']['name'];?>
 							  <?php if(is_array($value['Catproduct']) and !empty($value['Catproduct'])) { echo $value['Catproduct']['name'];}?>
 							 <?php if(is_array($value['Catproduct']) and empty($value['Catproduct'])) { echo "Null";}?>
                        
                             </a>
                         </td>
-                         <td>
+                      
+                         <!--  <td>
 							<?php if(is_array($value['ParentCat']) and !empty($value['ParentCat'])) { echo $value['ParentCat']['name'];}?>
 							<?php if(is_array($value['ParentCat']) and empty($value['ParentCat'])) { echo "Null";}?>
                         </td>
+                          --> 
 <!--                        <td style="text-align:center;"><input class="text-input medium-input datepicker" style="text-align:center; width:30% !important;" type="text" value="<?php echo $value['Catproduct']['order'];?>" name="order" /></td>-->
                         <td><?php echo date('d-m-Y h:i:s', strtotime($value['Catproduct']['created'])); ?></td>
                         
