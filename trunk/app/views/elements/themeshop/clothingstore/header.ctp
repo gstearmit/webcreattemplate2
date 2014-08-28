@@ -72,7 +72,9 @@ foreach ( $tem as $tem ) {
                 <div class="span6 hidden-phone">
                     <ul class="inline pull-right">
                         <li>
-                            <a href="<?php echo DOMAIN?><?php echo $shopname ;?>/loginregister" title="Login / Register">Login / Register</a>									
+                            <!-- <a href="<?php echo DOMAIN?><?php echo $shopname ;?>/loginregister" title="Login / Register">Login / Register</a>  -->
+                            <a href="<?php echo DOMAINADESTORE?>" title="Login / Register">Login / Register</a>
+                            									
                         </li>
                     </ul>
                 </div>
@@ -108,46 +110,19 @@ foreach ( $tem as $tem ) {
                                     <!-- Autocomplete results -->
                                     <div id="autocomplete-results" style="display: none;">	
                                         <ul>
+                                        	<?php 
+                                        	$allproduct = $this->requestAction('/'.$shopname.'/validatesearch');
+                                        	 ?>
+                                        	 <?php foreach($allproduct as $product ){  ?>
                                             <li>
-                                                <a title="Lisette Dress" href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php //echo $pr['Estore_product']['id'];?>">
+                                                <a title="Lisette Dress" href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $product['Estore_products']['id'];?>">
                                                     <div class="image">
-                                                        <img src="<?php echo DOMAIN ?>clothingstore/img/db_file_img_48_60x60.jpg" alt="" />
+                                                        <img src="<?php echo DOMAINADESTORE.$product['Estore_products']['images']?>" alt="" />
                                                     </div>
-                                                    <h6>Lisette Dress</h6>
+                                                    <h6><?php echo $product['Estore_products']['title'] ;?></h6>
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a title="Malta Dress" href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php //echo $pr['Estore_product']['id'];?>">
-                                                    <div class="image">
-                                                        <img src="<?php echo DOMAIN ?>clothingstore/img/db_file_img_137_60x60.jpg" alt="" />
-                                                    </div>
-                                                    <h6>Malta Dress</h6>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a title="Marais Dress" href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php //echo $pr['Estore_product']['id'];?>">
-                                                    <div class="image">
-                                                        <img src="<?php echo DOMAIN ?>clothingstore/img/db_file_img_42_60x60.jpg" alt="" />
-                                                    </div>
-                                                    <h6>Marais Dress</h6>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a title="Millay Dress" href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php //echo $pr['Estore_product']['id'];?>">
-                                                    <div class="image">
-                                                        <img src="<?php echo DOMAIN ?>clothingstore/img/db_file_img_107_60x60.jpg" alt="" />
-                                                    </div>
-                                                    <h6>Millay Dress</h6>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a title="Momoko Dress" href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php //echo $pr['Estore_product']['id'];?>">
-                                                    <div class="image">
-                                                        <img src="<?php echo DOMAIN ?>clothingstore/img/db_file_img_132_60x60.jpg" alt="" />
-                                                    </div>
-                                                    <h6>Momoko Dress</h6>
-                                                </a>
-                                            </li>
+                                            <?php }?>
                                         </ul>
                                     </div>
                                     <!-- End id="autocomplete-results" -->
@@ -165,7 +140,10 @@ foreach ( $tem as $tem ) {
                             <!-- Mini cart -->
                             <div class="mini-cart">
                                 <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/viewshopingcart" title="Go to cart &rarr;">
-                                    <span>3</span>
+                                    <span><?php if(isset($_SESSION['shopingcart']))
+                                            { $sl=count($_SESSION['shopingcart']) ;
+                                            echo $sl;
+                                            }else {echo "0"; }?></span>
                                 </a>									
                             </div>
                             <!-- End class="mini-cart" -->

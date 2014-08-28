@@ -84,17 +84,23 @@ foreach ( $shop as $key => $value ) {
 	</div> 
 <!-- End  class="widget TopSellingProducts" -->		
 <!-- This month only! widget -->
+
 <div class="widget Text">
-	<h3 class="widget-title widget-title ">This month only!</h3>
-	<h5>Free UK shipping!</h5>
-	<h6>
-		<i class="icon-gift"> &nbsp; </i> Free gift wrap
-	</h6>
-
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque
-		beatae tempore porro officiis!</p>
-	<a class="btn btn-primary" href="#"> BUY NOW <em>for</em> $85
-	</a>
+<h3 class="widget-title widget-title ">SUPPORT ONLINE</h3>
+ <ul style="padding-top:10px;" >
+            <ul>
+           <?php 
+           $support = $this->requestAction('/'.$shopname.'/helpsonline');?>
+             <?php  foreach($support as $itm ){?>                   
+           <li style="margin: 5px 7px;"><font style="font-size: 12px; color: #4f4444; "><b><?php echo $itm['Estore_helps']['title']?> </b></font><a href="ymsgr:sendIM?<?php echo $itm['Estore_helps']['user_yahoo']?>" style="margin: 0 10px; float: right;"><img align="absmiddle"  src="http://opi.yahoo.com/online?u=<?php echo $itm['Estore_helps']['user_yahoo']?>&amp;m=g&amp;t=1"/></a></li>
+           <li style="margin: 5px 7px;"><font style="font-size: 12px; color: #4f4444; "><b><?php echo $itm['Estore_helps']['user_support']?> </b></font><a href="skype:<?php echo $itm['Estore_helps']['user_skype'] ?>?call" style="margin: 0 10px; float: right;"><img src="<?php echo DOMAIN?>home/images/skype.png"/></a></li>
+           <li style="margin: 5px 7px; line-height:16px;"><font style="font-size: 12px; color: #000; "><b></b></font><p align="right"> <font style="font-size: 12px; color: #4f4444;"><b ><?php echo $itm['Estore_helps']['user_mobile']?></b></font></p></li>
+           <?php }?>
+           </ul>
+           <?php $setting = $this->requestAction('/'.$shopname.'/setting') ?>
+            <?php foreach($setting as $settings ){  ?>
+            <ul>
+           <li style="margin: 10px 2px;"><img src="<?php echo DOMAIN?>home/images/hotline.png" align="absmiddle" /><font  style="font-size: 12px; color: #d00000; padding-left:10px;"><b>Hotline : <?php echo $settings['Estore_settings']['mobile'] ?></b></font></li>
+           </ul>
+            <?php }?> 
 </div>
-<!-- End class="widget Text" -->
-

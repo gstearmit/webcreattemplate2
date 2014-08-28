@@ -227,10 +227,10 @@ foreach ( $shop as $key => $value ) {
     <div class="container">
         <div class="row">
             <div class="span8">
-                <p>&copy; 2014 <a href="http://freemobiweb.mobi" title="Terms &amp; Conditions">Alatca&amp; Freemobi.mobi</a> &middot; <a href="http://freemobiweb.mobi" title="Privacy policy">Freemobiweb</a> &middot; All Rights Reserved. </p>
+                <p>&copy; 2014 <a href="http://freemobiweb.mobi" title="Terms &amp; Conditions">Alatca &amp; Freemobi.mobi</a> &middot; <a href="http://freemobiweb.mobi" title="Privacy policy">Freemobiweb</a> &middot; All Rights Reserved. </p>
             </div>
             <div class="span4 text-right hidden-phone">
-                <p><a href="http://freemobiweb.mobi" title="Eshop Creat template">Eshop Creat template</a></p>
+                <p><a href="http://freemobiweb.mobi/e-commerce/" title="Eshop Creat template">Eshop Creat template</a></p>
             </div>
         </div>
     </div>
