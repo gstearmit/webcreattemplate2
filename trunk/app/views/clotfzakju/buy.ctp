@@ -1,71 +1,14 @@
 <?php echo $javascript->link('jquery.validate', true); ?>
-
- <style>
-  #goi-thieu h1,h2,h3{
-	  font-size:12px;
-	  font-weight:normal;
-	  }
-
-    #main-register input, .text-main input {
-    border: 1px solid #CCC;
-    border-radius: 5px;
-    }
-    input {
-    padding: 3px;
-    margin-bottom: 10px;
-    font-size: 14px;
-    color: #333;
-
-}
-</style> 
 <style>
-  #goi-thieu h1,h2,h3{
-	  font-size:12px;
-	  font-weight:normal;
-	  }
-	table {
-    border: 0 none;
-    border-spacing: 0;
+.shipmethod {
+    margin-left: 33%;
+    margin-top: 5%;
 }
-#input{
-	width:236px;
-	border: 1px solid #a0b581;
-	height:22px;
-	font-weight:normal;
-	margin-left:20px;
-	}
-.guimail textarea{
-	width:336px;
-	height:102px;
-	font-weight:normal;
-	border: 1px solid #ccc;
-	}
-
-.guimail {
-   
-    font-weight: bold;
-    margin-bottom: 40px;
-   
-    width: 100%;
+.phucmodel {
+display: block;
 }
-	.tblGrid tr td,.tblGrid tr th {
-	border: 1px solid #ccc;
-	padding:5px;
-    border-spacing: 0;
-}
-.guimail tr td{
-	padding-top:10px;
-	}
-.bgLLGray th {
-    color: #817F80;
-    padding-right: 10px;
-    text-align: right;
-}
-.guimail .blue{
-	color:blue;
-}
-
 </style>
+
 <script type="text/javascript">
 $().ready(function() {
 	// validate signup form on keyup and submit
@@ -110,165 +53,371 @@ $().ready(function() {
 	});
 });
 </script>
-<div id="main-center">
-<div id="sanphams">
-    	<div class="top">Sản phẩm trong giỏ hàng
-        </div>
-        <div class="m3" style="padding: 20px;">   
-             <div class="clearfix"> 		                   
-                <div class="roundBoxBody">
-                     <div class="text-main">
-             <table class="tblGrid " width="100%" border="1" cellpadding="5" cellspacing="5" style="border-collapse: collapse">
-                    <tr>
-                        <th width="100">Hình ảnh</th>
-                        <th width="200">Tên sản phẩm</th>
-                        <th width="100">Số lượng</th>
-                        <th width="100">Giá</th>
-                        <th width="100">Tổng giá</th>
-                    </tr>
-                    <?php $total=0; foreach($shopingcart as $key=>$product) {?>
-                    <?php if($product['name']!=null){?>
-                    <tr>       
-                        <td align="center"><img width="70" src="<?php echo DOMAINADESTORE;?><?php echo $product['images']; ?>" /></td>
-                        <td><?php echo $product['name']; ?></td>
-                        <td align="center"><?php echo $product['sl']; ?> </td>
-                        <td align="center"><font color="red"><?php echo number_format($product['price'],3); ?></font></td>
-                        <td align="center"><font color="red"><?php echo number_format($product['total'],3); ?></font></td>
-                    </tr>
-                    <?php $total += $product['total']; } }
-                   		
-                    	echo '<tr><td align="right" colspan="5"><b>Tổng giá sản phẩm:</b> <font color="red">'.number_format($total,3).' VNĐ </font></td></tr>';
-                    ?> 
-                </table>
-		     
-            <br/>
-           
-            <div style="clear: both;background: #ffe4dd;padding:5px;color: #b52427"><strong>Thông tin dặt hàng</strong></div>
-            
-            <form name="check_form" id="signupForm" method="post" action="<?php echo DOMAIN;?><?php echo $shopname ;?>/addinfomations">
-			 <!-- <input class="contacts" type="hidden" name="images" value="<?php echo $shopingcart; ?>" /> -->
-			<input class="contacts" type="hidden" value="<?php echo $total; ?>" name="total"/>
-             <?php if ($this->Session->read('name')) {?>
-            <table class="tbl bgLLGray bdLGray wf mt10 pb20 guimail">
-                <tbody>
-                    <tr>
-                        <th class="w160 vam">Họ tên đầy đủ</th>
-                        <td>
-                            <input type="text" title="" name="name" id="Name"  value="<?php echo $this->Session->read('name'); ?>" class="validate[required] inputText w200 input-validation-error blur">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Địa chỉ Email</th>
-                        <td>
-                            <input type="text" value="<?php echo $this->Session->read('email'); ?>" title="" name="email" id="Email" class="validate[required,custom[email]] inputText w200 valid">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Điện thoại di động</th>
-                        <td>
-                            <input type="text" title="(xx)xxx&ndash;xxxxx" name="phone"  value="<?php echo $this->Session->read('phone'); ?>" id="Mobile" data-val="true" class="validate[required,custom[telephone]] inputText w200 valid"><span style="color:#F00;">(*)</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Địa chỉ</th>
-                        <td>
-                            <input type="text" value="" name="address" id="FullAddress" class="validate[required] inputText w500 valid"><span style="color:#F00;">(*)</span>
-                            <div class="cb"><span data-valmsg-replace="true" data-valmsg-for="FullAddress" class="field-validation-valid"></span></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Hình thức thanh toán</th>
-                        <td>
-                           <select name="payop" id="payop">
-                              <option value="0">Thanh toán khi nhận hàng</option>
-                              <option value="nl">Thanh toán qua ngân lượng</option>
-                            </select>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <?php }else{?>
-            
-            <table class="tbl bgLLGray bdLGray wf mt10 pb20 guimail">
-                <tbody>
-                    <tr>
-                        <th class="w160 vam">Họ tên đầy đủ</th>
-                        <td>
-                            <input type="text" value="" title="" name="name" id="Name" data-val-required="" data-val-length-max="50" data-val-length="" data-val="true" class="validate[required] inputText w200 input-validation-error blur">
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Địa chỉ Email</th>
-                        <td>
-                            <input type="text" value="" title="" name="email" id="Email" data-val-regex-pattern=".+\@.+\..+" data-val-regex="" data-val-length-max="100" data-val-length="" data-val="true" class="validate[required,custom[email]] inputText w200 valid">
-                            
-                            <div class="cb"><span data-valmsg-replace="true" data-valmsg-for="Email" class="field-validation-valid"></span></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Điện thoại di động</th>
-                        <td>
-                            <input type="text" value="" title="(xx)xxx&ndash;xxxxx" name="phone" id="Mobile" name="" data-val="true" class="validate[required,custom[telephone]] inputText w200 valid">
-                            
-                            <div class="cb"><span data-valmsg-replace="true" data-valmsg-for="Mobile" class="field-validation-valid"></span></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Địa chỉ</th>
-                        <td>
-                            <input type="text" value="" name="address" id="FullAddress" class="validate[required] inputText w900 valid">
-                            <div class="cb"><span data-valmsg-replace="true" data-valmsg-for="FullAddress" class="field-validation-valid"></span></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Hình thức thanh toán</th>
-                        <td>
-                            <select name="payop" id="payop">
-                              <option value="0">Thanh toán khi nhận hàng</option>
-                              <option value="nl">Thanh toán qua ngân lượng</option>
-                            </select>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <?php }?>
-            <div class="pt20 tar" style="padding-bottom:15px; padding-top:0px !important; padding-left:350px;">
-                   <input type="submit" class="button ml15" value="Đồng ý đặt hàng" id="btnPlaceOrder1">
-            </div>
-            </form>
+<?php  
+// echo "khong co san pham nao";
+if($shopingcart =='') { ?>
+	<div id="addedmodel" class="modal hide fade in phucmodel" tabindex="-1" aria-hidden="false" >
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <div class="hgroup title">
+                                <h3>Information Cart!</h3>
+                                <h5>Currently no products in your shopping cart</h5>
+                            </div>
+                        </div>
+                        <div class="modal-footer">	
+                            <div class="pull-right">				
+                                <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>" class="btn btn-primary btn-small">
+                                    Click for by Product &nbsp; <i class="icon-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<?php 	
+}?>
 
-          </div>
-                </div>                  
-             </div>  
-             <div id="contacts">		     	
-				<h2 style="padding: 10px 0;"><font color="#a70908" style="font-size: 16px;">Mọi chi tiết xin liên hệ:</font></h2>
-				
-				           
-		     	 	<?php 
-		     	 	//pr($shopname);
-		     	 	$setting = $this->requestAction('/'.$shopname.'/setting');?>
-               	<div>	
-               		<ul class="lienhe" style="list-style: none;">
-			     	 	<?php  foreach($setting as $k=>$item){?> 
-                        <li><h1 style="padding: 5px; color: rgb(168, 8, 8); font-size: 21px;"><?php echo $item['Estore_settings']['name'] ?></h1></li>
-	               			<li>Địa chỉ: <?php echo $item['Estore_settings']['address'] ?></li>
-	               			<li>Điện thoại: <?php echo $item['Estore_settings']['phone'] ?> - Hotline: <font color="red"><?php echo $item['Estore_settings']['mobile'] ?></font></li>
-	               			<li> Email:<?php echo $item['Estore_settings']['email'] ?></li>
-	               			<li> Website:<font color="blue" style="font-size:17px;"><?php echo $item['Estore_settings']['url'] ?></font></li>
-	               			
-	               		<?php }?>
-	               	</ul>
-	              </div>
-	              <div>
-	              	<?php  foreach($setting as $k=>$item){?> 
-	              	 	 <?php echo $item['Estore_settings']['content']?>
-	              	 <?php }?> 
-	              </div>	
-		     </div>          
-             <div class="clearfix"></div>
-        </div> 
-        <div class="b3"><div class="b3"><div class="b3"></div></div></div>
-    </div>
-    
- </div>
+<!-- Content section -->		
+            <section class="main">
+             <!-- Cart container -->
+                <section class="cart">
+
+
+
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="span9">
+                                
+                                <!-- Cart -->
+                                <div class="box">
+                                  
+                                        
+                                        <div class="box-header">
+                                            <h3>Shopping cart</h3>
+                                            <h5>You currently have <strong><?php if(isset($_SESSION['shopingcart']))
+                                            { $sl=count($_SESSION['shopingcart']) ;
+                                            echo $sl;
+                                            }else {echo "0"; }?></strong> item(s) in your cart</h5>
+                                        </div>
+
+                                        <div class="box-content">
+                                            <div class="cart-items">
+                                               <?php $total = 0;if($shopingcart){?>
+                                                <table class="styled-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="col_product text-left">Product</th>
+                                                            <th class="col_remove text-right">Update</th>
+                                                             <th class="col_remove text-right">Delete</th>
+                                                            <th class="col_qty text-right">Qty</th>
+                                                            <th class="col_single text-right">Single</th>
+                                                            <th class="col_discount text-right">Discount</th>
+                                                            <th class="col_total text-right">Total</th>
+                                                        </tr>
+                                                    </thead>
+													
+                                                    <tbody>		
+                                                     <?php $total=0; $i=0; foreach($shopingcart as $key=>$product) {?>
+                                                     <?php if($product['name']!=null){?>							
+                                                        <tr>
+                                                            <td data-title="Product" class="col_product text-left">
+                                                                <div class="image "><!--  visible-desktop -->
+                                                                    <a href="<?php echo DOMAINAD.$shopname;?>/view<?php echo $product['pid']; ?>">
+                                                                        <img src="<?php echo DOMAINADESTORE;?><?php echo $product['images']; ?>" style="width: 70px;" alt="<?php echo $product['name']; ?>">
+                                                                    </a>
+                                                                </div>
+
+                                                                <h5>
+                                                                    <a href="<?php echo DOMAINAD.$shopname;?>/view<?php echo $product['pid']; ?>"><?php echo $product['name']; ?></a>
+                                                                </h5>
+
+                                                            </td>
+                                                             <td data-title="Update" class="col_remove text-right">
+                                                               <input class="btn btn-small" onclick="document.view<?php echo $i; ?>.submit();"  type="image" src="<?php echo DOMAINADESTORE?>images/refresh.png" alt="Cập nhật"/>
+                                                            </td>
+                                                            <td data-title="Remove" class="col_remove text-right">
+                                                              <button class="btn btn-small" onclick="$('#removemodal').modal('show')">
+                                                                    <i class="icon-trash icon-small"></i>
+                                                              </button>
+                                                                
+                                                            </td>
+                                                            
+
+                                                            <td data-title="Qty" class="col_qty text-right">
+                                                               <form name="view<?php echo $i; ?>" action="<?php echo DOMAIN;?><?php echo $shopname ;?>/updateshopingcart/<?php echo $key;?>" method="post">
+                                                                  <input type="text" name="soluong" value="<?php echo $product['sl']; ?>" />
+                                                                </form>
+                                                            </td>
+
+                                                            <td data-title="Single" class="col_single text-right">
+                                                                <span class="single-price">£<?php echo number_format( $product['price'],3); ?></span>
+                                                            </td>
+
+                                                            <td data-title="Discount" class="col_discount text-right">
+                                                                <span class="discount">£0.00</span>
+                                                            </td>
+
+                                                            <td data-title="Total" class="col_total text-right">
+                                                                <span class="total-price">£<?php echo number_format($product['total'],3); ?></span>
+                                                            </td>
+                                                        </tr>
+                                                       
+                                                         <?php $total +=$product['total']; $i++; } }?>
+                                                    </tbody>
+                                                   
+                                                </table>
+                                                <?php }?>
+                                            </div>
+                                        </div>
+
+                                        <div class="box-footer col-md-12">
+                                            <div class="pull-left col-md-4 col-sm-4 col-xs-12">
+                                                <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>" class="btn btn-small">
+                                                    <i class="icon-chevron-left"></i> &nbsp; Continue shopping
+                                                </a>			
+                                            </div>
+
+                                            <div class="pull-right col-md-8">
+                                               <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/viewshopingcart" class="btn btn-small mm20 col-md-6 col-sm-6 col-xs-12" style="margin: 0px 10px 10px 0px;">
+                                                    <i class="icon-undo"></i> &nbsp; Update cart
+                                                </a>
+                                            </div>
+                                        </div>
+                                   
+                                </div>
+                                <!-- End Cart -->
+
+                             
+                                <!-- Shipping modal -->
+                                <div id="shipping" class="modal hide fade" tabindex="-1">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <div class="hgroup title">
+                                            <h3>Shipping estimator</h3>
+                                            <h5>Get an estimated shipping cost for your order</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div id="shipping_options">
+                                            <table class="table table-striped table-bordered">                                         
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Description</th>
+                                                    <th>Price</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Free shipping</td>
+                                                    <td>Delivered to your letterbox within 7-14 working days</td>
+                                                    <td>£0.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Standard</td>
+                                                    <td>Delivered to your letterbox within 5 working days</td>
+                                                    <td>£4.95</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Speedy</td>
+                                                    <td>Delivered to your letterbox within 3 working days</td>
+                                                    <td>£8.95</td>
+                                                </tr>                                                
+                                            </table>
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <div class="pull-right">
+                                            <a href="checkout.html" class="btn btn-primary btn-small">
+                                                Proceed to checkout &nbsp; <i class="icon-chevron-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>		
+                                <!-- End Shipping modal -->
+                                
+                            </div>
+
+                            <div class="span3">
+                                
+                                <!-- Cart details -->
+                                <div class="cart-details">
+                                    <div class="box">
+                                        <div class="hgroup title">
+                                            <h3>Order totals</h3>
+                                            <h5>Shipping costs and taxes will be evaluated during checkout</h5>
+                                        </div>
+
+                                        <ul class="price-list">
+                                            <li>Subtotal: <strong>£<?php echo number_format( $total,3);?></strong></li>
+                                            <li class="important">Total: <strong>£<?php echo number_format( $total,3);?></strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- End class="cart-details" -->
+                              
+                            </div>
+
+                        </div>
+                    </div>	
+                </section>         
+                <!-- End Cart container -->
+                    
+                <!-- Checkout / Billing Address -->
+                <section class="checkout">
+
+
+                    <div class="container">
+                        <form enctype="multipart/form-data" action="<?php echo DOMAIN;?><?php echo $shopname ;?>/addinfomations" method="post">
+                           <input class="contacts" type="hidden" value="<?php echo $total; ?>" name="total"/>
+                            <div class="row">
+                                <div class="span9">
+                                    <div class="box">
+                                        
+                                        <!-- Checkout progress -->
+                                        <div id="checkout-progress">
+                                            <ul class="nav nav-tabs">
+                                                <li class="active">
+                                                    <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/buy">
+                                                        <i class="icon-map-marker icon-large"></i>
+                                                        <span>Ordering</span>
+                                                    </a>
+                                                </li>
+                                                <!--  
+                                                <li>
+                                                    <a href="shipping.html">
+                                                        <i class="icon-envelope icon-large"></i>
+                                                        <span>Shipping address</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <i class="icon-truck icon-large"></i>
+                                                        <span>Shipping method</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <i class="icon-money icon-large"></i>
+                                                        <span>Payment method</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <i class="icon-search icon-large"></i>
+                                                        <span>Order review</span>
+                                                    </div>
+                                                </li>
+                                                -->
+                                            </ul>					
+                                        </div>
+                                        <!-- End id="checkout-progress" -->
+                                        
+                                        <!-- Checkout content -->
+                                        
+                                        <div id="checkout-content">
+                                            <div class="box-header">
+                                                <div class="row-fluid">
+                                                    <div class="span8">
+                                                        <h3>Ordering Information</h3>
+                                                        <h5>Information details</h5>
+                                                    </div>
+                                                    <div class="span4">
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="box-content">
+                                                <div class="row-fluid">
+                                                 <?php 
+                                             // name khach hang : $this->Session->read('name'))    
+                                            //if ($this->Session->read('name')) {?>
+                                                    <div class="span6">
+                                                        <div class="control-group">
+                                                            <label for="first_name" class="control-label">First name Last name</label>
+                                                            <div class="controls">
+                                                                <input class="span12" type="text" title="" name="name" id="Name"  value="<?php echo $this->Session->read('name'); ?>" class="validate[required] inputText w200 input-validation-error blur"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="control-group">
+                                                            <label for="email" class="control-label">Email</label>
+                                                            <div class="controls">
+                                                                <input class="span12" type="text" value="<?php echo $this->Session->read('email'); ?>" title="" name="email" id="Email" class="validate[required,custom[email]] inputText w200 valid" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="control-group">
+                                                            <label for="phone" class="control-label">Phone <span style="color:#F00;">(*)</span></label>
+                                                            <div class="controls">
+                                                                <input class="span12" type="text" title="(xx)xxx&ndash;xxxxx" name="phone"  value="<?php echo $this->Session->read('phone'); ?>" id="Mobile" data-val="true" class="validate[required,custom[telephone]] inputText w200 valid" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="span6">
+                                                       
+                                                        <div class="control-group">
+                                                            <label for="street_address" class="control-label">Street address <span style="color:#F00;">(*)</span></label>
+                                                            <div class="controls">
+                                                                <input class="span12" type="text" value="" name="address" id="FullAddress" class="validate[required] inputText w500 valid" />
+                                                        </div>
+
+                                                        <div class="row-fluid">
+                                                            <label for="street_address" class="control-label">Forms of payment </label>
+                                                            <div class="controls">
+                                                               <select name="payop" id="payop">
+										                              <option value="0">Thanh toán khi nhận hàng</option>
+										                              <option value="nl">Thanh toán qua ngân lượng</option>
+										                      </select>
+                                                        </div>
+                                                        
+                                                        <div class="row-fluid">
+                                                            <div class="shipmethod">                                                    
+			                                                    <button type="submit" class="btn btn-primary">
+			                                                        SEND CHECK OUT &nbsp; <i class="icon-chevron-right"></i>
+			                                                    </button>
+			                                                </div>
+                                                        </div>
+                                                    </div>
+                                                    <?php // }?>
+                                                </div>	
+                                            </div>
+
+                                            <div class="box-footer">
+                                               
+                                                
+                                            </div>					
+                                        </div>	
+                                        <!-- End id="checkout-content" -->
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="span3">                                    </div>                                
+                                </div>
+                            </div>
+                        </form>
+                    </div>	
+                </section>
+                <!-- End class="checkout" -->
+                
+            </section>
+            <!-- End class="main" -->
+             <!-- Added to cart modal window -->
+                    <div id="removemodal" class="modal hide fade" tabindex="-1">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <div class="hgroup title">
+                                <h3>Do you want to remove this product from the cart!</h3>
+                             </div>
+                        </div>
+                        <div class="modal-footer" style="float:left;display:inline-block; width: 93%;">	
+                            <div class="pull-right" style="float:left; margin-right:2%;margin-left:2%">				
+                                <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/deleteshopingcart/<?php echo $key;?>" class="btn btn-primary btn-small">
+                                    Delete &nbsp; <i class="icon-chevron-right"></i>
+                                </a>
+                            </div>
+                            <div class="pull-left" style="float:left;">				
+                                 <button   class="btn btn-primary btn-small" type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-chevron-right"></i> Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End id="added" -->

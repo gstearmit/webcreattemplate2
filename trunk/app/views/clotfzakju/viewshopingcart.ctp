@@ -1,3 +1,23 @@
+<script type="text/javascript">
+function clickviewpopup()
+{
+	// var s2 = document.getElementsByClassName('fade').remove();
+	 var s3= document.getElementsByClassName('modal fade selectWindow');
+	 var   assignedTabName = document.getElementById("myModal").className='selectWindow';
+	 // alert(assignedTabName);
+}
+
+function closepopup()
+{  
+	 var   assignedTabName23 = document.getElementById("addedmodel").className='modal hide fade in'; //modal hide fade in phucmodel
+	 //alert(assignedTabName23);
+}
+</script>
+<style>
+.phucmodel {
+display: block;
+}
+</style>
 <?php 
 			
 			$shop=explode('/',$this->params['url']['url']); 
@@ -10,6 +30,32 @@
 				}
 			
 ?>
+<?php  
+// echo "khong co san pham nao";
+if($shopingcart =='') { ?>
+	<div id="addedmodel" class="modal hide fade in phucmodel" tabindex="-1" aria-hidden="false" >
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="closepopup()">×</button>
+                            <div class="hgroup title">
+                                <h3>Information Cart!</h3>
+                                <h5>Currently no products in your shopping cart</h5>
+                            </div>
+                        </div>
+                        <div class="modal-footer">	
+                            <div class="pull-right">				
+                                <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>" class="btn btn-primary btn-small">
+                                    Click for by Product &nbsp; <i class="icon-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+<?php 	
+}?>
+
+
+
+
+
 <!-- Content section -->		
             <section class="main">
                 
@@ -25,54 +71,67 @@
                                 
                                 <!-- Cart -->
                                 <div class="box">
-                                    <form enctype="multipart/form-data" action="checkout-start.html" method="post" >
+                                  
                                         
                                         <div class="box-header">
                                             <h3>Shopping cart</h3>
-                                            <h5>You currently have <strong>3</strong> item(s) in your cart</h5>
+                                            <h5>You currently have <strong><?php if(isset($_SESSION['shopingcart']))
+                                            { $sl=count($_SESSION['shopingcart']) ;
+                                            echo $sl;
+                                            }else {echo "0"; }?></strong> item(s) in your cart</h5>
                                         </div>
 
                                         <div class="box-content">
                                             <div class="cart-items">
+                                               <?php $total = 0;if($shopingcart){?>
                                                 <table class="styled-table">
                                                     <thead>
                                                         <tr>
                                                             <th class="col_product text-left">Product</th>
-                                                            <th class="col_remove text-right">&nbsp;</th>
+                                                            <th class="col_remove text-right">Update</th>
+                                                             <th class="col_remove text-right">Delete</th>
                                                             <th class="col_qty text-right">Qty</th>
                                                             <th class="col_single text-right">Single</th>
                                                             <th class="col_discount text-right">Discount</th>
                                                             <th class="col_total text-right">Total</th>
                                                         </tr>
                                                     </thead>
-
-                                                    <tbody>									
+													
+                                                    <tbody>		
+                                                     <?php $total=0; $i=0; foreach($shopingcart as $key=>$product) {?>
+                                                     <?php if($product['name']!=null){?>							
                                                         <tr>
                                                             <td data-title="Product" class="col_product text-left">
-                                                                <div class="image visible-desktop">
-                                                                    <a href="product.html">
-                                                                        <img src="img/thumbnails/db_file_img_230_60xauto.jpg" alt="Helen Romper">
+                                                                <div class="image "><!--  visible-desktop -->
+                                                                    <a href="<?php echo DOMAINAD.$shopname;?>/view<?php echo $product['pid']; ?>">
+                                                                        <img src="<?php echo DOMAINADESTORE;?><?php echo $product['images']; ?>" style="width: 70px;" alt="<?php echo $product['name']; ?>">
                                                                     </a>
                                                                 </div>
 
                                                                 <h5>
-                                                                    <a href="product.html">Helen Romper</a>
+                                                                    <a href="<?php echo DOMAINAD.$shopname;?>/view<?php echo $product['pid']; ?>"><?php echo $product['name']; ?></a>
                                                                 </h5>
 
                                                             </td>
-
-                                                            <td data-title="Remove" class="col_remove text-right">
-                                                                <a href="#">
-                                                                    <i class="icon-trash icon-large"></i>
-                                                                </a>
+                                                             <td data-title="Update" class="col_remove text-right">
+                                                               <input class="btn btn-small" onclick="document.view<?php echo $i; ?>.submit();"  type="image" src="<?php echo DOMAINADESTORE?>images/refresh.png" alt="Cập nhật"/>
                                                             </td>
+                                                            <td data-title="Remove" class="col_remove text-right">
+                                                              <button class="btn btn-small" onclick="$('#removemodal').modal('show')">
+                                                                    <i class="icon-trash icon-small"></i>
+                                                              </button>
+                                                                
+                                                            </td>
+                                                            
 
                                                             <td data-title="Qty" class="col_qty text-right">
-                                                                <input type="text" name="item_quantity[]" value="2" />
+                                                               <form name="view<?php echo $i; ?>" action="<?php echo DOMAIN;?><?php echo $shopname ;?>/updateshopingcart/<?php echo $key;?>" method="post">
+                                                                  <input type="text" name="soluong" value="<?php echo $product['sl']; ?>" />
+                                                                </form>
                                                             </td>
 
                                                             <td data-title="Single" class="col_single text-right">
-                                                                <span class="single-price">£43.99</span>
+                                                                <span class="single-price">£<?php echo number_format( $product['price'],3); ?></span>
                                                             </td>
 
                                                             <td data-title="Discount" class="col_discount text-right">
@@ -80,72 +139,36 @@
                                                             </td>
 
                                                             <td data-title="Total" class="col_total text-right">
-                                                                <span class="total-price">£87.98</span>
+                                                                <span class="total-price">£<?php echo number_format($product['total'],3); ?></span>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td data-title="Product" class="col_product text-left">
-                                                                <div class="image visible-desktop">
-                                                                    <a href="product.html">
-                                                                        <img src="img/thumbnails/db_file_img_17_60xauto.jpg" alt="1300 in Grey">
-                                                                    </a>
-                                                                </div>
-
-                                                                <h5>
-                                                                    <a href="product.html">1300 in Grey</a>
-                                                                </h5>
-
-                                                                <ul class="options">
-                                                                    <li>Size: UK 9</li>
-                                                                    <li>Color: Gray</li>
-                                                                </ul>
-                                                            </td>
-
-                                                            <td data-title="Remove" class="col_remove text-right">
-                                                                <a href="#">
-                                                                    <i class="icon-trash icon-large"></i>
-                                                                </a>
-                                                            </td>
-
-                                                            <td data-title="Qty" class="col_qty text-right">
-                                                                <input type="text" name="item_quantity[]" value="1" />
-                                                            </td>
-
-                                                            <td data-title="Single" class="col_single text-right">
-                                                                <span class="single-price">£160.00</span>
-                                                            </td>
-
-                                                            <td data-title="Discount" class="col_discount text-right">
-                                                                <span class="discount">£0.00</span>
-                                                            </td>
-
-                                                            <td data-title="Total" class="col_total text-right">
-                                                                <span class="total-price">£160.00</span>
-                                                            </td>
-                                                        </tr>
+                                                       
+                                                         <?php $total +=$product['total']; $i++; } }?>
                                                     </tbody>
+                                                   
                                                 </table>
+                                                <?php }?>
                                             </div>
                                         </div>
 
                                         <div class="box-footer col-md-12">
                                             <div class="pull-left col-md-4 col-sm-4 col-xs-12">
-                                                <a href="index.html" class="btn btn-small">
+                                                <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>" class="btn btn-small">
                                                     <i class="icon-chevron-left"></i> &nbsp; Continue shopping
                                                 </a>			
                                             </div>
 
                                             <div class="pull-right col-md-8">
-                                                <button type="submit" class="btn btn-small mm20 col-md-6 col-sm-6 col-xs-12" style="margin: 0px 10px 10px 0px;">
+                                               <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/viewshopingcart" class="btn btn-small mm20 col-md-6 col-sm-6 col-xs-12" style="margin: 0px 10px 10px 0px;">
                                                     <i class="icon-undo"></i> &nbsp; Update cart
-                                                </button>
+                                                </a>
 
-                                                <button type="submit" name="checkout" value="1" class="btn btn-primary btn-small mm20 col-md-6 col-sm-6 col-xs-12" style="margin: 0px 10px 10px 0px;">
+                                                <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/buy" name="checkout" value="1" class="btn btn-primary btn-small mm20 col-md-6 col-sm-6 col-xs-12" style="margin: 0px 10px 10px 0px;">
                                                     Proceed to checkout &nbsp; <i class="icon-chevron-right"></i>
-                                                </button>
+                                                </a>
                                             </div>
                                         </div>
-                                    </form>			
+                                   
                                 </div>
                                 <!-- End Cart -->
 
@@ -235,7 +258,7 @@
 
                                     <div class="modal-footer">
                                         <div class="pull-right">
-                                            <a href="checkout.html" class="btn btn-primary btn-small">
+                                            <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/buy" class="btn btn-primary btn-small">
                                                 Proceed to checkout &nbsp; <i class="icon-chevron-right"></i>
                                             </a>
                                         </div>
@@ -256,8 +279,8 @@
                                         </div>
 
                                         <ul class="price-list">
-                                            <li>Subtotal: <strong>£247.98</strong></li>
-                                            <li class="important">Total: <strong>£247.98</strong></li>
+                                            <li>Subtotal: <strong>£<?php echo number_format( $total,3);?></strong></li>
+                                            <li class="important">Total: <strong>£<?php echo number_format( $total,3);?></strong></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -296,5 +319,25 @@
                 
             </section>
             <!-- End class="main" -->
-
+            
+ <!-- Added to cart modal window -->
+                    <div id="removemodal" class="modal hide fade" tabindex="-1">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <div class="hgroup title">
+                                <h3>Do you want to remove this product from the cart!</h3>
+                             </div>
+                        </div>
+                        <div class="modal-footer" style="float:left;display:inline-block; width: 93%;">	
+                            <div class="pull-right" style="float:left; margin-right:2%;margin-left:2%">				
+                                <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/deleteshopingcart/<?php echo $key;?>" class="btn btn-primary btn-small">
+                                    Delete &nbsp; <i class="icon-chevron-right"></i>
+                                </a>
+                            </div>
+                            <div class="pull-left" style="float:left;">				
+                                 <button   class="btn btn-primary btn-small" type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-chevron-right"></i> Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End id="added" -->
 

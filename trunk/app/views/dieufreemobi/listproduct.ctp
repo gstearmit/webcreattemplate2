@@ -5,7 +5,7 @@
 		<?php //var_dump($products);die;?>
 		<?php if(empty($products)) {?>
 		<div id="" align="center">             
-        	<h3 style="text-align: center;margin-top: 7%;"> Không có sản phẩm nào trong dang mục này</h3>
+        	<h3 style="text-align: center;margin-top: 7%;"> Không có sản phẩm nào trong danh mục này</h3>
         </div><?php }?>
         <?php foreach($products as $pr){?>	
         <div id="dssanpham" align="center">             

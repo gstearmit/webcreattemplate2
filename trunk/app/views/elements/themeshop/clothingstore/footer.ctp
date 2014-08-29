@@ -313,7 +313,27 @@ foreach ( $shop as $key => $value ) {
 <script type="text/javascript" src="<?php echo DOMAIN ?>clothingstore/js/la_boutique.js"></script>
 <script type="text/javascript" src="<?php echo DOMAIN ?>clothingstore/js/tfingi-megamenu-frontend.js"></script>
 
-
+<?php // sendcontacts?>
+	<?php echo $this->Html->css('validationEngine.jquery');?>
+	<script type="text/javascript" src="<?php echo DOMAIN;?>js/jquery.validationEngine.js"></script>
+	<script>
+	  $(document).ready(function(){
+	    $("#check_form").validationEngine();
+	  });
+	</script>
+	
+	
+	<!-- <link href="<?php echo DOMAIN ?>webcreathtml/css/bootstrap.min.css" rel="stylesheet">   -->
+   <script src="<?php echo DOMAIN ?>webcreathtml/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('.close').click(function(){
+			//alert("da duoc lcick");
+			$('.bodymesage').css("display", "none");
+		});
+	});
+	</script>
+	
 
 <!--preview only-->
 <script type="text/javascript" src="<?php echo DOMAIN ?>clothingstore/js/jquery.cookie.js"></script>

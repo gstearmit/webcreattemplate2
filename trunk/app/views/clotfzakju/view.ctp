@@ -35,7 +35,7 @@
                                             <div class="thumbs" id="gallery">
                                                 <ul class="thumbs-list">
                                                     <li>
-                                                        <a class="active" href="#" data-image="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images1'];?>" title="Chaser Overalls" data-zoom-image="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images1'];?>">
+                                                        <a class="active" href="#" data-image="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images1'];?>" title="<?php echo $views['Estore_products']['title'];?>" data-zoom-image="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images1'];?>">
                                                            <?php if($views['Estore_products']['images1']!=''){?>  <img src="<?php echo DOMAINADESTORE;?><?php echo $views['Estore_products']['images1'];?>" alt="Chaser Overalls" /><?php }?>
                                                             <?php if($views['Estore_products']['images1']==''){?> <img src="<?php echo DOMAINAD;?>clothingstore/img/db_file_img_2.jpg" data-zoom-image="<?php echo DOMAINAD;?>clothingstore/img/db_file_img_2.jpg" alt="Chaser Overalls" /><?php }?>
                                                
@@ -74,7 +74,13 @@
                                                     <div class="pinterest"> </div>
                                                 </div>
                                             </div>
+                                            
                                         </div>
+                                         <div class="add-to-cart dfdfd" style="margin-left: 24%;margin-top: 2%;margin-bottom: 2%;">
+                                                            <button class="btn btn-primary btn-large" onclick="$('#added').modal('show')">
+                                                                <i class="icon-plus"></i> &nbsp; Add to cart
+                                                            </button>
+                                             </div>
                                     </div>
                                 </div>
 
@@ -180,8 +186,7 @@
                                                 
                                                 <!-- Description tab -->
                                                 <div class="tab-pane" id="description">
-                                                    <p><span>Vintage-style faux leather short overalls. Long adjustable straps with brass detailing, exposed zip at back, and side slant pockets with single rear welt pocket.</span><br /><br />
-                                                        <span>100% Polyester</span>
+                                                    <p><?php echo $views['Estore_products']['content'];?>
                                                     </p>						
                                                 </div>
                                                 <!-- End id="description" -->
@@ -453,12 +458,12 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             <div class="hgroup title">
                                 <h3>You're one step closer to owning this product!</h3>
-                                <h5>"Chaser Overalls" has been added to your cart</h5>
+                                <h5>"<?php echo $views['Estore_products']['title'];?>" has been added to your cart if click GO TO CART </h5>
                             </div>
                         </div>
                         <div class="modal-footer">	
                             <div class="pull-right">				
-                                <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/addshopingcart/<?php  //echo $pr['Estore_product']['id'];?>" class="btn btn-primary btn-small">
+                                <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/addshopingcart/<?php  echo $views['Estore_products']['id'];?>" class="btn btn-primary btn-small">
                                     Go to cart &nbsp; <i class="icon-chevron-right"></i>
                                 </a>
                             </div>
