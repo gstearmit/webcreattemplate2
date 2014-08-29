@@ -515,11 +515,15 @@ msgstr "Thuộc sản phẩm"
 msgid "Edit_category"
 msgstr "Sửa danh mục"
 
+msgid "Edit_product"
+msgstr "Sửa sản phẩm"
+
 msgid "Edit"
 msgstr "Sửa"
 
 msgid "News_list"
 msgstr "Danh sách tin"
+
 
 msgid "News_name"
 msgstr "Tên bài viết"
@@ -640,3 +644,12 @@ msgstr "Tên Skype"
 
 msgid "Name"
 msgstr "Tên"
+
+msgid "Actived"
+msgstr "Đã Active"
+
+msgid "Unactive"
+msgstr "Chưa Active"
+
+msgid "Select_image"
+msgstr "Chọn ảnh"

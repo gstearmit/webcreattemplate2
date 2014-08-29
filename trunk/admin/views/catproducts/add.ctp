@@ -1,75 +1,108 @@
-﻿<?php
-	echo $this->Html->script(array('ckeditor/ckeditor','ckfinder/ckfinder'));
-	
-		$select="Chọn danh mục";
-		$not_active="Chưa Active";
-		$Active_s="Đã Active";
-	if(isset($_GET['language'])){
-		if($_GET['language']=='eng'){
-		$select ="Select Category";
-		$not_active="Not Active";
-		$Active_s="Active";
-	}else {
-		
-		$select="Chọn danh mục";
-		$not_active="Chưa Active";
-		$Active_s="Đã Active";
-	}
-	}
-?>
-<div class="content-box">
-    <div class="content-box-header">
-        
-        <h3><?php __('Add_Category')?></h3>
-        
-        <ul class="content-box-tabs">
-            <li><a href="#tab1"></a></li> 
-            <li><a href="#tab2" class="default-tab"><?php __('Add_New')?></a></li>
-        </ul>
-        
-        <div class="clear"></div>
-        
-    </div> 
-    <div class="content-box-content">
-        
-        <div class="tab-content" id="tab1"> 
-        </div>
-        
-        <div class="tab-content default-tab" id="tab2">
-        
-              <?php echo $form->create(null, array( 'url' => DOMAINAD.'catproducts/add','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>	    
-                
-                <fieldset> 
-                    <p>
-                        <label><?php __('Category')?> (VN)</label>
-                        <?php echo $form->input('Catproduct.name',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
-                    </p>
-                   
-                  <p>
-                        <label><?php __('Main_category')?></label>              
-                        <?php 
-                              echo $form->select('Catproduct.parent_id', $Catproductlist, null,array('empty'=>$select,'class'=>'small-input'));
-                         ?>
-                    </p>
-                     <p>
-                        <label><?php __('No.')?></label>   
-                        <?php echo $form->input('Catproduct.char',array( 'label' => '','style'=>'width:100px !important;','class'=>'text-input medium-input datepicker'));?>       
-                    </p>
-                    <p>
-                        <label><?php __('status')?></label>
-                         <?php echo $form->radio('Catproduct.status', array(0 => $not_active, 1 => $Active_s), array('value' => '1','legend'=>'')); ?>
-                    </p>
-                    <p>
-                        <input class="button" type="submit" value="<?php __('Add_New');?> " />
-                    </p>
-                    
-                </fieldset>
-                
-                <div class="clear"></div>
-                
-            <?php echo $form->end(); ?>
-            
-        </div>
-        
-    </div>
- </div>
+<?php //pr($Catproductlist);die();?>
+<div class='row' id='content-wrapper'>
+            <div class='col-xs-12'>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='page-header'>
+                   <!--  <h1 class='pull-left'>
+                      <i class='icon-ok'></i>
+                      <span>Validations</span>
+                    </h1>-->
+                    <div class='pull-right'>
+                      <ul class='breadcrumb'>
+                        <li>
+                          <a href='index.html'>
+                            <i class='icon-bar-chart'></i>
+                          </a>
+                        </li>
+                        <li class='separator'>
+                          <i class='icon-angle-right'></i>
+                        </li>
+                        <li>
+                         <?php __('Category_product')?>
+                        </li>
+                        <li class='separator'>
+                          <i class='icon-angle-right'></i>
+                        </li>
+                        <li class='active'><?php __('Add_New')?></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='box'>
+                    <div class='box-header blue-background'>
+                      <div class='title'><?php __('Add_Category')?></div>
+                      <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class='box-content'>
+                      <form action="<?php echo DOMAINAD ?>catproducts/add" enctype="multipart/form-data" name="image" method="post" accept-charset="utf-8" class='form form-horizontal validate-form' style='margin-bottom: 0;'>
+                       <input type="hidden" name="_method" value="POST" />
+                        <div class='form-group'>
+                          <label class='control-label col-sm-3 col-sm-3' for='validation_name'><?php __('Category')?> (VN)</label>
+                          <div class='col-sm-4 controls'>
+                            <input class='form-control' data-rule-minlength='2' data-rule-required='true' id='validation_name' name="data[Catproduct][name]" placeholder='<?php __('Category')?>' type='text'>
+                          </div>
+                        </div>
+                        
+                       <div class='form-group'>
+                          <label class='control-label col-sm-3' for='validation_select'><?php __('Main_category')?></label>
+                          <div class='col-sm-4 controls'>
+                           <?php  //pr($Catproductlist);die();?>                  
+                          
+                            <select class='form-control' data-rule-required='true' id='validation_select' name="data[Catproduct][parent_id]" >
+                              <option value="0">Chọn danh mục</option> 
+                              <?php foreach ($Catproductlist as $key =>$value){?>
+                              <option value="<?php  echo $key ?>"><?php  echo $value ?></option>
+                           <?php }?>               
+                            </select>
+                           
+                          </div>
+                        </div>
+                         <div class='form-group'>
+                          <label class='control-label col-sm-3' for='validation_password'><?php __('No.')?></label>
+                          <div class='col-sm-4 controls'>
+                            <input class='form-control' data-rule-minlength='1' data-rule-password='true' data-rule-required='true' id='validation_password' name="data[Catproduct][char]" placeholder='<?php __('No.')?>' type='text'>
+                          </div>
+                        </div>
+                         <div class='form-group'>
+                        <label class='control-label col-sm-3' for='validation_select'><?php __('status')?></label>
+                        <div class='col-sm-4 controls'>
+                          <label class='radio radio-inline'>
+                            <input  name="data[Catproduct][status]" type='radio' value='1' checked="checked">
+                            <?php __('Actived')?>
+                          </label>
+                          <label class='radio radio-inline'>
+                            <input  name="data[Catproduct][status]" type='radio' value='0' >
+                             <?php __('Unactive')?>
+                          </label>
+                          </div>
+                      </div>                                      
+                       
+                        <div class='form-actions' style='margin-bottom:0'>
+                          <div class='row'>
+                            <div class='col-sm-9 col-sm-offset-3'>
+                              <button class='btn btn-primary' type='submit' value="<?php __('Add_New');?> " >
+                                <i class='icon-save'></i>
+                                 <?php __('Add_New')?>
+                              </button>
+                               </div>
+                          </div>
+                        </div>
+                      </form>                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+            </div>
+          </div>

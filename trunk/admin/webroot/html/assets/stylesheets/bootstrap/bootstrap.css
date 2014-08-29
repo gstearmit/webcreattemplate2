@@ -3154,7 +3154,11 @@ input[type="button"].btn-block {
       padding-bottom: 0;
       -webkit-box-shadow: none;
       box-shadow: none; } }
-
+ @media (max-width: 800px) {
+    .navbar-form {
+	display:none;
+	}
+}
 .navbar-nav > li > .dropdown-menu {
   margin-top: 0;
   border-top-right-radius: 0;
@@ -4676,7 +4680,7 @@ th.hidden-xs,
 td.hidden-xs {
   display: table-cell !important; }
 
-@media (max-width: 767px) {
+@media (max-width: 800px) {
   .hidden-xs {
     display: none !important; }
 
@@ -4896,3 +4900,11 @@ td.visible-print {
   th.hidden-print,
   td.hidden-print {
     display: none !important; } }
+@media (max-width: 400px) {
+	.new{
+		display:none !important;
+	}
+	.news{
+		width:50px !important;
+	}
+}

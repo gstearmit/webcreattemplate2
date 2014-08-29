@@ -11,32 +11,34 @@
       </section>
     </div>
     <!-- / jquery [required] -->
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/jquery/jquery.min.js" type="text/javascript"></script>
     <!-- / jquery mobile (for touch events) -->
-    <script src="<?php echo DOMAINAD?>/html/ssets/javascripts/jquery/jquery.mobile.custom.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/jquery/jquery.mobile.custom.min.js" type="text/javascript"></script>
     <!-- / jquery migrate (for compatibility with new jquery) [required] -->
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/jquery/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/jquery/jquery-migrate.min.js" type="text/javascript"></script>
     <!-- / jquery ui -->
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/jquery/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/jquery/jquery-ui.min.js" type="text/javascript"></script>
     <!-- / jQuery UI Touch Punch -->
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/jquery_ui_touch_punch/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/jquery_ui_touch_punch/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
     <!-- / bootstrap [required] -->
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/bootstrap/bootstrap.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/bootstrap/bootstrap.js" type="text/javascript"></script>
     <!-- / modernizr -->
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/modernizr/modernizr.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/modernizr/modernizr.min.js" type="text/javascript"></script>
     <!-- / retina -->
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/retina/retina.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/retina/retina.js" type="text/javascript"></script>
     <!-- / theme file [required] -->
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/theme.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/theme.js" type="text/javascript"></script>
     <!-- / demo file [not required!] -->
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/demo.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/demo.js" type="text/javascript"></script>
+    <!-- / VALIDATE FORM -->
+     
     <!-- / START - page related files and scripts [optional] -->
-     <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/datatables/jquery.dataTables.columnFilter.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/datatables/dataTables.overrides.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/flot/excanvas.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/flot/flot.min.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/flot/flot.resize.js" type="text/javascript"></script>
+     <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/datatables/jquery.dataTables.columnFilter.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/datatables/dataTables.overrides.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/flot/excanvas.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/flot/flot.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/flot/flot.resize.js" type="text/javascript"></script>
     <script>
       var data, dataset, gd, options, previousLabel, previousPoint, showTooltip, ticks;
       var blue, data, datareal, getRandomData, green, i, newOrders, options, orange, orders, placeholder, plot, purple, randNumber, randSmallerNumber, red, series, totalPoints, update, updateInterval;
@@ -119,15 +121,15 @@
         });
       }
     </script>
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/bootstrap_daterangepicker/bootstrap-daterangepicker.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/common/moment.min.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/timeago/jquery.timeago.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/common/wysihtml5.min.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/common/bootstrap-wysihtml5.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>/html/assets/javascripts/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/bootstrap_daterangepicker/bootstrap-daterangepicker.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/common/moment.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/timeago/jquery.timeago.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/common/wysihtml5.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/common/bootstrap-wysihtml5.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
     <script>
       (function() {
         var cal, calendarDate, d, m, y;
@@ -422,4 +424,14 @@
         }
       });
     </script>
+    <!-- CHECKALL AND UNCHECK CHECKBOX -->
+    <script type="text/javascript">
+    $( document ).ready(function() {
+    	$('.check-all').click(
+    			function(){
+    				$(this).parent().parent().parent().parent().find("input[type='checkbox']").attr('checked', $(this).is(':checked'));   
+    			}
+    		);
+    });
+	</script>
     <!-- / END - page related files and scripts [optional] -->

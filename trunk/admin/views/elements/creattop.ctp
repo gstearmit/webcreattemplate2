@@ -33,7 +33,7 @@
           <i class='icon-reorder'></i>
         </a>
         <ul class='nav'>
-          <li class='dropdown light only-icon'>
+          <li class='dropdown light only-icon new'>
             <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
               <i class='icon-cog'></i>
             </a>
@@ -114,7 +114,7 @@
               </li>
             </ul>
           </li>
-          <li class='dropdown medium only-icon widget'>
+          <li class='dropdown medium only-icon widget new'>
             <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
               <i class='icon-rss'></i>
               <div class='label'>5</div>
@@ -230,19 +230,19 @@
           </div>
         </form>
          <ul class='nav'>
-         <li class='dropdown dark user-menu'>
+         <li class='dropdown dark user-menu news'>
             <a class='dropdown-toggle'  href='<?php echo $urlcart ?>?language=vie'>
              <img id="langgue" align="absmiddle" src="<?php echo DOMAIN ?>images/vietnam.gif" />
               <span class='user-name'>Tiếng Việt</span>             
             </a>
           </li>
-          <li class='dropdown dark user-menu'>
+          <li class='dropdown dark user-menu news'>
             <a class='dropdown-toggle'  href='<?php echo $urlcart ?>?language=eng'>
              <img id="langgue" align="absmiddle" src="<?php echo DOMAIN ?>images/english.gif" />
               <span class='user-name'>Tiếng Anh</span>             
             </a>
           </li>    
-         </ul>  
+         </ul>
       </nav>
       
     </header>

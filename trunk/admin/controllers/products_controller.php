@@ -60,12 +60,12 @@ class ProductsController extends AppController {
 	}
 	
 	
-	function date($date)
+	/*function date($date)
 	{
 		$ngay = explode("-", $date);
 		$date1=$ngay['2'].'-'.$ngay['1'].'-'.$ngay['0'];
 		return  $date1;
-	}
+	}*/
 	
 	//Them bai viet
 	function add() {
@@ -77,13 +77,13 @@ class ProductsController extends AppController {
 			$data['Product']['images']=$_POST['userfile1'];
 			$data['Product']['background']=$_POST['userfile2'];
 			
-			$data['Product']['date_batdau']=$this->date($_POST['date_batdau']);
-			$data['Product']['date_ketthuc']=$this->date($_POST['date_ketthuc']);
-			$data['Product']['date1']=$this->date($_POST['date1']);
-			$data['Product']['date2']=$this->date($_POST['date2']);
-			$data['Product']['date3']=$this->date($_POST['date3']);
-			$data['Product']['date4']=$this->date($_POST['date4']);
-			
+			$data['Product']['date_batdau']=$_POST['date_batdau'];
+			$data['Product']['date_ketthuc']=$_POST['date_ketthuc'];
+			$data['Product']['date1']=$_POST['date1'];
+			$data['Product']['date2']=$_POST['date2'];
+			$data['Product']['date3']=$_POST['date3'];
+			$data['Product']['date4']=$_POST['date4'];
+			//$data['Product']['date4']=$this->date($_POST['date4']);
 			$data['Product']['price']=$this->chuantien($this->data['Product']['price']);
 			
 			$data['Product']['price_old']=$this->chuantien($this->data['Product']['price_old']);
@@ -216,6 +216,8 @@ $mailer->Send();
         }
         $this->set ( 'langue', $langue );
      
+        //CHỌN LAYOUT
+        $this->layout='admin_validate';
 	}
 	//view mot tin 
 	function view($id = null) {
@@ -370,6 +372,8 @@ $mailer->Send();
         $this->set('list_cat1',$_list_part);
         $this->set(compact('list_cat1'));
 		
+        // Chọn layout
+        $this->layout='admin_validate';
         // ngôn ngữ
         
         $urlTmp = $_SERVER['REQUEST_URI'];
@@ -530,7 +534,7 @@ $mailer->Send();
 	}
 	// chon layout
 	function beforeFilter(){
-		$this->layout='admin';
+		$this->layout='adminnew';
 	}
 
 	function dinhdangngay($date=null){
