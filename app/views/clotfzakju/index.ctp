@@ -1,8 +1,8 @@
 <style>
 .promos .box {
-    color: #939694;
-    width: 323px;
-    height: 100px;
+color: #939694;
+width: 90%;
+height: 100px;
 }
 </style>
             <!-- Content section -->		

@@ -53,10 +53,11 @@ foreach ( $tem as $tem ) {
 	<meta http-equiv="X-UA-Compatible" content="IE=7; IE=8" />-->
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<link href="http://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Shadows+Into+Light" rel="stylesheet" type="text/css">
+	
     </head>
     <body>
 
-        <div class="wrapper">
+ <div class="wrapper">
 
 <!-- Header -->
 <div class="header">
@@ -103,7 +104,7 @@ foreach ( $tem as $tem ) {
                             <div class="search">
                                 <div class="qs_s">
 
-                                    <form method="post" action="#">
+                                    <form method="post" action="<?php echo DOMAIN;?><?php echo $shopname ;?>/search">
                                         <input type="text" name="query" id="query" placeholder="Search&hellip;" autocomplete="off" value="">
                                     </form>
 
@@ -232,100 +233,74 @@ foreach ( $tem as $tem ) {
 				                    
 				                </ul>
 				            </li>
-				            <li class="menu-item-has-children"><a href="category.html">Shop</a>
+				            <li class="menu-item-has-children"><a href="#">Products</a>
+				              <?php $root = $this->requestAction('/'.$shopname.'/danhmuc/'.$shopname); ?>
+				                <?php  foreach ($root as $value){?>
 				                <ul class="sub-menu">
-				                    <li class="menu-item-has-children"><a href="category.html">Womens</a>
+				                    <li class="menu-item-has-children"><?php if($value['estore_catproducts']['name'] !='') {?><a href='#' class="title"><?php echo $value['estore_catproducts']['name'];?></a> <?php }?>
+				                     <?php $category = $this->requestAction('/'.$shopname.'/showsmenu1/'.$value['estore_catproducts']['id']);
+                                           if(is_array($category) and !empty($category)){?>
 				                        <ul class="sub-menu">
-				                            <li><a href="category.html">Dresses</a></li>
-				                            <li><a href="category.html">Tops</a></li>
-				                            <li>
-				                                <a href="category.html" title="Shirts">Shirts</a>
-				                            </li>
-				                            <li>
-				                                <a href="category.html" title="Shoes">Shoes</a>
-				                            </li>
-				                            <li class="menu-item-has-children"><a href="#_" title="Accesories">Accesories</a>
-				
-				                                <ul>
-				
-				                                    <li><a href="category.html" title="Hats">Hats</a></li>
-				                                    <li><a href="category.html" title="Belts">Belts</a></li>
-				                                    <li><a href="category.html" title="Socks">Socks</a></li>
-				
-				                                    <li class="menu-item-has-children"><a href="#_" title="More levels"><strong>And much more...</strong></a>
-				
-				                                        <ul>
-				
-				                                            <li><a href="#_" title="Earphones">Earphones</a></li>
-				                                            <li><a href="#_" title="Headphones">Headphones</a></li>
-				                                            <li><a href="#_" title="Sunglasses">Sunglasses</a></li>
-				
-				                                        </ul>
-				
-				                                    </li>
-				
-				                                </ul>
-				
-				                            </li> 
-				
+				                         <?php foreach($category as $k=>$subcat){?>
+							                 <?php $categorys = $this->requestAction('/'.$shopname.'/showsmenu2/'.$subcat['estore_catproducts']['id']);
+							                   if(!empty($categorys)){?>
+							                      <li class="menu-item-has-children"><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/listproduct/<?php echo $subcat['estore_catproducts']['id']?>" title="<?php echo $subcat['estore_catproducts']['name']?>"><?php echo $subcat['estore_catproducts']['name']?></a>
+                                                       <ul>
+						                                  <?php foreach($categorys as $k=>$subcats){?>
+							                                    <li><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/listproduct/<?php echo $subcats['estore_catproducts']['id']?>" title="<?php echo $subcats['estore_catproducts']['name']?>"><?php echo $subcats['estore_catproducts']['name']?></a></li>
+							                                     <?php } ?>
+						                                </ul>
+						
+						                            </li> 
+							                   <?php }else {
+				                                	?>
+				                                	  <?php if($subcat['estore_catproducts']['name'] !='') {?>  <li><a href='<?php echo DOMAIN;?><?php echo $shopname ;?>/listproduct/<?php echo $subcat['estore_catproducts']['id']?>'><?php echo $subcat['estore_catproducts']['name']?></a></li> <?php }?>
+				                              <?php  } }?>
+				                               
 				                        </ul>
-				                    </li>
-				                    <li class="menu-item-has-children"><a href="category.html">Mens</a>
-				                        <ul class="sub-menu">
-				                            <li><a href="category.html">Shoes</a></li>
-				                            <li ><a href="category.html">Accesories</a></li>
-				                            <li>
-				                                <a href="category.html" title="Shirts">Shirts</a>
-				                            </li>
-				                            <li>
-				                                <a href="category.html" title="Shoes">Shoes</a>
-				                            </li>
-				                        </ul>
-				                    </li>
-				                    <li class="menu-item-has-children"><a href="category.html">Girls</a>
-				                        <ul class="sub-menu">
-				                            <li><a href="category.html">Dresses</a></li>
-				                            <li><a href="category.html">Tops</a></li>
-				                            <li>
-				                                <a href="category.html" title="Shirts">Shirts</a>
-				                            </li>
-				                            <li>
-				                                <a href="category.html" title="Shoes">Shoes</a>
-				                            </li>
-				                            <li class="menu-item-has-children"><a href="#_" title="Accesories">Accesories</a>
-				
-				                                <ul>
-				
-				                                    <li><a href="category.html" title="Hats">Hats</a></li>
-				                                    <li><a href="category.html" title="Belts">Belts</a></li>
-				                                    <li><a href="category.html" title="Socks">Socks</a></li>
-				
-				                                    <li class="menu-item-has-children"><a href="#_" title="More levels"><strong>And much more...</strong></a>
-				
-				                                        <ul>
-				
-				                                            <li><a href="#_" title="Earphones">Earphones</a></li>
-				                                            <li><a href="#_" title="Headphones">Headphones</a></li>
-				                                            <li><a href="#_" title="Sunglasses">Sunglasses</a></li>
-				
-				                                        </ul>
-				
-				                                    </li>
-				
-				                                </ul>
-				
-				                            </li> 
-				
-				                        </ul>
-				                    </li>
-				                    <li><a href="category.html" title="Sale">Sale</a></li>
+				                    <?php  }?>   
+				                    </li>		                    
 				                </ul>
+				             <?php }//end for?> 
 				            </li>
 				            
+				            <!-- 
+				             <li class="menu-item-has-children"><a href="category.html">Products</a>
+				                <ul class="sub-menu">
+				                <?php $root = $this->requestAction('/'.$shopname.'/danhmuc/'.$shopname); ?>
+				                <?php  foreach ($root as $value){?>
+				                    <li class="menu-item-has-children"><?php if($value['estore_catproducts']['name'] !='') {?><a href='#' class="title"><?php echo $value['estore_catproducts']['name'];?></a> <?php }?>
+				                      <?php $category = $this->requestAction('/'.$shopname.'/showsmenu1/'.$value['estore_catproducts']['id']);
+                                           if(is_array($category) and !empty($category)){?>
+				                        <ul class="sub-menu">
+				                           <?php foreach($category as $k=>$subcat){?>
+							                 <?php $categorys = $this->requestAction('/'.$shopname.'/showsmenu2/'.$subcat['estore_catproducts']['id']);
+							                   if(!empty($categorys)){?>
+							                        <li class="menu-item-has-children"><a href="#_" title="<?php echo $subcat['estore_catproducts']['name']?>"><?php echo $subcat['estore_catproducts']['name']?></a>
+				                                            <ul>
+							                                   <?php foreach($categorys as $k=>$subcats){?>
+							                                    <li><a href="category.html" title="Hats">Hats</a></li>
+							                                     <?php } ?>
+							                                </ul>
+							                        </li> 
+												<?php }else {
+				                                	?>
+				                                	  <?php if($subcat['estore_catproducts']['name'] !='') {?>  <li><a href='<?php echo DOMAIN;?><?php echo $shopname ;?>/listproduct/<?php echo $subcat['estore_catproducts']['id']?>'class="title"><?php echo $subcat['estore_catproducts']['name']?></a></li> <?php }?>
+				                              <?php  }?>
+				                        
+				                        </ul>
+				                        <?php }}?>
+				                    </li>
+				                   <?php }//end for?> 
+				                    
+				                   
+				                   
+				                </ul>
+				            </li>
+				             -->
 				            
 				            
-				            
-				            <li ><a href="<?php echo DOMAIN?><?php echo $shopname ;?>/indexcomments">Blog</a></li>
+				            <!-- <li ><a href="<?php echo DOMAIN?><?php echo $shopname ;?>/indexcomments">Blog</a></li>  -->
 				            <li ><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/viewshopingcart">Cart</a></li>
 				            <li class="menu-item-has-children megamenu-parent" data-width="400">
 				                <a href="contact-us.html">Contact Us</a>
@@ -334,17 +309,18 @@ foreach ( $tem as $tem ) {
 				                    <li class="megamenu-heading"><a href="#MegaMenuHeading">Contact Us</a></li>
 				                    <li class="megamenu-content">
 				                        <div class="wpcf7">
-				                            <form action="" method="post" class="wpcf7-form" novalidate="novalidate">
+				                            <form  id="check_form" action="<?php echo DOMAIN.$shopname; ?>/sendcontacts" method="post" class="wpcf7-form" novalidate="novalidate">
 				                                <label>Your Name (required)</label>
-				                                <input type="text" name="your-name" value="" size="40"  aria-required="true" />
+				                                <input type="text"  id="input" name="name" class="validate[required]" type="text" value="" size="40"  aria-required="true" />
 				                                <label>Your Email (required)</label>
-				                                <input type="email" name="your-email" value="" size="40" aria-required="true" />
+				                                <input type="email" id="input" type="text"  class="validate[required,custom[email]]" name="email" value="" size="40" aria-required="true" />
 				                                <label>Subject</label>
-				                                <input type="text" name="your-subject" value="" size="40"  />
+				                                <input type="text"  id="input" type="text" class="validate[required]" name="title" value="" size="40"  />
 				                                <label>Your Message</label>
-				                                <textarea name="your-message" cols="40" rows="10" ></textarea>
+				                                <textarea  name="content" cols="40" rows="10" ></textarea>
 				
 				                                <input type="submit" value="Send" class="btn btn-primary" />
+				                                <input type="reset" value="reset" class="btn btn-primary" />
 				                            </form>
 				                        </div>
 				                    </li>
