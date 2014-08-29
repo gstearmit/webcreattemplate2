@@ -1,4 +1,17 @@
+
+function abcdef(){
+var url=document.URL;
+var check=url.split("#");
+if(check[1]=="step3"){
+alert("validate");
+}
+}
+
+
 function validateData234(){
+$('#test').show();
+return false;
+		/*
 		var registrantFullName = headerSignUp.storename.value;
 		var signupUserEMail = headerSignUp.mail.value;
 		var pass = headerSignUp.pass.value;
@@ -19,9 +32,12 @@ function validateData234(){
 		{
 			//$('#alert').html('<div class="loi"> Vui lòng nhập store name</div>');
 			alert('Vui lòng nhập store name');
+			//$('#test').show();
 			document.getElementById("registrantFullName").focus();
 			//check = false;
+			
 			return false;
+			$('#test').show(200);
 		}else if( signupUserEMail =='')
 		{
 			alert('Vui lòng nhập email');
@@ -47,7 +63,7 @@ function validateData234(){
 				}
 		}
 		return false;
-		
+		*/
 				
 	}
 

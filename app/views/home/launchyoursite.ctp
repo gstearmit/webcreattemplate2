@@ -500,7 +500,7 @@ foreach ( $eshop as $key) {
 				<div id="wizardButtons" class="col-xs-12 col-sm-6 col-md-8">
 					<div class="buttonToRight">
 						<span id="nextButtonBlock" class="buttonCase">
-							<button id="nextButton" type="submit" ><!-- onclick="return Finish()" --> 
+							<button id="nextButton" type="submit" onclick="abcdef();"><!-- onclick="return Finish()" --> 
 								<b><?php __('Continue') ?></b>
 							</button> <i> 
 						</i>

@@ -13,6 +13,11 @@
     <link href="<?php echo DOMAINAD?>/html/assets/stylesheets/plugins/bootstrap_daterangepicker/bootstrap-daterangepicker.css" media="all" rel="stylesheet" type="text/css" />
     <link href="<?php echo DOMAINAD?>/html/assets/stylesheets/plugins/fullcalendar/fullcalendar.css" media="all" rel="stylesheet" type="text/css" />
     <link href="<?php echo DOMAINAD?>/html/assets/stylesheets/plugins/common/bootstrap-wysihtml5.css" media="all" rel="stylesheet" type="text/css" />
+   <link href="<?php echo DOMAINAD?>/html/assets/stylesheets/plugins/select2/select2.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="<?php echo DOMAINAD?>/html/assets/stylesheets/plugins/bootstrap_colorpicker/bootstrap-colorpicker.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="<?php echo DOMAINAD?>/html/assets/stylesheets/plugins/bootstrap_daterangepicker/bootstrap-daterangepicker.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="<?php echo DOMAINAD?>/html/assets/stylesheets/plugins/bootstrap_datetimepicker/bootstrap-datetimepicker.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="<?php echo DOMAINAD?>/html/assets/stylesheets/plugins/bootstrap_switch/bootstrap-switch.css" media="all" rel="stylesheet" type="text/css" />
     <!-- / END - page related stylesheets [optional] -->
     <!-- / bootstrap [required] -->
     <link href="<?php echo DOMAINAD?>/html/assets/stylesheets/bootstrap/bootstrap.css" media="all" rel="stylesheet" type="text/css" />

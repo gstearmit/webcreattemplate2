@@ -179,6 +179,8 @@ class CatproductsController extends AppController {
 		}
 		$this->set ( 'langue', $langue );
 		
+		//CHỌN LAYOUT
+		$this->layout='admin_validate';
 	}
 	//Sua danh muc
 	function edit($id = null) {
@@ -249,6 +251,9 @@ class CatproductsController extends AppController {
 		}
 		$this->set('list_cat',$this->_find_list());
 		$this->set('edit',$this->Catproduct->findById($id));
+		
+		//CHỌN LAYOUT
+		$this->layout='admin_validate';
 		
 	}
 	//dong danh muc

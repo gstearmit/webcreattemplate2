@@ -1,6 +1,8 @@
+
 <?php echo $this->element('creatmenu')?>
 
 <div id="page" class="container">
+	<div style="position: fixed; z-index:100; top:300px; color:red; display:none;" id="test"><h1>Check Validate<h1></h1></div>
 	<div class="row">
 		<div id="header"
 			class="initialPage container col-xs-12 col-sm-6 col-md-8">

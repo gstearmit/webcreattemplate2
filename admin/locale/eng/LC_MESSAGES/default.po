@@ -438,6 +438,12 @@ msgstr "Active"
 msgid "Del_active"
 msgstr "Delete Active"
 
+msgid "Actived"
+msgstr "Active"
+
+msgid "Unactive"
+msgstr "Unactive"
+
 msgid "Delete"
 msgstr "Delete"
 
@@ -518,6 +524,9 @@ msgstr "In product"
 
 msgid "Edit_category"
 msgstr "Edit category"
+
+msgid "Edit_product"
+msgstr "Edit product"
 
 msgid "Edit"
 msgstr "Edit"
@@ -644,3 +653,6 @@ msgstr "Skype name"
 
 msgid "Name"
 msgstr "Name"
+
+msgid "Select_image"
+msgstr "Select image"

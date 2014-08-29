@@ -7,7 +7,7 @@
                         <li id="toolbar-new">
                             <a href="<?php echo DOMAINADESTORE?>products/add" class="toolbar">
                                 <span class="icon-32-new"></span>
-                                Thêm mới
+                                <?php __('Add_new')?>
                             </a>
                         </li>
                         <li class="divider"></li>
@@ -26,7 +26,7 @@
                     </ul>
                     <div class="clr"></div>
                 </div>
-        <div class="pagetitle icon-48-nhomtin"><h2>Sản phẩm</h2></div>
+        <div class="pagetitle icon-48-nhomtin"><h2><?php __('product')?></h2></div>
 		<div class="clr"></div>
 	</div>
 </div>

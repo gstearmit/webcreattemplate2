@@ -85,7 +85,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo DOMAIN ?>webcreathtml/css/menu.css">
     <link href="<?php echo DOMAIN ?>webcreathtml/css/main.css" type="text/css" rel="stylesheet" />
     <link href="<?php echo DOMAIN ?>webcreathtml/css/main.css" type="text/css" rel="stylesheet" />
-   <!-- <script type="text/javascript" src='js/jquery.js'></script> -->
+    <script type="text/javascript" src='js/jquery.js'></script> 
      <script src="<?php echo DOMAIN ?>webcreathtml/js/jquery.min11.js"></script>
     <!-- <script src="jquery.jscroll.min.js"></script> -->
     <script src="<?php echo DOMAIN ?>webcreathtml/js/bootstrap.js"></script>
