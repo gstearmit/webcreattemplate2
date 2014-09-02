@@ -162,10 +162,11 @@ if($shopingcart =='') { ?>
                                                <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/viewshopingcart" class="btn btn-small mm20 col-md-6 col-sm-6 col-xs-12" style="margin: 0px 10px 10px 0px;">
                                                     <i class="icon-undo"></i> &nbsp; Update cart
                                                 </a>
-
+										<?php if(isset($_SESSION['shopingcart']) and !empty($_SESSION['shopingcart'])){ ?>
                                                 <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/buy" name="checkout" value="1" class="btn btn-primary btn-small mm20 col-md-6 col-sm-6 col-xs-12" style="margin: 0px 10px 10px 0px;">
                                                     Proceed to checkout &nbsp; <i class="icon-chevron-right"></i>
                                                 </a>
+                                       <?php }?>         
                                             </div>
                                         </div>
                                    

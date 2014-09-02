@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>E-commerce Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
+<!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
+<!--script src="js/less-1.3.3.min.js"></script-->
+<!--append ��#!watch�� to the browser URL, then refresh the page. -->
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/animate.css" rel="stylesheet">
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+<!-- Fav and touch icons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
+<link rel="shortcut icon" href="img/favicon.png">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".wishlist").tooltip({
+        placement : 'top'
+    });
+});
+</script>
+</head>
+<body>
+
+
+
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-4 column"> <a href="index.html"><img src="img/uglogo.png" class="img-responsive" id="logo" alt=""></a> </div>
+    <div class="col-md-8 column">
+      <div class="account">
+        <button type="button" class="btn-primary topbasketbutton"><span class="glyphicon glyphicon-pencil"></span> My Account</button>
+        <button type="button" class="btn-primary topbasketbutton"><span class="glyphicon glyphicon glyphicon-briefcase"></span> Sign In</button>
+        <button type="button" class="btn-primary topbasketbutton"><span class="glyphicon glyphicon-credit-card"></span> Checkout</button>
+      </div>
+      <div class="basket"> <span class="glyphicon glyphicon-shopping-cart"></span><a href="basket.html"> <b>Your Basket</b> 0 items - &pound;0.00</a> </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid darkgreen" >
+  <div class="container" >
+    <div class="row clearfix">
+      <div class="col-md-12 column" >
+        <nav class="navbar navbar-default" role="navigation" >
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1"><span
+                                class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                                class="icon-bar"></span><span class="icon-bar"></span></button>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="col-md-9 column">
+              <ul class="nav navbar-nav">
+              <li> <a href="index.html">HOME</a> </li>
+                <li> <a href="typography.html">ABOUT US</a> </li>
+                <li> <a href="productlist.html">PRODUCTS</a> </li>				
+                <li> <a href="contact.html">CONTACT US</a> </li>
+              </ul>
+            </div>
+            <div class="col-md-3 column">
+              <form class="navbar-form" role="search">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search" name="q">
+                  <div class="input-group-btn">
+                    <button class="btnsearch btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container margintop20">
+  <div class="row clearfix">
+    <div class="col-md-3 column">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="categories.html"><span class="glyphicon glyphicon-chevron-right"></span> Home</a></li>
+        <li><a href="categories.html"><span class="glyphicon glyphicon-chevron-right"></span> Catergory 1</a></li>
+        <li><a href="categories.html" class="active2"><span class="glyphicon glyphicon-chevron-right"></span> Catergory 2</a></li>
+        <li><a href="categories.html"><span class="glyphicon glyphicon-chevron-right"></span> Catergory 3</a></li>
+		
+		<li class="submenu"><a href="categories.html"><span class="glyphicon glyphicon-plus"></span> Sub Catergory </a><a href="categories.html"><span class="glyphicon glyphicon-plus"></span> Sub Catergory </a><a href="categories.html"><span class="glyphicon glyphicon-plus"></span> Sub Catergory</a></li>
+        <li><a href="categories.html"><span class="glyphicon glyphicon-chevron-right"></span> Catergory 4</a></li>
+        <li><a href="categories.html"><span class="glyphicon glyphicon-chevron-right"></span> Catergory 5</a> </li>
+      </ul>
+    
+	  
+	
+									<div class="feature">	
+										<img src="img/world.png" class="img-responsive" alt="" />
+										<h4>WORLDWIDE <strong>DELIVERY</strong></h4>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>									
+									</div><div class="feature">	
+										<img src="img/fast.png" class="img-responsive" alt="" />
+										<h4>FAST <strong>SERVICE</strong></h4>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>									
+									</div>
+							
+	   </div>
+    <div class="col-md-9 column">
+      <ol class="breadcrumb">
+        <li><a href="index.html"><i class="glyphicon glyphicon-home"></i></a></li>
+        <li><a href="categories.html">Category</a></li>
+       <li><a href="#">Product Listing</a></li>
+      </ol>
+      <div class="well well-sm">
+        <div class="pull-right">
+          <form class="form-inline" role="form">
+            <div class="form-group">
+              <select class="form-control">
+                <option>--- sort ---</option>
+                <option>Price: Ascending</option>
+                <option>Price: Descending</option>
+                <option>Rating: Ascending</option>
+                <option>Rating: Descending</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <strong>Category View</strong>
+        <div class="btn-group"> <a href="productlist-long.html" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"> </span> List</a> <a href="productlist.html" id="grid" class="btn btn-default btn-sm"><span
+                class="glyphicon glyphicon-th"></span> Grid</a> </div>
+      </div>
+      
+      
+  <div class="col-md-4 column productbox"> <img src="img/product5.jpg" class="img-responsive" alt="Product Image">
+        <div class="producttitle">Product Name</div> <div class="action"> <b>Rating:</b> <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i> </div>
+        <div class="productprice">
+          <div class="pull-right" ><a href="product.html" class="btn btn btn-sm wishlist" role="button" data-toggle="tooltip" data-original-title="Add to Wishlist"><span class="glyphicon glyphicon-heart"></span></a><a href="product.html" class="btn btn-danger btn-sm" role="button" ><span class="glyphicon glyphicon-shopping-cart"></span> BUY</a></div>
+          <div class="pricetext">$8.95</div>
+        </div>
+      </div>
+	  
+	  <div class="col-md-4 column productbox"> <img src="img/product5.jpg" class="img-responsive" alt="Product Image">
+        <div class="producttitle">Product Name</div> <div class="action"> <b>Rating:</b> <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i> </div>
+        <div class="productprice">
+          <div class="pull-right" ><a href="product.html" class="btn btn btn-sm wishlist" role="button" data-toggle="tooltip" data-original-title="Add to Wishlist"><span class="glyphicon glyphicon-heart"></span></a><a href="product.html" class="btn btn-danger btn-sm" role="button" ><span class="glyphicon glyphicon-shopping-cart"></span> BUY</a></div>
+          <div class="pricetext">$8.95</div>
+        </div>
+      </div>
+	  <div class="col-md-4 column productbox"> <img src="img/product5.jpg" class="img-responsive" alt="Product Image">
+        <div class="producttitle">Product Name</div> <div class="action"> <b>Rating:</b> <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i> </div>
+        <div class="productprice">
+          <div class="pull-right" ><a href="product.html" class="btn btn btn-sm wishlist" role="button" data-toggle="tooltip" data-original-title="Add to Wishlist"><span class="glyphicon glyphicon-heart"></span></a><a href="product.html" class="btn btn-danger btn-sm" role="button" ><span class="glyphicon glyphicon-shopping-cart"></span> BUY</a></div>
+          <div class="pricetext">$8.95</div>
+        </div>
+      </div>
+	  <div class="col-md-4 column productbox"> <img src="img/product5.jpg" class="img-responsive" alt="Product Image">
+        <div class="producttitle">Product Name</div> <div class="action"> <b>Rating:</b> <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i> </div>
+        <div class="productprice">
+          <div class="pull-right" ><a href="product.html" class="btn btn btn-sm wishlist" role="button" data-toggle="tooltip" data-original-title="Add to Wishlist"><span class="glyphicon glyphicon-heart"></span></a><a href="product.html" class="btn btn-danger btn-sm" role="button" ><span class="glyphicon glyphicon-shopping-cart"></span> BUY</a></div>
+          <div class="pricetext">$8.95</div>
+        </div>
+      </div>
+	  <div class="col-md-4 column productbox"> <img src="img/product5.jpg" class="img-responsive" alt="Product Image">
+        <div class="producttitle">Product Name</div> <div class="action"> <b>Rating:</b> <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i> </div>
+        <div class="productprice">
+          <div class="pull-right" ><a href="product.html" class="btn btn btn-sm wishlist" role="button" data-toggle="tooltip" data-original-title="Add to Wishlist"><span class="glyphicon glyphicon-heart"></span></a><a href="product.html" class="btn btn-danger btn-sm" role="button" ><span class="glyphicon glyphicon-shopping-cart"></span> BUY</a></div>
+          <div class="pricetext">$8.95</div>
+        </div>
+      </div>
+	  <div class="col-md-4 column productbox"> <img src="img/product5.jpg" class="img-responsive" alt="Product Image">
+        <div class="producttitle">Product Name</div> <div class="action"> <b>Rating:</b> <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i> </div>
+        <div class="productprice">
+          <div class="pull-right" ><a href="product.html" class="btn btn btn-sm wishlist" role="button" data-toggle="tooltip" data-original-title="Add to Wishlist"><span class="glyphicon glyphicon-heart"></span></a><a href="product.html" class="btn btn-danger btn-sm" role="button" ><span class="glyphicon glyphicon-shopping-cart"></span> BUY</a></div>
+          <div class="pricetext">$8.95</div>
+        </div>
+      </div>
+	  <div class="col-md-4 column productbox"> <img src="img/product5.jpg" class="img-responsive" alt="Product Image">
+        <div class="producttitle">Product Name</div> <div class="action"> <b>Rating:</b> <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i> </div>
+        <div class="productprice">
+          <div class="pull-right" ><a href="product.html" class="btn btn btn-sm wishlist" role="button" data-toggle="tooltip" data-original-title="Add to Wishlist"><span class="glyphicon glyphicon-heart"></span></a><a href="product.html" class="btn btn-danger btn-sm" role="button" ><span class="glyphicon glyphicon-shopping-cart"></span> BUY</a></div>
+          <div class="pricetext">$8.95</div>
+        </div>
+      </div>
+	  <div class="col-md-4 column productbox"> <img src="img/product5.jpg" class="img-responsive" alt="Product Image">
+        <div class="producttitle">Product Name</div> <div class="action"> <b>Rating:</b> <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i> </div>
+        <div class="productprice">
+          <div class="pull-right" ><a href="product.html" class="btn btn btn-sm wishlist" role="button" data-toggle="tooltip" data-original-title="Add to Wishlist"><span class="glyphicon glyphicon-heart"></span></a><a href="product.html" class="btn btn-danger btn-sm" role="button" ><span class="glyphicon glyphicon-shopping-cart"></span> BUY</a></div>
+          <div class="pricetext">$8.95</div>
+        </div>
+      </div><div class="col-md-4 column productbox"> <img src="img/product5.jpg" class="img-responsive" alt="Product Image">
+        <div class="producttitle">Product Name</div> <div class="action"> <b>Rating:</b> <i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i> </div>
+        <div class="productprice">
+          <div class="pull-right" ><a href="product.html" class="btn btn btn-sm wishlist" role="button" data-toggle="tooltip" data-original-title="Add to Wishlist"><span class="glyphicon glyphicon-heart"></span></a><a href="product.html" class="btn btn-danger btn-sm" role="button" ><span class="glyphicon glyphicon-shopping-cart"></span> BUY</a></div>
+          <div class="pricetext">$8.95</div>
+        </div>
+      </div>
+      <div class="col-md-12 column ">
+        <ul class="pagination">
+          <li><a href="#">&laquo;</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">&raquo;</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid bottomback margintop10">
+  <div class="container"> </div>
+</div>
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-3 column">
+      <h3>ONLINE SHOP</h3>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mattis tortor arcu, quis molestie tortor dictum et. </div>
+    <div class="col-md-3 column">
+      <h3>FOLLOW US</h3>
+      <a href="#"><span class="fa-stack fa-lg"> <i class="fa fa-square-o fa-stack-2x"></i> <i class="fa fa-twitter fa-stack-1x"></i> </span> Twitter</a><br>
+      <a href="#"><span class="fa-stack fa-lg"> <i class="fa fa-square-o fa-stack-2x"></i> <i class="fa fa-facebook fa-stack-1x"></i> </span> Facebook</a><br>
+      <a href="#"><span class="fa-stack fa-lg"> <i class="fa fa-square-o fa-stack-2x"></i> <i class="fa fa-google-plus fa-stack-1x"></i> </span> Google+</a><br>
+    </div>
+    <div class="col-md-3 column">
+      <h3>CONTACT INFO</h3>
+      1 The Street,
+      Alpha Road,
+      Gamma Town,
+      Countrysville,
+      
+      X43 32A 
+     <br>
+<br>
+
+      <strong>Telephone:</strong> 0909 111 2233 <br>
+      <strong>E-Mail:</strong> sales@theshop.com
+      </div>
+    <div class="col-md-3 column">
+    
+     <h3>MAILING LIST</h3>
+                
+                <form action="#" method="post">
+                    <div class="input-prepend"><span class="add-on"><i class="icon-envelope"></i></span>
+                        <input type="text" id="email" name="" placeholder="your@email.com">
+                    </div>
+                    <br />
+                    <input type="submit" value="Subscribe Now!" class="btn" />
+              </form>
+          
+
+       </div>
+  </div>
+</div>
+<div class="container-fluid bottomfooter">
+  <div class="container"> Terms of Service  - Privacy Policy  -   Contact Us  -  Support & FAQ </div>
+</div>
+</body>
+</html>

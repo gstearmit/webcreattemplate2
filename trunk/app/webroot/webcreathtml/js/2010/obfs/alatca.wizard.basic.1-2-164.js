@@ -5867,6 +5867,12 @@ Cufon.registerFont({
 	}
 });
 
+
+
+/****************************************************************************************************************************************/
+
+
+
 // het cufon
 
 
@@ -6125,6 +6131,11 @@ var Class = (function() {
 		isUndefined: e
 	})
 })();
+
+
+
+
+
 
 Object.extend(Function.prototype, (function() {
 	var k = Array.prototype.slice;
@@ -10686,14 +10697,14 @@ Form.EventObserver = Class.create(Abstract.EventObserver, {
 			d.push(B);
 			z = Element.retrieve(B, "prototype_event_registry", $H())
 		}
-		var x = z.get(A);
-		if (Object.isUndefined(x)) {
-			x = [];
-			z.set(A, x)
-		}
-		if (x.pluck("handler").include(C)) {
-			return false
-		}
+//		var x = z.get(A);
+//		if (Object.isUndefined(x)) {
+//			x = [];
+//			z.set(A, x)
+//		}
+//		if (x.pluck("handler").include(C)) {
+//			return false
+//		}
 		var y;
 		if (A.include(":")) {
 			y = function(E) {
@@ -10733,7 +10744,7 @@ Form.EventObserver = Class.create(Abstract.EventObserver, {
 			}
 		}
 		y.handler = C;
-		x.push(y);
+		//x.push(y);
 		return y
 	}
 	function f() {
@@ -14294,6 +14305,9 @@ WizardClass.prototype = {
 			Metrics.set(e + "_endtime", b);
 			Metrics.set(e + "_diff", MetricsUtil.diff(Metrics.get(e + "_starttime"), b));
 			if (1 == this.step) {
+				
+				//console.log('didenday');
+				
 				Metrics.set("wizard_step1_details_filled", 0);
 				var a = $("step1BaseInfoBlockContent").getElementsByTagName("input");
 				var d = a.length;
@@ -14510,7 +14524,8 @@ WizardClass.prototype = {
 			
 			branch_type: {
 				regexp: /^(.+)/,
-				error: CFG.labels["wizardPage"]["selectBranchError"].replace("{SELECT_ALL_BRANCH_TYPE}", ' onclick="BranchTypes.openWindow();return false;"'),
+				//error: CFG.labels["wizardPage"]["selectBranchError"].replace("{SELECT_ALL_BRANCH_TYPE}", ' onclick="BranchTypes.openWindow();return false;"'),
+				error: CFG.labels["wizardPage"]["selectBranchError"],
 				step: 1,
 				module: MODULE_BRANCH
 			},
@@ -14604,10 +14619,12 @@ WizardClass.prototype = {
 			
 			this.formRowsEl.branch_typeRow.hide()
 		} else {
+			//alert(MODULE_BRANCH);
+			//alert(this.selectedModule);
 			if (MODULE_BRANCH == this.selectedModule) {
 				this.formRowsEl.branch_typeRow.show();
 				
-				BranchTypes.correctWindowLink();
+				//BranchTypes.correctWindowLink();
 				
 				this.formRowsEl.languageRow.hide();
 				
