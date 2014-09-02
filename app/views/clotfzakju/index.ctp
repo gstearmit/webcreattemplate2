@@ -72,7 +72,8 @@ height: 100px;
 										    <li class="standard" data-price="58">
 										        <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_products']['id'];?>" title="<?php echo $pr['Estore_products']['title']?>">
 										            <div class="image">
-										               <?php if($pr['Estore_products']['images'] !='') {?>  <img class="primary" src="<?php echo DOMAINADESTORE.$pr['Estore_products']['images']?>" alt="<?php echo $pr['Estore_products']['title']?>" /><?php }?>
+										              <?php if($pr['Estore_products']['images'] =='') {?> <img class="primary" src="<?php echo DOMAIN ?>clothingstore/img/noimg.jpg" alt="<?php echo $pr['Estore_products']['title']?>" /><?php }?>
+                                                       <?php if($pr['Estore_products']['images'] !='') {?>  <img class="primary" src="<?php echo DOMAINADESTORE.$pr['Estore_products']['images']?>" alt="<?php echo $pr['Estore_products']['title']?>" /><?php }?>
 										               <?php if($pr['Estore_products']['images1'] !='') {?> <img class="secondary" src="<?php echo DOMAINADESTORE.$pr['Estore_products']['images1']?>" alt="<?php echo $pr['Estore_products']['title']?>" /> <?php }?>
 										            </div>
 										
@@ -102,7 +103,8 @@ height: 100px;
 										    <li class="standard" data-price="58">
 										        <a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/view/<?php echo $pr['Estore_products']['id'];?>" title="<?php echo $pr['Estore_products']['title']?>">
 										            <div class="image">
-										               <?php if($pr['Estore_products']['images'] !='') {?> <img class="primary" src="<?php echo DOMAINADESTORE.$pr['Estore_products']['images']?>" alt="<?php echo $pr['Estore_products']['title']?>" /><?php }?>
+										                <?php if($pr['Estore_products']['images'] =='') {?> <img class="primary" src="<?php echo DOMAIN ?>clothingstore/img/noimg.jpg" alt="<?php echo $pr['Estore_products']['title']?>" /><?php }?>
+                                                        <?php if($pr['Estore_products']['images'] !='') {?> <img class="primary" src="<?php echo DOMAINADESTORE.$pr['Estore_products']['images']?>" alt="<?php echo $pr['Estore_products']['title']?>" /><?php }?>
 										               <?php if($pr['Estore_products']['images1'] !='') {?> <img class="secondary" src="<?php echo DOMAINADESTORE.$pr['Estore_products']['images1']?>" alt="<?php echo $pr['Estore_products']['title']?>" /><?php }?>
 										            </div>
 										

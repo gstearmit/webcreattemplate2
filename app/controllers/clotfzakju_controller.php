@@ -2069,6 +2069,11 @@
 								$this->set ( 'shopingcart',$shopingcart );
 								//echo '<script language="javascript"> alert("Không có sản phẩm nào trong giỏ hàng của bạn"); window.location.replace("' . DOMAIN .$this->shopname.'"); </script>';
 							}
+							
+							if(!isset($_SESSION['shopingcart'])){
+								$shopingcart = '';
+								$this->set ( 'shopingcart',$shopingcart );
+							}
 						}
 						function category($id = null) {
 							$shop = explode ( '/', $this->params ['url'] ['url'] );
@@ -2159,6 +2164,7 @@
 							$this->set ( 'shopname', $nameeshop );
 							$this->layout = 'themeshop/clothingstore';
 							$this->set ( 'title_for_layout', 'e-shop' );
+					if(isset($_SESSION ['shopingcart'])){		
 							$uid = "id" . rand ( 1, 1000000 );
 							$data ['Estore_infomations'] ['user_id'] = ($this->Session->read ( "id" ) != '' ? $this->Session->read ( "id" ) : $uid);
 							$data ['Estore_infomations'] ['mobile'] = $_POST ['phone'];
@@ -2190,7 +2196,23 @@
 							}
 							
 							unset ( $_SESSION ['shopingcart'] );
-							echo '<script language="javascript">alert("cảm ơn bạn đã đặt hàng  chúng tôi sẽ liên hệ với bạn trong vòng 24h"); location.href="' . DOMAIN .$this->shopname . '/index";</script>';
+							$textstring = 'Oder inprocess in 24h . Thank you!';//cảm ơn bạn đã đặt hàng  chúng tôi sẽ liên hệ với bạn trong vòng 24h
+							$this->set ( 'textstring', $textstring );
+							//echo '<script language="javascript">alert("cảm ơn bạn đã đặt hàng  chúng tôi sẽ liên hệ với bạn trong vòng 24h"); location.href="' . DOMAIN .$this->shopname . '/index";</script>';
+					}else {
+						//$shopingcart = '';
+						//$this->set ( 'shopingcart',$shopingcart );
+// 						$textstring = 'Oder inprocess in 24h . Thank you!';//cảm ơn bạn đã đặt hàng  chúng tôi sẽ liên hệ với bạn trong vòng 24h
+// 						$this->set ( 'textstring', $textstring );
+ 						echo '<script language="javascript">location.href="' . DOMAIN .$this->shopname . '/index";</script>';
+					}
+
+// 					$shopingcart = '';
+// 					$this->set ( 'shopingcart',$shopingcart );
+// 					$textstring = 'Oder inprocess in 24h . Thank you!';//cảm ơn bạn đã đặt hàng  chúng tôi sẽ liên hệ với bạn trong vòng 24h
+// 					$this->set ( 'textstring', $textstring );
+					
+					
 						}
 						function deleteinfomations($id = null) {
 							$shop = explode ( '/', $this->params ['url'] ['url'] );

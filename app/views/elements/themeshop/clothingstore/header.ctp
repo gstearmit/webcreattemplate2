@@ -303,7 +303,7 @@ foreach ( $tem as $tem ) {
 				            <!-- <li ><a href="<?php echo DOMAIN?><?php echo $shopname ;?>/indexcomments">Blog</a></li>  -->
 				            <li ><a href="<?php echo DOMAIN;?><?php echo $shopname ;?>/viewshopingcart">Cart</a></li>
 				            <li class="menu-item-has-children megamenu-parent" data-width="400">
-				                <a href="contact-us.html">Contact Us</a>
+				                <a href="#">Contact Us</a>
 				                <ul class="sub-menu">
 				                    <li class="megamenu-column"><a href="#MegaMenuColumn">Mega Menu Column</a></li>
 				                    <li class="megamenu-heading"><a href="#MegaMenuHeading">Contact Us</a></li>
@@ -333,8 +333,7 @@ foreach ( $tem as $tem ) {
 
             </div>
 
-            <div class="span3 visible-desktop">
-                            </div>
+            <div class="span3 visible-desktop"></div>
         </div>        
     
     </div>
