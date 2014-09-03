@@ -476,7 +476,7 @@ class CatproductsController extends AppController {
 		}
 	}
 	function beforeFilter(){
-		$this->layout='admin';
+		$this->layout='adminnew';
 	}
 
 }
