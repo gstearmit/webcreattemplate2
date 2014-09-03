@@ -23,9 +23,9 @@ foreach ( $tem as $tem ) {
 
 ?>
 
-<?php echo $this->element('themeshop\creativemarket\header')?>
+<?php echo $this->element('themeshop/creativemarket/header')?>
 <?php echo $content_for_layout; ?>
-<?php echo $this->element('themeshop\creativemarket\footer')?>     
+<?php echo $this->element('themeshop/creativemarket/footer')?>     
 
             
  

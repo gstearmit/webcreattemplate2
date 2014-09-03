@@ -135,7 +135,7 @@ height: 100px;
                                 </div>
 
                                 <div class="span3">
-                                     <?php echo $this->element('themeshop\clothingstore\right')?>  
+                                     <?php echo $this->element('themeshop/clothingstore/right')?>  
                                 </div>
                             </div>	
                             

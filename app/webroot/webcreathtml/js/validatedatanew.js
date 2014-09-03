@@ -1,10 +1,10 @@
 
 function abcdef(){
-var url=document.URL;
-var check=url.split("#");
-if(check[1]=="step3"){
-alert("validate");
-}
+//var url=document.URL;
+//var check=url.split("#");
+//if(check[1]=="step3"){
+//alert("validate");
+//}
 }
 
 
