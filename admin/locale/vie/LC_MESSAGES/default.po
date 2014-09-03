@@ -631,7 +631,7 @@ msgid "Old_password"
 msgstr "Mật khẩu cũ"
 
 msgid "Change_account"
-msgstr "Thay đôi tài khoản"
+msgstr "Thay đổi tài khoản"
 
 msgid "Email_password_retrieval"
 msgstr "Email lấy lại mật khẩu"
@@ -653,3 +653,60 @@ msgstr "Chưa Active"
 
 msgid "Select_image"
 msgstr "Chọn ảnh"
+
+msgid "Search_results"
+msgstr "Kết quả tìm kiếm"
+
+msgid "Image"
+msgstr "Hình ảnh"
+
+msgid "Select_product"
+msgstr "Chọn sản phẩm"
+
+msgid "Select_category"
+msgstr "Chọn danh mục"
+
+msgid "Select_city"
+msgstr "Chọn thành phố"
+
+msgid "Detail_News"
+msgstr "Chi tiết tin"
+
+msgid "Back"
+msgstr "Quay lại"
+
+msgid "Detail_shop"
+msgstr "Chi tiết gian hàng"
+
+msgid "Shop_name"
+msgstr "Tên gian hàng"
+
+msgid "Detail_account"
+msgstr "Chi tiết tài khoản"
+
+msgid "Sex"
+msgstr "Giới tính"
+
+msgid "Date_Registration"
+msgstr "Ngày đăng ký"
+
+msgid "Oder_detail"
+msgstr "Chi tiết hóa đơn"
+
+msgid "Total_amount"
+msgstr "Tổng tiền"
+
+msgid "Date_set"
+msgstr "Ngày đặt"
+
+msgid "Forms_payment"
+msgstr "Hình thức thanh toán"
+
+msgid "Customer_Name"
+msgstr "Tên khách hàng"
+
+msgid "Vietnamese"
+msgstr "Tiếng Việt"
+
+msgid "English"
+msgstr "Tiếng Anh"

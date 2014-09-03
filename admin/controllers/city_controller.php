@@ -66,7 +66,7 @@ class CityController extends AppController {
 				$this->Session->setFlash(__('Thêm mơi danh mục thất bại. Vui long thử lại', true));
 			}
 		}
-		
+		$this->layout='admin_validate';
 		// /////// ngôn ngư
 		$urlTmp = $_SERVER['REQUEST_URI'];
 			
@@ -251,6 +251,7 @@ class CityController extends AppController {
 			$this->data = $this->City->read(null, $id);
 			$this->set('edit',$this->City->read(null, $id));
 		}
+		$this->layout='admin_validate';
 		// /////// ngôn ngư
 		$urlTmp = $_SERVER['REQUEST_URI'];
 		 
@@ -318,17 +319,17 @@ class CityController extends AppController {
 		}
 	}
 	function beforeFilter(){
-		$this->layout='admin';
+		$this->layout='adminnew';
 	}
 	
 	function search() {
 	
-		$keyword=$_POST['keyword'];
+		$keyword=@$_POST['keyword'];
 	
 		if($keyword!="")
 			$x['City.name like']='%'.$keyword.'%';
 
-				$this->paginate = array('conditions'=>$x,'limit' => '12','order' => 'City.id DESC');
+				$this->paginate = array('conditions'=>@$x,'limit' => '12','order' => 'City.id DESC');
 				$this->set('city', $this->paginate('City',array()));
 			
 				// /////// ngôn ngư

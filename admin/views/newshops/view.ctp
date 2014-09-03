@@ -1,57 +1,80 @@
- <style>
- table{
-	 text-align:left !important;
-	 border:1px solid #999 !important;
-	 }
- table td{
-	 border:1px solid #999 !important;
-	 padding-left:20px;
-	 }
-</style>
- <div id="Newshops">
-  <div id="title-Newshops"><p>Chi tiết tin</p></div>
-     <div class="list-Newshops">
-    
-        <?php
-            echo $this->Html->script(array('ckeditor/ckeditor','ckfinder/ckfinder'));
-        ?>
-            <?php echo $form->create(null, array( 'url' => DOMAINAD.'newshops/add','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>     
-            <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
-              <tr>
-                <td width="250">Tiêu đề</td>
+<?php include 'views/elements/language.ctp';?>
+<div class='row' id='content-wrapper'>
+            <div class='col-xs-12'>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='page-header'>
+                  	
+                    <div class='pull-right'>
+                      <ul class='breadcrumb'>
+                        <li>
+                          <a href='#'>
+                            <i class='icon-bar-chart'></i>
+                          </a>
+                        </li>
+                        <li class='separator'>
+                          <i class='icon-angle-right'></i>
+                        </li>
+                        <li class='active'><?php __('Detail_News')?></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+ 				<div class='row'>
+                <div class='col-sm-12'>
+                  <div class='box bordered-box green-border' style='margin-bottom:0;'>
+                    <div class='box-header green-background'>
+                      <div class='title'><?php __('Detail_News')?></div>
+                      <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class='box-content box-no-padding'>
+                      <div class='responsive-table'>
+                        <div class='scrollable-area'>
+                          <table class='table table-bordered table-hover table-striped' style='margin-bottom:0;'>
+                            <thead>
+                              <tr>
+                                <th>                          
+                                </th>
+                                <th>                                 
+                                </th>                               
+                              </tr>
+                            </thead>
+                            <tbody>                           
+                             <tr>
+               <td width="250"><?php __('Title')?></td>
                 <td>                      
                      <?php echo $views['Newshop']['title']?>
                 </td>
               </tr>
-              
-              
-               <tr class="alternate-row">
-                <td width="100">Nội dung tóm tắt</td>
+			   <tr>
+               <td width="100"><?php __('Summary_content')?></td>
                 <td ><?php echo $views['Newshop']['introduction']; ?></td>
               </tr>
-              <tr >
-                <td>Nội dung </td>
+              
+			    <tr >
+                <td><?php __('Content')?></td>
                 <td>                      
-                    <?php echo $views['Newshop']['content']; ?>
-                  
-                    
+                    <?php echo $views['Newshop']['content']; ?>                                 
                 </td>
-              </tr>
-             
-              <tr class="alternate-row">
-                <td>Danh mục</td>
+              </tr>		
+              <tr >
+			   <td><?php __('Category')?></td>
                 <td>
                <?php $cat= $this->requestAction('newshops/get_name/'.$views['Newshop']['categorynewsshop_id']);
 						foreach($cat as $cat){
 						echo $cat['Categorynewsshop']['name'];
 						}
 						?>
-                </td>
-              </tr>
-			  
-			   
-              <tr class="alternate-row">
-                <td>Tên shop</td>
+                </td> 
+                <tr>
+                 <td><?php __('Shop_name')?></td>
                 <td>
               	<?php 
 						
@@ -64,32 +87,45 @@
 						
                 </td>
               </tr>
-               <tr>
-                <td>Ảnh đại diện</td>
+		
+              <tr >
+			    <td><?php __('Avatar')?></td>
                 <td><img src="<?php echo DOMAINAD;?>/timthumb.php?src=<?php echo $views['Newshop']['images'];?>&amp;h=70&amp;w=100&amp;zc=1" alt="thumbnail" />
                 </td>
               </tr>
-               <tr  class="alternate-row">
-                <td>Nguồn bài viết</td>
+             
+              <tr>
+                 <td><?php __('Source_article')?></td>
                 <td>                      
                      <?php echo $views['Newshop']['source'];?>
                 </td>
-              </tr>
-              
-               <tr>
-                <td>Trạng thái</td>
+              </tr>			  			   
+              <tr >
+                <td><?php __('status')?></td>
                 <td>
                     <?php if($views['Newshop']['status']==1){
                             echo 'Đã active';
                         }else echo 'Chưa ative';?>
                 </td>
               </tr>
+			  
+			 
              <tr>                 
-                 <td colspan="2"><input class="submit" type="button" name = "" value="Quay lại" onclick ="javascript: window.history.go(-1);" /></td>
+                 <td colspan="2">
+                 <a href='<?php echo DOMAINAD ?>Newshops/index<?php echo  $langs ?> '>
+                 <input class="btn btn-success" style="margin-bottom:5px" value="<?php __('Back')?>" type="button">
+                 </a>
+                 </td>
                 
             </tr>
-            </table>
-            <!--  end product-table................................... -->
-          <?php echo $form->end(); ?>
-  </div>
-</div>       
+                              
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>

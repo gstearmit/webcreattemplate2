@@ -11,7 +11,7 @@
 	<meta name="author" content="Mindfreakerstuff"/>
     <link rel="shortcut icon" href="favicon.png"> 
     
-	<title>Home- fresh Gray Theme by Mindfreakerstuff Bootstrap 3.0 Responsive Theme</title>
+	<title>Adminnistrator</title>
     <!-- Bootstrap core CSS -->
     <link href="<?php echo DOMAINAD?>html/login/css/bootstrap.css" rel="stylesheet">
 

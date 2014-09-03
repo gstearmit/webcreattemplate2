@@ -59,7 +59,7 @@
                            <?php  //pr($Catproductlist);die();?>                  
                           
                             <select class='form-control' data-rule-required='true' id='validation_select' name="data[Product][catproduct_id]" >
-                              <option value="0">Chọn danh mục</option> 
+                              <option value="0"><?php __('Select_category')?></option> 
                               <?php foreach ($list_cat as $key =>$value){?>
                               <option value="<?php  echo $key ?>"<?php if($key==$edit['Product']['catproduct_id']){ echo 'selected';}  ?>><?php  echo $value ?></option>
                            <?php }?>               
@@ -71,7 +71,7 @@
                           <div class='col-sm-4 controls'>                                   
                           
                             <select class='form-control' data-rule-required='true' id='validation_select' name="data[Product][city_id]" >
-                              <option value="0">Chọn Thành phố</option> 
+                              <option value="0"><?php __('Select_city')?></option> 
                               <?php foreach ($list_cat1 as $key =>$value){?>
                               <option value="<?php  echo $key ?>"<?php  if($key==$edit['Product']['city_id']){echo 'selected';} ?>><?php  echo $value ?></option>
                            <?php }?>               

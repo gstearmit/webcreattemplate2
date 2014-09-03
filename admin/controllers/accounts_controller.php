@@ -16,7 +16,8 @@ class AccountsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->User->read(null, $id);
 		}	
-
+		$this->set('edit',$this->User->findById($id));
+		$this->layout='admin_validate';
 		// /////// ngôn ngư
 		$urlTmp = $_SERVER['REQUEST_URI'];
 			
@@ -139,6 +140,9 @@ class AccountsController extends AppController {
 			}
 		}
 		$this->set ( 'langue', $langue );
+		
+		//chọn layout
+		$this->layout='admin_validate';
 	}
 	function delete($id=null){
 		if(!empty($id))
@@ -197,7 +201,7 @@ class AccountsController extends AppController {
 		$this->set ( 'langue', $langue );
 	}
 	function beforeFilter(){
-		$this->layout='admin';
+		$this->layout='adminnew';
 	}
 
 }

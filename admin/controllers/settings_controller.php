@@ -94,7 +94,7 @@ class SettingsController extends AppController {
 		}        
 		$this->set('edit',$this->Setting->findById($id));
 		
-
+		$this->layout='admin_validate';
 		// /////// ngôn ngư
 		$urlTmp = $_SERVER['REQUEST_URI'];
 			
@@ -165,7 +165,7 @@ class SettingsController extends AppController {
 	}
 	// chon layout
 	function beforeFilter(){
-		$this->layout='admin';
+		$this->layout='adminnew';
 	}
 
 }
