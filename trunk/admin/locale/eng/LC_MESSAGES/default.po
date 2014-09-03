@@ -656,3 +656,60 @@ msgstr "Name"
 
 msgid "Select_image"
 msgstr "Select image"
+
+msgid "Search_results"
+msgstr "Search results"
+
+msgid "Image"
+msgstr "Image"
+
+msgid "Select_product"
+msgstr "Select product"
+
+msgid "Select_category"
+msgstr "Select category"
+
+msgid "Select_city"
+msgstr "Select city"
+
+msgid "Detail_News"
+msgstr "Detail News"
+
+msgid "Back"
+msgstr "Back"
+
+msgid "Detail_shop"
+msgstr "Detail shop"
+
+msgid "Shop_name"
+msgstr "Shop name"
+
+msgid "Detail_account"
+msgstr "Detail account"
+
+msgid "Sex"
+msgstr "Sex"
+
+msgid "Date_Registration"
+msgstr "Date Registration"
+
+msgid "Oder_detail"
+msgstr "Oder detail"
+
+msgid "Total_amount"
+msgstr "Total amount"
+
+msgid "Date_set"
+msgstr "Date set"
+
+msgid "Forms_payment"
+msgstr "Forms payment"
+
+msgid "Customer_Name"
+msgstr "Customer Name"
+
+msgid "Vietnamese"
+msgstr "Vietnamese"
+
+msgid "English"
+msgstr "English"

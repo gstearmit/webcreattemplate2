@@ -58,7 +58,7 @@
                           <div class='col-sm-4 controls'>
                            
                             <select class='form-control' data-rule-required='true' id='validation_select' name="data[Catproduct][parent_id]" >
-                              <option value="0">Chọn danh mục</option> 
+                              <option value="0"><?php __('Select_category')?></option> 
                               <?php
                               $id = $edit['Catproduct']['parent_id'];
                               foreach ($list_cat as $key =>$value){?>

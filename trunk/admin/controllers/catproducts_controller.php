@@ -115,6 +115,7 @@ class CatproductsController extends AppController {
 	    	}
 	    }
 	    $this->set ( 'langue', $langue );
+	    
 	}
 	//them danh muc moi
 	function add() {
@@ -277,6 +278,7 @@ class CatproductsController extends AppController {
 	}
 	// kich hoat
 	function active($id=null) {
+		
 		$this->account();
 		if (empty($id)) {
 			$this->Session->setFlash(__('Khôn tồn tại danh mục này', true));
@@ -291,6 +293,8 @@ class CatproductsController extends AppController {
 		}
 		$this->Session->setFlash(__('Danh mục không kich hoạt được', true));
 		$this->redirect(array('action' => 'index'));
+		
+		
 
 	}
 

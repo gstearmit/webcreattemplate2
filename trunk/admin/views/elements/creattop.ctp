@@ -1,29 +1,4 @@
- <?php  $langs= null;
-                    $urlcart ="";
-                    if(isset($_GET['language'])){
-                    $abc=$_GET['language'];
-                    if($abc =='vie'){
-                    	$langs="?language=vie";
-                    }
-                    if($abc=='eng'){
-						$langs ="?language=eng";
-					}
-					$url = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
-					$de=DOMAIN.$langs;
-					if($url!=$de){
-					$url1 = str_replace(DOMAIN, "", $url);
-					$url12 = split("[?]", $url1);
-					//$urlcart1 = split("[/]", $url12[0]);
-					$urlcart = DOMAIN.$url12[0];
-					}
-					}else{
-						$url = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
-						$urlcart=$url;
-					}
-					
-					
-					 
-                    ?>
+<?php include 'views/elements/language.ctp';?>
 <header>
       <nav class='navbar navbar-default'>
         <a class='navbar-brand' href='#'>
@@ -40,14 +15,14 @@
             <ul class='dropdown-menu color-settings'>
               <li class='color-settings-body-color'>
                 <div class='color-title'>Body color</div>
-                <a data-change-to='assets/stylesheets/light-theme.css' href='#'>
+                <a data-change-to='<?php echo DOMAINAD?>html/assets/stylesheets/light-theme.css' href='#'>
                   Light
                   <small>(default)</small>
                 </a>
-                <a data-change-to='assets/stylesheets/dark-theme.css' href='#'>
+                <a data-change-to='<?php echo DOMAINAD?>html/assets/stylesheets/dark-theme.css' href='#'>
                   Dark
                 </a>
-                <a data-change-to='assets/stylesheets/dark-blue-theme.css' href='#'>
+                <a data-change-to='<?php echo DOMAINAD?>html/assets/stylesheets/dark-blue-theme.css' href='#'>
                   Dark blue
                 </a>
               </li>
@@ -196,7 +171,7 @@
           </li>
           <li class='dropdown dark user-menu'>
             <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
-              <img width="23" height="23" alt="Mila Kunis" src="<?php echo DOMAINAD?>/html/assets/images/avatar.jpg" />
+              <img width="23" height="23" alt="Mila Kunis" src="<?php echo DOMAINAD?>html/assets/images/avatar.jpg" />
               <span class='user-name'><?php echo $this->Session->read('name'); ?></span>
               <b class='caret'></b>
             </a>
@@ -233,13 +208,13 @@
          <li class='dropdown dark user-menu news'>
             <a class='dropdown-toggle'  href='<?php echo $urlcart ?>?language=vie'>
              <img id="langgue" align="absmiddle" src="<?php echo DOMAIN ?>images/vietnam.gif" />
-              <span class='user-name'>Tiếng Việt</span>             
+              <span class='user-name'><?php __('Vietnamese')?></span>             
             </a>
           </li>
           <li class='dropdown dark user-menu news'>
             <a class='dropdown-toggle'  href='<?php echo $urlcart ?>?language=eng'>
              <img id="langgue" align="absmiddle" src="<?php echo DOMAIN ?>images/english.gif" />
-              <span class='user-name'>Tiếng Anh</span>             
+              <span class='user-name'><?php __('English')?></span>             
             </a>
           </li>    
          </ul>

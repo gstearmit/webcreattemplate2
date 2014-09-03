@@ -1,3 +1,4 @@
+ 
 <!DOCTYPE html>
 <html>
  <?php echo $this->element('creatheader')?>
@@ -10,5 +11,6 @@
         <div class='container'>
           <?php echo $content_for_layout; ?>
           <?php echo $this->element('creatfooter')?>
+         
   </body>
 </html>

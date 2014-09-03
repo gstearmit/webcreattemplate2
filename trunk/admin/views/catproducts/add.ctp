@@ -59,7 +59,7 @@
                            <?php  //pr($Catproductlist);die();?>                  
                           
                             <select class='form-control' data-rule-required='true' id='validation_select' name="data[Catproduct][parent_id]" >
-                              <option value="0">Chọn danh mục</option> 
+                              <option value="0"><?php __('Select_category')?></option> 
                               <?php foreach ($Catproductlist as $key =>$value){?>
                               <option value="<?php  echo $key ?>"><?php  echo $value ?></option>
                            <?php }?>               

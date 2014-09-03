@@ -1,29 +1,4 @@
- <?php  $langs= null;
-                    $urlcart ="";
-                    if(isset($_GET['language'])){
-                    $abc=$_GET['language'];
-                    if($abc =='vie'){
-                    	$langs="?language=vie";
-                    }
-                    if($abc=='eng'){
-						$langs ="?language=eng";
-					}
-					$url = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
-					$de=DOMAIN.$langs;
-					if($url!=$de){
-					$url1 = str_replace(DOMAIN, "", $url);
-					$url12 = split("[?]", $url1);
-					//$urlcart1 = split("[/]", $url12[0]);
-					$urlcart = DOMAIN.$url12[0];
-					}
-					}else{
-						$url = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
-						$urlcart=$url;
-					}
-					
-					
-					 
-                    ?>
+ <?php include 'views/elements/language.ctp';?>
 <nav id='main-nav'>
         <div class='navigation'>
           <div class='search'>
@@ -49,7 +24,7 @@
               </a>
               <ul class='nav nav-stacked'>
                 <li class=''>
-                  <a href='<?php echo DOMAINAD?>catproducts/index<?php echo $langs; ?>'>
+                  <a href='<?php echo DOMAINAD?>catproducts/<?php echo $langs; ?>'>
                     <i class='icon-caret-right'></i>
                     <span><?php __('Category_product')?></span>
                   </a>
@@ -247,9 +222,15 @@
               </a>
               <ul class='nav nav-stacked'>
                 <li class=''>
-                  <a href='<?php echo DOMAINAD?>videos/edit/1<?php echo $langs; ?>'>
+                  <a href='<?php echo DOMAINAD?>videos/index<?php echo $langs; ?>'>
                     <i class='icon-caret-right'></i>
                     <span><?php __('Video')?></span>
+                  </a>
+                </li>
+                <li class=''>
+                  <a href='<?php echo DOMAINAD?>videos/add<?php echo $langs; ?>'>
+                    <i class='icon-caret-right'></i>
+                    <span><?php __('Add_New')?></span>
                   </a>
                 </li>
              </ul> 

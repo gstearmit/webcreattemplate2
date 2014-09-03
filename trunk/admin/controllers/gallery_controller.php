@@ -85,6 +85,7 @@ class GalleryController extends AppController {
 		$this->set('list_cat',$_list_part);
         $this->set(compact('list_cat'));
         
+        
         ///// Ngôn ngữ
         $urlTmp = $_SERVER['REQUEST_URI'];
         
@@ -130,6 +131,8 @@ class GalleryController extends AppController {
         }
         $this->set ( 'langue', $langue );
      
+        //Chọn layout
+        $this->layout='admin_validate';
 	}
 	//view mot tin 
 	function view($id = null) {
@@ -414,7 +417,7 @@ class GalleryController extends AppController {
 	}
 	// chon layout
 	function beforeFilter(){
-		$this->layout='admin';
+		$this->layout='adminnew';
 	}
 
 }

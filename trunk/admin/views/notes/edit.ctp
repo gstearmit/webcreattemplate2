@@ -1,121 +1,161 @@
-﻿<?php
-	echo $this->Html->script(array('ckeditor/ckeditor','ckfinder/ckfinder'));
-
-	$select = 'Chọn danh mục';
-	$not_active='Chưa kích hoạt';
-	$active='Đã kích hoạt';
-	if(isset($_GET['language'])){
-		if($_GET['language']=='eng'){
-			$select = 'Select Category';
-			$not_active='Not Active';
-			$active='Active';
-		}else {
-			$select = 'Chọn danh mục';
-			
-			$not_active='Chưa kích hoạt';
-			$active='Đã kích hoạt';
-		}
-	}
-?>
- <link type="text/css" href="<?php echo DOMAIN ?>css/jquery.datepick.css" rel="stylesheet" /> 
-
-	<script type="text/javascript" src="<?php echo DOMAIN;?>js/jquery.datepick.js"></script>	
-		<script type="text/javascript" charset="utf-8">
-
-<script>
-function confirmDelete(delUrl)
-{
-if (confirm("Bạn có muốn xóa danh mục này không!"))
-{
-	document.location = delUrl;
-}
-}
-</script>
-<div class="content-box"><!-- Start Content Box -->
-    <div class="content-box-header">
-        
-        <h3><?php __('Edit')?></h3>
-        
-        <ul class="content-box-tabs">
-            <li><a href="#tab1"></a></li> <!-- href must be unique and match the id of target div -->
-            <li><a href="#tab2" class="default-tab"><?php __('Add_New')?></a></li>
-        </ul>
-        
-        <div class="clear"></div>
-        
-    </div> <!-- End .content-box-header -->
-    <div class="content-box-content">
-        
-        <div class="tab-content" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
-        </div> <!-- End #tab1 -->
-        
-        <div class="tab-content default-tab" id="tab2">
-        
-             <?php echo $form->create(null, array( 'url' => DOMAINAD.'notes/edit','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>       
-                
-                <fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
-                    <p>
-                        <label><?php __('News_name')?> (VN)</label>
-                           <?php echo $form->input('Note.title',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
-                           
-                    </p>
-                     <p>
-                        <label><?php __('News_name')?>  (ENG)</label>
-                           <?php echo $form->input('Note.title_eg',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
-                           
-                    </p>
-                    <p>
-                        <label><?php __('Category')?></label>              
-                        <?php echo $this->Form->input('category_id',array('type'=>'select','options'=>$list_cat,'empty'=>$select,'class'=>'small-input','label'=>''));?>
-                    </p>
-                    <p>
-                        <label><?php __('location')?> </label>
-                           <?php echo $form->input('Note.location',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
-                           
-                    </p>
-                    <p>
-                        <label><?php __('Summary_content')?> (VN)</label>
-                         <?php 	echo $this->Form->input('Note.introduction',array('label' => '','type'=>'textarea',)).$this->TvFck->create('Note.introduction',array('height'=>'100px','width'=>'900')); ?>
-                    </p>
-                   <p>
-                        <label><?php __('Summary_content')?> (ENG)</label>
-                         <?php 	echo $this->Form->input('Note.introduction_eg',array('label' => '','type'=>'textarea',)).$this->TvFck->create('Note.introduction_eg',array('height'=>'100px','width'=>'900')); ?>
-                    </p>
-                    
-                    <p>
-                        <label><?php __('content')?> (VN)</label>
-                        <?php  echo $this->Form->input('Note.content',array('label' => '','type'=>'textarea')).$this->TvFck->create('Note.content',array('toolbar'=>'extra','height'=>'300px','width'=>'900')); ?>
-                    </p>
-                    <p>
-                        <label><?php __('content')?> (ENG)</label>
-                        <?php  echo $this->Form->input('Note.content_eg',array('label' => '','type'=>'textarea')).$this->TvFck->create('Note.content_eg',array('toolbar'=>'extra','height'=>'300px','width'=>'900')); ?>
-                    </p>
-                 
-                    <p>
-                        <label><?php __('Avatar')?></label>
-                        <input type="text" size="80" style="height:25px;" name="userfile"  value="<?php echo $edit['Note']['images']?>"> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINAD; ?>upload_pic1.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
-                    </p>
-                    <p>
-                        <label><?php __('Source_article')?></label>
-                         <?php echo $form->input('Note.source',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
-                    </p>
-                    <p>
-                        <label><?php __('status')?></label>
-                         <?php echo $form->radio('Note.status', array(0 => $not_active, 1 => $active)); ?>
-                         <?php echo $form->input('Note.id',array('label'=>''));?>  
-                    </p>
-                   
-                    <p>
-                        <input class="button" type="submit" value="<?php __('Edit')?>" />
-                    </p>
-                    
-                </fieldset>
-                
-                <div class="clear"></div><!-- End .clear -->
-                
-            <?php echo $form->end(); ?>
-            
-        </div> <!-- End #tab2 -->        
-        
-    </div> <!-- End .content-box-content -->
- </div>
+<?php //pr($list_cat);die();?>
+<?php include 'views/elements/language.ctp';?>
+<div class='row' id='content-wrapper'>
+            <div class='col-xs-12'>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='page-header'>
+                   <!--  <h1 class='pull-left'>
+                      <i class='icon-ok'></i>
+                      <span>Validations</span>
+                    </h1>-->
+                    <div class='pull-right'>
+                      <ul class='breadcrumb'>
+                        <li>
+                          <a href='index.html'>
+                            <i class='icon-bar-chart'></i>
+                          </a>
+                        </li>
+                        <li class='separator'>
+                          <i class='icon-angle-right'></i>
+                        </li>
+                        <li>
+                         <?php __('Notes')?>
+                        </li>
+                        <li class='separator'>
+                          <i class='icon-angle-right'></i>
+                        </li>
+                        <li class='active'><?php __('Edit')?></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='box'>
+                    <div class='box-header blue-background'>
+                      <div class='title'><?php __('Edit')?></div>
+                      <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class='box-content'>
+                      <form action="<?php echo DOMAINAD ?>notes/edit<?php echo $langs ?>" enctype="multipart/form-data" name="image" method="post" accept-charset="utf-8" class='form form-horizontal validate-form' style='margin-bottom: 0;'>
+                       <input type="hidden" name="_method" value="POST" />
+                        <div class='form-group'>
+                          <label class='control-label col-sm-3 col-sm-3' for='validation_name'><?php __('News_name')?>(VN)</label>
+                          <div class='col-sm-4 controls'>
+                            <input class='form-control' data-rule-minlength='2' value='<?php echo $edit['Note']['title'];?>' data-rule-required='true' id='validation_name' name="data[Note][title]" placeholder='<?php __('News_name')?>(VN)' type='text'>
+                          </div>
+                        </div>
+                         <div class='form-group'>
+                          <label class='control-label col-sm-3 col-sm-3' for='validation_name'><?php __('News_name')?> (ENG)</label>
+                          <div class='col-sm-4 controls'>
+                            <input class='form-control' data-rule-minlength='2' value='<?php echo $edit['Note']['title_eg'];?>' data-rule-required='true' id='validation_name1' name="data[Note][title_eg]" placeholder='<?php __('News_name')?>(ENG)' type='text'>
+                          </div>
+                        </div>
+                       <div class='form-group'>
+                          <label class='control-label col-sm-3' for='validation_select'><?php __('Category')?></label>
+                          <div class='col-sm-4 controls'>
+                           <?php  //pr($Catproductlist);die();?>                  
+                          
+                            <select class='form-control' data-rule-required='true' id='validation_select' name="data[Note][category_id]" >
+                              <option value="0"><?php __('Select_category')?></option> 
+                              <?php foreach ($list_cat as $key =>$value){?>
+                              <option value="<?php  echo $key ?>" <?php if($key==$edit['Note']['category_id']){ echo "selected='selected'";}?>><?php  echo $value ?></option>
+                           <?php }?>               
+                            </select>                           
+                          </div>
+                        </div>
+                       
+                           <div class='form-group'>
+                          <label class='control-label col-sm-3' for='validation_numbers'><?php __('location')?></label>
+                          <div class='col-sm-4 controls'>
+                            <input class='form-control' data-rule-number='true' value='<?php echo $edit['Note']['location'];?>' data-rule-required='true' id='validation_numbers' name='data[Note][location]' placeholder='<?php __('location')?>' type='text'>
+                          </div>
+                          </div>
+                      
+                          <div class='form-group'>
+                          <label class='control-label col-sm-3' for='validation_numbers'><?php __('Summary_content')?> (VN)</label>
+                           <div class='box-content col-sm-8'>
+                      		<textarea class='form-control ckeditor' id='wysiwyg1' name="data[Note][introduction]" rows='5'><?php echo $edit['Note']['introduction'];?></textarea>
+                    		</div>
+                          </div>
+                          <div class='form-group'>
+                          <label class='control-label col-sm-3' for='validation_numbers'><?php __('Summary_content')?> (ENG)</label>
+                           <div class='box-content col-sm-8'>
+                      		<textarea class='form-control ckeditor' id='wysiwyg1' name="data[Note][introduction_eg]" rows='5'><?php echo $edit['Note']['introduction_eg'];?></textarea>
+                    		</div>
+                          </div>
+                          <div class='form-group'>
+                          <label class='control-label col-sm-3' for='validation_numbers'><?php __('content')?> (VN)</label>
+                           <div class='box-content col-sm-8'>
+                      		<textarea class='form-control ckeditor' id='wysiwyg1' name="data[Note][content]" rows='5'><?php echo $edit['Note']['content'];?></textarea>
+                    		</div>
+                          </div>
+                         <div class='form-group'>
+                          <label class='control-label col-sm-3' for='validation_numbers'><?php __('content')?> (ENG)</label>
+                           <div class='box-content col-sm-8'>
+                      		<textarea class='form-control ckeditor' id='wysiwyg1' name="data[Note][content_eg]" rows='5'><?php echo $edit['Note']['content_eg'];?></textarea>
+                    		</div>
+                          </div>
+                          
+                         <div class='form-group'>
+                          <label class='control-label col-sm-3' for='validation_password'><?php __('Avatar')?></label>
+                          <div>
+                        <div class=' input-group col-sm-4 controls' >
+                          <input class='form-control' value='<?php echo $edit['Note']['images'];?>' readonly='readonly' name='userfile' placeholder='<?php __('Avatar')?>' type='text'>
+                          <span class='input-group-addon ' style="padding:0px">
+                            <span>
+                            <a href="javascript:window.open('<?php echo DOMAINAD; ?>upload_pic1.php','userfile','width=500,height=300');window.history.go(1)" >
+                            <input class="btn btn-success" style="padding: 5px;"  value="<?php __('Select_image')?>" type="button">
+                            </a>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                        </div>
+                        <div class='form-group'>
+                          <label class='control-label col-sm-3 col-sm-3' for='validation_name'><?php __('Source_article')?>(VN)</label>
+                          <div class='col-sm-4 controls'>
+                            <input class='form-control' data-rule-minlength='2' value='<?php echo $edit['Note']['source'];?>' data-rule-required='true' id='validation_name2' name="data[Note][source]" placeholder='<?php __('Source_article')?>(VN)' type='text'>
+                          </div>
+                        </div>
+                         <div class='form-group'>
+                        <label class='control-label col-sm-3' for='validation_select'><?php __('status')?></label>
+                        <div class='col-sm-4 controls'>
+                          <label class='radio radio-inline'>
+                            <input  name="data[Note][status]" type='radio' value='1' <?php if($edit['Note']['status']=='1'){ echo 'checked="checked"';}?>>
+                            <?php __('Actived')?>
+                          </label>
+                          <label class='radio radio-inline'>
+                            <input  name="data[Note][status]" type='radio' value='0' <?php if($edit['Note']['status']=='0'){ echo 'checked="checked"';}?>>
+                             <?php __('Unactive')?>
+                          </label>
+                          </div>
+                      </div>                                      
+                       
+                        <div class='form-actions' style='margin-bottom:0'>
+                          <div class='row'>
+                            <div class='col-sm-9 col-sm-offset-3'>
+                              <button class='btn btn-primary' type='submit' value="<?php __('Edit');?> " >
+                                <i class='icon-save'></i>
+                                 <?php __('Edit')?>
+                              </button>
+                               </div>
+                          </div>
+                        </div>
+                      </form>                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+            </div>
+          </div>
