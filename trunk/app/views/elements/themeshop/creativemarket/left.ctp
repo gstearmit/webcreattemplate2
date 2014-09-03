@@ -35,13 +35,18 @@ foreach ( $shop as $key => $value ) {
         <?php }?>
       </ul>
     
-	  
-	
+	<!-- ADV  -->  
+	<?php $advr= $this->requestAction('/'.$shopname.'/advapp') ?>
+              <?php foreach($advr as $advs1 ){  ?>
 									<div class="feature">	
-										<img src="<?php echo DOMAIN ?>creativemarket/img/world.png" class="img-responsive" alt="" />
+										<a href="<?php echo $advs1['Estore_advertisements']['link'] ?>" target="_blank"><img src="<?php echo DOMAINADESTORE.$advs1['Estore_advertisements']['images']?>" class="img-responsive" style="width: 373px;height: 100px; " alt="" />
+										<!--  
 										<h4>WORLDWIDE <strong>DELIVERY</strong></h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>									
-									</div><div class="feature">	
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										-->									
+									</div>
+			 <?php }?>  						
+									<div class="feature">	
 										<img src="<?php echo DOMAIN ?>creativemarket/img/fast.png" class="img-responsive" alt="" />
 										<h4>FAST <strong>SERVICE</strong></h4>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>									

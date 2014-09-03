@@ -61,9 +61,9 @@ foreach ( $tem as $tem ) {
         <!--  <button type="button" class="btn-primary topbasketbutton"><span class="glyphicon glyphicon-pencil"></span> My Account</button>
              <button type="button" class="btn-primary topbasketbutton"><span class="glyphicon glyphicon glyphicon-briefcase"></span> Sign In</button>
         -->
-        <button type="button" class="btn-primary topbasketbutton"><span class="glyphicon glyphicon-credit-card"></span> Checkout</button>
+        <a href="<?php echo DOMAIN.$shopname ?>/buy"  class="btn-primary topbasketbutton"><span class="glyphicon glyphicon-credit-card"></span> Checkout</a>
       </div>
-      <div class="basket"> <span class="glyphicon glyphicon-shopping-cart"></span><a href="<?php echo DOMAIN ?>creativemarket/viewshopingcart"> <b>Your Cart </b><?php if(isset($_SESSION['shopingcart']))
+      <div class="basket"> <span class="glyphicon glyphicon-shopping-cart"></span><a href="<?php echo DOMAIN.$shopname ?>/viewshopingcart"> <b>Your Cart </b><?php if(isset($_SESSION['shopingcart']))
                                             { $sl=count($_SESSION['shopingcart']) ;
                                             echo $sl;
                                             }else {echo "0"; }?> </b> items</a> </div> <!-- items - &pound;0.00 -->
@@ -72,7 +72,7 @@ foreach ( $tem as $tem ) {
 </div>
 
 
-<?php echo $this->element('themeshop\creativemarket\menu')?>
+<?php echo $this->element('themeshop/creativemarket/menu')?>
 
-<?php echo $this->element('themeshop\creativemarket\slide')?>
+<?php echo $this->element('themeshop/creativemarket/slide')?>
 

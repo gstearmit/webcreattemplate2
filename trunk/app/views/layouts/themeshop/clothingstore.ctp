@@ -23,9 +23,9 @@ foreach ( $tem as $tem ) {
 
 ?>
 
-<?php echo $this->element('themeshop\clothingstore\header')?>
+<?php echo $this->element('themeshop/clothingstore/header')?>
 <?php echo $content_for_layout; ?>
-<?php echo $this->element('themeshop\clothingstore\footer')?>     
+<?php echo $this->element('themeshop/clothingstore/footer')?>     
 
             
  

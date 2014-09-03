@@ -16,19 +16,21 @@ foreach ( $shop as $key => $value ) {
     </ol>
     
     <!-- Wrapper for slides -->
+    <!-- Slider -->
+<?php $slide = $this -> requestAction('/'.$shopname.'/slideshow'); // pr($slide);die;?>
     <div class="carousel-inner">
-      <div class="item active"> <img src="<?php echo DOMAIN ?>creativemarket/img/slide1.png" alt="...">
+     <?php foreach($slide as $slide){?>
+      <div class="item active"> <img src="<?php echo DOMAINADESTORE;?><?php echo $slide['Estore_slideshows']['images'];?>" alt="...">
         <div class="carousel-caption"> </div>
       </div>
-      <div class="item"> <img src="<?php echo DOMAIN ?>creativemarket/img/slide2.png" alt="...">
+      <?php break;}?>
+      <?php $slide = $this -> requestAction('/'.$shopname.'/slideshow'); // pr($slide);die;?>
+      <?php foreach($slide as $slide){?>
+      <div class="item"> <img src="<?php echo DOMAINADESTORE;?><?php echo $slide['Estore_slideshows']['images'];?>" alt="...">
         <div class="carousel-caption"> </div>
       </div>
-      <div class="item"> <img src="<?php echo DOMAIN ?>creativemarket/img/slide3.png" alt="...">
-        <div class="carousel-caption"> </div>
-      </div>
-      <div class="item"> <img src="<?php echo DOMAIN ?>creativemarket/img/slide4.png" alt="...">
-        <div class="carousel-caption"> </div>
-      </div>
+      <?php }?>
+      
     </div>
   </div>
   

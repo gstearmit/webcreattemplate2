@@ -1,7 +1,7 @@
 <div class="container margintop20">
   <div class="row clearfix">
     <!-- menu -->
-    <?php echo $this->element('themeshop\creativemarket\left')?>
+    <?php echo $this->element('themeshop/creativemarket/left')?>
     <div class="col-md-9 column">
       <ol class="breadcrumb">
         <li><a href="index.html"><i class="glyphicon glyphicon-home"></i></a></li>
