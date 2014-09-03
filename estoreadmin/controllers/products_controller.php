@@ -654,7 +654,7 @@ class ProductsController extends AppController {
 	}
 	// chon layout
 	function beforeFilter() {
-		$this->layout = 'admin';
+		$this->layout = 'adminnew';
 	}
 }
 ?>
