@@ -48,7 +48,7 @@ class ManufacturersController extends AppController {
 	   $this->account();	
 	   $this->loadModelNew(); 
 	  // $conditions=array('Estore_catproduct.status'=>1);	
-	   $this->paginate = array('limit' => '15','order' => 'Manufacturer.id ASC');
+	   $this->paginate = array('limit' => '15','order' => 'Manufacturer.id DESC');
 	   $this->set('Manufacturer', $this->paginate('Manufacturer',array()));
 	   
        $list_cat = $this->Manufacturer->generatetreelist(null,null,null," _ ");
@@ -129,6 +129,7 @@ class ManufacturersController extends AppController {
         $list_cat = $this->Manufacturer->generatetreelist(null,null,null," _ ");
         $this->set(compact('list_cat'));
         
+        $this->layout='admin_validate';
         //NGÔN NGỮ
         $urlTmp = $_SERVER['REQUEST_URI'];
         
@@ -196,7 +197,7 @@ class ManufacturersController extends AppController {
 		}
 		$this->set('list_cat',$this->_find_list());
         $this->set('edit',$this->Manufacturer->findById($id));
-        
+        $this->layout='admin_validate';
         //NGÔN NGỮ
         $urlTmp = $_SERVER['REQUEST_URI'];
         
@@ -326,7 +327,7 @@ class ManufacturersController extends AppController {
 		}
 	}
 	function beforeFilter(){
-		$this->layout='admin';
+		$this->layout='adminnew';
 	}
 
 }

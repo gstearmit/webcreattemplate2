@@ -247,7 +247,7 @@ class CommentsController extends AppController {
 		}
 	}
 	function beforeFilter() {
-		$this->layout = 'admin';
+		$this->layout = 'adminnew';
 	}
 	
 	/*

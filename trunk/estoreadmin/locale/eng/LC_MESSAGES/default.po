@@ -402,3 +402,12 @@ msgstr "Description"
 
 msgid "Contact_information"
 msgstr "Contact information"
+
+msgid "Select_image"
+msgstr "Select image"
+
+msgid "Current_location"
+msgstr "Current location"
+
+msgid "Alternate_location"
+msgstr "Alternate location"

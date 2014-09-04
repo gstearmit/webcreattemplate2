@@ -11,5 +11,6 @@
         <div class='container'>
           <?php echo $content_for_layout; ?>
           <?php echo $this->element('footer_validate')?>
+          <?php echo $this->element('help')?>
   </body>
 </html>
