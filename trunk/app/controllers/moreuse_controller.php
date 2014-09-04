@@ -177,6 +177,9 @@ class MoreuseController extends AppController {
 			 $this->Shop->save($Store);
 			 $shop_id = $this->Shop->getLastInsertId();
 			 
+			
+			 $this->log("shopid: ".$shop_id, 'debug');
+			 
 			if($shop_id<0) { die("Oop! Error Save data! Please try again !!!");}
 			 
 			 //Send mail Acout Estore
@@ -244,7 +247,7 @@ class MoreuseController extends AppController {
 				// SERVER DIREACT
 			  $flagConnecting = "Use Connectingnew";
 			  $this->log(" /** Creat Eshop In SERVER DIREACT: ******************/", 'debug');
-			  $result = $this->registerEshop ($namedatabase, $nameController, $Store ['layout'], $Store ['language'], $shop_id,$flagConnecting,$username ,$password);
+			  $result = $this->registerEshop ($namedatabase, $nameController,$Store ['moduleType'], $Store ['layout'], $Store ['language'], $shop_id,$flagConnecting,$username ,$password);
 			  $this->log(" /** end Creat Eshop In SERVER DIREACT: ******************/", 'debug');
 			}elseif($namwserver === IP_SERVER_TEST){  
 				// LOCALHOST
@@ -252,35 +255,11 @@ class MoreuseController extends AppController {
 			  $username ='';
 			  $password='';
 			  $this->log(" /** Creat Eshop In Localhost: ******************/", 'debug');
-			  $result = $this->registerEshop ($namedatabase, $nameController, $Store ['layout'], $Store ['language'], $shop_id ,$flagConnecting,$username ,$password);
+			  $result = $this->registerEshop ($namedatabase, $nameController,$Store ['moduleType'], $Store ['layout'], $Store ['language'], $shop_id ,$flagConnecting,$username ,$password);
 			  $this->log(" /** end Creat Eshop In Localhost: ******************/", 'debug');
 			}
-			//pr($result);
-// 			// deburg 			
-// 			$result_finish12 = array(
-// 					'subdoamin'=>$logsubdoamin,
-// 					'logCopyhtcess'=>$logCopyhtcess,
-// 					'creatdatabase'=>$logcreatdataba,
-// 					'nameeshop'=>$nameproject,
-// 					'shopid'=>$shop_id,
-// 					'resultemail'=>$resultemail,  // result send email
-// 					'detailemailarray'=>$detailemailarray,
-// 					'registerEshop'=>$result
-// 			);
-// 			$result_finish = array(
-// 					'data'=>$result_finish12
-// 			);
 
-// // 			pr(json_encode($result_finish,true));
-// 			return  print_r(json_encode($result_finish,true));
-// 			//end deburg
-			
-			
-			$this->log("creatdatabase: ".$logcreatdataba, 'debug');
 			$this->log("nameeshop: ".$nameproject, 'debug');
-			$this->log("shopid: ".$shop_id, 'debug');
-			
-			
 			$this->log("registerEshop: ".$result, 'debug');
 			$this->log("result: result:1", 'debug');
 		//	not deburg
@@ -396,12 +375,7 @@ class MoreuseController extends AppController {
 	}
 	
 	function creatdatanamefreemobile($dbuser,$dbname,$dbpass,$dbpass_validate) {
-		/*
-		$libcreatdatanamefreemobile = ROOT.'/libfreemobile/';
-		$filename23 = $libcreatdatanamefreemobile.'httpsocket.php';
-		if(file_exists($filename23))
-		{	include($filename23);}
-	    */	
+		
 		global $error;
 		$server_ip = Server_ip; // IP that User is assigned to
 		$server_login = Server_login;
@@ -409,11 +383,7 @@ class MoreuseController extends AppController {
 		$server_host = Server_ip; // where the API connects to
 		$server_ssl = "N";
 		$server_port = 2222;
-// 		$dbuser = "datest";
-// 		$dbname = "datest";
-// 		$dbpass = "123456@123";
-// 		$dbpass_validate = "123456@123";
-		
+
 		$sock = new HTTPSocket ();
 		if ($server_ssl == 'Y') {
 			$sock->connect ( "ssl://" . $server_host, $server_port );
@@ -429,15 +399,16 @@ class MoreuseController extends AppController {
 				'user' => $dbuser,
 				'passwd' => $dbpass,
 				'passwd2' => $dbpass_validate 
+				
+				// 		$dbuser = "datest";
+				// 		$dbname = "datest";
+				// 		$dbpass = "123456@123";
+				// 		$dbpass_validate = "123456@123";
 		) );
 		
 	
 		$result = $sock->fetch_parsed_body ();
-		// echo $result;
-		// echo "<pre>";
-		// print_r($result);
-		// echo "</pre>";
-	
+		
 		if ($result ['error'] != "0") {
 			$error = "<b>Error Creating database  on server $server_ip:<br>\n";
 			$error .= $result ['text'] . "<br>\n";
@@ -455,15 +426,12 @@ class MoreuseController extends AppController {
 	
 	
 	//++++++ Register Website Creat++++++++++++++++++++
-	function registerEshop($namedatabase,$nameController,$layout_code,$language_code,$shop_id,$flagConnecting,$username ,$password) {
+	function registerEshop($namedatabase,$nameController,$moduleType,$layout_code,$language_code,$shop_id,$flagConnecting,$username ,$password) {
 		$result_code;
-		// 		$name = $this->Shop->findAllByName( $project_name); // pr(count($name));die;
-		// 		if (count ( $name ) == 1) {
-		// 			return $result_code = -1 ; // -1 :'Tên gian hàng đã tồn tại!';
-		// 		} else {
-	
-			$nameController_Copy = $this->checkLayoutCode($nameController,$layout_code);
+		
+			$nameController_Copy = $this->checkLayoutCode($nameController,$layout_code,$moduleType);
 			CakeLog::write('debug', 'nameController_Copy :'.$nameController_Copy);
+			CakeLog::write('debug', 'moduleType :'.$moduleType);
 			$databaseCreat = 'Not subject to yet . Note ceatdata base';
 			  if($flagConnecting !='')
 			  {	
@@ -471,17 +439,17 @@ class MoreuseController extends AppController {
 			  	CakeLog::write('debug', 'flagConnecting : khac rong tren direacadmin');
 			  	CakeLog::write('debug', 'creat database in SERVER DERECTADMIN ');
 			  	CakeLog::write('debug', 'database name SERVER DERECTADMIN : '.$databaseCreat);
-			  	$databaseCreat = $this->checkLanguageCode($namedatabase,$nameController,$language_code,$layout_code,$shop_id,$username ,$password);
+			  	$databaseCreat = $this->checkLanguageCode($namedatabase,$nameController,$language_code,$layout_code,$shop_id,$username ,$password,$moduleType);
 			  	
 			  }elseif($flagConnecting ===''){
 			  	// SERVER localhost
 			  	CakeLog::write('debug', 'creat database in SERVER localhost ');
 			  	CakeLog::write('debug', 'flagConnecting : rong');
-			  	$databaseCreat = $this->checkLanguageCode($namedatabase,$nameController,$language_code,$layout_code,$shop_id,$username ,$password);
+			  	$databaseCreat = $this->checkLanguageCode($namedatabase,$nameController,$language_code,$layout_code,$shop_id,$username ,$password,$moduleType);
 			  
 			  }	
 				
-			$dir_and_name_estoreViewCopy = $this->checkLayoutCodeReturnCodeTheme($nameController,$layout_code);
+			$dir_and_name_estoreViewCopy = $this->checkLayoutCodeReturnCodeTheme($nameController,$layout_code,$moduleType);
 		    CakeLog::write('debug', 'dir_and_name_estoreViewCopy :'.$dir_and_name_estoreViewCopy);
 		    
 			return $result_code= array(
@@ -490,8 +458,7 @@ class MoreuseController extends AppController {
 					'dir_and_name_estoreViewCopy'=>$dir_and_name_estoreViewCopy,
 			);
 				
-				
-			//}
+			
 		}
 		
 		
@@ -560,9 +527,10 @@ class MoreuseController extends AppController {
 	 * Return : Controller name estore and code 
 	 * copy Controller by name controller new
 	 */
-	function checkLayoutCode($project_name,$layout_code)
+	function checkLayoutCode($project_name,$layout_code,$moduleType)
 	{
-		$controller_estore ;
+	 $controller_estore ;
+     if($moduleType ==='eshop'){		
 		switch ($layout_code) 
 		{
 			case 50000568:
@@ -11162,6 +11130,7 @@ class MoreuseController extends AppController {
 						break;
 				}
 		}
+	 }// end eshop
 	}
 	
 	//++++++++++++++++++++++++++++++++++++
@@ -11169,7 +11138,7 @@ class MoreuseController extends AppController {
 	 * checkLanguageCode :$language_code 
 	 * Return : $sql + langue 
 	*/
-	function checkLanguageCode($namedatabase,$project_name,$language_code,$layout_code,$shop_id,$username ,$password)
+	function checkLanguageCode($namedatabase,$project_name,$language_code,$layout_code,$shop_id,$username ,$password,$moduleType)
 	{
 		$sql_langue = Null ;
 		//$namedatabase = $project_name.'_'.$layout_code;
@@ -11186,7 +11155,7 @@ class MoreuseController extends AppController {
 // 		CakeLog::write('debug', 'password: '.$password);
 // 		CakeLog::write('debug', '/**********end function checkLanguageCode *************/');
 				
-		
+	if($moduleType ==='eshop'){	
 		if($languagecode_layoutcode !='')
 		{
 			switch ($languagecode_layoutcode)
@@ -11492,26 +11461,26 @@ class MoreuseController extends AppController {
 						(6,$shop_id, 36, 20, 'sp13', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_20.jpg', 1, 400),
 						(7,$shop_id, 37, 20, 'sp13', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_20.jpg', 2, 400),
 						(8,$shop_id, 37, 19, 'sp14', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_27.jpg', 1, 200),
-						(9,$shop_id, 38, 21, 'sp2', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_17.jpg', 1,$shop_id),
+						(9,$shop_id, 38, 21, 'sp2', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_17.jpg', 1,300000),
 						(10,$shop_id, 38, 27, 'sp3', '/khieuvu/estoreadmin/webroot/upload/image/files/3.jpg', 1, 200),
 						(11,$shop_id, 39, 27, 'sp3', '/khieuvu/estoreadmin/webroot/upload/image/files/3.jpg', 23, 200),
 						(12,$shop_id, 40, 25, 'sp1', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_09.jpg', 3, 120),
 						(13,$shop_id, 40, 26, 'sp43', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_20.jpg', 1, 120000),
-						(14,$shop_id, 41, 21, 'sp2', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_17.jpg', 2,$shop_id),
+						(14,$shop_id, 41, 21, 'sp2', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_17.jpg', 2,300000),
 						(15,$shop_id, 41, 19, 'sp14', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_27.jpg', 1, 200),
 						(16,$shop_id, 41, 26, 'sp43', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_20.jpg', 1, 120000),
 						(17,$shop_id, 42, 26, 'sp43', '/khieuvu/estoreadmin/webroot/upload/image/images/bg_menu_20.jpg', 5, 120000),
 						(18,$shop_id, 43, 32, 'sp565', '/khieuvu/estoreadmin/webroot/upload/image/files/bg_menu_20.jpg', 2, 20000),
 						(19,$shop_id, 44, 64, 'sp5', '/estoreadmin/webroot/upload/image/files/vietsys_53.jpg', 1, 40000),
-						(20,$shop_id, 44, 48, 'sp4', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1,$shop_id000),
-						(21,$shop_id, 44, 61, 'sp2', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1,$shop_id000),
+						(20,$shop_id, 44, 48, 'sp4', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1,300000),
+						(21,$shop_id, 44, 61, 'sp2', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1,300000),
 						(22,$shop_id, 44, 49, 'sp5', '/estoreadmin/webroot/upload/image/files/vietsys_53.jpg', 1, 40000),
-						(23,$shop_id, 45, 63, 'sp4', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1,$shop_id000),
+						(23,$shop_id, 45, 63, 'sp4', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1,300000),
 						(24,$shop_id, 46, 49, 'sp5', '/estoreadmin/webroot/upload/image/files/vietsys_53.jpg', 1, 40000),
-						(25,$shop_id, 46, 50, 'sp6', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1,$shop_id000),
+						(25,$shop_id, 46, 50, 'sp6', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1,300000),
 						(26,$shop_id, 47, 64, 'sp5', '/estoreadmin/webroot/upload/image/files/vietsys_53.jpg', 1, 40000),
-						(27,$shop_id, 47, 78, 'sp4', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1,$shop_id000),
-						(28,$shop_id, 48, 73, 'sp4', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1,$shop_id000),
+						(27,$shop_id, 47, 78, 'sp4', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1,300000),
+						(28,$shop_id, 48, 73, 'sp4', '/estoreadmin/webroot/upload/image/files/vietsys_55.jpg', 1,300000),
 						(29,$shop_id, 51, 243, 'Tủ chữ L nhiều ngăn', 'img/upload/e06b30abc2aa67efdccf89e55f45cafc.jpg', 1, 4500000),
 						(30,$shop_id, 51, 245, 'Bếp cho quán ăn vừa và nhỏ', 'img/upload/3007b340574bcfd67cc42fd18c74d9b0.jpg', 1, 160000),
 						(31,$shop_id, 52, 243, 'Tủ chữ L nhiều ngăn', 'img/upload/e06b30abc2aa67efdccf89e55f45cafc.jpg', 1, 4500000),
@@ -14053,11 +14022,12 @@ $arrSql[]="INSERT INTO `estore_weblinks` (`id`, `estore_id`, `name`, `link`, `cr
 						break;
 					}
 			}
-		}else
+ 		} else
 		{
 		   $sql_langue ="Error By Laycode".$layout_code." is Null and Langcode ".$language_code." is Null";
 		   return $sql_langue;
 		}
+	 }// end eshop	
 	}
 	
 	//++++++++++++++++++++++++++++++++++++
@@ -14065,9 +14035,10 @@ $arrSql[]="INSERT INTO `estore_weblinks` (`id`, `estore_id`, `name`, `link`, `cr
 	 * checkLayoutCodeReturnCodeTheme :$layout_code
 	 * Return :copy  Name view of controller + dir of theme
 	*/
-	function checkLayoutCodeReturnCodeTheme($project_name,$layout_code)
+	function checkLayoutCodeReturnCodeTheme($project_name,$layout_code,$moduleType)
 	{
 		$dir_and_name_estore = Null ;
+	  if($moduleType ==='eshop'){	
 		switch ($layout_code)
 		{
 			case 50000568:
@@ -14211,6 +14182,9 @@ $arrSql[]="INSERT INTO `estore_weblinks` (`id`, `estore_id`, `name`, `link`, `cr
 					break;
 				}
 		}
+		
+	  }// end eshop
+	 
 	}
 	
 	function danhmuc($shopname) {

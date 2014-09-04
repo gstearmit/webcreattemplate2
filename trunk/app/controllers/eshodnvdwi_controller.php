@@ -1,8 +1,8 @@
 <?php
 
-						  class EshoxrcouxController extends AppController {
-						  var $name = 'Eshoxrcoux';
-						   var $shopname ='eshoxrcoux';
+						  class EshodnvdwiController extends AppController {
+						  var $name = 'Eshodnvdwi';
+						   var $shopname ='eshodnvdwi';
 						   var $uses = array (
 						  		'Estore_categories',//Catalogueshop
 						  		'Estore_news',//eshop

@@ -10697,14 +10697,14 @@ Form.EventObserver = Class.create(Abstract.EventObserver, {
 			d.push(B);
 			z = Element.retrieve(B, "prototype_event_registry", $H())
 		}
-//		var x = z.get(A);
-//		if (Object.isUndefined(x)) {
-//			x = [];
-//			z.set(A, x)
-//		}
-//		if (x.pluck("handler").include(C)) {
-//			return false
-//		}
+		var x = z.get(A);
+		if (Object.isUndefined(x)) {
+			x = [];
+			z.set(A, x)
+		}
+		if (x.pluck("handler").include(C)) {
+			return false
+		}
 		var y;
 		if (A.include(":")) {
 			y = function(E) {
@@ -10744,7 +10744,7 @@ Form.EventObserver = Class.create(Abstract.EventObserver, {
 			}
 		}
 		y.handler = C;
-		//x.push(y);
+		x.push(y);
 		return y
 	}
 	function f() {
@@ -14405,6 +14405,8 @@ WizardClass.prototype = {
 					Metrics.set("wizard_step1_branch_type", BranchTypes.selectedItem);
 					if (Layouts.hasLayoutsForGroup(d)) {
 						Layouts.run(d)
+						alert("brand run");
+						alert(d);
 					} else {
 						Layouts.run(MODULE_WEB)
 					}
@@ -14524,8 +14526,7 @@ WizardClass.prototype = {
 			
 			branch_type: {
 				regexp: /^(.+)/,
-				//error: CFG.labels["wizardPage"]["selectBranchError"].replace("{SELECT_ALL_BRANCH_TYPE}", ' onclick="BranchTypes.openWindow();return false;"'),
-				error: CFG.labels["wizardPage"]["selectBranchError"],
+				error: CFG.labels["wizardPage"]["selectBranchError"].replace("{SELECT_ALL_BRANCH_TYPE}", ' onclick="BranchTypes.openWindow();return false;"'),
 				step: 1,
 				module: MODULE_BRANCH
 			},
@@ -14563,9 +14564,9 @@ WizardClass.prototype = {
 					if (null != b) {
 						Forms.createAlertHint(b, a + "Error", this.validationRules[a].error)
 					}
-//					if ("branch_type" == a) {
-//						Metrics.set("wizard_step1_branch_error", 1)
-//					}
+					if ("branch_type" == a) {
+						Metrics.set("wizard_step1_branch_error", 1)
+					}
 				}
 			}
 		}
@@ -14591,11 +14592,11 @@ WizardClass.prototype = {
 				a.addClassName("selModule");
 				this._setupForModule();
 				
-//				Metrics.set("project_type", this.selectedModule);
-//				if ("branch" != this.selectedModule) {
-//					Metrics.set("wizard_step1_branch_type", "");
-//					Metrics.set("wizard_step1_branch_error", "")
-//				}
+				Metrics.set("project_type", this.selectedModule);
+				if ("branch" != this.selectedModule) {
+					Metrics.set("wizard_step1_branch_type", "");
+					Metrics.set("wizard_step1_branch_error", "")
+				}
 				break;
 				return true
 			}
@@ -14624,7 +14625,7 @@ WizardClass.prototype = {
 			if (MODULE_BRANCH == this.selectedModule) {
 				this.formRowsEl.branch_typeRow.show();
 				
-				//BranchTypes.correctWindowLink();
+				BranchTypes.correctWindowLink();
 				
 				this.formRowsEl.languageRow.hide();
 				
@@ -14817,6 +14818,7 @@ WizardClass.prototype = {
 
 var Wizard = new WizardClass();
 
+/*
 var GAdClass = Class.create();
 
 GAdClass.prototype = {
@@ -14953,6 +14955,7 @@ GAdClass.prototype = {
 };
 
 var GAd = new GAdClass();
+*/
 
 var LayoutsClass = Class.create();
 
