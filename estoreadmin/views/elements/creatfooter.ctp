@@ -39,6 +39,18 @@
     <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/flot/excanvas.js" type="text/javascript"></script>
     <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/flot/flot.min.js" type="text/javascript"></script>
     <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/flot/flot.resize.js" type="text/javascript"></script>
+    <!-- TRỢ GIÚP -->
+	  <script>
+$(document).ready(function(){
+	$("#help").hide();
+  $("#show-help").click(function(){
+    $("#help").toggle(500);
+  });
+  $("#close-help").click(function(){
+	  $("#help").hide(500);
+  });
+});
+</script>
     <script>
       var data, dataset, gd, options, previousLabel, previousPoint, showTooltip, ticks;
       var blue, data, datareal, getRandomData, green, i, newOrders, options, orange, orders, placeholder, plot, purple, randNumber, randSmallerNumber, red, series, totalPoints, update, updateInterval;
@@ -434,4 +446,5 @@
     		);
     });
 	</script>
+	
     <!-- / END - page related files and scripts [optional] -->

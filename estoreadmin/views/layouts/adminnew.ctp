@@ -11,6 +11,6 @@
         <div class='container'>
           <?php echo $content_for_layout; ?>
           <?php echo $this->element('creatfooter')?>
-         
+         <?php echo $this->element('help')?>
   </body>
 </html>

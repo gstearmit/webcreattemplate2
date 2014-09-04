@@ -12,6 +12,17 @@
     </div>
     <!-- / jquery [required] -->
     <script src="<?php echo DOMAINAD?>html/assets/javascripts/jquery/jquery.min.js" type="text/javascript"></script>
+    <script>
+$(document).ready(function(){
+	$("#help").hide();
+  $("#show-help").click(function(){
+    $("#help").toggle(500);
+  });
+  $("#close-help").click(function(){
+	  $("#help").hide(500);
+  });
+});
+</script>
     <!-- / jquery mobile (for touch events) -->
     <script src="<?php echo DOMAINAD?>html/assets/javascripts/jquery/jquery.mobile.custom.min.js" type="text/javascript"></script>
     <!-- / jquery migrate (for compatibility with new jquery) [required] -->
@@ -61,4 +72,5 @@
         return value === param;
       };
     </script>
+     
     <!-- / END - page related files and scripts [optional] -->
