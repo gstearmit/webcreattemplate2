@@ -124,7 +124,6 @@ class MoreuseController extends AppController {
 			
 			if($namwserver != IP_SERVER_TEST)
 			{  // SERVER DIREACT
-				//++++++++++++++creatsubdomainfreemobile+++++++++++++++++++++++++
 				$this->log("log creatsubdomainfreemobile  in SERVER DIREACT ", 'debug');
 				$subdoamin = $this->creatsubdomainfreemobile($slug_lower);
 				if($subdoamin === true)
@@ -135,8 +134,6 @@ class MoreuseController extends AppController {
 					 $logCopyhtcess = $this->copyhtacess($slug_lower,$nameController);
 				}else $logsubdoamin = $subdoamin;
 				
-				//++++++++++++creatdatanamefreemobile++++++++++++++++++
-				//$creatdatabasename = false;	
 				$creatdatabasename = $this->creatdatanamefreemobile($dbuser, $dbname, $dbpass, $dbpass_validate);
 				$this->log("log creatdatanamefreemobile  in SERVER DIREACT ".$creatdatabasename, 'debug');
 				if($creatdatabasename === true)

@@ -50,11 +50,9 @@
 								'Email' 
 						);
 						function loadModelNew($Model) {
-							// ++++++++++++connection data +++++++++++++++++
-						
-							//++++++++++++connection data +++++++++++++++++
+							
 							$nameeshop = $this->shopname;
-							//$shop_id = 276; //$this->Session->read("id");
+						
 							$shoparr = $this->Shop->find ( 'all', array (
 									'conditions' => array (
 											//'Shop.id' => $shop_id,
@@ -88,13 +86,11 @@
 									$userpass = $shop['Shop']['userpass'];
 								}
 							}
-							// 		$hostname = 'localhost';
-							// 		$username = 'root';
-							// 		$databasename = 'eshopdaquy';
-							// 		$password = '';
+						
 						
 							$this->$Model->setDataEshop ( $hostname, $username, $password, $databasename );
 						}
+						
 						function connectiondatabase($sql) {
 							$nameeshop = $this->shopname;	
 							$shoparr = $this->Shop->find ( 'all', array (
@@ -138,14 +134,7 @@
 							);
 							$db->create($databasename,$config);
 							$name = ConnectionManager::getDataSource($databasename);
-							// 							                                    echo "99999999</br>";
-							// 							                                    pr($name->config);die;
-							/*
-							$sql = "SELECT estore_catproducts.*
-									 FROM  estore_catproducts
-									 WHERE estore_catproducts.parent_id= 11 AND estore_catproducts.estore_id =".(int)$shop_id." ORDER BY  estore_catproducts.name ASC ";
-							//$resul = $name->rawQuery($sql);
-							 * */
+							
 							 
 							$resul = $name->fetchAll($sql);
 								
@@ -154,8 +143,105 @@
 								
 						}
 						
+						function encryptIt( $q ) {
+							$cryptKey  = 'qJB0rGtIn5UB1xG03efyCp';
+							$qEncoded      = base64_encode( mcrypt_encrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), $q, MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ) );
+							return( $qEncoded );
+						}
 						
+						function decryptIt( $q ) {
+							$cryptKey  = 'qJB0rGtIn5UB1xG03efyCp';
+							$qDecoded      = rtrim( mcrypt_decrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), base64_decode( $q ), MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ), "\0");
+							return( $qDecoded );
+						}
 						
+						function login() {
+						
+							$ipserver = $_SERVER['SERVER_ADDR'];
+							$namwserver = $_SERVER['SERVER_NAME'];
+						    
+							$this->layout = 'themeshop/creativemarket';
+							
+						   
+						    if(isset($_POST) and !empty($_POST)){
+							$data['Shop']['email'] = $_POST['email'];
+							$data['Shop']['id'] = $_POST['numbereshopnew'];
+							$data['Shop']['userpass'] = $_POST['password'];
+						    }
+							if (empty($data['Shop']['email'])) {
+								$this->Session->setFlash(__('Please enter your Email.', true));
+								$this->redirect(array('action'=>'index'));
+							}elseif(empty($data['Shop']['userpass'])){
+								$this->Session->setFlash(__('Please enter a password', true));
+								$this->redirect(array('action'=>'index'));
+							}else{
+								//$chek=$this->Shop->findByEmail($data['Shop']['email']);
+								$chek=$this->Shop->find ( 'all', array (
+										'conditions' => array (
+												'Shop.id' => $data['Shop']['id'],
+												'Shop.email' => $data['Shop']['email'],
+												'Shop.status' => 1
+										),
+										'fields' => array (
+												'Shop.id',
+												'Shop.created',
+												'Shop.databasename',
+												'Shop.username',
+												'Shop.password',
+												'Shop.hostname',
+												'Shop.name',
+												'Shop.email',
+												'Shop.userpass',
+												'Shop.ipserver'
+										)
+								) );
+							}
+							if(is_array($chek) and !empty($chek))
+							{
+								foreach($chek as $shop){
+									$databasename = $shop['Shop']['databasename'];
+									$password = $shop['Shop']['password'];
+									$username = $shop['Shop']['username'];
+									$hostname = $shop['Shop']['hostname'];
+									$shop_id = $shop['Shop']['id'];
+									$nameproject = $shop['Shop']['name'];
+									$email = trim($shop['Shop']['email']);
+									$userpass = $shop['Shop']['userpass'];
+										
+								}
+							}else {
+								// truong hop chua khoi tao eshop nao co id tuong ung
+								$userpass = '';
+								$email ='';
+							}
+								
+								
+							if($userpass!=$this->encryptIt($data['Shop']['userpass'])){
+						
+								echo "<script>alert('".json_encode('Incorrect password !')."');</script>";
+								echo "<script>location.href='".DOMAIN.$this->shopname."'</script>";
+								//pr($userpass);die();
+							}
+							if($email != $data['Shop']['email']){
+								echo "<script>alert('".json_encode('Email is not true. Please re-enter!')."');</script>";
+								echo "<script>location.href='".DOMAIN.$this->shopname."'</script>";
+							}
+								
+							if($userpass===$this->encryptIt($data['Shop']['userpass']) and $email===$data['Shop']['email']){
+						
+								$this->Session->write('id',$shop_id);
+								$this->Session->write('name',$nameproject);
+								$urlredirect = DOMAIN.$this->shopname;
+								$this->redirect($urlredirect);
+						
+							}
+						
+						}
+						function advertisementsedit($id){
+							$this->layout = 'themeshop/creativemarket';
+							$this->loadModelNew ( 'Estore_advertisements' );
+							return $this->Estore_advertisements->read ( null, $id );
+						}
 						function get_shop_id($name) {
 							
 						
