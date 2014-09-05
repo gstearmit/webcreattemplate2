@@ -49,7 +49,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                       </div>
                     </div>
                     <div class='box-content'>
-                      <form action="<?php echo DOMAINAD ?>products/search<?php echo  $langs ?>" enctype="multipart/form-data" name="image" method="post" accept-charset="utf-8" class='form form-horizontal validate-form' style='margin-bottom: 0;'>
+                      <form action="<?php echo DOMAINADESTORE ?>products/search<?php echo  $langs ?>" enctype="multipart/form-data" name="image" method="post" accept-charset="utf-8" class='form form-horizontal validate-form' style='margin-bottom: 0;'>
                        <input type="hidden" name="_method" value="POST" />
                          
                        <div class='form-group'>
@@ -133,7 +133,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                     <div class='box-content box-no-padding'>
                       <div class='responsive-table'>
                         <div class='scrollable-area'>
-                        <form action="<?php echo DOMAINAD;?>products/processing<?php echo  $langs ?>" name="form1" method="post">
+                        <form action="<?php echo DOMAINADESTORE;?>products/processing<?php echo  $langs ?>" name="form1" method="post">
                           <table class='data-table-column-filter table table-bordered table-striped' style='margin-bottom:0;'>
                           
                             <thead>
@@ -175,25 +175,25 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                                 <td class="text-center">
                                 <?php if($value['Product']['status']==0){?>
                                   <div class='text-right'>
-                                    <a class='btn btn-inverse btn-xs' href='<?php echo DOMAINAD?>products/active/<?php echo $value['Product']['id'] ?><?php echo  $langs ?>'>
+                                    <a class='btn btn-inverse btn-xs' href='<?php echo DOMAINADESTORE?>products/active/<?php echo $value['Product']['id'] ?><?php echo  $langs ?>'>
                                       <i class='icon-minus-sign'></i>
                                     </a>
-                                    <a class='btn btn-warning btn-xs' href='<?php echo DOMAINAD?>products/edit/<?php echo $value['Product']['id'] ?><?php echo  $langs ?>'>
+                                    <a class='btn btn-warning btn-xs' href='<?php echo DOMAINADESTORE?>products/edit/<?php echo $value['Product']['id'] ?><?php echo  $langs ?>'>
                                       <i class='icon-edit'></i>
                                     </a>
-                                    <a class='btn btn-danger btn-xs' href="javascript:confirmDelete('<?php echo DOMAINAD?>products/delete/<?php echo $value['Product']['id'] ?><?php echo  $langs ?>')">
+                                    <a class='btn btn-danger btn-xs' href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>products/delete/<?php echo $value['Product']['id'] ?><?php echo  $langs ?>')">
                                       <i class='icon-remove'></i>
                                     </a>
                                   </div>
                                   <?php }else {?>
                                   <div class='text-right'>
-                                    <a class='btn btn-success btn-xs' href='<?php echo DOMAINAD?>products/close/<?php echo $value['Product']['id'] ?><?php echo  $langs ?>'>
+                                    <a class='btn btn-success btn-xs' href='<?php echo DOMAINADESTORE?>products/close/<?php echo $value['Product']['id'] ?><?php echo  $langs ?>'>
                                       <i class=' icon-ok'></i>
                                     </a>
-                                    <a class='btn btn-warning btn-xs' href='<?php echo DOMAINAD?>products/edit/<?php echo $value['Product']['id'] ?><?php echo  $langs ?>'>
+                                    <a class='btn btn-warning btn-xs' href='<?php echo DOMAINADESTORE?>products/edit/<?php echo $value['Product']['id'] ?><?php echo  $langs ?>'>
                                       <i class='icon-edit'></i>
                                     </a>
-                                    <a class='btn btn-danger btn-xs' href="javascript:confirmDelete('<?php echo DOMAINAD?>products/delete/<?php echo $value['Product']['id'] ?><?php echo  $langs ?>')">
+                                    <a class='btn btn-danger btn-xs' href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>products/delete/<?php echo $value['Product']['id'] ?><?php echo  $langs ?>')">
                                       <i class='icon-remove'></i>
                                     </a>
                                   </div>

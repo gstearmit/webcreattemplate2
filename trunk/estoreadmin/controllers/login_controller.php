@@ -22,12 +22,7 @@ class LoginController extends AppController {
 	
 		$ipserver = $_SERVER['SERVER_ADDR'];
 		$namwserver = $_SERVER['SERVER_NAME'];
-		if($namwserver != IP_SERVER_TEST){  // SERVER DIREACT
-				
-		}elseif($namwserver === IP_SERVER_TEST){  // LOCALHOST
-		}
 		
-	
 
 		$data['Shop'] = $this->data['Shop'];
 		if (empty($data['Shop']['email'])) {
@@ -66,57 +61,36 @@ class LoginController extends AppController {
 					$username = $shop['Shop']['username'];
 					$hostname = $shop['Shop']['hostname'];
 					$shop_id = $shop['Shop']['id'];
-					$nameproject = $shop['Shop']['name'];           // $nameproject is name Ctronller
+					$nameproject = $shop['Shop']['name'];          
 					$email = trim($shop['Shop']['email']);
 					$userpass = $shop['Shop']['userpass'];
-					//pr($chek);die();
+					
 				}
-			}
+			}else { 
+				// truong hop chua khoi tao eshop nao co id tuong ung
+				$userpass = '';
+				$email ='';
+			 }
 			
 			
 			if($userpass!=$this->encryptIt($data['Shop']['userpass'])){
 				
 					echo "<script>alert('".json_encode('Incorrect password !')."');</script>";
 					echo "<script>location.href='".DOMAINADESTORE."'</script>";
-					pr($userpass);die();
+					//pr($userpass);die();
 				}
 			if($email != $data['Shop']['email']){
 				echo "<script>alert('".json_encode('Email is not true. Please re-enter!')."');</script>";
 				echo "<script>location.href='".DOMAINADESTORE."'</script>";
 			}
-			//pr($data);die();
+			
 			if($userpass===$this->encryptIt($data['Shop']['userpass']) and $email===$data['Shop']['email']){
-				//echo "jdfnvjkfdnvlfdjgol";
+				
 				$this->Session->write('id',$shop_id);
 				$this->Session->write('name',$nameproject);
 				$this->redirect('/home');
 				
 			}
-		
-		
-// 		$data['Estore_user'] = $this->data['Estore_user'];
-// 		if (empty($data['Estore_user']['name'])) {
-// 			$this->Session->setFlash(__('Xin vui lòng nhập tên đăng nhập', true));
-// 			$this->redirect(array('action'=>'index'));
-// 		}elseif(empty($data['Estore_user']['password'])){
-// 			$this->Session->setFlash(__('Xin vui lòng nhập mật khẩu', true));
-// 			$this->redirect(array('action'=>'index'));
-// 		}else{
-// 			$chek=$this->Estore_user->findByName($data['Estore_user']['name']);
-// 			if($chek){
-// 				if($chek['Estore_user']['password']==md5($data['Estore_user']['password'])){
-// 					$this->Session->write('id',$chek['Estore_user']['id']);
-// 					$this->Session->write('name',$chek['Estore_user']['name']);
-// 					$this->redirect('/home');
-// 				}else{
-// 					echo "<script>alert('".json_encode('Mật khẩu không đúng !')."');</script>";
-// 					echo "<script>location.href='".DOMAINAD."'</script>";
-// 				}			
-// 			}else{
-// 				echo "<script>alert('".json_encode('Tên đăng nhập không đúng. Xin vui lòng nhập lại !')."');</script>";
-// 				echo "<script>location.href='".DOMAINAD."'</script>";
-// 			}
-// 		}
 
 	}
 	//lay lai password
