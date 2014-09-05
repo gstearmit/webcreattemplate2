@@ -1,147 +1,158 @@
-<?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'partners/add','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false)));?>
-<br />  
-<?php
-	//echo $this->Html->script(array('ckeditor/ckeditor','ckfinder/ckfinder'));
-?>
-<div id="khung">
-	<div id="main">
-		<div class="toolbar-list" id="toolbar">
-			<ul>
-				<li id="toolbar-new">
-					<a href="javascript:void(0);" onclick="javascript:document.adminForm.submit();" class="toolbar">
-                        <span class="icon-32-save"></span>
-                     <?php __('Save')?>
-					</a>
-                </li>
-                <li id="toolbar-refresh">
-                    <a href="javascript:void(0);" class="toolbar" onclick="javascript:document.adminForm.reset();">
-                    <span class="icon-32-refresh">
-                    </span>
-                    <?php __('Reset')?>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li id="toolbar-help">
-                    <a href="#messages" rel="modal" class="toolbar">
-                        <span class="icon-32-help"></span>
-                       <?php __('Help')?>
-                    </a>
-                </li>
-                <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINADESTORE?>partners" class="toolbar">
-                        <span class="icon-32-cancel"></span>
-                       <?php __('Cancel')?>
-                    </a>
-                </li>
-            </ul>
-            <div class="clr"></div>
-        </div>
-		<div class="pagetitle icon-48-category-add"><h2><?php __('Partners')?></h2></div>
-		<div class="clr"></div>
-	</div>
-</div>
-<div class="content-box"><!-- Start Content Box -->
-    <div class="content-box-header">
-        <h3> <?php __('Add_new')?></h3>
-        <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab"><?php __('Add_new')?></a></li> <!-- href must be unique and match the id of target div -->
-        </ul>
-        <div class="clear"></div>
-    </div> <!-- End .content-box-header -->
-    <div class="content-box-content">
-        <div class="tab-content default-tab" id="tab1">
-        	<table class="input">
-               	<tr><?php echo $this->Form->input('Partner.estore_id',array('label' => '','type'=>'hidden','class'=>'text-input medium-input datepicker','value'=>$this->Session->read("id")));?>
-                   <td width="120" class="label"><?php __('Partner_name')?>:</td>
-                    <td>
-                    <?php echo $this->Form->input('Partner.name',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
-                    </td>
-                </tr>
-                <tr>
-                   	<td width="120" class="label"><?php __('Telephone_number')?>:</td>
-                    <td>
-                    <?php echo $this->Form->input('Partner.phone',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
-                    </td>
-                </tr>
-                <tr>
-                   	<td width="120" class="label"><?php __('Email')?>:</td>
-                    <td>
-                    <?php echo $this->Form->input('Partner.email',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
-                    </td>
-                </tr>
-                <tr>
-                   	<td width="120" class="label"><?php __('Address')?>:</td>
-                    <td>
-                    <?php echo $this->Form->input('Partner.address',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
-                    </td>
-                </tr>
-                <tr>
-                   	<td width="120" class="label"><?php __('Website')?>:</td>
-                    <td>
-                    <?php echo $this->Form->input('Partner.website',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
-                    </td>
-                </tr>
-                <tr>
-                  	<td class="label"><?php __('Image')?>:</td>
-                    <td>
-                        <?php echo $this->Form->input('Partner.images',array('class'=>'text-input image-input datepicker','name' => 'userfile'));?> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upload.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
-                    <!--<?php echo $this->Form->input('Partner.images',array('class'=>'text-input image-input datepicker','id' => 'xFilePath'));?>
-                    	<input type="button" value="Chọn ảnh" onclick="BrowseServer();" class="button" />-->
-                    </td>
-                </tr>
-             <tr>
-                  	<td class="label"><?php __('Status')?>:</td>
-                    <td>
-                    <input type="radio" value="0" id="PartnerStatus0" name="data[Partner][status]"><?php __('Unactive')?>
-                    	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="PartnerStatus1" name="data[Partner][status]"> <?php __('Activated')?>
-                    </td>
-                </tr>
-               
-            </table>
-			<div class="clear"></div>
-        </div> <!-- End #tab1 -->
-        <div class="tab-content" id="tab2">
-			<div class="clear"></div><!-- End .clear -->
-        </div> <!-- End #tab2 -->        
-    </div> <!-- End .content-box-content -->
- </div>
- 
-<div id="khung">
-	<div id="main">
-		<div class="toolbar-list" id="toolbar">
-			<ul>
-				<li id="toolbar-new">
-					<a href="javascript:void(0);" onclick="javascript:document.adminForm.submit();" class="toolbar">
-                        <span class="icon-32-save"></span>
-                       <?php __('Save')?>
-					</a>
-                </li>
-                <li id="toolbar-refresh">
-                    <a href="javascript:void(0);" class="toolbar" onclick="javascript:document.adminForm.reset();">
-                    <span class="icon-32-refresh">
-                    </span>
-                    <?php __('Reset')?>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li id="toolbar-help">
-                    <a href="#messages" rel="modal" class="toolbar">
-                        <span class="icon-32-help"></span>
-                        <?php __('Help')?>
-                    </a>
-                </li>
-                <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINADESTORE?>partners" class="toolbar">
-                        <span class="icon-32-cancel"></span>
-                         <?php __('Cancel')?>
-                    </a>
-                </li>
-            </ul>
-            <div class="clr"></div>
-        </div>
-		<div class="pagetitle icon-48-category-add"><h2> <?php __('Partners')?></h2></div>
-
-		<div class="clr"></div>
-	</div>
-</div>
-<?php echo $form->end(); ?>
+<?php //pr($Catproductlist);die();?>
+<?php include 'views/elements/language.ctp';?>
+<div class='row' id='content-wrapper'>
+            <div class='col-xs-12'>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='page-header'>
+                    <h1 class='pull-left' style='font-family: Arial, Helvetica, sans-serif;'>
+                      <i class='icon-ok'></i>
+                      <?php __('Partners')?>
+                    </h1>
+                    <div class='pull-right'>
+                      <ul class='breadcrumb'>
+                        <li>
+                          
+                           <a href="javascript:void(0);" onclick="javascript:document.adminForm.reset();">
+                              <input class="btn btn-info" value="<?php __('Reset')?>" type="button">
+                          </a>
+                            <a href='#' rel="modal" id='show-help'>
+                              <input class="btn btn-warning" value="<?php __('Help')?>" type="button">
+                          </a>
+                          <a href='<?php echo DOMAINADESTORE?>partners<?php echo  $langs ?>'>
+                              <input class="btn btn-danger" value="<?php __('Cancel')?>" type="button">
+                          </a>
+                        </li>                       
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='box'>
+                    <div class='box-header blue-background'>
+                      <div class='title'><?php __('Add_new')?></div>
+                      <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class='box-content'>
+                      <form action="<?php echo DOMAINADESTORE; ?>partners/add" enctype="multipart/form-data" name="adminForm" method="post" accept-charset="utf-8" class='form form-horizontal validate-form' style='margin-bottom: 0;'>
+                       <input type="hidden" name="_method" value="POST" />
+                        <div class='form-group'>
+                          <label class='control-label col-sm-3 col-sm-3' for='validation_name'><?php __('Partner_name')?></label>
+                          <div class='col-sm-4 controls'>
+                            <input class='form-control' data-rule-minlength='2' data-rule-required='true' id='validation_name' name="data[Partner][name]" placeholder='<?php __('Partner_name')?>' type='text'>
+                          </div>
+                        </div>  
+                        <div class='form-group'>
+                          <label class='control-label col-sm-3' for='validation_numbers'><?php __('Telephone_number')?></label>
+                          <div class='col-sm-4 controls'>
+                            <input class='form-control' data-rule-number='true' data-rule-required='true' id='validation_numbers' name='data[Partner][phone]' placeholder='<?php __('Telephone_number')?>' type='text'>
+                          </div>
+                        </div>
+                        <div class='form-group'>
+                          <label class='control-label col-sm-3' for='validation_email'><?php __('Email')?></label>
+                          <div class='col-sm-4 controls'>
+                            <input class='form-control' data-rule-email='true' data-rule-required='true' id='validation_email' name='data[Partner][email]' placeholder='E-mail' type='text'>
+                          </div>
+                        </div>
+                        <div class='form-group'>
+                          <label class='control-label col-sm-3 col-sm-3' for='validation_name'><?php __('Address')?></label>
+                          <div class='col-sm-4 controls'>
+                            <input class='form-control' data-rule-minlength='2' data-rule-required='true' id='validation_name' name="data[Partner][address]" placeholder='<?php __('Address')?>' type='text'>
+                          </div>
+                        </div>  
+                        <div class='form-group'>
+                          <div class='control-label col-sm-3'>
+                            <label for='validation_url'><?php __('Website')?></label>
+                            <small class='help-block'>http://</small>
+                          </div>
+                          <div class='col-sm-4 controls'>
+                            <input class='form-control' data-rule-required='true' data-rule-url='true' id='validation_url' name='data[Partner][website]' placeholder='<?php __('Address')?>' type='text'>
+                          </div>
+                        </div>
+                        <div class='form-group'>
+                          <label class='control-label col-sm-3' for='validation_password'><?php __('Image')?></label>
+                          <div>
+                        <div class=' input-group col-sm-4 controls' >
+                          <input class='form-control' readonly='readonly' name='userfile' placeholder='<?php __('Image')?>' type='text'>
+                          <span class='input-group-addon ' style="padding:0px">
+                            <span>
+                            <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upload.php','userfile','width=500,height=300');window.history.go(1)" >
+                            <input class="btn btn-success" style="padding: 5px;"  value="<?php __('Select_image')?>" type="button">
+                            </a>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                        </div> 
+                         <div class='form-group'>
+                        <label class='control-label col-sm-3' for='validation_select'><?php __('Status')?></label>
+                        <div class='col-sm-4 controls'>
+                          <label class='radio radio-inline'>
+                            <input  name="data[Partner][status]" type='radio' value='1' checked="checked">
+                            <?php __('Actived')?>
+                          </label>
+                          <label class='radio radio-inline'>
+                            <input  name="data[Partner][status]" type='radio' value='0' >
+                             <?php __('Unactive')?>
+                          </label>
+                          </div>
+                      </div>             
+                       <div class='form-actions' style='margin-bottom:0'>
+                          <div class='row'>
+                            <div class='col-sm-9 col-sm-offset-3'>
+                              <button class='btn btn-primary' type='submit' value="<?php __('Save');?> " >
+                                <i class='icon-save'></i>
+                                 <?php __('Save')?>
+                              </button>
+                               </div>
+                          </div>
+                        </div>
+                        
+                      </form>                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+            </div>
+          </div>         
+ <!-- Bottom -->
+          <div class='row' id='content-wrapper'>
+            <div class='col-xs-12'>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='page-header'>
+                    <h1 class='pull-left' style='font-family: Arial, Helvetica, sans-serif;'>
+                      <i class='icon-ok'></i>
+                      <?php __('Account')?>
+                    </h1>
+                    <div class='pull-right'>
+                      <ul class='breadcrumb'>
+                        <li>                         
+                          
+                           <a href="javascript:void(0);" onclick="javascript:document.adminForm.reset();">
+                              <input class="btn btn-info" value="<?php __('Reset')?>" type="button">
+                          </a>
+                            <a href='#' rel="modal" id='show-help'>
+                              <input class="btn btn-warning" value="<?php __('Help')?>" type="button">
+                          </a>
+                          <a href='<?php echo DOMAINADESTORE?>partners<?php echo  $langs ?>'>
+                              <input class="btn btn-danger" value="<?php __('Cancel')?>" type="button">
+                          </a>
+                        </li>                       
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>                             
+            </div>
+          </div>

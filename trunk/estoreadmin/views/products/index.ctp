@@ -20,7 +20,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                     <div class='pull-right'>
                       <ul class='breadcrumb'>
                        <li>
-                          <a href='#'>
+                          <a href='<?php echo DOMAINADESTORE?>products/add<?php echo $langs?>'>
                               <input class="btn btn-success" value="<?php __('Add_new')?>" type="button">
                           </a>
                             <a href='#'>

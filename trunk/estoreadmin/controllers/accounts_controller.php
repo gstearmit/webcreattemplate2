@@ -101,8 +101,9 @@ class AccountsController extends AppController {
 		}
 		if (empty($this->data)) {
 			$this->data = $this->User->read(null, $id);
-		}		
-		
+		}
+		$this->set('edit',$this->User->findById($id));
+		//$this->layout='admin_validate';
 		//NGÔN NGỮ
 		$urlTmp = $_SERVER['REQUEST_URI'];
 			
@@ -149,6 +150,7 @@ class AccountsController extends AppController {
 		$this->set ( 'langue', $langue );
 	}
 	function check_pass() {
+		$this->loadModelNew ( 'User' );
 		if (!empty($this->data)){
 			$data['User'] = $this->data['User'];
 			if($data['User']['pass_old']=='' || $data['User']['pass_new']==''){
@@ -157,13 +159,14 @@ class AccountsController extends AppController {
 			}else{
 				$check=$this->User->findById($data['User']['id']);
 				if($check['User']['password']!=md5($data['User']['pass_old'])){
+					//echo $check['User']['password'];
 					echo "<script>alert('".json_encode('Mật khẩu cũ không đúng! Vui lòng thực hiện lại!')."');</script>";
 					echo "<script>history.back();</script>";
 				}else{
 					$data['User']['password']=md5($data['User']['pass_new']);
 						if ($this->User->save($data['User'])) {
 							echo "<script>alert('".json_encode('Tài khoản của bạn đã thay đổi thành công!')."');</script>";
-							echo "<script>location.href='".DOMAINAD."/accounts'</script>";
+							echo "<script>location.href='".DOMAINADESTORE."accounts'</script>";
 						}
 				}
 			}
@@ -181,6 +184,7 @@ class AccountsController extends AppController {
 			if($this->User->save($this->data))
 			$this->redirect(array('action' => 'index'));
 		}
+		$this->layout='admin_validate';
 		//NGÔN NGỮ
 		$urlTmp = $_SERVER['REQUEST_URI'];
 			
@@ -240,7 +244,7 @@ class AccountsController extends AppController {
 		}
 	}
 	function beforeFilter(){
-		$this->layout='admin';
+		$this->layout='adminnew';
 	}
 
 }

@@ -160,7 +160,7 @@ class ProductsController extends AppController {
 				'10' => 'Trên 10 triệu' 
 		);
 		$this->set ( compact ( 'gia' ) );
-		
+		$this->layout = 'admin_validate';
 		//NGÔN NGỮ
 		$urlTmp = $_SERVER['REQUEST_URI'];
 		
@@ -486,7 +486,7 @@ class ProductsController extends AppController {
 				'10' => 'Trên 10 triệu' 
 		);
 		$this->set ( compact ( 'gia' ) );
-		
+		$this->layout='admin_validate';
 		//NGÔN NGỮ
 		$urlTmp = $_SERVER['REQUEST_URI'];
 		

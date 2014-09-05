@@ -157,12 +157,12 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                           </table>
                            
                                   <select name="dropdown" style="max-width:110px; height:33px; border-radius:5px; margin:10px;">
-                                    <option value="option1"><?php __('select')?></option>
+                                   <option value="option1"><?php __('Select')?></option>
                                     <option value="active"><?php __('Active')?></option>
-                                    <option value="notactive"><?php __('Del_active')?></option>
+                                    <option value="notactive"><?php __('Cancel_Active')?></option>
                                     <option value="delete"><?php __('Delete')?></option>
                                 </select>
-                               <input class="btn btn-success" value="<?php __('perform')?>" type="button" onclick="document.form1.submit();">
+                               <input class="btn btn-success" value="<?php __('Implement')?>" type="button" onclick="document.form1.submit();">
                           </form>
                         </div>
                       </div>

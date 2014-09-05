@@ -411,3 +411,15 @@ msgstr "Current location"
 
 msgid "Alternate_location"
 msgstr "Alternate location"
+
+msgid "Medium_and_premium_products"
+msgstr "Medium and premium products"
+
+msgid "Promotional_products"
+msgstr "Promotional products"
+
+msgid "Select_producer"
+msgstr "Select producer"
+
+msgid "Select_category"
+msgstr "Select category"
