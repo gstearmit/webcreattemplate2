@@ -1,74 +1,135 @@
-<?php 
-$active = 'Đã Active';
-$unactive='Chưa Active';
-$left='Trái';
-$right='Phải';
-if(isset($_GET['language'])){
-	if($_GET['language']=='eng'){
-		$active = 'Active';
-		$unactive='Unactive';
-		$left='Left';
-		$right='Right';
-	}else {
-		$active = 'Đã Active';
-		$unactive='Chưa Active';
-		$left='Trái';
-		$right='Phải';
-	}
-}
-?>
-<div class="content-box"><!-- Start Content Box -->
-    <div class="content-box-header">
-        
-        <h3><?php __('Video')?></h3>
-        
-        <ul class="content-box-tabs">
-            <li><a href="#tab1"></a></li> <!-- href must be unique and match the id of target div -->
-            <li><a href="#tab2" class="default-tab"><?php __('Add_new')?></a></li>
-        </ul>
-        
-        <div class="clear"></div>
-        
-    </div> <!-- End .content-box-header -->
-    <div class="content-box-content">
-        
-        <div class="tab-content" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
-        </div> <!-- End #tab1 -->
-        
-        <div class="tab-content default-tab" id="tab2">
-        
-             <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'videos/add','type' => 'post','enctype'=>'multipart/form-data','name'=>'image')); ?>       
-                
-                <fieldset> 
-                    <p>
-                        <label><?php __('Company_name')?></label>
-                           <?php echo $form->input('Video.name',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
-                    </p>
-                    <p>
-                        <label><?php __('LinkUrl Youtube.com')?></label>
-                       <?php echo $form->input('Video.LinkUrl',array( 'label' => '','class'=>'text-input medium-input datepicker'));?>
-                    </p>
-                    <p><label><?php __('Position')?></label>
-                    <?php echo $form->radio('Video.left', array(0 => $left, 1 => $right), array('value' => '1','legend'=>'','class'=>'text-input medium-input datepicker')); ?>
-                	</p>
-                    <input type="radio" value="0" id="ProductStatus0" name="data[Product][status]"> <?php __('Unactive')?>
-                    	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="ProductStatus1" name="data[Product][status]"> <?php __('Activated')?>
-                     <p>
-                        <label><?php __('Status')?></label>
-                         <?php echo $form->radio('Video.status', array(0 => $unactive, 1 => $active), array('value' => '1','legend'=>'','class'=>'text-input medium-input datepicker')); ?>  
-                    </p>
-                    <p>
-                        <input class="button" type="submit" value="<?php __('Add_new')?>" />
-                    </p>
-                    
-                </fieldset>
-                
-                <div class="clear"></div><!-- End .clear -->
-                
-            <?php echo $form->end(); ?>
-            
-        </div> <!-- End #tab2 -->        
-        
-    </div> <!-- End .content-box-content -->
- </div>
-
+<?php //pr($Catproductlist);die();?>
+<?php include 'views/elements/language.ctp';?>
+<div class='row' id='content-wrapper'>
+            <div class='col-xs-12'>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='page-header'>
+                    <h1 class='pull-left' style='font-family: Arial, Helvetica, sans-serif;'>
+                      <i class='icon-ok'></i>
+                      <?php __('Video_management')?>
+                    </h1>
+                    <div class='pull-right'>
+                      <ul class='breadcrumb'>
+                        <li>
+                          
+                           <a href="javascript:void(0);" onclick="javascript:document.adminForm.reset();">
+                              <input class="btn btn-info" value="<?php __('Reset')?>" type="button">
+                          </a>
+                            <a href='#' rel="modal" id='show-help'>
+                              <input class="btn btn-warning" value="<?php __('Help')?>" type="button">
+                          </a>
+                          <a href='<?php echo DOMAINADESTORE?>videos<?php echo  $langs ?>'>
+                              <input class="btn btn-danger" value="<?php __('Cancel')?>" type="button">
+                          </a>
+                        </li>                       
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='box'>
+                    <div class='box-header blue-background'>
+                      <div class='title'><?php __('Add_new')?></div>
+                      <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class='box-content'>
+                      <form action="<?php echo DOMAINADESTORE; ?>videos/add" enctype="multipart/form-data" name="adminForm" method="post" accept-charset="utf-8" class='form form-horizontal validate-form' style='margin-bottom: 0;'>
+                       <input type="hidden" name="_method" value="POST" />
+                        <div class='form-group'>
+                          <label class='control-label col-sm-3 col-sm-3' for='validation_name'><?php __('Title')?></label>
+                          <div class='col-sm-4 controls'>
+                            <input class='form-control' data-rule-minlength='2' data-rule-required='true' id='validation_name' name="data[Video][name]" placeholder='<?php __('Title')?>' type='text'>
+                          </div>
+                        </div>  
+                         <div class='form-group'>
+                          <label class='control-label col-sm-3 col-sm-3' for='validation_name'><?php __('LinkUrl Youtube.com')?></label>
+                          <div class='col-sm-4 controls'>
+                            <input class='form-control' data-rule-minlength='2' data-rule-required='true' id='validation_name1' name="data[Video][LinkUrl]" placeholder='<?php __('LinkUrl Youtube.com')?>' type='text'>
+                          </div>
+                        </div> 
+                         <div class='form-group'>
+                        <label class='control-label col-sm-3' for='validation_select'><?php __('Position')?></label>
+                        <div class='col-sm-4 controls'>
+                          <label class='radio radio-inline'>
+                            <input  name="data[Video][left]" type='radio' value='0' >
+                            <?php __('Left')?>
+                          </label>
+                          <label class='radio radio-inline'>
+                            <input  name="data[Video][left]" type='radio' value='1' checked="checked" >
+                             <?php __('Right')?>
+                          </label>
+                          </div>
+                      </div>            
+                        <div class='form-group'>
+                        <label class='control-label col-sm-3' for='validation_select'><?php __('Status')?></label>
+                        <div class='col-sm-4 controls'>
+                          <label class='radio radio-inline'>
+                            <input  name="data[Video][status]" type='radio' value='1' checked="checked">
+                            <?php __('Actived')?>
+                          </label>
+                          <label class='radio radio-inline'>
+                            <input  name="data[Video][status]" type='radio' value='0' >
+                             <?php __('Unactive')?>
+                          </label>
+                          </div>
+                      </div>                                      
+                       <div class='form-actions' style='margin-bottom:0'>
+                          <div class='row'>
+                            <div class='col-sm-9 col-sm-offset-3'>
+                              <button class='btn btn-primary' type='submit' value="<?php __('Save');?> " >
+                                <i class='icon-save'></i>
+                                 <?php __('Save')?>
+                              </button>
+                               </div>
+                          </div>
+                        </div>
+                        
+                      </form>                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+            </div>
+          </div>         
+ <!-- Bottom -->
+          <div class='row' id='content-wrapper'>
+            <div class='col-xs-12'>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='page-header'>
+                    <h1 class='pull-left' style='font-family: Arial, Helvetica, sans-serif;'>
+                      <i class='icon-ok'></i>
+                      <?php __('Video_management')?>
+                    </h1>
+                    <div class='pull-right'>
+                      <ul class='breadcrumb'>
+                        <li>                         
+                          
+                           <a href="javascript:void(0);" onclick="javascript:document.adminForm.reset();">
+                              <input class="btn btn-info" value="<?php __('Reset')?>" type="button">
+                          </a>
+                            <a href='#' rel="modal" id='show-help'>
+                              <input class="btn btn-warning" value="<?php __('Help')?>" type="button">
+                          </a>
+                          <a href='<?php echo DOMAINADESTORE?>videos<?php echo  $langs ?>'>
+                              <input class="btn btn-danger" value="<?php __('Cancel')?>" type="button">
+                          </a>
+                        </li>                       
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>                             
+            </div>
+          </div>

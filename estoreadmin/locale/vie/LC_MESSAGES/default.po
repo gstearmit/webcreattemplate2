@@ -411,3 +411,15 @@ msgstr "Vị trí hiện tại"
 
 msgid "Alternate_location"
 msgstr "Vị trí thay thế"
+
+msgid "Medium_and_premium_products"
+msgstr "Sản phẩm trung & cao cấp"
+
+msgid "Promotional_products"
+msgstr "Sản phẩm khuyến mại"
+
+msgid "Select_producer"
+msgstr "Chọn hãng sản xuất"
+
+msgid "Select_category"
+msgstr "Chọn danh mục"

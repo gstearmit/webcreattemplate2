@@ -110,7 +110,7 @@ class PartnersController extends AppController {
 				$this->Session->setFlash(__('Thêm mơi danh mục thất bại. Vui long thử lại', true));
 			}
 		}
-		
+		$this->layout='admin_validate';
 		//NGÔN NGỮ
 		$urlTmp = $_SERVER['REQUEST_URI'];
 			
@@ -371,7 +371,7 @@ class PartnersController extends AppController {
 		}
 	}
 	function beforeFilter(){
-		$this->layout='admin';
+		$this->layout='adminnew';
 	}
 
 }
