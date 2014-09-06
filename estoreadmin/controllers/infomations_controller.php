@@ -126,7 +126,7 @@ class InfomationsController extends AppController {
 		}
 	}
 	function beforeFilter(){
-		$this->layout='admin';
+		$this->layout='adminnew';
 	}
 	function search($name_search=null){
 		mysql_query("SET names utf8");

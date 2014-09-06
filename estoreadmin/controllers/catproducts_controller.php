@@ -184,7 +184,7 @@ class CatproductsController extends AppController {
 		$this->loadModelNew();
         $Catproductlist = $this->Catproduct->generatetreelist(null,null,null," _ ");
         $this->set(compact('Catproductlist'));
-        
+        $this->layout='admin_validate';
         //NGÔN NGỮ
         $urlTmp = $_SERVER['REQUEST_URI'];
         
@@ -252,8 +252,10 @@ class CatproductsController extends AppController {
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Catproduct->read(null, $id);
+			$this->set('edit',$this->Catproduct->read(null, $id));
 		}
 		$this->set('list_cat',$this->_find_list());
+		
 		
 		//NGÔN NGỮ
 		$urlTmp = $_SERVER['REQUEST_URI'];

@@ -23,7 +23,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                           <a href='<?php echo DOMAINADESTORE?>products/add<?php echo $langs?>'>
                               <input class="btn btn-success" value="<?php __('Add_new')?>" type="button">
                           </a>
-                            <a href='#'>
+                            <a href='#' id='show-help'>
                               <input class="btn btn-warning" value="<?php __('Help')?>" type="button">
                           </a>
                           <a href='#'>

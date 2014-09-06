@@ -112,7 +112,7 @@ class HelpsController extends AppController {
 				$this->Session->setFlash ( __ ( 'Thêm mới thất bại' ) );
 			}
 		}
-		
+		$this->layout = 'admin_validate';
 		//NGÔN NGỮ
 		$urlTmp = $_SERVER['REQUEST_URI'];
 			
@@ -198,7 +198,8 @@ class HelpsController extends AppController {
 		if (empty ( $this->data )) {
 			$this->data = $this->Help->read ( null, $id );
 		}
-		
+		$this->set('edit',$this->Help->findById($id));
+		$this->layout = 'admin_validate';
 		//NGÔN NGỮ
 		$urlTmp = $_SERVER['REQUEST_URI'];
 			
@@ -301,7 +302,7 @@ class HelpsController extends AppController {
 		}
 	}
 	function beforeFilter() {
-		$this->layout = 'admin';
+		$this->layout = 'adminnew';
 	}
 }
 ?>

@@ -15,14 +15,14 @@
             <ul class='dropdown-menu color-settings'>
               <li class='color-settings-body-color'>
                 <div class='color-title'>Body color</div>
-                <a data-change-to='<?php echo DOMAINAD?>html/assets/stylesheets/light-theme.css' href='#'>
+                <a data-change-to='<?php echo DOMAINADESTORE?>html/assets/stylesheets/light-theme.css' href='#'>
                   Light
                   <small>(default)</small>
                 </a>
-                <a data-change-to='<?php echo DOMAINAD?>html/assets/stylesheets/dark-theme.css' href='#'>
+                <a data-change-to='<?php echo DOMAINADESTORE?>html/assets/stylesheets/dark-theme.css' href='#'>
                   Dark
                 </a>
-                <a data-change-to='<?php echo DOMAINAD?>html/assets/stylesheets/dark-blue-theme.css' href='#'>
+                <a data-change-to='<?php echo DOMAINADESTORE?>html/assets/stylesheets/dark-blue-theme.css' href='#'>
                   Dark blue
                 </a>
               </li>
