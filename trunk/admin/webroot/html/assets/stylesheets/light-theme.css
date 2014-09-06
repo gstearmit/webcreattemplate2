@@ -2695,7 +2695,11 @@ body {
   border-left: none; }
 .box-content.box-no-padding .table-striped th:last-child, .box-content.box-no-padding .table-striped td:last-child {
   border-right: none; }
-
+ @media (max-width: 768px) {
+ .dataTables_wrapper {
+  overflow: auto  !important;
+  }
+ }
 .dataTables_wrapper {
   overflow: hidden;
   *zoom: 1; }

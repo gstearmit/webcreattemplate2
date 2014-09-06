@@ -114,7 +114,7 @@ class WeblinksController extends AppController {
 				$this->Session->setFlash ( __ ( 'Thêm mới thất bại' ) );
 			}
 		}
-		
+		$this->layout = 'admin_validate';
 		//NGÔN NGỮ
 		$urlTmp = $_SERVER['REQUEST_URI'];
 			
@@ -200,7 +200,8 @@ class WeblinksController extends AppController {
 		if (empty ( $this->data )) {
 			$this->data = $this->Weblink->read ( null, $id );
 		}
-		
+		$this->set('edit',$this->Weblink->findById($id));
+		$this->layout = 'admin_validate';
 		//NGÔN NGỮ
 		$urlTmp = $_SERVER['REQUEST_URI'];
 			
@@ -313,7 +314,7 @@ class WeblinksController extends AppController {
 		) );
 	}
 	function beforeFilter() {
-		$this->layout = 'admin';
+		$this->layout = 'adminnew';
 	}
 }
 ?>

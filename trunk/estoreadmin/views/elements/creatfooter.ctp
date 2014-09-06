@@ -11,34 +11,34 @@
       </section>
     </div>
     <!-- / jquery [required] -->
-    <script src="<?php echo DOMAINAD?>html/assets/javascripts/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINADESTORE?>html/assets/javascripts/jquery/jquery.min.js" type="text/javascript"></script>
     <!-- / jquery mobile (for touch events) -->
-    <script src="<?php echo DOMAINAD?>html/assets/javascripts/jquery/jquery.mobile.custom.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINADESTORE?>html/assets/javascripts/jquery/jquery.mobile.custom.min.js" type="text/javascript"></script>
     <!-- / jquery migrate (for compatibility with new jquery) [required] -->
-    <script src="<?php echo DOMAINAD?>html/assets/javascripts/jquery/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINADESTORE?>html/assets/javascripts/jquery/jquery-migrate.min.js" type="text/javascript"></script>
     <!-- / jquery ui -->
-    <script src="<?php echo DOMAINAD?>html/assets/javascripts/jquery/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINADESTORE?>html/assets/javascripts/jquery/jquery-ui.min.js" type="text/javascript"></script>
     <!-- / jQuery UI Touch Punch -->
-    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/jquery_ui_touch_punch/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINADESTORE?>html/assets/javascripts/plugins/jquery_ui_touch_punch/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
     <!-- / bootstrap [required] -->
-    <script src="<?php echo DOMAINAD?>html/assets/javascripts/bootstrap/bootstrap.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINADESTORE?>html/assets/javascripts/bootstrap/bootstrap.js" type="text/javascript"></script>
     <!-- / modernizr -->
-    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/modernizr/modernizr.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINADESTORE?>html/assets/javascripts/plugins/modernizr/modernizr.min.js" type="text/javascript"></script>
     <!-- / retina -->
-    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/retina/retina.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINADESTORE?>html/assets/javascripts/plugins/retina/retina.js" type="text/javascript"></script>
     <!-- / theme file [required] -->
-    <script src="<?php echo DOMAINAD?>html/assets/javascripts/theme.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINADESTORE?>html/assets/javascripts/theme.js" type="text/javascript"></script>
     <!-- / demo file [not required!] -->
-    <script src="<?php echo DOMAINAD?>html/assets/javascripts/demo.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINADESTORE?>html/assets/javascripts/demo.js" type="text/javascript"></script>
     <!-- / VALIDATE FORM -->
      
     <!-- / START - page related files and scripts [optional] -->
-     <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/datatables/jquery.dataTables.columnFilter.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/datatables/dataTables.overrides.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/flot/excanvas.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/flot/flot.min.js" type="text/javascript"></script>
-    <script src="<?php echo DOMAINAD?>html/assets/javascripts/plugins/flot/flot.resize.js" type="text/javascript"></script>
+     <script src="<?php echo DOMAINADESTORE?>html/assets/javascripts/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINADESTORE?>html/assets/javascripts/plugins/datatables/jquery.dataTables.columnFilter.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINADESTORE?>html/assets/javascripts/plugins/datatables/dataTables.overrides.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINADESTORE?>html/assets/javascripts/plugins/flot/excanvas.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINADESTORE?>html/assets/javascripts/plugins/flot/flot.min.js" type="text/javascript"></script>
+    <script src="<?php echo DOMAINADESTORE?>html/assets/javascripts/plugins/flot/flot.resize.js" type="text/javascript"></script>
     <!-- TRỢ GIÚP -->
 	  <script>
 $(document).ready(function(){

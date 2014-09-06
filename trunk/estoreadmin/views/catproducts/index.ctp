@@ -21,10 +21,10 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                     <div class='pull-right'>
                       <ul class='breadcrumb'>
                         <li>
-                          <a href='#'>
+                          <a href='<?php echo DOMAINADESTORE?>catproducts/add<?php echo $langs ?>'>
                               <input class="btn btn-success" value="<?php __('Add_new')?>" type="button">
                           </a>
-                            <a href='#'>
+                            <a href='#' id='show-help'>
                               <input class="btn btn-warning" value="<?php __('Help')?>" type="button">
                           </a>
                           <a href='#'>
@@ -44,11 +44,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                   <div class='box bordered-box orange-border' style='margin-bottom:0;'>
                     <div class='box-header ' style=" background:#f34541;">
                       <div class='title' style="color: #fff; bacground:#f34541;">
-                      <form class="form form-horizontal" style="margin-bottom: 0;" method="post" action="#" accept-charset="UTF-8">
-                          <input style='border:1px solid #ccc; font-size:14px; border-radius:7px; height:33px; margin-right:5px;' class='col-md-7 col-xs-6'  id='inputText1' placeholder='Search' type='text'>
-                      		 <input class="btn btn-success" value="<?php __('Search')?>" type="button">
-                     
-                      </form>
+                      
                       </div>
                       <div class='actions'>
                         <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
@@ -61,7 +57,7 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                     <div class='box-content box-no-padding'>
                       <div class='responsive-table'>
                         <div class='scrollable-area'>
-                        <form action="<?php echo DOMAINAD;?>products/processing<?php echo  $langs ?>" name="form1" method="post">
+                        <form action="<?php echo DOMAINAD;?>catproducts/processing<?php echo  $langs ?>" name="form1" method="post">
                           <table class='data-table-column-filter table table-bordered table-striped' style='margin-bottom:0;'>
                           
                             <thead>
@@ -97,25 +93,25 @@ if (confirm("Bạn có muốn xóa danh mục này không!"))
                                 <td class="text-center">
                                 <?php if($value['Catproduct']['status']==0){?>
                                   <div class='text-right'>
-                                    <a class='btn btn-inverse btn-xs' href='<?php echo DOMAINAD?>products/active/<?php echo $value['Catproduct']['id'] ?><?php echo  $langs ?>'>
+                                    <a class='btn btn-inverse btn-xs' href='<?php echo DOMAINADESTORE?>catproducts/active/<?php echo $value['Catproduct']['id'] ?><?php echo  $langs ?>'>
                                       <i class='icon-minus-sign'></i>
                                     </a>
-                                    <a class='btn btn-warning btn-xs' href='<?php echo DOMAINAD?>products/edit/<?php echo $value['Catproduct']['id'] ?><?php echo  $langs ?>'>
+                                    <a class='btn btn-warning btn-xs' href='<?php echo DOMAINADESTORE?>catproducts/edit/<?php echo $value['Catproduct']['id'] ?><?php echo  $langs ?>'>
                                       <i class='icon-edit'></i>
                                     </a>
-                                    <a class='btn btn-danger btn-xs' href="javascript:confirmDelete('<?php echo DOMAINAD?>products/delete/<?php echo $value['Catproduct']['id'] ?><?php echo  $langs ?>')">
+                                    <a class='btn btn-danger btn-xs' href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>catproducts/delete/<?php echo $value['Catproduct']['id'] ?><?php echo  $langs ?>')">
                                       <i class='icon-remove'></i>
                                     </a>
                                   </div>
                                   <?php }else {?>
                                   <div class='text-right'>
-                                    <a class='btn btn-success btn-xs' href='<?php echo DOMAINAD?>products/close/<?php echo $value['Catproduct']['id'] ?><?php echo  $langs ?>'>
+                                    <a class='btn btn-success btn-xs' href='<?php echo DOMAINADESTORE?>catproducts/close/<?php echo $value['Catproduct']['id'] ?><?php echo  $langs ?>'>
                                       <i class=' icon-ok'></i>
                                     </a>
-                                    <a class='btn btn-warning btn-xs' href='<?php echo DOMAINAD?>products/edit/<?php echo $value['Catproduct']['id'] ?><?php echo  $langs ?>'>
+                                    <a class='btn btn-warning btn-xs' href='<?php echo DOMAINADESTORE?>catproducts/edit/<?php echo $value['Catproduct']['id'] ?><?php echo  $langs ?>'>
                                       <i class='icon-edit'></i>
                                     </a>
-                                    <a class='btn btn-danger btn-xs' href="javascript:confirmDelete('<?php echo DOMAINAD?>products/delete/<?php echo $value['Catproduct']['id'] ?><?php echo  $langs ?>')">
+                                    <a class='btn btn-danger btn-xs' href="javascript:confirmDelete('<?php echo DOMAINADESTORE?>catproducts/delete/<?php echo $value['Catproduct']['id'] ?><?php echo  $langs ?>')">
                                       <i class='icon-remove'></i>
                                     </a>
                                   </div>

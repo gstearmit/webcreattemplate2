@@ -1,179 +1,170 @@
- <?php echo $form->create(null, array( 'url' => DOMAINADESTORE.'news/edit','type' => 'post','name' => 'adminForm', 'inputDefaults' => array('label' => false,'div' => false)));?>
-<br />  
-<?php
-	//echo $this->Html->script(array('ckeditor/ckeditor','ckfinder/ckfinder'));
-?>
-<?php 
-$select='Chọn danh mục';
-if(isset($_GET['language'])){
-	if($_GET['language']=='eng'){
-		$select='Select Category';
-	}else {
-		$select='Chọn danh mục';
-		}
-}
-?>
-<div id="khung">
-	<div id="main">
-		<div class="toolbar-list" id="toolbar">
-			<ul>
-				<li id="toolbar-new">
-					<a href="javascript:void(0);" onclick="javascript:document.adminForm.submit();" class="toolbar">
-                        <span class="icon-32-save"></span>
-                       <?php __('Save')?>
-					</a>
-                </li>
-                <li id="toolbar-refresh">
-                    <a href="javascript:void(0);" class="toolbar" onclick="javascript:document.adminForm.reset();">
-                    <span class="icon-32-refresh">
-                    </span>
-                   <?php __('Reset')?>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li id="toolbar-help">
-                    <a href="#messages" rel="modal" class="toolbar">
-                        <span class="icon-32-help"></span>
-                        <?php __('Help')?>
-                    </a>
-                </li>
-                <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINADESTORE?>news" class="toolbar">
-                        <span class="icon-32-cancel"></span>
-                       <?php __('Cancel')?>
-                    </a>
-                </li>
-            </ul>
-            <div class="clr"></div>
-        </div>
-		<div class="pagetitle icon-48-category-add"><h2><?php __('News_management')?></h2></div>
-		<div class="clr"></div>
-	</div>
-</div>
-<div class="content-box"><!-- Start Content Box -->
-    <div class="content-box-header">
-        <h3><?php __('Edit')?></h3>
-        <ul class="content-box-tabs">
-            <li><a href="#tab1" class="default-tab"><?php __('Content')?></a></li> <!-- href must be unique and match the id of target div -->
-        </ul>
-        <div class="clear"></div>
-    </div> <!-- End .content-box-header -->
-    <div class="content-box-content">
-        <div class="tab-content default-tab" id="tab1">
-        	<table class="input">
-               	<tr>
-                   	<td width="120" class="label"><?php __('Title')?>: </td>
-                    <td>
-                    <?php echo $this->Form->input('News.title',array('class'=>'text-input medium-input datepicker','maxlength' => '250','onchange' => 'get_alias()','id' => 'idtitle'));?>
-                    </td>
-                </tr>
-                <!--<tr>
-                   	<td width="120" class="label">Tiêu đề bài viết: (Anh)</td>
-                    <td>
-                    <?php echo $this->Form->input('News.title_en',array('class'=>'text-input medium-input datepicker','maxlength' => '250'));?>
-                    </td>
-                </tr>-->
-                <tr>
-                  	<td class="label"><?php __('Static_linking')?>:</td>
-                    <td>
-                    <?php echo $this->Form->input('News.alias',array('class'=>'text-input alias-input datepicker','maxlength' => '250','id' => 'idalias'));?>
-                    <img width="16" height="16" alt="" onclick="get_alias();" style="cursor: pointer; vertical-align: middle;" src="<?php echo DOMAINADESTORE; ?>images/refresh.png">
-                    </td>
-                </tr>
-                <tr>
-                  	<td class="label"><?php __('In_category')?>:</td>
-                    <td><?php echo $this->Form->input('category_id',array('type'=>'select','options'=>$list_cat,'empty'=>$select,'class'=>'small-input','label'=>''));?></td>
-                </tr>
-                <tr>
-                    <td class="label"><?php __('Old_image')?>:</td>
-                    <td><img src="<?php echo DOMAINADESTORE?><?php echo $edit['News']['images']?>" width="200"/></td>
-                </tr>
-                <tr>
-                  	<td class="label"><?php __('Image')?>:</td>
-                    <td>
-                        <?php echo $this->Form->input('News.images',array('class'=>'text-input image-input datepicker','name' => 'userfile'));?> &nbsp;<font color="#FF0000"> <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upload.php','userfile','width=500,height=300');window.history.go(1)" >[ upload ]</a> </font><font color="#FF0000">*</font>(jpg, jpeg, gif, png)
-                    </td>                    
-                    <!--<td>
-                    <?php echo $this->Form->input('News.images',array('class'=>'text-input image-input datepicker','id' => 'xFilePath'));?>
-                    	<input type="button" value="Chọn ảnh" onclick="BrowseServer();" class="button" />
-                                                
-                    </td>-->
-                                        
-                </tr>
-                <tr>
-                	<td class="label"><?php __('Brief_description')?></td>
-                    <td><?php  echo $this->Form->input('introduction').$this->TvFck->create('News.introduction',array('height'=>'100px','width'=>'750px')); ?></td>
-                </tr>
-                <!--<tr>
-                	<td class="label">Mô tả tóm tắt (Anh)</td>
-                    <td><?php  echo $this->Form->input('introduction_en').$this->TvFck->create('News.introduction_en',array('height'=>'100px','width'=>'750px')); ?></td>
-                </tr>-->
-                <tr>
-                	<td class="label"><?php __('Article_content')?></td>
-                	<td>
-                	<?php  echo $this->Form->input('content',array('label' => '','type'=>'textarea')).$this->TvFck->create('News.content',array('toolbar'=>'extra','height'=>'300px','width'=>'750px')); ?>	
-
-                    </td>
-                </tr>
-                <!--<tr>
-                	<td class="label">Nội dung bài viết (Anh)</td>
-                	<td>
-                	<?php  echo $this->Form->input('content_en',array('label' => '','type'=>'textarea')).$this->TvFck->create('News.content_en',array('toolbar'=>'extra','height'=>'300px','width'=>'750px')); ?>	
-
-                    </td>
-                </tr>-->
-                  <tr>
-                  	<td class="label"><?php __('Status')?>:</td>
-                    <td>
-                    <input type="radio" value="0" id="NewsStatus0" name="data[News][status]">  <?php __('Unactive')?> 
-                    	&nbsp;&nbsp;&nbsp;<input type="radio" checked="checked" value="1" id="NewsStatus1" name="data[News][status]">  <?php __('Activated')?>
-                    </td>
-                </tr>
-            </table>
-            <?php echo $form->input('News.id',array('label'=>''));?>
-			<div class="clear"></div>
-        </div> <!-- End #tab1 -->
-        <div class="tab-content" id="tab2">
-			<div class="clear"></div><!-- End .clear -->
-        </div> <!-- End #tab2 -->        
-    </div> <!-- End .content-box-content -->
- </div>
- 
-<div id="khung">
-	<div id="main">
-		<div class="toolbar-list" id="toolbar">
-			<ul>
-				<li id="toolbar-new">
-					<a href="javascript:void(0);" onclick="javascript:document.adminForm.submit();" class="toolbar">
-                        <span class="icon-32-save"></span>
-                        <?php __('Save')?>
-					</a>
-                </li>
-                <li id="toolbar-refresh">
-                    <a href="javascript:void(0);" class="toolbar" onclick="javascript:document.adminForm.reset();">
-                    <span class="icon-32-refresh">
-                    </span>
-                    <?php __('Reset')?>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li id="toolbar-help">
-                    <a href="#messages" rel="modal" class="toolbar">
-                        <span class="icon-32-help"></span>
-                       <?php __('Help')?>
-                    </a>
-                </li>
-                <li id="toolbar-unpublish">
-                    <a href="<?php echo DOMAINADESTORE?>news" class="toolbar">
-                        <span class="icon-32-cancel"></span>
-                        <?php __('Cancel')?>
-                    </a>
-                </li>
-            </ul>
-            <div class="clr"></div>
-        </div>
-		<div class="pagetitle icon-48-category-add"><h2><?php __('News_management')?></h2></div>
-		<div class="clr"></div>
-	</div>
-</div>
-<?php echo $form->end(); ?>
+<?php //pr($Catproductlist);die();?>
+<?php include 'views/elements/language.ctp';?>
+<div class='row' id='content-wrapper'>
+            <div class='col-xs-12'>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='page-header'>
+                    <h1 class='pull-left' style='font-family: Arial, Helvetica, sans-serif;'>
+                      <i class='icon-ok'></i>
+                      <?php __('News_management')?>
+                    </h1>
+                    <div class='pull-right'>
+                      <ul class='breadcrumb'>
+                        <li>
+                          
+                           <a href="javascript:void(0);" onclick="javascript:document.adminForm.reset();">
+                              <input class="btn btn-info" value="<?php __('Reset')?>" type="button">
+                          </a>
+                            <a href='#' rel="modal" id='show-help'>
+                              <input class="btn btn-warning" value="<?php __('Help')?>" type="button">
+                          </a>
+                          <a href='<?php echo DOMAINADESTORE?>news<?php echo  $langs ?>'>
+                              <input class="btn btn-danger" value="<?php __('Cancel')?>" type="button">
+                          </a>
+                        </li>                       
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='box'>
+                    <div class='box-header blue-background'>
+                      <div class='title'><?php __('Edit')?></div>
+                      <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class='box-content'>
+                      <form action="<?php echo DOMAINADESTORE; ?>news/edit" enctype="multipart/form-data" name="adminForm" method="post" accept-charset="utf-8" class='form form-horizontal validate-form' style='margin-bottom: 0;'>
+                       <input type="hidden" name="_method" value="POST" />
+                        <input type="hidden" name="data[News][id]" value="<?php echo $edit['News']['id'];?>" />
+                        <div class='form-group'>
+                          <label class='control-label col-sm-3 col-sm-3' for='validation_name'><?php __('Title')?></label>
+                          <div class='col-sm-4 controls'>
+                            <input class='form-control' value="<?php echo $edit['News']['title'];?>" data-rule-minlength='2' data-rule-required='true' id='validation_name' name="data[News][title]" placeholder='<?php __('Title')?>' type='text'>
+                          </div>
+                        </div>  
+                         <div class='form-group'>
+                          <label class='control-label col-sm-3 col-sm-3' for='validation_name'><?php __('Static_linking')?></label>
+                          <div class='col-sm-4 controls'>
+                            <input class='form-control' value="<?php echo $edit['News']['alias'];?>" data-rule-minlength='2' data-rule-required='true' id='validation_name1' name="data[News][alias]" placeholder='<?php __('Static_linking')?>' type='text'>
+                          </div>
+                        </div> 
+                        <div class='form-group'>
+                          <label class='control-label col-sm-3' for='validation_select'><?php __('In_category')?></label>
+                          <div class='col-sm-4 controls'>
+                           <?php  //pr($Catproductlist);die();?>                  
+                          
+                            <select class='form-control' data-rule-required='true' id='validation_select' name="data[News][category_id]" >
+                              <option value="0"><?php __('Select_category')?></option> 
+                              <?php foreach ($list_cat as $key =>$value){?>
+                              <option value="<?php  echo $key ?>"<?php if($key==$edit['News']['category_id']){ echo 'selected="selected"';}?>><?php  echo $value ?></option>
+                           <?php }?>               
+                            </select>                           
+                          </div>
+                        </div>
+                        <div class='form-group'>
+                          <label class='control-label col-sm-3' for='validation_password'><?php __('Image')?></label>
+                          <div>
+                        <div class=' input-group col-sm-4 controls' >
+                          <input class='form-control' value="<?php echo $edit['News']['images'];?>" readonly='readonly' name='userfile' placeholder='<?php __('Image')?>' type='text'>
+                          <span class='input-group-addon ' style="padding:0px">
+                            <span>
+                            <a href="javascript:window.open('<?php echo DOMAINADESTORE; ?>upload.php','userfile','width=500,height=300');window.history.go(1)" >
+                            <input class="btn btn-success" style="padding: 5px;"  value="<?php __('Select_image')?>" type="button">
+                            </a>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                        </div>
+                         <div class='form-group'>
+                          <label class='control-label col-sm-3 col-sm-3' for='validation_name'><?php __('Old_image')?></label>
+                          <div class='col-sm-4 controls'>
+                            <img src="<?php echo DOMAINADESTORE?><?php echo $edit['News']['images']?>" width="200"/>
+                          </div>
+                        </div>  
+                        <div class='form-group'>
+                          <label class='control-label col-sm-3 col-sm-3' for='validation_name'><?php __('Brief_description')?></label>
+                          <div class='col-sm-4 controls'>
+                            <input class='form-control'  value="<?php echo $edit['News']['introduction'];?>" data-rule-minlength='2' data-rule-required='true' id='validation_name2' name="data[News][introduction]" placeholder='<?php __('Brief_description')?>' type='text'>
+                          </div>
+                        </div>  
+                        <div class='form-group'>
+                          <label class='control-label col-sm-3' for='validation_numbers'><?php __('Article_content')?> 2</label>
+                           <div class='box-content col-sm-8'>
+                      		<textarea class='form-control ckeditor' id='wysiwyg1'  name="data[News][content]" rows='5'><?php echo $edit['News']['content'];?></textarea>
+                    		</div>
+                          </div>
+                                    
+                        <div class='form-group'>
+                        <label class='control-label col-sm-3' for='validation_select'><?php __('Status')?></label>
+                        <div class='col-sm-4 controls'>
+                          <label class='radio radio-inline'>
+                            <input  name="data[News][status]" type='radio' value='1' <?php if($edit['News']['status']==1){ echo 'checked="checked"';}?>>
+                            <?php __('Actived')?>
+                          </label>
+                          <label class='radio radio-inline'>
+                            <input  name="data[News][status]" type='radio' value='0' <?php if($edit['News']['status']==0){ echo 'checked="checked"';}?>>
+                             <?php __('Unactive')?>
+                          </label>
+                          </div>
+                      </div>             
+                       <div class='form-actions' style='margin-bottom:0'>
+                          <div class='row'>
+                            <div class='col-sm-9 col-sm-offset-3'>
+                              <button class='btn btn-primary' type='submit' value="<?php __('Save');?> " >
+                                <i class='icon-save'></i>
+                                 <?php __('Save')?>
+                              </button>
+                               </div>
+                          </div>
+                        </div>
+                        
+                      </form>                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+            </div>
+          </div>         
+ <!-- Bottom -->
+          <div class='row' id='content-wrapper'>
+            <div class='col-xs-12'>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='page-header'>
+                    <h1 class='pull-left' style='font-family: Arial, Helvetica, sans-serif;'>
+                      <i class='icon-ok'></i>
+                      <?php __('News_management')?>
+                    </h1>
+                    <div class='pull-right'>
+                      <ul class='breadcrumb'>
+                        <li>                         
+                          
+                           <a href="javascript:void(0);" onclick="javascript:document.adminForm.reset();">
+                              <input class="btn btn-info" value="<?php __('Reset')?>" type="button">
+                          </a>
+                            <a href='#' rel="modal" id='show-help'>
+                              <input class="btn btn-warning" value="<?php __('Help')?>" type="button">
+                          </a>
+                          <a href='<?php echo DOMAINADESTORE?>news<?php echo  $langs ?>'>
+                              <input class="btn btn-danger" value="<?php __('Cancel')?>" type="button">
+                          </a>
+                        </li>                       
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>                             
+            </div>
+          </div>

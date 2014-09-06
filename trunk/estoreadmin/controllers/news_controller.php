@@ -139,7 +139,7 @@ class NewsController extends AppController {
 				'Category.status' => 1 
 		), null, null, " _ " );
 		$this->set ( compact ( 'list_cat' ) );
-		
+		$this->layout = 'admin_validate';
 		//NGÔN NGỮ
 		$urlTmp = $_SERVER['REQUEST_URI'];
 			
@@ -552,6 +552,7 @@ class NewsController extends AppController {
 		if (empty ( $this->data )) {
 			$this->loadModelNew ( 'News' );
 			$this->data = $this->News->read ( null, $id );
+			
 		}
 		
 		$this->loadModelNew ( "Category" );
@@ -559,7 +560,7 @@ class NewsController extends AppController {
 		$this->set ( compact ( 'list_cat' ) );
 		$this->loadModelNew ( "News" );
 		$this->set ( 'edit', $this->News->findById ( $id ) );
-		
+		$this->layout='admin_validate';
 		//NGÔN NGỮ
 		$urlTmp = $_SERVER['REQUEST_URI'];
 			
@@ -636,7 +637,7 @@ class NewsController extends AppController {
 	}
 	// chon layout
 	function beforeFilter() {
-		$this->layout = 'admin';
+		$this->layout = 'adminnew';
 	}
 	/**
 	 * uploads files to the server

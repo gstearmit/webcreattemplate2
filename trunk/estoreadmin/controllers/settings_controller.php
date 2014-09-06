@@ -210,7 +210,7 @@ class SettingsController extends AppController {
 	}
 	// chon layout
 	function beforeFilter(){
-		$this->layout='admin';
+		$this->layout='admin_validate';
 	}
 
 }

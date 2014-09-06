@@ -178,7 +178,7 @@ class CategoryController extends AppController {
 		$this->loadModel("Category");
         $categorylist = $this->Category->generatetreelist(null,null,null," _ ");
         $this->set(compact('categorylist'));
-        
+        $this->layout='admin_validate';
         //NGÔN NGỮ
         $urlTmp = $_SERVER['REQUEST_URI'];
         	
@@ -246,7 +246,8 @@ class CategoryController extends AppController {
 			$this->data = $this->Category->read(null, $id);
 		}
 		$this->set('list_cat',$this->_find_list());
-		
+		$this->set ( 'edit', $this->Category->findById ( $id ) );
+		$this->layout='admin_validate';
 		//NGÔN NGỮ
 		$urlTmp = $_SERVER['REQUEST_URI'];
 		 
@@ -449,7 +450,7 @@ class CategoryController extends AppController {
 		}
 	}
 	function beforeFilter(){
-		$this->layout='admin';
+		$this->layout='adminnew';
 	}
 
 }
