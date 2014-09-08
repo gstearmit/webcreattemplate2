@@ -221,7 +221,6 @@ class FileUploader {
 			}
 		}
 		?>
-		<!--<div id="copyright">Copyright &copy; 2008 <a href="http://halo.com.vn" title="Visit website">Halo</a>.</div> -->
 	</div>
 </body>
 </html>
