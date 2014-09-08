@@ -252,7 +252,8 @@
 						 
 							$edit = $this->Estore_advertisements->read ( null, $_POST['id'] );
 							$this->set ('edit', $edit);
-							$urlupload = DOMAINADESTORE.'upslide.php';
+							$urlupload = htmlentities(DOMAINADESTORE.'upslide.php');
+							
 							$id = $edit['Estore_advertisements']['id'];
 							$name = $edit['Estore_advertisements']['name'];
 						    $link = $edit['Estore_advertisements']['link'];
@@ -305,9 +306,8 @@
 					                          <input class="form-control" value="'. $images.'" readonly="readonly" name="userfile" placeholder="Image" type="text">
 					                          <span class="input-group-addon " style="padding:0px">
 					                            <span>
-					                          		
-					                            <a href="javascript:window.open('. $urlupload.',"userfile","width=500,height=300");window.history.go(1);" >
-					                            <input class="btn btn-success" style="padding: 5px;"  value="Select_image" type="button">
+					                            <a href="javascript:window.open( "'.$urlupload.'","userfile","width=500","height=300");window.history.go(1)";/>
+					                          	<input class="btn btn-success" style="padding: 5px;"  value="Select_image" type="button">
 					                            </a>
 					                            </span>
 					                          </span>
